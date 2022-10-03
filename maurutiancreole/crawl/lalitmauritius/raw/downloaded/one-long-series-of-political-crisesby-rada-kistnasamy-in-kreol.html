@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100322" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>One long series of political crises . . . by Rada Kistnasamy (in Kreol)</h1><p class="subtitle">26.10.2017</p></h1>
+	<p class="newsarticle"><p>&nbsp;Sa papye la finn adopte par LALIT. Li enn kronik kriz politik permanan depi Eleksyon Zeneral.</p><br /><p><strong>&nbsp;Viktwar inatandi <em>Lalyans Lepep</em></strong></p><br /><p>Li ti enn sok pu tu dimunn: Dan Eleksyon Zeneral Desam 2014, <em>Lalyans Lepep</em> gayne, e li gayne byin mem avek 51 depite lor 69. Avek sutyin 2 depite OPR depi Rodrig, sa fer enn mazorite trwa-kar. Kan Aneerood Jugnauth form sa <em>Lalyans Lepep</em> otur li an-debandad apre so lespwar enn lalyans ar MMM ti&rsquo;nn anvole, e personn pa ti krwar ki sa <em>Lalyans Lepep</em> la kapav gayne. Me, kan zot gayne avek enn imans mazorite, li paret lozik si u get zis sif dan Lasanble Nasyonal, ki pu ena enn sertin stabilite politik avek enn reyn MSM-ML-PMSD-OPR. Me, sa pa finn leka.</p><br /><p><strong>&nbsp;Defet Total<em> Lalyans PT-MMM</em></strong></p><br /><p>Pu rapel, defet ki <em>Lalyans Lepep</em> finn inflize lor <em>Lalyans PT-MMM</em> ti total. PT-MMM fer elir zis 16 depite. Ladan, MMM gayn 12 depite, Parti Travayis (PT) pli gayn bate ankor avek 4 depite.</p><br /><p><strong>&nbsp;Ankor Viktwar <em>Lalyans Lepep</em>: Minisipal</strong></p><br /><p>Sa viktwar <em>Lalyans Lepep</em> dan Eleksyon Zeneral la finn swiv par enn dezyem viktwar pli ekrazant ankor dan eleksyon minisipal an Zin 2015 dan tule 5 lavil. Tu Minispalite finn vinn su kontrol Lalyans Lepep. Rezilta eleksyon enn sok anterm syez: 120-0.</p><br /><p>MMM desime plis ki zame avek lanpler sa dub viktwar <em>Lalyans Lepep</em>. Travayis ki ti fek opuvwar, li osi, desime net.</p><br /><p><strong>&nbsp;Eleman kriz politik dan Guvernman ek Lopozisyon depi Avan Zur Eleksyon</strong></p><br /><p>Nu kapav dir, avan-mem zur puling pu eleksyon zeneral Desam 2014, deza ti ena bann eleman ki ti pe destabiliz <em>Lalyans MMM/PT</em> ek osi <em>Lalyans Lepep</em>. Instabilite trap seki pu vinn &ldquo;Lopozisyon&rdquo; avan ki li trap Guvernman. Avan-mem ki kawnting fini, lalyans ant MMM ek PT eklate.</p><br /><p>&nbsp;Kote <em>Lalyans MMM/PT</em>, rapel ki zot ti sipoze ranport eleksyon 60-0. Zot ti sipoze gayn 80% vot. Sa ti lexanp kot dan politik u pa kapav asime ki kan azut 1 + 1 = 2. Isi 1 + 1 = 0.2. Alor, Ramgoolam ek B&eacute;renger ti pu gayne byin mem.</p><br /><p>&nbsp;Me, amizir kanpayn ale, konfli irediktib leve. Enn sertin moman, Ramgoolam pandan kanpayn elektoral kumans insilte e atak B&eacute;renger, al ziska apel li &ldquo;rekin blan&rdquo;. Ramgoolam klerman pa ti anvi <em>Lalyans MMM/PT</em> gayn enn mazorite trwa-kar, parski li nepli ti anvi sanz Konstitisyon, pangar B&eacute;renger &ldquo;<em>kick him upstairs</em>&rdquo; pu al asize san buku puvwar adisyonel dan Redwi kom Prezidan, avek enn B&eacute;renger rekinke kuma Premye Minis. Ramgoolam, ariv enn sertin moman, ti anvi zis <em>gayn</em> eleksyon avek enn mazorite sinp, vinn Premye Minis limem, kit B&eacute;renger petet kuma enn sinp Minis uswa Deputy Prime Minister.</p><br /><p>&nbsp;Me, sa plan la kareman mars tro byin! <em>Lalyans MMM/PT</em> finn aneanti konpletman dan eleksyon.</p><br /><p>&nbsp;Alor <em>Lalyans MMM/PT</em> eklate avek sa defet akablan. Mem zur eleksyon zeneral, kuma kawnnting pe al fini, lalyans termine.</p><br /><p>&nbsp;MMM limem ti deza travers enn grav kriz intern avan eleksyon, otur konklir <em>Lalyans MMM/PT.</em> Finn ena enn seri demisyon. Pli inportan ladan Yvan Collendavelloo. Me osi Sangeet Fowdar, Eddy Boissezon, Ken Fong, Kee Chong Li Kwong Wing finn demisyone. Kee Chong finn zwenn <em>Lalyans Lepep</em> e lezot finn form <em>Muvman Liberater</em> avek Yvan Collendavelloo kuma lider.</p><br /><p>&nbsp;Par kont <em>Lalyans Lepep,</em> so kote, ti forme avek enn ramasi parti, an okirans MSM, PMSD, ML ki finn a-zot-tur ramas manb bonaveni, san okenn lespwar gayn Guvernman. Zot ti kolmate ansam avek bi prinsipal pu anpes rezim Ramgoolam-B&eacute;renger gayn trwa-kar. Zot pa ti mem krwar ki zot kapav desann Ramgoolam, malgre ki li ti nwaye dan skandal. PMSD, ki ti dan Guvernman Ramgoolam ziska dernye ler, ti anfet pe kosyonn tu sa bann skandal la, e ti responsab buku ladan antan ki Xavier Duval ti pe fer Minis Finans. Alor prezans PMSD konstitye, par limem, enn eleman ki kapav amenn konfli ek instabilite, seki efektivman finn arive apre. E zot kit Guvernman an Desam 2016 apre zis enn an. MSM limem ti form parti Guvernman ar Ramgoolam ziska li kite dan 2011.</p><br /><p>&nbsp;Dan kumansman so manda, <em>Lalyans Lepep</em> finn met li kuma so bi prinsipal pu atak establishment PT, e pu fini Navin Ramgoolam, limem. <em>Lalyans Lepep </em>finn osi deklans bann atak kont lanpir ekonomik ki ti sutenir MMM (so demokratizasyon lekonomi) BAI, Grup Bunjun, Ah Teck, ant ot. BAI ti&rsquo;nn batir pu li vinn imans lor baz enn espes Ponzi scheme. Zot ti apel sa &ldquo;netwayaz&rdquo;. Mastermaynd pu orkestre sa bann atak kont BAI ti lekip Yerrigadoo-Badhain-Pravind Jugnauth.</p><br /><p>Ariv mi-manda, sa trio la nepli ansam. Telman finn ena sekus politik, enn apre lot, ki <em>Guvernman Lepep</em> finn lamine. Valer dizur, lor lamwatye manda, Yerrigadoo finn stepdown kuma Minis, Badhain pa Minis e finn mem demisyone kuma depite, Parvind Jugnauth limem ena menas enn ka Konsey Prive lor zafer Medpoint lor so latet.</p><br /><p>&nbsp;Antretan, so MSM so alye prinsipal dan <em>Lalyans Lepep </em>finn kit Guvernman. Pa zis sa. Personn pa mem kone kifer li finn kit Guvernman. Asontur, sa finn provok enn problem dan Lopozisyon. Taler nu revinn lor la.</p><br /><p>&nbsp;Kote <em>Guvernman Lepep</em>, sa sitiasyon instabilite ek kriz politik pa finn arete. Okontrer, li pe agrave de zur an zur.</p><br /><p>&nbsp;Anmemtan sa seri kriz politik, ena kriz dan bann Institisyon. Depi enn bagal, nu truv kriz. Dan Prezidans Repiblik, pu institisyon Spiker dan Lasanble Nasyonal, dan Labank Moris, kote DPP, ICAC, MBC, ICTA, IBA ek buku lezot institisyon. Partu sakuye ar kriz.</p><br /><p><strong>&nbsp;Kronolozi kriz dan Guvernman</strong></p><br /><p>Dan enn ti lespas letan, konfli intern ek fisir alinteryer sa <em>Lalyans Lepep</em> kumans aparet.</p><br /><p>&nbsp;Danielle Selvon demisyone depi MSM.</p><br /><p>&nbsp;Ena konfli uver ek piblik ant Minis Badhain ek Minis Lutchmeenaraidoo. Ena diverzans piblik ant Pravind Jugnauth ek Sir Aneerood Jugnauth lor Heritage City. Apenn sis mwa opuvwar, Zizman Lakur Intermedyer finn vinn kondann Pravind Jugnauth lor zafer Medpoint pu konfli dintere. Li finn bizin demisyone antan ki Minis Teknolozi e fer lapel kont Zizman.</p><br /><p>&nbsp;Guvernman Lepep finn anpermanans sakuye ar kriz, enn apre lot, semenn apre semenn. Apre demisyon depite Danielle Selvon an Novam 2015, lalyans Lepep eklate an Desam 2016, kot PMSD kit guvernman lor baz konstestasyon &ldquo;Prosecution Bill&rdquo;. Me ziska ler li pa kler ditu lor veritab rezon demisyon PMSD. Li paret enn demisyon byin bizar.</p><br /><p>&nbsp;Alor, Guvernman perdi so mazorite trwa-kar, B&eacute;renger perdi so plas Lider Lopozisyon ek ranplase par Xavier Duval ki ena 9 depite. 2 depite PMSD, Wong ek Monty, res dan Guvernman MSM/ML.</p><br /><p>&nbsp;Enn mwa apre, an Zanvye 2017, sennkut la Badhain demisyone depi Guvernman mem moman ki nuvo Kabine pe pret serman e kot Pravind Jugnauth, apre ki li gayn so Lapel divan Lakur Siprem dan so ka konfli dintere, pe vinn Premye Minis, pu ranplas SAJ, ki demisyone e vinn Minis Menntor.</p><br /><p>&nbsp;Instabilite pran enn lot turnir, kan an Zin 2017, Badhain demisyone kuma depite e provok enn eleksyon parsyel dan No. 18. Eleksyon finn fixe pu le 17 Desam.</p><br /><p>&nbsp;Konsta ki nu fer seki depi so mazorite trwa-kar, <em>Lalyans Lepep</em> finn afebli, finn perdi alye, finn vinn tu sinpleman <em>Lalyans MSM/ML</em>. Fasa sa Guvernman ki pa ditu stab, u ti a krwar Lopozisyon Parlmanter kapav vinn for. Non! Nu ena enn Lopozisyon Parlmanter ki finn eklate an plizyer morso, ki pe lager ant zotmem. Zot kareman an debandad.</p><br /><p>&nbsp;Anu get asterla, dan ki leta sak sirkonskripsyon ete:</p><br /><p><strong>&nbsp;Kriz dan sirkonskripsyon apre sirkonskripsyon</strong></p><br /><p><strong>&nbsp;Sirkonskripsyon No. 1 (PL)</strong></p><br /><p>- Danielle Selvon kit MSM, vinn indepandan ek asterla finn zwenn MMM.</p><br /><p>- Alain Wong kit PMSD, zwenn Guvernman MSM/ML.</p><br /><p>- Jean Claude Barbier, nepli dan <em>Lalyans PT-MMM</em>, zis dan MMM, lerla li kit MMM, zwenn MP.</p><br /><p>- Patrice Armance kit <em>Lalyans Lepep </em>res ar PMSD dan Lopozisyon.</p><br /><p>- Veda Baloomoody, nepli dan <em>Lalyans PT-MMM</em>, zis dan MMM.</p><br /><p>&nbsp;<strong>Sirkonskripsyon No. 2 (PL)</strong></p><br /><p>- Roubina Jadoo-Jaunboccus: so nom site dan Komisyon Danket lor Ladrog pu vizit par duzenn enn sel ku dan Prizon.</p><br /><p>- Reza Uteem, nepli dan <em>Lalyans PT-MMM</em>, zis dan MMM.</p><br /><p>- Osman Mahomed nepli reprezant Lalyans PT-MMM apre eklatman lalyans la, li syeze antan ki Parti travayis selman.</p><br /><p>&nbsp;<strong>Sirkonskripsyon No. 3 (PL)</strong></p><br /><p>- &nbsp;Anwar Husnoo, manb ML, an konfli avek so parti; li ek Gayan (osi ML ankonfli, kan li ranplas Gayan kuma Minis Lasante.)</p><br /><p>- Abbas Mamode kit <em>Guvernman Lepep</em>, res ar PMSD dan lopozisyon.</p><br /><p>- Ameer Meea, nepli dan <em>Lalyans PT-MMM</em>, zis dan MMM.</p><br /><p>- Shakeel Mohamed eli su banyer PT-MMM, reprezant zis Parti Travayie apre eklatman sa lalyans la.</p><br /><p>&nbsp;[- Raouf Gulbul, kandida bati dan sirkonskripsyon, nome ansarz GRA; so nom site dan Komisyon Ladrog.]</p><br /><p><strong>Sirkonskripsyon No. 4 (PL)</strong></p><br /><p>- Depite Marie Claire Monty kit PMSD, zwenn MSM.</p><br /><p>- Aurore Perraud kit Guvernman Lepep, res ar PMSD dan Lopozisyon.</p><br /><p><strong>&nbsp;Sirkonskripsyon No. 5</strong></p><br /><p>-Sanjeev Teeluckdharry. So nom site Komisyon Danket lor Ladrog - Vizit frekan dan Prizon.</p><br /><p><strong>&nbsp;Sirkonskripsyon No.6</strong></p><br /><p>-&nbsp; Minis Ashit Gungah - Inplike dan iregalite dan lavant so Loto.</p><br /><p>-&nbsp; Sangeet Fowdar an konfli avek so prop parti, ML.</p><br /><p>&nbsp;<strong>Sirkonskripsyon No. 7</strong></p><br /><p>-Vishnu Lutchmeenaraidoo. Inplike dan skandal Euro Lonn Rs 40 milyon rupi depi SBM kan li Minis Finans, ena lintansyon aste lor.</p><br /><p>-Ravi Rutnah. An konfli avek lapres ek piblik lor tret zurnalis &ldquo;femel lisyin&rdquo;.</p><br /><p>-Aneerood Jugnauth. Li finn demisyone kuma Premye Minis. Li ena ka kont li pu so dub lapey antan ki Premye Minis ek ansyin Prezidan Repiblik. Buku kritik lor so langaz grosye.</p><br /><p><strong>&nbsp;Sirkonskripsyon No. 8</strong></p><br /><p>-Pravind Jugnauth. DPP fer apel Konsey Prive lor keys Medpoint. Proximite expoze avek enn nome Dewdanee, inplike dan trafik ladrog. Akizasyon depi trafikan Peroomal Veeren ki Pravind Jugnauth so lyin avek trafik ladrog.</p><br /><p>-Yogida Sawmynaden. So madam antan ki noter gayn enn seri kontra avek NHDC.</p><br /><p><strong>&nbsp;Sirkonskripsyon No. 9</strong></p><br /><p>-Raj Dayal. Skandal lor bal kuler. Li finn bizin stepdown kuma Minis.</p><br /><p><strong>&nbsp;Sirkonskripsyon No. 10</strong></p><br /><p>-Sesungkur. Li ena enn seri problem otur li. So lisyin mord zanfan, so sef azan kras lor lapolis, so garson inplike aksidan loto, limem so bann esanz mesaz avek enn madam dan so sirkonskripsyon, ek lanket ICAC kont li pu koripsyon.</p><br /><p>-Tarolah- Skandal esanz foto indesan ek sextorsion. Tarolah finn stepdown kuma PPS e absan dan Parlman.</p><br /><p><strong>&nbsp;Sirkonskripsyon No. 11</strong></p><br /><p>-Sandya Boygah. Kestyon otur permi barachwa pu so mari.</p><br /><p><strong>&nbsp;Sirkonskripsyon No. 12</strong></p><br /><p>-Mahen Jhugroo. Konfli avek sef lapolis dan Mahebourg otur ti-marsan.</p><br /><p>-Thierry Henry. Li finn kit Guvernman Lepep, res ar PMSD dan Lopozisyon. Kan li ti PPS, li ti reponsab pu enn aksidan fatal, lerla fer fos deklarasyon pretann ki li pa li ki ti pe kondwir. So ka li grav.</p><br /><p>- Dhananjay Ramful nepli reprezant Lalyans PT-MMM apre eklatman lalyans la, li reprezant zis PT.</p><br /><p>&nbsp;<strong>Sirkonskripsyon No. 13</strong></p><br /><p>-Bashir Jahangeer an konfli avek Ivan Collendaveloo. Li finn fer enn depozisyon lapolis (par prekosyon) konsernan enn akizasyon ki kapav pu ena kont li plitar.</p><br /><p>- Tranfiz Zouberr Joomye eli su MMM/Ptr&nbsp; apre vinn zis MMM e fini par zwenn MSM.</p><br /><p>[- Menon Murday, kandida bati Lalyans Lepep dan sirkonskripsyon, ti pu &nbsp;nome kuma Vis prezidan repiblik me SAJ finn obzekte pu lefet ki li pa ti kone ki Menon Murday <em>enn sinp attendan</em>t. Sa finn responsab pu konfli a linteryer MSM, ki finn kalme apre nominasyon Menon Murday kuma Chermenn enn departman dan SBM.]</p><br /><p>&nbsp;<strong>Sirkonskripsyon No. 14</strong></p><br /><p>-Transfiz Joe Lesjongard eli su MMM/Ptr lerla sanz kan apre eleksyon, li kit MMM, zwenn MP ,&nbsp; lerla al aterir kot MSM.</p><br /><p>-Alan Ganoo eli su MMM/Ptr apre eleksyon kit MMM pu form Mouvement Patriotique.</p><br /><p>- Ezra Jhuboo eli su MMM-PT, nepli&nbsp; reprezant sa lalyans la apre eklatman lalyans la, li reprezant zis Parti Travayis.</p><br /><p>-[Maya Hanoomanjee, kandida bati Lalyans Lepep nome kuma spiker Lasanble Nasyonal. Fer fas a enn seri kritik lor so azisman anver depite lopozisyon ek Lapres. ]</p><br /><p>&nbsp;<strong>Sirkonskripsyon No. 15</strong></p><br /><p>-Transfiz. Raffick Sorefan eli su MMM/Ptr&nbsp; vinn zis MMM apre ML e fini par &nbsp;zwenn MSM</p><br /><p>- Showkutally Soodhun. Ena enn long lalis skandal otur li. Ena zafer peyman klinik Apollo &nbsp;&nbsp;&nbsp;&nbsp;Bramwell. Ena zafer li fer ferm dimunn pu enn rezon politik. Li finn mem fer tu kalite deklarasyon ki finn fer dega pu guvernman MSM/ML otur diplomasi.</p><br /><p><strong>&nbsp;Sirkonskripsyon No. 16</strong></p><br /><p>-Etiennne Sinatambou enn skandal par limem, manyer li itiliz MBC lor nom Rezim la.</p><br /><p>-Santaram Baboo, kit <em>Guvernman Lepep</em> res ar PMSD dan lopozisyon.</p><br /><p><strong>&nbsp;Sirkonskripsyon No. 18</strong></p><br /><p>-Roshi Badhain eli su Lalyans Lepep demisyone dan No. 18 ek form Reform party. Eleksyon parsyel pu le 17 Desam.</p><br /><p>-Xavier Duval lot eli ki nepli dan Guvernman me vinn Lider Lopozisyon apre demisyon PMSD depi guvernman.</p><br /><p>-Kavi Ramano eli su MMM/Ptr demisyone vinn zis &nbsp;MMM, zwenn MP apre demisyone depi MP pu res Indepandan.</p><br /><p>[-Koomaren Chetty kandida bati, demisyone depi MSM, finn zwenn PMSD.]</p><br /><p><strong>&nbsp;Sirkonskripsyon No. 19</strong></p><br /><p>-Ivan Collendavelloo. Li truv Sobrihno enn dimunn honet par get so lagrin lizye. Osant polemik otur kontra tirbinn pu CEB.</p><br /><p>-Paul B&eacute;renger &ndash; so lalyans ar PT kolaps. Lerla li perdi so pos Lider Lopozisyon apre demisyon PMSD depi guvernman.</p><br /><p>[-Ramalingum Maistry kandida bati Lalyans Lepep, kontiyn res dan guvernman kan so parti PMSD kit guvernman.&nbsp; R. Maistry gard so nominasyon kuma Prezidan MPA kot finn ena buku konfli ant pro-PMSD ek MSM. ]</p><br /><p>&nbsp;<strong>Sirkonskripsyon No. 20</strong></p><br /><p>-Rajesh Bagwan, eli su MMM/Ptr demisyone vinn zis &nbsp;MMM.</p><br /><p>-Patrice Quirin, eli su MMM/Ptr demisyone vinn zis &nbsp;MMM.</p><br /><p>-Anil Gayan, so bann deklarasyon alimant konfli politik. Li nom madam Vijaya Samputh, so ami intim, a latet Cardiac Trust Fund.</p><br /><p>-Jean Claude Lepoigneur kit guvernman Lepep ek res ar PMSD dan Lopozisyon.</p><br /><p><strong>&nbsp;<span style="text-decoration: underline;">Kriz otur bann institisyon</span></strong></p><br /><p><strong>Prezidans</strong></p><br /><p>- Madam Ameenah Gurib-Fakim expoz so proximite avek Sobrinho, gran eskro Internasyonal. Plizyer vwayaz li finn fer lor nom ONG <em>Planet Earth Institute, </em>ki azir kuma enn kuvertir pu Sobrinho so bann biziness lus. An zeneral, li for lor biznes. Li vwayaz buku, buku. Zordi li finn bizin al kave.</p><br /><p><strong>Spiker</strong></p><br /><p>- Mosyon blam kont Spiker. Shakeel Mohamed (PT) finn konteste so Ruling, akiz li bayas anfaver Guvernman dan Parlman. Anfet, li bayas. Spiker so tifi inplike dan skandal biskwi, e antretan servi ladres Spiker pu sa biznes la. So lot tifi osant polemik lor nominasyon kuma CEO dan konpayni leta Landscope Mauritius.</p><br /><p><strong>Kabine Minis</strong></p><br /><p>- Kabine Minis finn terin konfli ant Minis. Heritage City: Konfli Badhain-Soodhun kont Lutchmeenaraidoo- Pravind Jugnauth. Gerard Sanpeur konseye Pravind Jugnauth atak proze la. Konfizyon lor desizyon Kabine ki kominike a lapres.</p><br /><p>- Konfizyon&nbsp; lor laliyn Guverman lor Katar ant Lutchmeenaraidoo ek Soodhun.</p><br /><p><strong>Atorney General</strong></p><br /><p>- Minis lazistis Yerrigadoo inplike dan ka <em>Bet365</em>, finn bizin stepdown kuma Minis alareket Pravind Jugnauth.</p><br /><p><strong>La Bank Santral</strong></p><br /><p>- Revokasyon Bheenick kuma Guverner Labank. <em>Landing</em> dan so lakaz e arestasyon lor sarz gard dokiman labank kot li. Keys kont li finn reye apre.</p><br /><p><strong>Lapolis</strong></p><br /><p><strong>-</strong>Mario Nobin diskredite kuma Komiser lapolis. Lapolis pe deplizanpli azir oservis rezim Jugnauth.</p><br /><p>- Heman Jangi CCID divan-divan dan demantelman lanpir BAI, e dan met keys kont Navin Ramgoolam, me byin vit retrograde depi sa rol inportan la.</p><br /><p>- Lockdev Hoolass sef servis ranseyman, NSS e ki ti byin pros avek SAJ, ranplase par Mohunlall Madhow apre bann evennman Barkly, kot Minis Collendavelloo ek Sinatambou ti bizin fer fas enn renyon hulez, finn bizin sove ale.</p><br /><p><strong>MBC</strong></p><br /><p>- Osi pir ki lepok Travayis. MBC plin-plin dan fer propagann Rezim. Apre minmiz Badhain lor MBC, asterla biro Premye Minis sirtu Pravind <strong><em>Kumar</em> </strong>Jugnauth (kuma MBC apel li, sanfay asterla) e so bann siper konseye ki kontrol linformasyon tulezur<strong>. </strong></p><br /><p>- Konfli ant siper konseye ek zurnalis MBC apre evennman Barkly ek La Butte lor demolisyon lakaz pu proze Metro Express, Direkter Zeneral MBC Meckraj Baldowa ek Direkter Linformasyon Jagdish Jattoo sispann par bord MBC. Apre ki finn sibir warning zot finn regayn zot pos.</p><br /><p><strong>DPP</strong></p><br /><p><strong>- </strong>Atak Badhain-Soodhun kont DPP, Badhain kan li ti ankor Minis tret DPP de enn monst, al rakont zistwar kont li dan lezot pei.</p><br /><p>- Ti ena tantativ guvernman <em>Lalyans Lepep</em> pu absorb DPP su biro Atorney General . Satyadit Boolell finn reziste, lerla ICAC konvok li pu konfli lintere lor zafer Sun Tan, enn konpayni kot li aksyoner.</p><br /><p><strong>ICTA</strong></p><br /><p><strong>- </strong>Beeharee direkter ICTA revoke. Samem Direkter ti viktim enn atak ar keter, SAJ ti al li vizit lopital e ti tret bann ki finn fer sa atak la (avek rezon) de bann sovaz.</p><br /><p>- Avoka Trilochun, pros puvwar, reklam Rs19 milyon pu defann ka dedomazman ki Emtel finn loze kont ICTA, MT ek CellPlus. Emtel finn gayn so ka kot Guvernman bizin konpans li pu Rs554 milyon.</p><br /><p><strong>IBA</strong></p><br /><p>- Ka Yousreen Choomka, nomini MSM, kom Prezidan IBA me ki aplay pu pos Direktris e pretann pa ti kone pu ki konpayni li ti pe aplay.</p><br /><p><strong>MPA</strong></p><br /><p><strong>- </strong>Dan Mauritius Port Authority, instabilite avek konfli ant pro-PMSD ek pro- MSM.</p><br /><p><strong>Air Mauritius</strong></p><br /><p>- Instabilite avek revokasyon Megh Pillay kuma CEO swit a konfli ant li ek nomini MSM, Mike Seetaramadoo ki pros ar klan Jugnauth. <em>Air Mauritius</em> ankor dan tirbilans avek lagrev pilot ki finn debus lor lisansiman 3 pilot.</p><br /><p><strong>Lapres</strong></p><br /><p>- Konfli an-permanans ant Lapres ek Guvernman. Kan sa agrave net, Lapolis fer lennding e met sarz konplo kont zurnalis <em>L&rsquo;Express</em>. Enn veritab represyon an-reg.</p><br /><p>&nbsp;<strong>Lopozisyon Parlmanter</strong></p><br /><p>Lopozisyon parlmanter finn mine ar kriz apre eleksyon zeneral. Finn ena depite ki finn fer transfiz, <em>crossing the floor</em> par filwar. &nbsp;Lalyans PT/MMM eklate tutswit zur eleksyon fini, sakenn kontiyn blam so alye kuma responsab pu sa gran defet elektoral. B&eacute;renger vinn Lider Lopozisyon antan ki lider pli gran parti dan lopozisyon. Me deswit, MMM osi travers konfli intern ant 2 faksyon reprezante par B&eacute;renger ek Ganoo, lor baz kisannla responsab pu amenn MMM dan sa Lalyans PT/MMM. MMM so grup Parlmanter eklate, Ganoo avek 4 depite demisyone pu form Muvman Patriotik. B&eacute;renger kontiyn res Lider Lopozisyon, me li ti kapav fasilman perdi sa plas la, si Ganoo ek Travayis ti anvi zet li. Ganoo so Muvman Patriotik eklate senn kut la, res zis li ek Barbier. Sorefan ek Lesjongard zwenn MSM e Ramano res Indepandan.</p><br /><p>&nbsp;Kan PMSD kit guvernman an Desam 2016, Xavier Duval vinn lider lopozisyon e B&eacute;renger amenn enn rol efase.</p><br /><p>&nbsp;MMM perdi enn lot depite Zouberr Joomye ki zwenn MSM, me rekiper Danielle Selvon depi MSM.</p><br /><p>&nbsp;Dernye gran sanzman, Badhain demisyone depi MSM e osi kuma Depite No.18 pu form so parti Reform Party.</p><br /><p>&nbsp;Dan kontex eleksyon parsyel li interesan get lager ant sa diferan parti lopozisyon pu sa syez la.</p><br /><p><strong>&nbsp;</strong></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

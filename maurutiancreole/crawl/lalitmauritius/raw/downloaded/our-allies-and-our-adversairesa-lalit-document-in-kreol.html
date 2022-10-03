@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100120" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100120" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100120" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100120" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100120" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100120" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100120" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100120" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100120" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Our Allies (and our adversaires) - a LALIT Document in Kreol</h1><p class="subtitle">27.02.2018</p></h1>
+	<p class="newsarticle"><p style="text-align: center;"><strong>Nu Alye</strong> (ek nu Adverser)<strong></strong></p><br /><p>Â <strong>Introdiksyon</strong></p><br /><p>Dan enn lepok kan ena enn ta lapel pu âlinite lagosâ â kant-mem anterm pirman <em>elektoral</em> â nu bizin konn, premyerman, linportans ki LALIT anfet <em>ena</em> alye kot posib, inklir alye elektoral, e answit <em>danze</em> ki âalyeâ reprezante si li enn fay alye. (Li pa tro neseser koz sa danze la, apre ki MMM ek Travayist finn fer enn lexanp flagran an 2014, kan sakenn ti vo 40% elektora, zot ti koste zot valer ansam, 40% + 40% e gran total ti mwins ki 40%. Enn rezilta kan reflesi dan fason lineyer, panse ki tultan 40 + 40 = 80, gayn 40+40 = <40 â kan u konsider <em>lezot fakter</em> kan zot azute ansam.)</p><br /><p>Â Zordi an 2018, avek konbinezon enn Guvernman inpopiler ek enn Lopozisyon Parlmanter an-lanbo, nu kapav atann tu kalite tantativ pu invit nu dan LALIT pu vinn galfat tu kalite lalyans. Pu ena koze âTrwazyem Forsâ, âGos-Drwat inn depaseâ, âPa diviz lagosâ ubyin âTu dimunn ralye otur enn Bhadain, Bizlall, sipa Baichooâ â ala-Macron. Tusala pu re-kumans large osito ki selebrasyon 50 an Lindepandans fini.</p><br /><p>Â <strong>Striktir lartik</strong></p><br /><p>1<sup>er</sup> parti lartik la, nu pu get kisannla kapav enn alye politik pu LALIT.</p><br /><p>2<sup>yem</sup> parti pu pli profon, ki âklasâ nu alye, e dan ki leta sa klas la ete.</p><br /><p>3<sup>yem</sup> parti pu kurt â lor bann parti burzwa, e kimanyer zot pe al ver dat expirasyon sosyal-demokrasi.</p><br /><p>4<sup>yem</sup> parti pu lor âklasâ ek âsu-klasâ ki deryer tu sa bann parti burzwa la, e kifer â e nuvo form lorganizasyon alinteryer burzwazi limem, sirtu otur <em>Business Mauritius</em>, ki pe ranplas bann kreatir ki nu ti kone kuma MEF, Joint Economic Council, MSPA, etc. e otur sa nuvo but dan burzwazi ki organize otur bayant later agrikol pu vila milyoner, setadir âreal estateâ.</p><br /><p>Â <strong>1<sup>er</sup> parti: Ki Alye Politik?</strong></p><br /><p>Kan klas travayer mobilize, nu remarke ki grup degos ek parti degos fer lalyans lor maximem tem posib. Sa, li lozik. E sa, li arive. Alor, nu finn truv, depi bann lane 1970 e mem ziska osi tar ki lan 2000, tu kalite <em>fron komin</em> â lorganizasyon degos, ansam ar sindika, lasosyasyon â lor tu kalite size imazinab. <em>Lalit de Klas</em> ti ladan, LALIT ti ladan uswa parfwa manb LALIT ti aktif ladan. Par exanp â fron anti-represyon (MSAR), Fron Komin Transpor, kont apartheid (SOMAAP ek plitar FRAAP), lor emansipasyon fam (FKOF, Solidarite Fam), solidarite ar El Salvador, Kont Lager (KAL), kont inperyalis (KKAI), MAC (Movement against Communalism), <em>All Workers Conference</em> (1996-99), Fron lor Comoros, Ad Hoc Committee kont POTA 2000 â pu nom zis enn-de.</p><br /><p>Â Sa kalite fron la ti reprezant linite lagos, omwin linite degos <em>an-konstriksyon</em>. Dan sa kondisyon ki li vinn posib pu kontanple pu fer lalyans elektoral, kan neseser.</p><br /><p>Â Me, an Fevriye 1999 deza, kuma enn siyn lafin so lepok politikman ris pu lagos, anplas enn âfron kominâ kan Kaya mor, nu finn truv enn sulevman nasyonal popiler, enn mitinnri kont lapolis, ki fini dan lemet.</p><br /><p>Â Zordi, li pa enn lepok fasil pu sa kalite fron komin la.</p><br /><p>Â Apre lemet, kan nu met dibut <em>JUSTICE: Lasosyasyon kont Britalite Polisyer</em>, li enn lorganizasyon inpe kuma enn kolektif, ki mars byin pu enn tan. Me, li pa enn fron robist ditu. Ondire, bann lorganizasyon ki ti kolonn vertebral fron, finn afebli. Kifer? Akoz klas travayer finn afebli. E osi akoz ideolozi neo-liberal finn ranforsi.</p><br /><p>Â Pu amenn lalit kont ID Kard biometrik, ariv 2013-14, nu finn bizin fer avek enn espes âKolektifâ â pa striktire ditu â ar CTSP, e kot enn dizenn lorganizasyon ti ar nu, me plito alatrenn. Mem CTSP pena enn konsep pu mobiliz so prop manb; so ladireksyon propoze nu al dibut dan Zardin Konpayni, ramas sinyatir. Lor kestyon Palestinn, LALIT met dibut <em>BDS Mauritius</em>, me li ariv parey â ar CTSP, MLF, CIG â e apre apenn 3 mwa, nu truv zis manb LALIT ek MLF prezan dan kordinasyon. Komite Diego parey, ena tandans pu re-redwir a zis LALIT ek MLF â lezot lorganizasyon rar mobiliz zot prop manb.</p><br /><p>Â <strong>Apel dan vid pu âLinite Lagosâ</strong></p><br /><p>Dan lagazet ek lor radyo, dimunn abitye fer apel pu <em>Lalit</em>, <em>Muvman Premye Me</em>, <em>Rezistans ek Alternativ</em> fer lalyans, se sa ki buku dimunn ule dir par âlinite lagosâ. E remarke ki tultan zot koz zis anterm <em>elektoral</em> â dan kad <em>eleksyon dan laparey leta burzwa</em> â pa plis. Sa li dir tu.</p><br /><p>Â Mo krwar mo pena tor pu dir dan LALIT nu ti <em>fini etablir</em> avan eleksyon parsyel ki li ase difisil pu inklir <em>Muvman Premye Me</em> kuma enn âparti degosâ â li pa mem enn âpartiâ, me plito enn ramasi otur enn individi, Bizlall. Malgre tu kalite piblikasyon farfeli, MPM pena enn program. Alor, li pa kapav âdegosâ. Bizlall rans dir nerport kisannla kapav manb. <em>Tu klas dimunn</em> bizin dakor ek so program, li dir fek la, <em>â</em><em>Que les personnes soient de gauche ou de droite, capitaliste ou prolÃ©tairesâ </em>(sic). Sel zafer programatik li finn dir resaman, se bizin ena enn â<em>kod lalwa administratif</em>â â pa zis kriminel ek sivil. Li enn veritab birokrat. Anmemtan, lefet ki li inn pibliye enn trak sitan vyolan anti-fam, e li abiz fam (e zom osi) piblikman dan miting, e li fyer de tusala, li amenn argiman ki oblize maltret dimunn par zure, sa osi enn prev ki li pa âdegosâ. Li inposib nu konsider MPM kuma enn potansyel alye. Li lekontrer. So konportman rann li enn adverser. Bizlall so fason âserviâ sindika, li enn laont. Anmemtan, li pa maynd flat Minis MSM apre Minis MSM, aplati li divan zot, zis avan enn eleksyon parsyel kot limem li kandida e kot MSM pena kandida! Li krwar normal sa. Sa li deza taktik Ramano, so adzwin, servi.</p><br /><p>Â <em>Rezistans ek Alternativ</em> asterla. La osi, mo krwar mo pena tor pu dir ki, dan 14 an depi enn grup kit LALIT met RA dibut, nu finn obzerv RA vinn deplizanpli pro-kapitalist. So kandida dan Parsyel ti arsi-dir zot pa <em>kont</em> kapitalist, me zis kont âelitâ ki koronpi. Zot oportinist. Zot pa ezite pu les Ramgoolam anonse ki âletaâ (â<em>Lâetat etait lui</em>â a lepok) pu pey zot fre lakur, kan zot perdi Privy Council. Zot pa ezite pu kaptile, antan ki RA, dan zot ka kont lotel Le Chaland. Zot pa pey enn pri politik kan piblikman AKNL (kot RA manb) akize de forjri. Zot pa mem truve zot ena devwar explike. Zot kapav fer enn vot remersiman Nita Deerpalsing, ki ti âlom forâ kan Parti Travayis ti dan Guvernman, dan enn miting sindikal piblik. Lalist long. Zot ka kont BLS, telman li oportinist â depi kumansman â ki finalman ena enn danze ki Leta kapav al repli dan enn nuvo resansiman kominal pu respekte zizman Komite UN Drwa Imin dan zot ka. Subron, parey kuma Bizlall, servi sindika pu mont li-mem. Â Â Â </p><br /><p>Â Manb Rezistans JY Chavrimootoo ek Kugan Parapen finn met anpiblik <em>modus operandi</em> Bizlall vizavi RA. E sa rann linite ant sa de la deza difisil. Ena 2 taktik: Premye, Bizlall avoy so lel zenn, Selven Govinden ek so <em>Free Art</em> demar kanpayn Parapen dan No 18, lerla kan fini gayn momenntum, Bizlall anonse li pu poz kandida, li osi; kumsa li dezorganiz kanpayn RA. Dezyeman, Bizlall insilte Kugan, lerla insiste ki li rant dan lalyans ar li, lerla li re-insilte li, re-dimann lalyans â kuma bann zom ki fer vyolans domestik fer â bat zot fam, lerla donn li enn buke roz ruz, re-bate, re-donn buke fler. Tusala pu dir, pena linite ant sa de swadizan degos la.</p><br /><p>Â Ena dimunn osi konsider lezot kordilo, kuma Rama Valayden, sipa Roshi Bhadhain kuma posib alye agos. Rama Valayden enn popilist pir. Bhadhain enn pro-kapitalist pir. Par kont, Ganoo so <em>Mouvement Patriotique</em> finn truve ki MMM ek lezot pe kit enn vakim tro gran dan sant-gos, alor li finn pran enn-de pwin programatik â langaz Kreol dan Parlman, dekriminaliz gandya â pu prezant li kuma âdegosâ. Me, so listwar lur. Depi kan li vann travayer Anna ziska kan li donn so metres enn âtipti butâ Kowlenn. E so kandida, kuma Parapen dayer, inn aksepte vwayaz kuma invite Lanbasad USA â e Trump inn dir pibliman seki ti deza vre: âSi pran kas Guvernman Amerikin, u oblize koz kuma Guvernman Amerikin.â Enpe normal.</p><br /><p>Â Alor, nu, dan LALIT, inpe tusel â anterm posibilite lalyans politik. Me, sa li pa nuvo. Asterla, li zis paret buku pli difisil ki avan. E avan, li pa ti fasil!</p><br /><p>Â Nu ti seye avek bann OMT-FNAS (Ramano-Rayapoulle) an 1987. Mem lerla, ar tu sa travay ansam dan bann fron komin, Ramano truv pu al vande ar BÃ©renger, e li ris GWF ek FPU (Bizlall) ar li. Zot servi zot tan-dantenn lor MBC-TV pu dir âVot MMM-MTD-FTSâ. Kri-kri, zot fer kuma Gaetan Duval ti abitye fer ar so bann POP-FMI an 1983. Alor, nu lexperyans lalyans ar Ramano, li enn lexperyans enn trahizon total. Turn zorey! Anfet, fe Serge Rayapoulle ek fe Paul Manon finn explik nu exakteman kimanyer MMM finn aste OMT-FNAS Ramano.</p><br /><p>Â Nu finn seye ar PMT (Bizlall ek FPU) pu parsyel 1995. Kan nu fer reynion, Bizlall mal-tret piblik ki vini. Aplizir repriz. Nu napa dakor. Li tro dan-zar pu fer port-a-port poliman. E, apre kawnting, telman PMT abat, zot refiz zwenn nu. Zot kumadir kave â afors zot elektoralist â akoz enn sinp sif pu vot dan enn eleksyon dan sistem burzwa. Alor, nu finn truv travay politik ar Bizlall ti ase degutan. Turn zorey!</p><br /><p>Â Alor, kote politik, ni fron komin lor enn tem, ni lalyans elektoral, pa posib ar okenn parti politik existan.</p><br /><p>Â Zordi âlinite degosâ vedir enn lalyans elektoral ki konklir brit-brit enn mwa avan enn eleksyon! Ladan, enn lider rod gayn lamas ar li atraver enn doz popilism konzonktirel ki kuver par medya. E, kan enn lider pe fer tusala, li kapav parfwa sey pyez enn lot parti ladan. Par exanp, Bizlall truv zis pu propoz enn espes âpraymeriâ âala-yankee! Li perverti nosyon âalyeâ. Pena mem enn sel pwin lor lekel zot dir bizin alye! Zis oto-deklar zot degos, ramas enn ramasi abriti otur dezot, viz pu gayn enn eleksyon. Li pir popilism.</p><br /><p>Â Anfet, li pa fasil pu enn parti kuma LALIT, ki vreman degos, fer enn lalyans politik â presizeman parski nu, nu ena diferans <em>reyel</em> programatik depi lezot parti. Nu ena vre diverzans ar Bizlall, ar Subron. e.g. dan LALIT, nu napa nasyonalist; nu napa anfaver kapitalism purvi li pa koronpi, nu <em>kont</em>; nu anfaver expoz zom predater, pa fer lalyans ar zot. Alor, mem an teori, lalyans pa fasil agos, akoz vre lagos ena <em>program</em>. E, li pa ditu ki manb LALIT ena âegoâ kuma sindikalist pretann, alor initil dimann nu âaval nu lorgeyâ â parski pu nu, li pa enn kestyon lorgey. Li enn kestyon lamur prop. E li pa <em>zis</em> lamur prop, li lavi-lamor nu lalit politik. Li inposib fer sa zar linite ki pu amenn defet pu klas travayer la.Â </p><br /><p>Â <strong>2<sup>yem</sup> Parti: Ki <em>klas</em> ki alye LALIT? </strong></p><br /><p>Asterla, nu pu get kontribisyon Marx ek Engels (ansam) lor kestyon lalyans. Lerla nu get kot Gramsci ek Lenin, sakenn separeman, al pli an-detay ki Marx-ek-Engels lor sa kestyon la.</p><br /><p><strong>Â Kontribisyon Marx-ek-Engels</strong></p><br /><p>Karl Marx ek Friedrich Engels dekrir klas travayer â ki ti fek pe emerze 150-an desela dan Lerop ek Lamerik â kuma enn â<em>lafors</em>â ki pu ena <em>lintere</em> e <em>kapasite</em> ranvers reyn par <em>enn ti-klas kapitalist</em>, met dibut reyn sosyalist, kot kumans al ver enn sosyete san klas. Avan sa ti deza ena par zenerasyon âsosyalistâ. Me, zot tu ti âitopikâ, setadir âidealistâ, dan enn sans presi: zot ti ena enn âlideâ abstre lor enn lavenir egaliter, e zot ti pe rod kree sa sosyete dan zot rev <em>atraver pir volonte</em>. Zot dir, âakoz nu anvi li vinn vre, li pu kapav vinn vre. Bizin zis konvink buku, buku dimunn â <em>lâhomme de bonne volonte</em>â â enn par enn â ziska, zot osi, krwar ladan, lerla ep! pu gayn sosyalism.â Â </p><br /><p>Â Marx ek Engels â kuma nu finn truve dan sa fim <em>Zenn Marx</em>, ki plizir dant nu prezan fek gete, fek diskite â ti remarke ki, kan etidye sosyete byin, u truve ki ena sertin â<em>lafors sosyal</em>â ki existe dan prosesis listwar-ki-pe-derule ki determine par <em>lintere diferan.</em> Diferan grup amenn lalit otur sa bann diferan lintere. Par zot mem. Sa lafors sosyal la, li diferan grad/ran/<em>klas</em> dan sosyete â ki obzektivman, sa vedir kontan-pa-kontan, zot ena mem lintere. Kan klas kapitalist, setadir <em>burzwazi</em> (ki ti fek <em>burzone</em> ant tu sa klas dan sosyete feodal) finn monte, li ena lintere fer sulevman kont klas nob ki blok so progre, alor li ranvers bann nob, li vinn klas opuvwar. La, nu gayn sistem burzwa: enn Parlman â ki kontrole <em>pa</em> par lepep ki elir li, me par enn Kabine Minis nome â ondire sistem lerwa resisite â par Premye Minis, ki pa eli kuma Premye Minis, me zis dan enn sirkonskripsyon!</p><br /><p>Â <em>Alye natirel</em></p><br /><p>Kumsa klas kapitalist, ki ti pe fek kumans vinn opuvwar dan enn-de plas dan Lerop e dan USA lepok Marx ek Engels â kumans balye tu ansyin reyn feodal, lerwa, etc., balye esklavaz â e sa permet Marx ek Engels truve ki <em>klas travayer</em> li an konfli konstan ar nuvo klas dirizan setadir klas kapitalist. E se sa ki permet klas travayer vinn <em>alye prinsipal, </em>enn <em>alye obzektiv,</em> pu nerport ki proze sosyalist. Ondire, dan lepok kapitalist opuvwar, travayer antan ki klas, li enn <em>alye natirel</em> dan lalit pu sosyalism.</p><br /><p>Â Alor, antan ki sosyalist, nu ena nu bi, kuma tultan sosyalist ti ena (enn lide, enn ideal, enn rev, enn itopi) <em>e osi</em>, apartir analiz Marx ek Engels, nu ena enn alye potansyel ki byin, byin for. Sa alye, klas travayer, li, li ena lintere dan sosyalism. Li ena lafors pu exiz li. E, dan moman dir, li kapav azir kuma enn blok.</p><br /><p>Â Zordi, 150 an plitar, anfet klas travayer finalman finn vinn mazoriter onivo mondyal.</p><br /><p>Â Pu premye fwa dan listwar, gran mazorite dimunn lor bul later anfet dan klas travayer â zis avan kumansman nuvo milener la. Avan sa, peyzan ti mazoriter.</p><br /><p>Â [Enn braket: Definisyon â<em>klas travayer</em>â, li vo lapenn nu klarifye li:Â  li tu famiy ki viv par enn saler, enn lapey, enn rant apartir vann zot kuraz (swa intelektyel, swa fizik) ar swa kapitalist (suvan enn gro konpayni) ubyin so Leta burzwa, ki tini sa klas kapitalist anplas. Li inklir ex-travayer, somer ki viv par pansyon ubyin sekirite sosyal - ki anfet enn lapey an-difere. Alor, li inklir tu kalite travayer: kol blan kuma travayer manyel â tu seki tus enn larzan lafin dimwa, par kinzenn, par latas, par semenn. Alor, nu ena tu sa lamas travayer lizinn, labank, lotel, karo, saybersiti, biro. E vizavi sa imans klas, ena enn relativman tipti â<em>klas kapitalist</em>â, ki li <em>aste</em> kuraz travay ar buku travayer sekter prive. Travayer sekter piblik gayn lapey ar Leta atraver tax (sirtu lor travayer mem - TVA, osi lor profi), e sef dan laparey Leta permanan azir kuma seki aste kuraz travay. Ant sa 2 klas prinsipal, an-konfli permanan, ena tultan dimunn dan tit-burzwazi, kuma: <em>profesyonel indepandan</em> (avoka, dokter, artis, kordonye, tayer, modis, dantis, kontab individyel â ki vann zot servis dapre mem sistem ki existe avan sistem kapitalist); <em>tit-antreprener</em> ki tultan pe al bankrut e pe truv zotmem re-plonze dan klas travayer (80% bankrut dan 4 an alor li enn klas ki tultan pe rwine); ti-planter ki pa anplway dimunn an permanans, me li ek so fami travay zot prop karo; mem zafer pu ti-butikye, ti-latelye mekanisyin, ti restoran, ti-tabazi, ti-furniser lizinn, sipa lotel. Plis, ena enn klas ki tus <em>bel-bel saler</em>, ase pu li pretann ondire li enn kapitalist, mem si li kapav met deor anplas-anplas kuma enn âvilger travayerâ si proprieter lantrepriz ule met li deor: la, nu gayn: manejer, profesyonel ki anplwaye dan enn konpayni, redakter ansef, etc ek sef servis sivil, CEO para-etatik ki ena enpe plis sekirite danplwa.]</p><br /><p>Â Â  Me, Moris, mem si klas travayer tuzur imans, ena febles <em>obzektiv</em> zordi:</p><br /><p>- Klas travayer inn raptise opred tit-antrepener â ki suvan travayer ki tanporerman andeor klas travayer, pe rod trase.</p><br /><p>- Plis ki 55% travayer travay pu sa bann tit-antrepriz â vedir zot lafors mwins. Guvernman pe viz fer sa vinn 64%!</p><br /><p>- Ena an 2016, somaz 8% (dapre statistics Mauritius), tandi ki to inaktiv li 40% (setadir, dimunn ki pa pe rod travay, nepli pe rod travay, travay mwins ki 40 ertan ek plis ki enn-ertan). Somaz ek su-zanplwa afebli klas travayer.</p><br /><p>- Travayer al lot pei pu rod travay â sa febli klas travayer â Dapre UN International Organization for Migration: â<em>Gran dyaspora Moris establir an Ostrali, Kanada, Sid Afrik, UK, Lafrans</em>â (kapav 100,000 pase?) plis migrasyon serkilyer organize par Guvernman Moris. Kan pa satisfe, travayer Moris rod parti brit-brit, abandonn pei.</p><br /><p>- Travayer san drwa politik ek ekonomik (sorti lot pei) 30 - 40,000 â Â sa febli klas travayer, e li solisyon patrona pu gard buku travayer bonmarse â depi esklavaz, langazman, vini-mem, mem taktik.</p><br /><p>- Sindika, par so natir, li enn antite <em>defansiv</em>, exepte kan ena enn chalennj politik revolisyoner byin pre. So kapasite al lor kont-ofansiv, li nil.</p><br /><p>- Langaz ki gran mazorite klas travayer koze, li interdi dan buku sityasyon formel. Ena mem enn presyon pu eradik li, ranplas so vokabiler ek so gramer, ek enn espes âFranse barokâ.</p><br /><p>- Patriarsi tuzur for terib dan Moris; amezir li for, fam gayn difikilte kontribiye byin-mem dan lalit pu sosyalist.</p><br /><p>Â Plis ena febles <em>sibzektiv</em>:</p><br /><p>- Muvman koperativ finn rant dan labirint birokrasi â kot mem pu anrezistre, li difisil. Ideolozi burzwa telman for, manb ariv ule âfer profiâ par explwat zot-mem plis!</p><br /><p>- Buku lasosyasyon ki ti regrup dimunn lor baz lintere zeneral (veritab Komite Kartye demokratik, lorganizasyon kuma Lekol Koperativ, Solidarite Fam, Bambous Health Project) finn ferme pandan sa lepok neo-liberal la, finn ranplase par organizasyon kominal, relizye, kasteist, ki diviz klas travayer, e ranpli so kalandriye ar rityel.</p><br /><p>- Ideolozi burzwa finn rekiper enn kuran dan muvman fam â par rod egalite âjennderâ, setadir pu fam monte dan tu sa milye striktir yerarsik dan sistem kapitalist, plito ki opoz patriarsi.</p><br /><p>- Leta finn ris sindika, li osi, dan enn labirint birokrasi, ki anmemtan âviktwarâ sindikal lepase ek âpwa lurâ pu sarye dan leprezan â sa rann buku form mobilizasyon kuma enn rityel; ena chekof kot patron kup kontribisyon alor sindika pa bizin desantralize pu ramas kotite, ena taym-of kot sindika nepli bizin mobilize pu reynion, me li reyni dan lertan patron peye.</p><br /><p>- Akoz elektoralism byin for dan klas travayer, sindika servi eleksyon dan laparey leta burzwa kuma enn dibwa pwint lor parti politik â pu bann ti-gin ki kapav inportan, me ki evit chalennj sistem ki pe gard travayer kuma âesklav lapeyâ, gard travayer dan kankan rod âlapey desanâ, evit devlopman enn program anti-kapitalist, evit devlopman, dan muvman sindikal, enn program anfaver sosyalism â kot kestyon sa fe reyel ki travayer pe met <em>so kuraz a-vann â </em>setadir bayant enn parti de li-mem ar enn patron, ki aste so letan ar li, kan ânu letanâ vedir ânu laviâ â li maske.</p><br /><p>- Atraver elektoralism, kondisyon travay dan sekter piblik buku pli bon ki dan sekter prive pu travayer anba lesel sosyal (e lekontrer pu travayer lao lesel sosyal), e sa finn amenn enn kasir dan enn klas travayer ki bizin tultan pe <em>inifye</em>.</p><br /><p>Â Anmemtan, ena buku lafors potansyel dan klas travayer, ki pa ti ena avan:</p><br /><p><em>Obzektivman</em>,</p><br /><p>- Ena plis posibilite kree travay pu tu dimunn, prodir manze, lakaz pu tu dimunn, export varyete prodwi fini pu gayn deviz.</p><br /><p>- Dimunn pli kapav lir-ekrir â alor trak, sipa innternet, kapav vinn enn zuti for pu organize.</p><br /><p>- Ena buku fasilite pu inform u-mem, antan ki enn travayer, ki pa ti existe avan innternet â alor, travayer kapav vinn enn filozof, sosyalist Marxist par lektir.</p><br /><p>- Ena plis liberte lasosyasyon, relativ a lepok avan.</p><br /><p>- Ena plis liberte dexpresyon, relativ a lepok avan.</p><br /><p>- Ena sindika, mem zot suvan kolaborater.</p><br /><p>- Ena drwa fer lasosyasyon, dapre Konstitisyon, san mem anrezistre.</p><br /><p>- Ena transpor bis partu dan pei, pansyoner (vyeyes ek andikape) kapav vwayaz gratis an-zeneral â pu fer travay sosyo-politik.</p><br /><p>- Ena posibilite vwayaze onivo rezyonal ek internasyonal, pu ranforsi lalit internasyonalist.</p><br /><p><em>Sibzektivman,</em></p><br /><p>- Linite travayer dan lemond antye, enn lalit internasyonal, finn vinn pli fasil mazine.</p><br /><p>- Kapasite pu rekiperasyon par inperyalis (e.g. USA ar so bann laburs, etc) li finn vinn pli difisil depi Trump inn anonse ki si USA donn kas, u bizin dakor ar li. (Li ti deza kumsa â e.g. AGOA â me Trump dir li a ot vwa. Alor, tu sa dimunn ki pran larzan pu laburs ek pu vwayaz depi USA, zot kareman expoze kuma âzom USAâ par fransiz Trump.</p><br /><p>Â Alor, dan Moris, nu kapav rod gayn alye dan labaz, dan lorganizasyon klas travayer:</p><br /><p>- <em>sindika</em> (setadir, pa federasyon, ni konfederasyon â sa li kontrole par birokrat, ki anfindkont, finn vinn âmarsan kurazâ, dan sans ki zot ansarz fer travayer aksepte enn lapey, bann kondisyon, enn rezim done alinteryer sistem kapitalist).</p><br /><p>- Lasosyasyon, tanki enaÂ  -- pa ONG ki implante, finanse, kontrole depi exteryer â par lamone CSR, par volonte patron, par kontrol azan Guvernman, mem par Lanbasad kuma Lanbasad USA).</p><br /><p>Â Me, eski pu kapav ranvers kapitalism? Eski travayer kapav vreman vinn enn alye dan lalit pu sosyalism?</p><br /><p>Â <strong>Konklizyon, Enn Esek?</strong></p><br /><p>Get bez: dan nerport ki sosyete, klas opuvwar inpoz so ideolozi. So ideolozi vinn ezemonik. Sa vedir tu dimunn, mem seki oprime â parfwa sirtu seki oprime â truv li ânormalâ ki tu kuma li ete. Li enn âfeâ. Li ânatirelâ. Li âluvraz bondyeâ. Alor dan sistem kapitalist, ideolozi burzwa ezemonik. Li vre. Tu dimunn, sirtu travayer ek tit-burzwazi, truv li tutafe normal ki tu âproprieteâ, li mem zafer: Mo triko ek mo linet, li mo propriete prive. U mobilet u propriete prive. E misye la so 20,000 arpan kann ek so mulin, sa so propriete prive. Sa eskrokri intelektyel la, li pas pu âlaveriteâ absoli. Ala enn lexanp ezemoni.</p><br /><p>Â Klas opuvwar ena ezemoni. Abe, kimanyer klas travayer pu sorti ladan? Mem so lintere obzektiv vedir li anfaver soyalism? Li paret enn esek.</p><br /><p>Â <strong>Konsep Lidership a-la-baz</strong></p><br /><p>Gramsci ek Lenin (dan mem lepok, me konpletman separeman) ti devlop 2 fason dyalektik pu konpran sa lalyans ar klas travayer. Kimanyer klas travayer, ki domine par ideolozi burzwa, sorti dan sa linpas la?</p><br /><p>Â <strong>Gramsci</strong></p><br /><p>Gramsci note ki dan sak klas ena seki li apel âintelektyel organikâ. Alor, dan klas travayer, andan dan klas la, ena enn seri individi ki form parti klas la. Zot organikman ladan. Me depar zot pozisyon dan sosyete (dimunn ki oblize vann enn parti zot lavi, dizon 8-ertan par zur, ar enn dimunn ki ule aste zot kuraz ki existe selman dan zot prop letan viv), zot devlop enn analiz <em>ki koresponn a zot realite</em>. Sa bann dimunn la, zot azir kuma enn pivo, ki kapav pran klas travayer depi sa pozisyon domine la, ver transand li. E finalman permet ranvers reyn burzwa. Sa-mem enn kalite analiz âdyalektikâ.</p><br /><p>Â <strong>Lenin</strong></p><br /><p>Lenin truv li dan enn fason similer. Li dir ena bann âlider ala-bazâ dan klas travayer, ki devlop enn konpreansyon par zot <em>lexperyans lalit</em>, e par zot analiz lexperyans lalit â par exanp dan sindika, dan koperativ, dan enn parti politik sosyal-demokrat. Zot akimil enn konesans, enn sazes, enn espes âkapital lexperyans lepaseâ â zot prop veki deklas, seki zot finn tann dir, seki gran dimunn dan klas travayer rakonte, seki zot lir â e zot vinn enn <em>avan-gard</em>. Seki difisil konpran dan enn lepok downturn kuma asterla â kot pena mobilizasyon travayer â se sa lavangard la, li paret so lekontrer. Li paret enn aryergard. Li pa ule azir bonaveni, parski li <em>kone</em> ki pu arive si azir <em>asterla</em>. Li kone balans-defors pa favorab. Me, sa lavangard la li form sa-mem pivo ki Gramsci so âintelektyel organikâ dan klas travayer forme. Li dan klas travayer, e anmemtan li ase separe pu azir kuma klas travayer so <em>lidership alabaz</em>. Alor, kan klas travayer azir â kuma li abitye fer par limem, kan li araze, kuma dan sulevman, lemet â sa lavangard la li enn lidership veritab. E rol enn parti kuma LALIT, se pu tis lyin ar sa lavangard la, pu truv program ki sanz balans defors deklas, e si posib, rekrit sertin lavangard lor <em>program LALIT</em>, e dan LALIT. E se sa lavangard la ki nu vre alye akurterm, e klas travayer an antye nu alye alonterm. (Me mem akurterm kapav lwin, kuma e âakurtermâ ek âalontermâ, kapav byin pre. Tu depann. Parski rapel: tultan tu pe sanze.)</p><br /><p>Â Alor, kan nu koz alye, rapel li pa zis alye kuma MPM ek RA. Non. Seki inportan se eski sak nu manb pe rod sa bann lider alabaz la, e sa, anpermanans.</p><br /><p>Â <strong>3<sup>yem</sup> parti: Nu Adverser Politik</strong></p><br /><p>Nu adverser li tu sa parti pro-kapitalist la e seki anvi alye ar kapitalist: so PMSD, so PT, so MSM, so MMM, so ML, so MP, so RA, so MPM, so Bhadhain â e tu popilist kuma Valayden, Bizlall, zot osi anfindkont nu adverser. Zot reprezant, enn dan lot, sistem kapitalist â swa par zot prop program, ubyin par zot refi pu chalennj kapitalism. E zordizur, zot dan bel bel difikilte. Lamas elekter inn plin ar zot. lamas elekter inn degut sa kalite politik la. Pur lemoman, lamas dimunn pe sutenir bann pwin plito birokratik pu tir nerport ki sa bann parti ki dan Guvernman (e.g. zot ule lalwa pu limit manda, lalwa kont dinasti, lalwa kont transfiz, lalwa ek rezistrar ek servis sivil pu kontrol finans parti politik). Tusala azute pu reflet lafin sosyal-demokrasi dan sistem kapitalist. E, tu kalite popilist pe lev latet, pe ris dimunn pu ralye otur lider â kuma lepok lamonte fasist â so Hitler, enn ti-demagog anti-kominist finanse par gran patron, Mussoloni enn sindikalist malfuti, e zordi Berlusconi, Trump, Duterte, Modi.</p><br /><p>Â Antuka, klas kapitalist sutenir tu sa parti PMSD, PT, MSM, MMM la, anfind-kont, malgre nerport ki demagozi anti-kapitalist, anti-inperyalist sa bann parti la fabrike avan eleksyon. Kapitalist adapte zot finansman, e zot sutyin, depandan balans defors. Kapitalist (e bann lanbasad) osi organiz lalyans ant sa bann parti la â pu permet enn reyn pli konfortab pu kapital. Li fasil pu parti sosyal demokrat fer lalyans antre-zot, presizeman parski zot pena enn vre program.</p><br /><p>Â Sa bann parti politik adverser la, zot pwiz zot lafors <em>pa</em> zis dan zot prop parti, pa zis dan lafors burzwazi direk-direk. Zot osi fye lor tu laspe âleta burzwaâ pu pwiz zot lafors â so guvernman, so laparey represif, so laparey ideolozik (sistem ledikasyon, ki li prive ki li piblik, so medya ki li lapres ubyin radyo-TV, ki li prive ubyin MBC, tu <em>yerarsi</em> relizye organize), so alyenasyon dan travay (kot nu truv normal departaz nu prop lavi â nu letan â met li avann dan enn marse travay), so bann lanbasad, sirtu inperyalist ki ena lintere burzwazi lot pei ubyin internasyonal/rezyonal.</p><br /><p>Â E tu sa parti sosyal-demokrat la, amizir zot diskredite, akurterm, zot amenn laraz lamas dimunn lor tu parti politik â parski zordizur dimunn nepli konn enn lot kalite politik. Sa, enn veritab problem ki LALIT ena pu fer fas. Parey kuma kan bann Parti Kominist stalinyin ti grene dan bann lane 1990, lamas dimunn inn krwar Revolisyon Larisi inn grene, kan anfet so kont-revolisyon inn finalman grene!</p><br /><p>Â Me, tu pa som. Ala enn-de âlavantazâ nu ena lor nu adverser:</p><br /><p>1. Nu ena enn program.</p><br /><p>2. Klas travayer ena lintere dan nu program.</p><br /><p>3. Parti sosyal demokrat swa pena program, swa ena enn karne rasyon ti-revandikasyon/promes elektoral, swa zot ena enn ruls intern (pa dub manda, deklar avwar, met tan zenn/fam).</p><br /><p>4. Zot favoriz servi âletaâ existan pu amenn sanzman. Alor, zot gayn eleksyon, sezi âletaâ. Tandi ki nu, nu ena klas mazoriter ki ena lintere dan nu program. Nu viz enn lalit politik pu enn nuvo klas opuvwar.</p><br /><p>5. Nu ena prinsip. Nu oblize ena, pu nu program tini. Nu swiv prinsip organizasyonel, pu ki nu ranforsi nu kapasite amenn sanzman.</p><br /><p>Â <strong>4<sup>yem</sup> parti</strong>: <strong>Nu adverser anterm klas </strong></p><br /><p>Klerman klas dirizan, klas posedan li nu adverser prinsipal, e li liye enn-dan-lot ar enn sistem ki finn gradyelman vinn internasyonal. Dan Moris, burzwazi finn dekonpoze-rekonpoze, otur enn burzwazi destrikter otur âreal estateâ, ki inplik kapital tablisman ansam ar enn ta azan konseye, enn kote, ek investiser depi deor, lot kote. Li enn burzwazi kuma lepok kolonyal piyaz primer. Li pa prodir naryin. Li degiz katastrof dan investisman reyel, ki minim. Li kuma kapital zugader, e anfet li mars ansam ar kapital zugader ki, li osi, finn ranforsi dan Moris. Prodiksyon agrikol, e lindistri otur agrikiltir, pe deperi danzerezman. Prodiksyon indistriyel pe tonbe. Anplwa finn telman ba, ki Statistics Mauritius kontabiliz enn dimunn ki travay <em>enn ertan</em> par semenn, kuma enn travayer dan anplwa!</p><br /><p>Â Alor, nu lalit, dan LALIT, nu veritab alye â e sa li inkonturnab â li klas travayer mondyal.Â  Sa klas ki fek vinn mazoriter <em>onivo mondyal</em>.</p><br /><p>Â Alor, li kapav difisil. Me, sa bizin gid nu stratezi. Samem nu gard internasyonalism kuma enn parti sak nu lalit.</p><br /><p>Â Klas dirizan ek klas posedan onivo mondyal dan enn grav sityasyon, sa li plito enn bon nuvel. Stok exchennj mondyal pre pu re-rant an kriz. Kapital pe kontiyn, malgre sa, rant dan spekilasyon. Lager pe detrir buku parti lemond. Lager nikleer pe menase plis ki zame. Lanatir pe detrir, alor imin pu nepli ena mama bul later kuma nuriser. Nu ena plito lamonte fasism, kuma enn ideolozi â ar so Trump, Duterte, ladrwat dan plizir pei Lerop. E ideolozikman, sa ezemoni kapitalist la pe sakuye buku.</p><br /><p>Â Alor, zot ankriz.</p><br /><p>Nu ena pu travay â ar argiman, ar organize nu mem, ar tis lyin ar lavangard travayer.</p><br /><p>Â E, isi Moris, nu ena pu truv manyer rod sa lavangard, sa bann intelektyel organik dan klas travayer. Sa li pa buku dimunn. Zot an-retre dan enn downturn. Me, zot veritab lidership enn muvman revolisyoner alabaz. Nu bizin an-kontak ar zot. Parski zot zot andan dan klas travayer, antan ki klas.</p><br /><p>Â Ala kimanyer refleksyon anterm listwar, anterm dyalektik, li ed nu konpran kimanyer bann but ki dan enn zafer antye, zot kapav anmemtan sa but la (lavangard) anmemtan dan klas travayer kuma enn klas.</p><br /><p>Â E nu manb enn parti, nu ladan akoz nu krwar ladan. Pa akoz klas ki nu finn ne, ni ki nu ete. Me, akoz so program â enn program ki tultan pe evolye ar enn lemond ki pe sanze.</p><br /><p>Â <em>Baze lor enn Papye par Lindsey Collen</em></p><br /><p><em>pu LALIT </em></p><br /><p><em>Fevriye 2018</em></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

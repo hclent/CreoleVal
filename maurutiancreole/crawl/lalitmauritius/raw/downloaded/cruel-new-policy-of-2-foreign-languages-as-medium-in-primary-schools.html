@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612102112" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612102112" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612102112" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612102112" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612102112" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612102112" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612102112" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612102112" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612102112" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Cruel New Policy of 2 Foreign Languages as Medium in Primary Schools</h1><p class="subtitle">21.01.2014</p></h1>
+	<p class="newsarticle">Here is a copy of the Open Letter that LALIT has addressed in hard copy to a few hundred people, people either in positions of power or people who are activists, as well as in soft copy to others. (Kreol version in separate news article.) LALIT has already started to receive replies. <br><br>Dear  ................................................................. ,<br><br>There are times in history when thinking people suddenly realize that somewhere in the State apparatus there is a very well-thought-out plan, a very wily âstingâ, being prepared for the unsuspecting citizens of the country. This is happening today in Mauritius. Each separate bit of a hideous âplanâ is being exposed piecemeal, introduced<i> separately</i>  and implemented double-blind from the other bits. And each separate, atomized bit seems to be either daft, well-meaning or maybe just plain incomprehensible. And, unless we are very careful, by the time we examine all the bits of the plan, by the time we manage to draw lines between the dots, it may just be too late. We may have already been ambushed. The trap may be about to be sprung. We may be sitting ducks oblivious to the imminent âstingâ. All this to say we are in the presence today of one such âlarnakâ. <br><br>And as we read on, we will find that Xavier Duval, Vasant Bunwaree, Dan Callikan, Alain Gordon-Gentil and Jean-Claude de lâEstrac have something additional in common, other than being just âzom Ramgoolamâ.<br><br>Consider, the following uncontested facts:<br>1. The PMSD Finance Minister, Xavier Duval, announced that there will effectively no longer be a CPE examination. Now this is certainly âwell-meaningâ. If there are enough good colleges, this is positively good news. That is what the â9-year schoolingâ he promised in last monthâs Budget means. It cannot mean anything else because, if it was literal, it would certainly be a step backwards, a form of <i> âpasseismeâ, </i> because there is already compulsory <i> 11-year </i> schooling for all our children. So, the only interpretation, if we are not in <i>Alice in Wonderland, </i> is that there will be no CPE exam at all.<br><br>2. Minister of Education Vasant Bunwaree, who is a Minister in the very same PT-PMSD-Transfiz Government, has also clearly, in any case, announced that the CPE will be phased out. Then, he comes and announces that there will be <i> better CPE results</i>  in the future. So far so good. Even if it is better results for a CPE examination which will not exist! The reason the results will be better, he announces, is that he is introducing a <i> second medium of instruction</i>  for all subjects in the CPE: French medium now, as well as English. Without an iota of democratic discussion. He knows what âmediumâ means, the Minister does: In the final analysis, it means the language of the written examination. The written examination for CPE âcontent subjectsâ, he trumpets from the rooftops, will now be French and English, not just English. You just <i> choose. </i>  Like you choose a brand of toothpaste. So, here comes an Education Minister who intentionally aggravates the already harmful practice of having one foreign language as medium, by imposing<i>  two languages</i>  that are not the mother-tongue for the purpose of examining science, mathematics and other subjects. This is clearly madness. The wonder of it, though, remains that he is introducing the French language as medium for the CPE examination which will not exist. Either it is <i> Alice in Wonderland</i>, or the Minister and his cronies have something up their sleeves, like card-sharps. Of course, it is the latter. There is a big plan being put into operation. Xavier Duval does one bit. Minister Bunwaree does one or two bits. <br><br>3. Note that this very State Apparatus that is imposing these two non-mother-tongues on all children cannot plead ignorance. It has just published official Census figures for 2011 showing that over ONE MILLION of the 1.2 million people in the country say that at home they âusually speakâ Kreol. And we are not blind to the fact that there are many people who claim to speak âFrenchâ at home, who merely try to speak a kind of âpatois Frenchâ, hoping it will help their children in school. We also learn that the second largest language is still Bhojpuri, despite Government education policy to wipe it out, with 65,000 speakers usually speaking it at home. And yet an Education Minister, instead of moving forward to the gradual introduction of the mother-tongues as medium for teaching science and mathematics, introduces yet another language, yet another colonial language, that is not usually spoken at home, as medium. This is genuine <i> âpasseismeâ </i><br><br>4. A few days ago Minister of Education Bunwaree launched a new book for the first year of primary school. <i>  Timatou and Friends/Timatou et ses amis. </i>  The title reveals part of the âstoryâ. Children of 5 years old will now be confronted with a new condition to fulfill in order to get access to knowledge about geography and mathematics: they have to first learn <i>  two</i>   languages that are not their own, and also learn to read and write in these two languages, and then the school system will offer them knowledge. Now, if that is not linguistic genocide, what is? The term âlinguistic genocideâ has two<i>  very precise meanings: </i>  that the State forcibly empties a linguistic community by the replacement of their language by other languages imposed, for example, in schools and in news broadcasts; and it means the State causes serious intellectual, emotional and cultural harm to children by refusing to use the childrenâs languages usually spoken at home in formal written form for their content subjects or in formal news broadcasts. On both counts, Minister Bunwaree is guilty. It is certainly not enough for him to use his introduction of Kreol, and to a lesser extent Bhojpuri, as mere subjects in school, to cover up his all-out attack on the mother-tongues.<br>5. Minister Bunwaree launched a French Government funded âSankorÃ©â system in 2013. According to Le Mauricien of 26 June, 2014 this included as many as 576 digital projectors. This is what Bunwaree said about it in Parliament at Budget time: <i>  âA revolution in ICT has already been initiated in Education with the efforts of Government to expand the process of digitising classrooms which was initiated with the SankorÃ© project <b>with the support of the French Government. </b> I note with great satisfaction that funding has been provided for the further purchase of many more projectors and laptops in 2014 which will enable the SankorÃ© project to be fully implemented in all Std VI classes.â </i>  Standard VI is CPE. The exam will also be in French. Get the connection? Now, here we need to do a bit of explaining. Whenever there is a Socialist Party government in power in France, the French permanent state apparatus goes bananas, and pushes for France to become more expantionist. Under Mitterand, the âLa Francophonieâ actually became a Government <i>  Ministry</i>   bent on promoting the French language abroad, especially in Africa. Nuclear bombs got tested where poor Third World people live. And now under Francois Hollande, France is invading African countries<i>  militarily </i>  with a vengeance. France is literally attempting to re-colonize Africa. And gradually France is infiltrating the French language where it can, for example, into the Mauritian education system. The International Business Times of 21 September 2010 titles its analysis of La Francophonie this way: <i>  âThe Future of the French Language Depends on Africaâ. </i>   Although SankorÃ© is a joint French-British venture, it is being piloted by France, and can be expected to be the means for the introduction of the French language as medium of instruction and medium of examination, whether at CPE level (Std VI) or after 9-years of schooling. And this brings us to quote what Dev Virahsawmy so succinctly said on 14 December 2013 in <i>  Le Defi, âEn introduisant une deuxiÃ¨me langue Ã©trangÃ¨re, le ministre rend la vie des enfants plus dure et cause de la frustration. JâespÃ¨re vivement que le Premier ministre lâarrÃªte dans cette dÃ©marche. Peut-Ãªtre quâen agissant ainsi, le Dr Bunwaree fait les yeux doux Ã  la France pour mÃ©riter la lÃ©gion dâhonneur et ce sont les pauvres Ã©coliers mauriciens qui vont en faire les fraisâ¦â</i>   In fact, it is shocking how many Mauritians, even police officers or senior civil servants actually accept these medals from the ex-colonizers. For a citizen of a self-respecting country to accept this kind of decoration should be illegal, as well as being immoral.<br><br>6. On the broadcasting front, there are many changes. Everyone knows that Dan Callikan is Ramgoolamâs right-hand propaganda-man. A veritable Goebbels. Everyone also knows that Dan Callikan addresses Mauritians (rather often) but always in French or so bad a Frenchified Kreol as to be indistinguishable from French. He, like Bunwaree, has tried to cover himself. He has set up a âSenn Kreolâ and âBhojpuri Channelâ, both of which are âfolkloriqueâ and do not have proper news broadcasts at all. The main news remains in French. He continues to work closely with Cirtef, <i>   Conseil International des Radios - TÃ©lÃ©visions dâExpression FranÃ§aise, </i>   whose very name gives away a colonial truth: the French language is supposedly the language of the MBC. All the digitization of the MBC has been guided by Cirtef, and accomplished with French support, and French conditions. âYou promote the French language, you get the money,â the slogan goes. It does not matter, it would seem, that you suppress your own peoplesâ language.<br>7. Navin Ramgoolam could not rely on his Ministry of Culture to push France. It just would not be possible, given the multi-culturalism that exists for better or for worse in that Ministry. So, under the auspices of his agent Alain Gordon-Gentil he set up a unit called âCulture et Avenirâ, in the PMO. This unit organizes an event called âConfluencesâ, which has a huge budget, and which is, to all intents and purposes, in the French language. Well, the 2013 one was, anyway. Any South African or Indian authors were, for example, just sidelined. Main events were all super-Frenchified. Luc Ferry, Lilian Thuram, PPDA, Nathacha Appanah, Shenaz Patel, Amal Sewtohul, French and more French. As the official MTPA site puts it, âUne trentaine dâÃ©crivains et dâartistes internationaux ont Ã©tÃ© invitÃ©s pour exposer leurs Åuvres. Parmi, on retrouve Patrick Poivre dâArvor, ex-presentateur de la chaine Tf1 en France, Lilian Thuram ancien footballeur francais, Jean Marie Cavada, journaliste et aussi Isabelle Gallimard, petite-fille de Gaston Gallimard, co-createur des editions NRF entre autres.â Full stop. This tells all about Alain Gordon-Gentilâs role. It is to show that âcultureâ is in French. And all the rest is just little appendages. And as for culture in the language of the people of the country it is just not at all important.<br><br>8. And then there is the recipient of the Legion dâHonneur himself, Jean-Claude de LâEstrac. In 1982, he became known as âJean Claude <i>  Riverain </i>  de LâEstracâ, the middle name attributed to him for making the colony Reunion cause France to border on the Indian Ocean. This was when he was the Minister responsible for the setting up of the Indian Ocean Commission.  More recently, his nationalist credentials got a further shock when he announced that old man Ramgoolam âsoldâ Diego Garcia for money and got a receipt and all. Never mind the buyer was the Queen of England and the seller was, too. The obvious conclusion for De LâEstrac, therefore, being that it was impossible to retrieve Diego Garcia and Chagos from the illegal occupiers. And now, as if in reward, he is in charge of the very Commission Ocean Indien that he set up. When in charge at La Sentinelle, he imposed the use of French everywhere in the building, even in informal conversations. Thus he gets honoured by the French Government with a Legion dâHonneur.<br><br>All this conversion of Mauritius into a French-controlled âDepartementâ has been going on a long time. There has always been a reactionary current in favour of one kind of âretrocessionâ or another. Either in âassociationâ with Britain, like Gaetan Duvalâs PMSD, or to become part of France, in the 1920s. Later âco-operantsâ from France infiltrated Ministries. Then advisers of all ilk from France. Then Mauritians who had studied in France began to do the same thing. Recently, we saw the introduction, without a whisper of debate, of bi-lingual birth certificates, for example: not the mother-tongue added to English, no. But French. <br><br>We are so colonized still. When, instead of saying we are trilingual or quadrilingual, we say we are âbi-lingualâ, meaning we speak French and English, for example, what does this âerrorâ mean?  It means that Kreol is not a language, or that Kreol and Bhojpuri are both not languages. But the fact of the matter is that creatures who do not have a language are generally sub-human or at least non-human. So, we end up seeing ourselves as less than human, or not entirely human. This is no more or less than a colonial view. A totally unacceptable unspeakable remnant of imperialist racism. And it is certainly not excuse enough for anyone to come up with pretexts for this kind of error like âonly a million people speak Kreolâ. Well, it is not that much less than native speakers of Norwegian, Finnish or Danish. But Norwegians, Finnish or Danish people would not dream of culling their own languages, or annihilating their own humanity, for this ânumericâ reason. On the contrary, they use their own very small languages as medium right up to University level, and also have the very best second and third language levels. So, they should be our models, for language policy, not our ex-colonizers. Anyway, while speaking of numbers, as it turns out there are well over 10,000,000 speakers of different Kreol languages, closely related to Mauritian Kreol.<br><br>It is time right now, for all of us thinking people to demand:<br><br><i>  - The immediate and progressive introduction in school of the mother-tongue as fully-fledged medium for the teaching of content subjects, alongside good teaching of English, French and Oriental languages as second and third languages. We mean Kreol in most schools, but also Bhojpuri in others. </i>  <br><br><b>- The setting up of a Ministry of Translation, Interpretation and Publication in the mother-tongues, to nurture the incorporation of other cultures into the Kreol and Bhojpuri languages, and to promote  scientific thinking. </b><br><br>- The immediate and progressive introduction of a main, full news broadcast in Kreol and Bhojpuri every day.<br><i>  - Putting Kreol and Bhojpuri and other Mauritian culture centre-stage in all cultural planning and expenditure. </i>  <br><b>- Making Kreol equal to English in Parliament, and Bhojpuri equal to French. </b><br> We need your support. We need you to:<br><i>  - Write to the papers. </i>  <br><b>- Phone in on Radio Programs. </b><br>- Put pressure on your MPs and on candidates for future election. Threaten not to listen to them, unless they also speak Kreol in Parliament and in Government in general.<br><i>  - Write in your own language as much as possible. </i>  <br><b>- Buy and read books in Kreol</b><br>-Demand Kreol books in your local library and bookshop.<br><i>  - Speak in Kreol, even when people address you in French or English. Point out their rudeness if they persist. </i>  <br><b>Conclusion</b><br>The secret plot to change language policy by infiltrating the French language into a position of greater power is being masterminded by a Broederbond-like âconfrerieâ. The Broederbond was a secret society in pre-Apartheid and Apartheid South Africa that promoted the Afrikaans language and the economic interests of the Afrikaner elite. In Mauritius, this âplotâ is being put in place by the State bourgeoisie today, as it unifies (or tries to unify) with the historic bourgeoisie. The two sections of the bourgeoisie used to rally separately (and still do, to some extent), behind the two colonial languages, English and French, causing a constant friction. Now, the pro-French have got the upper hand within the State bourgeoisie. Tenders and contracts, orders and tourist bookings, the tertiary education business and ICT, are all influenced by language and language training. This is explained in detail by Professor Robert Phillipson, the University of Mauritius external examiner, in his critique of the economic interests behind English language imperialism. The Mauritian bourgeoisie is at present offering the country as a launch-pad for business interests of all ilk into Anglophone and Francophone Africa. Never mind if it means hatching a secret plot against the very humanity of all Mauritians, including themselves, against our mother-tongue. <br>It is a veritable re-colonization by France, with Mauritian retrocessionists in action. Letâs put a stop to it, and support a language policy that is modern. We need de-colonization, not re-colonization. We need multi-lingualism that is based on the mother-tongue.<br>Yours sincerely,<br><br><br>Rada Kistnasamy and Lindsey Collen, for LALIT<br>P.S. Please request a Kreol language copy, if you prefer to read in Kreol.<br><br>LALIT<br>153 Main Road, Grand River North West, Port Louis.<br>15 January, 2014.<br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

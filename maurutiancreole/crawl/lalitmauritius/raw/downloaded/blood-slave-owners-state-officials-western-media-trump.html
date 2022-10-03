@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095952" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095952" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095952" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095952" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095952" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095952" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095952" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095952" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095952" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>âBloodâ: Slave Owners, State Officials, Western Media, Trump</h1><p class="subtitle">13.05.2018</p></h1>
+	<p class="newsarticle"><p>Â This article brings together incongruous points:</p><br /><p>- How do the main Western news agencies show <em>blood</em> in scenes of conflict?</p><br /><p>- Is it âsimilarâ to how blood of masters and slaves was seen?</p><br /><p>- How does Trump speak about blood in his NRA speech on 28 April?</p><br /><p>- How similar to Hitlerâs is Trumpâs rise to power? And what was Hitlerâs idea on âbloodâ?</p><br /><p>And all the disparate points are linked to the question of <em>power, </em>as we will see.</p><br /><p>Â <strong>Slave Law protects Masterâs blood</strong></p><br /><p>Letâs start by heeding this little-known section of the <em>Slave Law (Code Noir) â </em>typical of all European and U.S. slave laws (The labour laws of extraction of labour under slavery):</p><br /><p><em>Â Article 13: â</em>The slave who has struck his master in the face or has <em>drawn blood</em>, or has similarly struck the wife of his master, his mistress, or their children, shall be punished by death ...â No less. The State says: âYou, slave, you draw a drop of blood from your masterâs face? I kill you!â</p><br /><p>Â So, the master has State protection against his or his familyâs blood being drawn. Sounds very symbolic, superstitious, even religious, meaning <em>the blood of the powerful is sacred.</em> The blood of the others goes unnoticed â even, no doubt, in the death penalty meted out for bloodying someoneâs nose. How awful that as recently as 200 years ago, there were such different categories of human being, we might say <em>Tut, tut,</em> we might add.</p><br /><p>Â <strong>Mauritian Criminal Code protects blood of Officers of the State</strong></p><br /><p>In Mauritius, nearly 200 years after the abolition of slavery, we still read in the <em>Criminal Code</em> in force today a clear descendent of the Slave Code:</p><br /><p>Â <em>Section 160 </em>[Concerning punishment]: âWhere the violence used [in an assault] against the functionaries or agents mentioned [a member of the Cabinet, the Assembly, a Magistrate or Judge, a ministerial officer, agent of the civil or military authorities] <em>has caused effusion of blood</em> ... the punishment shall be penal servitude.â</p><br /><p>Â Other peoplesâ blood, the blood of those who are <em>not</em> functionaries of the State, can be drawn, presumably, and merit no more punishment than a mere fine. This, too, also sounds very symbolic, superstitious, even religious, again meaning <em>the blood of the powerful is sacred</em>.</p><br /><p>Â <strong>Western media protects blood of Westerners</strong></p><br /><p>In reporting on a terrorist incident in the USA, UK or France, the major TV news stations, like CNN and the BBC, refrain, in general, from showing injured victims <em>in the West</em> with their <em>blood drawn</em> or with <em>effusion of blood.</em> This tradition is, I used to think, the result of reasonable and reasoned respect for the victims, their families, TV viewers. âTheir bloodâ, as a sign of their physical mutilation or suffering, is respected. In fact, victims are hardly ever shown full of blood even in, say, terrorist attacks in the West. In all the hours and hours of TV coverage, for example, of all the 9/11 terrorist attacks around the USA, there was never much footage, if any, of bloodied people, or of mutilation. The nearest I saw was the footage of tiny outlines of one or two unrecognizable people hurling themselves to a certain death from the burning upper storeys of the Twin Towers. But, as I reflect on the two kinds of blood in slave times and in Mauritius Criminal Code of today, I wonder if it is just respect for humanity.</p><br /><p>Â Worse still. There seem to be people outside the West whose blood is worth <em>less</em> in the Western media. In, say, Pakistan. Or Afghanistan. In the Yemen or, âsomewhere in Africaâ. Footage in the Western media regularly shows injured men, women and even children. Quite bloody footage is shown. As if it were a normal custom in the West to show blood-soaked, suffering, dying individuals recognisably close-up.</p><br /><p>Â So, we wonder if respect for blood is not still respect for the blood of the powerful masters <em>only</em>.</p><br /><p>Â Just as some peoplesâ blood, like slavesâ blood, could be âdrawnâ without provoking the death penalty, or any other penalty at all. The blood, in the case of the worker, the producer, is not sacred.</p><br /><p>Â Some peoplesâ blood today, in Mauritius, can be drawn without this meriting the mention of additional punishment, like penal servitude. If they are not an officer of the State their blood is not sacred.</p><br /><p>Â And some peoplesâ blood today can be shown âdrawnâ in the Western media. They are not powerful enough to merit respect for their blood. Even while in New York, London and Paris, people get the benefit of respect.</p><br /><p>Â We can call this racism. And it often is. But, more basically it is the brain-dead thinking of the colonizer or imperialist. It is the <em>power differential</em> that the powerful benefit from (and that their lackeys, in turn, draw from) that weakens their ability to see the lack of logic in what they are doing or showing or saying. They can do, show or say whatever they like. Because of their power.</p><br /><p>Â The bosses at the TV and newspaper companies are to blame. No doubt, the news anchors and journalists in the field most often just <em>follow suit</em> â as if they are doing a circus act for which they have been taught the boundaries they must respect in order to keep their job prospects.</p><br /><p>Â So, itâs a wake-up call to good journalists working on stories about physical violence. Remember to show all victims as you would show the members of the family of your big boss at work, were they victims of a bomb attack! No more, no less.</p><br /><p>Â <strong>Colonization of the Mind</strong></p><br /><p>In Mauritius, the MBC TV and the Press are one degree worse than the Western media. They just re-gurgitate photos or re-transmit footage from the imperialist perspective, thus showing respect for Western victims, and not others less powerful â no doubt, not even for themselves/ourselves! This is a prime symptom of the colonized mind. You suffer the same cognitive deficit as the all-powerful colonizer, even though you are, yourself, <em>colonized</em> and you do not even get to gain a puffed up image of yourself, like a Western reporter or anchor might.</p><br /><p>Â <strong>Trump in all this</strong></p><br /><p>Just as Donald Trump brushed âdandruffâ off President Emmanuel Macron of Franceâs shoulder while on film, and announced â<em>dandruff</em>â to the Press â in an act of pure patriarchal sadism, and pure âremember whoâs Boss in this allianceâ, and publicising a bodily substance, in this case dandruff â so Trump has broken the code of not putting on show Western âbloodâ.</p><br /><p>Â He says blood is all over the hospital floors in London, as a result of knife wounds (his babyish argument in favour of gun availability in the USA): <em>âThey don't have guns, they have knives. And instead thereâs blood all over the floors of this hospital. They say itâs as bad as a military war zone hospital.â</em> Miming stabbing someone with one hand, Trump adds:<em> âKnives, knives, knives.â</em></p><br /><p>Â So, this is a sign that Donald Trump is setting himself up as emperor. He no longer needs to respect allies, let alone enemies. He and his nation, he thinks, can do what they like. Expose the dandruff or blood-covered hospital floors, of their once-closest allies.</p><br /><p>Â Now, Donald Trump claims new junior-partner allies: Israel, the bandit State with bloodied hands, and Saudi Arabia, a bloody dictatorship.</p><br /><p>Â How did Trump rise to this?</p><br /><p>Â <strong>The Rise of Hitler</strong></p><br /><p>How Trump rose is not too different from what happened to Adolf Hitler. Just as extreme-reactionary sections of the Prussian bourgeoisie and some generals âdiscoveredâ little Hitler blathering on against âCommunistsâ and âStab in the backâ, and bank-rolled him, so the Koch Brothers and Mercer Family sections of American bourgeoisie and some US military hawks, discovered their own little Trump, a reality TV trickster and real estate scammer, blathering on about Obama not being born in the US, about women wanting their pussies grabbed, and about what a great deal he can cut, and they sent in Kelly-Anne Conway and Steve Bannon to help him rise.</p><br /><p>Â For a pithy version of who actually âbackedâ Hitler, read the Christopher Hitchens book review on Ian Kershawâs <em>Hitler: 1889-1936: Hubris</em> on the rise of Hitler at</p><br /><p>https://www.vanityfair.com/news/1999/02/hitchens-199902</p><br /><p>Â And a small amount of google research can give an idea of the Koch Brothers and the Mercer father-and-daughter teamâs running of Trump. You can draw your own conclusions as to the similarities.</p><br /><p>Â And it is a fitting way to end this look at how dictatorships rely on seeing other classes and nationsâ âbloodâ as different from their own. The Hitler dictatorship was certain that there was superior and inferior âbloodâ. When the Bosses and the Generals are in trouble, in their fear of class politics, their dread of socialism and egalitarianism, they end up pumping up tinpot dictators that believe in their <em>innate </em>superiority, even the bourgeoisie and the generals cannot, in the final analysis, control.</p><br /><p>Â We live in times of all dangers. Dangers that come from untrammelled power.</p><br /><p>Â Peopleâs blood was shed and lives were lost in U.S.-led barbary against the people of Iraq, Libya and Syria â in just the past decade or two â as though they had no value. The mainstream Media and Press have since then been shown up for being, in general, subservient, even embedded sycophants.Â </p><br /><p>Â Now Syria, Iran, Palestine, Yemen and the Lebanon will see their blood literally drawn in effusion by the US-Israel-Saudi Arabia alliance â and then shown on TV. Will journalists, too, go along with this?</p><br /><p>Â Will we have to hear reporting of the most compliant sort all over again?</p><br /><p>Â The time has come, once again after the defeat of fascism, to speak truth to power. Before a new dictatorial reign makes this very difficult indeed. Only political organization can give the kind of strength and resilience necessary to give cover to those who speak the truth to power. Â </p><br /><p>Â Lindsey Collen</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

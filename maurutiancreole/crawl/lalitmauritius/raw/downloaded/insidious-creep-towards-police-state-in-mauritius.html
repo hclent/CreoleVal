@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095749" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Insidious creep towards police state in Mauritius</h1><p class="subtitle">11.10.2018</p></h1>
+	<p class="newsarticle"><p>LALIT notes that there is the gradual encroachment of a police state into the little democracy in contemporary Mauritius. There have been high profile cases of Ministers literally getting opponents locked up by the police. There is the abuse through provisional charges laid by police officers. There is the violence perpetrated by enquiring officers. Police often harass journalists, as well as opposition politicians. These are big, bad signs.</p><br /><p>Â But sometimes the insidious creep towards a police state can be seen in what seem âsmallâ things, things hardly worth noticing. This article is about these relative minor-seeming signs of an encroaching police state, eating away at democracy. These, too, are things we should stop in their tracks.</p><br /><p>Â In the preparations for the second demonstration of the <em>Joint Housing Committees</em> (LALIT-CitÃ© EDC inhabitants) held Friday 5 October, we had two examples of such âsmallâ encroachments.</p><br /><p>Â We in LALIT had preliminary responsibilities as organizers: one was to inform the police in line with the Public Gatherings Act. The other was to arrange with Senior civil servants at the Prime Ministerâs Office to hand over protestersâ letters. Simple actions, you might think.</p><br /><p>Â <strong>âNotifyâ Police Commissioner - not ârequest his authorizationâ</strong></p><br /><p>So LALIT, in the name of the <em>Joint Committees</em>, notified the Police Commissioner by letter a week before, as required by law that we intended to hold a peaceful march in Port Louis.</p><br /><p>Â A few days later, while making the necessary statement, which as usual the police officer absolutely insisted on writing himself, LALITâs two members giving it, Lindsey Collen and Ragini Kistnasamy, suggested he send it through them word-by-word. He assured them this was not necessary, and that they would definitely sign â it was mere routine formula he was drafting. He was speaking honestly. But when he read the statement back before signature, his routine draft was unacceptable. It said the LALIT Joint Committees were ârequesting authorizationâ (â<em>dimann lotorizasyon</em>â). Our two members said LALIT and the Joint Committees were not <em>asking permission.</em> We were merely <em>informing</em> the police â as required by law. He was shocked at what he thought was the ignorance of our two members. He said laughing, âYou mean to tell me if the Police do not give you a letter, you can just go ahead?â Our members replied, âOf course!â He would not believe us.</p><br /><p>Â Anyway, our members had to ask him to amend the statement, so that it read that LALIT was <em>informing</em> the police. The only way they could convince him and a more senior police officer who had joined into the debate was by getting the <em>Public Gathering Act </em>downloaded, which both they and Ragini Kistnasamy did. It reads at section 3, to the surprise of the officers, <em>â(2) Any person wishing to hold or organise a public gathering shall <strong>give written notice</strong> to the commissioner not less than 7 clear days before the day on which the gathering is to be held or organised.â</em> At section 4, â (1) <em>The Commissioner shall have power, for the purpose of preventing public disorder, damage to property or disruption of the life of the community, to impose conditions on the holding of a gathering</em>.<em> (2) Where the Commissioner intends to exercise his powers under sub-section (1), he shall within 48 hours of receiving notice of the gathering, call the organisers and inform them of his intention to impose conditions on the holding of the gathering and the reasons for those conditions.</em><em> </em><em>3) The Commissioner shall have power to prohibit the gathering where he reasonably believes that imposing conditions would not be sufficient to prevent public disorder, damage to property or disruption of the life of the community and shall so inform the organisers within 48 hours of receiving the notice.â </em></p><br /><p>Â The importance of this minor event between our two members and police officers, which ended happily anyway, is that the police officers who are every day in charge of public meetings, marches, protests firmly believe that people have to get permission from the police in order to have a march. And clearly no-one protests. The police do not realize it is a fundamental right to hold a protest, and that the law demands mere <em>notification.</em> The officers who run this section of the police seem not to have had education or training about court judgments that have further made clear just how broad the fundamental rights are. For example, in the case that LALIT won against the Police Commissioner in 2003, when the Court rejected the reasons given by the then Police Commissioner for objecting to a march, and gave an order to quash his objections. The law quoted above gives three reasons for curtailing the right to protest, and the decision must in addition be âreasonableâ.</p><br /><p>Â In 2010, again LALIT took the Police Commissioner to the Supreme Court because he placed a condition on a planned protest march, that âauthority [...] be sought from the Ministry of Public Infrastructure, Land Transport and Shippingâ in order for us to walk on the roads. Before this got to Court, clearly the State Law Officer got the Police Commissioner to back down and withdraw his objection because that is what he did.</p><br /><p>Â Another earlier judgment is important. Under the POA, in 1987, in Michel v. The Queen, the District Court verdict of guilty was overturned by two Supreme Court judges, who argued that protesters were where they were (at the CHA) on âlawful businessâ.</p><br /><p>Â But, perhaps as important as police officers knowing peoplesâ rights, it is important for all organizations that take responsibility for holding demonstrations, marches or meetings to defend these fundamental rights tooth and nail. Otherwise the creep towards a police state continues.</p><br /><p>Â <strong>Who Receives Letters and Petitions from Citizens at a Ministerâs Office?</strong></p><br /><p>From Independence, when Mauritius first got proper âMinistersâ, and as demonstrations began towards the end of the State of Emergency, a political culture developed. Ministers in general received delegations from amongst the people very warmly. This was so, in particular, if people had come from afar to Port Louis. In fact, it is recalled by our older members that the main worry, as an organizer, was that the Minister would invite you to a cup of tea, when you had been delegated in aÂ  group to hand over a document. Or you worried in case he might spot one person he knew personally or was distantly related to by marriage in the delegation, and come up and embrace them.</p><br /><p>Â But the Pravind Jugnauth Prime Ministerâs Office is different: on 6 July, when 343 people had come to Port Louis had a demonstration and signed an individual letter each, all they got was the initials of someone describing himself as a âscanning officerâ in the police force, on a hand-written letter drafted by one of LALITâs members, Rajni Lallah. He was not even a person from the more humble echelons of the Registry, whose job it is to âreceive, record and distribute incoming ... mail of all kinds (such as letters ...)â, according to their own manual on the Civil service home page.</p><br /><p>Â And then, that was the end of it. The Prime Minister did not even bother to send an <em>avis de reception</em>, either individually or to the organizers, who left an address c/o LALIT. The letters were not replied to either.</p><br /><p>Â At the second demonstration in this series, with new letters from participants (this time 365 letters) on 5 October, Lindsey Collen was delegated to telephone the main civil servant at the PMO to attempt to organize a more decent reception. In the presence of Alain Ah-Vee, she phoned Mrs Kan Oye Fong Weng-Poorun. Lindsey requested that the Civil Service, not the police, accept the letters. She also requested a proper receipt be given. She said it could be prepared beforehand, to make it smooth, with a space blank to fill in the numbers of letters. Mrs Feng Wong-Poorun refused point blank.</p><br /><p>Â This is the letter LALIT then sent to her the next day, putting on record the request, and the turn of conversation:</p><br /><p>Â âTo Mrs Kan Oye Fong Weng-Poorun</p><br /><p>âSenior Chief executive,</p><br /><p>âPMO, Treasury Building, Port Louis.â</p><br /><p>Â Sent on 4 October</p><br /><p>Â âDear Madam,</p><br /><p>Â âWe wish to put on record the telephone conversation held at about 11:45 am yesterday 3rd October, between one of the undersigned, Lindsey Collen, in the presence of the other undersigned, Alain Ah-Vee. We made the call on behalf of the Joint Committees (see below). We did so in order to assure smooth arrangements for the democratic process of the handing over to the Prime Minister of a second round of letters addressed to him by individual people living in toxic asbestos housing.</p><br /><p>Â âDuring the telephone conversation, we requested, on behalf of the âJoint Committeesâ, that civil service officers responsible for the Prime Ministerâs incoming correspondence take receipt of the letters, and give us a formal acknowledgement of receipt for the number of individual letters, when we deliver them to your office Friday at about 12:45 or so, after a peaceful march in Port Louis. In this way, delegates from the four Regionals of Joint Committees can assure signatories waiting at Company Gardens that the letters are indeed received by the Prime Minister.</p><br /><p>Â âLast time, on our first march of 6 July 2018, we arranged for 6 delegates to come and leave the letters from the 340 or so families present at Company Gardens after a peaceful march against asbestos housing, instead of each of the 340 leaving a letter personally. (The demands in the letter were elementary: that Government announce a time-table for replacing the asbestos housing as it had promised, and that Government set up regional âdesksâ so that inhabitants can easily follow the process of the replacement of houses according to the time-table.)</p><br /><p>Â âWhat happened was that our delegates found police officers and what they took to be plain-clothes police officers in charge of security, taking reception. It was security officers who finally gave something in lieu of an acknowledgement of receipt by the Prime Minister.</p><br /><p>Â âWe believe that this is not a respectful way of treating citizens who have come from all the distant villages of Mauritius to hand a letter to the Prime Minister personally.</p><br /><p>Â âTo add insult to injury, the Prime Minister never replied to the letters. No reply was received from him either by individual letter to the inhabitants, or through LALIT, or through the media.Â </p><br /><p>Â âYou said in the telephone conversation that you â<em>pa truv ofisye pe desann, pran let</em>â. As if it were unthinkable. We would like to know when, and on what basis, the tradition of polite reception of letters from citizens was abolished?</p><br /><p>Â âAnd when we asked whether you were suggesting we queue up in La Chaussee individually, you said we should do as we pleased. You said this despite the fact that what you are proposing could be responsible for a serious problem of crowding the area<em>.</em></p><br /><p>Â âAnger is rising about the dangers to the health of people still living in the increasingly friable, therefore increasingly harmful, asbestos housing. Children are exposed to danger. The elderly and the asthmatic are exposed to it. People coming out from surgery, and those living with a handicap. For individual families, it is even more dangerous to undertake the demolition personally. This is very stressful for people. The Housing Ministerâs official written communiquÃ© in 2015 rightly announced a â<em>grand projet dâenvergure</em>â to replace these houses and rightly announced that the Finance Minister had agreed to disburse the money. This was reasonable for a matter of an already then <em>urgent</em> public health problem.</p><br /><p>Â âThree years have passed.</p><br /><p>Â âNow, when we leave individual letters with the Prime Minister, we cannot even get a senior civil servant to be civil enough to serve the very people who have elected the National Assembly, from whose ranks the Prime Minister emanates?</p><br /><p>Â âWe hope you will reconsider our very reasonable request that representatives of the Prime Ministerâs Office receive the letters. And we remind you that everyone will be on âlegal businessâ should we decide collectively to remit our letters individually. And this legal business is even more urgent now than it was three years ago because public health is even more at risk. Our demands in our first letters could not have been more reasonable: that the Prime Minister provide in writing a time-table for the work promised three years ago by his own Government.</p><br /><p>Â âWe will keep copies of each letter, one copy with the signatory and one with LALIT for the Joint Committees, as we did 12 weeks ago with the last round of letters, since the civil service cannot, it seems, give proper acknowledgements of receipt.</p><br /><p>Â âYours faithfully,</p><br /><p>âLindsey Collen and Alain Ah-Vee</p><br /><p>âon behalf of the Joint Committees of CitÃ© Inhabitants and LALIT RegionalsÂ </p><br /><p>âc/o LALIT, 153 Main Road,</p><br /><p>âGRNW,</p><br /><p>âPort Louis. 208 5551.â</p><br /><p>Â What then happened after the peaceful march, when the three representatives each from four Regional Joint Committees took the 365 letters to the PMO, was that a group of Police Officers signed an individual receipt, stamped with the PMOâs stamp. So, there is official receipt of the letters at least. But it is by officers of the police force. In addition, it seems that after Lindsey Collenâs conversation with Mrs Feng Wong-Poorun, the police were informed of the conversation. Constable Binda phoned Lindsey Collen to ask whether the march would be proceeding right up to the Prime Ministerâs doorstep.</p><br /><p>Â So, just as policemen gravitate to âgiving permissionâ for marches (or thinking they do), when they are in fact merely ânotifiedâ about them, so policemen have also begun to act as Registry Clerks at the Prime Ministersâ Office, and be reported to about civil service telephone calls.</p><br /><p>Â These are two signs of a creeping police state. They represent a threat to the little democracy that we have, for generations, fought so hard for.</p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

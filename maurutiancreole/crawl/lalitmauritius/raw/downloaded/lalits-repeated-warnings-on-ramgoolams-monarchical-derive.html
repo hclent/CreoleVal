@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101541" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101541" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101541" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101541" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101541" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101541" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101541" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101541" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101541" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>LALITâs repeated Warnings on Ramgoolamâs Monarchical âDeriveâ</h1><p class="subtitle">11.02.2015</p></h1>
+	<p class="newsarticle">Everyone watches in shock and distress at the spectacle of ex-Prime Minister Navin Ramgoolam on TV, watching helplessly as his suitcases and safes disgorge their contents: hundreds of millions of rupees of dollars and Euros and Rs2,000 notes. He is, after all, someone who only two months ago was Prime Minister, hoping to become a new President with specially added powers, and who is now under arrest, out on bail, humiliated, and the subject of ridicule. Today he is following the well-worn trail the VIPâs under arrest have worn on the floors of the Apollo Bramwell Clinic. No doubt, in the quiet of the private clinic, he will try to come to terms with the disastrous situation he is in. His wife looks even more in distress than she always did, and his mistress skipped the country on 11 December, as the election results were being proclaimed. His friend or ex-friend Rakesh Gouljaury seems to be a State Witness against Ramgoolam in the Roches Noires saga. No charges have yet been laid against him, although his name is mentioned as amongst those in the Conspiracy alongside Ramgoolam and top police officers to lead the Police on to imaginary trails. And all the other Labour Party leaders who used to sing Ramgoolamâs praises will have, very fast, to force him to step down, so that they can try to save the party which is also threatened with further ruin, after its routing on 10 December, 2014. <br /><br />Everyone in the country is asking how such serious abuse of power could have been allowed to continue and to reach such proportions. The simple answer is it has happened with the active collusions of lots of political and no doubt economic forces.<br /><br />LALIT has, meanwhile, done a bit of research to show our clairvoyance in pointing out Ramgoolamâs increasingly monarchical rule from as early as 2008. And while we were repeatedly warning people about the danger of this increasing concentration of power, others were adding to this concentration of power in his hands. We are referring to politicians like Pravind Jugnauth who allied with him in 2010, Paul BÃ©renger who allied with him in 2013-4, Xavier Duval who was with him until just before the elections; and other more surprising people like Ashok Subron and Jack Bizlall with their blinkered baying for âdrwa poz kandida san met kominoteâ and â2yem Repiblikâ, at one time jointly, then respectively, but never looking at the disasterous âbigger pictureâ that they were nevertheless colluding in creating as Ramgoolam would make use of their âsingle issuesâ in his grand design to become all-powerful; Dan Callikan and a whole coterie of Labour yes-men and women laid on praise day after day; what with all those hordes of people coming on TV and praising the vision of their âleaderâ, including MPs like Nita Deerpalsing who pretended to be a youthful left-wing of the Labour Party; the media like Le Matinal and others; all were simply heaping more and more power on to the man, for years and years, even as his reign became more and more absurd, even as the fawners fawned more and more. <br /><br />We thought readers might like a quick review of our stands, starting with more recent ones, moving back until LALITâs clear warnings as early as 2008.<br /><br /><b>LALIT: âMonarchic powersâ</b><br />Before the December elections, in our Program and on our website on 30 October 2014, under the title: âElections X: The Ramgoolam-BÃ©renger 2nd Republic: A Toxic Bundleâ, we described Ramgoolam in one paragraph thus: âBy contrast, Ramgoolam is not really interested in proportional representation [as he claims in order to rally support], except as a bait for drawing BÃ©renger into an alliance, which is what he did do. So, Ramgoolamâs priority has been, and will be, to use electoral reform so as to introduce what he is really after: a brand new semi-Presidential system that will accord him monarchic powers. Already, when he was Prime Minister in 2005, he started acting more like a king than a Prime Minister. He even has mini-ministries inside his own Prime Ministerâs Office: a <i>Culture et LâAvenir</i> cell, and a Diego Garcia cell, impinging directly on the territory of his Culture Minister or Foreign Affairs Minister, respectively.â<br /><i> http://www.lalitmauritius.org/viewnews.php?id=1671</i> <br /><br />The same argumentation about a âtoxic bundleâ was also relied upon by LALIT members in Youtube clips and on our MBC/TV programs.<br /><br /><b> LALIT: âAutocraticâ¦ Presidentializationâ of the PMO</b> <br />Months earlier, we had already said in an article on our website (4 July 2014), under the title âThe Bourgeois State in a Mess about Compulsory Fingerprintingâ that the State Law Office âat the last moment, withdrew Government lawyers representing the Data Protection Commissioner, Ms. Madhub, leaving her stranded. â¦ Initially, the State Law Office did not represent her, then they did, and as of yesterday, they donât anymore.â To help readers understand this, LALIT added: âThis case is one of the absurd and infernal, yet logical, results of the autocratic process of âPresidentializationâ of the Prime Ministerâs Office (PMO) under Navin Ramgoolam. Even without his dreaded âSecond Republicâ that he is cooking up with Opposition Leader Paul BÃ©renger, his grabbing of more and more powers into the PMO itself, is finally producing indomitable conflicts. At the same time, the State Law Office has to defend the Prime Ministerâs Office and the MNIC (Mauritius National Identity Card) which falls under the PMO, and which is putting duress on citizens to give fingerprints for ID cards, while also having to defend the Data Protection Commissioner, who is both âindependentâ and in the PMO, and who has found the compulsory fingerprinting of employees âillegalâ and asked the Police to act against the bosses in two private enterprises.â<br /><i> http://www.lalitmauritius.org/viewnews.php?id=1622</i> <br /><br /><b> LALIT: âLike a monarchâ </b> <br />A month earlier still, on 6 June 2014, on our website, under the title âRepressive Labour-MMM Coalition Orchestrated by the Capitalists Nearsâ, we said that âIn fact, the electoral reform, including the Rezistans serial legal cases and the Bizlall idea of a second republic, is nothing more than a hollow means of enabling this alliance to come true. It is an alliance desired by the bourgeoisie. It is an alliance that corresponds to the political and personal needs of the two leaders. But, it was very difficult to bring it about. They had to find a power-sharing formula. The electoral reform, itself a retrograde hodge-podge, is the means towards this.<br /><br />âAll in all, with Ramgoolam acting like a Monarch and BÃ©renger dictating to his party, the coalition means the threat of a very repressive Government.â<br /><i> Source: http://www.lalitmauritius.org/viewnews.php?id=1603</i> <br /><br /><b> Lindsey Collen: âFormule monarchiqueâ </b> <br />In Week-End 31 March, 2014, commenting on the Ramgoolam White Paper for electoral reform, under the title, âRÃ©forme Ã©lectorale : Totale dÃ©ception de Lalitâ, a leading LALIT member Lindsey Collen warned that,âAu lieu dâun renforcement de la dÃ©mocratie, nous constatons que des mesures dans le document Ramgoolam vont dans le sens contraire, notamment le silence du Consultation Paper au sujet du choix du Pm en remplacement de la formule monarchique en vigueur.â<br /><i> http://www.lemauricien.com/article/reforme-electorale-totale-deception-lalit</i> <br /><br /><b> Ram Seegobin: âStyle monarchiqueâ </b> <br />One week earlier, another leading LALIT member Ram Seegobin said something similar in Week-End, in the interview titled: âLes jeux politiques ne sont pas encore faitsâ, said âNavin Ramgoolam a dÃ©veloppÃ© un style monarchique.â We would like to quote in extenso:<br />Q: Sommes-nous, avec les Ã©changes de phrases entre le prÃ©sident de la RÃ©publique et les membres du gouvernement, en train dâassister Ã  une crise constitutionnelle, comme lâaffirment certains observateurs?<br /><i> R: Ce nâest ni une crise constitutionnelle ou institutionnelle mais un crise politique qui dure depuis un certain temps. Souvenez-vous: au lendemain des Ã©lections de 2010, je vous avais dÃ©clarÃ© que les rÃ©sultats portaient en eux les germes dâune crise politique, dâune instabilitÃ© permanente, et jâavais ajoutÃ© que le gouvernement ne pouvait durer. Vous mâaviez regardÃ© dâun drÃ´le dâairâ¦</i> <br />Q: Câest vrai. Je me disais quâil Ã©tait un peu tÃ´t, au lendemain des Ã©lections, de parler de cassure du gouvernement. Quâest-ce qui vous avait poussÃ© Ã  tenir ces propos de voyant?<br /><i> R: Le problÃ¨me repose sur le rÃ´le que Navin Ramgoolam se donne et celui quâil donne Ã  ses partenaires. Navin Ramgoolam a dÃ©veloppÃ© un style monarchique qui convient Ã  ses ministres, qui ne peuvent ouvrir la bouche sans le fÃ©liciter de son talent, de son gÃ©nie, des dÃ©cisions quâil prend. Mais ce style monarchique ne convient pas Ã  ses alliÃ©s. Surtout que le dernier, le MSM, avait comme leader un candidat au poste de Premier ministre en la personne de Pravind Jugnauth. A un certain moment, il Ã©tait Ã©vident que le candidat allait vouloir dÃ©trÃ´ner le monarque pour prendre sa place. Donc, lâalliance Ã©tait condamnÃ©e dâavance.<br /><br />http://www.lemauricien.com/article/ram-seegobin-les-jeux-politiques-ne-sont-pas-encore-faits</i> <br /> <br /><b> LALIT leaflet: âRamgoolam took the Diego Garcia dossier out of the hands of his Foreign Ministerâ </b> <br />A whole year earlier, 31th July 2013, LALIT was already distributing leaflets against this accumulation of power in the hands of Ramgoolam. Translated from the Mauritian Kreol leaflet for an article on our website, the leaflet reads, âThe Ramgoolam Government has criminally neglected the Diego Garcia issue, and this since Independence. Navin Ramgoolam took the dossier out of the hands of his Foreign Minister Arvind Boolell, and set up a Unit in the Prime Ministerâs Office to look after the issue. He announced that he has a âsecretâ strategy. Today it is high time he made public this secret strategy. In any case, there is no place for secret strategies in diplomacy against imperialist powers. <br /><i>  http://www.lalitmauritius.org/viewnews.php?id=1514</i> <br /><br /><b> Lindsey Collen: âEnn espes monarkâ </b> <br />In our Magazine, Revi Lalit No. 108, March-April 2013, and also published on our website an article to look underneath the level of political details in order to understand the crisis, Lindsey Collen described how so small a minority of capitalist could rule: The capitalist class âkontiyn domine osi, mem li zis 1% dimunn, parski li finn konvenk ase buku dimunn lor valer enn form demokrasi byen limite ki nu apel âdemokrasi burzwaâ (setadir enn sistem demokratik moyon kot nu elir enn espes monark, enn Premye Minis ubyen pli pir enn Prezidan, enn fwa 5 an, e nu deleg nu puvwar ar li, e lerla li, li reyne dan lintere global burzwazi ki finans li e kontrol li). E dan sa sistem âdemokrasi burzwaâ la, klas kapitalis reysi res opuvwar atraver enn form lorganizasyon politik: Parti Travayist ki finn asir sa reyn la, me pa tu-sel, atraver enn zafer apel enn Blok Istorik (ki vedir enn parti politik, plis lezot klas, tu aglomere ansam atraver enn-de pwen inifikater).â<br /><i> http://www.lalitmauritius.org/resources/documents/208-Magazine_revi_lalit_number_108_(creole_version).pdf</i> <br /> <br /><b> LALIT: âAbject flattery of the âmonarchââ </b> <br />Earlier the same year, in LALITâs overview of 2012 (3 January 2013), LALIT warned that <br />âThe economic crisis provoked the PT to pass the draconian Employment Rights and Employment Relations laws facilitating lay-offs that, in turn, add more disorder to working class lives. <br /><br />âThe crisis in the economy has also produced a new political reality, which no social class, not even the bourgeoisie, can control: generalized abject flattery of the âmonarchâ, Navin Ramgoolam. Men and women fawn to him in public. This bizarre feudal ritual is then broadcast over the MBC TV. Ministers, trade unionists, political agents, women, all bow down, cow-towing. All thatâs missing is for a tailor to sew an invisible suit for the emperor. <br /><br />âIt has also been the year of totally unprincipled vacillation between weeks of âkoz-kozeâ by Paul BÃ©renger and Navin Ramgoolam and weeks of setting up a MMM-MSM Re-Make.â<br /><i> http://www.lalitmauritius.org/viewnews.php?id=1475</i> <br /><br /><b> LALIT uses humour to expose Ramgoolamâs Monarchist Reign</b> <br />In LALLITâs Magazine, Number 107 Nov-Dec 2012, the two fictional clownish commentators, Jabaljas & Bulbak, say: <br /><br /><b> Jabaljas: </b>  âBann Britanik zot exper lor zafer monarsi. <br /><b> Bulbak: </b>  Tole dir kapav et li finn al zwenn Larenn Elizabeth, pu gayn enn-de tiyo lor rol monark. <br /><b> Jabaljas: </b>  Aret fer to futan, Bulbak. De tut fason, mem si Ramgoolam suvan pa dan peyi isi, so vizyon pu Moris kontinye parey. To pa finn tann tu bann Minis dir ki tu devlopman ki fer, se gras a vizyon nu Premye Minis Navinchandra Ramgoolam. <br /><b> Bulbak: </b>  To ule dir ki li deza kuma enn Sef Deta, plito ki enn sinp Sef Guvernman ki finn eli zis dan Triolet. Si kumsa, kifer li tultan pe dir ki li bizin vinn Prezidan ek tu puvwar? <br /><b> abaljas: </b> Abe li bizin sa tit Sef Deta? Get dan foto ki finn tire dan Some Frankofoni, zot finn met li dibut dan bann ranze deryer net. Get tu sa zefor li finn bizin fer pu reysi tus lamans palto Prezidan Francois Mitterand. <br /><b> Bulbak: </b>  OK, Jabaljas, me sa pa explike kifer Ramgoolam pe bizin al koz-koze ek avoka dan Lond tule semenn. Sirman ena zafer ki twa ek mwa, nu pa o-kuran.An pasan, Jabaljas, sa ti Prezidan Hollande, enn lot Francois<br /> <i> http://www.lalitmauritius.org/resources/documents/207-Magazine_revi_lalit_number_107_(creole_version).pdf</i> <br /><br /><b> Ramgoolam servi isyu Best Loser âpu proklam limem kuma enn monarkâ </b> <br />In LALIT magazine, Number 107 Nov-Dec 2012, under the title: âDanze Nuvo Konstitisyon ek 2yem Repiblik a-la-Ramgoolam, LALIT writes that Ramgoolam âkont BLS me ena fwa li kont zis klasifikasyon kandida. Li servi sa isyu la pu proklam limem kuma enn monark. Par examp, kan Privy Council statye ki Rezistans bizin pey kost, ranburs depans ki Leta finn fer pu so defans divan Komite Drwa Imin, Ramgoolam personelman dir li pa pu klem sa depans ki Leta Moris finn fer. Seki Lerwa Ramgoolam dir, samem â PTr pena pozisyon lor BLS, Guvernman plis na pena enn pozisyon, Leta ankor plis pena enn. Li tutafe normal ki Leta burzwa ena pu defann so Ofisye Elektoral, ena pu defann Konstitisyon, ena pu respekte zizman Fulbench ek Privy Council. Amwins ki nu dan enn repiblik fuka a-la Alice-o-pei-de-mervey. Asterla Subron pe dimann Ramgoolam pu vinn delavan dan Lakur e pu promet reform elektoral, kumadir âLeta se Navinâ. Me li zis PM. Zordi la, dime li pa eli, li pa pu la. Parlman ki amand lalwa. E Ramgoolam deza ena tro buku puvwar.â<br /><br /><b> Editorial in LALIT Magazine: âLi reysi ranforsi li, mem kan li pe rod vinn enn âmonarkââ </b> <br />LALITâs Magazine Number 106 Sep-Oct 2012 says how as the smell of the end of a reign fills our noses, Ramgoolam still manages to benefit from political support. âLi reysi ranforsi li, mem kan li pe rod vinn enn âmonarkâ, mem kan li kareman konfese ki li anvi vinn Prezidan avek buku puvwar. Mem kan travayer lindistri sikriyer pe menas lagrev kont tablisman, tu evennman mars dan enn sel direksyon ki paret âinevitabâ, depi premye zur konfli, pu ki Navin Ramgoolam sorti âgaynanâ â avek enn ti kudme Nita Deerpalsing, Shakeel Mohamed, Patrick Assirvaden, ek enn-de sindikalist. Parey kuma apre mem konfli an 2010. Setadir, samem Parti Travayist ki finn vot bann lalwa ki pe oprim laburer ek artizan zordi, samem Parti Travayist ki finn donn patron Tablisman sa bann milyar rupi kapital ki Lerop finn verse kuma konpansasyon, li sorti âgaynanâ apre enn konfrontasyon travayer kont patron.â<br /><i> http://www.lalitmauritius.org/resources/documents/196-Magazine_revi_lalit_number_106_(creole_version).pdf</i> <br />    <br /><b> Alain Ah-Vee: kuma enn monark, enn stil ala prezidansyel</b>  <br />A leading LALIT member Alain Ah-Vee, on 6 Feb 2012, in an article in both the LALIT Magazine Number 103 and on our site written in Kreol entitled âTrajectories of parties in the National Assemblyâ wrote that the Labour Party today: âena kom lider Navin Ramgoolam, ki ena enn fason byin partikilye diriz so parti, enn fason byen partikilye azir kuma Premye Minis. Li tultan pe viz ena plis puvwar dan desizyon, inpe kuma enn monark, enn stil ala prezidansyel, avek so bann diskur, so bindeful ar so lafil madam ki vinn anbras li 2 kote lazu. Dan rapor lor Reform Elektoral ki Ramgoolam finn komandite (Carcasonne) e kot li personelman finn donn brief, nu finn truve kuma Premye Minis pu ena puvwar, par exanp, pu nom enn serten nomb minis. Navin Ramgoolam pe fer Premye Minis vinn enn lot zafer net â li koz zis pu li, lor so prop nom; suvan pena Kabine Minis nanye ladan. Li tusel ki deside, par exanp, ki Leta pa pu reklam âcostsâ ar Blok 104 apre ki zot finn perdi zot ka Privy Council, e li tusel ki finn anonse ki li pa an-faver deklarasyon kominote â pa so parti, pa so Kabine, nanyen. Parey pu introdiksyon langaz Kreol dan lekol, li zis koz-koze ek enn-de dimunn, kuma Dev sipa Legallant, ki li dir finn konvink li, e lerla ep! li deside pu introdwir langaz Kreol!â <br /><i> http://www.lalitmauritius.org/viewnews.php?id=1350</i> <br /> <br /><b> Rajni Lallah: Kan Sindika âazut dan sa prosesis kree enn âmonarkâ â Ramgoolam</b> <br />In a web article, based on a Discussion Paper, Rajni Lallah, a leading LALIT member, as early as January, 2012 under the title, âThe Political Situation in Mauritius, 2011 and early 2012â, described how Ramgoolam was busy renewing the Historic Bloc that Labour had always built, in particular around sugar cane, but also more broadly by bringing in sections of the working class. <br />We quote in extenso from an article which, in turn, elucidates Ramgoolamâs manoeuvering as early as 2007, and which builds up the argument on how Ramgoolam has acted to become more and more of a monarch. âAnmemtan, finn ena rekonpozisyon sa seksyon muvman sindikal ki so rol ti pu ris travayer dan blok istorik. Tradisyonelman, <i>  Plantation Workers Union</i>  (PWU), <i>  Artisan and General Workers Union</i>   (AGWU) dan <i>  Mauritius Labour Congress </i>   (MLC) ki ti asim sa rol-la. Depi 2007, nu finn truv siyn ki ena enn nuvo seksyon muvman sindikal ki pe kumans asim sa mem rol la. An 2007, <i>  Union of Artisans of the Sugar Industry</i>   (UASI) ek <i>  General Workers Federation</i>  , (GWF) ti, par exanp, felisit Nita Deerpalsing, enn bann responsab selil âdemokratizasyon lekonomiâ dan PT pu so travay andefans drwa travayer kan guvernman ti pe amand <i>  Sugar Industry Efficiency Act, </i>   (SIEA). An 2010, Ashok Subron, negosyater <i>  Joint Negotiating Panel </i>   (JNP) sindika lindistri sikriyer ti pe vante ki Navin Ramgoolam finn sonn li lor so portab pu negosyasyon ki finn abuti dan âlakor istorikâ ki finn fer travayer lindistri sikriyer gayn 20% ogmantasyon lapey. Navin Ramgoolam finn intervenir politikman pu ki gayn sa âlakor istorikâla. Lerla le dan LâExpress 6 Ut 2010 u lir ki A. Subron pe dir, âJe tiens a rassurer la MSPA que les syndicats sont en faveur dâactivites productives pour le pays a travers la canneâ¦.â. Setadir, li fer serman an piblik ki li dan sa nuvo blok istorik, ki pa otur disik sann kut la, me otur kann. Ariv 2011, Ashok Subron sann kut la, alinteryer sa blok istorik la vinn a-la-reskus Minis Travay Shakeel Mohamed, akiz patrona lindistri sikriyer ki zot pe kas lakor-la âlor ledo Minister Travayâ. Ashok Subron, atraver UASI, GWF ek JNP paret pe asim mem rol dan blok istorik ki PWU, AGWU ek MLC ti ena tradisyonelman.<br /><br />âMem andeor lindistri sikriyer osi, an 2011, nu finn truve kimanyer Ashok Subron ek GWF finn azir dan muvman travayer Infinity ki finn permet Minis PT Shakeel Mohamed rant andan dan lagrev lafin travayer Infinity pu vizit grevis. Ti mem ariv ziska enn sityasyon ridikil kot Ashok Subron ek Serge Jauffret res lor latab negosyasyon avek Shakeel Mohamed kan Jocelyne Minerve ki ti dan mem negosyasyon pe fer workawt.<br /><br />âOnivo politik dan ka legal Rezistans ek Alternativ ek Blok 104 dan Privy Council, se pa avoka Leta ki anonse si pa pu reklam costs u non, se â¦ Navin Ramgoolam anpersonn. Sa li enn muv klerman politik. E li azut dan sa prosesis kree enn âmonarkâ depi enn Premye Minis ki Navin Ramgoolam pe fer. Ashok Subron so reaksyon a sa, se ki li enn desizyon âlozikâ. Purtan zame Guvernman, ni mem Parti Travayis, finn anons so pozisyon lor konteni zot ka. Zis monark ki finn fer sa.â<br /><i>  http://www.lalitmauritius.org/viewnews.php?id=1340</i>  <br /><br /><b>  Rada Kistnasamy: âNegosyater [sindika] ranforsi Ramgoolam dan so rol enn monarkâ </b>  <br />Yet another leading LALIT member, Rada Kistnasamy, wrote on our website, under the title âEconomic Crisis and the Trade Union Responseâ also elucidating Ramgoolamâs work in controlling the working class through trade unionists always appealing to him, and constructing him as a monarch-to-be. Rada wrote: âLalwa travay ERiA ek EReA, de lalwa ki viz pu rann lisansiman fasil ek revandikasyon travayer pli difisil. Me, ERiA ek EReA finn vinn osi rekonet fonksyon ânegosyaterâ dan lorganizasyon sindikal. Sa al dan bi burzwazi ek Guvernman pu diyl avek enn-de negosyater ubyin guru dan muvman sindikal, olye adres zot a bann manb eli sindikal. Dan enn lepok relativman demobilize, guvernman ek patron prefer gayn enn âpermananâ (kuma dir li an Franse), setadir ki pa enn ladireksyon ki ranplase sak Lasanble Anyel. Etandone negosyater travay e pran kontrol sindika â kot enn sel dimunn konn tu â zot pa ranplasab a kurterm. Pena presyon lor zot pu reponn a manb sindika, alor zot, negosyater setadir, kapav siyn tu kalite lakor, mem seki anfaver patron. Ena osi negosyater ki azir politikman pu ranforsi Navin Ramgoolam dan so rol enn monark ki li pe aspir devini. Nu rekonet fasilman ki ena negosyater ki fer apel suvan suvan a Navin Ramgoolam pu li intervenir dan relasyon indistriyel enn sekter.â<br /><br />He said revolutionary socialists have an obligation to âdenons bann birokrat sindikal ki travay dapre azanda burzwazi ek azanda Navin Ramgoolam dan so rol enn apranti monark.â <i>  http://www.lalitmauritius.org/viewnews.php?id=1344</i>  <br /><br /><b>  Rajni Lallah: Enn âprosesis kree enn âmonarkâ depi enn Premye Minisâ </b>  <br />In LALITâs Magazine, No 103 of March 2012 and also published on our website, at the end of 2011 beginning of 2012:âOnivo politik dan ka legal Rezistans ek Alternativ ek Blok 104 dan Privy Council, se pa avoka Leta ki anonse si pa Leta pu reklam costs ubyen non, se â¦ Navin Ramgoolam anpersonn. Ondire Leta se li. Me, sa vedir li enn muv klerman politik, ankor enn fwa dan kad sa nuvo âblok istorikâ an formasyon. E muv la azut dan sa prosesis kree enn âmonarkâ depi enn Premye Minis, enn prosesis ki Navin Ramgoolam pe met an-aksyon. Ashok Subron so reaksyon a sa, se ki li enn desizyon âlozikâ. Purtan zame Guvernman, ni mem Parti Travayis, finn anons so pozisyon lor konteni zot ka. Zis monark la ki finn fer sa. E, kan Ramgoolam pu vinn tir best loser system, li pu dan kad rod enn 2yem Repiblik kot li pli monark ankor, e se Ashok Subron ki finn prepar terin, e malerezman dan enn fason ki ti telman an konfizyon ki li finn permet kominalizasyon isyu la.â<br /><i>  Surs: Revi LALIT, Enn Piblikasyon Lagazet Lalit deklas No.103 Mars 2012. http://www.lalitmauritius.org/resources/documents/193-Magazine_revi_lalit_number_103_(creole_version).pdf</i>  <br /><br /><b>  Ram Seegobin on Ramgoolam: âAs though he is the infallible emperorâ </b>  <br />On 17 January 2011, Ram Seegobin wrote on the LALIT website, under the title âPolitical Situation this fortnightâ, that âThe âLabour Party Stateâ is settling in again, after a change in the particular nature of the State with the MSM now sharing power somewhat precariously with Labour. Increasingly everyone mainstream in the country from bosses to unionists, politicians to businessmen, mouths support for the Prime Minister and his âvisionâ as an introduction to everything they say on any subject, as though he is the infallible emperor.â This shows that the process of making a monarch is, throughout, not just from Ramgoolamâs side, but from an entire float of people and institutions that collude.<br /><i>  http://www.lalitmauritius.org/viewnews.php?id=1153</i>  <br /><br /><b>  Ram Seegobin: âPremye Minis pe vinn plis kuma enn monarkâ </b>  <br />As early as 9 Avril 2008, Ram Seegobin warned that the Labour Government was making the country into a âkingdomâ and running it like a Monarch.  In an article, entitled âFas a kriz sistemik, Guvernman kimanyer pe azir, ki kalite lopozisyon pe leve?â, he wrote: âSu presyon sa kriz la, Premye Minis pe vinn plis kuma enn monark. Li rul pei parey kuma enn lerwa rul so rwayom. So Minis ek Depite, kuma senyer feodal, pa kapav koze san ki zot bizin rann omaz a sazes zot lider Navinchandra Ramgoolam, sanki zot zir obeysans a li. Vizit Premye Minis a Bihar resaman ti enpe enn sinbol so reyn rwayal, kan li pe get vilaz so anset. Antretan, so Minis Finans Sithanen li kontinye so politik âbes latet, fonseâ ver katastrof neo-liberal. Li pe aplik mem mem politik ki Paul Berenger ti aplike kan li ti Premye Minis fek-la. Sithanen kontiyn ankuraz burzwazi dan so 4 klester otur mulen, biznes bayant later ek nasyonalite Morisyen, so ofshor, so turism frazil.E antretan travay kontiyne vinn pli preker. Sa tigit anplwa ki kree, li pa neserman pu dimunn ki bizin li. Li bon ena travay dan Saybersiti, me li pa ed 40,000 laburer kann ki finn e pe kontiyne lisansye, li pa ed 10,000 artizan, ni li pa ed 50,000 travayer lizinn textil ki finn e pe kontiyn met deor. Sa stratezi ti-antrepener ki Guvernman pe kontiyne, li plito amenn dimunn ver larwinn dan det. Anmemtan, pri prodwi de baz kontiyne monte, peniri alimanter pe kumans santi. E Guvernman azir, asontur, par vinn pli monarsik ankor?â<br /><i>  Surs: http://www.lalitmauritius.org/viewnews.php?id=722</i>  <br /><br />All the articles that we have quoted from are worth reading, or re-reading, as a whole. We have quoted just these few short extracts to prove how consistent over 7 years our warnings have been on the dangers of Ramgoolamâs drift into dictatorship. And we have consistently worked against his<i>   âderiveâ </i>  while all the other forces - political, economic and even trade union - that you can think of have colluded with building up this monstrous reign.<br /><br />And today we see the Labour Party rule in tatters. We must take all the lessons we can from this recent decade of history, so as to ensure that this does not happen again.<br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

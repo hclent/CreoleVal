@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612135617" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612135617" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612135617" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612135617" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612135617" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612135617" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612135617" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612135617" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612135617" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Konferans de Pres <I>Lalit</I>, Mardi 5 Oktob 2004, Gran Rivyer</h1><p class="subtitle">06.10.2004</p></h1>
+	<p class="newsarticle">Mamb <I>Lalit</I> prezan: Rada Kistnasamy, Rajni Lallah, Ally Hossenbokus, Ram Seegobin, Cindy ClÃ©lie, AndrÃ© Pierre, Alain Ah Vee, Jerry Cadine.<br><br>Lapres prezan: Le Matinal, LâExpress, Le Mauricien, Le Defi Plus.<br><br>Ally Hossenbokus (ki ti prezide)<br><br>Li ti sitye konferans de pres la dan kontex zordi. Li ti dir ki guvernman pe pran bann mezir inpopiler kuma ogmantasyon pri diri rasyon, tiket bis e lesans. Apre enn seri latak kont travayer, dimunn mizer aster guvernman MSM MMM pe atak pansyoner. Zot pe rod fer pansyon vinn kuma enn sarite. Alor ena atak kont nu drwa e liberte.<br>Li osi enn moman kot li posib pu ena 2 eleksyon: enn parsyel ek eleksyon zeneral an Ut/Septam/Oktob kuma guvernman finn anonse. Li paret ki P. Berenger pe gard tu opsyon uver pu li kapav fer eleksyon dan enn lepok kot li panse favorab pu li. Bann atak ki pe ena kont radyo lib li lye ar lefet ki eleksyon pe koste. Anmemtan nu pe truv guvernman ankuraz lamonte kominalism, kan ena problem sosyal grav. Li dan samem lepok ki nu pe truv plis represyon par lapolis. Ena 2 kamarad <I>Lalit</I> R. Seegobin e L.Collen ki viktim sa kalite represyon la.<br><br>Rajni Lallah: Prezantasyon Program <I>Lalit</I> lor Laliberte.<br><br>Nu program swiv enn seri lezot program lor diferan size. Nu finn swazir sa tem laliberte parski li enn size santral dan listwar limanite. Me osi parski li santral dan deba zordi. Li santral dan deba lor liberte lor sayt travay. Dan deba lor bann antrav ki atak nu liberte. Sirtu dan deba lor liberte medya ki su menas zordi atraver mezir ki Guvernman pe pran kont radyo prive.<br>Program lor Laliberte li 5yem program ki <I>Lalit</I> pe pibliye. Ladan ena enn inovasyon: li an Kreol e ena enn versyon Angle osi. Li ena 22 paz. <br>Lor so konteni, ena enn seksyon lor laliberte dipwindevi <I>Lalit</I>.  Nu finn sirtu formil bann demand ki pu amenn plis liberte e la nu pe koz liberte dexpresyon, liberte dan travay, liberte fas a represyon, liberte sosyal, ekonomik e politik, liberte e lespas piblik, liberte depi lager e lokipasyon. E kimanyer liberte depann lor agrandisman demokrasi.<br>Alafin liv la nu finn inklir enn seksyon avek referans a dokiman <I>Lalit</I> ki resan e ansyin.<br>Nu program pa finn ekrir par enn dimunn. Li finn fer dan enn prosesis demokratik kot tu Brans finn diskit sa tem la, fer propozisyon, fer sanzman. Dan sa prosesis la ki program la finn ne. Sa li enn diferans ant nu ek lezot parti.<br>Nu Program pibliye an 300 400 kopi.<br><br>Cindy Clelie: Ka lapolis kont Lindsey Collen ek Ram Seegobin<br><br>Lapolis finn met enn ka kont L.Collen ek R.Seegobin swit a kanpayn ki âPlatform Pa Bushâ ti lanse an Desam 2002. Sa li reprezant en form represyon kont militan <I>Lalit</I>. Tusala pe arive dan enn kontex kot pe ena kriz ekonomik e politik. Dan enn moman kot guvernman pe donn fe ver pu konstriksyon sovaz nuvo lotel, kot lindistri sikriyer menase, kot pe ena lisansiman dan Zonn Frans li pa enn kwinsidans ki ena sa kalite represyon la. Guvernman pe fer tu pu inpoz so politik ekonomik. Nu finn truv resaman kimanyer lapolis finn servi represyon kont Jane Ragoo ek Reaz Chuttoo. Finn ena ka persekisyon lapolis kont travayer CNT. Alor ka kont Lindsey e Ram li pa izole.<br>Lapolis pe dir li pe purswiv L.Collen ek R.Seegobin pu âmolesting policeâ. Sa ka la finn arive an marz renyon preparasyon Peopleâs Forum ki ti ena 19 Desam 2002 pu proteste kont politik Bush. Sa zur la dan Centre M. Reine de la Paix, ki enn plas prive, reprezantan depi 22 lorganizasyon sosyal, sindikal, fam e politik ti pe zwenn. Trwa lapolis an iniform finn rant dan lakur. Kan R.Seegobin ek L.Collen finn obzekte a zot prezans, zot finn refiz kit sa plas la e zot pa ti mem ule donn zot nom. Se lerla ki enn lapolis finn dir ki *dimunn kuma zot bizin tuye*. Se swit a sa insidan la ki lapolis finn met fos sarz kont sa 2 militan  <I>Lalit</I> la.<br>Represyon kont Platform Pa Bush ti deza kumanse avan,. Komiser Lapolis ti interdi manif ki sa Platform la ti pe organize. Platform Pa Bush ti amenn Komiser divan lakur Siprem e ti gayn enn viktwar. Dan sa mem siyaz la lapolis ti aret 3 militan <I>Lalit</I> e detenir zot stasyon Rose Belle akoz zot ti pe kol lafis Platform. Kan nuvel lor sa represyon la ti fane lor radyo, zot ti larg tule 3 militan dezertan apre.<br>Sa ka Kafkaesk kont Lindsey ek Ram ti kumanse 16 mwa apre kan R.Seegobin gayn vizit lapolis kot so lakaz. Zot ti dimann li siyn enn but papye pu prezant lakur. Pa ti ena ni dat ni plas lor sa paye la. Pa mansyone su ki sarz lapolis pe purswiv li nannye. Se selman kan R.Seegobin prezante lakur ki li aprann ki li finn âinsilte lapolisâ. Seki pli Kafkaesk ankor se kan L.Collen ti lakur an solidarite avek R.Seegobin lerla li tann wisye apel so nom e li aprann ki ena purswit kont li usi. Li drol ki se atraver enn lartik dan News on Sunday ki Ram ek Lindsey aprann ki zot ka tinn deza pran dan lakur an Zanvye 2004 san mem ki zot kone!<br><br><I>Lalit</I> finn lans enn kanpayn lafis ansiyn solidarite a Lindsey ek Ram. Nu finn osi sirkil enn let a tu le 22 lorganizasyon ki ti dan Platform Pa Bush e a lezot individi..<br>Li pa premye fwa ki militan <I>Lalit</I> gayn ka lapolis. An 1981 Ragini Kistnasamy ek Lindsey Collen ti purswiv su POA apre ki zot ti partisip dan enn manif kont baz Diego. Lapolis ti perdi zot ka e tulede militan <I>Lalit</I> ti akite.<br>  <br>Ram Seegobin: Komanter lor bann demisyon dan <I>Lalit</I><br><br>Piblik an zeneral pa telman interese ek bann detay intern kan ena enn konfli kuma finn ena dan <I>Lalit</I> resaman. Piblik buku plis interese lor eski pe met an kestyon program ki <I>Lalit</I> defann. Piblik plis interese avek eski <I>Lalit</I>, antan ki enn lorganizasyon, ena tuzur lemwayin pu defann program ki tultan linn defann. Me etan done ki versyon bann demisyoner finn gayn enn kuvertir an long ek an larz onivo medya, dan <I>Lalit</I> nu santi ki nu bizin retablir sertin fe. <br><br>Le 13 Ziyet sa lane la, preske 3 mwa desela, Ashok Subron finn demisyone depi <I>Lalit</I>, ek apre li, enn duzenn lezot ki finn swiv. Nu ti pu kontan kumanse par get inpe natir sa bann demisyon la. <br><br>Premyerman bizin fer resortir ki bann demisyon la pa ti an blok. Premye demisyon ti le 13 Ziyet, dernye demisyon ti le 15 Septam, plis ki 2 mwa apre. Nu dir sa parski linpresyon ki bann demisyoner pe kree aster la seki li ti enn demisyon an blok. Sa li absoliman pa vre. <br><br>Sa duzenn dimunn la finn demisyone swa verbalman dan brans kot zot ti ete, swa ena enn sertin nomb ki finn avoy let. Bann rezon ki zot finn done pu zot demisyon, li byin byin divers. Li varye. Me seki zot tu pe dir, se ki zot ankor dakor ek program <I>Lalit</I> e ki ena lamwatye parmi bann demisyoner ki finn dir ki zot ule kontinye milite onivo bann brans <I>Lalit</I>. <br><br>Anu gete, byin brievman, eski bann aktivite parti <I>Lalit</I> finn afekte par sa bann demisyon la. Si nu get dan dernye 3 mwa depi ki finn ena bann demisyon, tu nu bann brans, rezyonal pe fonksyone absoliman normalman. Dan Curepipe, par ekzanp, kot ti ena plis demisyoner depi brans ek rezyonal Curepipe/Lesid, travay finn repran byin, aster ena 3 brans dan Curepipe ki pe fonksyone ek ena enn nuvo brans dan Rose Belle. <br><br>Onivo Komite Santral, sa 3 dimunn ki finn demisyone finn ranplase par lezot manb. <br><br>Onivo bann komisyon, ki li komisyon sindikal, komisyon fam, travay pe kontinye kom dabitid. <br><br>Ena enn nuvo komisyon ki pe zwenn pu reget nu travay vizavi bann zenn. <br><br>Nu truv osi dan dernye 3 mwa, travay ki <I>Lalit</I> fer dan kanpayn onivo Diego pe kontinye. Nu pe kontinye nu aktivite dan bann lorganizasyon internasyonal kont bann baz militer. <br><br>Dan dernye 3 mwa, ena 2 militan <I>Lalit</I>, Alain AhVee ek Ragini Kistnasamy ki finn al Palestinn pu partisip dan bann aktivite bann lorganizasyon solidarite internasyonal, bann aksyon pu proteste kont lokipasyon militer Palestinn par Leta Israel, pu proteste kont sa miray laont ki pe batir. <br><br>Bann militan <I>Lalit</I> finn partisip dan plizyer deba dan radyo, ki li dan deba politik otur demisyon Chady, otur eleksyon parsyel, zeneral, uswa lor lozman. Onivo lalit sindikal, militan <I>Lalit</I> finn intervenir ek donn pozisyon <I>Lalit</I> dan gran rasanbleman sindikal otur tem kuma Mauritius Revenue Authority ek pansyon. Ena plizyer militan <I>Lalit</I> ki pe donn kudme bann travayer Ferney ki finn met enn ka dan TAP. <br><br>Le 15 Septam, ena 20 militan <I>Lalit</I> ki finn distribiye enn trak. Nu abitye distribiye nu trak 6er gramatin dan bann lagar, e lerla atraver bann brans, nu bann militan abitye distribye trak dan zot landrwa, ek lor sayt travay. <br><br>E lerla kuma Rajni finn dir, nu finn fek travers sa prosesis pu prodwir sa 5yem Program lor Laliberte.<br><br>Alor kuma zot truve dan dernye 3 mwa, nu aktivite finn kontinye normalman. Evidaman, ena sertin dimunn ki nepli la, me li pa finn afekte nu travay. <br><br>Nu get enn ku bann rezon ki finn done pu sa bann demisyon la. Dan kumansman, sertin demisyoner finn dir zot pe demisyone lakoz ena seki zot apel <I>arselman</I> ek <I>viktimizasyon</I>. <I>Arselman</I>la ki li ete? Se kan dan enn konversasyon prive, enn militan <I>Lalit</I> finn dimann enn lot militan <I>Lalit</I> explik kifer linn vot tel ubyin tel fason dan Lasanble. An de lokazyon sa finn arive. Se sa seki zot pe apel <I>arselman</I>. <I>Viktimizasyon</I>, se kan Komite Santral finn apel enn militan, Ian Jacob pu li vinn reponn enn mosyon de blam pu enn santaz inakseptab ki li tinn fer zis avan Lasanble. <br><br>Apre inpe letan bann demisyoner finn realize ki sa kalite rezon pu demisyon la li inpe leze. Sirtu kan anmemtan, sertin ladan pe dir ki zot ena 20 an, 22 an dan <I>Lalit</I>, ki zot ankor dakor ek program <I>Lalit</I>, e lerla zot demisyone lor sa kalite rezon la. Alor zot finn rabat inpe, sirtu dan konferans de pres ki zot ti fer Zedi dernye, lor manyer ki parti finn dil ar problem dan Grup Zenn. Zot finn koz buku lor lotonomi Grup Zenn. Zot finn koz lor sanse pe rod tuf lavwa bann zenn dan <I>Lalit</I>. Me li bon lapres kone ki dan Grup Zenn sa lane la, anfet ti ena zis 5 dimunn. Apar Roody Muneean ki li, li pa enn ful manb li aktif zis onivo brans, tu bann lezot zenn ki ti dan Grup Zenn ti pe syeze lor Komite Santral lane deryer. E lerla sa vedir ki otomatikman, zot fer enn tur onivo biro politik. Parski nu ena enn biro politik an rotasyon. <br><br>Alor tu sa bann dimunn ki zordi pe dir sanse finn atak zot drwa a laparol, sanse finn atak zot kapasite pu exprim zot mem, se bann dimunn ki ti dan bann instans dirizant <I>Lalit</I>. <br><br>Li osi bon fer resorti ki kan 4 an desela, ti met dibut <I>Grup Zenn Lalit</I>, nu tinn deside ki li ti bizin enn sertin degre lotonomi parski li ti reyni enn 20enn bann zenn. Enn parti ladan  ti manb <I>Lalit</I>. Me ti ena enn parti, kitfwa enn mazorite, ki pa ti manb <I>Lalit</I>. Zot ti sirtu bann zenn ki ti interese avek <I>Lalit</I> ki nu pe amene lor kestyon lekolozi, ubyin anti lager, ubyin kont globalizasyon. <br><br>Alor kan grup la ti konstitiye kumsa, li ti evidan ki li ti bizin enn sertin degre lotonomi. Me gradyelman finn ena buku defeksyon e finalman sa lane la, tinn res zis 5 dimunn dan <I>Grup Zenn Lalit</I>. E sa 5 la, zot tu ti ful manb parti, apart Roody Muneean ki li, ti aktif onivo brans. Lane dernyer, zot tu ti pe syeze onivo Komite Santral ek Biro Politik.<br><br>Alor eski nu kapav imazinn 4 a 5 dimunn dan Komite Santral ki lerla dan enn lot linstans ki lerla klem enn sertin degre lotonomi par rapor a Komite Santral? Non. Li vinn enn faksyon lerla. Ek li vinn byin difisil pu zere. <br><br>Kifer dapre nu membership grup zenn finn efrite? Apre ki nu finn ariv aprann ki ena bann konplikasyon relasyonel ant bann manb grup zenn, li ti vinn evidan ki li inposib pu permet bann nuvo zenn integre dan enn linstans kot ena sa kalite konplikasyon relasyonel la. Alor depi Mars sa lane la, nu finn fer buku zefor pu met lor azanda e biro politik, e Komite Santral, enn item pu reget fonksyonnman grup zenn ek sey met enn lord dan tusala. <br><br>Me sistematikman Ashok Subron finn blok tu sa bann zefor la par mintenir ki pena okenn problem. Afors persiste, finalman le 17 Avril, onivo Komite Santral, mo finn reysi propoz ki ena enn rankont ant enn delegasyon 3 manb Komite Santral ek Grup Zenn antye. Dan sa delegasyon Komite Santral la, nu fer resortir ki ti ena Veena Dholah, ki zordi enn demisyoner. <br><br>Alor finn ena enn premye rankont le 9 Me, e finn ena enn long deba. Sa rankont la finn ale 4erdtan a 5erdtan. Ti enn deba an profonder, me pa finn terminn azanda. Alor tu dimunn dan rankont finn dakor pu fikse enn lot dat pu kontinye sa rankont la. Dat ki tinn fikse, se le 30 Me. Avan sa travay la kontinye, dan Komite Santral le 15 Me, sa 3 manb Komite Santral finn donn zot rapor lor manyer sa rankont la finn derule. Ti enn rapor byin pozitif. Me tutswit apre, reprezantan Grup Zenn lor Komite Santral finn prodwir enn let depi Grup Zenn, ek finn dir ki zot pa interese kontinye sa dyalog la. <br><br>Se sa ki anfet amenn sispansyon sa linstans <I>Grup Zenn Lalit</I> dan Komite Santral le 29 Ut. Dayer kan tinn sispann Grup Zenn, tu manb ladan ti aktif onivo zot brans, ek zot ti sipoze kontinye vinn brans. <br><br>Kan finn pran sa desizyon dan Komite Santral, li ti enn desizyon inanim. Ni Ashok Subron, ni Veena Dholah, ki ti syeze tulede dan Komite Santral, pa finn obzekte. Zot pa finn dir nanye kont. Dayer, reprezantan Grup Zenn dan Komite Santral sa zur la, Alex Ng, finn dir ki li dakor avek sa mezir sispansyon la. <br><br>Anmemtan ki finn sispann Grup Zenn, nu finn deside pu al ver enn Lasanble Manb pu rediskit tusala le 4 Ziyet. Alor lerla bann demisyon finn kumanse apre sa Lasanble Manb ki ti ena le 4 Ziyet. <br><br>Li vo lapenn nu gete brievman ki finn arive dan sa Lasanble la. Dan sa Lasanble la, lor nom Komite Santral, Alain Ah Vee finn donn enn rapor detaye lor tu letap ek prosedir ki finn amenn a sispansyon Grup Zenn par Komite Santral. Dan sa Lasanble la, personn pa finn met an kestyon sa rapor la.<br><br>Par kont seki finn arive se ki e Ashok Subron, e Veena Dholah finn lans enn atak personel kont Lindsey Collen. Enn latak byin anekdotik, me byin personel. Suvan lor  size ki pena nanye pu fer ek tem ki nu ti pe diskite. Finalman dan Lasanble, mwa (RamSeegobin) mo finn propoz enn mosyon, enn mosyon a de vole: enn premye vole se pu konfirm desizyon inanim ki Komite Santral ti pran pu sispann Grup Zenn. Dezyem vole se pu met dibut enn Komisyon pu reget travay Parti vizavi zenn. <br><br>Sa mosyon pu kontinye sispansyon Grup Zenn la, personn na pa finn vot kont. Ashok Subron, avan pran vot, finn anonse ki li pe abstenir, me li finn osi azute ki li pu respekte desizyon mazorite, ek li pu partisip dan travay ki sa komisyon pu fer lor reorganiz travay vizavi bann zenn. <br><br>Alor finn ena enn vot, ek enn larz mazorite finn vot anfaver mosyon la. Alor si Zedi dernye, bann demisyoner aster pe dir ki zot finn demisyone parski zot pa dakor ek metod ki finn servi pu sispann <I>Grup Zenn Lalit</I>, sa li swa ridikil ubyin malonet. <br><br>Dernye 2 demisyoner, setadir, enn kamarad dan Rodrig ki apel Alain Genave ek Devianand Narrain (ki li finn demisyone byin apre lezot). Dan zot demisyon zot finn sulev bann dirverzans lor size stratezi sindikal. Dan Rodrig, seki nu dan <I>Lalit</I> nu finn truve se ki Alain Genave ansam ek Ashok Subron finn servi bann metod onivo lalit sindikal ki nu dan <I>Lalit</I> nu konsider inakseptab.<br><br>Onivo CAWU, sindika Konstriksyon ki Devianand Narrain finn sulve, bann manb <I>Lalit</I> finn anfet demisyone depi lekzekitif CAWU parski zot pa ti dakor ek manyer ki Ashok Subron ek Devianand Narrain finn manipil sindika deryer ledo Komite Lekzekitif. <br><br>Aster la dan konferans de pres, e an zeneral, bann demisyoner pe prezant zot mem kuma bann viktim. Me kan u get bann evennman, u truve ki depi byin avan, bann dimunn ki finn demisyone ti pe azir inpe kuma enn faksyon otur Ashok Subron, e sa depi byin avan Lasanble Manb le 4 Ziyet. <br><br>Seki nu truv maladif dan tusala se manyer ki apre ki zot demisyone, Ashok Subron ek Veena Dholah finn kontakte bann lezot manb individyelman, finn al get zot, finn sey telefonn zot pu sey konvik zot pu demisyone. Nu truv sa maladif dan lesans ki bann demisyoner pa ti ena enn proze politik, pa ti ena enn alternativ. Alor kan zot finn fer enn travay pu rod fer ankor dimunn demisyone depi <I>Lalit</I>, seki zot ti pe fer, se pu dir dimunn aret milite. <br><br>Nu truv osi maladif, manyer ki bann demisyoner, e la, bizin dir Ashok Subron li mem, finn met dibut enn nuvo websayt pu sipozeman reponn a <I>Lalit</I>. Ashok Subron prezant li mem inpe kuma enn profesyonel IT, vedir li fer sa kuma enn profesyon. Li ti pu interesan kone antan ki enn profesyonel, eski li normal ki li fer enn pirataz de lantet ek logo <I>Lalit</I> ki ena lor nu hom pedj websayt. Kan li met dibut enn websayt pu demisyoner, li servi mem nom, mem logo ek mem slogan ki ena lor websayt ofisyel <I>Lalit</I>. Me li azute âThe other voicesâ, lerla li azute ki sa li pa websayt ofisyel <I>Lalit</I>. Nu fer resortir ki se pa Ashok Subron ki tinn dizaynn websayt <I>Lalit</I>. <br><br>Pu enn profesyonel IT fer enn pirataz kumsa, li grav.<br><br>E sirtu seki nu truv maladif se manyer ki finn sible Lindsey Collen tutolong sa trwa mwa la. Finn met tu blam lor li. Finn sey fer krwar ki se Lindsey Collen ki, par pir mesanste, finn swa sey paraliz ubyin detrir <I>Grup Zenn Lalit</I>. Kumadir ena dirizan <I>Lalit</I> ki par pir mesanste, ubyin par pir eksantrisite pu anvi detrir enn linstans parti. <br><br>Kan get kestyon Grup Zenn, se Alain Ah Vee kinn prezant pozisyon Komite Santral; mwa (Ram Seegobin) ki finn prezant mosyon sispansyon dan Lasanble e dan Komite Santral. Bann ka swadizan  arselman, Lindsey Collen pa inplike ditu ladan. Ti ena enn konversasyon prive ant Rajni Lallah ek Georges Legallant; ek enn dezyem konversasyon prive ant Ragini Kistnasamy ek Veena Dholah. Se sa kinn vinn sanse arselman apre. Kamarad Lindsey pa inplike ditu ladan. Me dapre zot, se Lindsey ki fotif dan tusala. <br><br>Mo sipoze Lindsey Collen ena plizyer dezavantaz: <br><br>So premye dezavantaz, se ki li enn fam; <br><br>So dezyem dezavantaz se ki li enn dimunn ki pa aksepte pu opere dapre bann regleman ki inpoze par enn sosyete macho, <br><br>So trwazyem dezavantaz se ki linn viv ek milite dan Moris pu selman 30 an. <br><br>Alor valer di zur, dan labsans enn proze politik, (se aster ki zot pe reflesi lor eski zot pu azir kolektivman ubyin eski zot pu disbann) nu konstate ki sel fakter ki pe tini sa grup la ansam alafin, se enn espes laenn viseral ki zot partaze pu Lindsey Collen. <br><br>Se pa premye fwa ki Lindsey Collen sibir sa kalite sas o sorsyer la.<br><br> Anpasan si lapres truv drol ki Lindsey Collen pa la zordi, se parski li finn invite par enn lorganizasyon pu fer enn turne literer dan Lotris. Li pe vizit 4 u 5 lavil pu prezant so bann liv, pu fer bann latelye travay. Anfet Lindsey Collen, so avyon tinn dekole preske omem moman Zedi dernye kan bann demisyoner finn swazir pu organiz zot konferans de pres. <br><br>Nu konstate osi aster ki Ashok Subron pe azir kom sef de fil bann demisyoner. E seki nu truve dan <I>Lalit</I>, seki Ashok Subron ena enn <I>hidden agenda</I>. Li finn ena enn <I>hidden agenda</I> depi byin lontan. <br><br>Mo pu donn brievman inpe eleman ki pus nu pu pans dan sa direksyon la.<br><br>An Mars sa lane la, Ashok Subron, ansam ek Devianand Narrain finn manipil sindika CAWU pu exklir lezot animater ki ti ena dan CAWU kuma Rajni Lallah, Rada Kistnasamy, ek mo mem (Ram Seegobin). Tultan nu finn prezan dan bann Lasanble CAWU. An 1992, Rajni Lallah ek mwa tinn purswiv par lapolis su PGA parski nu ti pe manifeste apre lisansiman 800 travayer ki ti regrupe dan sindika CAWU. Seki Ashok Subron ek Narrain finn fer se, san pas par lekzekitif CAWU, zot finn fikse sa dat Lasanble enn zur kot zot ti byin kone ki Rada, Rajni e mo mem, nu ti deza ena enn lot reinyon Justice. Justice li lasosyasyon ki pe lite kont britalite polisyer. Alor kumsa ki nu pa finn kapav prezan dan Lasanble CAWU. Lerla ki nom Ashok Subron kuma sel konseye teknik ki pu al syez dan GWF lor nom CAWU. Sa mo pe koz an Mars. <br><br>An Avril, Ashok Subron anonse ki li pe retir li kuma manb Komite Santral <I>Lalit</I> dan so brans. Sa li ti byin avan Lasanble, byin avan diskit sispansyon Grup Zenn. Apre linn sanz so lide. Me li ti fini anonse ki li ti pe retir li mem depi Komite Santral.<br> <br>Enn trwazyem eleman, se manyer ki Ashok Subron finn blok tu zefor ki nunn fer pu sey rezud bann problem reel ki ti ena dan <I>Grup Zenn Lalit</I>. Sistematikman, Ashok Subron tinn blok sa zefor la. <br><br>Nu kone ki avan Lasanble le 4 Ziyet par ekzanp, ti ena bann reinyon dan lakaz Ashok Subron pu etablir lalist bann dimunn ki pu mars ar li. <br><br>E kuma mo finn dir avan, apartir so demisyon, Ashok Subron finn kontakte lezot manb individyelman, e seki li finn dir zot kan li finn kontakte zot pu fer zot demisyone montre ki li ena vreman enn <I>hidden agenda</I>. <br><br>Lapres punn osi remarke ki apre demisyon Ashok Subron, aster dan lapres pe dekrir Ashok Subron kuma enn dirizan sindikal. Aster li ena enn limaz antan ki enn dirizan sindikal. Kestyon ki nu finn poz nu mem se si Ashok Subron ti ena lanbisyon vinn enn espes teknokrat a linteryer ladireksyon muvman sindikal, eski sa li ti konpatib ek so limaz ki li ti ena avan antan ki enn dirizan <I>Lalit</I>? Si Ashok Subron ti ankor dan <I>Lalit</I> zordi, pena sime ki bann dirizan sindikal ti punn aksepte li dan sa birokrasi la.<br><br>Si Ashok Subron ti anvi fer enn karyer kuma enn teknokrat sindikal, li ti lib pu fer li san ki amenn sa kalite bulversman e san sakrifye otan zenn e otan militan. <br><br>De nu pwin de vi dan <I>Lalit</I>, nu konsider deba la aster klo. Si bann demisyoner met dibut enn lorganizasyon politik lerla nu va tret dorganizasyon a organizasyon. Me nu pa interese pu mintenir enn polemik ar seki alafin zis enn grup bann individi. <br><br>Kestyon lapres: Eski enn rekonsilyasyon posib ant sa de faksyon dan <I>Lalit</I>?<br>Repons: Li pa 2 faksyon: ena <I>Lalit</I> enn kote, ek ena bann dimunn ki finn demisyone depi <I>Lalit</I> lot kote. Zot kapav pe prezant zot mem su mem banyer lor zot websayt, me zot finn demisyone. Dezyeman, kan nu finn etidye seki zot pe dir, bann latak ki zot pe fer kont bann dirizan dan <I>Lalit</I>, li ase inkonsevab. Mo dakor ki seki <I>beg the question</I> se kifer enn parti ladan finn dir ki zot pu kontiyn milite dan bann brans. Sa nu osi nu pa tro konpran. <br><br>Si zame Ashok Subron ti return dan <I>Lalit</I>, ladireksyon sindikal pu flank li deor. <br>Depi kumansman sa lane la, nu ti fini kumans fer bann refleksyon otur eleksyon. Ek sa li kapav enn de bann fakter ki finn presipit bann zafer. Parski li pa ti pu konsevab ki Ashok Subron pu azir kuma enn dirizan sindikal akote Sadien, akote Imrith, akote bann sindika fonksyoner kumsa, lerla li kandida <I>Lalit</I>. Li pa konsevab.<br><br>Kestyon lapres: Eski Ashok Subron ti pe aspir pu gayn enn post pli inportan dan <I>Lalit</I>?<br>Repons: U kone dan <I>Lalit</I> pena bann post mwins inportan ubyin plis inportan. Taler la mo ti pe explike kimayer nu Biro Politik konstitye. U tya krwar ki samem some de enn lorganizasyon sa. Me nu Biro Politik, li enn Biro Politik an rotasyon. Atur de rol tu bann manb Komite Santral pran enn tur dan Biro Politik ki kapav ale ziska 6 mwa. Alor par ekzanp, kumansman sa lane la, Ashok Subron ti dan Biro Politik. Ena fwa, mwa, lezot dimunn ki la, nu pa dan Biro Politik. Nu ena enn ladireksyon byin kolezyal. Mo kone lapres abitye dekrir swa mwa swa Lindsey kuma bann lider. Me se atur de rol ki dimunn prezid reinyon, ki nu dan Biro Politik. Alor onivo <I>Lalit</I>, nu konbat sa yerarsi ki ena dan bann lezot parti.<br><br>Alor li pa sa. <br><br>Kestyon lapres lor demisyon Veena Dholah dan MLF ek LPT.<br>MLF pu bizin reponn lor kestyon demisyon dan MLF. LPT pu bizin reponn pu LPT. Sa nu pa rant ladan. Me pwiske u finn sulev sa, ena sertin laspe ki konsern nu ladan mem. Mo explike kifer. Veena Dholah li ti demisyone depi <I>Lalit</I>. Me li ti ankor manb lekzekitif LPT. E li ti travay part taym dan LPT. Alor li ti ena akse a batiman. E sa batiman la li partaze par LPT ek <I>Lalit</I>. Seki nu finn al dekuver, e sa nu finn dekuver sa ase resaman, finn gayn apepre enn mwa, 6 semenn, ki onivo nu bann kompyuter, e sertin ladan se bann kompyuter <I>Lalit</I>, ena bann fayl kinn dilit par plot plot. Ek sa bann fayl la finn dilit dan bann moman kot Veena Dholah prezan dan batiman tusel. An plizir lokasyon finn ena bann plot fayl kinn dilit. Linn fer li mal parski kan u dilit bann fayl, zot al rant dan <I>recycle bin</I>. Bann ki pli malin, zot fer mem zafer, zot rant dan recycle bin, zot re dilit. Laba li disparet. Me Veena Dholah finn bliye al dilit dan recycle bin, e kan nu rant laba, nu al truv date ek ler kot finn dilit bann fayl. Di pwin de vi <I>Lalit</I>, ena enn problem sekirite. Sa di pwin de vi <I>Lalit</I>. <br>LPT antanzelye, li pu donn so explikasyon kuma li finn anonse.<br> <br>Kestyon lapres lor kifer Lindsey Collen finn sible kumsa?<br>Repons: Sa pu bizin dimann zot. Sa zot ki pe fer sa. Mo sipoze pu Ashok Subron li devet finn reflesi ki sa li enn bon taktik. Ashok Subron li for lor taktik li. Si li atak mwa frontalman, li kapav pena mem lefe. Si li atak mwa (Ram Seegobin), ubyin Alain Ah Vee, u lezot, li pa pu ena mem lefe ki atak Lindsey Collen. U ena rezon pu dir ki vremem ena enn siblaz Lindsey Collen ki vremem maladif. <br><br>Kestyon lapres lor eski li enn problem pu <I>Lalit</I> si ena manb parti ki dirizan sindikal.<br>Repons: Se dipwindevi dirizan sindika ki ena problem. Li absoliman pa enn problem pu nu. Parski get par ekzanp Devianand Narrain depi plizyer lane, atraver CAWU, li sekreter GWF. Sa li pa enn problem ditu. Me dipwindevi dirizan sindikal, e sa nu tu finn fer sa lexperyans la, aswiv kan nu ena enn diverzans avek dirizan sindikal, paf, fu nu deor. Kuma ti ariv mwa par ekzanp dan GWF an 1982. Kan nu gayn diverzans ar MMM, GWF baskil mwa. <br><br>Kan ti ena All Workers, ti ena Komisyon lindistri sikriyer kot ti ena kamarad Rada Kistnasamy ladan, ti ena Veena Dholah ladan, ti ena mo mem ladan. Nu ti pe travay lor kestyon lindistri sikriyer dan All Workers. Ti ena konfli parski laliyn ki misye Roy defann, li pa mem laliyn ki nu nu defann. Kan nu rant an konfli, Misye Roy nek ferm Komisyon sindikal, fu nu deor. Me sa nunn viv li depi lontan. Nu kone. <br><br>Ti ena enn dirizan FSSC ki inpe letan desela donn so rapor dan enn Lasanble anyel so federasyon antan ki prezidan. Lor mo krwar enn 27 paragraf dan so rapor, ena 11 paragraf ladan ki atak <I>Lalit</I> ek LPT. Zis pu donn u enn lide. <br><br><I>Lalit</I> pandan byin lontan finn devlop enn manyer azir vizavi muvman sindikal e finn devlop enn sertin kredibilite dan muvman sindikal baze lor so program. Me osi baze lor manyer ki nu konport nu mem. Savedir san zame sey manipil bann sindika, san zame sey manipil dirizan sindikal. Nu kredibilite vizavi muvman sindikal li depann lor la. Me sertin bann zafer ki Ashok Subron e Alain Genave dan Rodrig e Devianand Narrain finn fer, zot ti pe port atint a sa kredibilite ki <I>Lalit</I> ena vizavi muvman sindikal. <br><br>Anpasan aster Ashok Subron finn vinn enn <I>resource person</I> ILO. Kumansman lane dernyer dan enn reinyon enn zur, Ashok Subron anons nu letan nu pe fikse enn seri aktivite, ki li pa pu la. Kan dimann li kot li pu ete, li dir li pe al ILO dan Turin. Sa personn pa ti kone. Kifer li pe al ILO dan Turin pu 5 semenn se parski NTUC finn swazir li pu al swiv enn kur lor IT ek websayt. Li finn ale lor nom NTUC. Li swiv kur la e finn aprann kimanyer pu met dibut websayt, linn konpran <I>open source software</I> ek enn seri lezot zafer. Kan li returne, li met dibut websayt pu lezot federasyon. <br><br>Lerla kan ILO pe organiz kitsoz pu Lafrik, lerla ILO invit Ashok Subron pu vinn donn enn kudme, pa antan ki NTUC, me antan ki enn <I>resource person</I> ILO. Anplin bann demisyon fek la la an Ut, ankor enn fwa, nu tande ki Ashok Subron finn real ILO. Kan nu dimann Narrain ki travay ansam ar li dan GWF lor la, li dir li pa kone. Dan GWF, bann dimunn pe kontinye telefonn isi pu dimann nu kot Ashok. Zot osi pa kone. <br><br> <br><br><br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095538" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095538" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095538" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095538" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095538" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095538" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095538" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095538" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095538" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Colonization and de-Colonization of Mauritius up to the last One Month by Lindsey Collen</h1><p class="subtitle">12.03.2019</p></h1>
+	<p class="newsarticle"><p>Â Below is a speech delivered at one of the many Universities in Mauritius.</p><br /><p>Â History is not only what happened long ago, but also what is haunting us today. Over the past one month, we have the following reminders:</p><br /><p>Â <strong>Language</strong></p><br /><p>Mauritius was colonized by France and Britain. That colonization might seem all over by now as we celebrate 51 yearsâ Independence. Yet, the mother-tongues, Mauritian Kreol and Bhojpuri, are still not allowed as written medium in school â so as to teach, say, science through a language the child speaks and understands naturally. Nor is it even permitted to speak in the National Assembly in the mother-tongue. Only French and English are allowed. The Press is still today mainly in French. When the France, itself, departed in 1810!</p><br /><p><strong>Â Judicial System</strong></p><br /><p>As recently as a fortnight ago, on Monday 25 February, it was the Queen of Englandâs Privy Council that took the decision not to lock up the Mauritian Prime Minister, Pravind Jugnauth, on charges of conflict-of-interests in the acquisition by Government of a private clinic. The Privy Council was in a position to find him not guilty or to find him guilty and sentence him to jail. British colonization ended in 1968, 51 years ago next Tuesday.</p><br /><p><strong>Â The territory itself</strong></p><br /><p>Independence, or that moment of time in âdecolonizationâ that we celebrate, is when the people (citizens) are clarified, and when the territory (boundaries of land and sea are determined). Last Monday, the UNâs highest Court, the International Court of Justice at the Hague, decided that the half of Mauritius that the British, and then the USAâs military as well, occupy is in fact Mauritian, and should have been since 1968 along with all the other Mauritian land and sea. Not only did the ICJ say Mauritius is not properly decolonized, but that it was unlawful for the UK to keep part of the Mauritian territory and set up its BIOT colony, and that it should move out as fast as possible, and every UN State has a duty to see to it that this happens.</p><br /><p>Â  All this to say that colonization is with us. History is with us. All you do in your life, or all you decide not to do, can contribute to keeping things the same, to changing them for the worse, or to changing them for the better. Itâs up to you â you singular and you plural. More accurately, itâs up to me, and to you and to us all.</p><br /><p><strong><br clear="all" /> </strong></p><br /><p><strong>Â No Pre-colonization Human History in Mauritius</strong></p><br /><p>Mauritiusâs socio-political history is the history of colonization and decolonization. There is no âbefore colonizationâ in Mauritius from the point-of-view of human society. This is an important part of the Mauritian soul. There is no utopia available to our imaginations from âbefore colonization destroyed itâ. And this makes us perhaps more demanding. We were, from a social point of view, brought here and kept here against our will, therefore we expect certain things as of right.</p><br /><p>Â The first 100 years of Mauritiusâ permanent colonization from the early 1700s â we were brought here either by kidnapping into slavery, being transported here and then for generations being made to work within slave labour law â we lived and worked under the labour code called slavery. At this time, for the same 100 years, girls were imported, not unlike the slaves, kidnapped as orphans from convents and snatched as prostitutes from the streets and police cells near Marseilles harbour, transported by ship, put on display for planters to choose as wives.</p><br /><p>Â The second 100 years, we were herded here, fleeing starvation in parts of India like Bihar (having been forced at the point of a gun to grow opium poppies for the British and later US hard-drugs trade for generations, and thus bereft of lentil and rice seeds to plant when the moment came that Britainâs export of opium to China was abruptly ended by its defeat in the Opium Wars) and being brought to work here under a new indentured (or semi-slave) labour law for 100 years,</p><br /><p>Â And then under present day wage-slavery for the third 100 years until today.</p><br /><p>Â No-one in Mauritius was, or is, outside of that truth.</p><br /><p>Â We were invented by, moulded by, enslaved by, the mercantile system that was becoming, that became, that was and that is: capitalism. Today, this history obviously still affects reality: we have no shared past, let alone a shared past âEdenâ or other Utopia, as other African countries do, including the Island states of Madagascar and Comoros. This absence of a âpast Edenâ might provoke us to invent such pasts â as we often do â on the one hand, and to be more demanding of the present than if we at least had a past shared dream, on the other â which might to part-way to explain how in Mauritius we have resisted the IMF-World Bank âconditionalitiesâ of neo-liberal capitalism better than most other African countries. I mean something specific:Â  we have free education until now, we have free health services until now, we have universal old-age pensions until now, we have free transport for over-60s and people with disabilities. Perhaps a show-of-hands of the countries you come from? Universally free health care? Or if you know of one such other country in Africa? [None of the students put up their hands.]</p><br /><p>Â This difference in not having a glorious pre-colonial past leaves us with a difference perhaps in the structure of feeling, to use a Raymond Williams metaphor. It is worth looking up his work on society.</p><br /><p><strong>Â The long history of us all</strong></p><br /><p>The rest of Africa has a long history of all kinds of civilizations â from Zimbabwe to Sudan, from Mali to Zanzibar â and perhaps most interesting, the long, stable history of pre-class society â the longest on the planet. On this long view of humanity, see Stephen Jay Gouldâs work, and perhaps John Bellamy Fosterâs.</p><br /><p>Â Letâs claim this long history â all of it for all of humanity. But letâs always remember that in Africa, there lay and still lies the longest history of sustainability, of co-operative living, of incredibly long memory, sustained through stories, for the most of human life on the planet. It is a richness we might come to need to draw from.</p><br /><p><strong>Â Quick Mauritian history of our colonization</strong></p><br /><p><em>Dutch</em> â We lived under slavery and, for Dutch people, indenture to the Dutch East India Company. This was the legal framework, 1638 â 1710. Our history is to some extent a history of private companies, then and again now. Then it was mainly a refreshment station, planting food and keeping animals for passing ships; pillaging ebony; controlling the sea-route to India and beyond. There is an interesting novel worth reading about Mauritius and South Africaâs Robben Island on these times: <em>The Islands</em> by Dan Sleigh.</p><br /><p><em>Â French</em> â We lived under slavery and indenture, in the case of most French people, to the French East India Company. This was the legal framework until the French revolution 1793, and then after the return of slavery under the French <em>State</em>, in all 1715-1810. The aims of the colony were similar: refreshments station; crops and animals; pillage; trade. The Route Royale in Â Port Louis was the centre of all shipsâ chandlers in the world. They bought all supplies here. <em>The Smile of Fortune</em> by Joseph Conrad describes these times and this street. And Mauritiusâ upper classes meanwhile held balls, went to theatre and had a social life around the plantocracy and its hangers on. There were visits worth looking up by Bernadin de St Pierre (<em>Paul & Virginie</em> â this novel set in Mauritius was an absolute sensation in Europe â as popular as a top modern TV reality series! There was a visit by Charles Baudelaire, <em>Les Fleurs du mal. </em>His translations of Edgar Allan Poe are said to be better than the originals.</p><br /><p><em>Â British</em> â Slavery and indenture from 1810 under the British, with the British East Indian Company still operating in India and strong in Mauritius until the Indian Mutiny, or First Independence uprising 1857-8; later under the British State, with indenture until 1910, and then from then in wage slavery until 1968. So the British period was 1810 â 1968. Interesting visits you can look up are those by Charles Darwin, <em>Origin of Species</em> and Mark Twain, famous for <em>Huckleberry Finn</em>.</p><br /><p><em>Â Independence</em> â Since this key day 12 March 1968, we have lived under the regime of modern wage slavery: 1968 â 2019. Most people do not own the land, or have any control over it, or over the capital built up in the past â but live, instead, by selling the power of their physical or intellectual labour to the highest bidder. You can change who buys your labour power, but not easily the idea that you sell your hours to another.</p><br /><p><strong>Â Big social movements during Independence:</strong></p><br /><p><em>1930-1950</em> â There was an important radical movement in working class â unions, associations, demands for land reform, calls for independence from the early 1930s. In terms of organizations â the Labour party was born, the defunct Bissoondoyal Brothersâ Movement was born, while trade unions like Artisans and General Workersâ union and Plantation Workersâ unions were founded. Co-operatives were set up. Literary Circles were born. Organizations all over â like you canât believe.</p><br /><p>Â One peculiarity of the Mauritian Independence movement must be mentioned, and it is a bit like Zimbabweâs history, or that of Seychelles. There was a strong party against independence, and even an Anti-Independence movement â it was called Ralliement Mauricien, (rallying of so-called authentic Mauritians against immigrants), which became the Parti Mauricien, and later the Parti Mauricien Social Democrate. This was the extreme right-wing party of Jules Koenig, Gaetan Duval, now Xavier Duval. you will notice that in Mauritius, the most right-wing you can get is âsocial democratâ. All parties campaign on themes like: against capitalist, for the welfare state, and for socialism. Which makes it difficult for parties, like LALIT, which is really left-wing: they use our very language. This is a massive challenge, but it keeps us on our toes: no slogans will do in our case.</p><br /><p>Â This is similar to what the situation was in Zimbabwe â Ian Smith was against Independence. Here there was a campaign of extreme violence against what they called the âHindu Perilâ. They campaigned on the idea that giving the right to vote to everyone was âputting a razor into the hands of a monkey.â The plantocracy that controlled the Parti Mauricien, when it became the PMSD, began to gather a common front of âAuthentic Mauritiansâ (Catholics, from before mass immigration from India which represented by then 2/3 of the population) against immigrants. Till today a splinter from the PMSD is called âMouvement Authentique Mauricienâ. A mass âpanic emigrationâ of the Kreol and Franco-Mauritian elite was organized.</p><br /><p>Â <em>1970 â 1981</em>: The second and last (so far) really mass workers movement over time was from immediately after Independence, as soon as the Labour Party alliance that won Independence brought the PMSD anti-Independence party into a Coalition Government. So there was political organization plus radical new trade unions, womenâs organizations, literacy groups, student rebellions (1975), anti-apartheid struggles, movements to support Palestinian struggle, anti-imperialist struggles (e.g. Chagos, Kreol language).</p><br /><p>Â Organizations that were born and survived: Literally 100s born, those that survived were fewer: MMM and LALIT.</p><br /><p>Many of the radical unions survive, as do organizations like the Muvman Liberasyon Fam and Ledikasyon pu Travayer.</p><br /><p>Â [My speech was concluded by going into more detail on the 3 on-going decolonization struggles:</p><br /><p>- the Mother Tongues, especially the Kreol Language</p><br /><p>- Judicial System still ending up with appeals to the Queens Men!</p><br /><p>- The meaning of the Chagos ICJ judgment for Mauritius and for Africa.]</p><br /><p>A lively question-and-answer session followed.</p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

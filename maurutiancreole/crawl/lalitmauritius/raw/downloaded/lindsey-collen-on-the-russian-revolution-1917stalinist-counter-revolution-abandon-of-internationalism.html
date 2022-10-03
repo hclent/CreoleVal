@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100342" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100342" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100342" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100342" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100342" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100342" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100342" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100342" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100342" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Lindsey Collen on the Russian Revolution 1917 - Stalinist Counter-Revolution, Abandon of Internationalism</h1><p class="subtitle">11.10.2017</p></h1>
+	<p class="newsarticle"><p>Russian revolution 1917 - Stalinist Counter-Revolution, Abandon of Internationalism</p><br /><p>by Lindsey Collen</p><br /><p>&nbsp;</p><br /><p>So, what happened to the bold, brave, Russian Revolution in which the working classes seized power in this vast Empire, after it had even won against the White Army that rallied around monarchist and bourgeois forces all over the immense Russian Empire? And even after the Revolutionary working class, against all the odds, overcame the standing armies of nine countries that attacked it from all sides as if in a closing noose? What happened then?</p><br /><p>&nbsp;There is a second aspect of counter-revolution more difficult to understand than the White Army or the armies of nine countries.</p><br /><p>&nbsp;It is <em>internal</em>, and it pulls in the opposite direction from revolution from the very first day of the revolutionary working class&rsquo;s seizing of power. And this counter-revolution needs to be exposed for what it is. In particular, because it has the power to eradicate the very memory of the original revolution. Worse still it has the capacity to pretend that it, the counter-revolution, <em>is </em>the revolution, itself.</p><br /><p>&nbsp;This is what is commonly known as &ldquo;Stalinism&rdquo;. But it predates Stalin&rsquo;s coming to power. What we call Stalinism is a powerful political current. It is a current that revolutions, by their nature, engender. And that have to be opposed and, ultimately, overcome.</p><br /><p>&nbsp;And that is what this celebration today of the Russian Revolution has as, perhaps its main challenge: to re-establish memory, identifying the revolution, and separating it from its opposite, the counter-revolution. This is difficult. But it is easier with hindsight, than it was at the time.</p><br /><p>&nbsp;This &ldquo;internal&rdquo; counter-revolution has two types of protagonist. The first are easiest to understand. They are ambitious people who opposed the revolution but then, from the very minute it becomes clear there will be a revolutionary seizure of power, they leave their old politics and join the &ldquo;winning&rdquo; side. We have seen this here in Mauritius, all proportion respected. Remember how LALIT was vilified for 20 years for running the anti-apartheid campaign? How it was supposedly a waste of time. How it was taking food (that the apartheid regime offered) out of the mouths of children (<em>&ldquo;Moralite pa ranpli vant!&rdquo;</em>). How there was no hope of changing apartheid. Ever! And then, once Nelson Mandela was no longer a terrorist but now a hero and a President, everyone in Mauritius, way over to the right-wing, pretended they had always been against Apartheid, had always been fervent supporters of that same anti-apartheid movement that they had vilified? Queuing up to shake Mandela&rsquo;s hand, they were. Another more recent example of the phenomenon: Last year, when LALIT finally, after 40 years of struggle, succeeded in forcing the Mauritian State to go to the United Nations on the Diego Garcia issue, and where it won the Resolution we had long proposed and won by 94-15 votes, then too, everyone who had spent 40 years telling us we were wasting our time, that Old Man Ramgoolam had &ldquo;sold&rdquo; the Chagos, had suddenly <em>always been in favour</em> of challenging UK-US colonization. Even Jean-Claude de l&rsquo;Estrac!</p><br /><p>&nbsp;So, anyway, these people very quickly join into the new revolutionary power, which of course accepts them, needing all the support it can garner in the fight against the White Army and 9 country&rsquo;s armies, but these new opportunistic adherents then represent a potential counter-revolution. (We could name a few that will be first to jump on board were we to have a successful revolution here now!)</p><br /><p>&nbsp;The other political current, more difficult to discern, is part of the revolutionary process but it prefers, even before the actual revolution, bureaucratic solutions to democratic ones.</p><br /><p>&nbsp;It prefers a new hierarchy to a new egalitarian way of operating. It prefers the order of rules and regulations to the relative chaos of freedom for everyone to, together, take a decision. It prefers the cult of a party leader to the gathering together of &ldquo;leaders at the grassroots&rdquo; to form a party. Today we see this bureaucratic current, very strong: they want more democracy <em>they say</em>, but they want to ban more than two terms in office; they want a regulation, law or some &ldquo;rule&rdquo; to trump a democratic process. They want political parties to be controlled by the state bureaucracy &ndash; through registration and accountants &ndash; not by the people mobilizing to vote them out. They are blind to their own mid-set being a &ldquo;bureaucratic&rdquo; one.</p><br /><p>&nbsp;In Russia, this bureaucratic current, as opposed to a democratic one, was strong, if very much a minority, from the word go. And, while the revolution won against the White Army and against the armies of nine countries, it had lost hundreds of thousands of grassroots working class cadres (leaders at the base of the movement) during the civil war, mostly those who were <em>not</em> bureaucratic in their tendency. Within 5 &ndash; 20 years after the Revolution, from the beginning of 1923 as the USSR was set up and with Lenin suffering a stroke and then his death, the internal counter-revolution gradually defeated the Revolution, and the working class lost effective control. But so strong was this Russian Revolution, so world-wide its influence, so terrifying to the capitalists of the entire globe<em>,</em> that the ideological struggle over the interpretation of the Russian Revolution continued until Reagan-Thatcher-Pope John Paul united to give a final external push so that by 1991 the capitalist class was, itself, restored, if in Mafia form.</p><br /><p>&nbsp;The ideological struggle as to how to interpret the Russian Revolution goes on until today. And our celebration of the Russian Revolution this year for its Centenary is part of it.</p><br /><p>&nbsp;We aim to put the Revolution and the Counter-Revolution into their proper places in our memories.</p><br /><p>&nbsp;<strong>Stalinism</strong></p><br /><p>We all know how in the trade union movement the political current that seeks bureaucratic solutions is strong. union leaders, for example, often call only for &ldquo;laws&rdquo; to protect workers. They refuse to realize the purpose of &ldquo;laws&rdquo;, under capitalism, is to maximize exploitation of workers. So, any protection laws might give only depends on how much mobilization can be mustered, and how much democracy is alive in the unions to nurture this mobilization.</p><br /><p>&nbsp;union leaders often go further. We have heard them even demand routine police presence in hospitals to protect nurses from unruly patients, or in buses to protect conductors from drunken passengers, instead of building an alliance between workers at hospitals and in buses with hospital users and bus users.</p><br /><p>&nbsp;In the August 1979 general strike <em>movement &ndash; </em>in which democracy flowered at every level and the working class came to the brink of insurrection and, having won the demands of the strike, then lost them again, only to re-mobilized in September 1980 &ndash; strengthened democracy within the unions. But within 2-3 years, it was the bureaucratic current in the trade unions &ndash; with help from the MMM State, as well as the bosses &ndash; succeeded in thoroughly bureaucratizing the unions, closing down the democratic branch structures, and even actually expelling radical union members who had organized the general strike from the unions! All that, without Joseph Stalin.</p><br /><p>&nbsp;Joseph Stalin, became the figurehead for this current after the Russian Revolution &ndash; hence his name being stuck to repressive bureaucratic rule.</p><br /><p>&nbsp;Rough and scheming, he had studied to be a Priest, but did not take his final exams. He was very much in charge of &ldquo;multi-culturism&rdquo;, too. And, after Lenin&rsquo;s death, he did away with all the other leaders of the Revolution &ndash; at first by scheming power into his own hands through alliances with Zinoviev and Kamenev against Trotsky the natural successor to Lenin, then allied with less savory characters, he finally had the entire militant base of the Revolution, and all the surviving leaders of the October Revolution liquidated: exiled, executed, shot, assassinated, or hounded out. All democracy was crushed. Show trials, with confessions extorted in exchange for promises not to execute the militants&rsquo; children. And then executing them anyway.</p><br /><p>&nbsp;He made worship of himself, and of Lenin &ndash; who must have turned in the mausoleum Stalin built for him &ndash; like a religion. And, in a key move, he called for an end to nurturing revolution everywhere in the world as the way to support the Russian Revolution, and for its very opposite: &ldquo;<em>Socialism in one country</em>&rdquo;. All other oppressed classes world-wide, his doctrine demanded, should concentrate on defending socialism in the USSR.</p><br /><p>&nbsp;After the show trials, mass purges, summary executions, after the famine when ruthless economic policies went wrong, Stalin&rsquo;s reputation as a counter-revolutionary should have been clear. Victor Serge, through his accounts and his novels, exposed Stalinism clear as a bell. But his beautiful work is hidden by history. We must find it, and read it all.</p><br /><p>&nbsp;But Stalin got a &ldquo;prolongation&rdquo; of his aura through a series of world events: he made up a triumvirate with Roosevelt and Churchill against European fascism. The Russian people, still confident after the revolution only 20 years earlier, were really the ones who won the war against Hitler &ndash; and he was the ruler at the time. This victory served, to some extent, to rehabilitate Stalin, even as all the Eastern Block countries were freed from Nazi fascism and drawn into Stalin&rsquo;s sphere of influence.</p><br /><p>&nbsp;Then came the Chinese revolution, which took place despite Stalin&rsquo;s orders but then weakened the hold of world capitalism, incidentally giving Stalin&rsquo;s reign more prestige, too. There were Stalinist Communist Parties all over the world (like the Parti Communiste Reunionais, the South African CP, the Australian CP, the British CP, the CP in the USA &ndash; to name just some) supporting his reign. And of course, Stalin&rsquo;s support of national liberation, even if not revolution, all over Africa and Asia won support for him, despite his dictatorship by the bureaucrats he had installed. Even the Vietnamese Revolution was helped in its struggle against France and the USA by Stalin&rsquo;s USSR. All this made too many people too ambivalent about whether he represented counter-revolution or not.</p><br /><p>&nbsp;So, even after murdering all his colleagues through his bureaucratic control of the State apparatus, after destroying all democracy in post-Revolutionary USSR, he remained a &ldquo;hero&rdquo; to many, now of the Occident, now of liberation forces.</p><br /><p>&nbsp;And meanwhile, the Cold War ran an ideological battle, which the USA finally won against Stalin, during which the USA conflated Stalin with Revolution, not with Counter-Revolution.</p><br /><p>&nbsp;The counter-revolution was in two parts: Stalinists took power from the working class first, from 1924 or so to 1934 or so, and then in 1991, capitalism was back, and in turn clawed back all the workers&rsquo; gains of the Russian Revolution. The USSR dissolved. In Russia, a mafia took power as bureaucrats raked in millions by buying State enterprises cheap from &ldquo;themselves&rdquo; and selling them off to European and US capitalists for millions, even billions, of dollars. NATO took over where the Varsovi Pact had held sway. The USA held hegemony.</p><br /><p>&nbsp;Neo-liberalism did not just take back Russia, but also took back all the gains of social democracy, made in the shadow of the great Russian working class revolution, and even all the gains of national liberation socialistic governments.</p><br /><p>&nbsp;And today, where are we?</p><br /><p>&nbsp;We are with capitalist hegemony, just as capitalism was already heading for hegemony 100 years ago. Just as then, it now produces:</p><br /><p><em>- war</em></p><br /><p><em>- hunger</em></p><br /><p><em>- the land question</em></p><br /><p>&nbsp;Only today, pollution is strangling the planet, too.</p><br /><p>&nbsp;Can we organize today as the workers 100 years ago did? Can we build consciousness that only a change in <em>class rule</em> will solve our problems today, just as then it was the only solution?</p><br /><p>&nbsp;Revolutions do come. And they do bring progress. Now, we need another conscious one. An international one.</p><br /><p>&nbsp;Let&rsquo;s recapitulate.</p><br /><p>&nbsp;In England, 500 years ago, when Henry VIII kicked out the Pope, it meant a revolution. The Vatican no longer took taxes, nor ran the Courts. The King took over. A different class &ndash; a caste &ndash; now ruled. By 200 years later, the King&rsquo;s power had been replaced by capitalist rule, no longer a blood caste, but those who own and control the production of workers of the past.</p><br /><p>&nbsp;In America, 250 years ago, American merchants and farmers, with the help of working people, kicked out the British colonizers. A different class was in power. At the same time, in France, the rising capitalist forces were kicking out the King and the Church, as rulers. A new class took power.</p><br /><p>&nbsp;Capitalism has finally, after first coming to power only 250 years ago, by the end of 20th Century, come to power well-nigh everywhere. Being international, the movement against it must, unlike Stalin&rsquo;s plan, be <em>international.</em></p><br /><p>&nbsp;The lowest classes have only overthrown the ruling class perhaps 6 times in all history. The Russian Revolution being the third time.</p><br /><p>&nbsp;Haiti &ndash; slaves took power over 200 years ago in what is now called Haiti ( over the period 1791-1804). It was a French colony, and the revolution took place in Haiti during the French Revolution. The counter-revolution from the exterior was so vicious that the Haitian State was then forced by France to pay them $21 billion in &ldquo;reparations&rdquo;, which it paid&nbsp; over a period of 150 years.</p><br /><p>&nbsp;Paris &ndash; in 1871, the working class took power for 100 days. The counter-revolution was so violent, the dead bodies could not be counted. Others were sent to New Caledonia. Their families black-listed for work for 100 years.</p><br /><p>&nbsp;Russia &ndash; in 1917, the first conscious taking of power.</p><br /><p>&nbsp;China &ndash; 1946-49 was the second conscious taking of power. A historical pattern of bureaucratization and repression, similar to Russia&rsquo;s emerged.</p><br /><p>&nbsp;Vietnam &ndash; 1945-1975; the revolution in Vietnam ended in a 30 year war against external forces. Again the counter-revolution weakened the revolution itself beyond measure.</p><br /><p>&nbsp;Cuba &ndash; Since the revolution 1953-59, the USA in particular, has embargoed Cuba completely.</p><br /><p>&nbsp;So, capitalism has been under near-constant siege from the working class, from its outset as a capitalist State, only 250 years ago. As well as the six places where revolutions have undoubtedly taken place, there is certainly a revolutionary aspect to many of the national liberation struggles over the past one or two hundred years.</p><br /><p>&nbsp;Seen this way, with a long view, the challenges to capitalism have done well.</p><br /><p>&nbsp;We must learn from all these traditions, and keep in mind: internationalism is the key, and democracy with all its chaotic debating amongst different currents, is its test once the question of taking power has been addressed.</p><br /><p>&nbsp;So, today&rsquo;s celebration makes a healthy distinction between LALIT and every other political party in the country. They want to take power. We want different<em> class</em>, the working class, to take power, thus&nbsp; transforming society as a whole.</p><br /><p>&nbsp;Lindsey Collen</p><br /><p>&nbsp;<em>This article by Lindsey Collen is based on her notes for a short speech at the LALIT Celebration of the Russian Revolution Centenary on 8 October. There were six other short speeches on different aspects of the Revolution. Her actual speech is short and influenced by the content of what other speakers before her had said, and does not follow these notes closely at all, is available in Kreol. The order of the speeches was:</em></p><br /><p><em>&nbsp;Introduction &ndash; by Rada</em></p><br /><p><em>What is the Russian Revolution? - Tony</em></p><br /><p><em>The Build Up to the Revolution, especially from February to October, 1917 - Ragini</em></p><br /><p><em>The role of a Party in the Revolution - Rajni</em></p><br /><p><em>The importance of the Soviets in the Revolution - Alain</em></p><br /><p><em>The Civil War - Ram</em></p><br /><p><em>This paper on the Stalinist counter-revolution, including as opposed to internationalism - Lindsey</em></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

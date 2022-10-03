@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101939" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Launch of LALIT Library, following Donations after 2013 Floods</h1><p class="subtitle">09.06.2014</p></h1>
+	<p class="newsarticle"><br />LALIT held a Press Conference and gathering of members on Wednesday 4 June to launch a new LALIT Library, following the books we received as donations from revolutionary socialists world-wide, after the 30 March, 2013 floods that destroyed so many of our books and documents. The event represented a double celebration, as Rada Kistnasamy who presided, put it: the launch of the Library itself and also celebrating internationalism, which is at the heart of the donations we received. The event was in counterpoint with the confused and confusing political situation in the country as the Labour Party, MMM, PMSD and MSM all jockey, without any principle, for pre-electoral alliances. And as, strangely, it is only LALIT that has been seeing through all the fluff, into what is actually going on. This is largely due, of course, to our Marxist analysis.<br /><br />In our appeal for book donations after the floods just over a year ago, Rada Kistnasamy said, we specified that what we would really like would be the Marxist classics. And that is what people sent us. We received between 3 and 12 books from the following organizations and individual revolutionaries: Lutte Ouvriere (Reunion Island) and Lutte Ouvriere (France), the Socialist Workers Party (UK), Andy Wynne (SWP-UK member), Alex Callinicos (also SWP member), Patrick Neveling (Germany), Vincent Sung (Hongkong). Not only did these revolutionary socialists choose books to send, but they went to the trouble of getting them shipped and they paid for the cost of shipping them. <br /><br />And what has enabled us to re-launch a whole LALIT library is the magnificent, hugely generous donation, organized by John Percy of the Socialist Alternative in Australia, from the library of the late, Doug Lorimer, the well-known Australian Marxist theoretician, who had been a leading member of the Democratic Socialist Party and then of the Revolutionary Socialist Party, before it joined up with the Socialist Alternative.John Percy arranged to ship us no less than 9 boxes of classic Marxist texts, some 200 books, including the jewel in the crown, a complete set of Lenin in 45 volumes plus its two indexes. For LALIT, these texts are important for understanding the nature of capitalist society today, that is to say, as tools to ensure that our actions are as useful for bringing socialism as they can possibly be. But they are also a memory of past actions, and a celebration of the contribution of past revolutionaries, and a lasting homage to them.<br /><br />Interestingly, and this is an advantage for us for âstudy groupsâ and so on, some of the finest âclassicsâ have been sent in more than one copy: volumes of Selected Marx and Engels, for example, and 10 Days that Shook the World by John Reed, as well as Engels on The Origin of the State, the Family and Private Property, Trotsky on Permanent Revolution, and Mandel on the Development of Marxâs Economic Thought, and volumes of the Selected Lenin. This means that there is perhaps convergence on what classics are  most interesting right now in 2014. <br /><br />So all these books will, together with the ones we managed to save from the floods because they were on shelves higher than 4 feet (the water level), now make up our new Book Library. Lending can be done through LALIT branches, Rada explained. This way, there is a convenient way to make sure books are retrieved, once read. While some books, like the complete Lenin, will be reference books, to be used at the LALIT headquarters in GRNW.  Upstairs!<br /><br />The book section of our archives sits alongside the âdocumentsâ section. This documentation centre has now just completely a long process of digitalization, and we are right now completing the OCR program, to facilitate searches. There are three main parts of our documentation centre (other than the book part):<br /><br />- Original documents that show 40 years of struggles on all sorts of issues â each struggle from its genesis as an idea or an action, and through its development into a movement, and to its set-backs and victories. These include: minutes, invitations, leaflets, booklets, posters, conference reports and papers, resolutions, and correspondence of all kinds, as well, of course, as articles and internal documents. The documents include mainly LALIT-led struggles or struggles of some 15 â 20 organizations close to LALIT, but also the struggles of other political parties, trade unions, co-operatives and associations.<br /><br />- The history of the development of written Kreol in its near entirety. LALIT has, in its documentation, the written records of some 20 associations that have organized challenges to capitalism over the decades since Independence.<br /><br />- Organized and indexed press cuttings from the mainstream Mauritian press since Independence. <br />Rada Kistnasamy announced that in about six monthsâ time we will launch our Digital Documentation Centre. We had started the digitalization process before the 30 March 2013 flash floods, and continued afterwards, although with heavy losses. This part of our archives will help in decentralization of knowledge, where the content of the documentation centre will be made available in digital form, either on DVDs or external hard disks, to LALITâs branches.<br /><br />Rada then introduced 6 members who, one by one, gave an outline of the books we had received from revolutionaries abroad, including the huge donation from Doug Lorimarâs estate, so that members know what there is, and how to understand what there is. The books were installed on 6 tables, each series against a back-ground of green cloth.<br /><br />RAJNI LALLAH on books by Marx and Engels<br />Ram Seegobin on the complete set of Lenin<br />Kisna Kistnasamy on various books by Lenin, and copies of Selected Works<br />Alain Ah Veeâon books by Leon Trotsky<br />ShabeelaKalla â on books by Australian and USA socialists<br />Lindsey Collen â on books and whole documents about the four âInternationalsâ, and a section called âotherâ. <br /><br />There is obviously some overlap of many of the texts. A book on Marx and Lenin, or containing essays by both, is either in one or another section.  <br /><br /><b>RAJNI LALLAH on the books by Marx and Engels </b><br />Marx, she said, standing just behind his work, is known as the single person who has perhaps had the greatest influence on human history. His books have been published in hundreds of languages and in literally hundreds of thousands of copies.<br /><br />His work, and that of him together with Engels, even though they studied and wrote about capitalism as it had just started developing,is remarkable in that it helps us to understand capitalism right now in the present context of the capitalist crisis in 2014. <br /><br />Marx and Engels not only studied capitalism as it was being born and was developing, but also commented in detail on the anti-capitalist struggle that grew up against it, as it developed, and showed how socialism could grow out of the very bowels of capitalism. <br /><br />They wrote not just as academics but from the point of view of active revolutionary socialist militants, committed in the struggle for socialism. They wrote as people who had been amongst those activists who founded the First International. <br /><br />They have the fantastic capacity to write on all sorts of different areas of human knowledge and human experience: philosophy, economics, history, biology, chemistry, social sciences -- all in an integrated way, all-in-one. <br /><br />In the 35-40 books we have received, there are separate pamphlets, articles or letters on different subjects like Reformism, Religion, Philosophy, the family, history. Engels work on the family is still essential reading on the subject. There are whole books on one theme, like Marxâs<i> Grundrisse </i>and the gigantic work <i>Capital</i> that analyse the capitalist economy: otherwhole books that analyse the historical period that they lived in, the period of the 1848 revolutions and the 1871 Paris Commune where the working class seized power and held it for 100 days. There is also a selection of letters paying tribute to the special political and personal deep collaborative relationship between Marx and Engels. This allows us to witness how their political understanding gained depth through their correspondence. <br /><br /><b>RAM SEEGOBIN on the Complete set of Leninâs work</b><br />Ram Seegobin said that the central element of the collection of over 200 books we have received was most certainly the Lenin <i>Collected Works</i> (published in 1971), which covers the 30-year time-span of 1893-1923. As well as two volumes of Index at the end, each book has its own âcalendarâ of events that occurred during the period of the volume. <br /><br />The Collected Works, Ram explained, is basically three type of document: Leninâs Marxist analysis of Russian society, the ideas he developed in his own polemical style (in which his own ideas become clear by his criticism of the ideas of the Narodniks, of the Socialist Revolutionaries (SR), of Kautsky, Bernstein and the Menshevik party) and documents that describe the Bolshevik Partyâs Constitution, or party resolutions, programs, and speeches to the Soviets as well as to the 3rd International. Volumes 1-34 are in chronological order.<br />The next volumes are also interesting:<br />Vol. 35-37 are letters and telegrams to other party members, as well as private letters to members of his family.<br />Vol 38 is dedicated to more philosophical issues in Marxism.<br />Vol 39 consists of the notes he made while working on the booklet: âImperialism, Staz pli avanse Kapitalismâ.<br />Vol 40 Is notes and research for his work on agrarian reform.<br />Vol 42 is documents that he wrote after the 1917 Russian Revolution.<br />Vol 43-45 are notes, letters, telegrams mainly on discussions within the party, disagreements, for example, with Trotsky and Stalin.<br />And the series ends, like a warning, with two letters. One to Trotsky warning him not to trust Stalin. And the other to Stalin, threatening to break off all relations with him. And then he died.<br /><br />He has left us a veritable treasure trove of revolutionary thinking, Ram Seegobin concluded. No wonder the bourgeoisie world-wide runs campaigns against him. He represents an ever-present threat to their unequal system.<br /><br /><b>KISNA KISTNASAMY on other books by Lenin</b><br />Kisna went up and showed everyone the 25-30 other titles in the Lenin Collection, in the book display. The titles are mostly original Lenin publications, some with an introduction by contemporary revolutionary Marxists, like the late Doug Lorimer, himself, and like Ernest Mandel, who made such a giant contribution.<br /><br />Leninâs Selected Works in 3 volumes is a major component in this section. <br /><br />Kisna mentioned the context of Tsarist repression in Russia before the October 1917 Revolution, where many of Leninâs writings had to be published illegally. She said the first Lenin work to be published was<i>What the âFriends of the Peopleâ Are and How They Fight the Social-Democrats</i>.It was published in 1894 without the name of the author, and hectographed (duplicated on a gelatine-based copier) in instalments, just as we in LALIT first published a Kreol version of Mandelâs Towards a Classless Society.<br /><br />In 1907, Volume 1 of  the 3-Volume Leninâs Selected Works was confiscated shortly after publication,while other manuscripts were confiscated by Russian security police. <br /><br />The presence of all these works by Lenin makes our library a Marxist reference point, and a most valuable tool for all LALIT members and supporters, as well as being a homage to Leninâs political  contribution, and to his analysis of other great contributions by past socialists.<br /> <br /><b>ALAIN AH-VEE on books by Leon Trotsky</b> <br /> <br />We received 25-30 books by and on Trotsky, most of which are texts that could be classified as history and political theory. Among them are key political texts by Trotsky like his three volumes on the 1917 Russian Revolution. Other important texts include, âThe Stalin School of Falsificationâ, âthe Challenge of the Left Oppositionâ and âthe Permanent Revolutionâ. <br /> <br />The new LALIT collection of Trotskyâs works contains his profound Marxist critique of the Stalinist bureaucratic dictatorship established in Russia during the 1920âs, as well as his analysis of and the lessons to be drawn from the revolutionary process in Russia from 1905 to 1917. <br /><br />The collection also includes Trotskyâs writings on his experience as the principal opponent to Stalin and Stalinism, on his exile and his long and patient work in building an international revolutionary organisation to co-ordinate the struggle against capitalism worldwide. As one among the key organisers together with Lenin of the 1917 revolution, his experience and analysis is invaluable to the struggle for socialism, and this is true until today. <br /> <br />In his famous âThe Permanent Revolution and Results and Prospectsâ Trotsky exposes his critique of Stalinâs theory of âsocialism in one countryâ and elaborates on the necessary internationalist perspective in a continuous process of the struggle for socialism, which will be completed only with the abolition of all classes. <br /><br />Other books include his writings on the Spanish Revolution, on literature and Art and his less known speech at the Congress of Veterinary and medical workers in 1924.  <br /><br />Trotskyâs remarkable life as a revolutionary is documented beautifully in Isaac Deutscherâs masterpiece trilogy: <i>The Prophet Armed, The Prophet Unarmed and The Prophet Outcast. </i> This also forms of LALITâs new library.<br /> <br /><b>SHABEELA KALLA on  books by Australian and U.S. Theorists</b><br />From amongst the 200 or so books that we received from Doug Lorimerâs rich collection, there are 36 books written by socialist authors from the U.S.& Australia. <br /><br />We can categorise these 36 books into five main categories. <br /><b>First Category: On History</b><br />The first category deals, mainly, with the history of the Communist Party, The American Trotsky faction & eventually, the SWP (Socialist Workers Party) in the US. We received 16 books that deal with this aspect of the political history in the US. Out of these 16 books, 13 are by James Cannon who was, actually, one of the founders of the Trotskyism faction & who in 1938, became one of the leaders of SWP (Socialist Workers Party). The books that we have by Cannon are, mainly, collections of his letters, lectures, speeches he gave between 1928 and 1953. The central theme of these books is the building of a revolutionary party on Leninist lines, and also on how a revolutionary party opposes capitalism, how to deal with âpetty-bourgeoisâ reformism within the party, and how to oppose imperialistic wars.<br /><br />To continue on the history category and to follow Cannonâs books, we also received a fascinating book written by SWP themselves, and which is a collection of the minutes and resolutions that were taken between 1938 â 1939, when SWP was being set up.<br /><br />We also have Albert Goldmannâs speech, among these 16 books. This is a speech that he gave, in 1941, when members of SWP were under criminal charges forâseditionâ.<br /><br />And to finish, in this category we also received one of Peter Camejoâs books which is about the evolution of SWP between 1978 & 1988.<br /><br /><b>Second category: On Trade Unions</b><br />The second category of books deal with the trade unions. We received 3 books by Farrell Dobbs who was especially known as a trade unionist, who participated in one of the most important strikes in the US. Indeed, Farrell Dobbs participated in the âTeamster Minneapolisâ strike in 1930 and two of his books, that we received, are narratives about this strike and how the trade union movement contributed to this struggle.<br /><br />His third book is based more on Marxist theories that bring us, directly, on the third category.<br /><br /><b>Third Category: On Marxist Theories / Leninâs Strategy</b><br />The third category of books refers to Marxist theories and Leninâs contribution on strategy. Among the 36 books, we have 7 books by George Novack who is a well known Marxist theoretician. What is interesting in George Novackâs books is that he analyses several themes, which are even now very often discussed in left wing parties such as materialism, democracy or even history from a strictly Marxist point of view. <br /><br />Following this, we have, also, a book from Abram Leon that analyses the Jewish question â and once again, from a Marxist interpretation.<br /><br />And last in this category, is a book from Joseph Hansen (who was, actually, Trotskyâs secretary) on the construction of a party based on Leninist organizational principles and strategic goals.<br /><br /><b>Fourth Category: On  Afro-American Struggles and Rights</b><br />Three of the books, that form part of this batch of 36 books, fall into the fourth category which is about the liberation and rights of the Afro-Americans.<br /><br />One book is written by Peter Camejo and gives a new interpretation of Afro-American rights & how their oppression was linked to capitalism. <br /><br />Another book, <i>Black Liberation & Socialism</i> contains work by five different authors on this particular subject.<br /><br />We, also, have a book about Malcolm X which is, actually, a collection of all the speeches Malcolm X gave when he was fighting for the liberation of the Afro-Americans.<br /><br /><b>Fifth Category: Womenâs Rights & Liberation</b><br />The last category of books is about womenâs liberation. We have 5 books that are centred on womenâs liberation but from a Marxist point of view.<br /><br />Three of these books are by Evelyn Reed who was reputed as an important activist for womenâs liberation in the US & who participated in numerous demonstrations for womenâs emancipation. Her books not only use a lot of Marxist theories but she, also, refers a lot to Engels.<br /><br />Following this, we have a book edited by Linda Jenness where you can find 13 different female authors writing about the importance of socialism for the womenâs movement. A last book contains the draft resolutions that were under discussion, regarding womenâs liberation, during the Fourth International.<br /><br /><b>Conclusion to the US-Australia books</b><br />You will find in these 36 books, a concentration of ideas from Marx but also, from Lenin, Trotsky & Engels, as seen by US and Australian theoreticians.It is indeed a very valuable treasure of knowledge for all of us.<br /><br /><b>LINDSEY COLLEN on books on the Four Internationals, and the category âOtherâ </b><br /><br />Lindsey began by saying how unless you categorize the real world in terms of âAâ and ânon-Aâ, you will invariably end up with a bunch called âotherâ. So, she explained, she was in charge of âotherâ. She said she had in turn divided them into four categories:<br />- Books on the four internationals, including actual documents, like resolutions and other primary sources.<br />- Pure Theory, some by the very Doug Lorimer whose works we are benefitting from after his untimely death, and those of Ernest Mandel, another intellectual giant amongst activists. And interesting books that are so often referred to by Lenin and Trotsky, by people like Preobrezensky and Bukharin.<br />-Historical books, including classics by E. M.Carr and by Zinoviev.<br />- And then books on the struggle in particular countries, like Spain, Chili, Cuba, South Africa, and of course, Russia and China.<br /><br /><b>The social part of the event</b><br />Once the introduction to all the books was over, everyone then went and drank hot soup out on the verandah.<br /><br /><b>Reporting</b><br />The MBC filmed for TV and broadcast a report on 8 June, 2014 in the main 7:30 p.m. news.<br /><br /><br />Report prepared for the web-site by the seven speakers.<br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101102" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101102" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101102" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101102" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101102" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101102" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101102" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101102" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101102" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>State of the Arts Discussion Paper (in Kreol)</h1><p class="subtitle">11.05.2016</p></h1>
+	<p class="newsarticle"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; KOMISYON KILTIR LALIT</p><br /><p align="center"><strong>LETA LAR DAN MORIS </strong><strong>2015: </strong><strong>ENN APERSI</strong></p><br /><p align="center">&nbsp;</p><br /><p align="center"><strong>(For English version, see&nbsp;<a href="../../../../en/newsarticle/1803/the-state-of-the-arts-2015-16-as-seen-by-lalit-cultural-commission">http://www.lalitmauritius.org/en/newsarticle/1803/the-state-of-the-arts-2015-16-as-seen-by-lalit-cultural-commission</a>)</strong></p><br /><p>&nbsp;<em>Minister Lar ek Kiltir ena enn stratezi avek 2 vize ki, ziska zordi, res enn menas pu kreativite, sa mem kreativite ki esansyel pu nuri Lar. </em>&nbsp;</p><br /><p>Premyerman, Leta promuvwar lar-ek-kiltir etno-relizye. Li nuri enn &ldquo;lepase&rdquo; plizumwin imaziner kan sanse ti ena kiltir ermetikman separe, kiltir ansestral sanse 100% pir, plis kiltir ki finn, amezir letan pase, gradyelman, dapre li, "kreolize". Sa, asontur, vinn enn lot kiltir sanse separe.</p><br /><p>Dezyemman, Leta promuvwar&nbsp; lar-ek-kiltir kuman enn "prodwi" komersyal. Sa li sirtu pu lindistri turis. Enn lexanp sa, se &ldquo;Festival Kreol&rdquo; ki tipikman prezant enn fos versyon kiltir Moris kuma kiksoz exotik, suvan sexyalize, pu konsomasyon turist avek enn regar kolonyal.</p><br /><p>Bon Lar pa kapav devlope ni sere alinteryer konpartiman separe ki limit liberte ni anbale an marsandiz avann.</p><br /><p>Dan enn sans, stratezi Guvernman lor Lar li kuma <em>marto anklim</em><em>. </em><em>Marto</em><em> la</em> li so kad etno-relizye, e anklim se sa mul prodwi turistik. Vre lar, ant marto ek anklim, riske kraze a mor.</p><br /><p>E memsi, dizon, bon lamizik reysi sirviv sa matrakaz la, ena lot danze aparet pli divan: politisyen kapav aste u pu servi u pu rod vot, ubyen kapitalis kapav servi u lespri kreatif pu manipil u kamarad atraver piblisite. Enn ansyen depite Curepipe byin fyer li finn viz aste tu mizisyen dan so sirkonskripsyon! Ansyen Premye Minis finn aste par duzenn mizisyen. Enn gran mizisyen finn mem ariv sant anfaver prodiktivite e finn vant "24/7". Antanki artis-parolye, li ti oredi remarke, kan li pe sante, ki dan mem peryod ki li pe sant "Glory to 24/7", dernye bis lor laliyn Porlwi-Kirpip ti kumans kit lagar 9:00 aswar alor ki pandan 20 an pasaze ti pe kapav vwayaze ziska 11:00 pm.&nbsp; Ena lezot mizisyen ki dakor pu zwe lamizik pandan ki zot sponnsor pe asize otur enn latab gastronomik. Serten mizisyen byen koni finn mem servi zanfan pu fer sa.</p><br /><p><strong>&nbsp;Kontrol sekter prive</strong></p><br /><p>Depi inpe letan, kontrol sekter prive finn vinn pli surnwa.</p><br /><p>Avan, ti pe donn enn kwin pa tro vwayan pu enn tipti logo sponnsor dan enn program teat ubyin pu enn lot evennman pu prezant zot &ldquo;zenerozite&rdquo;. Asterla patrona organiz festival li-mem, direk. Patrona <em>rul</em> festival. Anu pran <em>Festival Eco-bridge</em> organize par MCB ansam avek patron lotel ek IRS Jubhoo [<em>ki asterla an 2016 finn gayn permi pu fer zot IRS vinn enn Smart City</em>]. Zot flat Minis, donn li enn ti-plas ladan, fer li asize dan konferans&nbsp; de pres kuma biblo. E seki koze kuma manajer proze li enn dimunn sanse degos, enn port-parol <em>Rezistans ek Alternativ</em>. Zot bi ki ete? Pu pran kontrol total Tamarin? Pu aste otan artis ek mizisyin amezir zot fer sa? Pu gayn permi Smart City? Pu zot later gayn plis valer? Pa kone.</p><br /><p><em>Port Louis by Light</em> ti enn versyon inpe pli &ldquo;popiler&rdquo; sa lar ki sponnsorize par sekter prive zordi. So bi ti inpe pli nob: pu redonn Port Louis lavi dan aswar.&nbsp; Selman fale rapel ki Port Louis pa finn mor aswar akoz li finn andormi dusman-dusman. Li rezilta direk enn epizod orib dan nu listwar: bagar rasyal otur Lindepandans. Bizin kapav fer fas sa but listwar la anmemtan ki pe redonn Port Louis lavi dan aswar. Sinon Port Louis riske resisite kuma enn zombi uswa enn espes nam trene. Pu fer Port Louis regayn lavi aswar pu vedir bizin reget pli lwin dan listwar: depi listwar Zardin Konpayni (ki sa &ldquo;Konpayni&rdquo; la ti ete? Ki sa bann zom ki ena zot stati laba?). Inklir dan sa listwar Zardin Konpayni la ena zafer pozitif kuma evennman gran muvman degrev otur lagrev lafin 1979 ek gran mobilizasyon Chagosyin ek <em>Muvman Liberasyon Fam</em> dan Zardin Konpayni an 1981. Ki kote dan Port Louis ti dekapit Ratsitatann? Ki li vedir sa slogan anba enn bann stati laba ki dir &ldquo;<em>Je dois &agrave; la France d&rsquo;&ecirc;tre un homme pensant</em>&rdquo;? Ki ti-zistwar, ti-jok ena lor sa bann stati Zardin Konpayni? San sa kalite listwar oral popiler ki devir listwar kolonyal anbalao e transand li, sa selebrasyon la riske vinn enn zistifikasyon kolonizasyon, lopresyon, mem lesklavaz. &ldquo;Get sa zoli batiman la!&rdquo; &ldquo;Get sa bann gran zom for ki ti propriyeter esklav!&rdquo; Kan servi prizon pu fer lar, li omwin kumansman <em>kontre</em> listwar kolonyal.</p><br /><p>Eski Leta ek sekter prive vremem interese fer kitsoz pu Lar, u zot pe zis anvi promuvwar zot mem?</p><br /><p>Leta pa pe zis promuvwar so refrin &ldquo;milti-kiltirel&rdquo; ek so prodwi turistik? Burzwazi pe zis servi so lamone CSR pu redor so limaz?</p><br /><p>Tusala pa neseserman nuri lar ditu.</p><br /><p>Li kapav mem tuf vre kreativite.</p><br /><p>Purtan, malgre tusala, Lar pe kontinye epanwir.</p><br /><p>Wi.</p><br /><p>M<em>algre</em> politik Leta.</p><br /><p>Me, bizarman, parfwa lar mem kapav ariv epanwir kuma enn konsekans inatandi politik Leta. Kan Leta esey promuvwar ladans <em>Marathi</em>, par exanp, olye <em>ladans</em> tukur, uswa lamizik <em>Afriken</em> olye <em>lamizik</em> tukur, ena bann lefe ki Leta pa ti prevwar: zelev pli fite depas kad lar-ek-kiltir inpoze ek resi devlop zot prop pasyon pu ladans antanki ladans, lamizik pu lamizik.</p><br /><p>&nbsp;<strong>Lamizik</strong></p><br /><p>Se pu sa ki, bann zenerasyon antye zanfan arive vinn mizisyen extraordiner alor ki zot finn kumans lamizik dan tu sa Sant Kiltirel finanse par Leta. Ubyen zot finn inisye par zot paran &ndash; mem si bann-la ti pe zwe lamizik kuma bakgrawnn pu turis ki pe manze. Zanfan sa paran mizisyen lerla gayn lasans pu ankontak avek linstriman lamizik depi zot tipti. Lerla byensir avek YouTube ek pirataz bon lamizik zot posibilite devlopman vinn enorm. Alor, ena kaziman par santenn (kitfwa par milye) zenn avek par duzenn grup (sipa par santenn) ki pe prodwir tutsort kalite lamizik dan zot lanturaz e pu zot prop plezir. Finn ena devlopman rapid linstriman sega re-invante ek nuvo ritm sega. Isi nu mansyonn lamizik siperb kree par Menwar, Kerwin Castel ek Kirty Oclou. Zot lamizik kraz tu baryer etabli dan ritm sega tradisyonel. Ena lamizik bluz avek enn tus lamizik klasik indyin Tritonik. Ena lamizik avantirer ek kreatif Zulu. Ena poezi ek lamizik folk Richard Beaugendre so sante ek lamizik. Ena jaz extraordiner, kuma sa nuvo lamizik konpoze ek zwe par Grup A4, kot sonorite la anmemtan ankre dan Moris ek anmemtan nuvo net. Li rasanble kreativite enn pyanis klasik, enn santez lotel ek enn zwer batri rok. Ena enn nuvo zenerasyon santer pwisan ek inovater kuma Jason Lily, Emmelyne Marimootoo ek santer-mizisyin Sebastien Margeot ki konn fizyonn beat-box ek sante Ti-Frer dan mem repertwar: enn turdefors.</p><br /><p>Li anfet sa laliberte ki donn enn dinamism a lamizik, kuma tu Lar dayer.</p><br /><p>Me lerla, tigit-tigit, nu finn truve kuma dan sa bann landrwa kot bann zenn ti pe devlop zot lamizik, suvan dan enn fason informel, kumans &ldquo;ferme&rdquo;. Dusma-dusma, lamizik dan lespas piblik finn siprime. Lapliparditan preske par aksidan. Kan defin Sef-Inspekter Raddhoa ek lezot polisye kuma ADSU &ndash; swadizan pu anpes zenn trene dan kwen-sime, divan magazin ek bistop &ndash; finn farus zenes depi lespas piblik, zot finn osi detrwrir prinsipal <em>Lekol Lamizik</em> dan Moris. Laplipar zenn mizisyen, anfet, finn aprann kontan lamizik kan zot pe kas enn poz deor, zwe pu fenn; samem zot <em>Royal School of Music </em>komdi-koze. Nuvo lalwa pu interdir bwar labyer anpiblik finn fors dimunn res kot zot uswa al dan bar e sa finn ena mem lefe. Pareyman, alor ki pli zenn zanfan ti abitye zwe <em>Zakana, Zakana</em> ek lezot kontinn, Guvernman siksesif finn permet ki plis loto-menaz, kamyon disik ek kann, kamyon marsandiz, minivann, bis, masinn anvayir sa bann landrwa an sekirite &ndash; sime, lale ek leyn &ndash; e rann li inposib pu zanfan kontiyn zwe deor. Alor, zanfan nepli anmezir pu devlop enn lorey &lsquo;pre-mizikal&rsquo; par zwe-sante ansam dan lespas piblik. Ofinal, se selman enn zur dan enn lane, le 22 Zin &ndash; anplin freser &ndash; akoz rezidi kolonyal &nbsp;fer nu adopte fason-fer ek kalandriye Franse &ndash; ki ankuraz mizisyen zwe dan ninport ki plas piblik. Sa liberte enn zur fer resorti enn realite kriyel: lezot 364 zur mizisyen pena liberte pu zwe ninport kotsa e partu. Se sa ki bizin sirtu e avan tu sanze. Zwe lamizik an-plener pa ti devet nesesit enn permi. Nu bizin repran sa liberte-la e ankuraz lezot pu repran li.</p><br /><p>Azordi, malgre tu sa bann nuvo baryer, lamizik pe devlope kantmem. E aster, ena tutsort kalite sante an Kreol. Avan ti ena zis sega ek inpe sege ki ti an Kreol. Aster, li dan tu zar. Depi operet ziska jaz, depi folk a R&amp;B, pop a slam. Buku slam. E mem komedi mizikal avek prodiksyon <em>Porgy and Bess</em> ki ti zwe an-plener, gratis. Ena landrwa spesifikman batir pu konser an-plener Maybur ek Albyon ki ti pu bon fer dan lezot landrwa osi. Dan enn pei kot letan sitan agreab li lespas an-plener ki nu bizin reklame ubyin kree si nu anvi ki lamizik epanwir dan enn fason natirel.</p><br /><p>Leta, ilevre, sibvansyonn ninport ki CD ki sorti e li finans ninport ki grup ki zwe dan enn festival an-ord dan lezot pei. Li enn led inportan. Parkont, li suvan amare avek enn trale demars birokratik. Seki inportan se anpes enn gran birokrasi devlope otur anplasman pu lar.</p><br /><p>Radyo piblik ek prive finn usi kontribiye pu popilariz lamizik lokal; me zot disernman kritik pankor ariv enn stad fite kuma li ti kapav ete, e dis delane sa lane-la finn provok bel kontrovers.</p><br /><p>E partu dan Moris, nuvo plas pu zwe e pu ekut lamizik finn burzone. Apre <em>Banana</em> dan Granbe ek&nbsp; defin <em>Laribluz</em> dan Kirpip, gayn <em>Le Sapin</em>, enn bar ki truv dan kartye travayer Kanlevye ki spesyalize dan lamizik, <em>Kenzi Bar</em> dan Flikanflak, plis enn 7-8 lot landrwa similer. E, kuma kriz ekonomik pe tape anplen e ki plizyer exelan mizisyen lotel pe perdi kontra, zot pe bizin kree nuvo plas pu zwe &ndash; zot pena swa. <em>Le Sapin</em> finn organiz enn seri festival lamizik. Festival Jaz Ernest Wiehe finn vinn enn levennman anyel pu amater lamizik.</p><br /><p>An realite, travayer Moris finn apropriye tutsort kalite lamizik. Mem <em>Conservatoire de Musique</em> asterla rekrit mizisyen avek lexperyans kuma profeser olye fye zis lor dimunn ki ena sertifika <em>Royal Schools of Music</em>. Me selma, avek nuvo kad pu explwatasyon &ldquo;mindev&rdquo;, profeser gayn lapey par lerdtan ki li travay, kan zot suvan oblize turnpus ant de leson, e anplis zot pa peye pu leson ki zelev absan.</p><br /><p>Sega, anmemtan, finn diversifye e devlope pu depas so frontyer tradisyonel. Sedley Assonne finn prodir enn kompenndyom lor sega ek segatye. Lasosyasyon ABAIM rul enn Lekol Ravann e finn donn kur lor kuma aranz linstriman tradisyonel. Sante ek danse an Bojpuri finn sort depi lespas prive fet fam tradisyonel uswa gamat Samdi swar, finn gayn enn lexistans dan sfer piblik. Ti-grup dimunn zwe vyolon ansam (ena finn mem fabrik zot linstriman) e lezot zwe lagitar klasik &ndash; sa usi an ti-grup. Grup Kawal zwe pu sware prive enpe partu dan Moris.</p><br /><p>Nu bizin rapel linportans lamizik isi Moris, li telman gran ki, kan ti truv Kaya, personalite mizikal lepli popiler ki finn deza ena, mor dan so selil Alkatraz kan li ti ferme lor sarz fim gandya, sa ti provok telman lakoler ki finn ena enn rebelyon imans ki finn paraliz pei pu 2-3 zur. Li finn selman kale kan enn espes milis vyolan otur lapolis finn insit konfli kominal par atak de landrwa dan Lenor ver lafin sa rebelyonla, met dife dan zot lakaz, pu sem lafreyer parmi tu dimunn.</p><br /><p><strong>&nbsp;Evennmansyel</strong></p><br /><p>Tradisyonelman isi, apart Guvernman, sekter prive ti ena enn tandans fer vinn zis artis oksidantal. Me depi ki ena Immedia, ena artis ki finn vinn zwe isi ki sorti diferan kalite rezyon lemond. Sa li enn sanzman inportan.</p><br /><p><strong>&nbsp;Kopirayt</strong></p><br /><p>Finn ariv ler pu mizisyin zwenn lezot artis pu met an kestyon ideolozi &ldquo;propriyete prive&rdquo; ki kasyet deryer lalwa &ldquo;drwa oter&rdquo;, enn kad legal ki finn anfet fabrike pu protez Microsoft, enn kote, ek gran firm farmasetik, lot kote. Nu bizin opoz sa kalite regleman-la e nu bizin evit rant dan lager ar ti-marsan individyel ki vann kopi nu lamizik. Li enn pyez. <strong></strong></p><br /><p><strong>&nbsp;Teat</strong></p><br /><p>Teat prezan depi lontan dan listwar Moris, prinsipalman selon 3 tradisyon ase distink: ena enn tradisyon irben otur Teat Plaza ek Teat Porlwi, 2 bizu konsepsyon Eropyen prinsipalman an langaz Franse, pu enn lodians elit lavil; ena enn tradisyon &ldquo;natak&rdquo; ek fer sketch dan vilaz; e lerla ena teat &ldquo;angaze&rdquo; ki emann depi bann Festival Drama lane &rsquo;70, <em>Mauritius Drama League</em>, pyes Dev Virahsawmy, <em>Festival Teat Port Louis</em> organize par Rama Poonoosamy ek lezot ek teat anbilan, teat lari ki finn popilarize par dimunn kuma Henry &amp; Marie France Favory ek Mario Noorah, zot usi depi bann lane &rsquo;70. Aster ena enn nuvo kalite teat: komedi an-sinbyoz avek enn lodyans layv. Komedi finn byin avanse ek li ena so prop teat avek dimunn kuma Miselaine Soobraydoo ek lezot komedyin dan lavangard.</p><br /><p>&nbsp;<strong>Demand Politik LALIT konsernan Lar </strong><strong>P</strong><strong>erformans</strong></p><br /><p>Premyerman, bizin re-liber Lar performans pu ki zanfan ek zenn servi lamizik ek sketch dan lavi tulezur.&nbsp; Bizin retir represyon ki interdi performans artistik an-plener ek dan lespas piblik.</p><br /><p>Dezyemman, sak <strong>Vilej Orl ek Orl Minisipalite bizin transform an Orl Konser</strong> pu detrwa aswar par semenn, kot grup landrwa rezerv zot plas pu repete e zwe. 30-an desela, li enn fe ki pli gran batiman dan vilaz ti Vilej Horl uswa Sant Sosyal <em>Sugar Industry Labour Welfare Fund</em>. Avek lamonte neoliberalism, tu expansyon kapital&nbsp; finn rant dan komers (bel bel labutik, sipermarse ek kinkayri), finn met dan ranz lakaz imans pu fami individyel klas mwayenn ek komersan, e gran legliz, tanp ek moske. Lespas piblik, kuma Vilej Orl, paret Tompus akote bann mahal prive. Ala seki Guvernman bizin kontre par investi dan horl avek bon akustik dan tu rezyon.</p><br /><p>Trwazyemman, nu propoze ki tu <strong>orl dan kolez SSS transform an Teat</strong> apre ler lekol e pandan wikenn. Pu fer sa, bizin reamenaz tu orl pu ki zot akustik koresponn a bezwen teat ek prevwar enn sistem lasenn demontab. Lerla tu latrup teat kapav rezerve pu gayn akse a lasal (ek vestyer) pu repetisyon dizon 4pm a 9pm Dimans a Zedi e gard Vandredi ek Samdi pu reprezantasyon piblik. Kumsa grup lokal kapav burzone, e avek letan vinn ase koni. Zot kapav mem organiz enn laturne dan plizyer Teat SSS ki al fini dan teat nasyonal kuma Plaza, Porlwi ek Serge Constantin.</p><br /><p>Katriyemman, tu <strong>teat existan bizin imedyatman renove</strong> ek met adispozisyon grup teat ek lamizik.</p><br /><p>Donk, bizin ena, anmemtan, gran batiman nasyonal pu lamizik ek teat e osi osi ena Vilej Orl ek Orl kolez SSS.</p><br /><p>Sinkyemman, propozisyon pu <strong>Lorkes Sinfonik Nasyonal, Galri Nasyonal, Latrup Teat Nasyonal ek Sant Nasyonal pu Lar Performans</strong> bizin konkretize.</p><br /><p>Enn Yunit ex-Premye Minis dezonore Ramgoolam ti apel <em>Culture et l&#039;Avenir.</em> Li ti sipoze met dibut Lorkes Sinfonik Nasyonal. E usi, enn zoli lide terib, kree enn Galri Nasyonal dan pli vye batiman Porlwi, lopital militer. Okenn sa 2 proze pa finn truv lizur. Prezidan dan so Diskur 2015 finn anons kreasyon Latrup Teat Nasyonal ek enn Sant nasyonal pu Lar Performans. Tusa proze nasyonal bizin konkretize anmemtan ki pe devlop par santenn evennman lokal dan tu kwen vilaz ek lavil. Anu abord size Lar Vizyel pwiski nu&rsquo;nn koz Galri Nasyonal.</p><br /><p>Sizyeman, nu bizin lans deba pu chalennj lalwa kopirayt ki gard nu amare.</p><br /><p><strong>&nbsp;Lar Vizyel</strong></p><br /><p>Lar vizyel finn devlope <em>e </em>atraver zot form tradisyonel &ndash; lapintir, skilptir ek fotografi &ndash; <em>e</em> par sorti depi sa kad la, atraver instalasyon kuraze, patchwerk kutir, ilistrasyon liv ek vizyel politik. Nepli zis &ldquo;pint gran misye ek madam&rdquo; kuma avan, ki fer <em>tablo</em> azordizur.</p><br /><p>Lar finn, e pe, mem ariv expoze anplenner ena fwa.</p><br /><p>MGI li institisyon ki ti premye pu popilariz lar plastik. Bann ki finn fer enn kontribisyon ladan inklir Moorthy Nagalingum, Mala Chummun, Nirmala Luckeenarain, bann frer Dausoa brothers, lezot ankor.</p><br /><p>Enn lelan kreativite finn devlope letan lyen ant plastisyen ek lemond andeor &ldquo;lar&rdquo; finn kree: <em>Ledikasyon pu Travayer</em> finn ede pu fer sa lyen-la par servi kuvertir-liv kree par artis e osi par difiz zot kreasyon kuma kart postal. LPT finn usi organiz 2 expozisyon lapintir, skilptir ek instalasyon: enn <em>Kont Lager e Pu Lape</em> an 2003, ek 2-an pli tar <em>Kont Represyon e Pu Laliberte</em>. Expozisyon lamem ti transforme an enn lespas pu akeyir konser, teat, lektir poem ek mem enn konferans &ndash; asakfwa liye ar tem expozisyon &ndash; e tusala avek partisipasyon zelev kur-alfabetizasyon ek piblik an-zeneral.</p><br /><p>Anfet Artis finn deplizanpli travay ansam, kuma resaman dan <em>pARTarge</em>. Lezot finn met dibut zot prop galri ubyin transform zot lakaz an latelye Lar. Salim Currimjee finn met dibut enn <em>Institi pu Lar kontanporin dan Losean Indyin</em> ki finn uver enn veritab galri lar avek expozisyon ki ale 3 mwa e ki pena kom bi pu vann tablo e kot tu kalite dimunn inisye a galri lar pu premye fwa.</p><br /><p>Enn nomb grandisan artis kuma Jeanne Gerval Arouff, Krishna Lutchoomun, Khalid Nazroo, Mario Ng, Nirmal Hurry ek Nirvada Malleck finn, avek kuraz ek lodas, propoz instalasyon ki kup kordon avek konteni ek form zenerasyon avan. Zot finn kritik tutsort kalite zafer depi rasism ziska stratezi militer USA. Bann frer Ghanty finn, zot osi, mintenir inovasyon dan zot travay lor plizyer dizenn lane. Stina Becherel, enn parmi bann gran artis Morisyen, finn kud zoli-zoli tablo. Henry Kums finn ilistre lane apre lane seri liv-zanfan apel <em>Tikoulou</em> ki finn atenn so 14yem nimero anplis ki li fer lapintir.&nbsp; Nalini Treebhoobhun finn travay avek istoryen pu inkorpor artefak kiltirel dan textir so kreasyon. Artis kuma Dhyaneswar Dausoa, Lewis Dick ek Edwin Marie finn permet ki skilptir sort depi galri lar e fer enn perse dan lespas ordiner kuma lakur dimunn uswa Kodan. LPT finn pibliye kart swe ki fer par artis. Depi lerla, buku artis finn kontribiye tulezan dan kart lafinlane edite par <em>Terre de Paix</em>. Bizutye kuma Ravi Jetsun finn transform enn artizana an enn Lar. Tulezan, artis par duzenn &ndash; artis rekoni ek zenn artis &ndash; partisip dan <em>Salon de Mai</em> organize par MGI. E sa fer 40-an ki sa pe dire. Fotografi usi finn burzone. Anplis ki travay Pierre Argo, Yves Pitchen so foto blan-nwar ki tas dan latet, ena 3 sedev par Jano Couacaud : <em>Bor La Mer</em> konsakre a travayer Lepor ki pe fer zot dernye manitansyon manyelman, <em>Laz de pyer </em>enn kronik lor parkur ros bazalt ki finn sorti dan volkan e form Moris, <em>Le temps suspendu</em> ki imortaliz lakaz tradisyonel, so gran kuma so tipti, ki pe tom an-rwinn.</p><br /><p>E aster, karikatirist finn gayn zot lidantite artis. Deven T li kapav-et so pli gran. So komanter politik, an form vizyel, li byin sofistike e li aksesib lor websayt <em>Le Mauricien</em> osi. Pov finn resaman pibliye enn ti-liv komik ek pertinan apel <em>BAI pou Bann Couillons</em>. Abdool Kalla finn gard tradisyon-la, ant lepok Roger Merven ziska nuvo vag artis.</p><br /><p>&nbsp;<strong>Demand Politik LALIT</strong></p><br /><p>Premyerman, lespas piblik bizin uver pu Lar.</p><br /><p>Dezyeman, bizin fer ansort ki enn <em>Mize Nasyonal Lar</em>, ki pe koz-koze depi enn syek, anfin truv lizur.</p><br /><p>Trwazyeman, bizin enn komite indepandan ki vinn an-ed artis ki pe fer expozisyon dan pei, uswa a-letranze.</p><br /><p>Katriyeman, parey, bizin osi ena inpe sutyen Leta pu werkshop fer par artis e pu bann analiz lor Lar existan &ndash; dan form liv uswa lor Innternet.</p><br /><p>Hans Ramduth finn fer enn analiz listwar lar Moris ki pertinan avek enn pwendevi materyalist, <em>&nbsp;Lar dan Moris: Ishyu ek perspektiv post-Indepandans.</em> Bizin popilariz sa liv-la.</p><br /><p>E sa amenn nu a &ldquo;dokiman istorik&rdquo; ek Listwar.</p><br /><p><strong>&nbsp;Arsiv</strong></p><br /><p>Arsiv Nasyonal Moris finn sufer neglizans pandan par dizenn lane. Akoz zot pa rant dan kad politik milti-kiltirel divizyonist uswa parski zot pa enn atraksyon turistik, arsiv pe perdi zur apre zur. Li enn dram.</p><br /><p>Mem si enn zoli travay dizitalizasyon finn komanse, enn linvestiman konsekan neseser pu ki sa imans travay la akselere, e konplete. Parski li literalman enn lekurs kont letan. E tu kiltir bizin ena arsiv. Tu tras nu pase antan ki pei pe tigit-tigit fini dan vant karya. Papye pe gradyelman vinn kuma trans finn biskwi-gofret ki kraze but-but. Linvestisman masif dan sa domenn plis ki irzan. Li enn bann demand LALIT plis krisyal.</p><br /><p><strong>&nbsp;Fim ek Fim-Klib</strong></p><br /><p>Dan Fim-Klib kot Ledikasyon pu Travayer dimunn finn get fim sorti 5 kontinan, suvan fim artistik, bizu ki zame pa truve dan sirkwi komersyal. Sa linstitisyon extraordiner finn sirviv 10 an sa Fevriye-la --&nbsp; avek enn seans sinema tulemwa pu get fim an versyon orizinal avec sutit. Plizyer lezot klib ti aparet zis apre so nesans &ndash; dan IFM, dans Sant CDMO, dan Liniversite Popiler ek dan Caf&eacute; de l&#039;Atelier dan Porlwi &ndash; me paret zot pa finn fer lonfe. LPT so &ldquo;Fim k-Lib&rdquo;, ki dan so nom-mem promuwvar laliberte, finn organiz diskisyon otur plis ki 100 fim. Atraver sa, dimunn ordiner ki prezan regilyerman finn devlop enn sans kritik ek estetik otur sa form Lar ki ordiner me purtan extra-ordiner.</p><br /><p>Resaman, fim David Constantin <em>Lonbraz Kann</em> finn difize dan bann lasal meynstrim osi byin ki dan enn fason desantralize, mem anplenner ki finn enn gran sikse. Samem veritab premye lon-metraz Morisyin e li met labar byen ot. E, byen inportan, li an Kreol.</p><br /><p>&nbsp;<strong>Literatir</strong></p><br /><p>Moris ena enn repitasyon de long-dat dan literatir mondyal. Liv <em>Paul et Virginie</em> par Bernardin de St Pierre an 1788 finn fer letur dimond e li ti enn-de bann premye roman <em>best-seller</em> internasyonal dan lemond. Li ti fer firer. <em>A Smile of Fortune</em> par Joseph Conrad derul dan Moris. Mark Twain finn ekrir lor Moris. Baudelaire finn ekrir poem Moris. Ek azordi, ena buku bon ekrivin, sirtu depi Lindepandans, dan Moris.</p><br /><p>Enn de bann meyer pyes ki nu kone dan literatir Moris se <em>Tras</em> par Henri Favory. Li rakont zistwar laburer Anna, baze lor enn lartik ekrir par Lindsey Collen apre diskisyon avek Ramesh Khaytoo, partisipan ek lider sa evennman la. Komik ek trazik anmemtan, Favory so pyes rakont seki finn arive atraver enn seri flashbak pandan enn long kes Lakur ki bann travayer finn met kont bann patron ki finn sanksyonn zot parski zot finn invant enn nuvo sistem travay. Pyes la li tulede komedi ek trazedi.&nbsp; Pyes-la, dan enn Kreol siblim, inklir lamizik, sante, kontinn e sertenn senn prevwar partisipasyon piblik. Li servi &ldquo;langaz madam sere&rdquo; ki zanfan servi tradisyonelman, kan avoka travayer pled zot kes e pe anfet vann zot kes san ezite, divan zot lizye. Enn 2yem edisyon pyes-la finn sorti, sennkutla biling Kreol-Franse.</p><br /><p>Azize Asgarally finn ekrir teat kuma <em>Ratsitatane</em> ki ti byin popiler dan bann lane &#039;80.</p><br /><p>Pyes Shakespeare finn osi tradir an Kreol par Henri Favory ek Richard Etienne. Moli&egrave;re so L&#039;<em>Avare finn adapte par poet </em>&nbsp;Krishna Somanah, <em>Misye Peng</em>. Henri Favory ti tradir Athol Fugard so pyes <em>The Island</em><em> an </em>Kreol. Kan Henry Favory ti prodir pyes-la, li ek Mario Noorah, tulede akter, ti fer enn turdefors briyan pandan 2erdtan.</p><br /><p>Pwiske nu lor teat, li inportan mansyonn kontribisyon lekip <em>Immedia</em> antanki inpresaryo buku festival Lar dramatik ek pu so rol dan promosyon sertenn exelan komedi an monolog an Kreol. Avan, ti abitye ena Festival dramatik minisipalite Porlwi kot par duzenn pyes ti zwe pu gran piblik dan Teat Porlwi.</p><br /><p><strong>&nbsp;Poezi</strong></p><br /><p>Dev Virahsawmy finn ekrir bann meyer poem ki finn ekrir Moris. So palet byen larz. Pran depi poem lirik ziska satir politik byen pikan, depi poem romantik ziska parol pu Komedi mizikal, depi ekri ki rakont mitolozi ziska lavi tulezur. Li ekrir selon tradisyon tulde Oryantal ek Oksidantal. Li finn osi prodir enn antolozi poem pu zanfan. Li oter plizyer tradiksyon an kreol bann pyes Shakespeare ki&nbsp; ena fwa osi fite ki orizinal. Nek mazinn tit <em>Much Ado About Nothing</em> ki Dev finn tradir par <em>Enn Ta Senn dan Vid!</em> So tradiksyon finn azut enn lot kus zedmo gras a dub sinifikasyon &ldquo;senn&rdquo;. Pyes-la so tit dir ki li enn &ldquo;pyes&rdquo;.&nbsp; Tradiksyon ki li finn prodir pu verse trwa sorsyer dan <em>Macbeth</em> kareman siblim. Parey pu so tradiksyon Shelley ek lezot. Edouard Maunick finn prodir zoli poezi an Franse e osi an Kreol lor plizyer deseni e li finn osi fer bon resitasyon poezi, antan ki performans. Li fer enn pon dan letan ant bann &ldquo;gran ekrivin&rdquo; avan Lindepandans kuma Malcolm de Chazal, Robert Edward Hart ek Marcel Cabon, ek sa nuvo vag poez ki nu pe mansyone, inklir Michel du Casse, Yusuf Kadel, Marcel Poinen, Patrick Ramdhony, Rajni Lallah, Umar Timol, Sedley Assonne, Tania Haberland, Karl Vadamootoo, Khal Toorabally, Alain Muneean, Aqiil Gopee, and many others. Ant zot, ti ena poet kuma defin Lorens Sofi ek Bam Cuttayen.</p><br /><p>Parmi bann poem byen apresye ena &ldquo;Ti Bato Papye&rdquo; par Alain Fanchon ki rakont parkur enn bato papye pliye kan li pe desann enn kanal &ndash; enn poem a 3 nivo sinifikasyon: enn poem inosan ondire pu zanfan, enn alizyon lamur etero-sexyel, enn kestyonnman existansyel.&nbsp; Li ti pibliye an 55 langaz dan enn edisyon LPT an 2015. E pu premye fwa, enn antolozi poezi finn inklir enn versyon an langaz siyn (lor DVD) ek enn versyon Bray.</p><br /><p>&ldquo;Larmwar mo mama&rdquo; enn poem ki re-kree tu sekre larmwar mama Eshan Abdool Raman. An 2008, pu donn enn lide komye poet aster ekrir an Kreol, LPT finn pibliye enn liv dan kad 40-an Lindepandans Moris apel <em>40 poet &ndash;&nbsp; </em>par 40 diferan poet. Bizarman, laplipar lagazet finn fann enn mari kir par ekrir so nom <em>40 poe<strong>m</strong>.</em> Zot finn rat lesansyel. Alor li ti enn seri reportaz vreman exekrab. Sa montre a ki pwen nivo kritik literer ba dan lapres Moris. Petet li osi montre enn mepri pu lang Kreol parmi intelijennsya.</p><br /><p>Muvman poezi otur <em>Les Plumitifs Associ&eacute;s</em>, memsi li pa finn dire, ti byen dinamik. Zordi ena poem ki pibliye an Franse, Angle ek Kreol.</p><br /><p><strong>&nbsp;Roman</strong></p><br /><p>Depi roman Marcelle Lagesse, Liliane Berthelot, ek R&eacute;n&eacute; Asgarally, ena enn seri zoli roman finn swiv par Ananda Devi, Abhimanyu Unnuth, Natacha Appanah, Shenaz Patel, Sedley Assonne, Marie-Th&eacute;r&egrave;se Humbert, Jean-Marie L&eacute;clezio. Ena zistwar bizar ek merveye par Farhad Khoyratty, Shakuntala Howaldar, Mohunparsad Bhurtun. Ena enn santenn lezot ekriven. Manb LALIT Lindsey Collen li osi enn romansyer. Plizyer roman par sa bann oter la finn resevwar pri literer internasyonal.</p><br /><p>&nbsp;<strong>Zistwar</strong></p><br /><p>Tulezan, depi 22-an, Rama Poonoosamy ek lekip <em>Immedia</em> pibliye enn antolozi zistwar kurt par ekriven morisyen. Ena 600 zistwar parla depi plis ki 100 oter. An Franse, Angle ek Kreol.</p><br /><p>&nbsp;<strong>Rapor</strong><strong>-defors </strong><strong>ant Klas Sosyal sanze </strong><strong>apartir</strong><strong> 1990</strong></p><br /><p>Ziska bann lane 1990, preske tu literatir anpartikilye roman, ti an Franse, ekrir par dimunn eze, swa dan burzwazi uswa dan elit lavil.</p><br /><p>Dan dernye 20-an, finn ena enn burzonnman piblikasyon an Hindi, Angle ek Kreol, sakenn anrisi so kamarad. Dan LALIT, nu note ki literatir finn depas sa klivaz-la apartir deba ki ti ena otur roman <em>The Rape of Sita </em>par<em> </em>manb LALIT, Lindsey Collen. So premye roman, <em>There is a Tide</em>, ti deza permet fiksyon sort depi geto &ldquo;klas eze&rdquo; par ekrir lor personaz dan klas travayer ek lezot klas oprime.</p><br /><p>Pareyman, literatir finn gayn lokazyon kas sa &ldquo;lasenn&rdquo; &ndash; enn lasenn anmemtan kolonyal ek deklas &ndash; ki ti antrav so devlopman, letan <em>Ledikasyon pu Travayer</em> finn lans, depi an 1985, so premye parmi 5 difern &ldquo;Pri Literer&rdquo; pu lekritir kreatif an Kreol. Sa finn alors ede pu met dibut enn bann rar magazinn literer Moris, <em>Revi Literer</em>, ki malerezman finn sorti zis 2 fwa. E sa amenn nu ziska enn problem dan literatir Moris: pena ase diskisyon ek deba literer, pena ase kritik ek evalyasyon Lar an ekri. E sa, dan nerport ki langaz.</p><br /><p>Li pa zis ishyu &ldquo;ki langaz ekrivin servi pu so text&rdquo;, me li osi enn divizyon dan diferan organizasyon ekriven mem. Tuzur ena enn restan divizyon kolonyal. Anu gete kuma sa arive.</p><br /><p>&nbsp;<strong>Franse ek Angle azir kuma mirwar</strong></p><br /><p>Tulde ex-kolonizater, Lafrans ek Langleter, resi tuzur fer ansort montre nu febles. Zot avoy enn refle &ldquo;nu inkapasite&rdquo; kan <em>zot</em> organiz e kan <em>zot</em> prodir, isi dan nu pei, evennman artistik ki nu Morisyen pa futi organize nu-mem. Lerla, akoz zot fer li, e suvan zot fer li byen mem, sa anlev nesesite pu ki nu pran ledevan. Nu pran 2 lexanp:</p><br /><p>- Sete British Council ki finn prodir enn expozisyon ek liv lor grafism politik apel <em>Upfront and Personal: Three Decades of Political and Social Graphics: Mauritius</em>. Enn liv ki regrup bann meyer kartunis Moris kuma Deven Teeroovengadum, Abdool Kalla, Roger Merven ek Yvan Martial, ek osi bon grafis kuma Alain Ah-Vee ki finn kree par santenn lafis pu LALIT ek LPT ek artis depi grup Circus. Zame personn pa finn kree enn tel lespas otur sa kalite lar. Okenn otorite, okenn kolektif.</p><br /><p>- Se IFM, enn but Lanbasad Lafrans, ki regilyerman organiz lansman liv, expozisyon Lar, festival fim ek konser ki regrup talan Morisyen e permet piblik Morisyen get artis Morisyen. Ena lezot fer sa lor enn pli tipti lesel me IFM pli gran organizater, memsi monopol Lafrans lor kiltir finn afebli.</p><br /><p>&nbsp;<strong>Kree felir dan ezemoni</strong></p><br /><p>Me afors artis, mizisyen ek ekriven regrupe ansam e travay ansam, sa ansyin realite kolonyal la pu sede. Seki bizin fer, se evre pu tuzur plis liberte, mwins lasansir, plis lespas lib anplen-er pu tu performans Lar: pu sante, pu zwe enn linstriman, pu expoz lar. Plis lespas pu kol poster artistik, plis lespas pu afis poem. Samem nu pli gran chalennj: fer ansort ki Lar rant dan tu lespas ek dan tu letan posib, osi libreman posib. Fer ansort ki deplizanpli dimunn prodir ek ennjoy Lar.</p><br /><p>Pli difisil ladan se pu sanz politik absird Guvernman ki fer enn ekwasyon ant Lar-ek-Kiltir avek Kominote-Etno-relizye. Li enn lide tenas ki anplis inpoze par enn enorm birokrasi aster.</p><br /><p>Sa lide prezant limem kuma enn volonte pu respekte kiltir tu dimunn, pu kree enn nasyon &ldquo;Larkansyel&rdquo;, etc. Me anfet, li amenn divizyon. E kan divizyon fini kree, lerla, letan sakenn fini rant dan so ti-bwat, sann-kut-la ankuraz dimunn fer &ldquo;metisaz&rdquo; uswa &ldquo;fizyon&rdquo;. E drolman, sa stratezi-la li an fet ti enn stratezi <em>defansiv</em>. Li fer exakteman seki li dir li fer, e li reysi, ziska enn sertin pwin, fer fas a kiltir kolonyal Ero-santre meynnstrim, sirtu fas a so kuran Frankofil.&nbsp; Par kont, &ldquo;selil&rdquo; Lar ek Kiltir ki Navin Ramgoolam ti met dibut dan biro Premye Minis, ti organiz enn <em>Book Fair</em> anyel apel <em>Confluences</em> ki ti totalman domine par kuran Frankofil.</p><br /><p>Alors, enn seri ti-bwat separe finn kree dan sa stratezi Lar-ek-Kiltir la pu fer fas a ezemoni &ldquo;kiltir&rdquo; Franse, e sa finn, apre 30-an sutyen par Leta, vinn plizumwen enn nuvo realite ezemonik.</p><br /><p>Anu get enn lexanp kuma li difisil pu krak sa ezemoni.</p><br /><p>Tantativ-la finn vinn depi enn landrwa inatandi.</p><br /><p>Kan elektora finn reysi tir BJP depi puvwar dan Lenn an 2004, Leta Indyen ti adopte enn nuvo politik kiltirel vizavi Moris. Li ti chalennj vizyer ki Leta Moris ti met lor Lar ki sorti diferan plas dan Lenn. Dan Moris zot truv lar kuma swa &ldquo;Urdu&rdquo; swa &ldquo;Tamil&rdquo; swa &ldquo;Hindi&rdquo; swa &ldquo;Telegu&rdquo; setadir liye li avek divizyon sosyo-relizye. Pu rann so pozisyon kler, <em>Indian Council for Cultural Relations</em> finn alor swazir, parmi tu sa Morisyen ki ti kapav swazire, pu invit Lindsey Collen pu partisip dan enn &ldquo;Konklav&rdquo; 40 ekriven sorti Lafrik ek Lazi. Konklav ti diskit realite dan Lazi ek Lafrik 50-an apre <em>Konferans Dekolonizasyon</em> dan Bandung. Zot ti espere ki zot swa ekriven Morisyen ti pu fer Leta Morisyen konpran enn mesaz:&nbsp; inn ler pu detas &ldquo;Lar&rdquo; depi &ldquo;langaz ansestral&rdquo; omwin an seki konsern lesanz ant sa 2 pei. Konklav ti enn lexperyans byen ris, Lindsey Collen rakonte, e laba, dan Lend, li finn fer plizir intervyu ar lapres diferan pei. Me letan li returne li finn truv li <em>inposib</em> pu fer zurnalis Moris interese avek sa Konferans. Alor, mesaz ICCR finn res pratikman sekre. Lapres pa finn truv linportans, swa pa finn konpran linportans, sa mesaz ki Leta Lend ti pe avoye. E pu ki sa kritik Lend lor Leta Moris ena enn lefe, sa Konklav ek so konteni ti bizin rann piblik. E pu li vinn piblik nu fye lor lapres. E lapres pa interese. Ala kuma ezemoni marse. Pu fer enn ti felir dan so striktir paret inposib.</p><br /><p>Me enn fwa ki finn kree enn felir, mem li tipti, pa bizin buku pu ezemoni kraze net. Sa li lanatir ezemoni.</p><br /><p>E asterla ena felir partu kote, sitan kreativite dan Lar plastik, lamizik ek literatir pa kontan sumet. E plis ena felir pli li bon. Plis ena kreativite pli li bon.</p><br /><p align="right">Sa Steytmennt lor leta Lar finn adapte par Komisyon Lar &amp; Kiltir LALIT depi enn ese lamwatye sa longer-la par Lindsey Collen.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

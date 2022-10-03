@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612103505" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612103505" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612103505" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612103505" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612103505" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612103505" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612103505" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612103505" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612103505" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Kriz dan Kapital Moris, Kriz dan Burzwazi e dan so Blok Istorik ki o-puvwar</h1><p class="subtitle">13.02.2011</p></h1>
+	<p class="newsarticle"><b>Introdiksyon Teorik pu sa papye la</b><br>Karl Marx ek Friedrich Engels ti premye filozof ek sosyalist ki finn reysi devlop enn teori ki liye ansam konpreansyon sosyete anterm so filozofi (sirtu filozofi Alman), listwar so lekonomi (lekonomi politik Britanik) ek enn mekanism politik ki al ver sanz li (pu amenn sosyalism, dan tradisyon teorik an Frans). Sa travay la ti an 1850 par la. Zot ti met lanfaz lor lefet ki, pandan ki kapitalis modern o-puvwar (dizon apartir enn dizenn lane avan 1800 dan enn-de pei Lerop), klas travayer li enn imans klas ki oprime, me li ena lintere ek lafors pu sorti depi sa pozisyon oprime, e vinn o-puvwar <i>politikman</i>, e lerla organiz lekonomi sosyete dan enn fason kot nepli bizin diferan klas sosyal ditu. Se sa ki pu sosyalism. Lexperyans Kominn de Pari, ek analiz Marx lor la, finn finyol so konpreansyon lor manyer ki revolisyon kapav arive <i>dan lapratik</i>. Marx finn truv manyer ki byen vit enn âpuvwarâ klas travayer (enn Leta) met so prop lalwa debaz anplas, par exanp. (E bi sa nuvo Leta la li enn sel: pu deposed bann ki finn deposed lamas dimunn, setadir pu expropriye bann expropriater. Lerla, etan done Leta se enn mekanism pu garanti reyn enn klas, kan nepli ena klas diferan, pa pu ena okenn nesesite sa kreasyon imen ki apel Leta la.)<br><br>Me, ti ena enn-de mayon dan teori ki Marx ek Engels ti pe devlope ki ti manke:  Si klas dominan opuvwar parski ideolozi klas dominan li ideolozi dominan e sa tini li anplas malgre li enn minorite, abe kimanyer kapav sort ladan? Li kapav enn explikasyon â<i>stasis</i>â pa âsanzmanâ.<br><br>Alors, 50 an ek buku lalit plitar, 2 gran militan/teoretisyen finn montre manyer ki klas travayer sanze depi klas <i>ki domine ideolozikman</i> par laparey ideolozik burzwazi, vinn enn klas ki nepli santi li domine, e kapav prepar li <i>pu pran puvwar</i> pu pran puvwar.<br><br>Enn ladan ti Lenin.<br><br>Lenin ti montre kimanyer enn seksyon (enn but) dan sa klas travayer oprime la, li separ li (konstaman) depi lamas klas travayer. Li reysi fer sa <i>depar so lexperyans lalit </i>, depar so konesans pratik lor sistem dan lekel li travay ek lite. Alor, li tuzur <i>dan</i> klas travayer, partu alabaz, me li osi separe, akoz sa konsyans avanse la. Li detenir sa konesans (lor sayt) ki sorti dan lexperyans lalit lepase, me li tuzur la, <i>dan klas travayer</i>. Lerla, trwazyem konpozant li enn lorganizasyon politik ki depi âandeorâ realite klas travayer e ki aport teori politik lor listwar sosyete ek posib priz di puvwar par klas travayer. Alor, artikilasyon sa 3 lafors la ki amenn larevolisyon.<br><br>Dezyem ti Antonio Gramsci. E se so kontribisyon ki pu ed nu konpran sityasyon zordi dan Moris, sityasyon sa zar kriz ki Moris pe traverse. Li explik nu lor âkriz sistemikâ e manyer ki sa kalite kriz la li inplik enn menas pu âblok istorikâ ki o-puvwar. Alor, mo papye pu konsantre lor la. Anmemtan mo pu sey liye konsep âburzwazi detaâ (sa burzwazi konpoze de kapitalist tu kominote konfondi, ki tultan pe kree e pe ranforsi par puvwar deta) ki finn tultan o-puvwar depi sifraz iniversel, avek konsep âblok istorikâ, ki Gramsci finn devlope e ki explik sa rezo lalyans de klas ki seksyon burzwazi opuvwar oblize trikote pu li stabiliz li.<br><br>Me, avan sa, enn-de analiz bakgrawn plito pratik.<br><br><b>Introdiksyon Pratik pu sa Papye la</b><br>Kapitalist dan diferan sekter lekonomi zot lafors relativ a lezot sekter kapitalis li depann lor plizir fakter. E seki pli for an zeneral, li gayn lokazyon organiz Leta.<br>1. Proporsyon kapital li kontrole.<br>2. So degre lorganizasyon kote politik; so degre puvwar vizavi Leta/sutyen depi Leta/rekiperasyon lapres, sindikalist, akademik, artist.<br>3. So linportans pu pei la, ek pu Leta la (anplwa li kree, reveni tax li furni, deviz li amene).<br>4. So lyen ar konpayni ek Leta inperyalis (ar âgran bannâ).<br>5. Proporsyon dimunn dan pei ki li anplwaye.<br>6. Degre krwasans dan sa sekter la, e to profi ki li pe fer.<br><br>(Nu pa pu get tu sa bann pwen la, me nu bizin gard zot antet.)<br><br>Alor, seksyon kapital ki pli for, li reyne. Dan Moris sa finn tultan seksyon kapital otur disik â tablisman ek gro planter. <br><br>Me, dan tu pei kot ena âreyn kapitalisâ, burzwazi pa kapav tini fasilman <i>dan instabilite konstan</i> alor li rod alye li ar lezot but dan lezot klas. Sirtu akoz burzwazi enn klas byen tipti an term nimerik, li tultan menase par travayer bud li, ubyen par travayer kareman fer rebelyon kont li. E travayer ki anfet prodir. Alor, burzwazi sey stabiliz limem <i>politikman. </i>Zordi dan Moris, selman, kuma dan buku pei kuma Tinizi, Lezip, Yemen, Liban, Lalzeri aktyelman, li pa pe reysi fasilman. Taler dan papye la, nu gete kimanyer burzwazi pe tultan sey stabiliz limem.<br><br>Purlemoman, anu get enn ku bann sanzman dan kapital dan Moris ki finn amenn sa instabilite aktyel.<br><br><b>Sif an-gro Moris 2009-1010</b> (baze lor sif CSO)<br><br>Total popilasyon otur 1,200,000<br><br>550,000 ladan travay pu kikenn.<br>210,000 pansyoner/somer<br>400,000 zanfan<br> 40,000 anplway kikenn (gran mazorite ladan tipti anplwayer: ti magazen, latelye mekansyen, labutik, salon kwafer, kamyoner, tit antrepriz miniskil, ti planter).<br><br>Saler median li Rs 8,100 par mwa, dapre sif 2007 (1).<br><br>Dan sa 550,000 dimunn ki pe travay, ena 300,000 (56%) ki travay pu enn âgran anplwayerâ (2) ek 250,000 (44%) travay pu enn tit-antrepriz. 7.6% pena travay. Parmi somer li interesan note ki 2/3% fam; parmi seki travay pu tit-antrepriz ena 2/3 fam.<br><br>Guvernman anplway 75,000 dimunn, 14% total dan pei. <b>86% dimunn pu sekter prive</b>, konpayni â tipti ek gran.<br><br>Asterla, nu pu get dan ki sekter dimunn travay, pu sa 56% ki travay dan gran anplwayer:<br><br><br><b>SEKTER,                      Travayer,        % mindev</b><br><br><b>Manifaktir                    80,000            25%</b>   Ladan 2%-disik, 11%-manze, 60%-Textil, 27%-Lezot<br>Ladministrasyon,Led/Lasante/<br>Travay Sosyal                     78,000             25%<br><b>Finans/biznes later     39,000             12%</b><br>Lotel/restoran                    23,000                8%<br><b>Komers                       22,000                8%</b><br>Transp/komini/stok           19,000                7%<br><b>Lagrikiltir                 16,000                5%</b>    Ladan lamwatye kann, lamwatye manze<br>Konstriksyon                    14,000                5%<br><b>Lezot                                                    5%</b>     Elektrisite, gaz, sendkwari, etc<br><br>Sa montre nu lafors relatif, anterm anplwa ki zot furni, diferan sekter kapital. Li montre dan enn fason ase drastik kimanyer burzwazi disik nepli tro for.<br><br>Enn lot fason get lafors enn seksyon burzwazi, se get so kapital. 100 pli gran konpayni Moris sak lane repertorye dan enn liv ki Business Mag tire. Li donn rennking par turnover, par profi, par assets an kapital total, par pli gran ranforsisman kapital dan dernye lane. Nu kapav etidye sa, pu gete ki aglomerasyon pli gran, me sakenn ena enn ta filyal, ki rann li difisil dir sa li dan âdisikâ, sa li dan âtextilâ. Bizin enn gran analiz pu konn sa. E pa sir u pu kone. Parski li kuma enn lakaz zarinye. Me, li kler ki burzwazi dan kann ek disik li nepli kontrol lekonomi.<br><br><b>Kriz sistemik aktyel</b><br>Lekonomi Moris, mem si li finn liye avek kapitalism mondyal depi ki pei la ti met dibut pandan kolonizasyon, li finn reziste ase byen kont kriz finansye mondyal 2007-2009. Me, sa pa vedir tu OK. Li pa OK. Moris, depi avan kriz mondyal, finn kumans sibir so prop kriz, kuma dan LALIT nu finn analiz li depi 5 an ubyen enpe plis: Enn <i>kriz sistemik</i>. Parfwa apel sa kriz sistemik la âkriz organikâ. Samem form parti inportan analiz Gramsci, ki nu pu gete dan sa papye la.<br><br>Kifer kriz la li âsistemikâ, ubyen âorganikâ e pa zis enn kriz abityel dan sistem kapitalist? Li enn kriz sistemik parski li pe sakuy sistem la an antye, so organism-mem menase. Burzwazi so âBlok Istorikâ, ki pe reyne depi lontan, li pe devlop felir, e li pu bizin rey re-konstitye si li pu gard sistem kapitalis o-puvwar ek ârantabâ.<br><br>Sa term âblok istorikâ, li osi, li enn term ki Gramsci finn kit kuma leritaz. Zordi, avek Kriz Ero ki pe amenn bes valer exportasyon Moris, kan sa vinn <i>azut lor kriz sistemik</i>, nu kone ki lekonomi Moris pu sufer. E, kan nu dir lekonomi Moris pu sufer, nu pe anfet dir ki burzwazi, ki responsab kriz, li normalman ase for pu shifte lefe kriz, fardo kriz, lor ledo klas travayer. Alor, ena sufrans divan: insekirite dan travay, bulversman dan kartye, e tu parwa ki abitye gard diferan laspe nu lavi separe, zot kolaps, e tu vinn enn. Byen suvan tu vinn enn sel dezord.<br><br>Me, kriz prezant lokazyon pu kreativite osi.<br><br>Dan sa papye la, nu pu gete kimanyer sa kriz sistemik la afekte burzwazi ek so âblok istorikâ --  e nu pu get li istorikman. Setadir nu pu gete kimanyer kriz sistemik afekte burzwazi so reyn poliktik, e kimanyer li afekte form ki so Leta pran dan enn tel moman.<br><br><b>Intelektyel Organik dan diferan Klas</b><br>Gramsci analize kimanyer sak klas sosyal ena so bann ideolog, so âintelektyel organikâ, li apel zot. Klas burzwa ena pu li, klas travayer ena pu li. Depar zot pozisyon dan lalit deklas, zot konpran sosyete dan diferan fason. Depar zot diferan âlintereâ antan ki klas, zot konpran lemond diferaman. E zot kree enn seri lide, enn filozofi, ki reflet zot konpreansyon lemond ki zot klas ena. Sa li vre dan klas dominan kuma dan klas ki depozede ek oprime. Me, burzwazi li o-puvwar, li, alor so laparey ideolozik byen for. Gramsci explike kimanyer, burzwazi telman enn ti-klas minoriter dan sistem kapitalis, ki li res o-puvwar selman atraver kolmat ansam enn espes âplatform konpromiâ avek bann but-but lezot klas, otur enn proze politik, e li apel totalite sa âorganismâ ki detenir puvwar enn âblok istorikâ. Normalman, li inplik enn seksyon burzwazi ki pli for (globalman) e ki lerla alye li ar diferan but lezot klas sosyal me ki byen suvan dan mem laliyn prodiksyon. <br><br>Anmemtan, kapav gayn formasyon enn lot âblok istorikâ ki pe anprosesis forme pu chalennj sa puvwar la, par exanp, kan klas travayer for, otur li. <br><br>Enn lexanp modern enn âblok istorikâ opuvwar depi 75 an par la, se dan Leta Zini, kot ena seki Prezidan USA Dwight Eisenhauer ti idantifye an 1961 kuma â<i>Military Industrial Complex</i>â - larme, proprieter lindistri armaman, proprieter lezot prodwi liye ar prodiksyon armaman ubyen pu larme, travayer ki liye ek sa bann lindistri la, tu parti politik mazer. Sa âblok istorikâ pe destabilize dan USA depi ki, avek globalizasyon resan, kapital finansye finn chalennj li, finn deplas li, e finn rant dan lalyans avek burzwazi armaman depi enn pozisyon defors, apartir 1990 par la. <br><br>Enn blok istorik opuvwar pandan sistem kapitalis, li reyne dan lintere iltim burzwazi an antye, me li ena enn sekter kapital spesifik a nerport ki moman done ki lider sa âblokâ la; e tanki li neseser, li normalman oblize fer enn seri konsesyon anver lezot klas pu ki li elarzi so baz. Setadir burzwazi stabiliz limem opuvwar, mem si li enn klas telman minoriter. Alor, ena enn rekiperasyon ideolozik konstan lezot klas dan sa âblok istorikâ, mem si âblok istorikâ li anfendkont azir anfaver burzwazi. Me, kan ena enn kriz sistemik (kriz organik) dan kapitalism, lefe politik se âblok istorikâ destabilize, nepli tini ansam, kas an morso.<br><br>Enn kriz sistemik, li enn moman kot, kuma Oupa Lehulere ek osi John Percy finn explike dan diferan Konferans Internasyonal LALIT dan dernye 2-3 an, ena pa zis buku sufrans pu dimunn mizer (sa ena-mem), me ena osi lokazyon ki prezante pu kreativite dan manyer ki amenn lalit. Zafer sanze vit terib. Dan Tinizi zordi, par exanp, klerman enn âblok istorikâ ki finn tini 23 an, finn tonbe byen vit dan lespas 3 semenn; somaz, mank kreasyon anplwa, ogmantasyon pri, tusala finn lev enn muvman etidyan, travayer, somer, ti-marsan, enn muvman kot mem avoka ek profeser finn rant ladan, ki finn kas blok istorik. Dan Lezip, Blok Istorik otur diktater pandan plis ki 30 an pe afebli fasa chalennj depi lari.<br><br><b>Blok Istorik Moris</b><br>Ala kimanyer âblok istorik finn fonksyone isi depi sosyete Moris finn kree lepok kolonizasyon: Nu truv enn âblok istorikâ an operasyon otur prodiksyon kann ek disik, kot ena diferan eleman bann klas swivan - tu kol ansam, lor letan, esansyelman (me, pa inikman) par Parti Travayist. E nu finn truve kimanyer Parti Travayis azir kuma reprezantan dabor enn âburzwazi detaâ, setadir li servi sa Leta Post-Kolonyal sirdevlope pu li favoriz diferan seksyon burzwazi emerzan pu zot konsolid zot-mem, me avek enn blok istorik byen partikilye otur de li. E blok istorik li kontenir bann konfli konstan ant burzwazi deta ek burzwazi istorik, osi byen ki ant sa 2 klas la ek klas travayer. <br><br>Me, anu gete kimanyer li marse:<br><br>Blok istorik, li finn kontenir bann klas swivan ziska zordi:<br>-Burzwazi istorik tablisman ki pli for, setadir proprieter laplipar bon later kann ek tu mulen, ki osi kontrol lezot laspe lekonomi (sirtu inportasyon masinnri, manze, fertilizan, prodwi farmasetik, etc).<br>-Burzwazi deta, ki enn burzwazi ki vinn pli for atraver kontrol lor Leta, laplipar ditan atraver Parti Travayis (li pa zis dan kann ek disik, me dan komers, lindistri, konstriksyon, etc).<br>-Gran-planter kann san mulen (ki osi proprieter mwayen transpor, etc), ki enn burzwazi emerzan, e ki ena konfli striktirel ek depandans total ar Tablisman.<br>-Ti-planter kann, ki li osi, li enn burzwazi potansyelman emerzan, e ki ena konfli striktirel ek depandans total ar Tablisman.<br>-Travayer, sirtu laburer ek artizan kann ek disik, ki zot osi, zot maye dan kann ek disik.<br><br>Sa blok la ki o-puvwar. Li reyne atraver enn Leta kolonyal ek lerla post-kolonyal byen for: Leta Franse avan, lerla Leta Britanik, lerla Leta Moris pe pran nesans avan Indepandans, lerla Leta Moris Post-Lindepandans ki promuvwar ek organiz prodiksyon disik pu marse Lerop.<br><br>Me, enn reyn, li existe anform politik. E depi bann lane 1950, preske tultan se Parti Travayis ki tini sa blok istorik la ansam, e burzwazi deta li alatet Blok la. Enn blok istorik li enn fenomenn politik, baze lor realite ekonomik ek realite deklas. E remarke ki Parti Travayis finn preske tultan o-puvwar depi lane 1950 ziska zordi. Sel moman li pa ti opuvwar se 3 fwa: <br><br>- 9 mwa an 1982 <br>- 1991-1995<br>- 2000-2005.<br><br>Setadir pandan 60 an, li finn opuvwar pu plis ki 50 an. Sa âBlok Istorikâ finn met dibut baze lor âideolozi anti-tablismanâ â kot Parti Travayis ralye dimunn kont dominer tablisman, ek kot li pu favoriz enn nuvo âburzwazi emerzanâ ki nu apel âburzwazi detaâ (akoz so krwasans depann lor kudme depi Leta). Ziska ler si u ekut Nita Deerpalsing, Shakeel Mohamed, Cader Sayed Hossen, Alain Gordon Gentil, mem Navin Ramgoolam koze, li tuzur mem diskors kont tablisman me anfaver enn nuvo burzwazi emerzan. (Plitar nu pu get diferans dan natir blok istorik kan MSM finn opuvwar.)<br><br>Alor, Parti Travayis, kimanyer li finn reysi fer sa, omwen ziska ler:<br>- Li ris 2-3 reprezantan tablisman ar li (enn lel eklere, dizon a lepok: DÃ©dÃ© Maingard, Emile Series, Messrs Leclezio and Claude Noel).<br>- Li kareman reprezant gro planter kann san mulen (atraver lafami Boolell, Osman, Bhoodoo, Deerpalsing, Gordon-Gentil).<br>- Li reprezant ti-planter. Tu so azan, par santenn preske tu dan lakanpayn ti-planter kann/sardar.<br>- Li gayn sindika ar li Plantation Workersâ Union ek Artisans & General Workersâ Union (tradisyonelman PT). Alor, u pu truv minis kuma Ramnarain, Jugdambi, ki sindikalist.<br>- Li gayn lagazet <i>Advance, Nation, Mauritius Today, Mauritius Times, LâExpress</i> (pandan so bann premye lane) ar li. Sa bann lagazet reprezant lintere lezot seksyon burzwazi emerzan, osi. Advance dan so stati mem ti ule enn burzwazi âIndo-Morisyenâ emerze. LâExpress ti reprezant lintere enn burzwazi irben, li osi avek enn baz plito kominal, dan so ka, Kreol.<br>- Li stabiliz li konstaman atraver enn âBurzwazi Detaâ ki li tultan pe kree â atraver, par exanp, donn faver Leta anterm komann, tennder, sutyen lozistik, nominasyon a pos kle ki permet ranforsi enn sekter, etc a seksyon burzwazi ki pa tablisman.<br><br>E, lerla, nu bizin note ki, mem si <i>avan eleksyon</i> Parti Travayis ek so blok tultan lev lager ar reprezantan tablisman (a lepok reprezante politikman par PMSD), preske tu sa 50 an puvwar Travayis finn anfet ena koalisyon avek PMSD. Setadir, tablisman efektivman form parti dan âblok istorikâ, akoz li dan enn koalisyon ansam ar PT, exepte avan eleksyon, me avek enn balans puvwar ki li, tablisman, pa kapav dikte. Blok Istorik permet emerzans konstan enn nuvo burzwazi deta, ek ranforsisman diferan seksyon burzwazi deta, tu kominote konfondi (zordi Rawat, Seeyave, Jean Suzanne, Jean Marie Richard ek par duzenn lantrepriz pli inkoni), me sanki li met ankestyon burzwazi istorik, e sertennman sanki li met ankestyon reyn burzwazi.<br>Isi, nu bizin explik osi sa 2 lezot tantativ pu stabiliz enn blok istorik: MMM an 1982, ek lerla MSM, apartir 1983, e avek MMM dan manda 1991 ek 2000.<br><br><b>MMM so tantativ pu met enn âblok istorikâ dan puvwar </b><br>MMM finn sey fer so prop âblok istorikâ milti-klas otur kann ek disik, e baze lor enn ideolozi anti-tablisman. Li ti servi sa term âblok istorikâ la-mem dan so bann dokiman (mwayenn burzwazi, tit burzwazi ek klas travayer). Me, remarke kan li pu anfet koste ar vinn o-puvwar, li fini donn PSM Harish Boodhoo (enn kasir depi Parti Travayiste) enn-tyer so tiket. Enn tyer! Alor, li fini ris enn split depi Parti Travayis ar li. Anplis, dan so âblokâ, li ti deza ena MPA (Mauritius Plantersâ Association) ek SILU ek UASI reprezante par kandida kuma Bidianund Jhurry. Plis li ti ena (e tuzur ena) sutyen Le Mauricien ek Week-End. Me, avek Travayis deor, mem si MMM-PSM finn gayne 60-0, MMM pa ti santi li sekyur. Alor, li finn sey fer konsesyon (Rs 57 milyon) a tablisman, me anplas stabiliz so nuvo âblok istorikâ, sa finn pret flan kote ideolozik, e finn amenn kasir dan MMM, formasyon MSM (PSM ek enn but MMM). MMM finn deor dan Guvernman.<br><br><b>MSM kimanyer ti met enn âblok istorikâ opuvwar</b><br>MSM finn fer so âBlok Istorikâ atraver ris Parti Travayis ek PMSD ar li, amenn enn retorik anti-tablisman ankor (Kok sante, Soley leve, Lakle uver kofor misye la!), ek lerla kree enn espes kulwar komikant ant limem ek Parti Travayis, pu suk manb Parti Travayis. (Enn nu manb ti dir bann ti-planter Sime Basin ena 2 parti, kan Travayis for, zot Travayis, kan MSM for, zot tanporerman MSM). Sindikalis Laridon ek Soodhun, rant dan sa blok la. Ti gayn lagazet <i>The Sun</i>, ek plitar <i>Le Defi</i> ek mem <i>Radio Plus</i>, me sa finn sanze. E, sa âblok laâ pa tro reprezant lintere tablisman. Jugnauth Snr ti tultan pli âBonapartistâ, setadir li reyne lao tu klas, me selman anfendkont âpurâ kapital. Antretan, MSM finn telman gayn finansman depi kapital komersyal (totalite butikye) ek kapital dan transportasyon (kamyoner) ek pa kone kot sa ankor, ki li finn met dibut so Sun Trust, enn fortinn pu lafami Jugnauth pu zot lanpir politik. Sa surs finansman la, asontur, rann MSM pli Bonapartist. Li pa bizin kurbe divan tablisman ek burzwazi istorik pu finansman politik. Li paret finn kree enn âburzwazi detaâ enpe diferan depi Travayis (e parfwa li finn atir enn seksyon sa burzwazi la depi PT), kuma bann Dhookun, Ramdenee, Fon Sing, etc. Remarke ki MSM byen popiler ek Sanb Komers Sinwa, e li mem invite dan Kongre Parti Kominis Lasinn. MSM premye dan bann pro-Singapur. <br><br><b>King Sugar detrone</b><br>E, zordi, disik nepli lerwa dan lekonomi. King Sugar is no longer king. Premyerman, WTO finn asire ki nepli ena âpri garantiâ ni marse garanti organize par Leta isi ek Leta dan Lerop. Zordi ena selman 3% anplwaye dan pei ki travay dan sekter kann ek disik la. An 1973, par exanp, li ti 25% travayer. Nepli ena tax sorti, alor tablisman pa kontribiye plis dan lekonomi. Anmemtan, so kapital finn antretan rant ansam ar lezot form kapital, kapital komersyal, indistriyel, dan Lotelri, biznes later, IRS, dan kraz ros, diversifikasyon agrikol, bennking ek finans, e kapital Morisyen finn mem al lezot pei (Benin, Kot Divwar, Madagascar, Seychelles, Komor, Mozambik). Alor, zordi, lindistri turist (ek so spekilasyon later ek so IRS), li enn sekter byen for. Me, pli for ankor, se petet Finans (Labank, Lasirans ki pe tir profi par milyar sak lane, lor ledo lepep, me osi lor ledo lezot kapitalist.)<br><br>E lindistri <i>sikriyer</i>, anmemtan li pe raptise anterm kontrol lor lekonomi, li pe transforme an lindistri <i>kannyer</i>. Nu finn swiv sa evolisyon la dan LALIT so âKanpayn pu Enn Lekonomi Alternativâ. E sa transformasyon la (ansam ek raptisaz zeneral sekter disik ek kann), li pe sakuy âblok istorikâ. Gran planter amerde akoz zot pa pe gayn enn par ase dan melas, etan done ki asterla tablisman pu prodir etanol ar âzotâ melas, ki sorti dan âzotâ kann. Telman zot ankoler, e telman zot for politikman (Nita Deerpalsing ek Cader Sayed Hossen ki reprezant zot a ot vwa) ki zot pe blok proze etanol. Lot kote, tantativ pu M. Maurel (ki pa dan burzwazi tablisman, me ki gayn proteksyon Guvernman, sirtu MSM) pu met enn proze etanol dibut, finn gayn blokaz depi tablisman. Ti planter osi ankoler pu mem rezon ki gran planter, e zot osi, depandan lor burzwazi deta. Nu finn tann Kreepalloo ek lezot kan zot pe fer apel a âvizyon nu Premye Minis Navinchandra Ramgoolamâ lor TV. Kote bagas, mem destabilizasyon. Sa partaz, ki abitye tom dakor ant mulen ek seki prodir zis kann, li diferan kan servi bagas pu fer elektrisite pu vann ar CEB. Bagas nepli bagas. Me, planter (ki pena kapital dan mulen) li pe tuzur resevwar enn pri âbagasâ. Alor, planter pe ankoler, e zot instab, kote politik. <br><br>Anmemtan, sindika kuma Plantation Workers Union finn afebli, amizir nepli ena sa kantite laburer kann. E zot ti enn gran lafors dan ansyen blok istorik.<br><br>Tusala pu dir ki ansyen blok istorik finn destabilize net.<br><br><b>Nuvo zenerasyon sindikalist atire ver tantativ pu form nuvo Blok Istorik</b> <br>E, sa tantativ pu re-kolmat enn nuvo Blok Istorik tuzur otur âkannâ mem si nepli otur âdisikâ, li explik osi, kimanyer sindikalist kuma Ashok Subron kapav pe tultan felisit swa depite Travayis Nita Deerpalsing, swa Prof. Torul enn nomini politik Travayist, swa Minis Travayis Shakeel Mohamed. Li explik kifer Ramgoolam sonn Subron lor so portab, e zot fer enn espes Joint Venture pu gayn 20% olye 16% ogmantasyon pu laburer ek artizan, e pu siyn lafen PWU so rol dan Blok Istorik. E, li explik osi kifer sindikalist azir pu donn valer lalwa EreA ek Eria, ki Parti Travayis finn mete. Zot pe travay ver enn nuvo âblok istorikâ, kot sakenn pe tir maximem pu so klas - purvi li alinteryer sistem kapitalist aktyel. Li explike kifer Subron al ziska rasir tablisman ki sindika pe sutenir so proze pu fer enn lindistri <i>kannyer</i> ki rantab. Li explike kimanyer kan Shakeel Mohamed dir li pu amenn sanzman dan lalwa travay pu fini ar travay lor kontra. Etc.<br><br>Anmemtan, kan kriz sistemik prodir enn destabilizasyon âblok istorikâ kumsa, nu kone ki Leta li reazir, e li reazir brit. Alor, sa kriz sistemik la explik anparti kimanyer Premye Minis pe konverti limem an diktater. Ti-mama li koz â2yem Repiblikâ, kot li viz vinn Prezidan avek puvwar apre enn âNuvo Konstitisyonâ vote. Ti-mama tu so Minis truv so vizyon ki pe gid tu zafer dan lemond. Ti-mama zot pu truv so kostim, kud ar letof invizib, mari zoli, tu. Ti-mama Ramgoolam menas nu ar penn demor. Parfwa, afors kriz sistemik grav, li mem paret ki Leta pe bat fol. Leta, par exanp, pe furni kapital pu bann lantrepriz ki pe al direk lor bankrut. E mazinn u enn Minis Finans aste enn Klinik Prive ki li ek so fami posede. Mazinn enn Air Mauritius ki pe sanz sef apre sak 4-5 mwa. Mazinn enn Leta ki ankuraz tit-antrepriz, ki sipoze solisyon mazik pu anplwa, kan li pe truve ki 80% al bankrut apre 3 an lexistans. Mazinn enn Leta ki finn ankuraz preske tu fami Moris viv dan traka interminab landetman familyal.<br><br>E kan enn kriz ekonomik ki âsistemikâ, lerla tu vwal ki kasyet laverite kumans tonbe. <br><br>Premye mask pu tonbe se sa mask ki dir âMoris enn Paradiâ. Kote lanfer nu sosyete pe sorti okler. Ena enn seri kriz sosyal, dram ek krim dan lafami, enn pli trazik ek pli vyolan, ek pli maladif ki ki lot. Kan ena enn krim dan enn fami, enn lamor, lerla li vinn moman kot u al dekuver anmemtan enn krim atros, anmemtan lefet ki sa misye ki akize la ti pe vyol so ti-nyes depi lontan. Kan ena enn lot krim, anmemtan ki dekuver kadab, lerla ki u al tande ki sa madam la ti pe gard so prop neve kan li pe ankor viv ek so mari. Kan ena enn vol ki malturne, nu dekuver ki ena zenom truv li fezab pu tuy enn zenn fam, pu debaras enn temwen. E anmemtan, lekor an dekonpozisyon pe surse dan tu karo. Enn nomb trakasan klosar zwenn enn lamor vyolan. Zanfan pe martirize a-mor dan lafami. Nuvo fam bati pe temwayne sak zur. Puritir finn vinn byen avanse.<br><br>Tusala se sinptom enn sistem instab, enn kriz sistemik.<br><br>E sa kriz sistemik pe provok enn tantativ pu gayn enn nuvo blok istorik pu permet burzwazi retablir enn serten serenite pu so explwatasyon kapav kontinye.<br><br><b>Reyn kapitalis pe kontiyn rod enn Blok Istorik stab</b><br>Alor, depi Eleksyon Zeneral an mwa Me, 2010 (9 mwa desela), nu pe truv sa prosesis dezespere pe kontiyne. PT ek MSM pe sey met dibut enn nuvo âblok istorikâ ki pu debruye dan lintere klas kapitalist an zeneral. Kan nu konn sa, lerla nu kapav komans konpran sa lager ant Radio One ek LâExpress, ant LâExpress ek  MSM, ant LâExpress ek Navin Ramgoolam. Kan nu realize ki anplas gayn Jean-Cluade de LâEstrac kuma Prezidan Repiblik (ki reprezant lintere enn seksyon kapital), nu finn gayn Aneerood Jugnauth ki reprezant enn lot. Nu kapav truve kifer gran sef dan LâExpress rant dan Blok 104 ar Ashok Subron ek Jack Bizlall. Nu kapav konpran kifer LâExpress (mem li ti anfet enn move tur, parski li dan enn sipleman jok apel âLâExpress Lagratelâ) finn nom enn sindikalist zot âLom de Laneâ! Nu kapav konpran ki Guvernman pe vasiye ant get kote âLesâ avek Air Mauritius direk ver Lasinn, ek osi get kote âLwesâ kan pe rapros Moris ar Lafrans Sarkozy. Nu kapav konpran ki Navin Ramgoolam anvi alye ar MSM ek PMSD, me osi ar MMM. Nu kapav konpran tu volt-fas ek simagri politik ki pe aksantye de zur an zur. <br><br>E sanki nu ti ena sa analiz otur âkriz sistemikâ ek âblok istorikâ, sanki nu ti ena sa analiz lor balans de fors ant burzwazi istorik ek burzwazi deta, nu ti pu gayn buku difikilte konpran.<br><br>E, analiz la, li bon, pa zis pu nu konpran, me pu nu azir lor baz sa konpreansyon. <br><br>Nu fini truve ki fode nu enan, e fode nu gard, nu Parti, nu lorganizasyon <i>indepandan depi tu seksyon burzwazi, depi Leta, depi lapres komersyal</i>, dan enn lepok kot tu kumans bat fol kumsa. Dan nerport ki lot lepok, li enn erer al may u ansam ek u ladverser deklas. Me dan enn lepok kriz sistemik, danze li miltipliye par mil ubyen milyon kan u fer sa. Fode nu gard nu prinsip ki nu reprezant lintere klas travayer, e napa lintere okenn de sef MCB, okenn de Minis Travay, okenn de Nita Deerpalsing, okenn de Nomini Politik Travayis. Fode nu evit mars ar adverser deklas. Fode nu gard nu distans depi lapres ek so azanda. Fode nu politikman indepandan net depi Leta. Nu bizin res andeor sa blok istorik kapitalist la net. Nu bizin evit konsansis ar zot net.<br><br>Lindistri sikriyer ek mem lindistri kann menase. E antretan, Guvernman ek tablisman finn refiz kree anplwa dan diversifikasyon agrikol ek agro-indistri. MMM, MSM, Parti Travayist, tu parti politik Moris, apar LALIT, finn zis asize get bann la fer sa devastasyon la. <br><br>Anplwa finn desime. E zordi Guvernman ek tablisman pe detrir sa kapital ki Lerop ti done pu konpansasyon an retur pu lafen proteksyon ekonomik. Zordi nu pe truv konpayni kuma Infinity pe detrir kapital ki Guvernman akord li depi fon piblik.<br><br><b>Kapitalism Internasyonal</b><br>Anmemtan, sistem finansye mondyal, li tuzur dan ICU, apre ki li finn kolaps inn gayn 2-3 an. Pa mwa ki pe dir. Ekonomis burzwa ki pe dir. Kriz alimanter pe pwent lor lorizon. Kriz petrol tuzur la, e li pu la, parski kan petrol, delwil lur, dyezel, sarbonnter fini, abe, zot fini. Zot pa renuvlab. Menas ekolozik pe kumans pez lur lor limanite. Sanzman klima pe kree dezord dan tu kontinan. <br><br>E lerla nu gayn kriz Ero, enn lefe kriz ekonomik mondyal. Pei apre pei dan Lerop pe bizin fer tu kalite dominer ar so lepep, pu evit li vinn bankrut. Leta Zini, kant-a li, li o-bor bankrut. Li tini, selman akoz ena serten so bann partner komersyel pena lintere fer li ranburse. <br><br><b>Linportans enn parti kuma LALIT</b><br>Alor, kuma nu kone dan LALIT, nu bizin al dan fon problem la. Nu bizin enn Program â samem nu la zordi â enn program ki kree enn map ki asontur sinyal nu kimanyer sorti dan sa dezast ki pe vini, kimanyer aret turn anron dan bann blok istorik pro-kapitalist, e kimanyer al pli divan ver enn nuvo kalite sosyete.<br><br>Zame naryen pe res stab. Apenn travayer ek lepep Venezuela finn fer sulevman ase organize kont sistem kapitalist mondyal, ki lepep Tinizi finn kumans fer parey. Tinizi lepep finn met deor enn diktater. Asterla, tu pu depann lor komye lorganizasyon politik finn reysi fer dan Tinizi <i>depi avan</i>, e sa pu determinn ki vites kapav kree nuvo lorganizasyon demokratik parmi lamas dimunn. Sa li enn sinyal pu nu. E kan ena gran gran lemet ek manifestasyon dan Lalzeri anmemtan, bel bel manifestasyon dan Kayro, lerla nu kone, tu seki paret stab, li pa stab. Nu bizin pe prepare.<br><br>Alor, nu bizin tultan pe rod definir an permanans enn program ki:<br><br>- Indepandan depi burzwazi.<br>- Viz ase buku lorganizasyon demokratik politik alabaz, pu ki kan ena enn challennj a Leta Burzwa, ek enn mobilizasyon ver enn Lasanble Konstityant, kan lepep fer sulevman, ena lemwayen puse ver enn program pu sosyalism.<br>- Viz met fen a expropriyasyon prive later mama bul later par sekter prive, e al ver kontrol demokratik later, lamer, larivyer, ler, lespas. Nu bizin rod met divan bann demand ki pus ver sa bi la. Nu bizin evit bann demand ki pa fer naryen apar donn enn lavantaz tel tablisman vizavi tel kapitalist. Nu bizin evit tom dan propagann konpayni kapitalist kumkwa zot ki pu okip âlanvironnmanâ. Zot pa pe fer li.<br>- Met fen a kasir metabolik, kuma Marx ti dekrir li, ki kas larises agrikol atraver fann lavil ek lakanpayn an-de, ki amenn afeblisman later dan lakanpayn, ek problem siwurej ek salte dan lavil.<br>- Met fen a sa fraktir dan natir imen  â kot nu kuraz (nu lafors travay) aste-vande par enn minorite apel kapitalist, ki itiliz enn parti de nu kuma enn masinnri, e ki kut nu lamwatye nu lavi.<br>- Met fen a expropriyasyon prodwi nu laswer; la osi, li zis enn infim minorite espes pirat prive ki koken seki travayer lepase finn prodir, gard li pu zot. <br><br>Seki nu ule, se fini ar reyn enn klas. Fini ar dominasyon lagran gran mazorite dimunn. Nu finn fini avek 100 an kad legal travay apel âesklavazâ. Apre sa, nu finn fini avek 100 an kad legal travay apel âkontra langazmanâ. Nu fini gayn 100 an â<i>wage slavery</i>â. Asterla bizin fini ar li. Samem bi nu emansipasyon.<br><br>Pu fer sa, nu bizin lalit politik. Pena bare. Nu bizin revandikasyon, nu bizin demand ki pu mobiliz travayer dan enn fason ki depas revandikasyon banal. Kumsa ki nu dan LALIT nu finn devlop demand kuma âBizin plant manze lor later Tablismanâ, kan ena kriz alimanter. Ubyen âBizin servi larzan Lerop pu kree travay pa detrir travayâ, pa zis aksepte VRS ek Blueprint. Nu bizin demand politik kuma âBizin deviz return ar Labank Santral pu diminye depresyasyon Rupiâ pu ki nu kapav anpes sa bann kapitalist la bes pri rupi par expre pu ogmant zot prop profi. <br><br>Li pa sifi pu amenn lalit sindikal, sirtu enn lalit sindikal ki tultan pe rant dan konsansis ar patrona, ar Leta. Li pa sifi pu rant dan enn ti-manifestasyon detanzantan. Li pa sifi pu krwar ki âsosyete sivilâ pu avans u. Seki neseser se enn lalit politik. Nu bizin enn lalit politik avek klas travayer dan lavangard sa lalit politik la. Nu bizin enn klas travayer ki mobilize ase pu li vinn ladireksyon enn nuvo âblok istorikâ an-formasyon. Se klas travayer bizin vinn opuvwar. E li pu fer li kan li for, kan so parti politik indepandan totalman depi tu seksyon burzwazi, kan so program reysi mobiliz li, kan li ena enn ladireksyon ki integ. Lerla li pu ena alye dan so nuvo âblok istorikâ ki ena bi pu chalennj ansyen la. So lafors pu donn lafors etidyan, ti-marsan san naryen, ti-planter san naryen, proprieter ti-latelye. Tu sa ansam, deryer enn klas travayer organize, li kapav prezant enn program pu puvwar klas travayer. Lalit la li kont kapitalism ek kont sa leta burzwa ki tini sa reyn deklas anplas. Nu bizin tultan pe etidye natir sa Leta Burzwa la, pu ki nu sir evit rant dan âblok istorikâ ki reyne dan lintere burzwazi, e pu ki nu kone kan Blok Istorik existan pe kumans instab, kase. Zis akoz burzwazi deta pe akil burzwazi istorik, li pu enn erer pu rant dan Blok Istorik ki burzwazi deta pe tuzur forme ek sey re-met dibut. Zot Blok pu reyne anfaver burzwazi mem.<br><br>Sistem kapitalis aktyel finn montre so bankrut. Partu dan lemond finn ena vol par bann milyoner dan kapital finansye odepan kapital prodiktif e odepan klas travayer. E sa pu kontiyne, si nu pa organize pu anpes li. Lezot kapitalis pa pu azir dan nu lintere, me dan zot lintere. E de tut fason, zot pena ase puvwar vizavi kapital finansye. Se selman enn klas travayer organize ki ena sa lafors potansyel ki pu neseser pu kree enn nuvo form politik pli demokratik pu rul lekonomi.<br><br>L.Collen<br>Zanvye 2011<br><br>Not<br>1. Lamwatye travayer/staf tus mwens ki sa, lamwatye plis.<br>(2) Seki anplway plis ki 10 dimunn.<br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

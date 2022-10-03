@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100959" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100959" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100959" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100959" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100959" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100959" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100959" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100959" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100959" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>First Four Hints for Writing Good Kreol</h1><p class="subtitle">11.07.2016</p></h1>
+	<p class="newsarticle"><p><strong></strong>LALIT has pleasure in publishing the first four in a series of âHintsâ on writing good Kreol that LPT has worked on. These are the English versions. You can also ask LPT (Ledikasyon pu Travayer) for the Kreol versions of the âhintsâ.</p><br /><p>Â LPT says it is publishing this series of articles especially for people who use Kreol in the formal aspects of their lives: radio and TV commentators, lawyers, doctors, politicians and journalists. The aim of this Ledikasyon pu Travayer action is two-fold:</p><br /><p>- to celebrate the unique complexity and efficiency of Mauritian Kreol grammar and vocabulary,</p><br /><p>- and to promote the love of the mother tongue through understanding just how difficult it is to speak and write it well!</p><br /><p>The articles, LPT tells us, are being published by <em>Le Mauricien</em>, in their Forum page, too.</p><br /><p>Â <strong>HINT One: Stop Over-Using the Word â<em>bann</em>â!</strong></p><br /><p>The plural marker â<em>bannâ</em> is very, very often suppressed in Kreol. The plural is quite simply <em>assumed.</em> It is not seen or heard, but it is <em>there</em>. This contrasts drastically with English, and even more so with French, where plurality is expressed very heavy-handedly. And what is vaguely clumsy in English and French, when transposed erroneously on to Kreol, is truly bizarre.</p><br /><p>Â Look at the plural markers in bold fonts in English and then French. Take the English sentence: âIn cit<strong>ies</strong>, parent<strong>s</strong> give child<strong>ren</strong> present<strong>s</strong> when they pass exam<strong>s</strong>, whereas in village<strong>s</strong>Â  â¦â there are SIX plural markers, which are all compulsory. The French equivalent, âDans <strong>les</strong> ville<strong>s</strong>, <strong>les</strong> parent<strong>s</strong> offr<strong>ent</strong> de<strong>s</strong> cadeau<strong>x</strong> au<strong>x</strong> enfant<strong>s</strong> qui reussisse<strong>nt</strong> <strong>leurs</strong> examen<strong>s</strong>, tandi que dans le<strong>s</strong> village<strong>s</strong> â¦â has no less than THIRTEEN plural markers.</p><br /><p>Â Note the beautiful streamlined grammar of Kreol:Â  <em>Lavil paran donn zanfan kado kan zot pas lexame, lakanpayn â¦. </em>And the meaning is crystal clear!</p><br /><p>Â Listen how awful it sounds when we hear journalists coming up with phrases over the radio, like:<em> </em></p><br /><p><em>âdan <strong>bann</strong> lavil, <strong>bann</strong> paran donn <strong>bann</strong> zanfan <strong>bann</strong> kado kan zot pas zot <strong>bann</strong> lexame.â</em> It is not only bizarre to listen to, but is actually <em>bad</em> Kreol.</p><br /><p>Â The reason we often write and, on radio, speak, this kind of non-Kreol is tragi-comic: â<em>Tiginn bate inn bizin bate pu obliz nu met sa bann âsâ la!</em>â Yes, we are firstly traumatised by bad language policy in schools and by bad pedagogy. We are, secondly, also colonized, believing that English and French are âmodelsâ of correctness for other languages, like our own, to imitate.</p><br /><p>Â And the tragedy is, in fact, triple. The meaning is perfectly clear in Kreol without mimicking the English and French plural markers, which are not âbetterâ but are just a bit more clumsy<em>.</em></p><br /><p>Â Sometimes we even hear news readers cobbling together expressions like âKabine <strong>bann</strong> Minisâ for âKabine Minisâ, or âduz <strong>bann</strong> marinâ for âduz marinâ. (It seems that the management makes journalists read in Kreol from a French text, thinking, in their ignorance, that the journalists can just replace âlesâ and âdesâ and the âs at the end of the word with âbannâ to get a Kreol sentence!)</p><br /><p><strong>Â How to stop over-using âbannâ</strong></p><br /><p><strong>1:</strong> Try to say or write the sentence without the âbannâ. It nearly always works better. âBannâ is used only for <em>specifying</em> the plural for disambiguation.<strong>Â </strong></p><br /><p><strong>2:</strong> If ever you are doing the task (not recommended) of reading aloud in Kreol a written French text, when you see âlesâ/âdesâ, (for English an âs at the end of a word), resist just automatically translating it as â<em>bann</em>â.</p><br /><p><strong>Â Fascinating Background to the word âbannâ</strong></p><br /><p>For the record, the word <em>ba</em> or <em>bann</em> is a plural marker in many Nguni languages, while in French â<em>bande de</em>â would reinforce this, since it means âteam ofâ. These two roots leave two different meanings for the word â<em>bann</em>â â one is strictly a plural marker (like an âs, in English), and the other means âa groupâ or â<em>bande de</em>â. So, in the first sense, we can use it in sentences like âBann kestyon lexame ti tro difisilâ. And in the other sense, â<em>bannâ</em> is used for a team of field-workers. So people say, âMo dan <em>bann</em> [tel sirdar]â, or in expressions like â<em>gran bann</em>â and â<em>ti bann</em>â, meaning those who do heavy work, or light work. â<em>Ros bann</em>â is workers who do traditional-style road repairs. â<em>Bann lao pe lager ek bann anba</em>â. We can say â<em>bann Collendavelloo</em>â to mean his party members, <em>bann CurÃ©</em> to mean the CurÃ© extended family. â<em>Bannla</em>â means âthemâ, as in âthemâ in âthem and usâ. But, in these second forms, it is not a simple âplural markerâ.</p><br /><p>Â <span style="text-decoration: underline;">I</span>n Baissacâs stories, after being meticulously written down from oral tales, and published in 1888, the word âbannâ is, significantly, well nigh absent as plain plural marker.</p><br /><p>Â </p><br /><p>Â <strong>HINT Two: Learn to be Precise!</strong></p><br /><p>Letâs start with a question, just so you can check how precise you are.<strong> </strong>What is the Kreol for the French â<em>la table</em>â? Write down your answer? â¦â¦â¦â¦â¦.</p><br /><p>Â Most people will say â<em>latab</em>â. But, however spelt, that would be wrong. So, think again, before reading on.</p><br /><p>Â In fact, â<em>la table</em>â is translated into Kreol by â<em>latab la</em>â.</p><br /><p>Â There are two important parts to the French expression âla tableâ and to the Kreol expression âlatab laâ: a <em>meaning</em> part â what the word relates to in the world â and a <em>grammatical</em> part. The noun âlatabâ (<em>table</em> in French) contains the meaning. The âlaâ after it, is the grammatical word. (In French the âlaâ is before the â<em>table</em>â.)</p><br /><p>Â And there is a huge conceptual difference between â<em>latab</em>â (that is to say the word âtableâ in English) which is an abstract symbol for a concrete object, and âlatab <em>la</em>â (â<em>the</em> tableâ) meaning a specific <em>one-and-only</em> table.</p><br /><p>Â The Kreol âlatabâ is â<em>table</em>â in French. Again, âlatabâ does not mean â<em>la table</em>â, which is, as we are beginning to see, a very different matter.</p><br /><p>Â âLatabâ (Kreol) or âtableâ (French and English) means the concept or idea of the thing, or the totality of all such things. It is very abstract. Whereas, âlatab laâ or â<em>la table</em>â or â<em>the table</em>â refer to a particular, mutually understood, actually existing table.</p><br /><p>Â <strong>Background issues around Kreol âarticlesâ (âtheâ in English), and how they affect spelling</strong></p><br /><p>One aspect of spelling (a phenomenon peculiar to <em>writing) </em>is knowing where to break language into words.</p><br /><p>Â In Kreol, the definite article, as we have seen, is âlaâ and it comes <em>after</em> the noun.</p><br /><p>sez la = the chair</p><br /><p>mowsi la = the maternal aunt</p><br /><p>lipye la = the foot</p><br /><p>kompyuter la = the computer</p><br /><p>jip la = the jeep</p><br /><p>lafnet la = the window</p><br /><p>kurpa la = the snail</p><br /><p>latab la = the table</p><br /><p>Â A word cannot have two opposing articles. This means that âlafnetâ and âlatabâ are each one word, not two. Imagine if we put the indefinite article âennâ first, what rubbish we would get with â<em>enn la tab</em>â (âa the tableâ).</p><br /><p>Â In addition, the meaning of âtabâ is not the same as the meaning of âlatabâ.</p><br /><p>Â <strong>What are the different meanings of the Kreol âlatabâ? </strong></p><br /><p>âLatabâ, itself, has many meanings, as well as the simple âtableâ of English/French. A market stand. Or it can even refer to the permit for one, as in, â<em>Sa fami la danbyin. Papa la ena <strong>latab</strong> bazar Anvil</em>.â</p><br /><p>Â And, âlatabâ means the place on the ground where you mix cement, as in â<em>Kot pu fer <strong>latab</strong> pu bat sa beton la?</em>â It also means the space between two rows of sugar cane, as in â<em>Nu latas ti Rs20 par golet, <strong>latab</strong></em>â, as opposed to, â<em>Nu latas ti Rs20 par golet, laliyn.</em>â It means a âhandâ, as in cards: âAnu zwe ankor enn latab!â (Letâs play another hand!â), or a âroundâ as in paying âa round of drinksâ: âMo latab, sa!â (My turn to pay a round!) In addition, it means the face of a large boulder which, when hit with a sledgehammer, splits the rock in two. It also refers to the flat surface created with each layer of full gunny bags in a godown or on a lorry, for further layers to be stacked upon.</p><br /><p>Â Such is the richness of our language. And by contrast, âtabâ does not mean the same thing as any of these meanings of âlatabâ. It means âtimes tableâ. Or âdata in tabular formâ i.e. on two axes.</p><br /><p>Â <strong>Some thoughts on the definite article for abstract nouns</strong></p><br /><p>While in English we say âloveâ, âjusticeâ, âpeaceâ or âfreedomâ without a definite article, in French, the equivalent of these abstract nouns is, curiously, âlâamourâ (as if <em>the love?</em>), âla justiceâ (<em>the justice?</em>), âla paixâ (<em>the peace</em>?) or âla libertÃ© (<em>the freedom</em>?)â. In English the word is without an article. In Kreol, too, âlamurâ, âlazistisâ, âlapeâ and âlaliberteâ have the same abstract, more generalized feeling that the English words have, rather than the concrete meaning of the French. We do not say âlamur laâ, âlazistis laâ, âlape laâ or âlaliberte laâ, which would be the case if a literal translation from the French took place.</p><br /><p>Â All this to say that each language has its feel, as well as its meanings. This âfeelâ is important. For example, during demonstrations, people in France, despite usually using the definite article, cry out for âlibertÃ©, Ã©galitÃ©, fraternitÃ©â without the âlaâ, as if âlaâ is perhaps what you already have?</p><br /><p>Â </p><br /><p>Â <strong>HINT Three: Donât Make the Mistake of thinking that even âeasyâ French nouns are related in a 1-to-1 way to Kreol!</strong></p><br /><p>Many people make the mistake of thinking that French and Kreol words are equivalent in a way that they are not. They believe, for example, that Kreol nouns starting with âlaâ are mere transpositions from a French âarticle <em>la</em> +nounâ, meaning the same thing. But even this is rather more complicated than that.</p><br /><p>Â Can you assume that, if you know the French phrase <em>la baleine</em>, you know âthe Kreolâ? No. You have to know independently of the French that <em>labalenn</em> means <em>whale</em>, while <em>balenn</em> means <em>umbrella spoke</em>. The Kreol noun âlamasâ<em> </em>means<em> a crowd</em>, while âmasâ means <em>cannabis</em> <em>leaves.</em> The French âmasseâ means <em>masses</em> or, as a verb, <em>to amass </em>or to<em> massage.</em> The verb âmasâ in Kreol means <em>to chew</em>. And so on. There is no simple equivalence â as people, in their ignorance, may claim there is.</p><br /><p>Â Assuming that all the Kreol words at the beginning of each line in the table (below) are nouns linked to âla + French nounâ. Here is a very basic list, to help you realize just how independent and also just how complicated the vocabulary of Kreol is â even at its supposed âclosestâ to French.</p><br /><p><strong>labalenn</strong> (<em>whale</em>) ek <strong>balenn</strong> (<em>umbrella spoke</em>).</p><br /><p><strong>labar</strong> (<em>cross-bar</em>, as in âmet labar otâ) ek <strong>bar</strong> (noun <em>bar</em> e.g. pub; bar of wood, soap; verb <em>to block</em>).</p><br /><p><strong>labil</strong> (<em>bile</em>) ek <strong>bil</strong> (bill, bubble).</p><br /><p><strong>labit</strong> (<em>pirogueâs bowsprit holder</em>) ek <strong>bit</strong> (verb <em>to come up against</em>).</p><br /><p><strong>labox</strong> (<em>boxing</em>) ek<strong> box</strong> (<em>boot of a car, dock â in Court</em>).</p><br /><p><strong>labus</strong> (<em>mouth</em>) ek <strong>bus</strong> (<em>to fill</em>)</p><br /><p><strong>laferm</strong> (<em>farm</em>) ek <strong>ferm</strong> (verb <em>to close, </em>adj fig<em> firm</em>)</p><br /><p><strong>laflit</strong> (flute) ek <strong>flit</strong> (give a glancing blow)</p><br /><p><strong>lagar</strong> (station) ek <strong>gar</strong> (<em>gar atwa</em>! meaning <em>watch out!</em>)</p><br /><p><strong>lagut</strong> (gout) ek <strong>gut</strong> (drop, e.g. of water, verb <em>to taste</em>)</p><br /><p><strong>lakal</strong> (hold of a ship) ek <strong>kal</strong> (<em>to wedge something, a wedge</em>)</p><br /><p><strong>lakanpayn</strong> (<em>countryside</em>) ek <strong>kanpayn</strong> (noun <em>campaign</em>)</p><br /><p><strong>lakes</strong> (<em>cashier</em>) ek <strong>kes</strong> (<em>chest, box</em>).</p><br /><p><strong>lakle</strong> (<em>key, spanner</em>) ek <strong>kle</strong> (adj. meaning <em>key, vital</em>).</p><br /><p><strong>laklos</strong> (<em>bell</em>) ek <strong>klos</strong> (<em>blister</em>)</p><br /><p><strong>lakok</strong> (<em>shell of, say, egg</em>) ek <strong>kok</strong> (<em>rooster</em>).</p><br /><p><strong>lakor</strong> (<em>agreement</em>) ek <strong>kor</strong> (<em>corn or bunion</em>).</p><br /><p><strong>lakoz</strong> (<em>reason</em>) ek <strong>koz</strong> (<em>to talk</em>)</p><br /><p><strong>lakras</strong> (<em>spit</em>) ek <strong>kras</strong> (<em>to spit</em>)</p><br /><p><strong>lakur</strong> (<em>court of law, court of a king, yard</em>) ek <strong>kur</strong> (<em>course</em>).</p><br /><p><strong>lakuzinn</strong> (<em>kitchen</em>) ek <strong>kuzinn</strong> (<em>cousin, f.</em>)</p><br /><p><strong>lalev</strong> (<em>lip</em>) ek <strong>lev</strong> (<em>to pick up</em>)</p><br /><p><strong>lalis</strong> (<em>list</em>) ek <strong>lis</strong> (adj. <em>smooth</em>, verb <em>to lick</em>).</p><br /><p><strong>lamal</strong> (<em>trunk, big suitcase</em>) ek <strong>mal</strong> (noun <em>harm, male, </em>adj <em>badly</em>) ek <strong>dimal</strong> (sore).</p><br /><p><strong>lamas</strong> (<em>masses of people, sledge-hammer</em>) ek <strong>mas</strong> (<em>gandya</em>).</p><br /><p><strong>lames</strong> (<em>wick, mass</em>) ek <strong>mes</strong> (<em>drill bit, a place where workers eat</em>).</p><br /><p><strong>laminn</strong> (<em>doughy part of bread</em>) ek <strong>minn</strong> (<em>noodles, expression on a face, young girl</em>).</p><br /><p><strong>lamus</strong> (<em>black jelly, spongy dessert, fire-extinguishing foam</em>) ek <strong>mus</strong> (noun <em>fly, </em>verb<em> to blow</em>).</p><br /><p><strong>lapas</strong> (<em>gap in the coral reef</em>) ek<strong> pas</strong> (<em>to pass something, to spend (of time), to give up oneâs turn</em>; noun <em>magic healing gesture</em>).</p><br /><p><strong>lapel</strong> (<em>spade or shovel</em>) ek <strong>pel</strong> (<em>pail</em>).</p><br /><p><strong>lapenn</strong> (<em>effort, sorrow</em>) ek<strong> penn</strong> (<em>to paint</em>).</p><br /><p><strong>lapert</strong> (<em>loss</em>) ek <strong>pert</strong> (<em>miscarriage</em>).</p><br /><p><strong>lapes</strong> (<em>fishing</em>) ek <strong>pes</strong> (<em>peach, a boyish girl</em>).</p><br /><p><strong>lapli</strong> (<em>rain</em>) ek <strong>pli</strong> (adv <em>more</em>, noun <em>fold</em>)</p><br /><p><strong>lapo</strong> (<em>skin, peel</em>) ek <strong>po</strong> (<em>pot, jar</em>).</p><br /><p><strong>lapos</strong> (<em>post, postal service</em>) ek <strong>pos</strong> (<em>pocket</em>).</p><br /><p><strong>lapres</strong> (<em>sermon, printing press</em>) ek <strong>pres</strong> (<em>to hurry someone</em>).</p><br /><p><strong>lapros</strong> (fig. <em>approach</em>) ek <strong>pros</strong> (<em>nearby, close relative/friend</em>).</p><br /><p><strong>lapwint</strong> (<em>peninsula</em>) ek <strong>pwint</strong> (<em>point, pointed</em>).</p><br /><p><strong>larat</strong> (<em>spleen</em>) ek <strong>rat</strong> (<em>to miss</em>)</p><br /><p><strong>lareg</strong> (<em>ruler</em>) ek<strong> reg</strong> (<em>menstruation</em>)</p><br /><p><strong>lasi</strong> (<em>electric saw</em>) ek <strong>si</strong> (<em>if</em>)</p><br /><p><strong>latab</strong> (<em>table, market permit</em>) ek <strong>tab </strong>(<em>times table, table on axes</em>).</p><br /><p><strong>latant</strong> (<em>state of waiting, expectancy, tent</em>) ek <strong>tant</strong> (<em>bag made of vacoas</em>, verb <em>tempt</em>.)</p><br /><p><strong>latas</strong> (<em>piece rates</em>) ek<strong> tas</strong> (<em>stain, cup;</em> verb <em>to get stuck</em>).</p><br /><p><strong>latay</strong> (<em>waist measurement, angle in wood-chopping</em>) ek<strong> tay</strong> (verb <em>cut</em>, noun <em>size</em>)</p><br /><p><strong>latet</strong> (<em>head</em>) ek <strong>tet</strong> (<em>to suck</em>)</p><br /><p><strong>latol</strong> (<em>metalwork of a car</em>) ek <strong>tol</strong> (<em>corrugated iron, or sheet iron</em>).</p><br /><p><strong>latonn</strong> (<em>per ton</em>) ek <strong>tonn</strong> (<em>ton, lots</em>).</p><br /><p><strong>latrap</strong> (noun <em>trap</em>) ek<strong> trap</strong> (<em>to catch, to arrest, to handle, feel up</em>).</p><br /><p><strong>latres</strong> (<em>measuring tape, audio tape, tape for sewing</em>) ek <strong>tres</strong> (<em>plaits, extensions</em>).</p><br /><p><strong>latur</strong> (<em>tower</em>) or <strong>tur</strong> (<em>turn</em>)</p><br /><p><strong>latus</strong> (<em>aloe fibre, whip for a top, touch when playing a guitar, say, touch in football</em>) ek <strong>tus</strong> (<em>to touch, to cough, to earn</em>).</p><br /><p><strong>lavann</strong> (<em>sluice gate</em>) or <strong>vann</strong> (noun <em>van</em>; verb <em>to sell, to winnow</em>).</p><br /><p><strong>lavant</strong> (<em>sale</em>) ek <strong>vant</strong> (noun <em>tummy; </em>verb <em>to flatter, over-estimate</em>).</p><br /><p><strong>lavey</strong> (<em>day before</em>) ek <strong>vey</strong> (<em>to watch</em>).</p><br /><p><strong>lavi</strong> (<em>life, expert opinion</em>) ek <strong>vi</strong> (<em>eyesight, view or scenery, considered or viewed</em>)</p><br /><p><strong>lazar</strong> (big jar) ek <strong>zar</strong> (noun <em>kind of;</em> met dan zar, as in <em>to put on airs</em>)</p><br /><p>Â Kreol was born from a fracture, not a continuum. So, you just have to <em>know</em> that âlakrasâ (<em>spit</em>) is not <em>la crasse</em> (<em>filth</em>), and that âsuyeâ (<em>to wipe clean</em>) is the contrary of <em>souiller</em> (<em>to tarnish</em>); âloryeâ (pillow) is not the same as <em>lauriers</em> (<em>bay leaves</em>) and the Mauritian â<em>lorye</em>â leaves are very poisonous as it turns out â making any confusion positively dangerous! In Kreol itâs a âwarningâ before a cyclone, in French an <em>alert;</em> and âalertâ in Kreol means flirtatious!</p><br /><p><strong>Â Conclusion</strong></p><br /><p>It is important to note the incredible difference between French and Kreol link, on the one hand, and the sliding link between any other two languages. Kreol is not simply <em>derived from</em> or <em>based upon</em> French. Kreolâs birth is sudden. It comes <em>not</em> from gradual transition but instead out of a sudden upheaval or break â caused by a holocast i.e. -slavery.Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â </p><br /><p><strong>Â HINT Four: Donât Participate in Culling your own Language â although the State may do so!</strong></p><br /><p>Let us take a very ordinary noun, <em>lakaz</em>. It is being culled. Can we save it from social damnation?</p><br /><p>Â The word <em>lakaz</em> has gradually, and mysteriously, become taboo. It has changed over no more than 5 â 15 years from being an ordinary noun into a term supposedly too vulgar for, say, radio. A listener recounts to Gilbert Bablee, live, â<em>Liânn kraz <strong>mo lamezon,</strong></em>â (<em>Radio Plus</em>, 11 May, 2016).Â  Even in her extreme distress, between sobs, she cannot use the ordinary word for house: <em>lakaz</em>. She replaces it with <em>lamezon</em>. Others use just <em>mezon</em>, as in <em>So mezon li akote pu mwa.</em> This auto-censorship of the word <em>lakaz</em> through participation in a kind of low-level mass hysteria, and its replacement with terms perceived as Frenchified thus gentrified, can only have happened through violent psycho-social pressure, no doubt still drawing on the legacy of colonization, slavery, indenture, <em>and which remains powerful till today</em>. And we all <em>participate</em> in perpetrating this violence.</p><br /><p>Â <em>Mezon</em> is, in fact, used and always has been, in Kreol. It is used in expressions like <em>mang mezonruz (kind of mango), dipin mezon (a kind of bread roll), mezon mer (holding company), mezonkloz (brothel). </em>On their own, the two words, <em>lamezon</em> and <em>mezon,</em> are just clumsy, destructive, replacements for a highly developed noun, <em>lakaz.</em></p><br /><p>Â The two Frenchified words impoverish the Kreol language. It is important, this, because most new acquisitions enrich the host. But some, like <em>lamezon</em> and <em>mezon</em> risk hurting it.Â </p><br /><p>Â Let us look at the word <em>lakaz.</em> It has four distinct, ordinary meanings, not just one:</p><br /><p>(i)Â Â  â<em>houseâ</em>, a building that someone lives in or can live in as in <em>Avann: enn lakaz avek 2 garaz</em></p><br /><p>(ii)Â  â<em>homeâ</em> (the place where oneâs heart lives) as in the phrase <em>vinn lakaz!</em> and</p><br /><p>(iii) â<em>lodgings</em>â i.e. either a flat, a room, or a whole house, as in the phrase <em>lakaz enn drwa!</em>Â </p><br /><p>(iv) â<em>victory</em>â, in games like Ludo.</p><br /><p>Â When we ban the word <em>lakaz</em>, we throw out meaning number 4, and make it unclear whether the new word <em>mezon</em> or <em>lamezon</em> applies to all the first three or only (i) as in French or (i) and (ii). If only (i), we are left without the meaning (ii) in Kreol. Frankly, it is hard to know what <em>mezon</em> and <em>lamezon</em> mean. Nor even to know which one exists, and if both exist, what the difference is. The replacement process turns Kreol into an imprecise <em>patois.</em></p><br /><p>Â Let us look at the rich and evocative expressions that we lose if we allow the culling of the word <em>lakaz </em>from Kreol:</p><br /><p>lakaz mama = a place where one is entirely at home, (it cannot become <em>lamezon mama </em>or <em>mezon mama</em>)</p><br /><p>lakaz zarenye = spiderweb (we canât say <em>lamezon zarenye)</em></p><br /><p>lakaz lisyin = kennel (<em>mezon lisyin</em>?)</p><br /><p>lakaz depar = square one</p><br /><p>lakaz urit = a place where an octopus might hide</p><br /><p>lakaz zuzu = a childrenâs game, pouring tea, cleaning, etc on a miniature scale or in the imagination.</p><br /><p>gayn lakaz = to be married off</p><br /><p>Pas lakaz! = Do pop in!</p><br /><p>Vinn lakaz! = Come around to my place!</p><br /><p>zanfan lakaz = a house where one needs no invitation to visit, as if one were brought up there.</p><br /><p>linz lakaz = the kind of clothes one wears around the house</p><br /><p>manze lakaz = the kind of food cooked at home</p><br /><p>balye lakaz = a kind of broom for sweeping indoors</p><br /><p>lakaz longtil = type of low, prefab concrete house.</p><br /><p>lakaz kom = type of house with a sloping roof</p><br /><p>lakaz letaz = double-storey house</p><br /><p>lakaz kolonyal = house in French colonial style</p><br /><p>lakaz EDC = house in social housing project of this name</p><br /><p>lakaz CHA = house in social housing project of this name</p><br /><p>lakaz tol = corrugated iron house, or house rooved in corrugated iron</p><br /><p>lakaz dibwa = house with planks for walls</p><br /><p>lakaz beton = house built out of air-bricks</p><br /><p>lakaz bardo = house with a roof of wooden tiles</p><br /><p>lakaz ros = house built from hewn basalt rocks</p><br /><p>lakaz lapay = building with a thatched roof</p><br /><p>lakaz tang = kind of place a tandrike might hide</p><br /><p>lakaz lera = rat-infested place</p><br /><p>lakaz ante = haunted house or building</p><br /><p>lakaz karya = a termitesâ nest</p><br /><p>lakaz furmi = an anthill</p><br /><p>lakaz manti = a pathological liar</p><br /><p>lakaz Dimans = courting</p><br /><p>lakaz baba = womb (this expression, just like all the others, cannot become <em>lamezon baba</em>, or <em>mezon baba</em>)</p><br /><p>Â <strong>Conclusion</strong></p><br /><p>The attempted killing of the word âlakazâ gives us an insight into the way in which languages are <em>killed</em> and donât just <em>die out</em>. The State, as everyone knows, bans Mauritian Kreol from pre-schools. The ban is sometimes written up, as in one State-recognized institution (<em>Le Defi 18 Feb 2016); </em>usually it is <em>implied</em>: The State makes no mention of Kreol in the new curriculum. And this banishment is despite a Supreme Court Judgment forcing the Ministry of Education to withdraw a previous Curriculum <em>for this very reason</em>. Contempt of Court seems not to apply to the Minister of Education!</p><br /><p>Â But the point is that words like âlakazâ are the words that <em>preschool teachers</em> banish. They banish them because they sincerely and erroneously believe the State wants this. The Ministry <em>encourages</em> this error. In fact, banning âlakazâ is violent. It rips away rich cultural concepts and strips of precision the very vocabular that young children are constructing. Letâs all take a resolution as from today to defy the ban on the word âlakazâ. Letâs save it!</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

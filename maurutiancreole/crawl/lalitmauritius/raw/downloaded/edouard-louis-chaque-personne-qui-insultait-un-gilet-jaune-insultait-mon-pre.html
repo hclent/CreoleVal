@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095648" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095648" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095648" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095648" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095648" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095648" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095648" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095648" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095648" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Edouard Louis: âChaque personne qui insultait un gilet jaune insultait mon pÃ¨reâ</h1><p class="subtitle">08.12.2018</p></h1>
+	<p class="newsarticle"><p>[LALIT received this interesting personal perspective on the Gilets Jaunes, written by novelist Edouard Louis, via friends in Germany. We find it sensitive and well worth reading. Note, ago in these fast-moving moments, that it was written 4 days.]</p><br /><p>Â <strong>â</strong><strong>Chaque personne qui insultait un gilet jaune insultait mon pÃ¨reâ</strong></p><br /><p><em>PubliÃ© dans Les Inrockuptibles, </em>4.12.2018</p><br /><p>par <a href="https://www.lesinrocks.com/auteur/edouard">Edouard Louis</a></p><br /><p><em>Â LâÃ©crivain analyse le mouvement des gilets jaunes dans un texte quâil nous a transmis. Edouard Louis, auteur de </em><em>Qui a tuÃ© mon pÃ¨re</em><em> </em><em>(Seuil) dÃ©crit </em>â<em>le choc</em>â<em> quâil a ressenti en dÃ©couvrant les images des Gilets Jaunes, et les sentiments puissants quâelles ont suscitÃ©:</em></p><br /><p>Â âDepuis quelques jours jâessaye dâÃ©crire un texte sur et pour les gilets jaunes, mais je nây arrive pas. Quelque chose dans lâextrÃªme violence et le mÃ©pris de classe qui sâabattent sur ce mouvement me paralyse, parce que, dâune certaine faÃ§on, je me sens personnellement visÃ©.</p><br /><p>Jâai du mal Ã  dÃ©crire le choc que jâai ressenti quand jâai vu apparaitre les premiÃ¨res images des gilets jaunes. Je voyais sur les photos qui accompagnaient les articles des corps qui nâapparaissent presque jamais dans lâespace public et mÃ©diatique, des corps souffrants, ravagÃ©s par le travail, par la fatigue, par la faim, par lâhumiliation permanente des dominants Ã  lâÃ©gard des dominÃ©s, par lâexclusion sociale et gÃ©ographique, je voyais des corps fatiguÃ©s, des mains fatiguÃ©es, des dos broyÃ©s, des regards Ã©puisÃ©s.</p><br /><p>La raison de mon bouleversement, câÃ©tait bien sÃ»r ma dÃ©testation de la violence du monde social et des inÃ©galitÃ©s, mais aussi, et peut-Ãªtre avant tout, parce que ces corps que je voyais sur les photos ressemblaient aux corps de mon pÃ¨re, de mon frÃ¨re, de ma tante... Ils ressemblaient aux corps de ma famille, des habitants du village oÃ¹ jâai vÃ©cu pendant mon enfance, de ces gens Ã  la santÃ© dÃ©vastÃ©e par la misÃ¨re et la pauvretÃ©, et qui justement rÃ©pÃ©taient toujours, tous les jours de mon enfance â<em>nous on ne compte pour personne, personne ne parle de nous</em>â - dâoÃ¹ le fait que je me sentais personnellement visÃ© par le mÃ©pris et la violence de la bourgeoisie qui se sont immÃ©diatement abattus sur ce mouvement. Parce que, en moi, pour moi, chaque personne qui insultait un gilet jaune insultait mon pÃ¨re.</p><br /><p>Tout de suite, dÃ¨s la naissance de ce mouvement, nous avons vu dans les mÃ©dias des âexpertsâ et des âpolitiquesâ diminuer, condamner, se moquer des gilets jaunes et de la rÃ©volte quâils incarnent. Je voyais dÃ©filer sur les rÃ©seaux sociaux les mots âbarbaresâ, âabrutisâ, âploucsâ, âirresponsablesâ. Les mÃ©dias parlaient de la âgrogneâ des gilets jaunes : les classes populaires ne se rÃ©voltent pas, non, elles grognent, comme des bÃªtes. Jâentendais parler de la â<em>violence de ce mouvement</em>â quand une voiture Ã©tait brulÃ©e ou une vitrine cassÃ©e, une statue dÃ©gradÃ©e. PhÃ©nomÃ¨ne habituel de perception diffÃ©rentielle de la violence: une grande partie du monde politique et mÃ©diatique voudrait nous faire croire que la violence, ce nâest pas les milliers de vie dÃ©truites et rÃ©duites Ã  la misÃ¨re par la politique, mais quelques voitures brÃ»lÃ©es. Il faut vraiment nâavoir jamais connu la misÃ¨re pour pouvoir penser quâun tag sur un monument historique est plus grave que lâimpossibilitÃ© de se soigner, de vivre, de se nourrir ou de nourrir sa famille.</p><br /><p>Les gilets jaunes parlent de faim, de prÃ©caritÃ©, de vie et de mort. Les âpolitiquesâ et une partie des journalistes rÃ©pondent : â<em>des symboles de notre RÃ©publique ont Ã©tÃ© dÃ©gradÃ©s</em>â. Mais de quoi parlent ces gens ? Comment osent ils? DâoÃ¹ viennent ils? Les mÃ©dias parlent aussi du racisme et de lâhomophobie chez les gilets jaunes. De qui se moquent-ils? Je ne veux pas parler de mes livres, mais il est intÃ©ressant de noter que chaque fois que jâai publiÃ© un roman, jâai Ã©tÃ© accusÃ© de stigmatiser la France pauvre et rurale justement parce que jâÃ©voquais l'homophobie et le racisme prÃ©sents dans le village de mon enfance. Des journalistes qui nâavaient jamais rien fait pour les classes populaires sâindignaient et se mettaient tout Ã  coup Ã  jouer les dÃ©fenseurs des classes populaires.</p><br /><p>Pour les dominants, les classes populaires reprÃ©sentent la classe-objet par excellence, pour reprendre lâexpression de Pierre Bourdieu ; objet manipulable du discours: de bons pauvres authentiques un jour, des racistes et des homophobes le lendemain. Dans les deux cas, la volontÃ© sous-jacente est la mÃªme: empÃªcher lâÃ©mergence dâune parole des classes populaires, sur les classes populaires. Tant pis sâil faut se contredire du jour au lendemain, pourvu quâils se taisent.</p><br /><p>Bien sÃ»r, il y a eu des propos et des gestes homophobes et racistes au sein des gilets jaunes, mais depuis quand ces mÃ©dias et ces âpolitiquesâ se soucient du racisme et de lâhomophobie? Depuis quand ? Quâest-ce quâils ont fait contre le racisme? Est-ce quâils utilisent le pouvoir dont ils disposent pour parler dâAdama TraorÃ© et du comitÃ© Adama? Est-ce quâils parlent des violences policiÃ¨res qui sâabattent tous les jours sur les Noirs et les Arabes en France? Est-ce quâils nâont pas donnÃ© une tribune Ã  Frigide Barjot et Ã  Monseigneur je-ne-sais-plus-combien au moment du mariage pour tous, et, en faisant cela, est-ce quâils nâont pas rendu lâhomophobie possible et normale sur les plateaux de tÃ©lÃ©?</p><br /><p>Quand les classes dominantes et certains mÃ©dias parlent dâhomophobie et de racisme dans le mouvement des gilets jaunes, ils ne parlent ni dâhomophobie ni de racisme. Ils disent: â<em>Pauvres, taisez-vous !</em> â Par ailleurs, le mouvement des gilets jaunes est encore un mouvement Ã  construire, son langage nâest pas encore fixÃ©: sâil existe de lâhomophobie ou du racisme parmi les gilets jaunes, câest notre responsabilitÃ© de transformer ce langage.</p><br /><p>Il y a diffÃ©rentes maniÃ¨res de dire: â<em>Je souffre</em>â: un mouvement social, câest prÃ©cisÃ©ment ce moment oÃ¹ s'ouvre la possibilitÃ© que ceux qui souffrent ne disent plus: â<em>Je souffre Ã  cause de lâimmigration et de ma voisine qui touche des aides sociales</em>â, mais: â<em>Je souffre Ã  cause de celles et ceux qui gouvernent. Je souffre Ã  cause du systÃ¨me de classe, Ã  cause dâEmmanuel Macron et Edouard Philippe</em>â. Le mouvement social, câest un moment de subversion du langage, un moment oÃ¹ les vieux langages peuvent vaciller. Câest ce qui se passe aujourdâhui: on assiste depuis quelques jours Ã  une reformulation du vocabulaire des gilets jaunes. On entendait uniquement parler au dÃ©but de lâessence, et parfois des mots dÃ©plaisants apparaÃ®ssaient, comme â<em>les assistÃ©s</em>â. On entend dÃ©sormais les mots inÃ©galitÃ©s, augmentation des salaires, injustices.</p><br /><p>Ce mouvement doit continuer, parce quâil incarne quelque chose de juste, dâurgent, de profondÃ©ment radical, parce que des visages et des voix qui sont dâhabitude astreints Ã  linvisibilitÃ© sont enfin visibles et audibles. Le combat ne sera pas facile: on le voit, les gilets jaunes reprÃ©sentent une sorte de test de Rorschach sur une grande partie de la bourgeoisie; ils les obligent Ã  exprimer leur mÃ©pris de classe et leur violence que dâhabitude ils nâexpriment que de maniÃ¨re dÃ©tournÃ©e, ce mÃ©pris qui a dÃ©truit tellement de vies autour de moi, qui continue dâen dÃ©truire, et de plus en plus, ce mÃ©pris qui rÃ©duit au silence et qui me paralyse au point de ne pas rÃ©ussir Ã  Ã©crire le texte que je voudrais Ã©crire, Ã  exprimer ce que je voudrais exprimer.</p><br /><p>Mais nous devons gagner: ânous sommes nombreuses et nombreux Ã  se dire quâon ne pourrait pas supporter une dÃ©faite de plus pour la gauche, et donc pour celles et ceux qui souffrentâ.</p><br /><p>Â LinkÂ : https://www.lesinrocks.com/2018/12/04/actualite/edouard-louis-chaque-personne-qui-insultait-un-gilet-jaune-insultait-mon-pere-111149208/</p><br /><p>âethnicââethnicâ</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

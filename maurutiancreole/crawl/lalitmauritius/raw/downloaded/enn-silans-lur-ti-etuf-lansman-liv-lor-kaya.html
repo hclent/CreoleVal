@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612094005" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612094005" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612094005" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612094005" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612094005" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612094005" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612094005" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612094005" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612094005" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Enn Silans Lur ti Etuf Lansman Liv lor Kaya</h1><p class="subtitle">16.08.2020</p></h1>
+	<p class="newsarticle"><p>Le 10 Ut 2020 Kaya (Reginald Topize) ti pu fet so laniverser 60 an. Si li ti tuzur la. Pu rann li omaz, lazans GuvernmantalÂ <em>Creole Speaking union</em>Â ti lans enn liv lor li. Liv la ti prepare par enn grup akademisyin â enn liv ki plito enn koleksyon item tu kalite dan enn sel kuvertir, enn liv byin prezante e inprime â e petet nu pu revinn lor liv limem dan enn lot lartik.Â </p><br /><p>Sa lartik la li lor lansman la.</p><br /><p>Seremoni lansman ti pran enn form plito bizar, mem inkrwayab, akoz so silans total lor de fe inportan ki konsern Kaya. Sa silans la ti rann seremoni la absird, enn kote, e pli trakasan, sa silans la li al inser seremoni la dan enn kover-ep ki pe derule depi 21 an. Minis Lar ek Patrimwann Kiltirel Aveenash Teeluck ti gard silans total lor sa de fe la. Prezidan CSU Arnaud Carpooran ti gard silans lor sa mem de fe la pandan so diskur, ki pa ti kurt. Kordinater resers Christina Chan-Meetoo, li osi, pa pip enn mo lor la. Seki ti prezid seremoni la, Marjorie Barbe Munean, li osi, pa mansyonn sa de fe la. Pu nu, zis pu asiz laba dan lodyans, dan sa silans asurdisan la, li ti kuma viv alinteryer enn gran mansonz pandan pre dezertan. Nu prezans laba ti kit nu avek enn santiman ki nu moralman konpromet si nu res trankil apre. Samem nu pe ekrir sa lartik la.</p><br /><p>Erezman, vev Kaya Veronique Topize, dan so diskur, ti dir ki 18 an desela, li ti pe dibut dan sa mem-mem plas kot ti pe fer lansman la, setadir Teat Serge Constantin, Vacoas. Li ti dir li ti pe tini flanbo dan so lame, donn kudme met dibut â<em>Justice: Lasosyasyon kont Vyolans Polisyerâ.Â </em>Li ti ena enn kopi invitasyon pu evennman la dan so lame. Sa zur la, ti zwe fim lor britalite polisyer, â<em>Injustice</em>â. Parol Veronique Topize ti enn ti-reyon lalimyer lor sa kuvertir silans som ki ti pe tuf seremoni lansman la.Â </p><br /><p>Rezon Kaya pa la pu so 60 an se so lavi ti teyn britalman 21 an desela. Li ti tuye dan selil lapolis.Â </p><br /><p>Alor, premye parol ki ti absan dan lansman liv ti zisteman sa parol la: âKaya ti tuye kan li ti su sarz lapolis.âÂ </p><br /><p>Si enn orater ti mank kuraz pu servi mo âtuyeâ, omwin li ti kapav dir, âKaya ti an bonn-sante kan lapolis vinn pran li dan so lakaz Beau Songes, san okenn mark vyolans lor li. De zur plitar ti dekuver Kaya so lekor san-vi dan selil Alkatraz. So lamor ti koze par blesir onivo laservel. Li ti ena 33 lezot mark vyolans resan lor so lekor.â Tu dimunn dakor, mem polisye ki inplike dan kover-ep dakor, lor sa bann fe debaz la.Â </p><br /><p>Kan laverite lor linzistis kasyet, nu dan LALIT truv nu oblize, dan respe pu sa laverite la, dan respe pu fami Kaya, pu rapel dimunnÂ <em>ki</em>Â sa sa sa exakteman ki dimunn pe kasyet. Sinon, nu kontribiye dan perpetye sa mem linzistis la.Â </p><br /><p>Li ti le 21 Fevriye 1999.</p><br /><p>Efektivman, Kaya ti ena 33 mark blesir lor so lekor. Ena blesir parmi ki ti drol, depas explikasyon â siyn tortir ki depas konpreansyon imin. Seki ti provok Kaya so lamor se so laservel ti telman sibir sekus andan dan so krann ki li finn mor akoz laservel finn tap kont linteryer bwat kranyin a enn tro gran vites. Rapor lotopsi Dr. Ramstein ki ti rann piblik pandan Lanket Zidisyer dan Port Louis, ti kler lor la. Ena seve Kaya ki ti derasine depi so latet. Sertin so bukl Rasta ti apandan ar lezot bukl, kuma siyn ki so asasin finn sakuy li par chombo li par so seve. Lor so pla lipye, foto lapolis montre, ti ena lanprint laport metalik so selil. Ondire zot finn kraz Kaya so lipye dan fant anba laport selil kan zot ti zet so lekor, demi-mor, dan so selil, figir anba, apre enn sesyon tortir. Lapolis, dan kover-ep ti pretann ki zot finn dekuver Kaya mor, alonze lor so vant lor sali so selil, li tusel. Zot pa ti ena okenn de explikasyon lor kot sa mark anba so pla lipye sorti. Parey kuma zot pa ti kapav explike kimanyer, kan Kaya ti vivan e so nene ti seyne, disan ki sorti dan so narinn, si li ti lor so vant, finn al termine dan enn ti-basin anba so seve par deryer so latet. Disan pa defye lalwa gravite. Li pa fasil pu nu, ni pu fami Kaya, gard tu sa fe la kasyet dan nu latet.Â </p><br /><p>Nu realize ki liv ki pe lanse li pa lor tusala. Dakor. Me, enn tel seremoni napa kapav osi konplezan ki personn pa mem sufle enn mo lor âselil lapolisâ. Sa silans la ris sa lansman liv la dan sa kover-ep lapolis ki finn dire depi 21 an la.Â </p><br /><p>Pu rann seremoni pli dulere, sanki organizater konn sa, nu trwa nu kone, kimanyer, enn apre lot, sa bann gard ki ti temwayne pandan zot kover-ep lor lamor Kaya, zot tu ti vinn dibut dan box temwin, su serman dan Lakur, rakonte kimanyer sakenn ti enn gran fanns Kaya. Zot ti mem, zot dir, dimann li sante pu zot.Â </p><br /><p>Dapre versyon kover-ep lapolis, lamor Kaya ti akoz li ti dan mank â mank lalkol ubyin enn lot sibstans. Sa ti sanse provok kriz, e finn fer ki Kaya zet so prop lekor isi-laba dan so selil, tonbe, mor. Pu sey amenaz sa zistwar farfeli la, avoka polisye ti trenn enn Dayeri-buk Lopital Candos depi plizir lane avan dan Lakur. Lafin enn laliyn dan Dayeri-buk, ti ena enn ti-lantre, enn forjri anfantin, pu dir ki Kaya ti sanse anonse ar staf lopital ki li ti pe gayn kriz. Sa zar kover-ep finn tripote, e tuzur pe tripote ziska zordi, pu perpetye inpinite lapolis. Alepok, Guvernman Navin Ramgoolam ti mem amenn enn patolozis Angle pu sutenir sa naratif. Sa Dr. White la ti vinn baz so temwayaz Lakur Port Louis lor enn versyon Rapor Ramstein ki li âti gayne depi innternetâ lor pa-kone-ki ladres, e ki ti tradir par pa-kone-kisannla, e ki ti ena enn laliyn kle ki ti sote â enn lot silans remarkab. Li ti enn temwaynaz san laont.</p><br /><p>De banane pli tar, an Ut 2001, Guvernman Moris ti avoy spesimenn laservel Kaya pu ki enn gran nero-patolozis Dr. David Graham depi Liniversite Glasgow fer analiz. Dan so Rapor, li dir ki, dan laservel Kaya pa ti ena okenn siyn lefe abi lalkol ubyin lezot ladrog, e osi ki sete bel-e-byin ku vyolan ki finn andomaz laservel Kaya. Guvernman Moris, alepok ki ti fer demars pu sa analiz la pu respekte enn promes elektoral, ti Guvernman Sir Aneerood Jugnauth, setadir enn Guvernman MSM, samem MSM ki opuvwar zordi. Sa rann li pli inexplikab ki tu sa orater dan lansman la, zot tuzur pe kuver pu lefet ki Kaya ti zwenn enn lamor vyolan, kan sa Guvernman ki ansarz CSU zordi, li, li ti dakor pu al rod laverite lor lamor Kaya e rann li piblik.Â Â </p><br /><p>Akademisyin, zot pa sipoze pe rod laverite, zot? Kuma zot metye mem? Zot pa ti oredi evit al rant dan ennÂ <em>kover-ep</em>britalite polisyer ek tortir?Â </p><br /><p>Tusala pu dir Kaya ti truv lamor pandan ki li ti dan sarz lapolis. Li enn fe. E organizater sa lansman liv lor Kaya, pu rezon ki zis zot-mem zot kone, ule rant dan sa kover-ep ki finn dire 21 an.Â </p><br /><p>Ena enn dezyem fe lor lekel orater res silansye. Li swiv drwat depi premye fe la.Â </p><br /><p>Lamas dimunn ordiner dan klas travayer Moris, kan zot tann nuvel lamor Kaya le 21 Fevriye 1999, zot kone anplas-anplas ki Kaya finnÂ <em>tuye</em>Â dan kaso. Zot pa partaz ar elit sa reflex-anseyne pu fer kover-ep. Zot pa bizin Rapor Patolozis pu kone. Zot kone osito zot tann dir ena mark britalite lor so lekor: zot kone pu enn rezon byin sinp: parski lapolis abitye fer britalite e infliz tortir lor deteni. Zot kone.Â </p><br /><p>Alor lamas dimunn oprime Moris finn fer enn sulevman, enn sulevman zistifye, kont lapolis. Zot finn detrir nef istasyon net, e zot finn aret tu aktivite ordiner dan pei la net osi.Â </p><br /><p>Telman dimunn ti ador Kaya, konn so tandres, ki so lamor dan selil ti enn de tro. Plizir deseni lakoler kont lapolis finn inspir tu sa dimunn ki kontan lazistis la â dan lavil kuma dan lakanpayn â pu desann dan lari, eriz barikad, e atak istasyon lapolis.Â </p><br /><p>Kifer fer enn kover-ep lor la, osi? Kifer? Li ti enn rebelyon kont linzistis. Kifer li pa fer nu fyer?</p><br /><p>(Ant parantez, nu bizin dir ki nu realize ki apre 36-ertan barikad, e kan tu komers, tu Lakur Lazistis, tu biro, tu lizinn, ti ferme, osi byin ki preske tu istasyon lapolis, ti ena lezot evennman ki finn ansene: dan enn sosyete inegal, kan lapolis sibir enn tel defet, piyaz kumanse. E kan piyaz anpire, bann brans inpe sekre e som dan Leta marye-pike avek brans parey dan burzwazi e ansam zot ti al organiz e perpetre de akt swadizan âvanzansâ, de akt kominal, de akt kriminel, pu sey, an retrospek, konverti sa sulevman kont lapolis dan enn bagar rasyal insanse. Zot al bril lakaz dimunn dan 2 site retire dan Lenor. Me, mem zot reysi bril lakaz dimunn, zot pa reysi fer sa sulevman vinn kominal â ni par divan, ni an retrospek. Me, sulevman termine anplas. Pa pu sa ki dimunn ti desann dan lari. Tusala deza finn analize buku â get bibliografi lafin lartik, ki bann akademisyin kapav lir â e bizin tuzur kontiyn analize, diskite an piblik. Li inportan akoz kover-ep kontiyne: tu sa zom ki finn servi lansflam pu detrir lakaz dan sa 2 ti-landrwa dan Lenor la, zot zame pa finn pas divan Lakur Lazisitis. Zame. Parey kuma pa finn gayn okenn akize dan ka krim kont Kaya. Sa osi, li enn fe ki fode pa kasyet.)</p><br /><p>Seki inportan se okenn parmi orater, organizater sa lansman liv lor Kaya, napa finn fer okenn referans ar sa sulevman kont lapolis ki lamor Kaya dan kaso finn provoke. E sa, mem kan, lapolis finn al fizye, tuy, trwa lezot zenom dan sulevman la: Neermal Ghoostia ek Michel Laurent dan lakanpayn, Berger Agathe dan lavil. Fode pa fer kover-ep lor sa bann lamor la, nonpli.</p><br /><p>Zot bann fe.Â </p><br /><p>Alor, organizater lansman liv lor Kaya, zot-mem kone kifer, ule kasyet sulevman osi byin ki lamor vyolan Kaya. Zot pa ti bizin dir plis, dan zot diskur, ki enn fraz kuma, âLamor Kaya finn deklans enn sulevmanâ. Li telman sinp.</p><br /><p>Pu evit form parti dan kover-ep sistemik lor sa 2 fe la, sak orater ti kapav azut 5 a 10 mo dan zot ase long diskur: âlamor dan kasoâ ek âsulevman demasâ; ubyin âdekuver so lekor dan selil lapolisâ ek ârebelyon nasyonalâ. Kan sa 4 orater, zot tu â so Minis ek trwa lezot â gard sa silans bizar la, enn kestyon poze: Eski zot ti tom dakor pu gard sa silans la, depi avan? Eski li ti enn espes konspirasyon silans? Li difisil pu krwar li enn sinp kwinsidans.Â </p><br /><p>Zot silans partikilyerman derutan lepok aktyel. Ena sulevman inpe partu dan lemond asterlamemÂ <em>presizeman</em>Â kont britalite polisyer. Kan enn polisye tuy George Floyd dan Minneapolis dan Lamerik avek so zenu lor so liku pu nef minit, sa finn deklans sulevman ek rebelyon dan par santenn lavil partu pa zis dan USA, me atraver bul later â kont britalite polisyer, kont rasism sistemik, kont kolonyalism. Li dan nuvel internasyonal tulezur. Li fer rapel kimanyer Kaya finn mor. Li fer rapel kimanyer dimunn ti fer rebelyon. E, pu rann sa silans pli derutan ankor, dan Moris mem vyolans polisyer dan nuvel osi, zordi mem. Mm. Vev Iqbal Toofany (enn zenom ki finn tuye dan kaso an 2015), mwins ki enn semenn avan lansman liv la, pe sey asimil verdik ânon kupabâ dan ka tortir kont polisye ki ti ena Iqbal su zot sarz. Pandan katran, ka la finn dan Lakur. E zis avan lansman, tu radyo, tu lagazet pe koz zizman la, pe intervyue papa Iqbal, so madam vev. Lapres pe anonse ki DPP pe konsider fer lapel. Dernye lapel ki ti fer dan enn tel ka (apre lamor dan kaso Rajesh Ramlogun), DPP ti al perdi an 2016, apre zafer la finn trene 10 banane dan lakur. Li vo lapenn sit seki bann ziz finn dir, selman, apre lamor Rajesh Ramlogun: â...Â <em>it is beyond dispute that Ramlogun was subjected to physical abuse and was killed whilst in police custody. Those responsible remain unpunished.</em>â (âPena okenn dut Ramlogun ti sibir abi fizik e li ti tuye pandan ki li ti su sarz lapolis. Seki responsab res san pinisyon.â) Tusala pu dir ki silans dan lansman liv lor lamor Kaya dan kaso, li antrav pa zis ket pu laverite, me osi ket pu lazistis. Vyolans ofisye Leta, peye ar nu larzan, larzan piblik, li antrenn buku sufrans, li provok troma san-fin pu zenom dan sa pei la. Li osi antrenn lamor. Sa lane la, trwa zenom inn truv lamor dan selil lapolis (kat lezot dan prizon). Pu kasyet sa kalite lamor, pu maske li, pli pir pu partisip dan enn kover-ep, li danzere.</p><br /><p>Tu seki ti pu neseser pandan sa lansman la se ki orater fer referans a laverite: ki Kaya ti mor dan selil lapolis, e ki so lamor finn provok enn sulevman. Se tu.Â </p><br /><p>Me, ki li kut bann akademisyin ek lezot intelektyel dan sa pei la, kan pe lans enn liv lor Kaya, pu fer enn tipti, tipti kiksoz ki kapav ede zis pu rod laverite? Kifer zot pa kapav sakenn fer enn apel formel pu lazistis dan ka lamor dan detansyon? Dan ka Kaya, pu kumanse? Mem si li zis pu montre respe, donn sutyin, pu Mm Vev Kaya ki ti prezan dan lansman la? Sa li zis enn stenn, li pa mem enn pa, lor Kaya so âsime lalimyerâ.Â </p><br /><p>Eski nu pe revandik tro buku depi akademik? Mem nu kone nu pe viv dan enn lepok kot klima zeneral parmi intelektyel li enpe kapon lor pran pozisyon kont linzistis?Â Â </p><br /><p>Anplis, nu sigzer enn reynion konzwin ant nu trwa susiyne ek akademik dan lekip ki finn prepar liv la. Kumsa nu kapav partaz nu konesans lor lamor Kaya, sulevman popiler, e nerport ki lot size asosye ar sa. Kumsa nu kapav partaz ket pu laverite ek lazistis, osi byin ki pu dinite langaz maternel, langaz Kreol.</p><br /><p>Alain Ah Vee, Ragini Kistnasamy, Lindsey Collen</p><br /><p><em><strong>Bibliografi kurt</strong></em><em><strong></strong></em></p><br /><p><em>Kayaâs Death: The Medical Evidence</em>Â by Ram Seegobin, Booklet published by Justice and MLF, 2005 (2,000 copies), republished 2006.</p><br /><p><em>Kayaâs Death: Law Keepers and Hypocrites</em>Â by Jean-Claude Bibi, Booklet published by Justice and MLF, 2005 (2,000 copies), republished 2006.</p><br /><p><em>Lemet apre Lamor Kaya</em>, News & Views, Revi LALIT Spesyal lor Sulevman kont Leta an 1999, par LALIT. Entire magazinn pibliye an 1,000 kopi, an Kreol.</p><br /><p><em>Riots can bring progress for working people</em>Â -<em>Â 1937, 1943, 1971, 1975, 1979, 1999 - Lalit Speaks Out,Â </em>1999. Entire magazine published by LALIT in 1,000 copies in English.</p><br /><p><em>The February 1999 Mass Riots - The Matadeen Report and Human Rights</em>, 2000. A booklet that is a critique of the Matadeen Report by LALIT. Published in English</p><br /><p>Kominike LALIT: â20 an depi Sulevman Lamas Dimunn apre Lamor Kayaâ, 19 Fev 2019.</p><br /><p><em>40 Poet</em>, LPT, 2008. Â Book with poetry in Kreol written by 40 different poets, dedicated to the memory of Kaya, and including publication, as one of the poems, of his âSant Lamurâ.</p><br /><p><em>Colloquium on Mauritian Creole: Langaz Kreol Zordi</em>, Paper in book published by LPT 2002 collection of papers on Mauritian Kreol presented at the LPT Colloquium held the year before at the University of Mauritius and the MIE, âEnn Apresyasyon lor Lamizik ek Parol Kaya so SanteÂ <em>Chant Lamour</em>â par Rajni Lallah.Â Â </p><br /><p><em>Background to the 1999 Riots: Who Owns What and Why? Women pose the question of Ownership and Control,Â </em>Book published by MLF 2000.<em></em></p><br /><p><em>Plus many references on LALIT Website:</em>Â <a href="http://www.lalitmauritius.org/">www.lalitmauritius.org</a></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

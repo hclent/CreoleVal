@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095656" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095656" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095656" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095656" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095656" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095656" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095656" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095656" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095656" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Trumpâs New World (Dis)order in the Middle East and Gulf</h1><p class="subtitle">06.12.2018</p></h1>
+	<p class="newsarticle"><p>Â So, what are the signs we see of the new world (dis)order being manoeuvred by Trump and the rising extreme right world-wide? This LALIT article looks at Trumpâs Middle East and Gulf Region strategy, even as his strategy falls apart at the seams.</p><br /><p>Â <strong>The Middle East and Gulf</strong></p><br /><p>Trump has taken the lead on one front: he and his son-in-law Jared Kushner, who he named his Middle East advisor, will do no less than completely <em>resolve </em>the Middle East problem, in particular the Israeli-Palestinian âconflictâ, as he refers to the occupation. Or so Trump says they will. He has put into practice Benyamin Netanyahuâs program of unilaterally âtrashingâ the binding international Treaty with Iran, which lifts sanctions in exchange for Iran stopping its nuclear program. So, Trump prepares to make Iran the Number One Enemy.</p><br /><p>Â And Trump and Netanyahu, together, thus begin to set up a triumvirate to do this. Letâs see who the third one is in the triumvirate.</p><br /><p>Â Trumpâs first visit abroad was to Saudi Arabia. He visited Saudi Arabia <em>first</em> â before setting foot anywhere else â even though it is a renowned dictatorship, run by a ruthless theocracy. In fact this anachronistic reign has been kept in power for nearly a century by keeping its people oppressed â kept in power first by the British State and then the USA â who together controlled its oil, sold it arms, and ignored its practices of beheading opponents, amputating limbs, imprisoning critics, even poets and journalists, stifling all dissent, treating women as children, spreading the most right-wing form of Islam all over the world, while keeping the 30 million Saudi Arabian people under tight dictatorial reign.</p><br /><p>Â Trump and his son-in-law then set about getting Mohamed bin Salman (MbS) to dethrone and replace the previous Crown Prince of Saudi Arabia. Once this was done, the new Crown Prince MbS then promptly arrested, even tortured, and extorted millions of dollars from some 500 of his thousands of rival princes, setting himself up as an all-powerful âindividualâ ruler instead of the traditional all-powerful âfamilyâ reign. MbS simultaneously set up propaganda machinery, especially in Washington, and broadcast far and wide his allowing women to drive cars for the first time, while he locked up the very women who had led the protests in favour of driving â they are still locked up. He allowed cinemas to reopen. The down side of the much-broadcast measures, for MbS, was that most people in the countries that prop the Saudi regime up i.e. the US and Britain, did not even know that the regime was so repressive as to prevent women from driving, nor did the broad masses of people even know that the USâs great ally had banned cinema.</p><br /><p>Â And meanwhile MbS continued to imprison protesters and stifle all opposition.</p><br /><p>Â And then he ramped up, and has continued to ramp up, the Saudi war against Yemen, bombing cities and civilians and at first even justifying this, and causing intentional starvation of children. He continued with this cruel war, even as all over the world people were gradually turning against the Saudiâs US-sponsored war against the Houthi uprising in the Yemen, even in the USA. Even the US stopped its refueling of Saudi fighter planes. (In Mauritius we need to ask ourselves, did those planes that refueled the Saudi fighter F-15s and F-16s set off from Diego Garcia, part of the Republic of Mauritius?)</p><br /><p>Â In addition, to keep a total stranglehold over all other Gulf States, MbS suddenly cut off relations with Qatar in August 2017, blocking its airspace and blockading its ports, even though Qatar had contributed some 1,000 troops to support the Saudi war on Yemen. The pretext, Qatar was not fully enough signed up to the anti-Iran politics of MbS, and he supports the Muslim Brotherhood that won the election in Egypt while the Saudis oppose them. Qatar also houses Al Jazeera, an impressive TV channel that, inter alia, exposes some home truths about Saudi Arabia. Anyway, the tight blockade failed, with Qatar quickly becoming even more independent of Saudi Arabia.</p><br /><p>Â MbS a few months later had Prime Minister Hariri of the Lebanon kidnapped while he was on a visit to Saudi Arabia. That was exactly a year ago. They forced him to announce his âresignationâ as part of a botched attempt to start a war with Lebanon. The whole plot was reversed. So, yet another of his actions backfired.</p><br /><p>Â He then caused an unprecedented diplomatic row with Canada after the Canadian Foreign Minister criticized MbSâs imprisonment of women who had fought for the ban on them driving to be lifted. MbS expelled the Canadian ambassador, ordered 15,000 Saudi students, including about 800 medical trainees, to end their studies in Canada and return to Saudi Arabia and barred Canadian wheat imports. MbS even stopped all medical treatment programmes in Canada and transferred Saudi patients there to other countries. This absurd over-reaction caused consternation in all diplomatic circles.</p><br /><p>Â And then came the clearly premeditated murder of the American resident, the Wall Street journalist, Jamal Khashoggi in the Saudi consulate in Istanbul, Turkey on 2 October, 2018, and his cruel dismemberment. All the atrocities were committed while his fiancÃ©e waited outside, getting more and more anxious. He had gone in to fetch the papers necessary for the coming marriage.</p><br /><p>Â This outrage was then followed by two months of solid lies from the Saudiâs. It was like bad farce, live on TV. At first they maintained with a straight face that Jamal Khashoggi was still alive. He had, they announced, walked out of the consulate by another door. They even went to the macabre lengths of having someone of a similar build pull on Khashoggiâs clothing after the murder, don a beard, and leave by a consulate back door, to make it look like the journalist had in fact left. This enormity was made even more bizarre by the fact that he had to keep his own shoes on â and they were tennis shoes. And so the Saudi stories went on and on, being made up anew each time the Turkish authorities leaked another bit of information, full blast ahead in any-old-mendacity mode. As if saying to themselves, âNever mind if no-one ever believes us again! Might is right!â</p><br /><p>Â This killing of one man, a Saudi working in the USA, has left Donald Trump in deep trouble. MbS is his new hope for the triumvirate to resolve the issues of the Middle East and the Gulf Region. He loses if he does not stick to him. But he loses, as he is finding out, if he does, too. That is what is called being caught in a fork â whichever path you choose, you lose. Yes, Trump loses either way. So he has decided to stick by MbS. The only strategy Trump had was to rally forces against Iran, by means of the triumvirate of Trump-Netanyahu-MbS.Â  So, even though MbS has become a liability, Trump sticks with him. So far. For Trump, adding a few more lies to his daily output seems not to put him out. But he is obviously disturbed by the tapes of the torture of Mr. Khashoggi, too disturbed he says to so much as listen to them.</p><br /><p>Â It is not just MbS who has discredited himself. All three have, through this. And also, individually.</p><br /><p>Â At the same time, the Israeli army carried out some botched job right inside Gaza, and still no-one knows what the top soldiers there were up to. But, whatever it was, it failed. The incursion and shoot-out was during an unofficial ceasefire, and it somehow came and betrayed Israeli military ineptitude. This is something Israel detests betraying. An Israeli lieutenant colonel was killed. Netanyahu called a formal truce, and promptly lost his Minister of War over the incident. Netanyahu is teetering on the political brink. He and his wife are at the same time under criminal investigation on corruption charges. This failed incursion into Gaza is the first big botch job on assassinations since, when Netanyahu first came to power, there was a similar one when in 1997, an Israeli military team attempted to poison Hamas leader, Khaled Meshaal while he was in Jordan. This ended up in a totally botched job, and the Israeliâs had to supply the anti-dote.</p><br /><p>Â At the same time, Donald Trump is in deeper and deeper water in the USA. He keeps losing staff around him. He keeps telling more and more lies every day. This is a process that gradually ridicules and weakens him as a leader, and as a person. In the end, neither friend nor foe will believe anything he says. And then, Trump went and lost the Republicanâs control of the House of Representatives in the mid-term elections. And meanwhile, Mueller, the special counsel investigating Trumpâs teamâs links with Russia, is closing in on Trump right now.</p><br /><p>Â But the merry triumvirate Trump-Netanyahu-MbS is still operating, if badly shaken.</p><br /><p>Â So, the Palestinian people are facing a serious offensive from this trio. The USA has recognized Jerusalem as capital of Israel. Israel and the USA and Saudi Arabia may be trying to drive a wedge between the two political parties in Palestine (Hamas and the PLO) and even to get separate agreements with Gaza (Hamas) and the West Bank (Palestinian Authority). The USA, in cutting funding to all UN relief agencies for refugees, is trying to literally starve Palestinians out of refugee status. This international aid, in fact, lets Israel off the hook, as international law says that an occupying power has to provide basic amenities. At the same time, Saudi Arabia under the new Crown Prince is threatening to refuse to accept refugeeâs travel documents for pilgrimages to Mecca and Medina or to work in Saudi Arabia. This, too, puts pressure on refugees in, say, Jordan to try to get citizenship of Jordan.</p><br /><p>Â Meanwhile, Israeli colonization in the West bank and East Jerusalem continues in defiance of all international law and international agreements. And in general Israel has, with US collusion, just gone on and on hurling grenades into the two-state solution. Until, on the ground today in Palestine, there is, once again an interest in a single, secular state, based on equality and democracy, with all refugees given rights. But, the political base for this has not yet got off the ground. And the Israeliâs continue their plan of total occupation of all the Palestinian lands. Increasingly the Israeli state is driven to fall back on the absurd fundamentalist argument that âGod gave Israel to the Jewish peopleâ. The corollary is now in law â other religions and cultures are merely tolerated, at most.</p><br /><p>Â In a contradictory tendency, one on the positive side, the Israeli state has become more and more isolated, unpopular, and estranged from increasingly large sections of the Jewish communities in the US and Europe and even South Africa. At the same time, the BDS movement has become influential. Despite repressive legislation, municipalities and state governments, one by one are applying BDS measures, even Europe as a whole, as are companies, religions, academics and artists. British Quakers have recently divested and called for a boycott of produce made in the occupied territories of the West Bank. At the same time, AirBnB, a huge company has refused to take ads for illegal Israeli properties in the settlements within Palestine. The Canadian Studentsâ Federation has also voted to support BDS.</p><br /><p>Â So, just as apartheidâs end was brought nearer by a combination of struggles inside and boycotts, so Israeli apartheid is being challenged from both within and through BDS. LALIT is, as readers probably know, part of the world BDS movement.</p><br /><p>Â More than ever, the combined and uneven development of struggles is operating worldwide. Struggles everywhere take different routes and yet combine.</p><br /><p>Â </p><br /><p align="right">LALIT</p><br /><p>Â </p><br /><p>Â Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

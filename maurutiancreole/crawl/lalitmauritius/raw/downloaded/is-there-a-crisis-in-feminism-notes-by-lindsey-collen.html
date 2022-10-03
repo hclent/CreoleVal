@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100409" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100409" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100409" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100409" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100409" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100409" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100409" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100409" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100409" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Is there a Crisis in Feminism? Notes by Lindsey Collen</h1><p class="subtitle">14.09.2017</p></h1>
+	<p class="newsarticle"><p>Â While Lindsey Collen was in Johannesburg for the Jozi Book Fair, she was part of a panel on the provocative question âA Crisis in Feminismâ. Here are the notes to which she spoke, on 2 September.</p><br /><p>Â She started by saying that there is not really a crisis in âfeminismâ as a whole. [Now, we publish the notes.]</p><br /><p>Â But, there is certainly a crisis in the version of âfeminismâ that has become main stream, during the neo-liberal surge, that is to say since the politics imposed from the Reagan-Thatcher era. This current has been picked off from the current of âdissidentsâ opposing capitalism, and taken over by the bourgeoisie, and by the status quo. This version of âfeminismâ is in something worse than a crisis.</p><br /><p>Â Yet, the <em>real thing</em> still goes strong. In the Anglophone-influenced world, as opposed to the Francophone world, though term âfeminismâ is common parlance in the intellectual elite, the term has tended to stay in its ivory tower, remaining something of a theoretical concept, not part of a hands-on struggle. In the Anglophone-influenced world, at the level of the broad masses of working class women, the words linked to the struggle, and still essential to it, are âemancipationâ and âliberationâ. This is what the masses of working women recognize as what we are struggling for. It is certainly the case in Mauritius, which is a country also influenced by the Francophone traditions, which are more abstract. This distinction already gives a glimpse of where my ideas will lead. The ideas are not just mine, but ideas developed in two parallel and interlinked struggles in Mauritius: the political struggle (Iâm in a party called LALIT) and the womenâs struggle (Iâm in an organization called Muvman Liberasyon Fam which translates as Womenâs Liberation Movement).</p><br /><p>Â So there are at present, in this world-wide generalized downturn in the class struggle, two currents in the womenâs movement:</p><br /><p>Â One political current (falling under the term âfeminismâ) wants women to rise, through the politics of âgender equityâ, to positions of power within the patriarchal hierarchies, and within the patriarchal hierarchy. This is the bit that is in crisis. Thatâs for sure. We can call them bourgeois feminists â not because of their class, or because of their mannerisms, but because they want the capitalist system, with its ruling bourgeois class, to remain intact so badly that they canât even see what patriarchy is. They tend to talk about âequityâ and âwomen risingâ and âglass ceilingsâ and âpoliticiansâ and âboardroomsâ; they talk much about âwomenâ vs. âmenâ rather than âwomenâ vs. âpatriarchyâ.</p><br /><p>Â The other current, the egalitarian anti-patriarchy current with its 200 years of history world-wide and 70 or so in Mauritius, is at work as usual. It still aims and works towards dismantling all the hierarchies, including patriarchal ones, and creating a form of social organization that is more flat and circular, rejecting the existing one that is pyramidal, rising vertically to a pinnacle. Thatâs us! Associated closely with the words emancipation and liberation, there is always, in this current, the word <em>socialism</em>. Womenâs emancipation and liberation is seen as something that is intricately linked to the struggle for more general emancipation of the oppressed classes from the dictatorship of the bourgeoisie.</p><br /><p>Â Â  <strong>Analytical Divergence</strong></p><br /><p>The bourgeois feminists say:</p><br /><p>- âPatriarchyâ is the rule of males. So, if females can get to rule, then this same thing is âmatriarchyâ. Then, they have their victory. The fault of this kind of analysis is that it is:</p><br /><p>- <em>ahistoric</em>. It pretends that we can look at what exists now as if it were a static photograph of the present and still understand things without having to look at the movement of history.</p><br /><p>- <em>static, not dialectic</em>. Social facts are understood by bourgeois feminists in a unidirectional way.</p><br /><p>- only looks at one thing at a time, not at everything at once <em>as well</em>.</p><br /><p>Â This current leads not to liberation, but to despair.</p><br /><p>Â We only have to think of the caricatures of women who have risen in the patriarchal hierarchies, and their terrible lack of a legacy for womenâs emancipation: Ms Margaret Thatcher, Ms Condeleeza Rice, Mrs Theresa May, Ms Golda Meir, Mrs Madeline Albright, Ms Hilary Clinton, Ms Mrs Indira Gandhi, Mrs <a title="Megawati Sukarnoputri" href="https://en.wikipedia.org/wiki/Megawati_Sukarnoputri">Megawati Sukarnoputri</a>, Mrs Benazir Bhutto.</p><br /><p>Â We, in our current that seeks emancipation, say instead that:</p><br /><p>- There is a history behind present day womenâs oppression, and it predates capitalism, but takes specific forms during capitalist rule.</p><br /><p>- Humanity has <em>grosso modo</em> letâs say some 200,000 years of existence. The most recent 5,000 â 10,000 years have seen class societies emerge, with the emergence of stocks of goods that can last over time, and with âthe Stateâ as an institution that governs. It is at the same time that classes emerge, that class hierarchies emerge, that patriarchy takes over from matri-central patterns that existed for 97% of our history.</p><br /><p>Â So patriarchy is linked to this thing about <em>a hierarchy</em> to control stocks, and also to the creation of âthe stateâ as a form of rule from outside of ordinary social norms.</p><br /><p>Â Then capitalism came to power i.e. its form of âthe stateâ gradually took over world-wide during the past 250 - 300 years, and grafted its form of patriarchy on to this existing patriarchy.</p><br /><p>Â Patriarchy is a form of rule. This means it concerns <em>the State</em>. It rules through ideological control â at all levels, government, police, taxes, the family, the press, religious institutions, the education system â and when this fails, through brute violence. This is where the violence against women gets its sustenance, and this is what makes it such a struggle to oppose it. This is what corrupts one part of the womenâs movement by buying it into the hierarchy.</p><br /><p>Â Patriarchy is indeed <em>hierarchical.</em> It is a pyramid of power, with very few at the top, multitudes at the bottom. It is a tiny handful of powerful males (or <em>mostly</em> males) who dominate almost all females and children, as well as, and this is important, <em>most males</em> most of the time. Ordinary police officers live in fear of the macho pyramid that rules them, for example.</p><br /><p>Â To oppose patriarchy, we need to understand the history of it, oppose the hierarchy of it, and refuse to accept the inequality of it.</p><br /><p>Â  But it is not just a theoretical issue. The stance a womenâs organization, or an individual woman, takes on this fundamental divide, leads in turn to strategic divergences all the way along the line.</p><br /><p>Â Let us look at a few examples:</p><br /><p>Â <strong>Strategic Divergence</strong></p><br /><p><strong>Â 1. On rape</strong></p><br /><p>Bourgeois feminists will call for:</p><br /><p>- the State to employ more women police officers so that each police station always has one, so as to make the police station more woman-friendly.</p><br /><p>Â Those opposing patriarchy head-on will immediately see that this means increasing the size of the police force, that is to say of the repressive forces of patriarchy. It would be ridiculous to call for male police officers to be given the sack just to get gender equity statistics up to muster, so it must mean increasing the size or the repressive forces. If, instead, there was an increase in spending on agriculture or public health, that would probably decrease rape more than an increase in spending on police officers. But, by the by, this shows how ludicrous it is to work towards parity: it <em>can</em> mean, in the case of how many people are in prison, either reducing the number of males locked up or <em>increasing</em> the number of females! No-one wants gender equity by increasing the number of women in prison. And only those against patriarchy call for less men to be locked up and further brutalized in the prison system.</p><br /><p>Â Instead of more police, we say, more health care people, so that all government health centres, hospitals, clinics, must all have Rape Crisis Units that come into existence the minute a patient suffering a sexual assault comes to Casualty. Then the woman victim of assault is looked after by society, in the caring atmosphere of a hospital: physical injuries, morning-after pills against unwanted pregnancy, prevent STDs, psychological help. And if she wants to put in a complaint, a woman police officer can be called in to the hospital, the police doctor (forensic pathologist) moves out of his barracks and into the hospital for the swabs and so on. Men victims of patriarchal sexual domination will receive the same care.</p><br /><p>Â These two different demands (more repressive forces or society taking care of the victim) represent two opposing ways of seeing change happening, two different currents in feminism.</p><br /><p>Â Punishment for rape:</p><br /><p>The bourgeois feminists are always complaining that sentences for rape are too light. They want the state to lock men up by the thousand, for years on end, thus take on more prison guards to watch over them, again strengthen the patriarchal system of penitentiary punishment. And lead the perpetrators of rape to come out of prison even more brutalized. More extreme calls for punishment include calls for various kinds of castration or even the death penalty.</p><br /><p>Â Those women against patriarchy, those womenâs organizations in favour of liberation/emancipation, like us, call instead for society to denounce violence in all its forms, confront it all the time, speak about it openly, challenge it. Men must be made to feel that it is wrong. Society must shun them. It will not help to brutalize them through incarceration. The predatory remarks made by public figures, starting with Trump, are the kind of thing that has to be attacked. Bill Clinton, when he was President, should have been forced by the womenâs movement to step down after abusing a young woman on a student placement. Instead the <em>National Organization of Women</em> said that âClinton appointed women to positions of powerâ, like Madeleine Albright. History itself may have been different. Al Gore would have become President for a while, and then, being the incumbent, would have probably beaten George W. Bush. Instead, the abuse by Bill Clinton was accepted socially as a minor detail.</p><br /><p>Â <strong>2. On abortion</strong></p><br /><p>Feminists of the pro-bourgeois kind, typically put emphasis on the legalization of abortion: by which they mean strict legal controls over women by the State.</p><br /><p>Â More open-minded feminists, who seek real emancipation, call for <em>decriminalization</em> not legalization. The State and its punishment of women are called on to withdraw completely. The State can regulate the practice of medicine, instead.</p><br /><p>Â <strong>3. On child support</strong></p><br /><p>Bourgeois feminists call for biological fathers to be hunted down by their partners and the State so that they pay child support, when a mother is in distress. They say, men should be forced by the State to take their responsibilities. So once again, it is the police that in the long run they want to empower. The police will then hunt down the offending male, even in cases where he has shown that he acts violently to his family, then charge him with a criminal offense (in Mauritius they call this fairly new law, which was the result of bourgeois feminist demands, <em>Family Abandonment</em>). He gets locked up for contempt of court eventually, then fined, and then when he canât pay the fine, he is locked up. When he escapes, his mind is on vengeance against his ex-wife and children.</p><br /><p>Â Women feminists in our current, we who fight for emancipation and liberation, we say that any woman who finds herself in need help with feeding and raising any child, must get help from the whole of society, for the moment that is the social security part of the State. We say never must the State hunt down a man for not giving child support. Itâs the worst thing to do. It provokes more violence. It turns a blind eye to the unemployment and under-employment that men suffer. Is a form of privatization of social services, in particular of child support, where the State washes its hands of a social service and places it in the hands of a man who is causing trouble to society. Surely any child is our child? How can feminists think otherwise? How can we think some man who does not want to feed his child somehow owns the child? Is this not a metaphor of slavery? Will it not obviously exacerbate domestic violence?</p><br /><p>Â <strong>4. On domestic violence</strong></p><br /><p>What are our demands on the issue of domestic violence? The bourgeois feminists call for setting up shelters (we call this the ambulance side of things) which is important, but it is not really emancipation or liberation. It is temporary emergency care, like a rape crisis unit is. It is not sufficient.</p><br /><p>Â What we do in the MLF in Mauritius is we advise a victim, and help where she is without sisters, cousins, friends, to draw a map of all neighbours, and visit them one by one. At the visit, inform them of the reality of domestic violence. Ask them to walk by, knock on the door if they hear a noise, so that they can be witnesses. Or at least, <em>they </em>call the police if necessary, and the victim does not have to be the one to do so. That checks many men in their tracks. We have found, after 40 years of experience, that it seems to be that neighbours âlookâ at the offending male differently after being formally informed of his violence. This often leads to his stopping violence or leaving the family home quietly. But, it always has a positive effect.</p><br /><p>Â And of course, for all these problems, it is a general balance of forces that makes us women able to defend ourselves more ably. And for this the expenditure we must call on the State to make is clearly for practical things like:</p><br /><p>- jobs for women, and for everyone</p><br /><p>- housing for women, and for everyone (including the absconded father/man)</p><br /><p>- good social services of all kinds.</p><br /><p>Â <strong>Conclusion</strong></p><br /><p>There is a stunning example of the bankruptcy of the current in feminism that seeks the advancement for women into positions of power, and pretends this will represent an advancement. The Abu Ghraib Prison in Iraq. Janice Karpinsky was head of the prison. Barbara Fast â top intelligence officer in charge of interrogations at Abu Ghraib. Condeleeza Rice â in charge of all prisons in Iraq as secretary of state. Ordinary working class women Megan Ambuhl, Lynndie England and Sabrina Harman were the ones photographs with heaps of naked Iraqi men, hooded, and holding one on a dog chain. The women, when drawn into a patriarchal structure, in war times, are capable of something so extreme, so patriarchal, that it is very similar to rape.</p><br /><p>This is not emancipation.</p><br /><p>This is not liberation.</p><br /><p>It is the very opposite. We need to expose its logic, its bankruptcy. And we need to make it clear that it is the bit of so-called âfeminismâ that is in crisis: we are not attacking it enough. It is sometimes seen as not politically correct. So, we are sometimes cowards. Letâs stop now.</p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

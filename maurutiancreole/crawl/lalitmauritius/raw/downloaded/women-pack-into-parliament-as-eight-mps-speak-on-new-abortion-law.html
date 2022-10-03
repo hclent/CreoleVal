@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612102709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612102709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612102709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612102709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612102709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612102709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612102709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612102709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612102709" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Women pack into Parliament as Eight MPs speak on New Abortion Law</h1><p class="subtitle">30.05.2012</p></h1>
+	<p class="newsarticle"><br>The Labour Party-PMSD government last evening launched the debate on the  new Abortion Bill to amend the 1838 draconian colonial law, and thus decriminalize certain categories of abortions. The public gallery of the National Assembly was packed yesterday evening from 5:00 to 8:00pm by 82 women who are supporting the Bill, looking down from the Gallery at the mainly male National Assembly. Womenâs organizations, human rights organizations, trade unions, and the family planning organization are all supporting the Bill, though many believe it to still be unduly restrictive, and still very repressive in relation to women and girls who have to face extremely difficult situations all on their own. <br><br>For the first time, four representatives of the Regional Committees of the National Womens Council were present. They are the Port-Louis-Plaines-Wilhelms-Black River Regional, the Grand Port-Savanne Regional, the Moka-Flacq Regional, and the Triolet-Riviere-du-Rempart Regional, representing 200-300 womenâs organizations each, or a total of 1,100 âW.A.âs. Present for the first time, also, was the Collectif Citoyen. Spokespeople at the Point de Presse were Ranjita Bunwaree for the Mauritius Alliance of Women, Ram Nowzadick for the Nursing Association, Vidya Charan for the Mauritius Family Planning and Welfare Association, Marie-Noelle Ellissac-Foy for WIN, Pouba Iyasawmy-Essoo for the Collectif Citoyen, Lindsey Collen for Muvman Liberasyon Fam, Lindley Couronne for Dis-Moi, Lukshmee Gunessee for Grand port Savanne Regional Committee, and one of the doyennes of the struggle, Manda Boolell. Many MLF members, who are also LALIT members were present, including Rajni Lallah, Ragini Kistnasamy, Anne-Marie Sophie and Lindsey Collen. Also present was a heroine of the struggle, Shabeela Kalla-Monasch, who stood up against the charges brought against her, until they were dropped. <br><br>Attorney General Yatin Varma, who is piloting the Bill, gave an able introduction to the new provisions of the Criminal Code Amendment Bill that will allow women to have an abortion without prosecution and without risking up to 10 years penal servitude, in four restrictive kinds of case. The Bill allows abortion if the womanâs life is threatened (such abortions are performed already but the doctors and the sick women are still theoretically open to prosecution), if her physical or mental health is seriously at risk, if there is grave foetal abnormality, and if, within a 14 week delay, she has been raped, suffered incest or statutory rape. Attorney General Varma also announced that he was accepting three further restrictions as to how the new Law would be applied, in three new amendments proposed by the Leader of the Opposition and MMM leader, Paul Berenger, making the Bill even more restrictive still. Attorney General Varma said that from when he was young, even before he went away for his legal studies, he had been in favour of decriminalizing abortion, and that at the time, he did not dream that it would be he, himself, who would end up piloting the Bill.<br><br>Two women MPs, Minister of Gender Equality Mireille Martin and MSM member Maya Hanoomanjee both gave vibrant pleas for the womenâs right, under the given circumstances, to have an abortion. Both mentioned the tragic cases they have witnessed in the Womenâs Rights Ministry, the former as Minister and the latter when she was a senior civil servant, where the State has forced continued pregnancy on victims of incest and child-rape. Both speeches were very incisive, accurate, rational as well as expressing feeling for girlsâ and womenâs suffering.<br><br>The Opposition Leader who spoke mainly on his own amendments to the Criminal Code Amendment Act said that instead of one gynaecologist (supported by another relevant âspecialistâ) taking the decision that he would perform a requested abortion under the clauses made possible by the new law, it ought to be <i>two</i> gynaecologists. He then, curiously and apparently in self-criticism, said he had originally proposed this to be in line with the UK âtwo medical practitionersâ (although two gynaecologists plus one other relevant specialist is much more restrictive), but had afterwards read that there is a possibility that in the UK this will be reduced to just one âmedical practitionerâ because women suffer too much from the bureaucratic nightmare that this can obviously entail, when time is of the essence. But, Paul Berenger maintains his proposed amendment, which has, in any case, already been accepted by the Attorney General. Women in Mauritius cannot imagine how the Leader of the Opposition thinks a woman or girl will go about looking for âtwo gynaecologistsâ, either in a hospital or privately; in the UK, the provision for âtwo medical practitionersâ is relatively practical because under the National Health, everyone already has free access to an ongoing neighbourhood medical service from General Practitioners who work in neighbourhood groups called âsurgeriesâ; but even in the UK they are finding the âtwoâ one too many, no doubt because doctors go on leave, fall ill, and so on, so that in smaller surgeries in rural areas, time goes by while women try to get past the bureaucratic difficulties of getting a second doctor. The Mauritian Government will have to set up a swift mechanism in hospitals as soon as the law is passed. The second additional restriction, following the Opposition Leaderâs proposals to the Attorney General, are that victims of rape cannot choose to report to either a police officer <i>or</i> a Government Medical Officer, but now only to a Police Officer, in order to qualify. This is particularly restrictive when everyone knows that over 90% of rapes are not reported to the police, for a variety of reasons women victims consider reasonable, and that mainly concern the general balance of social forces being tipped so heavily against women. The third is that foetal abnormality now be defined as being so serious that there to be no possibility of life. <br><br>The Opposition Leaderâs speech was delivered without any apparent empathy for the suffering of women and girls, especially those in the poorer classes, who have for generations been hurled into the hands of backstreet abortionists. He made no mention of the deaths of very young women in the very prime of their lives, nor of the high price paid in illness. In his favour, however, it can be said that he, himself, announced formally that he will vote in favour of the Bill. This is not surprising because the very same Bill was introduced into Cabinet when he was in power in 2003, and the Task Force report that was its basis, was accepted by the same Cabinet, although they lacked the courage to propose the change.<br><br>Another MMM opposition member, Dr. Satish Boolell, spoke of his having witnessed, as a police medical officer, autopsies after suicides of young women, only to find them pregnant. Thus what was, he said, supposed to be âa bundle of joyâ was tragically the reason for the girlâs untimely death. He spoke about the danger of doctors making money out of abortion with the new law, but gave examples of the money they have been making already, and the cars they have been buying with money already made under the black market conditions of the existing law. He also dissociated himself from his colleague, MP Lysie Ribotâs unscientific claim in her speech that women rarely fall pregnant after rape because the shock of rape seizes up ovulation. She clearly has not read the history of the notorious mass rapes and mass pregnancies in Asia during the Pakistan-Bangladesh war, in Africa in the Congo wars, and more recently in Europe in the process of the break-up of Yugoslavia. She also said women had more road accidents if they had had an abortion. She spoke of women âabusingâ the law, thus being the only MP so far that believes it to be an âabuseâ if a woman somehow manages to get a medicalized rather than a backstreet abortion. <br><br>She also misunderstood the content of two open letters that she had received, one from the Muvman Liberasyon Fam, and another from another association, claiming that these associations were, for populist reasons, spreading false information to the effect that all women would be able to have access to abortion under the new law more-or-less on demand, thus, she said, gaining support on false pretences for the Bill. She quoted, to take her first example, from the Open Letter from the MLF to MPs published in Le Mauricien and which says nothing like what she says it says. It, in fact, reads, and we quote a slightly longer bit than she quoted: <i>âThe present Amendment, though not the demand that we in the MLF have for 36 years fought for, will have some immediate positive effects. For these reasons, we are calling on you to vote in favour of the Bill.<br>âFirstly, the cruelty inflicted on women under the old law, when we were forced by a repressive State apparatus to continue with a pregnancy we cannot bear to continue with, after being assaulted and traumatized by rape, will finally come to an end. The cruelty of the old law whereby the State forced girl children and women victims of incest to continue with a pregnancy they find repugnant because of the incest taboo, will now end. The cruelty of the old law permitting the State to deny women abortion even when their fragile health makes continued pregnancy dangerous, will also come to an end. The obligation on women to continue pregnancy even after the detection of serious foetal abnormality will no longer be the work of the State to enforce. Women in extreme suffering will thus be spared repression on top of distress and anguish.â </i> This is a reference, in our own words, to the four restrictive cases in which abortions are to become decriminalized by the Bill. Followed then by an analysis of the effect of the Bill on women who will still have, as their only recourse, back street abortions:<br><i> âSecondly, the new law will, by taking away the blanket âcriminalizationâ of the quasi totality of the female population, change the balance of forces in society as a whole in favour of womenâs health. The new law will create the space for women who still have recourse to abortion in circumstances other than those allowed for by the law, if they should fall ill as a direct consequence of a back-street abortion, to now be able to go to the hospitals and clinics at once for emergency treatment, without the fear that blanket criminalization caused under the old law. This will, at least, contribute to decreasing deaths of women of child-bearing age.â </i> This is a direct reference to the much-published deaths of two young mothers, Marie-Noelle Derby and Sharonne Marla, who tragically each left it too late to tell their own mothers that they were ill and dying, following botched back-street abortions, so that on their arrival at hospital, they could not be saved.<br><br>Another speaker was Foreign Affairs Minister Arvind Boolell, a medical practitioner himself, who put emphasis in his speech on the way in which the old law causes terrible suffering to poor women, while those who have the means can organize to go abroad, or assure proper medicalized abortions. He, like the Gender Equality Minister, spoke of the need for Mauritius to align itself with international conventions already signed up to, like CEDAW.  <br><br>Labour Minister Shakeel Mohamed spoke on the importance of distinguishing between any religious or private moral philosophy one follows, and oneâs actions as a Parliamentarian representing the whole of the people. He said that the existing old law actually forced moral and religious precepts on people who might, in certain conditions believe that it is morally superior to have rather than not to have an abortion. This is a point rarely made. <br><br>It is a point that needs to be thought through, during the general debate. On the issue, it is interesting to note that the Anglican Church in the UK, for example, which is also called âthe Church of Englandâ, unlike Bishop Ian Ernest of the offshoot of the Anglican church here, believes that in some instances abortion is âmorally preferable to any available alternative.â Thus the State forcing continued pregnancy on a girl or woman is forcing someone to perhaps take a decision which is not âmorally preferableâ. Similarly there are erudite scholars of Islam who believe that it is âmoralâ to carefully consider the womanâs well-being, as well as that of a foetus of 120 days or more, which is the point at which âlifeâ is, they believe, breathed into a foetus. The moral issue is thus a complex one that each woman concerned has to face. The day of Parliament, some people in Mauritius were receiving anonymous SMSs from numbers unknown to them and that did not reply when rung back. The SMS said: âLa dimension SACREE de LA VIE touche a son APOGEE dans le MYSTERE de LâINCARNATION, dâou est elle? Ou et Quand COMMENCE-t-ELLE? Et si Joseph avait exige de sa fiancee quâelle se fasse avorter par peur du bouleversement, que cette grossese infligeait a leur couple?â - sender 230 757 0549, 29 May, 2012 @ 06:38:41 am. This unsolicited SMS thus gives yet another view about the âbeginning of lifeâ, and the moral issue involved, linked to yet another important religious narrative. While most people of Hindu faith and of animist faith believe that life is perpetual, a process that is ongoing, covering all living matter, ad infinitum; scientifically speaking, âlifeâ is a continuous process which began some 4 billion years ago, and continues today, with âhuman beingsâ having come into being some 100,000 years or so. The question of the beginning of âa human beingâ is generally decided more in practice within a secular society than in religious theory. It is decided by actions like whom we register at the Civil Status office, who goes to the Cemetery or Crematorium for burial or cremation, whom religious men take into the churches and/or then do burial rights for, etc. But all these interesting points of debate, whether religious or moral, are not relevant in a secular National Assembly, which is concerned with womenâs health, womenâs rights and womenâs dignity for the simple reason that women are half of the people, and Parliament makes laws for all the people. And that was the important point made by Minister Mohamed. It means that MPs who vote against the Amendment, are in fact voting for the status quo which imposes a code on people to take decisions they might believe to be immoral. They would be better to abstain.<br><br>A special session of Parliament will be held on Friday to complete the debate, insert the Opposition Leaderâs amendments, and most probably to proceed to a division of votes. <br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612093528" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612093528" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612093528" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612093528" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612093528" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612093528" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612093528" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612093528" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612093528" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>2nd Lockdown &ndash; Day Sixteen &ndash; Partial Lifting of Lockdown Coming Soon</h1><p class="subtitle">25.03.2021</p></h1>
+	<p class="newsarticle"><p>Yesterday afternoon, with the sequencing data submitted by the WHO-accredited South African laboratory, we got two important bits of news, both good.&nbsp;</p><br /><p>Dr. Catherine Gaud explained it very precisely in the 5:30 pm daily briefing yesterday &ndash; I listened on Radio Plus, but you can also see it with diagrams apparently on MBC TV. It would be good if Dr. Gaud&rsquo;s explanations got an equally precise interpretation into Kreol by someone Kreolophone. It is ridiculous that the Government thinks the people have to learn to speak French first in order to get access to scientific information that affects us, life-and-death.</p><br /><p>Anyway, the good news.&nbsp;</p><br /><p>First, the Coronavirus strain in this second flare-up, based on the first 40 samples sent for sequencing, is fortunately the original strain and not one of the more contagious ones spreading in the UK, Brazil, Japan or in nearby in South Africa.&nbsp;</p><br /><p>Second, it seems that the mystery of the Patient Zero may also soon been elucidated from the sequencing Report to a satisfactory level of certainty, according to Dr. Gaud.</p><br /><p>This news is what seems to have allowed the Government to plan ahead to loosen up the lockdown that was due to end today, 25 March while extending the lockdown only one more week while preparing for the loosening up.</p><br /><p>There will be two different regimes: one for Red Zones (Constituencies 15, 16 and 17) and the village of Canot, and one for the rest of us. All of us, in and not in Red Zones, will need, for this lifting of restrictions to remain relatively safe, to do the following: wear masks properly, keep a meter apart, not gather in groups, and wash our hand very thoroughly quite often. So, let&rsquo;s grin and bear it, or better still, make it turn out to be as pleasurable as possible in the circumstances we find ourselves in (which isn&rsquo;t too good).</p><br /><p>So, when we wake up on 31 March, outside Red Zones, we will be able to go out, by alphabet, to hardware stores, butchers and bakers, the market, shops that sell goods of all kinds, no longer just grocery stores and supermarkets &ndash; as well as to the hospital, pharmacy and petrol station, as before. Public transport will run but with limited seating. But all gatherings will be limited to five people. Prayer meetings cannot have more than five people grouped together, and wedding celebrations are also limited to five. (So &ndash; advice to couples &ndash; if you want to avoid a big palaver of a wedding, go for it now!) Funerals, by contrast, can have up to 10 people. The logic of all this was explained by three government spokesmen in an MBC program last night, a Focus program that was rather better than most MBC emissions with Silvana Pareemamun posing good, down-to-earth questions.&nbsp;</p><br /><p>In general, the Minister of Labour explained, there will be Work Access Permits, now called WAPs in everyday Kreol, for everyone who is not in work that is specifically not yet allowed. This was elucidated as a principle by Minister Callichurn.&nbsp;</p><br /><p>In theory, you just apply for your WAP and get it, unless you work in a sector still locked down.&nbsp;</p><br /><p>What is not yet allowed is: eating at restaurants or in food-courts on site (take away and home deliveries can be organized via WAPs), concerts, sports events, going to the beach (because it is a place where people tend to gather in big groups or parties, it was explained), horse-races (public will not be admitted), discos, and estheticians. Hair salons can be opened for the hair-dressing part. This was also explained. The close contact required for facials and nail-care makes it more risky than hair dressing &ndash; the hands and face being relevant to the spread of the virus. Construction sites will be up and running. Domestic employees can go apply for their WAPs. In fact, everyone can unless they are in a list of those who specifically cannot.</p><br /><p>There will, however, be strict controls of all movement into and out of the Red Zones. WAPs will be more rigorously checked.</p><br /><p>&nbsp;This using of zones (like on graph paper) is the tried-and-tested public health routine. It works. You isolate the places where the virus is known to be circulating, and keep it contained, geographically-speaking. This method (creating different zones with different rules) is even applied in a space as small as just one nursing home. During the first lock-down, the virus had spread too widely to be able to use the method, except for separating Rodrigues and Agalega (where there were no positive tests) from Mauritius main island, where there turned out to have been over 300.&nbsp;<em>En passant</em>, the Mauritian Government should try to give a Report to the WHO on what is happening in Chagos, including on Diego Garcia &ndash; positive cases, admissions, deaths &ndash; and when it finds itself unable to, it should call on the WHO to conduct the exercise on behalf of the Mauritian State, which is, after all, now clearly responsible for what goes on in Chagos.&nbsp;</p><br /><p>Most cases on the Island of Mauritius have been detected via contact-tracing and via the Covid Testing Centres (Flu Clinics) in Government Hospitals. And a few dozen have been successfully picked up in Quarantine Centres. That sure shows their value. A couple, who live in Vacoas, who tried to hide the fact that they had been to an event in Forest-Side known to have been a spreader-event, and who did not show up voluntarily for testing and for the duty of quarantine, ended up unfortunately falling ill, having to go to a private clinic, get diagnosed there and then get taken care of by Government Authorities. In the meantime, the unfortunate couple who made this fateful mistake, have to live with having been responsible for spreading the virus to a whole new batch of people in their circles. I have used the word &ldquo;unfortunate&rdquo; twice when referring to the fact that the couple both fell ill because it is unfortunate. But epidemics are strange things. They are not like other illnesses. Look at this:&nbsp;&nbsp;in this case, it turns out that it was &ldquo;fortunate&rdquo; that they actually fell ill; it was the only way that virus spread could then be checked. Some one dozen people close to this couple have already been picked up as &ldquo;positive&rdquo; for Covid through contact-tracing so far; they would, otherwise, themselves have become spreaders of the virus, unbeknown to them &ndash; and the virus could have become out of control, a &ldquo;dife dan lanka&rdquo;. This shows the importance of full co-operation with the contact-tracing teams, and how we must make a move towards the Health Ministry if we have been in contact with people we know are suffering from the viral infection. It&rsquo;s not too late. If anyone reading this has had any contact with someone, or some group, that is known to be testing &ldquo;positive&rdquo;, please at once contact the health authorities nearest you, or the nearest hospital, and persist until you get tested.&nbsp;</p><br /><p>Meanwhile, 10% of us have had the first dose of a two-dose vaccine. This is good going so far, but not yet significant from a public health point-of-view. It is important to continue to encourage everyone to get the vaccine, and to avoid falling into the trap of the on-line anti-vaccine rumour-machine. After the AstraZeneca and the Covaxin are now being administered, there will also be a batch of SinoPharm from China, and a massive order of Sputnik from the USSR. One thing for people to bear in mind. When anti-vax people say this or that vaccine has not yet got passed WHO standards because some Phase III tests are not yet in, this is both true, and taken over by events. Literally millions of vaccines of all these brands have been used, and health authorities have been following up. This kind of &ldquo;testing&rdquo; is thousand-fold vaster than ordinary Phase III tests. This is because of &ldquo;emergency use&rdquo;, the emergency being an epidemic that is virulent enough (in terms of spread and degree of illness) to pose a threat to health care systems &ndash; and even burial or cremation services &ndash; as a whole. The vaccines are now being tested in trials on children. Yes, there are parents, who offer their children, with their children&rsquo;s consent (and often enthusiasm) voluntarily to participate in these trials &ndash; for the general good. In Mauritius, we too often hear people saying &ldquo;I don&rsquo;t want to be a kobay.&rdquo;&nbsp;&nbsp;Remember, that for us to be getting these vaccines, tens of thousands of people have offered, voluntarily, to be &ldquo;kobay&rdquo; so that we can be safe.</p><br /><p>The bad thing about the vaccines is that they are, for the most part, profit making, like nearly all medicines. The Indian and South African Governments have tried to get the privately-owned patents for Covid vaccines made collective property for the common good. Has the Mauritian Government supported this action? We don&rsquo;t know.</p><br /><p>One of the trade reasons behind the attacks on AstraZeneca (in addition to the Brexit fight going on) is perhaps that this company, unusually, offers its vaccine at cost price to developing countries. This makes the others like Pfizer and Moderna look greedy.&nbsp;</p><br /><p>The WHO vaccine-sharing platform, COVAX, has sadly not been able to get up-and-running fast enough. This was mainly due to it being sabotaged by the Trump administration&rsquo;s withdrawing from the WHO at a key moment in the pandemic. Covax is still the main lifeline for many countries, and we must support the initiative. It is our duty to care not only about vaccines for all Mauritians but for vaccines for all of humanity. We need to do what epidemics teach us to do &ndash; take care of the totality of us, all acting together. It should have been health workers world-wide first, then other front-liners world-wide, then the vulnerable world-wide &ndash; everywhere together. It would be so easy. Then you would not have stocks that will go to waste in the USA and Europe, who are still now fighting to get vaccines before their neighbours. Talk about &ldquo;love thy neighbour&rdquo;!</p><br /><p>We can safely say that colonialism dies hard when it comes to vaccines.&nbsp;</p><br /><p>The USA and Europe have been outrageous &ndash; their private companies, their State apparatuses and their bourgeois press and TV &ndash; in openly fighting over vaccines in a selfish, nationalistic way. Even on a supposedly &ldquo;international news network&rdquo; like, say, CNN or the BBC, you can hear journalists go on-and-on about &ldquo;their&rdquo; own country managing to nail so many million doses and so on &ndash; as if they are naturally superior human beings of some kind. Well, the virus will remind them soon enough of the truth.</p><br /><p>But, it can be better next time. Let&rsquo;s organize politically for that.</p><br /><p>Lindsey Collen</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

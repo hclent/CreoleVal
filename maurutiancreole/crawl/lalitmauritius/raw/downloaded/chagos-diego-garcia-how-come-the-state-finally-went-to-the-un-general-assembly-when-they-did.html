@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095405" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095405" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095405" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095405" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095405" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095405" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095405" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095405" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095405" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Chagos-Diego Garcia: How Come the State finally went to the UN General Assembly When They Did?</h1><p class="subtitle">20.06.2019</p></h1>
+	<p class="newsarticle"><p style="text-align: left;" align="center"><strong>Chagos-Diego Garcia: How Come the Mauritian State eventually went to the UNCLOS Tribunal and to the UN General Assembly When They Did?</strong></p><br /><p>After 50 years of Independence, what changed so that the Mauritian State eventually did, under Navin Ramgoolam&rsquo;s Labour Government, go first for a binding judgment at the UN Tribunal of the Convention on the Law of the Sea (during the period 2010-2015), and then, under the present Jugnauth Government, to the UN General Assembly for a vote for an ICJ Advisory Opinion on the legality of Britain&rsquo;s decolonization of Mauritius in the 1960s (during the period 2017-2019)?</p><br /><p>In fact, the Mauritian State maintained constant, if vague, threats and sporadic, if timid, attempts at claiming Chagos from the 1970s onwards. The issue was always limited to <em>speeches</em> or declarations of intent. Even this was, of course, only because the State was under constant political pressure from people in Mauritius (1). But there was also some <em>near </em>action. Mauritius raised the issue in 1983 at the UN, and put the issue on the Agenda of the UN General Assembly in 1990 (L&rsquo;Express, 27 Jun), and in 2004, and then, under a mixture of UK-USA threats and UK-USA promises of sugar quotas for the Mauritian bourgeoisie, subsequently withdrew it. Paul B&eacute;renger had even announced in 7 July 2004 (Independent, 8 July) that Mauritius would leave the Commonwealth in order to get a binding judgement from the ICJ on the issue. Tony Blair immediately sent a message to his UN Ambassador to, at once, change the rules the UK had to disbar not only Commonwealth members but any country that had ever been a member of the Commonwealth from binding ICJ judgments. And of course year after year, the Mauritian Prime Minister did stand up at the UN rostrum and claim Chagos, and refer to earlier Resolutions that had been passed. Similar actions were constant at the OAU (later African union), and in the Non-Aligned Movement.</p><br /><p>The change in the last decade was the decision to go ahead and <em>act</em>. Both cases, even though some 50 years after the events, ended up with important victories for Mauritius, and resounding defeats for Britain and its US ally. De-colonization still wins through.</p><br /><p>The background that allowed this decision for the Mauritian state to act for the re-unification of Mauritius is that a number of propositions had gradually become generally accepted as &ldquo;logical&rdquo; &ndash; and this due to constant struggle by different organizations, including LALIT, in Mauritius &ndash; and had replaced the previous narrative &ndash; the PMSD line, backed constantly by the UK and USA, and peddled by powerful people in the press like Jean-Claude de L&rsquo;Estrac &ndash; to the effect that &ldquo;Bolom Ramgoolam fini vann Diego&rdquo;, or &ldquo;Bolom Ramgoolam inn fini vann Chagos an esanz pu Lindepandans&rdquo;. Here is what became &ldquo;logical&rdquo; over the course of 50 years of constant ideological battle, often led by LALIT, by gaining ground and gradually becoming well-nigh hegemonic in Mauritius:</p><br /><p>- The USA wanted a military base on Diego Garcia, and UK joined it in a conspiracy to &ldquo;get&rdquo; the Chagos archipelago, and to then proceed with &ldquo;de-populating&rdquo; it. (See 2000 judgment in Bancoult case in London).</p><br /><p>- Mauritius was before Independence made up of many islands, including the Chagos Archipelago. (At an intimate level, everyone in Mauritius already knew this. LALIT often had to remind people that we, like other Mauritians, before Independence, all along knew that Chagossians came and went as they pleased to and from the Island of Mauritius; we also knew Mauritians who went to Diego Garcia as part of their routine civil service work as visiting magistrates, as meteo staff, and as nurses.)</p><br /><p>- At Independence, Britain cannot therefore keep part of the territory to which it is granting independence, i.e. part of Mauritius. But the British state&nbsp; did. This was thus <em>a de-colonization issue. </em></p><br /><p>- Having kept part of Mauritius illegally, Britain cannot just forcibly remove those living on Chagos. This constitutes a <em>crime against humanity</em>. Which the British state committed. The British state is today more angry that the Mauritian Prime Minister mention this than they think the victims should be. Such is the colonial mentality, until the third millenium.</p><br /><p>- The fact that Britain did keep part of Mauritius and did &ldquo;de-populate&rdquo; Chagos, then, in turn, created a &ldquo;dark hole&rdquo; on the earth, on which and from which war crimes could be committed, outside of all democratic control. The Mauritian people who are supposed to keep a democratic eye on our land, have not been able to do so because Chagos has been under illegal military occupation. The people whose Government illegally occupies the part of Mauritius that is Chagos are, in the main, ignorant of the existence of Chagos. So, with impunity, a B-52 could set off from Diego Garcia and bomb a wedding procession in Afghanistan; another B-52 could set off from Diego Garcia and bombard the city of Bhagdad in what turns out to have been an illegal war, without <em>casus belli,</em> or cause; torture and illegal renditions were performed there; nuclear materials are stocked there, in contravention of the Pelindaba Treaty, a binding treaty for a Nuclear Arms Free Africa. So, it became<em> a democratic issue.</em></p><br /><p>- LALIT proposed a road-map (UNGA to ICJ to action) and this road-map closes down the UK-USA argument that the dispute is &ldquo;bilateral&rdquo;. LALIT did not and does not base its argumentation on nationalism. We are not a nationalist party, but anti-nationalist. We call for re-unification of Mauritius, on democratic grounds, and for the retreat from Chagos by Britain on anti-colonial grounds.</p><br /><p>This is the strength of LALIT&rsquo;s analysis: it links in theory the issues that are in reality already &ldquo;<em>one&rdquo;</em>: the slicing up of Mauritius, the banishing from Chagos of the Chagossians, and the setting up of a lieu for war machinery that is out-of-democratic-control. Keeping these three struggles closely linked has maintained the integrity of the struggle. To fight the brute force of the UK-USA military machine, you need the power of integrity.</p><br /><p>It was the integrity of this position, and its adoption by so many people in Mauritius and elsewhere, that created the conditions necessary for the Mauritian State to act when it finally did.</p><br /><p>So, anyway, what made the Ramgoolam Government go to the UNCLOS Tribunal<em> when it did</em>?</p><br /><p><strong>Ramgoolam-Boolell Government Acts</strong></p><br /><p>As the year 2018 approached, the Navin Ramgoolam Government knew that the 50-year lease of Diego Garcia to the USA signed in 1968 was coming up for renewal. This is a key question &ndash; the base being the <em>deus ex machina</em>. So, they had to act swiftly, and chose UNCLOS. We assume that this Labour Government intended, on victory at UNCLOS, to go to the ICJ via the UNGA.</p><br /><p>The UNCLOS case also had two other immediate causes: &nbsp;Britain, when it resorted to the ploy of declaring a &ldquo;marine protected area&rdquo; over Chagos, provoked the Mauritian State. Imagine Britain acting as if not only had it stolen Chagos with impunity, but it could go further and snatch away the crumbs, like fishing rights, that it had granted &ldquo;in exchange for&rdquo; the theft. Secondly, the timely and bold publication of the <em>Wikileaks Cables</em> showed three things:</p><br /><p>1) the US Embassy in Port Louis was always nervous over Chagos,</p><br /><p>2) most of the Mauritian civil servants in the relevant departments were honest and surprisingly <em>not</em> subservient to the USA -- to the ambassador&rsquo;s chagrin, and perhaps most importantly</p><br /><p>3) that the declaration of a marine protected area around Chagos was actually described by the US Ambassador to the UK <em>as a mere ploy</em> to outwit the Mauritian state and the Chagossian people. This last point may not have legal value as &ldquo;evidence&rdquo; in Court, but everyone knows that it is in the Cables, and this changes the political balance of forces.</p><br /><p>But of course there are other important, &ldquo;enabling&rdquo;, background issues that had been building up.</p><br /><p>The Ramgoolam Government had ousted the MSM-MMM by overtaking it &ldquo;on its left&rdquo; in the 2005 elections. It was already left-leaning. And the constant pressure from LALIT &ndash; from 2004 in the massive international success we, together with the Chagos Refugees Group, had in Mumbai at the Anti-War Movement General Assembly for closing down Diego Garcia, with repercussions in Mauritius, on until the LALIT International Action Conference in 2010 (at which Foreign Minister Boolell spoke in one of the public forums). This conference was an important event. The formal process of UNCLOS was set in motion at the very time the LALIT Conference was being held. At the same time, as from the 2000 judgment in London, the Bancoult case had made the Chagos issue something of a <em>cause celebre, </em>on the one hand, and also, more threatening to the Mauritian State, on the other, and had thus opened the possibility for what LALIT has warned of as the UK-USA &ldquo;Plan B&rdquo; i.e. a referendum amongst Chagossians only, not all citizens of Mauritius, about the future of the Chagos. Only the international courts could expose the illegality of such a preposterous action in relation to decolonization. (It does not have to be part of the UN Charter that breaking up a territory prior to Independence is &ldquo;illegal&rdquo;. Although it is indeed part of the Charter. Logic alone would suffice: de-colonization is only possible on condition that the colonizing power does not claw back part of the country becoming independent. It would be all too easy for Britain to keep the gold mines of colony X and give the rump Independence, or France the rich plains of colony Y, or Belgium to grab the diamond mines of colony Z.)</p><br /><p>In addition, Mauritius, the 18th largest country in the world (land and sea measured) has made a reputation for itself in the Indian Ocean and Africa as a &ldquo;success&rdquo;, and this has, however misnamed, given its state apparatus confidence it did not have before. The IMF and World Bank repeat ad nauseum that Mauritius is a &ldquo;success story&rdquo;, although anything they call success is precisely <em>because</em> the State did not (because it could not because of working class opposition to them) implement the conditions for their loans. Be that as it may, the Mauritian State has gained in status and confidence since Independence.</p><br /><p>The Mauritian bourgeoisie, small as it may be, has, itself, <em>become imperialist</em> &ndash; it has delocalized to some 10 African and 4 or 5 Asian countries, as well as within the Indian Ocean, and continues to do so. At the same time, the &ldquo;sugar estate&rdquo; mentality in the bourgeoisie has weakened as sugar has been dethroned, and as textiles, banking, ICT have grown, meaning that the State does not have to be as obedient to every demand of the sugar oligarchy &ndash; the capitalist class no longer being as unified as it was earlier.</p><br /><p>With WTO rules, too, especially from the 2001 Doha Round onwards, sugar was no longer allowed a politically protected market (the international Sugar Protocol ended), and the days of the UK-USA paying &ldquo;easy bribes&rdquo; to the sugar barons as a way to the Mauritian State&rsquo;s heart, were thus over. The Multi-Fibre Agreement ended as well, in 2005. All this to say that the bourgeoisie is no longer a force that could stop the State putting in a case at a UN Court.</p><br /><p>While, at the same time, the working people had gradually became more and more in favour of a case. Those against, like Jean Claude de L&rsquo;Estrac, were increasingly exposed as being illogical in the extreme, maintaining long after its expiry date that the Queen (Britain head of state in 1965) was ceded Chagos by the Queen (Mauritian head of state in 1965).</p><br /><p>So, Navin Ramgoolam and Arvin Boolell could and did go to the UNCLOS Tribunal.</p><br /><p>Once UNCLOS was won, the judgment being in favour of Mauritius, the balance of forces was then changed further in favour of Mauritius.</p><br /><p>The judgment said that the ancillary agreements made in the context of the initial supposed &ldquo;ceding&rdquo; of Chagos to Britain, irrespective of sovereignty, mean Mauritius <em>does have</em> fishing and other rights and that Britain does not have real sovereignty. And this is a binding judgment. On the issue of sovereignty itself, three UNCLOS judges said the Court was not habilitated to take a decision on this, and (perhaps most important of all) the other two judges said it was, and with tight arguments laid out how Mauritius has sovereignty over Chagos including Diego Garcia.</p><br /><p>The Mauritian establishment &ndash; meaning the ensemble of civil servants &ndash; has been quite ethical on this issue, as the Wikileaks cables showed us, to our surprise. (Any bought off by the USA were exposed in the Wikileaks Cables and discredited.) So, the Mauritian state establishment was in favour of pushing ahead with the next stage in the confrontation with the UK, having won at UNCLOS.</p><br /><p>In addition, the Jugnauth team would be keen to have its own contribution to history. During the 2010 electoral campaign, the Jugnauth alliance took an electoral commitment to go to the ICJ. It was in their electoral program. It was a popular promise to make. And the MSM-ML kept its promise to do so, in the end. Here is the political logic that, inter alia, played out in their heads: While Seewoosagur Ramgoolam is the &ldquo;father of the nation&rdquo; (he brought Independence in 1968), Aneerood Jugnauth is the &ldquo;father of the Republic&rdquo; (he brought the Republic in 1992), and now Jugnauth Snr plus Jnr will be &ldquo;father of the whole Republic&rdquo; by getting Chagos re-united with the rest of the country.</p><br /><p>This UNCLOS victory thus made it easier for a Government <em>now </em>to implement what LALIT had been militating for, mobilizing for, changing peoples&rsquo; opinions in Mauritius and abroad on, since the early 1990s. LALIT&rsquo;s proposal or road-map &ndash; from the time that we helped re-build the decimated CRG in the <em>Rann Nu Diego Committee</em> was now possible. (Note that the Mandarin group had, at that time, been hegemonic amongst Chagossians. Aurelie Talate and LALIT women members went round one-by-one to the homes of Chagossian women we knew from the 1970s and &rsquo;80s to reestablish contact. Then LALIT, MLF and the four or five people left in CRG invited Chagossians first to a meeting at the Centre Social in St Georges Street, and then to a debate at the Cassis Social Centre Hall, to which event the MMM was also invited. B&eacute;renger came. The road map LALIT designed was as follows: <em>Go to the African union for support on completing the decolonization of Africa. With this support, go the UNGA for a Resolution to go to the ICJ, then once there is an Opinion, get the UNGA to act on it.</em></p><br /><p>This was in fact done by the Jugnauth regime, with a magnificent refinement thought up by the Mauritian state representatives: the African union actually proposed the UNGA Resolution. This clinched the issue against Britain and the USA who argued that it was not an issue for the ICJ at all but merely a &ldquo;bilateral&rdquo; dispute. When the African union as a whole presents a Resolution against Britain, for the UK-USA to persist in calling it a bilateral dispute, as they did, is not easy. It is only possible if they maintain the colonial assumption that Africa is until today still <em>terra nullius</em>. The <em>terra nullius</em> doctrine is the cover-up for genocide, and quite rightly has a bad reputation. So the UK-USA&rsquo;s own argument made it even harder for anyone else to give them support. At the same time, with the WTO relying on regional &ldquo;blocks&rdquo;, the African union had also gained in stature.</p><br /><p>In any case, the anti-colonial spirit has lived on well beyond colonization &ndash; as we saw in the superb argumentation of so many delegates at the 22 June 2017 General Assembly speeches. This is for the simple reason that colonization, itself, has continued to have so much destructive influence.&nbsp;</p><br /><p><strong>Background sensitivity of UK-USA on Chagos</strong></p><br /><p>There are other more background issues that enabled the Mauritian State, in the end, to act &ndash; to act first at UNCLOS Tribunal, then at the UNGA and ICJ level.</p><br /><p>The British and US Governments are very sensitive on the issue of Chagos and Diego Garcia for the obvious reason that crimes of the magnitude of the Diego-Chagos one do not go away. You can cover them up, but they stay there. They only seem to go away if <em>everyone</em> forgets about them. LALIT&rsquo;s role has been never to let anyone forget. Simple. So, we have constantly devised actions that prevent the cover-up, that keep the&nbsp; memory alive.</p><br /><p>Other people only admit it when they are being squeezed from elsewhere. For example, Robin Mardaymootoo in a Press interview (L&rsquo;Express 11 July 2008) said that, during the actual court proceedings in the Bancoult case in London, &ldquo;What scares them [the British] is the fact that the islanders had participated in meetings and forums with Lalit, the Mauritian political party. According to the British government, Lalit is known, at least in Mauritius, to be anti-American (sic) and anti-military base. One of Lalit objectives was to organize an international flotilla that would go to Diego Garcia and prompt a confrontation with the Americans.&rdquo; &hellip; [Follow up question, and disparaging remark from Mardaymootoo] &ldquo;We were told about Lalit for about an hour or so, about their agenda and how Chagossians would be a threat for the peace and order of Diego Garcia because of their alleged (sic) link to Lalit.&rdquo;</p><br /><p>The facts are that when we in LALIT, on two occasions, built up political will and resources for a boat to go to Chagos, both times the effort nearly worked. Once Greenpeace had already allocated a ship for a few weeks, the Arctic Sunrise, but it got iced up in the Arctic and the window of opportunity closed. (The action could only be managed by Greenpeace if carried out opportunistically when a ship was due to be free &ndash; rather than being scheduled in months before &ndash; because of fears of not getting consensus within Greenpeace for fear of getting less money from some US donors, apparently.) The second time, in the run-up to the World Social Forum in Mumbai, the support was so overwhelming from individual owners and little groups of owners of small and medium yachts who pledged to join in that we had to change to preparing a whole flotilla. This was not our original aim. While we were in the process of getting &ldquo;a lead ship&rdquo; (together with ex-Greenpeace people and the CRG), what happened was the British Government, with its 300 years of colonial experience, announced publicly that it would graciously pay for the first trip, which would be under its own gracious auspices. They then controlled the aim, which became confined to things of a very circumscribed nature like &ldquo;visiting of graves&rdquo;. So, the wind was literally taken out of the sails of the second boat endevour. Ah, the power of even old and decrepit&nbsp; empires!</p><br /><p><strong>Mainstream Parties in Mauritius have to be Anti-Colonial to Survive</strong></p><br /><p>Mauritian mainstream pro-capitalist political parties &ndash; as <em>parties</em> &ndash; if ever they take position at all on the issues, absolutely have to take stands that are anti-colonial and/or anti-imperialist. Or else they risk getting booted out with no seats at all at the next General Elections. Just as all parties<em>, as parties</em>, are anti-capitalist in all their rehetoric and all are indeed &ldquo;socialist&rdquo; in their discourse &ndash; otherwise they cannot win an election. On the contrary, there too, they risk being booted out winning no seats. Similarly all these parties are against privatization, and against the &ldquo;targetting&rdquo; of, for example, old age pensions which remain universal. (Even if, when these parties come to power, as Government, or as the State, this changes and they remain silent, or they cower disgracefully before the colonial/imperialist powers abroad, and to the local bourgeoisie at home.) The bourgeoisie has to put up with this (from their point of view) terrible state of ideological affairs out of sheer fear &ndash; their class nearly got put out of power as recently as the 1979-80 working class uprisings. The fact that this near-insurrection is kept secret does not mean it was not real and has not left a so-far indelible fear in the hearts of the capitalists. What other country has free health care &ndash; including heart surgery, ongoing care for systemic illnesses &ndash; including free medicines? There is not even a contribution to be paid. The same for universal old-age pensions, and for free education right up to the end of secondary school, and free transport at any time of day for over-60s and people living with a disability. The IMF and World Bank could not force the Mauritian State to implement its &ldquo;conditionalities&rdquo; on any of these issues. What it means is that in the balance of class forces between the two major classes &ndash; the bourgeoisie that owns production, commerce, banks and land &ndash; and the working class &ndash; meaning all who survive after the next 6 months on a wage in the family (or a deferred wage in the form of pensions), it is the working class that has both <em>enough</em> power to oblige all parties to have a pro-worker position on many issues, while having <em>not enough</em> power to make this become reality once a party takes over the reins of the elected bit of the State apparatus. But, it is always a close thing. So, the parties have to watch what they do when in Government. At the same time, given that this State apparatus has the over-developed quality of post-colonial states, it can and does from time to time, under working class pressure (via parties and unions and associations and their dynamic conjugations), act in a way to force things upon a recalcitrant bourgeoisie, in the very way that the colonial power could usually manage to daunt all classes in a colony, including the bourgeoisie.</p><br /><p>All this to make the point that, given this background state of class forces, relatively small left-wing parties, if coherent as LALIT is on the Diego/Chagos issue, and also if open to broader fronts (with unions, associations, ex-Presidents of the Republic, lawyers, artists and musicians) as LALIT is, can have an effect rather more definitive than one might think, and certainly out of proportion to LALIT&rsquo;s electoral clout.</p><br /><p><strong>LALIT keeps issue alive and kicking</strong></p><br /><p>In this context, LALIT has had the temerity and the staying power, to put and keep the issue on the political agenda constantly. A few months ago, we wanted to write up a time-line of our actions from about 1977 onwards until 2019, but the sheer size of the endevour, and the sheer variety of things we have done, made us postpone it. But, the time has perhaps come, to do this. Most people (even us in LALIT) do not realize how important this contribution has been.</p><br /><p>All this still does not necessarily explain how the Mauritian State developed the courage to face the retalliation from the UK-USA.</p><br /><p>Lindsey Collen for LALIT</p><br /><p>NOTE</p><br /><p>(1) In the early years, this was from the MMM, as a whole, led by Paul B&eacute;renger, and in particular its branch in Bain des Dames, and the Comite Ilois of the Organization Fraternel, led by Elie and Sylvio Michel), and from 1977 also Lalit de Klas later called LALIT, all three organizations worked together with Chagossians, especially Chagossian women, to place and keep the issue on the agenda. The MMMSP, which folded in 1982, also had a contribution. Later there were others like KMLI led by Kishore Mundil, CEDREFI (led by Pynee Chellarpermal), the Chagos Refugees Group (led by Olivier Bancoult) and the Comite Social Chagossien (led by Fernand Mandarin and Herve Lassemillante), the Diego Files researched by journalist Henri Marimootoo and published by Week-End, the ongoing work of Patrick Michel at Week-End and Le Mauricien. There was the work done by Sahringon (led by Lindsay Morvan and Shyam Reedha). Then there were the Rann Nu Diego Committee and alter the Komite Diego &ndash; both common fronts that LALIT called.&nbsp; The Chagossians have been led by the CRG, then the CSC, then the CRG again from about 1999. Musicians and poets, singers and writers, artists and sculptors, have all contributed alongside the more political organizations to maintaining the &ldquo;cerebral and emotional space&rdquo; for Diego Garcia and the whole of Chagos to &ldquo;live on in&rdquo;. Lawyers, over the years had key roles &ndash; Rajsoomer Lallah, &nbsp;Kader Bhayat, Herve Lasemillante, Robin mardaymootoo, Jean Claude Bibi, and law students who have written theses on the issue. The Labour Party led by Navin Ramgoolam and Arvin Boolell finally went to UNCLOS Tribunal and won, and the MSM led by Aneerood and Pravind Jugnauth, went to the African union then the UN General Assembly and ICJ and won. For both of these, the UN representative Coonjal had a key role.</p><br /><p>There is another list necessary for international support over the half-century &ndash; official state support, intellectual and academic work like Geoffrey Robertson QC&rsquo;s<em> Who Owns Diego Garcia?</em> <a title="http://www.austlii.edu.au/au/journals/UWALawRw/2012/1.pdf" href="http://www.austlii.edu.au/au/journals/UWALawRw/2012/1.pdf">http://www.austlii.edu.au/au/journals/UWALawRw/2012/1.pdf</a>) and, perhaps more important, activist commitment and militant action.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

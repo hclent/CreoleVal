@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100037" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Women and Children Rise up, Challenge Major Weapons of Patriarchy</h1><p class="subtitle">05.04.2018</p></h1>
+	<p class="newsarticle"><p>Who would have thought NDA and NRA had more in common than two out of three letters of the alphabet in their names? <em>Non-Disclosure Agreements</em> were a little-known bit of law supposedly concerning nothing but contracts. The <em>National Rifle Association</em> was an association not much heard of outside the USA grouping together right-wing adults bearing that ultimate symbol of the machoâs phallus: the gun.</p><br /><p>Â Now both NDAs and the NRA are well known. They are suddenly exposed for what they really are: the main weapons of patriarchy i.e. laws that silence victims of sexual assault and gun-toting males.</p><br /><p>Â And these two weapons of patriarchal rule depend, like fungus, on shadowy darkness in order to thrive; the minute the light of the sun exposes them, they are weakened. This is good news. And who is bringing this about ? Women and children!</p><br /><p>Â Uprisings of women have exposed the real nature of NDAs that hide sexual assault. Uprisings of children have exposed the NRA, financed by gun-runners and, in turn, corrupting politicians with the money.</p><br /><p>Â <strong>NDA: Contracts of Slavery</strong></p><br /><p>It is women, in their dozens, who have exposed what NDAs that mask sexual assault for what they actually are. They are agreements used to hide criminal acts like sexual assault and sexual harassment. Typically a rich male makes a poorer female, in exchange for a sum in cash, withdraw charges of sexual assault and thus sign away her freedom of speech and vow never to mention the assault again. <em>No lie.</em> She even ends up signing away her right to defend herself in public. She signs away her right to go to a doctor or lawyer unless he or she also signs a similar NDA. And she may even sign away her right to a copy of the very NDA she has signed. And the signature often comes after threats, and not just in response to the inducement of money as bad mouths say. The threats are prepared by teams of lawyers the rich man hires, working with private detective companies, like the notorious Black Cube firm in the case of Weinstein (1). The womenâs punishment for breaking this kind of âslavery contractâ is usually a back-breaking sum for each infringement. It compares unfavourably with a Dickensian debtorsâ prison. Stormy Daniels in her case against the Trump NDA she signed and that Trump did not sign, supposedly owes Trumpâs lawyerâs shell company set up to pay her the $130,000 silence money,<em> one million dollars for each time she speaks</em> about what sheâs not allowed to speak about. Trumpâs lawyer counts twenty infringements. So, the NDA supposedly threatens the poor woman with a $20 million damages to Trumpâs lawyer, to cover up his lies and perhaps his illegal payments that are related to electioneering expenses.</p><br /><p>Â These NDAs have been exposed by women first in the USA, where Fox News founder, Roger Ailes, and former star Bill OâReilly, paid millions of dollars to silence women who were sexually harassed by them. In the Weinstein case, the first actor to throw her NDA away, so to speak, was Rose McGowan. In Britain, also in the Weinstein case, Zelda Perkins would have torn hers up had she had the right to a copy of the thing. In France in the Tariq Ramadan case, a Belgian woman, Majda Bernoussi, may be called as witness, despite having been paid 27,000 Eurosâ silence money.</p><br /><p>Â <strong>The typical path to an NDA</strong></p><br /><p>Women used to be berated for not âgoing to the policeâ over cases of sexual harassment, sexual abuse and rape. No longer. Once the mechanism of the NDA, the typical path towards one, is exposed, along with the excellent exposure of the patriarchal bands of lawyers and of spies and private detectives, it is hazardous to criticize any woman for not denouncing a predator. Â It is perilous because you at once become an accomplice. And for the first time, people who cover up predatory males are now open to criminal charges for aiding and abetting.</p><br /><p>Â When the victim of a predator begins either to lay criminal charges or to file a civil suit, as soon as the predatorâs lawyer becomes aware of it and sets his sights on big fees, a patriarchal army comes into action to set up an NDA. A mixture of threats and enticements ensues against the victim until her own lawyer puts pressure on her to sign the predatorâs lawyerâs NDA, take the money and shut up.</p><br /><p>Â And so women have exposed an amazing reality:Â  Non-Disclosure Agreements are being used, and have for decades been used, to force women to lose their human rights. Your free speech. Your recourse to the judicial system. Your constitutional rights. Your rights enshrined in international conventions for 70 years â all signed away. Is this possible? Yes, it has been going on in the shadows for decades and decades. Of course, once exposed to the sunlight of public scrutiny, like mould, this type of NDA will no doubt disappear. With a bit more mobilization, that is. Now, it goes further. The âother staffâ of the Weinstein company have filed for permission to be released from the general NDAs they signed so that they can join the debate over sexual harassment at work, although they say they did not know about the sexual harassment and sexual assault. This new demand comes and exposes the whole battery of arms, like the general NDAs used by bosses against the working class â from the highest employee to the lowest in the patriarchal hierarchies of work-places â to not disclose anything at work <em>in general</em>.</p><br /><p>Â Already, a California State Senator, Connie Deyva, a Democrat has announced plans for a Bill to ban confidentiality provisions like NDAs in money settlements for sexual assault and harassment in California.</p><br /><p>Â And in New York State, criminal charges â the first ever of this kind â have been filed against the entire Board of the Weinstein company for aiding and abetting criminal assault and criminal harassment.</p><br /><p>Â What is important about this is that it is the beginning of the end of NDAs for sex assault and harassment. And the beginning of questioning all the boss-enforced NDAs that cover infringements of many human rights and freedoms, as if this is normal.</p><br /><p>Â <strong>NRA</strong></p><br /><p>And just as an uprising of hundreds of women who have attacked NDAs, it is an uprising of <em>children</em> who have attacked the NRA.Â </p><br /><p>Â When the Parkland School mass shooting took place, children there and US-wide took a month to organize the biggest mass movement since the 1968 anti-Vietnam and civil rights protests. Washington DC saw hundreds of thousands of people protest for gun control. Over 800 other cities saw massive protests. And it was high school children in the lead.</p><br /><p>Â The children-led uprising has exposed:</p><br /><p>- The danger of gun laws that give macho males dominance, and expose whole communities, including schools, to mass murder through the easy access to guns. And the childrenâs uprising calls for gun law reform. This includes higher age limits, restriction on kinds of weapons sold, time delays in giving access to guns after seeking to buy them, back-ground checks and so on. And the childrenâs struggle has also gone further and exposed the 2nd Amendment (the right to bear arms) as an anachronistic bit of legislation, left over from the politics of centuries of genocide against Amerindians and centuries of enslavement of huge sections of the working classes, and disguised as the right to protect oneself from the centralized State. For the first time, there is now generalized questioning of the 2nd Amendment.</p><br /><p>Â - The children have also exposed the political corruption that maintains these dangerous, anachronistic laws: the lobby system, and the huge roll of the NRA. In 2016 elections, the NRA <a href="https://www.opensecrets.org/orgs/summary.php?id=d000000082">contributed $1.1 million</a> to Republican candidates and $10,500 to Democrats. The demand is simply that ALL Representatives and Senators refuse campaign funds or any other political support from the NRA. In fact, the children expose all lobbies as a form of corruption of democracy.</p><br /><p>Â - The children have exposed the fact that retail companies were giving discounts to NRA members, thus encouraging people to join the NRA. Since the childrenâs uprising, at least 24 out of 32 companies that sell guns at their stores and that gave discounts to NRA members have broken this support for the NRA since the childrenâs campaign.</p><br /><p>Â - Children have also exposed the close ties between the NRA and its main funder â¦ the gun industry. Â This chummy relationship was firmed up in 1999 at a time when the gun factory bosses faced a series of crippling civil cases brought by Municipalities against them for damage caused by gun violence in their cities. Actor Charlton Heston who was NRA President addressed the gun bosses at their annual trade fair at the time, telling the gun bosses, âYour fight has become our fight,â and âYour legal threat has become our constitutional threat.â A law was then passed to prevent this kind of civil case succeeding. And the NRA then claimed back big âdonationsâ for having saved the gun bosses a lot of money. They called this alliance, âRing of Freedom.â A 2011 study by the Violence Policy Centre said that from 2005, the NRA got up to $38.9 million from the gun industry bosses, including Beretta USA, Glock and Sturm & Ruger. All this to say that the mutual parasitism of the NRA and the gun-running industry, which did not hit the main news, is now much more visible to us all.</p><br /><p>Â <strong>Conclusion</strong></p><br /><p>So, it is clear that patriarchal hierarchies that depend on silencing individual victims, on the one hand, and on waving guns around indiscriminately, on the other, have been given a warning. And the warning comes form the weakest of the victims of macho males that leach their power from patriarchy, that is to say, from women and children.</p><br /><p>Â So, the very nature of patriarchy is being exposed. It is not men. So, people canât blame men for it. Nor can they find a woman somewhere and blame her, for not denouncing it. Patriarchy is a set of murky and dangerous <em>hierarchies </em>that feed off silence (like NDAâs) and that feed of violence (like the NRA) â and that it is hierarchies that maintain the patriarchy: Companies run by hierarchical Boards and a whole hierarchy under their appointed CEOs, hierarchical Associations like the NRA funded in turn by hierarchical firms that make guns to sell at a profit, hierarchical law firms and detective agencies that defend any patriarchal leader from law suits and even criminal cases.</p><br /><p>Â Lindsey Collen</p><br /><p>for LALITÂ </p><br /><p>Â (1) See the two fine articles by Ronan Farrow in The New Yorker on Weinsteinâs modus operandi and how the predators work.</p><br /><p><a href="https://www.newyorker.com/news/news-desk/from-aggressive-overtures-to-sexual-assault-harvey-weinsteins-accusers-tell-their-stories">https://www.newyorker.com/news/news-desk/from-aggressive-overtures-to-sexual-assault-harvey-weinsteins-accusers-tell-their-stories</a></p><br /><p><a href="https://www.newyorker.com/news/news-desk/harvey-weinsteins-army-of-spies">https://www.newyorker.com/news/news-desk/harvey-weinsteins-army-of-spies</a></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

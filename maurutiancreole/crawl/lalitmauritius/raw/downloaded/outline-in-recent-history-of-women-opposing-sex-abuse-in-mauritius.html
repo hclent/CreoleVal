@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100126" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100126" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100126" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100126" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100126" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100126" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100126" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100126" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100126" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Outline in Recent History of Women Opposing Sex Abuse in Mauritius</h1><p class="subtitle">08.02.2018</p></h1>
+	<p class="newsarticle"><p><strong></strong>The article by the MLF, below, was published in <em>LâExpress</em> on Wednesday 7 February, 2018. We have already published the Kreol language version. We have pleasure in republishing the English version now.</p><br /><p>The article is an interesting insight into the grassroots struggles in Mauritius against sex abuse. Many of the examples are either not known by the elites in Mauritius, or little known. This year is 50 years since Independence, and this makes the article even more appropriate.</p><br /><p>Â Here is the article.</p><br /><p>Â <strong>Precursors in Mauritius to the <em>#Me Too</em> Movement</strong></p><br /><p><strong>Outline in Recent History of Women Opposing Sex Abuse in Mauritius</strong></p><br /><p>Â When people hear about the world-wide womenâs rebellion against sex abuse by men with power in the various patriarchal hierarchies that persist in todayâs society, they might think that, when the issue is taken up here by the <em>Muvman Liberasyon Fam</em> or <em>#shamethem</em>, that they are merely the tail-end of a world-wide movement led by Americans in Hollywood. But itâs not true. Here are some ways women have dealt with sex abuse in Mauritius since Independence. Letâs start with the biggest movement of all against sex abuse â when thousands of field labourers went on strike in 1970 â and end with the strong symbolism of the womenâs march, â<em>Fam Reklam Lanwitâ,</em> from Port Louis to Curepipe held on 8 March 1983.</p><br /><p>Â <strong>A powerful Strike</strong></p><br /><p>In 1970 there was a rolling strike. It was a protest against sex abuse and rape at the MÃ©dine Sugar Estate. There was a <em>kolom</em> who, with the collusion of a sirdar, first isolated a woman labourer from her work-gang, then raped her. It was ongoing violent assault, inflicted on women one by one. Dreaded. But hard to oppose. The woman worker could lose her job if she spoke out. Shame would fall most likely on her in the ensuing scandal. Bosses might sack witnesses, too. Work was scarce. Bosses kept blacklists.</p><br /><p>Â This kind of work-site rape was common <em>then.</em> It had been common from the time of slavery, through indenture, and it is still all too common today â at the cybercity, not just in factories and fields.</p><br /><p>Â By 1970, MÃ©dine women labourers were furious. Their anger had been kept secret. Their suffering, too. It was something spoken of in whispers. What kind of riposte could they organize to put a stop to this?</p><br /><p>Â The <em>kolom</em> organized with the sirdar for a young girl worker of 12 years old to be his prey. These were the days of â<em>chokra-chokri</em>â, children workers. So, the rape was of a child. They confided in a man labourer colleague who they trusted, the late Ramesh Khaytoo.<br /> <br /> Mauritius was in the middle of a State of Emergency, yet workers managed to plan a strike. How do you do this without losing your job? Without getting arrested and locked up without trial? Without being set up for some criminal offense by the boss? Not easy. So, field labourers, under the leadership of women and Ramesh Khaytoo, planned and held a rolling strike, Annex by Annex, all over the whole of MÃ©dine Sugar Estate. Women labourers were key. They said the equivalent then of â<em>me too</em>â.</p><br /><p>Â On Monday, everyone working in the Palmir Annex went on strike, while the other seven Annexes worked away as though everything was hunky-dory. Tuesday, while the Palmir workers all arrived back at work as if nothing had happened, there was a total strike in the Yemen Annex. While everyone else worked heads down. On Wednesday, the Palmir and Yemen workers were both back at work, but this time La Mecque labourers were all absent. And so on.</p><br /><p>Â It had a strange effect on the sugar bosses. They felt they were being attacked by a poltergeist. A <em>Tit-Albert.</em> They went catatonic. They could not get their heads around it. What could they do about it? They enquired through their spies and finally found out that there was a sexual predator amongst management itself causing the strike.</p><br /><p>Â They sacked him. The strike had been a total success. No workers lost their jobs. No-one arrested. This gave women workers immense confidence. No <em>sindikalist </em>had been involved. They did it by themselves. Imagine the profound <em>lakorite</em> or âcommon understandingâ that was necessary to plan and execute that kind of strike.</p><br /><p>Â It is no secret that the labourers of MÃ©dine were the back-bone of the biggest working class movement in Mauritian history, the 1979 strike. They built their strength, on the womenâs 1970âs experience.</p><br /><p>Â <strong>Girl Students head uprising</strong></p><br /><p>In May 1975, it was girls from Bhujohharry âTifiâ, Eden âTifiâ, QEC, and from colleges literally in every nook and cranny of the main island that headed the student uprising for decolonizing education. This saw thousands of girls, Form II to IV take over the streets and confirm their right to free movement without harassment.</p><br /><p>Â <strong>First Womenâs Manifesto against Rape and Sex Abuse</strong></p><br /><p>The <em>Muvman Liberasyon Fam</em> published the first Manifesto including protection from sex abuse in mid-1977. Section 3 was on â<em>Fam ena Drwa Proteksyon kont vyolans</em>â, both âlegalâ and âphysicalâ. Rape and âforced prostitutionâ are mentioned as types of violence. As a sign of the times, Section 5 reads: â<em>Fam bizin ena liberte al kot li ule, fer seki li anvi, zwenn dimunn ki li anvi.</em>â</p><br /><p>Â <strong>Sting Operation and Public Denunciation of Predator</strong></p><br /><p>There was a sexual predator operating in Port Louis, offering to find a young woman a job, luring her into his car, then driving to a lonely place and demanding oral sex. One such woman victim, already abused, when the man was leaving her, suggested that she bring another woman and meet him in two daysâ time. What presence of mind she had! She set up a rendezvous with him. She then immediately came to an MLF meeting at which we planned the rest of her âsting operationâ.</p><br /><p>Â So, on 3rd August 1977, she and another MLF volunteer stood in front of the Bank of Baroda Building in Sir William Newton Street as planned. Another 23 members of the MLF lay in wait, meanwhile, in the Bank, Hand Loom and other nearby shops. When the man parked his car and approached the two, we all sprang out and started screaming at him at the tops of our voices, denouncing him. He at once saw the trap, jumped back into his car, pranged another car, then sped off.</p><br /><p>Â The MLF then brought out a communiquÃ© that warned women of a man who â<em>rul Volkswagen nwar F716 e ki dir li pu fer bann fam gayn travay. Li enn gro bug, ledan lor o-milye, met linet fime, e bush shirt. Fer atansyon! Pa rant dan so loto!</em>â (<em>Le Militant</em>, 9 Aug 1977). <em>Le Mauricien</em>, 5 August 1977 wrote: â<em>Un jeune homme dâune trentaine dâannÃ©es, Casanova [sic] malchanceux, sâest fait assailler, vers 13 hres, par une trentaine de filles qui se dÃ©clarer avoir Ã©tÃ© ses âvictimesâ </em>â.</p><br /><p>Â <strong>February 1978 Mass Public Meeting of Women in Company Gardens</strong></p><br /><p>In the run-up to International Womenâs Day, <em>Solidarite Fam</em>, a common front the MLF set up, held a meeting of 300 women in the Company Gardens. Among themes publicly addressed, and in the Manifesto voted, was opposition to sex abuse and violence. Rajiati Chengebroyen spoke on this subject. Other speakers included, Kisna Kistnasamy, Marie-Claire Bibi, Shireen Aumeeruddy, Lindsey Collen, Solange Brunette, Mrs Seegoolam, the late Denise Nakeed, the late Zubeida Bahim. Predators began to be reined in by society.</p><br /><p>Â <strong>Book Against Rape and Abuse</strong></p><br /><p>MLF published a booklet speaking out against rape and sex abuse, putting emphasis on the âassaultâ and criticizing the archaic emphasis on menâs supposed âsexualityâ when rape was merely the will of macho men to impose control over women, the very opposite of an expression of sexuality, just as a clout across the head is the opposite of a caress of someoneâs head.</p><br /><p><strong>Â Massive womenâs participation in August 1979 Strike Movement</strong></p><br /><p>The August 1979 general strike movement that began in the sugar industry was, in large part, driven by the active role of women field labourers from all Estates. After the strike they came to Port Louis to support the leadersâ hunger strike in the Company Gardens. An individual homeless woman who had suffered eviction, finding herself amongst a crowd of people being arrested for strike-related clashes, famously danced inside the Police Station at Line Barracks, singing, â<em>Sel solisyon, revolisyon</em>â, as her six-year-old boy, clapped his hands, and sang â<em>Alalila, Mama, alalila, Mama!â</em> A small group of women from Baie du Tombeau, when Zardin Konpayni was declared a Prohibited Area, would prance by in single file in La ChaussÃ©e, singing out, <em>Sel Solisyon, Revolisyon</em>, and when the Riot Police would start to act, they would melt away into adjoining streets. Only to reappear from another direction 15 minutes later. Such were the times. It was in this movement that women made progress in quelling some of the sex abuse and street harassment that had existed in the past.</p><br /><p>Â <strong>Violent Repression of Womenâs Demonstration against Rape by police officers</strong></p><br /><p>Women were furious because two women who had gone to the Petite RiviÃ¨re Police Station one evening in 1977 to seek help for a fight in the neighbourhood, when they were raped by two police officers in the police station. Four years later, the Case had still not come to Court. So, on 14 January, 1981 some 15 MLF members had gathered inside Cite Richelieu to prepare a demonstration against the police in front of the Police Station. Something strange then happened. Police officers and plain clothes men attacked us and grabbed away our pancartes like thugs working for a dictatorship <em>before</em> the demonstration started! Men were afraid of a womenâs demonstration.</p><br /><p>Â <strong>Mass Movement of 1980, again massive womenâs participation</strong></p><br /><p>The mass movement to force the Government and bosses to respect the 23 August 1979 Agreement that ended the strike the previous year, was again given its immense power by the participation of women in the demonstrations that surrounded the long hunger strike. This movement, like the August â79 strike, caused a marked reduction in street abuse. This lasted for some 20 years, but in the new millennium, abuse is back!</p><br /><p>Â <strong>Women in Diego Garcia Hunger Strikes and Street Demonstrations</strong></p><br /><p>In 1981, the Chagossian women, rich with experience of the 1979 and 1981 movements in which some of their leaders took part, together with LALIT and MLF women, organized their own hunger strike and 3-days of demonstrations that ended in the police provoking violent street battles against the women, which the women won. During these rebellions, Chagossian women taught all women of poor areas of Port Louis how to deal with the police. Prior to this, police used to exact sexual services in exchange for anything a woman was forced to address the police for. But, from 1981 onwards, fearless of patriarchy, the Chagossian women taught us all how to end this abuse by the Police.</p><br /><p>Â <strong>The Night March âFam Reklam Lanwitâ</strong></p><br /><p>On 8 March, 1983, <em>Solidarite Fam</em> â led by <em>Muvman Liberasyon Fam</em> â held a women only night-long walk from Company Gardens in Port Louis to the MLF womenâs centre in Curepipe. Fifty women, some with children, participated, expressing this way their opposition to sexual harassment in the streets and public places. (<em>Le Mauricien</em>, â<em>Des Femmes revendiquent la rue la nuit</em>â of 9 March, 1983). The streets of La Butte, Borstal, Beau Bassin and Rose-Hill were lined with women supporting the march.</p><br /><p>Â So, when we are going forward in the struggle for womenâs emancipation and for our liberation, we must be sure to lean upon the gains of these and all the other struggles of the past, before the short time of the article, and after it. This way we do not re-invent the wheel! Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â </p><br /><p>Â </p><br /><p>Rajni Lallah</p><br /><p>Secretary</p><br /><p><em>Muvman Liberasyon FamÂ  </em></p><br /><p><em>2 Feb 2018</em></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

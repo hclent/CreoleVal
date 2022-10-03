@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101948" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101948" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101948" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101948" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101948" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101948" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101948" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101948" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101948" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>One Lie Too many or Un Mensonge De Trop: Reply to Philippe Forget</h1><p class="subtitle">08.06.2014</p></h1>
+	<p class="newsarticle">LALIT is publishing below the full text of the reply of Ms. Amanda Jones to Philippe Forget, Board member of Clavis Primary School, following the findings of the Data Protection Commissioner against the school for using fingerprinting for attendance. The article being replied to was published in L'Express, a newspaper controlled by Mr. Forget. Her reply is through her lawyer, Jean Claude Bibi.<br><br>Mr. Raj Meetarbhan, the Editor in Chief, lâExpress<br>Dear Mr. Meetarbhan,<br><br>One Lie Too many or Un Mensonge De Trop<br><br>I act for Miss Amanda Jones, an Australian citizen formerly employed by the Board of Prokid, a company that runs a school known as Clavis International Primary School in Moka. <br>I am instructed to request you to publish the following response to answers given by Mr. Philippe Forget from questions put to him by an anonymous interviewer (probably himself) on page 4 of your edition dated 29 May 2014 following the decision of Mrs. Drudeisha Madhub, Data Protection Commissioner, regarding the complaint made by my client against her employer. The Commissioner determined that Sections 21 or 25 and 61 of the Data Protection ACT had been breached by her employer and that there was<i> ââ¦ evidence before me which establish beyond reasonable doubt that Complainant was justified in not providing her consent to Respondent for the processing of her personal information, which was also the reason for her dismissal.â</i><br><br>1. Mr. Forgetâs answer to the first question is that he finds it hard to understand the decision of the Data Protection Commissioner. This is possibly true but quite surprising as the reasoning of the Commissioner in her findings is quite intelligible. We can safely assume that Mr. Forget is an intelligent man with a more than adequate mastery of the English language. He certainly does not fit the profile of journalists who are being unfairly and repeatedly attacked as <i>âsemi-intellectualsâ. </i>I therefore find it hard to understand his claim that he does not understand. <br><br>2. He next claims that <i>âil nâa jamais Ã©tÃ© question pour l âÃ©cole de âprocessâ les empreintes digitales sans le consentement de ses employÃ©sâ </i>. This statement is shockingly untrue. My client, Miss Amanda Jones, can prove and will prove in the appropriate forum that the headmaster, Mr. Nicholas Hamer, stated at a staff meeting on 26 October 2012 that it would be <i>âcompulsoryâ </i>as from 2013 for staff to use the fingerprinting machine to record their attendance. This statement can still be read in the minutes of the staff meeting dated 26th October 2012. Further, even today, these minutes are still available on the server of the school to which the staff has access. It would be useless for anybody to get the bright idea of deleting these minutes at this late stage because care has been taken to secure them. Your readers should know that there exists documentary and electronic evidence that Mr. Hamer did state that finger printing was compulsory. It still remains compulsory to this day in spite of the findings of the Commissioner. The truth that Mr. Forget wants to hide from his readers in his interview is that it was compulsoryâ¦.to consent!!<br><br>3. There is more. In the course of the enquiry by the Data Protection Office, Management, assisted by legal Counsel, stated in writing the following: <i>âAt the time we resorted to fingerprint machine, we have ensured that all our staff has been provided with the required information and consent to the use of the fingerprint machine. Out of our 80 employees, 78 have consented verbally.</i> âPrior to the meeting of October 26 2012, there was another urgent meeting as far back as 11th February 2010 of some staff members with the same Mr. Hamer. The minutes of the meeting record who was present and who said what. The issue of fingerprinting was discussed. Staff members present expressed their concern and dismay that their consent had not been requested before introducing the machine. At that meeting, the question was asked whether it would be <i>âcompulsoryâ </i>to give fingerprints. The reply of Mr. Hamer was as follows: <i>It comes down to what the company will think of those who donâtâ. </i><br><br>4. The<i> ârequired informationâ </i>supposedly given to the staff by Management boils down therefore to no more than a very thinly veiled threat that those who did not consent will suffer what Management bluntly called <i>âlegal consequencesâ </i>, a cynical euphemism for dismissal after the rigmarole of a disciplinary committee. So much then for the hollow pretension of Management, that it had obtained the <i>âverbal consentâ </i>of the staff. No wonder the Data Protection Commissioner flatly rejected this lame and untrue explanation and correctly concluded that no valid consent had been given by the staff. Needless to emphasise that<br><br>Management never informed the Data Protection Office that members of the staff had, on 11th February 2010, clearly expressed their concern to Mr. Hamer, that their consent had not been sought. At the time of this meeting, there was in place a dual system of recording attendance: members of the staff could sign an attendance book or use the fingerprinting machine. Subsequently, Management, without any consultations with the staff, abruptly put an end to the dual system and imposed the fingerprinting machine as the sole system of recording attendance. Miss Jones did not consent and in writing, respectfully declined to give her fingerprints and the reasons for her refusal through a letter to Mr. Hamer. She was promptly charged with insubordination, found guilty and dismissed. <br><br>5.Mr. Forget insinuates that Mrs. Drudeisha Madhub, the Data Protection Commissioner, is wrong to link my clientâs dismissal to the charge of insubordination. He claims he cannot say much more about why Miss Jones was dismissed on account of his professed deference to the Industrial Court. Mr. Forget can rest assured that Courts are never offended by the truth and are quite used to listening to falsehoods. His silence is merely tactical. It is futile to wonder whether Mr. Forget extends his professed respect for the Industrial Court to the Law as stated in of the Data Protection Act, particularly in its Sections 22, 25 (1) and 6. He clearly does not. Prokid did not. This is why Prokid was found by the DPO to have breached the provisions of the Data Protection ACT Act. You cannot deliberately violate the law and then represent yourself as a law-abiding citizen with a profound respect for the Industrial Court.<br><br>6. To counteract the insinuation of Mr. Forget and his whining that the Data Protection Commissionerâ <i>prÃªte a lâÃ©cole une intention quâelle nâa jamais eue,â </i>I have to put forward some additional facts that will certainly not offend the Industrial Court. Your readers should know that on 21 February 2013 Mr. Hamer wrote a very short letter to Miss Jones. It has one single sentence that ends with: <i>ââ¦â¦ I am now formally writing to ask you to comply with the Boardâs instructions that all members of the staff must now use the digital clocking machineâ. </i>Mr. Forget is a member of the Board. Can he honestly interpret this letter as one that demonstrates that the Board was interested in having the freely given consent of the staff? On 2nd April 2013, Mr. Hamer wrote a much longer letter to Miss Jones.Therein, he appeals to a nebulous sense of belonging and mentions that she is <i>âpart of managementâ </i>(really?) and declares himself to be disturbed by her<i>"apparent wish"</i> to separate herself from <i>âmanagementâ </i>. He even suspects that Miss Jones is on the verge of diving into what he defines as âdisloyaltyâ. The disturbed but loyal headmaster asks her to<i> âreconsiderâ </i>her refusal to comply with the unlawful order to use the digital machine.<br><br>7. Miss Jones did not<i> âreconsiderâ. </i>She was under pressure from the Board but she stood by her principles. The Board was not amused and used the hammer again. On 16 May 2013, poor Mr. Hamer, instructed by the imperious Board, demanded once again, more forcefully and quite unlawfully, that she should <i>âcomplyâ </i>. The headmaster, probably still disturbed, hammered: <i>ââ¦ I am therefore formally requesting you to submit your fingerprint to Mr. Thierry by Monday 20th May 2013 at the latest and to comply with the new fingerprint time attendance system as from Tuesday 21st May, 2013.â </i>Miss Jones did not capitulate to this ultimatum. On 20th May 2013, Miss Jones respectfully but firmly informed the headmaster that she would not comply<i> âas a matter of principleâ. </i>She writes on to remind the Headmaster that the <i>âMauritian Data Protection Act 2004 grants me the right to privacy and the use of the biometric system invades both my personal and informational privacyâ </i>. The Data Protection Commissioner eventually confirmed in her decision that she was entitled to claim these as fundamental human rights.<br><br>8.There is much more that your readers should know on the issue of consent. On 21 May 2013, only two days before the suspension of Miss Amanda Jones, Mr.Alain Bruneau, the Deputy Headmaster, was suddenly inspired to intervene in the exchange of correspondence between Miss Jones and Mr. Hamer. Seemingly out of the blue, he signed a most loyal letter addressed to Mr. Hamer designed to contradict Miss Amanda Jonesâs claim that Mr. Bruneau himself had once told her that she did not have give her fingerprints because she was not a staff member but belonged to Management. The spontaneity of Mr. Bruneauâs intervention is very dubious. It is quite probable that the idea of writing the letter was concocted by someone else and the poor chap agreed to it or consented to sign it. I will quote <i>verbatim</i> the last paragraph of the letter as it reveals to the whole world what Mr. Forget deliberately keeps hidden from his readers in his interview:<br><i>âAt the beginning of this year, you </i>(Mr. Hamer) <i>informed the staff that the Board</i> (withMr. Marc Lagesse as chairman and Mr. Forget as member) <i>had said that everybody on the staff, from top to bottom, should abide to use (sic) the fingerprint electronic clocking system. As from the 1st of February 2013, when the system has been made compulsory, I have been using it.<br><br>Yours sincerely,<br>Alain Bruneau,<br>Deputy-Headmaster</i><br>Incidentally, Miss Jones had requested Mr. Alain Bruneau to be her defence witness before the disciplinary committee. He prevaricated for some two weeks and then cosily chose the camp where he belongs. At the hearing, Management produced Mr. Bruneauâs inspired letter and used it as part of the âevidenceâ that supposedly proved Miss Amanda Jones guilty. It is not too hard to guess the source of his sudden inspiration to write a solicited letter. Evidence, just like T-shirts, can be manufactured in Mauritius.<br><br>9.So much then for Mr. Forgetâs false claim that there was <i>âconsentement de ses employÃ©sâ </i>and therefore no compulsion from the Board as stated at the very beginning of his interview. The high degree of manipulative cynicism involved in such a false claim is astounding. The mind boggles! One can only feel sorry for the children at Clavis and their parents and for the readers of LâExpress and the honest journalists who have to earn their living there.They are supposed to swallow submissively the utterly absurd logic of Mr. Forget: it makes sense to state that a slave freely consented to have a master just as employees of Clavis happily consented to what the Board had unlawfully decreed to be compulsory. Who dared to challenge that kind of logic? Typically, tyrants find it hard to understand such concepts like the rule of law, justice and human rights and the philosophical foundations that underpin and unify these concepts.<br><br>10.Miss Jones did challenge this ignominious and totalitarian ideology that is rather reminiscent of fascism. She stated to the Data Protection Office: <i>âI believe that what happened to me was a form of bullying designed to intimidate the rest of the staff and discourage them from speaking up about issues in the futureâ¦.â</i> and, she added, <i>â the school representatives have made a mockery of Mauritian lawâ. </i>The Data Protection Commissioner eventually reached the same conclusion: the Board had breached the provisions of the Data Protection Act. Miss Jones knew full well she was dealing with an arrogant and unlawful abuse of power. She knew the Board has power to hire and fire. But she fought this evil power to the bitter end with the consequence that she was dismissed from her employment, her work permit was withdrawn and she was compelled to leave Mauritius in considerable distress. But with her integrity and her human dignity remain intact. Can Mr. Forget say the same of himself? Well, he can try but it will be hard for him to plaster the gaping hole in his credibility. The courage of Miss Jones is comparable to that of Mrs. Michele Tsang Ping, dismissed from the Mauritius Commercial Bank because she too refused to <i>âcomplyâ </i>with unlawful instructions from Management. It is perhaps a sheer coincidence that, once again, the same Mr. Forget was involved. Or is it?<br><br>11. But one should not expect Mr. Forget to consider resigning from the Board of Clavis International Primary School or from La Sentinelle. One lie too many is not enough. His peculiar sense of duty, his almost paternal altruism and his phenomenal brand of ethics compel him to hang around near the top in the interests of those at the bottom. Or maybe it is the other way round. Come what may, he will stick around. After all, kids at Clavis need more than an academic education. Their moral education is equally dear to Mr. Forget and to the Board of Clavis. Their parents, just as the employees of La Sentinelle, are expected to trust Mr. Forgetâs grasp of ethics, tortuous as they may be, and his highly questionable sense of what is true and of what is false. Should any of them lose trust or faith in his erratic commitment to truth and his almost natural capacity to boss teachers and guide students as well as their parents, well, they can then take his unsolicited but forceful advice as delivered in his interview: emigrate with their kids to the North or to the South Pole.The advice was also meant for all the employees in Mauritius and in Rodrigues. It was not very polite but it was very clear: trust your employer, trust the State or get lost!What makes this wretched advice even more paradoxical is the fact thatC lavis is an International Baccalaureate World School whose core values include being principled and having integrity and whose Mission Statement encourages students to <i>âunderstand that other people, with their differences, can also be right.â </i><br><br>12. The letter signed by Mr. Alain Bruneau was a calculated ploy to confuse and confound Miss Amanda Jones and she denounced it as such. She insisted that her rights and her personal principles should be respected. But the Board and the headmaster could not be bothered to respect her statutory and personal rights even when these rights have been upheld by the European Court for Human Rights. Three days later, on 23rd May2014, Miss Jones received a letter that conveyed the Boardâs agitation and its unlawful resolve to punish her because of her refusal to submit to its unlawful demand. Therein, Mr. Hamer informs her that she is suspended with immediate effect and that she has to appear before a disciplinary committee <i>âto answer a charge of insubordination tantamount to defiance of the Authority of the Board as evidence(sic) by the exchange of correspondence resting with your aforesaid letter.â </i><br><br>13. Thus there is no mystery about the charge leveled against Miss Jones. The Data Protection Commissioner got it right. So did the Ministry of Employment, Labour and Industrial Relations. It decided to file a complaint before the Industrial Court in March 2014 against the Board for the unlawful and unjustified dismissal of Miss Jones. Bizarrely enough, the young ex-Magistrate who chaired the disciplinary committee, seems to have ignored entirely in her findings the provisions of the Data Protection Act and limited herself to answering two questions: First, has Miss Jones been <i>âinsubordinateâ </i>when she wrote the letter dated 20 May 2014 stating she would not comply, and, secondly, <i>âhas this been in defiance of the authority of the Board? </i>She glibly answered yes to her own questions and, more bizarrely, she announced: <i>âI find the charges</i> (my emphasis) <i>proved against the Employee.â </i><br><br>14.Yet, there was only one single charge against Miss Amanda Jones before the disciplinary committee. Why did an experienced ex-Magistrate err in the number of charges she found my client supposedly guilty of? A mere typing error?Negligence?Incompetence?Ignorance?Bad faith?The ex-Magistrate will no doubt provide the answers to these questions when the case is tried before the Industrial Court.I will then also deal with the legal status of Miss Jones. Was she an Employee, member of the staff or <i>âpart of âmanagementâ </i>? At various times, Mr. Hamer, the Board and the ex-magistrate describe her variously? Why the confusion? <br><br>15. But more pressing questions persist. In the light of the findings of the Data Protection Commissioner, the practical question now is whether the Board will continue to flout the law and for how long. Will the Board now honestly acknowledge that it neither consulted the staff nor requested the written consent of the employees before imposing the use of the fingerprinting time machine? Will the Board deem it now necessary to reconsider the whole issue all over again with the Union so that members of the staff can decide whether or not they are willing to give their written consent to have their fingerprints taken by Management? Moreover, the question arises whether Management will give the assurance that no reprisals will be taken against those who wish to enjoy their human rights and stop using the fingerprint time machine and to withdraw the so-called verbal consent they allegedly gave. <br><br>16. There is no ground for optimism. Arrogance and disrespect for the law are incurable diseases that often afflict the powerful. It can be surmised that the Board will stay put and continue to defy the law. Mr. Forget has a peculiar and rather idiosyncratic view of what he calls, <i>âle pouvoir de lâemployeurâ </i>and the relationship between this<i> âpouvoirâ </i>and the law. He states that the employer has<i> âle droit dâattendre de ses employes quâils epousent ce choixâ </i>referring to the decision of employers to equip themselves with efficient systems without caring whether these systems are lawfully implemented or not. Surely it stands to reason that employees cannot be expected to submit, as if they were serfs living in feudal times, to whatever the employer wishes to impose upon them. Employees of Prokid, unlike serfs or slaves, are first and foremost citizens of a Republic that guarantees democratic and human rights. They are protected by the Employment Rights Act as well as by international humanitarian law. They have contracts of employment and, until this incident;there was no provision in their contracts that they must give their fingerprints. In any event, such a condition would have been unlawful. This point is emphasized in the determination of the Data Protection Commissioner. In this particular case, the Board unilaterally decreed that it was<i> âcompulsoryâ </i>for the staff to give their fingerprints. The Boardâs decree has been found to be in violation of the provisions of the Data Protection Act. It is not that hard to understand. However, it is interesting to note that after this dismissal this expectation became part of the new contracts, despite such a condition being unlawful. The Boardâs contempt for the law remains unabated.<br><br>17. Indeed, the Commissioner expressed the view that criminal proceedings should be initiated against Prokid for flouting the law. She has referred the case to the police as provided for in Section 20 of the Data Protection Act. I suppose Mr. Forget could not care less, fortified as he is in his divine armour of <i>âle pouvoir de lâemployeurâ </i>.This is why I am copying this letter to the Commissioner of Police; the Director of Public Prosecutions; to the Minister of Employment, Labour and Industrial Relations and to the Prime Minister as the Data Protection Office is a division of the Office of the Prime Minister. I would like to think they will not condone the view that an employer is entitled to expect his or her employee to comply with a measure that violates the laws of the Republic of Mauritius. Furthermore, I expect them to uphold the principle that no employer is above the law. Admittedly, it is not a rare phenomenon to find that the powerful and the very wealthy have a tendency to convince themselves and others that they are above the law. These super employers even manage to believe, not too secretly, that they are entitled to violate the law with impunity whilst simultaneously maintaining a faÃ§ade of commitment to democratic principles, and, all the while, conveniently forgetting that the rule of law is at the heart of a democratic society. Add to all this their remarkable ability to preach tirelessly to others what they themselves do not practise.<br><br>18.Finally, I have decided to simply ignore Mr. Forgetâs simplistic argument that there is really no difference between signing voluntarily a form to obtain a passport and being compelled to consent give and/or compelled to consent giving your fingerprints to your employer. Mr. Forget and his Board should know how to avoid making a fool of themselves. They should know better than to present such a ridiculous argument based on equating signing a document with being fingerprinted. Miss Jones knew better and she had the courage to say so to this Board. She said no to the whole lot of them in no uncertain terms. Her principles remain stead fast. She knows who should bow down their heads in shame. <br>Yours sincerely,<br><b>Jean Claude Bibi </b><br><i>Of Counsel to Miss Amanda Jones</i><br>Cc: Mrs. Drudeisha Madhub, Data Protection Commissioner, Prime Ministerâs Office, <br>The Honourable Navin Ramgoolam, Prime Minister,<br>Mr. S. Mohamed, Minister of Employment, Labour and Industrial Relations<br>The Director of Public Prosecutions<br>The Commissioner of Police<br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

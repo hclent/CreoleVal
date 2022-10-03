@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101749" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101749" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Ram Seegobin on the Stakes of the 2014 General Elections</h1><p class="subtitle">01.10.2014</p></h1>
+	<p class="newsarticle">At a meeting held in Plaine Verte on 29 September,  Ram Seegobin, a leading LALIT member gave an outline of how the party sees the stakes in the coming general elections. After an introduction by the person presiding the meeting, he gave a short speech, in which he invited those present to, if they needed to, to interrupt with questions. The write-up thus includes answers to questions that punctuated the structure of his speech. <br>He said that there are already red and mauve banners, and orange-and-blue, referring to the two alliances of bourgeois parties, even though Parliament has not yet even been dissolved. Prime Minister Ramgoolam is out of the country, due back 5 October, and Parliament due to meet on 7 October. Although Pravind Jugnauth very much wants a session, so that he can ask at least one PNQ as Leader of the Opposition, there is every chance that Ramgoolam will dissolve Parliament just before it actually sits. There then are a few weeks for the President to bring out a Writ, announcing nomination day and election day that will probably be in December. It seems BÃ©renger and Ramgoolam would need a short campaign in order to limit the length of time during which they risk âfalling outâ with each other, within their unstable alliance block of Labour-MMM.<br>Since Saturday, the âsecond blockâ of bourgeois parties has been constituted, the MSM-PMSD and Muvman Liberater. <br>Then the media has the role of pretending these two blocks are the only choice. Newspapers speculate on who will be candidate, where each one will be fielded, and who is trying to oust who. That is their only concern. Every day <i>LâExpress</i>has a page, for example, covering one Constituency. How many electors, and so on. But the page creates a fixed image, set in print, of bi-polarization: your only choice is Ramgoolam-BÃ©renger or Jugnauth-Duval-Collendavelloo. The page every day pretends there are just two blocks. So, it is, in part, the responsibility of the media for this focusing on TWO BLOCKS ONLY, even as they criticize the total lack of any real choice. The other parties are just supposedly âfolkloriqueâ, all put into one big bundle, as if the Press does not have enough information available to make any judgments as to who to cover or not. So, there is a tendency to marginalize all other parties, whether they are existent political currents or phantoms just set up for the elections. <br>But when you look at the elections, what are the real stakes? Ram Seegobin asked. What are we deciding? Is it just the choice between these two? And importantly, is their politics any different, one from the other? Does it make any difference which of them comes to power? If you think clearly, it will make little difference. Look at the new âAlliance Lepepâ. There is PMSD in it. PMSD has just left Government. And the MSM was elected together with the PT and PMSD just 4 years ago. So 2 parties were with PT until recently. Collendaveloo was, of course in the MMM until recently. But, letâs look where the MMM was. And it is perhaps this that makes people in and around the MMM so frustrated, so furious, so downright angry. The MMM allied itself to the MSM, in their âRe-Makeâ, until earlier this year. Until 2014. At the end of April, MMM militants and activists all went and tied up banners all over the country, announcing a joint meeting of the MSM and MMM for First May, and then 10 days before the meeting, what happened? Navin Ramgoolam, the Prime Minister, comes and announces that he will not hold a meeting for Labour Day, fair enough, and that there will not be an MMM meeting either. He effectively cancels the MMMâs meeting. So, poor militants were left humiliated, some going around removing banners, others staying at home for fear of the ârikaneâ they would get outside. <br>So, while the MMM in 1995 has made an alliance with the PT before without causing too much problem within the MMM base, the fury that the alliance has provoked this time around has completely taken the MMM leadership aback. It must be that the period of Re-Make, where BÃ©renger was putting cake in Jugnauthâs mouth for a joint birthday party, was so recent that people just couldnât adapt to a new âsnake to swallowâ as the Kreol expression goes. Why did BÃ©renger call off this Alliance with the MSM? His excuse was obviously lame. He supposedly did not agree with the legal strategy of Pravind Jugnauth in a criminal case he had to defend. This is clearly a choice that only Jugnauth can make, by himself, or with his legal team. This kind of false pretext disgusted a lot of MMM people at the time. We can only guess that the violent reaction against the alliance with Labour has been from MMM militants feeling manipulated and humiliated, and unable to explain to those around them what was going on. Imagine the 200 or 300 so-called âdelegatesâ, while there are secret negotiations with Labour already going on, being called by BÃ©renger to vote in favour of the Re-Make with the MSM. This kind of blatant disrespect has enraged his own supporters. Whenever during negotiations, Ramgoolam asked for too much, then BÃ©renger just calls his Delegates Assembly to make them vote for the Re-Make, so as to strengthen his hand in negotiations. It is a bit like mafia tactics, used mainly on enemies, or at worst, on adversaries. So, MMM militants feel manipulated, humiliated, insulted, and this explodes in anger, as they are obliged to realize that they were brought into a Delegatesâ Assembly in cold blood, as a charade, just to put pressure on Navin Ramgoolam. <br>Every day people come ask us, âWhat has happened to BÃ©renger?â real BÃ©rengists ask this all the time now. As if we could explain. <br>All this to say, that the two Alliances have definitely got similar politics. They, themselves, make themselves interchangeable.<br>But BÃ©renger thinks the alliance with PT will guarantee them, according to their child-like arithmetic, not just an electoral victory but a 3/4 majority. In fact, they have only a âPlan Aâ, and no âPlan Bâ. If they donât get 3/4 majority, they are plan-less. <br>They need 3/4s to allow them to set up a hideous new Republic. They plan to go into the general elections, get 3/4, and when they form a government, Ramgoolam will, at the start be the Prime Minister, then in a certain number of months, they will propose Constitutional Amendments that will convert the existing political system from a Parliamentary to a Semi-Presidential one. So, if there Plan A, which is their only Plan, works, there will be a President who is no longer an ornament, but a President with powers, a President who will be elected. This powerful President will be the one who in fact nominates the Prime Minister and other Ministers. Logically, when someone nominates someone, they get the right to revoke them. Though this is, of course, not made clear by the Labour and MMM leaders. But it is so.<br>So, the President will also have the power to say, âReplace those two ministers!â And he can dissolve Parliament when he wants to. He has no reason to give. And he remains.<br>Then there is a sting in the tail of the amendments of this Plan. They intend, at the same time, if they get their 3/4 majority, to bring in a dose of Proportional Representation. This gives more voice, in general, to those who lose. That is its aim. It brings up the number of seats to nearer the proportion of votes they got. The problem they are addressing is that, if a Party is elected with 50% of the votes cast, this can make them win almost all the seats, or even all, while the party or alliance that gets 49% can be wiped out. Proportional representation aims to repairs this imbalance in representation. But what it means is that if this new Semi-Presidential system turns out not to work, to have communal dynamics, or whatever, if the electorate finds it dictatorial, it will have become very difficult indeed for another party to get the 3/4 majority necessary to change the Constitution back again, or to do away with whatever is considered dictatorial or autocratic. <br>And, what the PT-MMM proposes right now reflects the balance of forces between the two of them right now. That is why the President is being given more power now. Ramgoolam is the incumbent. But once this arrangement is embedded in the Constitution, if they implement their diabolical plan, when the 2020 general elections arrive, when there is new Prime Minister, he will be tied to this static balance of forces of 2014.  And Ramgoolam, as President will still be there for another 3 or 4 years. <br>As you all know, the President, according to their reactionary plan, is to be elected for 7 years, the Prime Minister only for 5. By the time of the Presidential election, BÃ©renger will have 4 years left in his mandate, and Ramgoolam will have 7 years. And again assuming they go ahead with all this, then when the 2020 elections come, Ramgoolam will still have 3 years with all that power. It is quite possible that Labour and even the MMM, too, is swept away by the electorate, and the President stays on. Like an emperor.<br>It is a time bomb that they are proposing.<br>They have cobbled together something that suits them politically today, but we will be landed with something dangerous, and very difficult to change.<br><b>Lalyans Lepep</b> <br>Now letâs turn to the Lalyans Lepep, as it is called. We have started to get a glimpse of it. <br>First, it is clear that the MSM will run a communal campaign, saying Labour is putting BÃ©renger in the Prime Ministerâs seat, and meaning this in a communalist way. Secondly, their campaign aims to cause, and succeeds in causing, instability amongst the two allies. Minister Bunwaree at Plaine Magnien goes and says: âThis 2nd Repiblik? What if Ramgoolam dies (one does not usually say this kind of thing), the country will have an MMM Prime Minister, and a President who is also MMM.â It seems he is on his way out. He is also adding this kind of fear into people in Labourâs heads. The MSM will continue this.<br>Third, we can expect that the Lalyans Lepep bring in measures that are populist in the extreme. Aneerood Jugnauth looks around at what is bothering people and, regardless of its effect, he says he will chuck the problematic measures out. âCar licence pointsâ are angering professional drivers who feel doubly punished. They also anger the poor who feel more highly taxed than the rich by the system.  And then the radar cameras for speeding, are also, combined with the âcar license pointsâ adding further to this double anger. And he throws in the biometric ID Cards, which although the MSM and PMSD (and MMM that Collendaveloo was in) voted for them, the MSM has later opposed. Aneerood Jugnauth does not have a proper program either. He does not talk about agricultural diversification or any changes that are needed at the level of the economy. So, we can expect this kind of populism mixed in with communalism.<br><b>How do people vote</b><br>Now, let us look at how people vote. What people say about âvotingâ being sacred and everything makes us blind to the real way in which so many people vote.<br>Many vote by habit. They usually vote PT or MMM, so they do it again. It is difficult for many people to change from one to another party. There are some that change, and they are the ones that change the Government. But there are loads of people who stick to their habits.<br>There are some who vote by what people call âpersonal interestâ, or the pecuniary interest of their clan. There are tenders, and land leases, for them or their clan. There are promises of job nominations. <br>What is clear is that there are not that many people who vote for a party because they agree with its program. In fact, people do not, in the main, study programs, and take decisions on that basis. Not too many anyway. <br>In response to a question, Ram Seegobin, said that the weight of the socio-cultural groups is not as heavy as they pretend it is. These organisations have very slight influence on voting, but they do influence as lobbies. In the past few days they have begun going to meet BÃ©renger, Jugnauth and Ramgoolam, in turn. They create a buzz, pretending they have influence, then they negotiate â often for those close to them. In LALIT, we once studied the voting patterns one by one. We got detailed results. Most people, as everyone knows, do not split their votes. More than 90% voted block, for a party or an alliance. The splits that there were, were, in the main, not communal either. They were random, except more votes for those nearer the top of the ballot, where it is easier to place on the table in the voting booth. There are many factors that explain this. People who are not so literate â and there are many â if they want to split their votes, they will come across the relevant symbols at the top first.<br>It is in their wisdom that people vote âen blocâ. They are voting for a Government. But, for this election, there is not much difference in their programs, so it is a waste of time to vote for one or the other. The only difference is that people who vote for the MMM and Labour are also voting for a toxic bundle of Constitutional measures coming into being, whereas those voting for MSM-PMSD-ML are voting for populism and communalism. So, in this election, there are better ways of using your vote than voting âen blocâ for your choice of Government. This is the importance of LALITâs candidature.<br>Other people instead of voting by habit, tend to vote for âthe winnerâ. Does BÃ©renger not always claim to be winning by âlao 3/4â, even when he will lose?<br>Another important thing, about how people vote is the âclanâ vote. It is supposed to be a âOne person, one voteâ system, but in fact, in towns as in villages, there are<i> family clans. </i>The clan is Labour or MMM or MSM according to the head of the clan, who is usually a grandfather, or an oldest brother. He is chief. And it is him who goes and negotiates something from a candidate in a party, and decides how the clan will vote. Some 90% of people who are in these clans follow the clan, and all vote as promised to the older male. Huge families, one person present interrupted, of up to 100 electors in one clan are all, or almost all, controlled by the dominant male. The chief then âgets somethingâ, or âget somethingâ for the family, if they all vote for the relevant candidate to whom they have âgiven their wordâ. (In fact, as Ram pointed out, it is not your âvoteâ that you sell, because that is secret. It is that you cannot speak out against that party. That is what is in fact bought. Your free expression. ) What they get is a contract of some sort for a lorry business, a lease of State land for a project, and maybe three job appointments, including one for a widowed sister, so that her children can finish schooling. If you donât follow the dominant maleâs instructions in your clan, you are obviously guilty of causing your widowed aunt to suffer more! Such is the power of the family. That is where the pressure comes from. That is where the âfearâ comes from. And it is that system, a system of corrupting votes through a clan leader, that needs to be broken down. A chief cannot just hand over so many votes. Otherwise it means young men and women are voting as their elder uncle tells them to. He gets this status because he is the one who attends meeting, so he knows better than you, supposedly. âKi to kone, twa?â he will say, if you try to talk reason to him. He seems wiser and thus maintains his influence. If we want people to vote for a program, we have to liberate people from this clan slavery. <br>Even women, of whom nearly 20% are head of household, are kept cowed by this. They are often part of this vote-bank promised to a candidate or his agent. And the other 80% of women who are married, often vote as the husband tells them to. In general. And in particular, they do not run a campaign for any other party. <br>However, the prejudice that women candidates will not be elected, or will get less votes, is just not true. Women, in the last elections, were often head of the list of their party. There is not a prejudice against women as candidates.<br>Which brings up an interesting point. While the MMM and PT say they will pass a law for 33% women, for the 2020 elections, but if they think it good, why do they not do it now? Women do not get less votes? It is part of this âclanâ problem. Women do not represent a whole clan as easily as men.<br>In the same way, although MMM and Labour have brought in a law to say that, for this election at least, you do not have to put a community on your Nomination Paper, they will. Aneerood Jugnauth said, âNu ki kuyon?â This is because Pravind said he would not put a community.	<br>All this to say, that we, in LALIT, would like people to vote in terms of their own powers of reasoning. Not just follow their senior uncle. Not vote by habit. Not vote for the winner, either. <br>In LALIT, we have been in many elections, sometimes without candidates, but always with a campaign. When we do align candidates, it is on purpose that we do not put up a full 60. For now, we do not want to form a Government, not when the working class is this weak, and the broad masses are not prepared to defend your program. It is pure populism to do that. So, we put at least one in each Constituency, then we fill up others with three candidates in just some constituencies. And we call for a vote, so that we can become the opposition that emerges from the election. <br>This is the case for the next election. We have already over the past 2 or 3 months prepared the program on which we are standing. In branches and fortnightly meetings. It will be launched on Wednesday in a Press Conference.<br>But, there is the question: Why are we in an election? We are not an electoralist party. For us, an election is an event amongst many. A big demonstration, for example, is also an event. A strike is an event. Today, in this balance of forces, when the masses are not ready to defend socialism, we do not intend to stand for Government, but for <i>Parliament.</i> Why? People are interested in politics at the time of an election. We have the opportunity to get people to understand our program. We prefer 100 people read, understand, and adopt our program as their own, than 1,000 people vote for us without understanding a word of it. We intend to get our program known. Our political work is before election, during the election, and after it. Sometimes we recruit new members during a campaign, but our work does not change just because we are in an election. This meeting today, for example, is not just for elections. It is ongoing. Next year, we may continue this series. On Diego, it is the work we do in an ongoing way. On ID Cards, since 1996, we have run a campaign against biometric cards. We exist in an on-going way on the ground.<br>On ID Cards, look at the difference. Even though MSM eventually put in a case, they have not run a proper campaign. BÃ©renger is the same, he makes a one-off statement and thatâs all. For them, it is a mere tactic. They voted for the new ID cards, as a tactic. Now they mouth words against, for another tactical reason. For us, it is part of our ongoing struggle for freedom, in this case freedom from surveyance. <br>LALIT does more work outside of Parliament than they do in it. <br>In politics, it is not just getting people to vote for you. Politics is when people understand â how society is structured, why is cane planted all over the place, why some people are powerful and others powerless. People through understanding learn to act in ways that bring change. <br>Even on a subject criminality, which people talk about a lot in electoral campaigns. Is it rising? They ask, or falling? They just use slogans on âlaw and orderâ to make people afraid, and adopt repression as a supposed solution. We are concerned, in LALIT, about the violence of society. There is too much. But most is within the family. Between 6 and 7 murders out of 10 are within the family. So, it is not âlaw and orderâ that is the problem, is it. This violence is a symptom of a deep social crisis. And this social crisis is a result of a profound economic crisis, in which people are being dispossessed, made useless, and made jobless. <br>However, if LALIT was in Parliament, this would allow our program to be known much better. But today, if in order to be elected, you have to resort to populism and lies, it is just not worth it. LALIT would destroy its own party. We would like to be in Parliament. That is why we are in the election. Not to be in Government. Not until the working people are inspired to stand up and defend our program.<br>One question we need to address: Is it possible for LALIT to work with other parties. Often, in the past, people talk about all those small parties coming together, they could be a big one. Taking chippings to make a rock, someone interjected. Why, they say, donât we make an alliance. Alliances, as we know them, are in order to win an election. Well, we donât need one, because right now, we want to elected to Parliament, but not to win an election. Often, when a strong little party like LALIT allies with other fluffy and opportunist currents, we only stand to weaken ourselves. <br><br><br><br><br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

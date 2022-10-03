@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100518" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100518" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100518" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100518" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100518" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100518" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100518" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100518" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100518" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>10 Womenâs Organizations announce Hospitals as First Stop for Rape Victims</h1><p class="subtitle">14.06.2017</p></h1>
+	<p class="newsarticle"><p>10 womenâs and trade union organizations held a joint press conference at the offices of the <em>Government Teachersâ union</em> to announce that Hospitals, and <em>not</em> police stations, are now the very first port of call after rape or other cases of sexual aggression. That this announcement is being made by womenâs organizations and unions is bizarre: it is the Stateâs responsibility to inform people of this important victory for the womenâs struggle. But this has not happened.</p><br /><p>Â The story behind this Press Conference is a long and interesting one! Â In fact, this victory â having Sexual Assault Units set up in hospitals, in a way that they come to life at the Records Section as someone takes out a card at Casualty at any of the main 6 hospitals after such an aggression â was hard won in 2006, 11 years ago. This was when Mrs Indira Seeburn was Minister of Womenâs Rights.</p><br /><p>Â But âsocietyâ has continued either to usher victims of sexual aggression into a police station or to hush up the entire aggression. Patriarchy gave you only these two choices: you go to a police station or you cover up the aggression.</p><br /><p>Â After many years of militating for this, Rape Crisis Units were in fact set up for the first time in 2002 by Minister Arianne Navarre in two hospitals. But they were never known about, and that was why the womenâs movement pushed for a written âProtocolâ between the Health and Womenâs Ministries and the Police Commissioner, a demand which we âwonâ in 2006 (See below, attached).</p><br /><p>Â But victories, especially in downturns, can be pyrrhic. And the victories won in both 2002 and 2006, were indeed both pyrrhic.</p><br /><p>Â âWe would still,â Lindsey Collen, told the Press and MBC TV, âhear of a 15-year-old girl, having been raped at Grande RiviÃ¨re bridge, going to Line Barracks, being told that the police concerned were in fact the Pailles Police Station; when she went to Pailles Police Station, she was re-directed to Coromandel police station because the rape took place on the other side of the River; when she got to Coromandel, she was sent to the Pointe aux Sables Police Station, because the rape took place on the other side of the Bridge. And no-one was in the âwrongâ in any of this. The young girl spent over 18 hours, without medical or other care.â She and her family did not know they could, and should, go direct to the Jeetoo hospital for immediate treatment. Later, in such a case, if it is the young girlâs wish, a woman police officer can come to the hospital setting and there take her statement, and the police doctor can come and examine her in the hospital rather than drag her to Line Barracks to be examined in a âpoliceâ context. But the young girl did not know of the existence of Sexual Assault Units.</p><br /><p>Â So finally, 10 Associations decided to get together and take an action to force the State to make known the existence of its Sexual Assault Units. They are: Muvman Liberasyon Fam, Government Services Employees Association, Konfederasyon Travayer Sekter Prive, Gender Empowerment Association, Association des Femmes Mauriciennes, Government Teachers union, ComitÃ© Sport Feminine Rodrigues, Mauritius Alliance of Women, Women International Association, Gender Links. The Nursing Association is one of the driving forces behind this move, and it will be debating the issue when its leadership returns from a nursesâ conference in Barcelona. Other organizations considering being part of the collective are UPSEE and SPSTU and SOS Femmes. The 10 organizations already in the collective have written a joint letter to â</p><br /><p>Â Minister of Gender Equality Fazila Jeewa-Daureeawoo</p><br /><p>Minister of Health Anwar Husnoo.</p><br /><p>Minister of Education Leela-Devi Dookun, who can popularize the protocol in schools</p><br /><p>Police Commissioner Mario Nobin.</p><br /><p>Â The philosophy behind this demand for Hospital Sexual Assault Units to be the first port of call for rape victims, is a clear one, both Lindsey Collen and Rajni Lallah argued.</p><br /><p>Â While everyone in the world says they are against rape and sexual aggression, not everyone has the same demands. There is one political current that calls for more punishment, even 30 or 60 yearsâ imprisonment, or worse still the return of the death penalty for particularly heinous rapes. The 10 organizations who have signed up are <em>not</em> pleading for more punishment to be meted out to rapists. We believe that this demand for more punishment has unintended consequences, often dangerous ones. For a start, once a rape or sexual aggression has been committed, and we know these are extremely common, if the punishment is, say, the death penalty or life in prison, there is a high probability that the rapist will murder his victim, her often being the only witness. In addition, it is a patriarchal way of attempting to resolve a problem of patriarchy, Rajni Lallah explained. Â Â </p><br /><p>Â We call for this change in first port of call because it immediately points a finger at the aggressor by society, collectively, through the free health service, taking care of the victim. By encouraging victims â young girls, young and old women, and sometimes boys and men â to go straight to the nearest hospital, we are showing that they have been <em>wronged.</em> We are showing that it is not them that are under accusation. They will be cared for for any physical harm suffered, be treated against unwanted pregnancy resulting from the rape, be treated preventively for any contagious diseases, and also be signed up for psychological support. And, even before that, on the way to the hospital, the victim will be able to talk about the trial she has been through more easily knowing she will be cared for, than if she is on the way to the police station for a grilling.</p><br /><p>Â Ranjita Bunwaree of the Gender Empowerment Association said how rape is a particularly hideous crime. She said how it spares no woman: from the very old to the very young. Often, when some man or men are robbing a house, instead of just setting off with the jewels, they, as if in passing, rape an old lady in the house. The particular nature of rape thus makes it particularly traumatizing for its victims. Hence our plea for the Authorities to launch a vast campaign â through all the media outlets in the country â to make it known that a rape victim can simply go to any one of six hospitals.</p><br /><p>Â Present for the Government Services Employees union, Loga Naidoo, said that the Records Clerks in their union are the ones that begin the process.</p><br /><p>Â The hospitals concerned are: Â </p><br /><p>Jeetoo in Port Louis</p><br /><p>Candos in Quatre Bornes</p><br /><p>SSR Hospital in Pamplemousses</p><br /><p>Flacq Hospital</p><br /><p>Jawarhalal Nehru in Rosebelle</p><br /><p>and Queen Elizabeth in Rodrigues.</p><br /><p>Â As Rajni Lallah put it in the Press Conference, the idea that you can separate society into a small group of ârapistsâ and âsexual aggressorsâ and the rest shows a lack of understanding of the problem of patriarchy. Most rapes and sexual aggression take place in the immediate vicinity of the victim, often within the sacrosanct âfamilyâ. So rapists are all over the place, and cannot just be locked up. We women want to have the wherewithall to defend ourselves. We want this through our own emancipation.</p><br /><p>Â Below are copies of both the Open letter to the 3 Ministers and Police Commissioner and the Protocol itself, which is today already in place. So, as from today, please could any reader inform anyone in their environment that in the unfortunate case of a sexual assault, go to one of the 6 main hospitals, not the police station.</p><br /><p>Â <strong>OPEN LETTER ON SEXUAL ASSAULT UNITS </strong></p><br /><p>To: 1. Min. of Gender Equality, Child Development & Family Welfare, Hon. Fazila Jeewa Daureeawoo</p><br /><p>2. Minister of Health and Quality of Life, Hon. Anwar Husnoo</p><br /><p>3. Minister of Education, Hon Leela Devi Dookhun</p><br /><p>4. Commissioner of Police, Mr. Mario Nobin.</p><br /><p>Â Dear Madam, Dear Sirs,</p><br /><p>Â <strong>Re: Appeal for massive âInformation Campaignâ to Popularize Knowledge of the existence in Hospitals of <em>Sexual Assault Units</em></strong></p><br /><p>Â We, in the womenâs movement, mindful of the suffering that victims of rape and other forms of sexual aggression suffer when, after their original ordeal, they then have to spend painful hours first at a Police Station giving a statement and then at the Line Barracks for medical examination, fought for and finally won <em>Sexual Assault Units</em> in 6 major hospitals in Mauritius (including Rodrigues).</p><br /><p>Â This was in 2006.</p><br /><p>Â In fact, we had won such Units in 2002 â in Jeetoo and Candos â but they fell into disuse because the public was not aware of the existence of the Units, victims continuing to go through the calvary of <em>Corps de Gardes</em> and Forensic examinations under police conditions. So, we again put pressure on the Authorities and this time around, as you all already aware, won the 2006 written Protocol.</p><br /><p>Â The Protocol clearly gives women the choice of going directly to the hospital and there, after being cared for, she is examined by the Police Medical Officer in a hospital setting, and then gives a statement to a Woman Police Officer who calls at the Hospital if and when the woman is ready to give a statement. The existence of this âfast track one-stop-at-the-hospitalâ changes the balance of social forces in favour of women victims: society is caring for us, not doubly punishing us. It means the victim is not the guilty one. She already begins to speak about what happened â to all those around her in the healing atmosphere of a hospital â and as everyone knows, this diminishes the trauma of rape.</p><br /><p>Â Once again, we hear of women who have trailed from police station to police station. The same age-old pattern has not yet been interrupted, despite the will to put in place the Protocol.</p><br /><p>Â So, what are we writing for? At a meeting of one of the signatories, Womenâs International Association in April at Quatre Bornes, the idea was born of calling for something very specific and easy:</p><br /><p>Â An information campaign on a huge scale:</p><br /><p>- A series of announcements on TV and radio so that the whole of the public knows where to go in cases of sexual aggression (a campaign like the one on prevention of the spread of chikungunya and malaria, for example) direct to one of the six hospitals.</p><br /><p>- A series of ads in newspapers, announcing the Units and the Protocol.</p><br /><p>- A joint press conference of the Gender and Health Ministers and the Police Commissioner to inform the public specifically of the right to go straight to a hospital for care.</p><br /><p>- For staff in the Gender and Health Ministries to be trained on the Protocol, in particular the records clerks at the 6 hospitals who the Protocol puts in charge of detonating the âfast trackâ. For staff in Police Stations to be trained to offer women the choice to go direct to the hospital, and give a statement from the hospital.Â </p><br /><p>Â Yours sincerely,</p><br /><p>Â Confederation Travayer Sekter Prive â Jane Ragoo</p><br /><p>Gender Empowerment Assocation â Ranjita Bunwaree</p><br /><p>Ass. des Femmes Mauriciennes â Miriam Narainsamy</p><br /><p>Government Teachers union â Maria Pillay</p><br /><p>Government Services Employees Association</p><br /><p>Muvman Liberasyon Fam â Rajni Lallah</p><br /><p>ComitÃ© Sport Feminine Rodrigues â Merline Francois</p><br /><p>Mauritius Aliance of Women â Keerun Mathur</p><br /><p>Gender Links â Anoushka Virahsawmy</p><br /><p>Women International Association â Mrs Brijmohun</p><br /><p><em>For the Womenâs Front on Popularizing the Fast Track Protocol for rape victims to go direct to Hospital.</em></p><br /><h2>Protocol of Assistance to Victims of Sexual Assault</h2><br /><h3>Main Provisions</h3><br /><p>With the application of the Protocol (since March 2006), adult victims of sexual assault may call:</p><br /><p><strong>(Scenario 1)</strong> At the <strong>Police station</strong> found in the area where the offence has been committed; or</p><br /><p><strong>(Scenario 2) Directly</strong> at any of the <strong>Sexual Assault Units</strong> of the <strong>5 regional hospitals</strong> (Dr. Jeetoo, SSRN, Flacq, J,Nehru & Victoria) [and Rodrigues Hospital].</p><br /><p>Â </p><br /><p>Scenario 2: When a victim of sexual assault goes directly to any of the 5 regional hospitals:</p><br /><p>* The victims goes directly to the Casualty Department.</p><br /><p>* The Medical Records Officer (Casualty) will immediately inform the Ward Manager or the Charge Nurse of the Casualty about the case so that arrangement will be made forthwith to receive the victim who is then seen, on a fast track, by the doctor for emergency treatment, if required;</p><br /><p>* The Ward Manager/Charge Nurse will inform other medical officers, Ward Manager, Charge Nurse of designated Wards for admission of victims (Gynecologist, Psychologist, Medical Social Worker) about the case so that they arrange to see the victim at the hospital;</p><br /><p>* A specific place is being earmarked by the Ministry of health and Quality of Life in one Ward for female adults where the team mentioned above will see the victim as and when required. Arrangements will be made at the level of the hospital for victims to be treated in the presence of a close female relative </p><br /><p>* The Ward Manager/Charge Nurse will inform the Police Post which in turn contacts the Police Station in the locality of the hospital and makes arrangements for a statement of the victim to be taken;</p><br /><p>* A Woman Police Officer from the Police Station of the locality of the hospital will take the preliminary statement of the victim. Further statements would need to be taken, at a later stage, by officers of the Police Station of the region where the offence took place;</p><br /><p>* The medical examination is undertaken and swabs are taken by the Police Medical Officer at the hospital;</p><br /><p>* Appropriate treatment for HIV/AIDS should be given to the victim.</p><br /><p>* The Police Post informs the Ministry of Womenâs Rights, Child Development, Family Welfare and Consumer Protection of the case of sexual assault. Subject to their consent, adult victims will be provided with psychological assistance by the Psychologists of the Ministry of Womenâs Rights, Child Development, family Welfare and Consumer Protection.</p><br /><p>Scenario 1: When a victim of sexual assault reports the case to the Police Station in the locality where the offence has been committed:</p><br /><p>* Victim gives a regular declaration regarding only the gist of the offence. The full statement may be taken, at a later stage, at the hospital. Thereafter, the victim proceeds to the nearest regional hospital;</p><br /><p>* The Police Station contacts the Police Medical Officer and makes arrangements for the early examination of the victim;</p><br /><p>* The Medical Records Officer (Casualty) will immediately inform the Ward Manager or the Charge Nurse of the Casualty about the case so that arrangement will be made forthwith to receive the victim who is then seen, on a fast track, by the doctor for emergency treatment, if required;</p><br /><p>* The Ward Manager/Charge Nurse will inform other medical officers, Ward Manager, Charge Nurse of designated Wards for admission of victims (Gynecologist, Psychologist, medical Social Worker) about the case so that they arrange to see the victim at the hospital;</p><br /><p>* A specific place has been earmarked by the Ministry of health and Quality of Life in one Ward for female adults where the team mentioned above will see the victim as and when required. Arrangements will be made at the level of the hospital for victims to be treated in the presence of a close female relative;</p><br /><p>* The medical examination is undertaken and swabs are taken by the Police Medical Officer at the hospital;</p><br /><p>* Appropriate treatment for HIV/AIDS should be given to the victim.</p><br /><p>* The Police Station informs the Ministry of Womenâs Rights, Child Development, Family Welfare and Consumer Protection of the case of sexual assault. Subject to their consent, adult victims will be provided with psychological assistance by the Psychologists of the ministry of Womenâs Rights, Child Development, family Welfare and Consumer Protection.</p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612092804" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612092804" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612092804" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612092804" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612092804" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612092804" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612092804" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612092804" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612092804" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Grav Kriz Kovid ek Grav Kriz Politik ek Institisyonel</h1><p class="subtitle">03.11.2021</p></h1>
+	<p class="newsarticle"><p>Sityasyon politik dan pei byin, byin grav. Ena enn seri divizyon pe fann pei la an diferan âkanâ, me pa lor baz program. Divizyon la ena eleman klas sosyal. Li ena eleman kominal. Ena azitasyon politik otur diferan posib lalyans ki pe diviz dimunn. Plis ena eleman zeo-politik tultan prezan, avek diferan lintere pe ris dan diferan direksyon. Sa divizyon dan pei la, li osi konsern kisannla gayn so linformasyon depi ki lapres â depi ki medya; de-plizanpli ena 2 ârealiteâ diferan dan medya, seki apel diferan âbubbleâ an Angle, inpe kuma bann âbubbleâ lor rezo sosyal. Sa lartik la, kan fini expoz inpe sa bann divizyon la, pu gete ki pe arive anterm lepidemi Kovid, e anterm enn kriz politik ek institisyonel dan pei.</p><br /><p><strong>Klas ki ar Guvernman ek Lopozisyon aktyelman</strong></p><br /><p>Kote klas sosyal, nu finn gete kinzenn dernye. An-gro, burzwazi ki-a-fer li pe sumet divan reyn Jugnauth pu li gayn akse a kapital pu travers kriz Kovid. Klas travayer napa pe opoz sa guvernman la, mem li enn guvernman pro-kapitalist â gras-a so bann mezir plito paternalist anver klas travayer, kuma saler minimem, ogmantasyon pansyon, kontrol sertin pri, ar PRB re-ser levantay saler.Â </p><br /><p>Tit burzwazi â tu so diferan sekter â pe alimant enn Lopozisyon parlmanter ek extra-parlmanter, ki an-myet, e ki pe sot-sote lor nerport-e-kwa, san okenn koerans anterm ni platform, ni naryin.Â </p><br /><p><strong>MSM rod konsolid alye lor baz kominal</strong></p><br /><p>Kote kominal, ena enn Guvernman ki pe fye lor sutyin kominal â atraver rezo kominalo-relizye kuma Hindu House, Sanatan Dharma ek Federasyon Gregoire, kot li viz pu azut but-but sutyin kominal ek su-kominal, ansam deryer li.</p><br /><p><strong>Zeo-politik instab</strong></p><br /><p>Kote zeo-politik, MSM finn tultan pros ar e Lind e Lasinn. Me, sa, li nepli sitan fasil. Premye Minis Modi finn ramenn Lind koste ar Lamerik depi lepok Trump, tandi ki Lasinn pe sibir atak konstan depi sa-mem Lamerik ki pe anserkle li ar armaman pu sanse âkontenirâ li. Kanta UK-USA, zot tuzur pe santi enn laraz kont Leta Moris akoz li finn oze al UNCLOS (kan Navin Ramgoolam ti Premye Minis) e ICJ ek Lasanble Zeneral Nasyon Zini (kan Jugnauth Sinnyor ek Jinnyor ti Premye Minis) lor zafer Chagos. Lafrans tuzur ena linfliyans lor politik Moris, me mwins ki lepok kan li ti kapav sud ansam dan enn lalyans Seewoosagur Ramgoolam ek Gaetan Duval par trap zot lame ansam lor enn lestrad.Â </p><br /><p><strong>Parti politik dans-danse rod Lalyans</strong></p><br /><p>Kote parti politik. Ena Travayis ki dan enn pozisyon konpetisyon ar Jugnauth pu sa mem rol ki MSM ena. E ena buku koze, anmemtan, ki ena enn tandans anfaver enn lalyans Ble-Blan-Ruz. Nu bizin rapel ki depi kumansman MSM, so tandans konstan sete pu return ver Ble-Blan-Ruz, kan li izole. Dayer, memwar kosmar lalyans PT-MMM an 2014, li ranforsi sa lel Travayis la. E, etan done Ramgoolam ankor sufran apre enn move, move moman avek Kovid, Parti Travayis antan ki enn parti avek enn siper-maestro lider, li lor buton HOLD kan so lider pa byin. Purtan, PT li pli gran parti dan Lopozisyon â anterm syez, e osi anterm sutyin elektoral.</p><br /><p>Sa les MMM ek PMSD tusel ansam. Zot pa ditu byin ansam â mem avek Bhadain ek Bodha pe azir kuma lakol â dan Lopozisyon. Samdi, lakol â pa lakol â akoz lider Xavier Duval aparaman ti sufran, PMSD ti absan depi Konferans de Pres. Alor, Lider Lopozisyon so parti pa ti dan Konferans de Pres Lopozisyon. Nu remarke ki sa kwinsid avek Abbas Mamode integre MSM dan Parlman, dan enn moman kot ena koze lor Armance, e Lobine ti ansam dan enn evennman sosyo-kiltirel ar Pravind Jugnauth.</p><br /><p><strong>Medya</strong></p><br /><p>Asterla, anu get kote Lapres.</p><br /><p>Lontan, buku dimunn â sirtu opinion leaders alabaz â ti asteÂ <em>LâExpress</em>Â gramatin,Â <em>Le Mauricien</em>Â tanto, tulezur. Editoryalist dan sa de lapres la ti ena enn gran infliyans lor analiz ki dimunn ti fer lor sityasyon politik dan Moris. Me, pu buku rezon, linfliyans lapres ekrit finn evapore.Â </p><br /><p>Dan sa dernye tan la, ena bann fidel a sa de lagazet la ki pe refiz aste. Zot finn â ki-a-fer â turne verÂ <em>Le Defi</em>, e si tu kopiÂ <em>Le Defi</em>Â fini vande, zot prefer al san lir okenn lagazet, afors zot finn devlop enn repinnyans pu lezot lapres. Mo pe pans sirtu 2 ânam lagazetâ, enn apel Michael e li res lavil, lot la Paul e li res lakanpayn, ki tulde plis ki 55 an, e pa ti kapav viv san lir sirtuÂ <em>LâExpress</em>. Fami nu vwazin osi, zot pran zisÂ <em>5-Plus</em>Â ekÂ <em>Star</em>Â zur Dimans asterla; zot finn kupÂ <em>LâExpress</em>Â ekÂ <em>Week-End</em>Â (Zot lir lagazet zis pandan wikenn). Sa vedir ena buku dimunn nepli mem kone ki nuvel, ki lopinyon, ki analiz, ena dan lapres. E seki lirÂ <em>LâExpress</em>Â ekÂ <em>Le Mauricien</em>Â pe bizin konsom tu kalite lartik sarkastik, lartik kot fe pa finn cheke, lartik avek enn ton âsiperyerâ kuma leitmotif inpe kolonyal, ki swa lekter la adopte li-mem, swa gayn telman degu, li ule aret lir. Lor Kovid, par exanp, lapres finn lav so lame tu responsabilite pu inform dimunn tulezur lor dezinformasyon lor vaksin lor innternet; o-kontrer li veykil li dan so kolonn. Okenn lapres ubyin medya pa finn angaz enn kanpayn suteni anfaver vaksinasyon, anfaver port mask, anfaver ranforsi lopital piblik, mem anfaver investi dan ranforsisman lasante piblik. Lapres ena lespas pu gro-gro paz reklam, radyo plin zorey oditer ar reklam pu prodwi a-vann pu profi, me pena lespas ni letan pu fer zot devwar sitwayin, donn kudme kontrol enn lepidemi? Antuka, malgre sa degradasyon dan lapres, dan LALIT nu ankuraz tu nu manb, kontiyn lir bann lagazet, me avek enn bon doz lespri kritik.Â </p><br /><p>Anmemtan, sak swar lor MBC, enn bon parti popilasyon asize get Pravind Jugnauth lor nuvel TV (parfwa dan 5 diferan zafer li finn fer dan so zurne) pe fer long-long diskur kont Lopozisyon, kont Lapres, suvan dibute akote lider sosyo-kiltirel kuma dan Hindu House ubyin Sanatan Dharma, e dan prezans O-komiser Indyin Mm Nandini Singla. Li pa zis enn abi puvwar. Li grotesk. E sa osi fer buku dimunn gayn enn degu. La osi, dan LALIT nu ankuraz tu nu manb, kontiyn get nuvel MBC, la osi, avek enn lespri siper-kritik, kom tuzur.</p><br /><p>Anmemtan, ena enn bon pursantaz dimunn ki refiz get MBC. Pa zis zot pa get so nuvel, me zot refiz get okenn so program. Suvan, zot truv MBC tro âinferyerâ. Zot gradyelman vinn kuma enn âdyasporaâ dan zot prop pei. Zot vinn mem kuma enn kolon dan zot prop pei. Zot fye lor tu kalite dezinformasyon onn-layn. Zot get televizyon Franse ek Lareynion. Ena ki gard zot televizyon lor Top TV ubyin Tele-Plus. Tusala pu montre kimanyer pei la pe kontiyn divize.Â </p><br /><p>E, avek lokdown e osi travay depi lakaz, ena buku dimunn pa pe zwenn dimunn andeor zot serk familyal, setadir ranferme an-term kominal, zot zot nepli pe al dan rankont âuverâ â kuma travay, klib, sware ar koleg travay, reynion sindika, lasosyasyon, koperativ dan vilaz. Dimunn finn repliye ver lafami, e sa vedir, pli izole dan zot prop âkominoteâ ki dan lepok normal. Tusala sirtu vre dan klas ti-burzwa. Parmi lamas travayer, tu dimunn pe zwenn ansam dan travay â dan transpor piblik, lor sime dan landrwa, tu dimunn oblize ansam pre-pre.</p><br /><p>Anu get kimanyer reyn Jugnauth so prop listwar vinn agrav sa sityasyon la.</p><br /><p><strong>Rezim Jugnauth â So Rasinn e so Lalyann</strong></p><br /><p>Reyn Pravind Jugnauth li enn kontinyasyon reyn Aneerood Jugnauth, depi moman ki MSM ti met dibut an 1983 â kuma amalgamasyon PSM Harish Boodhoo, ansam avek enn but âguvernman MMMâ otur Jugnauth-Bayat (paÂ <em>parti</em>Â MMM, ki ti res otur BÃ©renger, LâEstrac). MSM finn reysi ris lamwatye klas travayer ar li â sirtu dan lakanpayn â sirtu akoz Paul BÃ©renger antan ki Minis Finans ti rod inplemant kondisyon FMI ek Labank Mondyal kuma tir sibsid lor diri-lafarinn, e buz kapital ver patron tablisman anplas al delavan nasyonaliz sis tablisman. Tusala pu dir ki MSM, li enn parti ki ti ne, e ki existe sirtuÂ <em>dan guvernman,Â </em>e anmemtan, li reysi pran âmezirâ anfaver klas travayer, san enn program dan faver klas travayer. Apre kanpayn eleksyon zeneral 1987, pu ed so perenite kuma enn Parti politik, Aneerood Jugnauth finn pran bann milyon Rupi ki ti reste dan so kofor elektoral, finn servi li pu pu kree Sun Trust. Defo striktirel, ek defo kote moralite politik, ar Sun Trust, se li enn Trust familyal â pa enn trust politik.Â </p><br /><p>Klas sosyal ki finn vreman fidel ar reyn Jugnauth depi kumansman reyn MSM ti enn klas antreprener â bann dimunn ki res Rut Rwayal dan landrwa kuma Payot, Belroz, Vakwa, e tu gran vilaz â ki tipifye par kamyoner ki ena 3-4 kamyon, proprieter bis individyel ek minibis, proprieter ti-restoran, ansam ar preske totalite klas butikye. Sa so bann âfermâ, ziska zordi. MSM bizin tultan lite buku pu sey gayn ti-planter ar li â zot tandans se pu return asak-fwa ar Travayis.</p><br /><p><strong>Zordi, âLetaâ MSM</strong></p><br /><p>Anu get âleta MSMâ, ki finn preske ranplas sa ansyin âLeta Travayisâ. Nu get li par enn-de tit:</p><br /><p><strong>MSM: Kovid ek sistem lasante</strong></p><br /><p>Dabor, nu truv MSM inn ariv limit so kapasite pu gid pei la atraver kriz Kovid.Â </p><br /><p>La, kot tu ete zordi, kriz la pe depas tu institisyon. Alor, sa vedir MSM so mank mobilizasyon lamas dimunn pu fer nu tu pey ser. Sa mank mobilizasyon finn tipifye so reyn; rapel kimanyer kan li ranport laviktwar dan Eleksyon Zeneral, li pa fer ni selebrasyon ni miting remersiman. Li vreman krwar ki âletaâ san lepep, kapav reyne.</p><br /><p>Me, kan Kovid finn repandi kumsa. Kan tro buku dimunn infekte kuma asterla, kan finn re-lans lekonomi e tu dimunn pe sorti, ki nu truve? Lopital pa pu kapav debruye. Lepok pu vinn som pu nu tu, si nu pa mobilize. Alor, nu fer apel a tu parti politik, tu lorganizasyon demokratik dan sa pei la, tu lapres ek medya, pu pran enn pozisyon anfaver enn âSartâ pu kontrol Kovid:</p><br /><p>Â - Ankuraz tu dimunn, totalite popilasyon pu al fer vaksin enn fwa; sa ki pu marse. Sak parti politik, sak tit medya, tulezur bizin pran pozisyon anfaver vaksinasyon kont Kovid, ankuraz sa dernye 100,000 adilt ki ezite, pu al pran vaksin deswit â dan lintere lansanb sosyete.</p><br /><p>Â - Ankuraz tu dimunn kontiyne met mask byin, gard distans sosyal tan ki kapav; sa ki pu marse.</p><br /><p>Â - Prepar u-mem ek lezot dimunn pu pare pu lezot mezir pu ralanti propagasyon viris Kovid â kuma al Supermarket par alfabet.</p><br /><p>Antuka, kapasite MSM pu kontiyn sa batay kont Kovid, li an-kestyon asterla. Ziska kumansman dezyem vag, kriz kovid ti zere plito byin, anterm epidemyolozik, par trio Gudjadhur-Gaud-Musano.Â </p><br /><p>Me, asterla, avek sa mobilizasyon neseser pu fer fas sa imans vag nuvo ka, MSM pa pu kapav.Â </p><br /><p>Nu pu bizin enn mobilizasyon popiler asterla, si nu ule eparyn nu lepir. E nu pa kapav fye lor MSM pu sa.</p><br /><p><strong>Tennder ek Kontra</strong></p><br /><p>Dan premye konfinnman, finn ena enn abi total lor sistem tennder dirzans â pu guvernman akerir laparey kuma venntileyter, medikaman, mask, tu.Â </p><br /><p>Gras-a bann âAvengersâ â met de-kote zot motivasyon â ka fe Soopramanien Kistnen, azan MSM asasine, finn expoz mini-mafya onivo Rezyonal No. 8 â avek enn eleman klik-komino-familyal â pu donn kontra ek tennder. Sa finn permet nu konpran dan enn fason pratik âleta MSMâ pli byin. Sa permet nu kapav extrapole ki enn tel sistem existe dan plizir lezot sirkonskripsyon. Kistnen, li-mem, li ti ladan, e li pa ti satisfe avek so degre proteksyon, e finn destabiliz sistem la. Amizir nu finn truve kimanyer sa kalite mini-mafya marse, nu konpran dan lapratik sa klas âkontrakterâ ek âantreprenerâ ki form baz sosyal MSM.</p><br /><p><strong>CID e Forennzik</strong></p><br /><p>Klerman, kan nu swiv ka otur fe Kistnen, nu kone ki ena grav problem dan CID. Nu ti deza kone. Me, la, ankor enn fwa, so mekanism vinn evidan. Zot napa kapav fer lanket. Anplis, tu kalite presyon, fer zot gat lanket. Polisye individyel fer fwit ar zurnalist individyel kumkwa lamor Kistnen enn ka ki CID pe trete kuma âswisidâ â enn zafer ki yerarsi niye apre; zot dir depi tultan CID inn tret li omisid mem. Alor, sa enn sistem. Fer polisye individyel donn enn fos nuvel enn zurnalist individyel, ki reysi fer pibliye sa, san okenn konfirmasyon. Apre enn banane, e apre The Avengers lev tole, CID finalman ariv examinn portab Kistnen. Lerla, enn banane apre, zot kumans al get dimunn ki Kistnen ti dwa larzan, e ki ti sonn Kistnen avan so lamor.Â </p><br /><p>Antretan, Komiser ubyin so port-parol zame vinn fer okenn deklarasyon piblik lor kot zot lanket inn arive.</p><br /><p>Dan ka Kistnen, kan staf Forennzik finn vinn temwayne, la osi, pa gayn enn konpran. Zafer sinp kuma livrezon enn Rapor a CID pa futi fer.Â </p><br /><p><strong>Geng</strong></p><br /><p>Klerman ena geng pe opere â avek lyin andan dan lapolis â an proximite ar zom politik â dan Guvernman e osi andeor. Asterla Rama Valayden, ki deza e politisyin e avoka, pe organiz li kuma port-parol pu polisye ankoler. Sityasyon byin instab avek sa kalite muv la. Nu pe kumans truv tu kalite inbriglio. Sey konpran sa: enn Abitan Albion ki Kistnen ti dwa larzan ti koz manti lor lefet ki li pa ti ena kontak telefonik ar Kistnen inpe avan so lamor kan CID ti kestyonn li alepok. Kan konfront li ar forennzik depi portab Kistnen, li gard so silans. So avoka li Me. Teeluckdharry (nome dan Komisyon lor Trafik Ladrog, rapel) me ki deza avoka Mms Vev Kistnen, ki dan mem ka. E kisannla ti avoka sa abitan Albion kan li ti inplike dan enn ka konsernan enn krim kot ti ena mor-dom lane dernyer? Rama Valayden. Kisannla ti so taper kan li vinn Lakur Bambous kan li akize sa mert la? Taper Rama Valayden, ki finn mor dan enn aksidan resaman, e ki Valayden met lor lalist âlamor sispeâ, Marcelin Humbert. Tusala nu lir sirtu dan Le Defi, e li paret fwit depi CID. Si li vre â Teeluckdharry ek Valayden pa finn niye â abe sa kalite kari-melanz â ant politisyin, bandi, taper, avoka 2-kote, e port-parol gard â li danzere.</p><br /><p><strong>Zidisyer</strong></p><br /><p>Enn lot zafer byin byin danzere. Li konsern kiksoz nu aprann atraver derulmanÂ <em>Private Prosecution</em>Â kont Pravind Jugnauth pu parzir, ki Suren Dayal finn mete, e ki Jugnauth pe chalennj dan Lakur Siprem. Enn papye depi andan dan dosye Mazistra dan zafer Kistnen finn al ariv dan Innbox sa-mem Maunthrooa ki ti antray dan zafer Boskalis e ki finn return PMO fek-la; papye la finn lerla al ariv dan Innbox enn avwe Pravind Jugnauth ki pa mem dan sa ka la. Sa, li enn lot nivo malfonksyon dan Zidisyer ankor, dan enn zidisyer ki deza ena repitasyon pu malfonksyonnman kronik.</p><br /><p><strong>Komisyon Elektoral</strong></p><br /><p>Asterla, pu premye fwa, Komisyon Elektoral pe vreman kumans vinn an-balans. Dabor, Lopozisyon finn atak li. Asterla, se Guvernman ki pe rod karyat li.</p><br /><p>Parey kuma sistem lasante piblik an-difikilte, apartir asterla, nu bizin byin vizilan lor lindepandans Komisyon Elektoral. Dabor, finn ena sa kanpayn infekt par lopozisyon kont âeleksyon trikeâ. Sa finn bles sa institisyon la. E sa paret ti so bi. Li enn taktik danzere depi sa band âeleksyon kokinâ la. Jugnauth fini nom enn so dimunn lor sa Komisyon la. Asterla, Basset finn demisyone, pu reprezant Jugnauth dan ka dan No. 8 kont li danÂ <em>Private Prosecution</em>Â pu parzir lor depans elektoral. Sa vedir enn lot MSM pu nome. Li pa kler kan Me. Basset finn demisyone â so nom ankor lor websayt ESC. Ena osi Me. Robert ki lor Komisyon, e ki finn siyn affidavit Pravind Jugnauth dan sa ka la, antan ki avwe.Â </p><br /><p>Tusala demontre enn grav danze.Â </p><br /><p>Sistem pu kontrol âDepans Elektoralâ bizin amande dirzans, kuma LALIT finn klerman met dan nu Program, e sa depi lontan. Sa vedir na pa al nway pwason dan âfinansman parti politikâ, ni frol danze permet rezim ki anplas gayn enn kontrol total lor tu lezot parti politik par tu kalite birokrasi (anrezistreman, kontrol finans tu parti, etc) â akoz li pu danzere net. Seki bizin fer se ferm sa âloopholeâ ki permet depans plis ki som legal. Samem ki fer kontrol par sa ti-klas kapitalist lor tu parti meynstrim pli orib.</p><br /><p><strong>De Nuvo lalwa bayon</strong></p><br /><p>Kan nu pe ekrir, ena de lalwa danzere ki MSM pe prezante dan Parlman. Dabor ena enn Bil lor deli innternet ki reprezant enn menas lor liberte dexpresyon. Dezyem, ena enn lalwa pu fasilit explwatasyon petrol, kan Moris pena enn veritab program pu eliminn bril prodwi karbonn.</p><br /><p><strong>Ki kalite muvman pu kapav ranplas enn tel rezim?</strong></p><br /><p>Partu dan lemond, dan lepok aktyel, e depi globalizasyon kapitalist neo-liberal, finn ena enn seri espes âfos chalennjâ â baze lor âsosyete sivilâ san program, baze lor âdesann dan lariâ san koneÂ <em>pu ki</em>Â u pe lite, e tu-dernyeman, baze lor mobilizasyon dextrem drwat dan USA lor âeleksyon kokinâ ek enn form kominalo-nasyonalism otur sipremasi blan, e dan Lind lor kominalo-nasyonalism otur Hindutva. Sa bann form popilis plito dezespere, fas-a enn klas kapitalist san-pitye ki finn, e pe kontiyne, fer piyaz planet, ras tu dibyin, apovri par milyar dimunn, e koronp sistem politik â koronp sa tigit demokrasi pu lekel nu gran dimunn finn lite pandan 200 banane. Sa diferan form mobilizasyon san lorganizasyon politik finn kontiyne depi âprintan Arabâ â kot reysi, par exanp, atraver desann dan lari tir Hosni Mubarak, me ki zordi ranplase apre enn ku-deta kont guvernman Frer Mizelman ki ti eli, par larme pir e par enn reyn brital Abdel Al-Sisi. Dan mem moman, politik âLager kont Tererâ ki Bush ti kumanse finn kontribiye pu detrir bann pei antye, kuma: Lirak, Afghanistan, Liban, Lasiri â e provok deplasman par milyon dimunn. Tusala pu dir, bizin pa zis organizasyon politik me bann âlorganizasyonâ politik.</p><br /><p>Ena pei dan lemond ki Moris resanble ki pe fer fas kolaps total: ena Liban, kot ena enn sistem pli pir ki Besluzer, me mem melanz âkominoteâ ek âpolitikâ. Sosyete Libane pe fer fas kolaps. Dimunn finn desann dan lari, me pa finn striktir zot mobilizasyon deryer enn program kler, ni enn nuvo parti ki kapav kordinn muvman la. Dan Haiti, kot ena mem langaz Kreol ki nu koze, enn kote, ek enn lekonomi ki ti baze lor esklavaz kuma Moris, laba osi, pei la finn tom an-rwinn; ena geng ki reyne, ki extork larzan atraver kidnap dimunn. Premye Minis inn asasine. Ena mersener depi Kolombi ki antray. Me, kisannla pey zot? Ki rol Leta Zini?Â </p><br /><p>Ala, kifer lalit inportan e kifer LALIT inportan. Sirtu dan enn tel moman. Â </p><br /><p>- - - - - - - - - - - - - - -Â </p><br /><p>SA LARTIK LA baze lor âTur Dorizonâ ki, a-tur-derol, fer par manb Komite Santral sak 15-zur dan LALIT. Sannlala, li baze lor Tur Dorizon Lindsey Collen wikenn dernye, e lor deba ki ti swiv apre, ki finn integre.</p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

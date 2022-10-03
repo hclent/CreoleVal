@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612102118" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612102118" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612102118" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612102118" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612102118" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612102118" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612102118" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612102118" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612102118" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Nelson Mandela: The Truth Lives On about Who Supported his Anti-Apartheid Struggle</h1><p class="subtitle">08.12.2013</p></h1>
+	<p class="newsarticle">With the death of Nelson Mandela, the mainstream Mauritian political parties and the entire media are quite unashamedly falsifying the history as to who in Mauritius colluded with the Apartheid State and who opposed the Apartheid system. There is even a near-total denial of the existence of the strong, persistent anti-Apartheid movement in Mauritius, a movement that everyone knows was led by LALIT. This kind of retrospective falsification of history is doing a disservice to the memory of the great anti-Apartheid militant that Nelson Mandela was. Equally importantly, it makes people believe that it is not struggle that wins. Whereas it is. And that falsification, too, is to do a disservice to the memory of Nelson Mandela. Mandela was committed. He struggled. He stood up and was counted. He belonged to a political organization. He protested. He helped develop strategies and tactics. And, together with the actions of the broad masses in neighbourhoods and trade unions in South Africa and also outside, this is what brought victory against Apartheid.<br><br>Those who colluded with the Apartheid Regime, from the PMSD and the Labour Party to the MSM and, once it was in Government from 1982, the MMM, all now pretend that they always stood up against Apartheid. Reading reports, you could be forgiven for thinking that Duval and Ramgoolam (Seniors) sent parcels of arms to Nelson Mandela for the ANCâs armed wing, the Umkhonto we Sizwe! <br><br>There is a generalized pretence being quite consciously constructed to the effect that Apartheid evaporated all by itself. There is a distinct falsification of history going on. It pretends that, without any need for the sabotage campaign that Nelson Mandela, the ANC and other South African political parties embarked upon, blowing up electricity plants and government offices, Apartheid would, in any case, have disappeared, as if by magic. The press does not even make it clear what exactly the bravery was for which Mandela and his comrades were locked up for 27 years. They pretend that Apartheid disappeared without the crucial mass movement of the United Democratic Front set up 30 years ago in South Africa, and intentionally making the Apartheid regime âunable to governâ. Who in Mauritius ever joined us in the call for the USA to stop listing the ANC as a âterrorist organizationâ, which it did until 2008? The leaders of Labour, MSM, PMSD and MMM today pretend that the mass movements outside of South Africa, in particular in the UK, USA and Australia, did not have a role in forcing those respective Governments to apply economic, sporting and cultural sanctions. And of course they and the Press here pretend there was no anti-Apartheid movement at all in Mauritius. <br><br>All these struggles supposedly never happened. <br><br>All these actions never combined, they want us to think, to lead directly to the capitulation of the Apartheid State. <br><br>All these dedicated movements, they pretend, never led to the release of Nelson Mandela. <br><br>All these political actions were not responsible, they lead us to believe, for putting an end to Apartheid. <br><br>The lie has it that Apartheid just volatilized. Or De Klerk just woke up and changed his mind one day. The oppressed did nothing, supposedly, to free themselves.<br><br>They tell these lies today, even as Nelson Mandela becomes beatified precisely for his bravery in the struggle, in the face of oppression. <br><br>These hypocrites and revisionists are now the ones that love Mandela. They are now the ones that love freedom. They are now the ones that were always supposedly against Apartheid.<br><br>They tell all these lies even when everyone knows the PMSD, Labour, MSM and, after 1982, the MMM, were all first-class sanctions busters.<br>The Labour-PMSD government, for example, imported massively, including Outspan oranges, even as LALIT, MMM and MMMSP members ran boycott campaigns. We grouped together in a common front called Solidarite Morisyin Anti-Apartheid (SOMAAP). We opposed Apartheid and aimed our campaign symbolically at Outspan, organizing boycotts. We held events in towns and villages all over Mauritius, forums built around exhibitions of photographs depicting the brutality of the Apartheid regime. There were marches and public meetings. There were forums and debates. Even before SOMAAP was born, there was an organization called Mouvman pou Zistis an Afrik (MOZA) that ran a short campaign against Apartheid. In Moza, there were, amongst others, Amedee Darga, Jean-Claude Bibi, Ram Seegobin,Alan Ganoo, Nalini Burn, myself. <br><br>The PT-PMSD Government curried favour with the Apartheid regime in exchange for a market for Mauritian tea. More sanctions busting. This took place even as LALIT members in SOMAAP were commemorating the Sharpeville Massacre, marking the tragic day when the Apartheid regime gunned down a peaceful protest organized by the PAC against the ID Cards called âpassesâ, and that led to the banning of the PAC and the ANC. There were vigils and petitions in Mauritius to mark this turning point in the anti-Apartheid struggle. There were calls to the Government to stop its collusion with Apartheid. There were rallies and slide shows depicting the reality of Apartheid.<br><br>The PT-PMSD welcomed South African Airways to land at Plaisance when all over Africa the boycot stood firm. This even as LALIT and MMM members in SOMAAP ran campaigns in favour of the Soweto students gunned down while protesting against the introduction in schools of Afrikaans, considered by the high school children of Johannesburg to be the colonial language of Apartheid.<br><br>The mainstream parties and the press tell these lies even when a glance at newspaper cuttings of the time shows that the MMM, after coming to power in 1982, facilitated South African capital, Sol Kerzner and his Sun Resorts, buying up from the WEAL group the two hotels, La Pirogue and Touessrok. After that the MMM never did anything else but pay lip-service to the anti-Apartheid movement, and even that, very rarely. Ivan Collendavelloo lost his MMM seat in a La Caverne-Phoenix by-election in 1989 precisely because he was the one who signed a Sol Kerzner testimonial, and precisely because the level of consciousness in the electorate was high against Apartheid.<br><br>And it was during a Jugnauth Government in the 1980âs that Mauritius blatantly broke the âsports sanctionsâ that were universally applied against Apartheid South Africa, by hosting the Grand Bay to Durban Boat Race. LALIT members were on the sea in a pirogue with âNO TO THE BOAT-A RACE-ISTâ painted on its sails, as well as standing on the rocks at Grand Bay with banners against Apartheid flying high, in a spectacular SOMAAP protest at the start of the Boat Race in front of the Yacht Club. <br><br>All those who had considered Nelson Mandelaâs struggle a losing battle, given the military force of the Apartheid regime, all those who opposed the armed struggle against Apartheid, all those who had pooh-poohed SOMAAP, all those who caved in because of the persisting economic support for the racist regime by Governments like those of the USA, UK and France â they all now pretend they had always been staunch anti-Apartheid activists, they had always been militants calling for the release of Nelson Mandela and all the other political prisoners locked up on Robben Island on charges of âterrorismâ and âcommunismâ. Talking of Robben Island, it was Henri Favory who put on the play The Island by Athol Fugard translated into Kreol, as part of this exposing of Apartheid and its repression. <br><br>The Anglican Church, when Trevor Huddleston was Bishop of Mauritius, supported SOMAAP and took part in our protests. The Presbyterian Church, when Brian Cosby was here, took a stand and came to demonstrations. Some Swamis participated in SOMAAP protests. But the Catholic Church in Mauritius never agreed with SOMAAP or, to our knowledge, took a formal stand against Apartheid, until the iniquitous system was already crumbling as a result of the struggles against it. The only proviso to this is that the late Father Henri Souchon was always supportive in providing the Social Centre for Anti-Apartheid events.<br><br>It should go on record that, even as the Labour Party colluded shamelessly with Apartheid, even as its ally PMSD was 100% in favour of Apartheid, there was one Labour man who did stand up against Apartheid: the late James Burty David. In the MMM, as the party became more and more complicit with the Apartheid regime, there were some who remained loyal to the struggle against Apartheid: Amedee Darga, Rama Poonoosamy, Percy Lafrance and Steve Obeegadoo. Alain Laridon, too, always stood up against Apartheid, from when he was in the MMMSP. This only goes to emphasize the collusion of their parties. There was a man from the UDM Youth Section of the times, Ramen Ramasamy, who also participated in SOMAAP activities. In the 1980s, a new front was set up called âFron Anti-Apartheidâ (Fraap), in which SOMAAP was a member. The initiative was taken by the late Coll Venkatasamy together with some FPU members, in particular Vishnu Jugdharry and Goparlen Parapen. FRAAP held events and brought out some newsletters, once again coming under LALIT leadership, as others lost interest. <br><br>All this is forgotten now. Or covered up. Or even lied about. Why? We cannot begin to guess.<br><br>The process of now covering up past truths and inventing new narratives began 22 years ago with the liberation of Nelson Mandela. So many of those who had colluded with the Apartheid regime jumped on the band-wagon of victory in 1990 that they themselves all forgot there had ever been a struggle â in South Africa or even here in Mauritius. A Le Defi cartoonist highlighted this hypocricy with a cartoon showing Ram Seegobin of LALIT scratching his head as all the other recognisable politicians are jumping on to the band-wagon, and saying, âMari, sa!â which can best be translated as âLordy!â.<br><br>The tireless work in the movement against Apartheid was accomplished by many, many unknown activists at the grass-roots level, especially in LALIT branches. But it is worth mentioning some whose names stand out for their outstanding contribution: Alain Ah-Vee, Ragini Kistnasamy, the late Ah-Fong Cheong Yeung Chung, Rada Kistnasamy, Ram Seegobin, Ashok Joosery, Jean-Claude Bibi, the late Herve Marcelin (Kolet), Dini Lallah, Toni Ah-Vee, Georges Legallant, the late Liliane Simonet, Rajni Lallah, Swaraj Puddoo, the late Vijay Sukhoo, Madu Lew Chin, Madeven Saminaden, Vijay Ram, Rajiati Chengebroyen, the late Ramesh Khaytoo, Mimose Therese, Mala Toussaint, Amyot Perrine, Mario Jean, Pushpa Lallah, Laval Veerasamy, Moorgesh Veerabadren, Ashok Subron, Veena Dholah, Jean-Clement Cangy, Jayen Chellum, the late Paule Ninan, Doris Ah-Vee, Gitta Luchun, and before the MMM came to power, Paul BÃ©renger.<br>The value of telling the truth is not just intrinsic. It also helps us create a better future. By knowing that it is struggle that brings change for the better.<br><br>Lindsey Collen<br>For LALIT<br>8 December, 2013<br><br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

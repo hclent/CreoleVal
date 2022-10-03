@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100826" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100826" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100826" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100826" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100826" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100826" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100826" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100826" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100826" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Mauritius votes UNESCO Resolution on Occupied Palestine while Israel pockets massive US military subsidy</h1><p class="subtitle">16.10.2016</p></h1>
+	<p class="newsarticle"><p>As Mauritius confronts the USA-UK alliance in the United Nations over their continued occupation of Chagos, Mauritius is also amongst 24 countries in the executive Committee of UNESCO that voted bravely in favour of the Draft Resolution on âOccupied Palestineâ on 13 October 2016, that is three days ago.</p><br /><p>Â The resolution calls on Israel, inter alia, to stop its continued excavation of East Jerusalem and its flaunting of previous Resolutions on Jerusalem and to reconstruct what it has destroyed in Gaza.</p><br /><p>Â It is important that, just as people in Mauritius have put pressure and continue to put pressure on the Government to stand up for Palestinians living under military occupation and even under siege in Gaza, that all peoples world-wide do the same relative to their own Governments. This is particularly important as the final vote will be coming this next week. This kind of pressure, alongside an accentuation of the international campaign started by Palestinians for Boycott, Disinvestment and Sanctions (BDS) is helping to change the balance of political and economic forces against the domineering regime in Israel.</p><br /><p>Â We appeal to all our readers to follow the reality of the Palestinian struggle by going beyond the part-lying, part-masking reporting that typifies mainstream television coverage on Israelâs occupation of Palestine. Once you have understood the main problem of continued cruel colonization by the Israeli state of Palestine, all the propaganda in the world cannot cover up or deny the reality of what is going on. But, for initial understanding, it is important to put an effort into going beyond what is in the mainstream media, where Israel is portrayed as the âvictimâ when it is the aggressor.</p><br /><p>Â Coming back to the UNESCO Resolution on Occupied Palestine, only 6 countries, including the USA and UK voted against the motion, while 24, including Mauritius, voted in favour. Note that the power of the dominating powers is to get as many as 26 countries to abstain, plus two to be absent. The full text of the very carefully worded Resolution is reproduced below for LALITâs readers, as well as the way in which different states members of the executive Committee of UNESCO voted.</p><br /><p>Â <strong>Background of USA massive military support for Israeli colonization</strong></p><br /><p>On 13 September 2016, just one month before the UNESCO draft resolution, the USA made an agreement with Israel for the biggest subsidy ever given to another country: $38 billion in military aid over the next 10 years. This was disclosed by Haaretz, the Israeli newspaper.</p><br /><p>Â This massive US military-financial support, agreed upon in the middle of the US electoral campaign, is clearly what gives the Israeli state apparatus the impunity it benefits from that enables it to pursue its hideous, anachronistic colonization of Palestine, coupled with Apartheid policies against Palestinians. This aid comes at a time when the people of the United States are beginning to succeed in getting themselves informed about the role of their Government and their own tax-money in what can only be described as a genocide of the Palestinian people, and helping, through BDS (<em>Boycott, Disinvestment, Sanctions</em>) to put a stop to it.</p><br /><p>Â <strong>Success of BDS gives rise to attempts to Ban BDS </strong></p><br /><p>The BDS (<em>Boycott, Disinvestment, Sanctions</em>) worldwide movement against Israeli vested interests is gaining so much strength now that the Israeli Government has had to legislate against it. This was as early as 2011. So successful has the BDS campaign been that, in fact, over 12 States in the USA have rushed to pass laws, under pressure from Israeli interests, specifically outlawing BDS. BDS works both economically and ideologically, and this means that Israel gets exposed to public view and thus deprived of the international protection that ensures it Â Â a veil of impunity.</p><br /><p>The anti-BDS laws are an extreme infringement on democratic freedom in the USâs already shrinking post-PATRIOT democratic space.</p><br /><p>In February this year the UK, another staunch ally of the Israeli state, without going through Parliament announced a new law to ban publicly funded institutions from boycotting Israeli goods and services on political grounds. This ban includes student unions, universities, local councils and the National Health Service. The British Cabinet put out a communiquÃ© arguing rather weakly that âLocally imposed boycotts can roll back integrationâ and âfuel anti-Semitismâ, thus conflating opposition to a boycott against a rogue sovereign state with anti-Semitism. Anti-Semitism, in LALITâs view, must be opposed as part of an ongoing anti-racist and anti-bigotry movement that insists, without compromise, on equality for all.</p><br /><p>In June this year, the England and Wales High Court, however, dismissed a judicial review case brought by the new NGO âJewish Human Rights Watchâ against three local authority Councils: Leicester City, Gwynedd, and Swansea.</p><br /><p>Â The judgment (<a href="http://www.bailii.org/ew/cases/EWHC/Admin/2016/1512.html">http://www.bailii.org/ew/cases/EWHC/Admin/2016/1512.html</a>), though a set-back for those trying to get BDS outlawed, and while a victory for the freedom of political expression, is not an outright victory for BDS.</p><br /><p class="Default">Â The case followed attempts to give carefully worded Municipal Council support to BDS. In 2014, the Leicester City Council resolved âinsofar as legal considerations allow, to boycott any produce originating from illegal Israeli settlements in the West Bank until such time as [Israel] complies with international law and withdraws from Palestinian Occupied territoriesâ. Gwyneth Council the same year âcall[ed] for a trade embargo with Israel and condemn[ed] the over-reaction and savageness used [in Gaza]. ... [The Council] confirm[ed] ... [its] decision [not to invest] in Israel or in that countryâs establishmentsâ. Previously, in 2010, Swansea Council noted âwith regret that Veolia is involved in ... contracts with the City & County of Swanseaâ and called on âthe Leader & Chief executive to support the position of the UN in regards to the Israeli settlements in East Jerusalemâ and to note âthat Council does not wish to do business with any company in breach of international law ...â. There was a proviso that the boycott not contravene any law.</p><br /><p>Â The Court found that non-binding resolutions by publicly funded bodies are not unlawful. This represents an important victory for free expression.</p><br /><p>Â </p><br /><p>Â Â  <strong>FULL TEXT of the UNESCO Draft RESOLUTION of 13 October 2016</strong></p><br /><p class="Default">Â PARIS, 12 October 2016</p><br /><p class="Default">executive Board of UNESCO</p><br /><p class="Default">Two hundredth session</p><br /><p class="Default">PROGRAMME AND EXTERNAL RELATIONS COMMISSION (PX)</p><br /><p class="Default">Item 25: OCCUPIED PALESTINE</p><br /><p class="Default">Â <strong>DRAFT DECISION </strong></p><br /><p class="Default">Submitted by: Algeria, Egypt, Lebanon, Morocco, Oman, Qatar and Sudan</p><br /><p class="Default">Â <strong>I.A Jerusalem </strong></p><br /><p class="Default">The executive Board,</p><br /><p class="Default">1. Having examined document 200 EX/25,</p><br /><p class="Default">2. Recalling the provisions of the four Geneva Conventions (1949) and their additional Protocols (1977), the 1907 Hague Regulations on Land Warfare, the Hague Convention for the Protection of Cultural Property in the Event of Armed Conflict (1954) and its related Protocols, the Convention on the Means of Prohibiting and Preventing the Illicit Import, Export and Transfer of Ownership of Cultural Property (1970) and the Convention for the Protection of the World Cultural and Natural Heritage (1972), the inscription of the Old City of Jerusalem and its Walls at the request of Jordan on the World Heritage List (1981) and on the List of World Heritage in Danger (1982), and the recommendations, resolutions and decisions of UNESCO on the protection of cultural heritage, as well as resolutions and decisions of UNESCO relating to Jerusalem, also recalling previous UNESCO decisions relating to the reconstruction and development of Gaza as well as UNESCO decisions on the two Palestinian sites in Al-Khalil/Hebron and in Bethlehem,</p><br /><p class="Default">3. Affirming the importance of the Old City of Jerusalem and its Walls for the three monotheistic religions, also affirming that nothing in the current decision, which aims, inter alia, at the safeguarding of the cultural heritage of Palestine and the distinctive character of East Jerusalem, shall in any way affect the relevant Security Council and United Nations resolutions and decisions on the legal status of Palestine and Jerusalem,</p><br /><p class="Default">4. Deeply regrets the Israeli refusal to implement UNESCO previous decisions concerning Jerusalem, particularly 185 EX/Decision 14, notes that its request to the Director-General to appoint, as soon as possible, a permanent representative to be stationed in East Jerusalem to report on a regular basis about all the aspects covering the fields of competence of UNESCO in East Jerusalem, has not been fulfilled, and reiterates its request to the Director- General to appoint the above-mentioned representative;</p><br /><p class="Default">5. Deeply deplores the failure of Israel, the occupying Power, to cease the persistent excavations and works in East Jerusalem particularly in and around the Old City, and reiterates its request to Israel, the occupying Power, to prohibit all such works in conformity with its obligations under the provisions of the relevant UNESCO conventions, resolutions and decisions;</p><br /><p class="Default">6. Thanks the Director-General for her efforts to implement previous UNESCO decisions on Jerusalem and requests her to maintain and reinvigorate such efforts;</p><br /><p class="Default">Â <strong>I.B Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif and its surroundings </strong></p><br /><p class="Default"><strong>Â I.B.1 Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif </strong></p><br /><p class="Default">7. Calls on Israel, the occupying Power, to allow for the restoration of the historic status quo that prevailed until September 2000, under which the Jordanian Awqaf (Religious Foundation) Department exercised exclusive authority on Al-Aqá¹£a Mosque/Al-á¸¤aram Al- Sharif, and its mandate extended to all affairs relating to the unimpeded administration of Al- Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif, including maintenance, restoration and regulating access;</p><br /><p class="Default">8. Strongly condemns the escalating Israeli aggressions and illegal measures against the Awqaf Department and its personnel, and against the freedom of worship and Muslimsâ access to their Holy Site Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif, and requests Israel, the occupying Power, to respect the historic status quo and to immediately stop these measures;</p><br /><p class="Default">9. Firmly deplores the continuous storming of Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif by Israeli right-wing extremists and uniformed forces, and urges Israel, the occupying Power, to take necessary measures to prevent provocative abuses that violate the sanctity and integrity of Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif;</p><br /><p class="Default">10. Deeply decries the continuous Israeli aggressions against civilians including Islamic religious figures and priests, decries the forceful entering into the different mosques and historic buildings inside Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif by different Israeli employees including the so-called "Israeli Antiquities" officials, and arrests and injuries among Muslim worshippers and Jordanian Awqaf guards in Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif by the Israeli forces, and urges Israel, the occupying Power, to end these aggressions and abuses which inflame the tension on the ground and between faiths;</p><br /><p class="Default">11. Disapproves of the Israeli restriction of access to Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif during the 2015 Eid Al-Adha and the subsequent violence, and calls on Israel, the occupying Power, to stop all violations against Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif;</p><br /><p class="Default">12. Deeply regrets the refusal of Israel to grant visas to UNESCO experts in charge of the UNESCO project at the Centre of Islamic Manuscripts in Al-Aqá¹£a Mosque/Al-á¸¤aram Al- Sharif,and requests Israel to grant visas to UNESCO experts without restrictions;</p><br /><p class="Default">13. Regrets the damage caused by the Israeli Forces, especially since 23 August 2015, to the historic gates and windows of the al-Qibli Mosque inside Al-Aqá¹£a Mosque/Al-á¸¤aram Al- Sharif, and reaffirms, in this regard, the obligation of Israel to respect the integrity, authenticity and cultural heritage of Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif, as reflected in the historic status quo, as a Muslim holy site of worship and as an integral part of a world cultural heritage site;</p><br /><p class="Default">14. Expresses its deep concern over the Israeli closure and ban of the renovation of the Al- Rahma Gate building, one of the Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif gates, and urges Israel, the occupying Power, to reopen the Gate, and stop obstruction of the necessary restoration works, in order to repair the damage caused by the weather conditions, especially the water leakage into the rooms of the building;</p><br /><p class="Default">15. Also calls on Israel, the occupying Power, to stop the obstruction of the immediate execution of all the 18 Hashemite restoration projects in and around Al-Aqá¹£a Mosque/Al-á¸¤aram Al- Sharif;</p><br /><p class="Default">16. Deplores the Israeli decision to approve a plan to build a two-line cable car system in East Jerusalem and the so called âLiba Houseâ project in the Old City of Jerusalem as well as the construction of the so called âKedem Centerâ, a visitor centre near the southern wall of the Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif, the construction of the Strauss Building and the projectÂ  of the elevator in Al-Buraq Plaza âWestern Wall Plazaâ and urges Israel, the occupying Power, to renounce the above-mentioned projects and to stop the construction works in conformity with its obligations under the relevant UNESCO conventions, resolutions and decisions;</p><br /><p class="Default">Â <strong>I.B.2 The Ascent to the Mughrabi Gate in Al-Aqá¹£a Mosque/Al-á¸¤aram ash-Sharif </strong></p><br /><p class="Default">17. Reaffirms that the Mughrabi Ascent is an integral and inseparable part of Al-Aqá¹£a Mosque/Al-á¸¤aram Al-Sharif;</p><br /><p class="Default">18. Takes note of the 16th Reinforced Monitoring Report and all previous reports, together with their addenda prepared by the World Heritage Centre as well as the State of Conservation reports submitted to the World Heritage Centre by the Hashemite Kingdom of Jordan and the State of Palestine;</p><br /><p class="Default">19. Deprecates the continuing Israeli unilateral measures and decisions regarding the Ascent to the Mughrabi Gate, including the latest works conducted at the Mughrabi Gate entrance in February 2015, the instalment of an umbrella at that entrance as well as the enforced creation of a new Jewish prayer platform south of the Mughrabi Ascent in Al-Buraq Plaza âWestern Wall Plazaâ, and the removal of the Islamic remains at the site, and reaffirms that no Israeli unilateral measures, shall be taken in conformity with its status and obligations under the 1954 Hague Convention for the Protection of Cultural Property in the Event of Armed Conflict;</p><br /><p class="Default">20. Also expresses its deep concern regarding the illegal demolitions of Umayyad, Ottoman and Mamluk remains as well as other intrusive works and excavations in and around the Mughrabi Gate Pathway, and also requests Israel, the occupying Power, to halt such demolitions, excavations and works and to abide by its obligations under the provisions of the UNESCO conventions mentioned in paragraph 2 above;</p><br /><p class="Default">21. Reiterates its thanks to Jordan for its cooperation and urges Israel, the occupying Power, to cooperate with the Jordanian Awqaf Department, in conformity with its obligations under the provisions of the 1954 Hague Convention for the Protection of Cultural Property in the Event of Armed Conflict, and to facilitate access of Jordanian Awqaf experts with their tools and materials to the site in order to enable the execution of the Jordanian design of the Ascent to the Mughrabi Gate in accordance with UNESCO and World Heritage Committee decisions, particularly 37 COM/7A.26, 38 COM/7A.4 and 39 COM/7A.27;</p><br /><p class="Default">22. Thanks the Director-General for her attention to the sensitive situation of this matter, and requests her to take the necessary measures in order to enable the execution of the Jordanian design of the Ascent to the Mughrabi Gate;</p><br /><p class="Default">Â <strong>I.CÂ  UNESCO reactive monitoring mission to the Old City of Jerusalem and its Walls and UNESCO experts meeting on the Mughrabi Ascent </strong></p><br /><p class="Default">23. Stresses yet again the urgent need of the implementation of the UNESCO reactive monitoring mission to the Old City of Jerusalem and its Walls;</p><br /><p class="Default">24. Recalls in this regard 196 EX/Decision 26 that decided, in case of non-implementation, to consider, in conformity with the International Law, other means to ensure its implementation;</p><br /><p class="Default">25. Notes with deep concern that Israel, the occupying Power, had not complied with any of the 121 decisions of the executive Board as well as six decisions of the World Heritage Committee that request the implementation of the reactive monitoring mission to the Old City of Jerusalem and its Walls;</p><br /><p class="Default">26. Regrets the continued Israeli refusal to act in accordance with UNESCO and World Heritage Committee decisions that request a UNESCO experts meeting on the Mughrabi Ascent and the dispatch of a reactive monitoring mission to the Old City of Jerusalem and its Walls;</p><br /><p class="Default">27. Invites the Director-General to take necessary measures to implement the above-mentioned reactive monitoring mission in accordance with World Heritage Committee decision 34 COM/7A.20, prior to the next session of the executive Board, and invites all concerned parties to facilitate the implementation of the mission and experts meeting;</p><br /><p class="Default">28. Requests that the report and recommendations of the reactive monitoring mission as well as the report of the technical meeting on the Mughrabi Ascent, be presented to the concerned parties;</p><br /><p class="Default">29. Thanks the Director-General for her continuous efforts to implement the above-mentioned UNESCO joint reactive monitoring mission and all related UNESCO decisions and resolutions;</p><br /><p class="Default"><strong>Â II </strong></p><br /><p class="Default"><strong>RECONSTRUCTION AND DEVELOPMENT OF GAZA </strong></p><br /><p class="Default">30. Deplores the military confrontations in and around the Gaza Strip and the civilian casualties caused, including the killing and injury of thousands of Palestinian civilians, including children, as well as the continuous negative impact in the fields of competence of UNESCO, the attacks on schools and other educational and cultural facilities, including breaches of inviolability of United Nations Relief and Works Agency for Palestine Refugees in the Near East (UNRWA) schools;</p><br /><p class="Default">31. Strongly deplores the continuous Israeli blockade of the Gaza Strip, which harmfully affects the free and sustained movement of personnel and humanitarian relief items as well as the intolerable number of casualties among Palestinian children, the attacks on schools and other educational and cultural facilities and the denial of access to education, and requests Israel, the occupying Power, to immediately ease this blockade;</p><br /><p class="Default">32. Reiterates its request to the Director-General to upgrade, as soon as possible, the UNESCO Antenna in Gaza in order to ensure the prompt reconstruction of schools, universities, cultural heritage sites, cultural institutions, media centres and places of worship that have been destroyed or damaged by the consecutive wars on Gaza;</p><br /><p class="Default">33. Thanks the Director-General for the information meeting held on March 2015 on the current situation in Gaza in the fields of competence of UNESCO and on the outcome of the projects conducted by UNESCO in the Gaza Strip-Palestine, and invites her to organize, as soon as possible, another information meeting on the same matter;</p><br /><p class="Default">34. Also thanks the Director-General for initiatives that have already been implemented in Gaza in the fields of education, culture and youth and for the safety of media professionals, and calls upon her to continue her active involvement in the reconstruction of Gazaâs damaged educational and cultural components</p><br /><p class="Default">Â <strong>III </strong></p><br /><p class="Default"><strong>THE TWO PALESTINIAN SITES OF AL-á¸¤ARAM AL IBRÄHÄªMÄª/TOMB OF THE PATRIARCHS IN AL-KHALÄªL/HEBRON AND THE BILÄL IBN RABÄá¸¤ MOSQUE/RACHELâS TOMB IN BETHLEHEM </strong></p><br /><p class="Default">35. Reaffirms that the two concerned sites located in Al-Khalil/Hebron and in Bethlehem are an integral part of Palestine;</p><br /><p class="Default">36. Shares the conviction affirmed by the international community that the two sites are of religious significance for Judaism, Christianity and Islam;</p><br /><p class="Default">37. Strongly disapproves the ongoing Israeli illegal excavations, works, construction of private roads for settlers and a separation wall inside the Old City of Al-Khalil/Hebron, that harmfully affect the integrity of the site, and the subsequent denial of freedom of movement and freedom of access to places of worship, and asks Israel, the occupying Power, to end these violations in compliance with provisions of relevant UNESCO conventions, resolutions and decisions;</p><br /><p class="Default">38. Deeply deplores the new cycle of violence, going on since October 2015, in the context of the constant aggressions by the Israeli settlers and other extremist groups against Palestinian residents including schoolchildren, also asks the Israeli authorities to prevent such aggressions;</p><br /><p class="Default">39. Regrets the visual impact of the separation wall on the site of Bilal Ibn Rabaá¸¥ Mosque/Rachelâs Tomb in Bethlehem as well as the strict ban on access of Palestinian Christian and Muslim worshippers to the site, and demands the Israeli authorities to restore the original character of the landscape around the site and to lift the ban on access to it;</p><br /><p class="Default">40. Deeply regrets the Israeli refusal to comply with 185 EX/Decision 15, which requested the Israeli authorities to remove the two Palestinian sites from its national heritage list and calls on the Israeli authorities to act in accordance with that decision;</p><br /><p class="Default"><strong>Â IV </strong></p><br /><p class="Default">41. Decides to include these matters under an item entitled âOccupied Palestineâ in the agenda at its 201st session, and invites the Director-General to submit to it a progress report thereon.</p><br /><p>Â <em><strong>WHO VOTED HOW?</strong></em></p><br /><p><em>Draft Resolution on âOccupied Palestineâ approved at committee stage by 24 votes to 6, with 26 abstentions, in Paris on October 13, 2016. The resolution is scheduled to be approved next week by UNESCOâs executive Board.[It seems that the Director General has requested a delay for the final approval]</em></p><br /><p><em>Â Voting in favor were: Algeria, Bangladesh, Brazil, Chad, China, Dominican Republic, Egypt, Iran, Lebanon, Malaysia, Morocco, <strong>Mauritius,</strong> Mexico, Mozambique, Nicaragua, Nigeria, Oman, Pakistan, Qatar, Russia, Senegal, South Africa, Sudan and Vietnam.</em></p><br /><p><em>Â Voting against were: Estonia, Germany, Lithuania, The Netherlands, <strong>United Kingdom and United States.</strong></em></p><br /><p><em>Â Abstaining were: Albania, Argentina, Cameroon, El Salvador, France, Ghana, Greece, Guinea, Haiti, India, Italy, Ivory Coast, Japan, Kenya, Nepal, Paraguay, Saint Vincent and Nevis, Slovenia, South Korea, Spain, Sri Lanka, Sweden, Togo, Trinidad and Tobago, Uganda and Ukraine.</em>Â </p><br /><p>Â <em>Absent were: Serbia and Turkmenistan.</em></p><br /><p class="Default">Â Original: English</p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

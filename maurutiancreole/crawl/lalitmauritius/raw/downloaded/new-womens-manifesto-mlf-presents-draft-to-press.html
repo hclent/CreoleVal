@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612103524" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612103524" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612103524" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612103524" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612103524" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612103524" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612103524" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612103524" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612103524" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>New Womenâs Manifesto: MLF presents Draft to Press</h1><p class="subtitle">24.01.2011</p></h1>
+	<p class="newsarticle"><br />The <i>Muvman Liberasyon Fam</i> (Womenâs Liberation Movement) is at present inviting all womenâs associations and the womenâs wings of trade unions to study the draft âNew Womenâs Manifestoâ that the Association has prepared over a number of work sessions with other associations and individuals over the past 14 months. Then, in the context of International Womenâs Day, the MLF will host a meeting on Sunday 6 March to discuss and adopt a New Womenâs Manifesto. Invitations are already being circulated to all associations that are both not communal or religious, and also not profit-making. <br /><br />LALIT has pleasure in publishing this document, which is the result of the collective work of many women, and represents the accumulated experience of years of action: <br /><br />Muvman Liberasyon Fam <br /><b>Draft of âNEW WOMEN'S MANIFESTOâ </b> <br /><br /><b>A rich history</b><br />When a women's association like the MLF has existed for 33 years, its history itself can add immeasurably to its strength. This is called âmomentumâ. It means that our past mobilisations give our present actions added strength. Our past collective thinking makes our present ideas run deeper. This momentum was what gave MLF the capacity, for example, in 2009 to spearhead the common front set up so as to suspend the law that criminalises abortion.<br /><br />Conscious of the power of our history, <i>Muvman Liberasyon Fam</i> decided, when we neared the end of 2009, to work towards a ânewâ Women's Manifesto. <br /><br />Our first Manifesto that came out in 1977 took us a whole year to produce. It was created collectively by founding members who organised some 12 meetings in neighbourhood women's associations in different parts of the country, as well as weekly association meetings. And even then, of course, we weren't starting from scratch. We knew that for many years before us, the women's movement in Mauritius had already organised to demand the right to vote, the right to education, to contraception, even the right to work, and something as political as the right to live in an independent country. <br /><br />In our Founding Manifesto, of 1976-77, the main points are:<br />- No to patriarchy! - No to capitalism!<br />- The right to contraception and legal abortion!<br />- Housework must be socialised: there must be day-care for children, women's centres, municipal canteens and laundries, and more âwelfare state servicesâ like free healthcare, free education and universal pensions. <br />- Women must be able to work in all work sectors! <br />- Equal pay for equal work! â The right to unionise! The right to strike! <br />- A law that views rape as assault, with emphasis on the aggression not the sexual nature of the crime.<br />- No to harassment by macho men!<br />- Equality in the law and in the Constitution! A uniform marriage law for all women!<br /><br />Women's liberation, we stated, will depend on women's mobilisation. Our 1977 Manifesto has passed the test of time. Then, as large-scale mobilisations unfurled in Mauritius â working-class, Chagossians, youth struggles â especially between 1976 and 1981 â this Manifesto integrated even broader issues into itself:.<br />- Diego Garcia military base closure, decolonisation and the right of return for Chagossians! <br />- No to Apartheid! - Free Palestine!<br />- Yes, to Freedom, No to Repression! Revoke repressive laws such as the <i>Industrial Relations Act</i> (IRA), <i>Public Order Act </i> (POA) (replaced today by the repressive <i>Public Gathering Act</i> (PGA), <i>Employment Rights Act</i> (ERiA)and <i>Employment Relations Act</i> (EReA).<br />- Free Public Transport!<br /><br />These demands are still significant today. And over time, they have been refined by work in different Common Fronts: <i> Solidarite Fam</i> (Women's Solidarity) , <i> Fron Fam Travayer </i> (Working Women's Front), <i>Solidarite Morisyen Anti-Apartheid</i> and <i>Fron Anti-Apartheid </i> (Mauritian Anti-Apartheid fronts), Fron Komen Transpor</i> (Common Front for Public Transport), <i>Fron pu Demokrasi</i> (Front for Democracy), <i> Rann Nu Diego! </i> The biggest gains for women took place through women's participation in the August 1979 General Strike movement and the 1980 mass mobilisation that followed. After that period, women were able to walk relatively freely without being harassed between the end of 1979 up till, say, 1984. The MLF set up the first Women's Centre in the country and ran it for nearly 20 years. We decided to close it down after the Government set up decentralised women's centres all over the country. <br /><br />In our letterhead of 1984, we stated: <i> âAims: To fight for full rights for all women, for true equality between all women and men in all fields, and total liberation of women.â.</i> These aims are still our aims. .<br /><br /><b>False Interpretation of Women's Demands </b><br />What was the content of the down-turn that started in 1981? <br />- Retrenchment of workers, and their replacement by automated machinery. <br />- The betrayal of the MMM.<br />- The rise of  Thatcher-Reagan ideology in Mauritius, attacks on the Welfare State. <br />- The implosion of the bureaucratic Stalinist reign that stole power some 4-5 years after the Russian Revolution, and its replacement by a mafia-type profit-making capitalism. <br />- Virtual re-colonisation of all ex-colonies by finance capital. <br />The reactionary forces of patriarchy that had reigned for 5,000 years thus re-established their reign. And they did so by the means at their disposal, i.e. through the bourgeoisie revising our demands, distorting them into forms it can easily contain. This meant basically that they put it out that we were demanding things that aren't our actual demands. Reactionary forces do this, in particular, through the media. And when the women's movement is in a state of demobilisation during such a downturn, we are relatively too weak to  re-establish the facts. So, what they say we are is not what we are. <br /><br />- They say that we supposedly want women to climb higher into âpositions of powerâ within the patriarchal hierarchies. This is false. They are the ones who want this, not the women's movement. <br />- They say that we are supposedly in favour of more repression and heavier punishment for sexual offences against women. This is false. They are the ones who want this, not the women's movement. <br />- They say we supposedly want gender equity. They and organisations they fund are the ones demanding this. What we want is emancipation and liberation â no more, no less. <br />- They say we want men to stay home and do housework. False! We want women to be more active outside the home in public life, not men to participate less in public life. Housework, we say, must be socialised (there are already signs of this beginning to happen, like pre-prepared vegetables in supermarkets and more pre-schools, but this socialisation is not enough). <br />- They say all we want is supposedly to change anti-women laws. False. What we want is to end patriarchy.<br />- They say we want to supposedly âmake men take their responsibilitiesâ. This is not a demand of the women's movement. Our quest is women's liberation. <br />- They say all we are concerned about is women! False. We are against repression. We are against apartheid. We are in favour of workers right to strike. We are in favour of the decolonisation of Diego and the rest of the Chagos. We are in favour of military base closure. We are against class inequality. <br />- They say we are supposedly anti-men. They are the ones saying it, not us. In the MLF, for instance, we believe that the majority of men are usually victims of patriarchy and its hierarchies. We ally ourselves with victims of patriarchy, be they men or women. <br />- They say all we supposedly want is equal pay for equal work. So then, for them it is alright to decrease men's wages in the Free Zone, instead of increasing womenâs wages. <br /><br />If we adopt their false interpretation of our demands, we will blunder. It will lead us into alliances with bourgeois forces, even with communal forces. This is why this âNew Manifestoâ has so much significance for us today â in view of these false interpretations of our original Manifesto.<br /><br /><b>New Women's Manifesto (Draft No. 3) </b><br /><br />This âNew Manifestoâ is the fruit of meetings of the MLF with women from all currents in the women's movement over a period of 14 months: the family planning current, the âhuman rightsâ current (women in Amnesty International and other human rights associations), the trade-union current (women in trade unions and trade union federations), the work-site current, women in local women's associations (rural as well as urban), single issue associations, academics. <br /><br /><b>1. We call into question the present ownership of land and of the means of survival? </b> <br />We pose the question, â<i>Why have we been expropriated from the mother earth that nurtures us? </i>â We pose the question, â<i>Why have we been disinherited of the fruits of the labour of past generations </i> (capital)?â Our demand is for democratic control on all land in production and on all the means of survival. We want a system where working people who constitute 80% of the population no longer need to scrounge a job from a boss or a boss-controlled State enterprise. The MLF even organised a Symposium on the theme, â<i>Who Owns What & Why? </i>â And we oppose privatisation; we defend the Welfare State when it is under attack. However, we refuse to stay on such a defensive programme. We want to produce things other than cane and T-shirts, that is to say we want to produce alternative products, we want an alternative economy, and alternative ownership of all the means of survival. In short, we want to move continually from the defensive to the counter-offensive. <br /><br /><b>2. Against Patriarchal Hierarchies</b><br />We oppose patriarchy. We oppose patriarchal <i>hierarchies</i>. These hierarchies are inextricably entwined with capitalist hierarchies. It is not the women's movement's aim for women to climb up the rungs of these hierarchies. This opposition to patriarchy affects the nature of our demands.  e.g. 1) We want women to be recognised by society as the âcentre of the hearthâ, not the âhead of householdâ. We want social housing and child allowances go to the person who tends the hearth.  e.g. 2) We want women to be able to work in all work sectors, but we are not interested in who gets to be promoted within patriarchal hierarchies in work sectors. e.g. 3) We want equal wages for everyone one day, not the same proportion of inequality amongst women as amongst men. Our aim is equality, not âspreading inequality equallyâ between men and women.  <br /><br /><b>3. Changing the balance of forces between Men and Women</b><br />We are working towards changing the objective balance of forces between men and women in society. If women have housing as a right, the means of survival as a right, if there is free public transport night and day, if basic foods are subsidised, if there is the right to contraception and abortion, all of this will tip the balance of forces in favour of women. This is why we struggle for these rights. At the same time, we want to change the balance of forces between workers and bosses so that workers become strong enough to challenge the system itself. We want to change the balance of forces between imperialists and oppressed countries. All this means that we have a broad manifesto. <br /><br /><b>4. No to State Repression! We want Freedom! </b><br />We are against State Repression. We are in favour of more freedom. We want women-abusers, those who use violence against women, and harassers of women to be publicly exposed and publicly criticised. They need to be made accountable for their actions. We are certainly not pushing for the State to hang them, imprison them for years and years, or castrate them. We want society to make use of the age-old methods that have worked, that is to say, to expose abuses and make perpetrators account for their actions. The best way to ensure this is to change the balance of forces in favour of women: claim social housing, basic food and clothing subsidized, a wage one can live on, schooling, health, free public transport, old-age pensions and pensions for the disabled. All the basic goods and services must be available and accessible to all who need them. This way, women are in a position to expose cases of abuse, and to stand up against abuse. <br /><br />And when a women suffers violence, we are not asking for an armada of new policewomen, 24 hrs a day in all police station. Not at all. We are actually demanding <i>less </i>police officers. We demand that women, when raped, go straight to hospital, in a âone-stop-shopâ system. There, she gets medical treatment, psychological treatment if need be, protection against STD's, and she can decide, if she want to, to file a case against her aggressor before a policewoman who is called into the hospital to take her statement. A police doctor examines her in the surroundings of a hospital. All this happens in a caring environment rather than the repressive environment of a police station. <br />In general, we want the right to demonstrate, we demand freedom of expression, freedom to unionize, the right to strike, that is to refuse to work in conditions we do not agree to. <br /><br /><b>5  New Framework for Matrimonial Laws </b><br />In our 33 years of struggle, we have been able to change the Code Napoleon, section by section. Where it said âhusbandâ or âwifeâ, we have been able to make it read âspouseâ. But the domination that existed within marriage has not changed as a result of these changes towards gender equity. So we have created over a two or three year period a â<i>Charter on Matrimonial and Allied Laws</i>â. It encompasses a whole array of changes that aim at viewing women as being the centre of the hearth, and liberating us outside the home, too. Marriage becomes a voluntary union between two adults who want to live together. Divorce will be possible without having to prove âfaultâ, and will be a rapid and inexpensive process. Care for children must subsidised by society, when the family is in economic difficulty. We are against the law that makes the State go running after âthe biological fatherâ of the child. This compounds the problem. It causes violence against women and children. In addition, today, with this new law that does just this, there are husbands and ex-husbands who are being arrested when they canât pay or child support because they have lost their jobs. We do not agree with this. And we want women to be able to decide with precision when to fall pregnant and when to go ahead with a pregnancy, once pregnant. We want a form of the family that is flexible, where the household unit that is formed around the woman is fully recognised by the State. When a man becomes the centre of the hearth, he too can be recognised as such by the Courts. <br /><br /><b>6  Against patriarchy, whether it dominates women or men </b><br />We have learnt in our 33 years of existence that it is not only women who are the victims of patriarchy. Men, too, are the victims of patriarchy. So, instead of making the mistake of recruiting those âalpha malesâ who rush to offer the womenâs movement their patronizing âhelpâ, we choose to ally ourselves with organizations who support our program, and with men who have become victims of the very same patriarchal system that dominates us, women. This is how we allied with Mr Naden Pakeeree of Surinam in the struggle against an unjust anti-abortion law that led to the death of his wife; with Mr Suresh Dawaking of Sodnac in the struggle against violent crimes on âcontractâ that caused the death of his wife; with Reginald Topize (Kaya) of Beau Songes and Rajesh Ramlogun of Lallmatie and their widows in the struggle against police violence the men suffered. We perceived, during this latter struggle, the similarity between the two forms of patriarchal violence - torture in police cells and domestic violence â both forms of violence take place between four walls, both use sexual language to mask the violence; both kinds of victims are supposed to carry the shame afterwards. This is how the MLF came to contribute towards the setting up of the association â<i>JUSTICE: Against violence by State Officersâ </i>. <br /><br /><b>7 No to War! No to military occupation! </b><br />We are against war and military occupation. We are struggling to free Chagos, to close down the base, to decolonize Mauritius and win the right of return for all Chagossians as Mauritians. We continue to struggle to free Palestine. <br /><br /><b>8. Decriminalize abortion</b><br />We want to be free to reproduce (physically) in an atmosphere of respect. We want to decide when we will reproduce. For this we need free and easily accessible contraception and decriminalised abortion. Give us social housing, employment and social services, so that we are supported in the work of nurturing people in our care (children, the aged, the sick, etc). The family is too weak an institution to fend for itself without this respect for women.<br /><br /><b>9 Women's Liberation not just âGender Equityâ </b><br />We reject the conversion of the struggle for emancipation and liberation of women into the struggle for supposed  âgender equityâ, where patriarchy continues as before. <br /><br /><b>10 Encourage women to enter the world of political liberation</b><br />We reject the idea that men must stay home to do housework. On the contrary, they must continue to be able to go out, and participate in life outside the home. And women too, must be able to go out, and be active in the political struggle for liberation. Our aim is to free half of humanity (women) to become the ally of the working class in the struggle for the liberation of humanity as a whole.  <br /><br />WOMEN'S MOBILISATION A PRECONDITION<br />The MLF is helping to mobilize women, but it is we, women, who will collectively bring about our own emancipation and liberation, in the wider framework of emancipation and liberation of humanity.                                                                                   <br /><br /><i>January 2011</i><br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

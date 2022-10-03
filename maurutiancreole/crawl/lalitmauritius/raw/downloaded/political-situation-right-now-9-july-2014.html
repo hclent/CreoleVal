@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101856" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Political Situation right now 9 July 2014</h1><p class="subtitle">09.07.2014</p></h1>
+	<p class="newsarticle"><br /><b>BÃ©renger uses âdeclaration of communityâ</b><br />Paul BÃ©renger has for nine years now unabashedly, unashamedly and basely used the issue of âdeclaration of communityâ in order to obfuscate the important issue of the communalist aspect of the best loser system. This intentional trick began when he was Prime Minister, before the 2005 elections. Remember how wildly he congratulated Justice Balancy on his judgment, when all it did was to allow <i>Rezistans ek Alternativ</i> (RA) candidates to stand while specifically, and right before everyoneâs eyes, allowing the communal best loser system to continue <i>bel e byin</i>. Which it did. But facts are not always strong enough to quell lies. Not in the face of propaganda machinery, anyway. Not in the short run, anyway. The double-talk has continued unabated, and continues until today. But the âsell byâ date of all the double talk is now closing in. That is where we are today on 9 July, two days before the Constitutional Mini-Amendment is due to be voted.<br /><br />The RA non-declaration case had, from Nomination Day in 2005 onwards, been a rehearsed and staged affair, with journalists and electoral officers in-the-know, while BÃ©renger used his influence on the political scene and over the media agenda to perpetuate the RA con-trick that somehow this was âprogressâ on the struggle against institutionalized communalism. This, when it was, in fact, right from the beginning, running the risk of provoking the kind of dangerous stalemate we see today. <br /><br /><b>Ramgoolam uses âdeclaration of communityâ </b><br />Then Navin Ramgoolam, when he came to power in 2005, and especially from just before the 2010 general elections onwards, has replaced BÃ©renger in the game of using the RA cases. He has again and again used the cases as a kind of veil of <i>pudeur</i> in order to push for the reactionary Constitutional changes that he is seeking. For five years he has been making toxic bundles of four issues: (i) declaration of community, (ii) going beyond the communalism of the best loser system, (iii) electoral reform i.e. some proportional representation and (iv) vast reactionary Constitutional changes to set up a Presidential system. Ramgoolam has held out as bribes bits of these to different stake holders, getting them all rather paralized.<br /><br /><b>Hidden Agendas Abound</b><br />BÃ©renger and Ramgoolam, together with RA, have all three, jointly and severally, used the degree of genuine  complicatedness of the issue of the best loser system in order to keep not just ordinary people befuddled, but also to confuse their own followers, even MPs, and the quasi-totality of the Press, including Radio journalists and even editors-in-chief. Then in Parliament they berate journalists for not understanding the issues. The boss of one newspaper empire, ex-boss at MCB, was so convinced he even stood as candidate in Blok 104, who as well-meaning do-gooders, swore yet another affidavit under oath to the effect that they were <i>not</i> doing anything to harm the best loser system which would continue happily operating normally. This is something they all know to be the exact opposite of what they are elsewhere claiming to be doing: spear-heading an historic âpage dâorâ of Mauritian history by boldly attacking, through the judiciary, the very source, they claim, of institutionalized communalism i.e. the best loser system. They find the judiciary to be so important to changing society that they are prepared to swear to the judiciary under oath that they do not intend to change society. This must be the worldâs most legalistic approach to social change, barring none but perhaps Olivier Bancoultâs legal challenges that deny the issues of the U.S. military occupation of Diego Garcia and the continued colonization by Britain of the land from which he and all Chagossians were so cruelly ripped.<br /><br />And on-and-off, so to speak, since the run-up to the 2010 general elections, BÃ©renger and Ramgoolam have set up a rather unstable âtandemâ, actually pedalling along together as a wobbly pair when they can mount, so as to use and further abuse the issue of the obligation to declare oneâs community, in order to accomplish other aims. This time they use the RA cases outrightly in order to cobble together a PT-MMM coalition, with all the dangers that implies. <br /><br />In addition, Ramgoolam and BÃ©renger have used another issue put on the agenda by so-called âleftâ people. Jack Bizlall put the âSecond Republicâ on the agenda out-of-the-blue in 2010. The solution to all problems, he claims, is for <i> âkikenn par laâ </i> to amend the Constitution. His vision of society is to change the world by means of legislation. Ramgoolam agreed to this proposal for a âSecond Republicâ, in order to herald his pet project of becoming President. BÃ©renger agreed, too, on condition he got his pet project, a dose of proportional representation, that the MMM needs badly in order not to go the way of the IFB or UDM. <br /><br />Ramgoolam wants, as everyone knows, to become President with huge powers when heâs big. His Prime Ministerâs Office has already been well-nigh transformed into a Presidential affair. BÃ©renger dreams night and day of being Prime Minister again. Both leaders need to get into an alliance to do these two things, and they need to do so fast, because without it, they are both stymied: Navin Ramgoolam risks either losing the next general election or coming out weaker than he is now with his majority of 35 out of 69, while BÃ©renger risks the demise of his party, the MMM, especially if he has to withdraw as leader, say, on health grounds, or if he loses leadership as his political mistakes catch up with him.<br /><br /><b>BÃ©renger announcing that Ramgoolam may Propose Amendment to Mini-Amendment! </b><br />Ramgoolam and BÃ©renger are now having to propose to amend the already dangerous little mini-amendment due to be voted on Friday, if we are to believe the Press. So far, without further amendment, the mini-amendment allows candidates to stand without declaring a community while keeping the best loser system in place. The Balancy judgment all over again. However, the original mini-amendment says (or should say, were its drafting not so ambiguous) that, should one or more candidates who had not declared their community be elected, then the best loser system will be applied, not using the overall results of 2014-5 general elections to tot up the numbers of elected people by community, but on the basis of an average of the overall results of 9 previous elections. This means everyone who has come to grips with this difficult dossier knows that, in this eventuality, there will be x number of seats for one community, y number for another, and the other two communities will not get any, regardless of the results of the actual general election in 2014-5. Well, this certainly beats the âworst practicesâ list for a Constitutional amendment that is purporting to â<i>aprofondi lademokrasi</i>â. Lordy! They thought they could get away with it because it is âtemporaryâ. Thus the whole thing is just to allow people to stand for one general election. This could, of course, need to be re-voted on 3/4 majority for the 2020 elections!<br /><br /><b>Bourgeois State in Shambles </b><br />This is not how one sets about proper political change.<br /><br />As we write this, we have no idea what amendment the Press means when they say BÃ©renger is busy announcing that Ramgoolam may propose one. No-one else seems to know, either. It is 7:30 pm Wednesday. The vote is due on Friday. This gives an idea of the shambles the bourgeois State is in.<br /><br /><b>The Importance of the Truth</b><br />At times like this, a clear understanding by a maximum number of people, is essential. Otherwise, the possibility of ending up with something much worse than what we have today, is certainly not to be excluded. People seem to have forgotten that, worst case scenario, Adolf Hitler came to power in Germany when there was a discredited Weimar Regime in power unable to attack the economic problems of the country. The balance of class forces was very unfavourable to change-for-the-better at that time, there. Many people would later come to regret supporting Hitlerâs rise just so as to get rid of the Hindenburg Government that was unable to come to grips with the economic crisis. <br /><br />Here, in Mauritius, many of us want to get rid of the reign of Ramgoolam, and that of BÃ©renger, for that matter. New parties are being born every other day. There is Collendavellooâs <i>Muvman Liberater</i> with its vague program drafted single-handed by Sheila Bunwaree, she says. Now, Sheila Bunwaree has set up <i>Parti Justice Social</i> once she has separated from Collendavelloo. Roshni Muneeram and her friends have set up <i>Ensam nu kapav</i>, using Obamaâs slogan. Dr. Madewooâs <i>The Liberals</i> leans on the UK Lib-Dems. The <i>Ralliement des Citoyens pour la Patrie</i> finds present main-stream parties âtoo left wingâ. Alain Bertrand has set up a new party, too, LâUnion Populaire de lâIle Mauriceâ. Bizlall is setting up a new one, <i>Muvman pu enn Dezyem Repiblik</i>. And so on. They all put a lot of emphasis on doing politics â<i>autrement</i>â, without giving much flesh to this idea. <br /><br /><b>Political Programs</b><br />What about their programs?<br /><br />They are all against corruption. Who isnât? But they fail often to notice that corruption is merely a symptom of autocracy and bureaucracy. If oneâs program does no more than address corruption, it implies one is in favour of the system. âIt would be perfect, this system,â is implied, âif only there was no corruption. All the inequalities are just fine. All the domination is just fine.â What do they say about the minority class that controls most of the best agricultural land, all the banks, and all collectively produced things? That would be a program. They could announce, âWe are in favour of capitalist power.â Or, âWe are against the rule of a class that is ransacking the planet, and that has dispossessed 99% of the people.â And their program should say what are they going to do about it. <br /><br />They are in favour of more democracy. Who isnât? But the first promise they make is to reduce the power of the electorate: âOnly two mandates!â they cry, not realizing they are saying something either anti-democratic or very defeatist. This was the very Constitutional Amendment brought in by the right-wing against the only US President ever to challenge the capitalists, FD Roosevelt, famous for his New Deal for working people.<br /><br />They are often for âmeritocracyâ, not realizing this is a <i>justification of inequality</i>. It is the justification used in order to oppress. If power is based on âmeritâ, as it is in âmeritocracyâ, this means that it is not based on the people sharing it <i>because of their humanity</i>. Meritocracy would mean you might have to âmeritâ it to get the right to vote. Now, how would you judge this âmeritâ. The highest IQ, the most disciplined sportsperson, the most creative artist, the best speaker, the richest person? Power to them!!<br /><br />All this, is not to mock these new parties. On the contrary. It is to call on them to come up with proper programs. They need to address questions like: What is wrong now, in society? What would you like society to be like? In concrete terms? Who is likely to be in favour of this, of the different classes in society? How do you intend to reach this aim for a better society? (Not by sheer preaching, or by calling on everyone, in patronizing tones, to âsanz zot mantaliteâ!)<br /><br />Anyway, the birth of all these new parties are signs and symptoms of the rot that has set into the mainstream bourgeois parties. But, the only way that we can move forwards from here, from the terrible state society is in, is on the basis of an honest, clear program â with its effects on different classes clearly predicted in the program â a program like the one LALIT is permanently engaged in constructing. A Program is the central element that unites a party. It is not just a document, but a common understanding of the problems before us, aims made explicit in common, and the tasks needed to deal with the problems and move towards these aims. It should be clear where the power for change could possibly come from. (Again it is not enough to call for men and women of good intentions to step forward. The road, as we all know, to hell is paved with good intentions.)<br /><br />Times are not easy.<br /><br />Right now, the communalo-religious lobbies have all been activated. The capitalists are in a corner. Their profit margins are pinched. They are on an investment strike. They want a coalition between Ramgoolam and BÃ©renger.<br /><br />We do not.<br /><br />It is at a time when the working class, which when standing up and seeking to free itself by its own conscious action, is a formidable force, is on its knees. It is hit by structural unemployment, hideous new labour laws, and led by a trade union movement leadership divided and tightly controlled by competing bureaucrats, many of whom are macho populists willing to split unions, federations, confederations mercilessly, just in order to gain control over parts of them. <br /><br />And this brings us to the need for a political party and its program. It is the one thing we can think about together, discuss and do. However, dozens of groups and parties have formed and closed down in Mauritius over the years since Independence. It is hard work to build a party. It takes a lot of understanding of past traditions. How to organize, how to listen, how to think and plan together, how to link the âideasâ we have to the ârealityâ we want to change. And how to know whether we are analysing that ârealityâ accurately enough.<br /><br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

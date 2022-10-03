@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100939" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100939" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>The Nature and History of NGOs: A Brief Outline by Lindsey Collen</h1><p class="subtitle">04.08.2016</p></h1>
+	<p class="newsarticle"><p>This paper was presented in a shorter form by Lindsey Collen at the NGO Symposium organized by LALIT on 30 and 31 July, 2016.</p><br /><p>Â Since Iâm delivering the first paper of the Symposium on NGOs, I thought it might be worthwhile to propose a framework, so that we can, at least, use words in similar ways. So, Iâm not giving the paper I originally intended! Iâll look instead at what exactly NGOs are? Where they come from?</p><br /><p><strong>Â Introduction</strong></p><br /><p>The reason that LALIT has chosen to look into the NGO phenomenon, is precisely because it has become a sector, âthe NGO sectorâ. This is a recent thing. So, we have the private sector, the public sector, and now an NGO sector that, inter alia, all provide social services.</p><br /><p>Â Though we know that the three letters stand for <em>Non</em> + <em>Governmental</em> + <em>Organization</em>, we are none the wiser for knowing it. NGOs are something rather more specific than that. And they are different from other forms of organization in society â this is true for Mauritius and elsewhere.</p><br /><p>Â <strong>How are people organized or grouped together?</strong></p><br /><p>So, letâs start by looking at how people organize themselves in modern-day society, that is to say, over the past, say 250 years, since capitalism began its gradual take-over as the ruling system, and until today when there is a bourgeois state almost everywhere on earth. Since it is <em>during</em> capitalist reign, and since we know that there are two main classes under capitalism, we will look at forms of <em>self-organization</em> that people have in each of these two main classes.</p><br /><p>Â One class â as we all know, know as well as we know how to breathe, because it includes all ofÂ  âusâ present here today â relies for its sustenance on its wages â wages earned monthly, by the fortnight, weekly, or on the basis of piece-work. People in this class âearnâ these wages by means of selling their labour power, and that is why it is called âthe working classâ. (In Mauritius, and elsewhere.) The other class owns/controls the big swathes of agricultural land, the banks, the capital, the big hotels, the insurance companies, the mills and factories, and this class takes on people to work, and then gets to own the totality of what they produce â not under a legal framework of slavery anymore, nor indenture anymore, but under the legal framework of wage slavery. This class that buys labour is the capitalist class. The names of both major classes are very accurate, as it turns out.</p><br /><p>Â But how are people <em>organized</em>, <em>grouped together</em>, in each class? Very differently.</p><br /><p><strong>Â In the working class: Types or self-organization</strong></p><br /><p>In the working class, there are some 3-4 types of organization. I have put them in order of their variation from specific, localized groupings, to larger more formal groupings, and then to groupings that are broad both in their geographical reach and also in terms of their concerns:</p><br /><p><strong>- <em>Informal groupings</em></strong> <em>at neighbourhood level</em>: Neighbours help neighbours, taking a newly arrived couple to the dispensary, or organizing to pay pensionersâ electricity bills, or helping someone go through the administrative process of getting a birth certificate if they never had one. Women sit around sorting rice for an evening meal together. Men sit under trees, unwinding after the stress of work, playing dominoes with a beer each. They go eel-fishing or tenrec hunting of an evening. Families club together to organize picnics. Throughout history, this kind of union and often mutual aid has existed. It is part of our human nature. It has predominated for some 100,000 years, and without it, we would in all likelihood not be here today as a species. This mutual assistance exists in the working class â it may well be the main form of âsocial workâ within the working class â even though it is often invisible to analysts, and not much valued or even noticed by the powers-that-be.</p><br /><p><strong>- <em>Saving Schemes like âsitâ</em>:</strong> Slightly more formal are the saving schemes like <em>sit</em><strong>.</strong> A dozen women get together, each contribute Rs500 or whatever a month, and each month one takes all the Rs6,000. It is an informal bank. It happens to be not only outside the legal framework but is actually illegal. However, thousands exist. They depend upon a high level of trust and discipline.</p><br /><p><strong>- <em>Formal organizations</em></strong> (registered with the State or not) <em>for well-being on a particular issue</em>. These were illegal in the working class until the 1940s under the anti-coalition laws. Under capitalism, there are typically three types, and the State recognizes them, and controls them, separately for the purposes of registration:</p><br /><p><em>Â  Co-operatives</em>, like a co-op shop: this form of group gets together in order to sell goods at a lower price to people in the area, including themselves, and also, more advanced than that, to keep prices down in all the shops in the village, or neighbourhood. Many kinds of co-operative exist.</p><br /><p><em>Â  Associations </em>and clubs: People get together to provide themselves with a service, to carry out an activity together. So, we have burial societies, health associations, preschool committees, Komite Kartye that bring together neighbourhoods on neighbourhood issues. And all kinds of clubs from sports to literary, from carom to fishing.</p><br /><p><em>Â  unions â </em>that unite people on issues of work conditions.</p><br /><p>Once a group registers a co-operative, association or union, the group falls under some control by the bourgeois State. And at key moments in history, this control can be used <em>against</em> the working class. This produces curious events: in the August 1979 strike, some union presidents were sequestrated and put under guard in their houses so that the State could not use them.</p><br /><p><strong><em>Political Parties</em></strong>: These are organizations that aim to change the whole of society â all aspects of social and economic life. They aim to do this either by means of gradual reform, or by revolutionary change by changing the class that is in power. In Mauritius, the Labour Party in the 1940s and the MMM in the 1970s were both working class parties, each for some 10 years (before being taken over by the bourgeoisie during internal class struggles). Today, there is LALIT whose program is consciously in the interests of people who work to live. And until today, there is fortunately, very little State repression controlling political parties. Although there is a big push from the bourgeoisie to put bureaucratic controls on political parties. The answer is, of course, more democratic control.</p><br /><p>Â <strong>In the capitalist class: Types of Self-organization</strong></p><br /><p>Amongst the capitalist class, too, there is self-organization, and there has been since the class first bourgeoned in the 17th and 18th Century. But it is very different, as is its history.</p><br /><p><strong><em>Free Masonry</em></strong>: These are organizations that became strong as the bourgeoisie took power from the end of the 18th Century. More precisely they are secret societies. They unify different parts of the bourgeoisie that are not otherwise socially compatible, and they even unify them with parts of the feudal remnants, the nobility and even royalty where there is one. The Queenâs husband is one in Britain. And you also get building contractors as members! But they would not otherwise share social events â like a cup of tea, even â in a 100 years! The Free Masonry also enrols senior civil servants like PSs, police chiefs, supreme court judges and top professionals. Half the US Presidents were Free Masons. Many big capitalist projects find their way into life through the coming together of these very different parts of the owning classes through their use of the Free Masons Lodges. There are, of course, many accusations of favouritism, which are a bit silly because the aim of Free Masonry is to conduct favouritism, and you canât check anyway because they are <em>secret</em>.</p><br /><p><strong><em>âPepiniÃ¨resâ for Free Masons: Rotary, Lions</em></strong><em>,</em> etc: These are organizations that are also places where the capitalist class brings together on a social basis those they consider the more âpalatableâ from amongst the intermediate classes. The organizations are somewhat democratic, in that they elect their President. They often control neighbourhood associations in poor areas by means of providing them with finance. Or they provide building materials for a Hall in a poor area, a hall that the poor people themselves build. Their initial âgiftâ then permits eternal control over the association of poor people.</p><br /><p><strong><em>Think Tanks</em></strong><strong>:</strong> Today there are all kinds of Foundations and Trusts, especially in the UK and US â that guide the international capitalist system as a whole. They act like a kind of âthinking millâ. They are funded by big capitalist corporations. Their aim is often to save capitalism from its own chaotic tendencies, and the anarchic forces that it unleashes. Not only does capitalism provoke endless class struggle between workers and bosses, but between bosses, themselves, where life is âdog eats dogâ. The big foundations that are influential today include: <em>Soros Foundation</em> and the <em>National Endowment for Democracy,</em> and more right-wing ones like the <em>Rand Corporation, Heritage Foundation</em>. There are thousands of them. They are run by undemocratic Boards, rather like companies are. They all aim to keep power in the hands of a tiny minority of capitalists, often by means of redressing some of the ruin capitalism causes. Many of them are in the business of policy; they are the unelected crowd that plan State policy from the shadows.</p><br /><p><strong><em>Bossesâ organizations</em></strong>: Each country has these kinds of organization. Some are more general, like <em>Business Mauritius</em> (which is a recent amalgamation of the Mauritius Employersâ Federation and the Joint Economic Council), and then there are sectorial ones â exporter bosses, hotel bosses, sugar industry bosses, bosses in commerce, bosses in industry. The biggest capitalists have the most control over the bossesâ associations concerned. They put immense pressure on the bourgeois State.</p><br /><p><strong><em>Political Parties controlled by the bourgeoisie</em></strong><strong>:</strong> In the USA: both the Republicans and Democrats are, at the end of the day, controlled by different sections of the bourgeoisie (Bernie Sanders tried to challenge that recently, but Hilary Clinton won the nomination). In India, both Congress and the BJP are controlled by the bourgeoisie. In Mauritius, the PMSD is the only major political party born in the bourgeoisie, but the others have fallen into its clutches: Labour, MMM, MSM, and all the others that have branched off from these. Perhaps the only political party that is genuinely independent of both the bourgeoisie and its State is <em>Lalit. </em>Most parties are controlled by those who fund them. And their aim is to keep the bourgeois system in place: i.e. where there is private ownership over socially produced means of survival.</p><br /><p>Â So, we have seen that each of the two major classes has three or four different kinds of organization to defend its interests. The working class have theirs. The capitalists theirs.</p><br /><p>Â <strong>NGOs in all this?</strong></p><br /><p>But, where in the world are NGOs in all this? Iâve given all these lists and lists of organizations, and I have not mentioned NGOs. How come? Where do they fit in?</p><br /><p>Â Here is the key to understanding NGOs as a phenomenon.</p><br /><p>Â NGOs are most often formed by the capitalist class, in the interests naturally of the capitalist class, run by a Board like all capitalist class organizations, financed directly out of private capitalist profits from exploitation, and/or by the bourgeois State or its institutions. But, and here is the key, they often <em>target</em> people in the working class. The violent military metaphor of <em>targeting</em> or <em>siblaz</em> is theirs, not mine. Their arrogance prevents them even hearing the military metaphor they use. But this is natural: the working class is, after all, the enemy class, for capitalists. They target workers withÂ  weapons â a police baton, a gun, or an NGO. So, NGOs are part of this arsenal with which the working class is targeted. They are organizations founded by, financed by, guided by and controlled, in the last instance by, the capitalist class or its State. And they most often aim at doing favours, and good deeds, <em>for</em> the poor, <em>for</em> the victims, <em>for</em> the weak in society. What in liberal times (during 19th Century liberalism) was called âcharityâ, in neo-liberal times (during 21st Century neo-liberalism) is called âthe NGO sectorâ. So, its result is obviously to strengthen and attempt to legitimize the reign of capitalism. Its effect is to keep the poor in a position of dependence, in a perpetual state of being victims of events, weak and preferably silent, ideally always grateful.</p><br /><p>Â Look what happens:</p><br /><p>Â The capitalist class and its State go ahead producing poverty every day of the year. Their system churns it out. They produce unemployment, acute problems â from homelessness to lawlessness, from street children to youngsters dependent on drugs, from depressed women to incarcerated men. And at the same time â and this is the subject we are addressing today in this Symposium â they are keeping the energy of many, especially young people â through an immense ideological framework around NGOs â trapped within the limits of the strait-jacket that an NGO is. It is not NGOs role to expose the truth: that poverty and homelessness and despair as a direct result of capitalism. It is rather the role of NGOs to mask this causal link. The objective function of NGOs is to conceal the responsibility of the capitalist system for all this suffering. NGOs do not blame the capitalist class for unemployment, low wages, and alienating work, which are, as it turns out, the root causes of all the other social problems. NGOs âput Elastoplastâ on these problems, pretending all the while that the problems are merely <em>luvraz bondye.</em> What is shocking is that it is not possible to solve these problems <em>within capitalism</em>. So, if criticism of capitalism were ever to be put out of bounds for our own associations, as they already are for NGOs, we would really be in a double-bind. And capitalism will be free to go on and on reproducing all these problems. The rich will go on getting richer, the poor poorer. As indeed they are, right now.</p><br /><p>Â At the same time, NGOs have another function. They carry out work that the State, at its most basic, is supposed to do: look after the destitute, the poor, the ill, the marginalized and provide education, health care, pensions, food and housing. But instead NGOs employ people â often at very low wages â to do this work â or rather, just <em>part</em> of it. They provide a smattering of health services, education, and housing. And unionizing is not easy for their employees because the employers have a blackmail tool at hand. âWe are helping the weak,â they say. The difference for working people is absolute: When the State provides a service, it is a right. When an NGO provides it, it is charity. When the State provides a service to everyone, being strong is an advantage. When NGOs (or even the State) give hand-outs, pleading weakness is an advantage.</p><br /><p>Â So, the NGO sector â which we are limiting to mean that particular type of organization that operates within the working class but which is not independent from the capitalist class â is part of the problem. NGO phenomenon is not part of the solution. This is how it is that NGOs, as a phenomenon, are a danger. But, we must continue to make a distinction between NGOâs, on the one hand, and all our own self-organized, independent associations â from the informal self-help, through things like <em>sit</em>, co-ops-associations-unions, and working class political parties.</p><br /><p>Â Here is a list of characteristics of an NGO, that current born outside the working class, but offering it services:</p><br /><p>- People who set it up are not beneficiaries; one group gets together and targets another group. (They are not self-organized; they use the military metaphor of targeting).</p><br /><p>- It is dependent on external finance for its existence. (It is not self-financed).</p><br /><p>- It is often financed by those responsible for creating the problem they are addressing, in the first place (e.g. the capitalist class and/or bourgeois state).</p><br /><p>- It is run by a Board (it is not democratic).</p><br /><p>- It is devoid of the political vision necessary to address the source of the problem.</p><br /><p><strong>Â Brief History</strong></p><br /><p><strong>The word NGO was not used until about 1945. But, before the word was coined in 1945, organizations like NGOâs already existed. </strong><strong></strong></p><br /><p><strong>Â They were mainly organizations like Lions and Rotary. For example, there was a massive ideological movement in the liberal epoch</strong><strong> 100-150 years ago. </strong><strong></strong></p><br /><p><strong>Â The main man philanthropist of this era was a British Free Mason millionaire ideologue called </strong>Cecil Rhodes (d. 1902). I mention him because last year, 2015, more than a hundred years after his death, there was a renewed rebellion against him. The studentsâ movement in South Africa rose up and got his statue in front of the University of Cape Town pulled down. This year, another movement, this time in Britain tried to do the same thing at Oriel College, Oxford. But they have not yet succeeded. Rhodesâ assistants were the millionaire Colonial Administrator Alfred Milner, the Minister Balfour (notorious for thinking up the State of Israel in the <em>Balfour Declaration</em>), the banker Rothschild, and later the banker-industrialist Rockefeller. All were Free Masons, all were in Lions or Rotary, and they had a âplanâ â one which is still around â to get and keep the whole world <em>under a capitalist class under Anglo-American leadership.</em> Their strategy was <em>ideological</em>, not merely economic and political. And it became the model for NGOs.</p><br /><p><strong>Â Term âNGOâ coined by the UN in 1945, with âLionsâ the very first NGO recognized</strong></p><br /><p>The term NGO did not get born of a mass movement. It was invented when the United Nations was being set up after the 2nd World War. The UN united all the <em>governments </em>of countries<em>.</em> But it also recognized what it called non-government organizations. So it just meant an organization with observer status at the United Nations, in particular at first in ECOSOC. And Lions, an organization in the capitalist class, was not just the first to get recognition. Lions actually helped draft the statutes of the UN! Rotary was immediately recognized, and both are still Grade A status NGOs at the UN, at the same time as being âkindergartensâ for the Free Masons to recruit from.</p><br /><p>Â But, NGOs Â were not very important in those days. So, the invention of the term in 1945, did not produce what we are today calling âthe NGO phenomenonâ.</p><br /><p>Â Why was this? The main reason is probably that from 1900 to around 1980, the struggle was <em>political</em>. In all countries people organized themselves politically, and with lots of success. Social organizations were of less importance. There were three major political challenges to capitalist rule during those years:</p><br /><p>(i) Â Â Â The revolution in Russia, which then contributed to the victory of the other two challenges, and revolutions in other countries like Mexico, China, Vietnam, Cuba;</p><br /><p>(ii) Â Â The welfare state challenge in Europe and even in the USA, and</p><br /><p>(iii) The anti-colonial uprisings all over the world, which led to generalized decolonization.</p><br /><p>Â The political struggle was central.</p><br /><p>Â It won victories. It was efficient in this.</p><br /><p>Â But, the capitalist class is not stupid.</p><br /><p>Â It learns.</p><br /><p><strong>Â NGOs flourish as neo-liberalism takes over, from the 1980s</strong></p><br /><p>We begin to hear the term NGO all over the place from the 1970s-80s. The NGO sector grows hand-in-hand with the neo-liberal right-wing project. Neo-liberalism was imposed world-wide by means of IMF and World Bank conditions, likeÂ <em>Structural Adjustment Programs</em>Â dealt out to countries that supposedly owed too much to these capitalist-run banks. As Governments were forced by these conditions to privatize all sorts of social services, NGOs were set up to step in and soften the blow on the broad masses, as the State cut spending and services. NGOs would often offer very minimal services, by organizations accountable to no-one except their bank-rollers, and the services were given as charity, no longer as of right.</p><br /><p>Â In Mauritius, we began to suffer the nefarious effects of neo-liberalism rather later than other places, a 10 to 20 year delay, because of the huge mass strike movements in August, 1979 and in September 1980, which <em>Lalit</em> in fact led, and then by means of a defensive struggle led by the <em>All Workersâ Conference</em> (1995-9), that LALIT members helped set up.</p><br /><p>Â <strong>The collapse of the Three challenges against capitalism</strong></p><br /><p>The three political challenges to capitalism of the 20th Century, all collapsed together, in an inter-related way, under the neo-liberalâs political onslaught. Thatcher and Reagan were the political front-runners of the rise of neo-liberalism. Neo-liberalism provoked the fall of the Soviet system, the dismantling of the welfare state in the developed world, and the defeat of socialistic governments in the Third World. All had to become pro-capitalist. And it was finance capital back in power once again, as it had been by the end of the liberal era.</p><br /><p>Â The symbol of this change in Mauritius was in 1982 when Paul BÃ©renger, who had until a year before been a socialist militant in a working class party, as new Finance Minister in an alliance in a pro-capitalist Government, he announced that the IMF was not <em>imposing</em> conditions on him as Finance Minister, but that he believed that neo-liberalism was simply â<em>gestion saine de lâÃ©conomie</em>â! In fact from 1970, neo-liberalism planned its attack <em>politically</em>. It began theÂ <em>World Economic Forum</em> in Davos. The neo-liberal system was spread all over the world by political means. All other political currents were weakened by the attack. By 1992, the writer Fukuyama could announce âThe End of Historyâ, paraphrasing Karl Marx who had said, â<em>The history</em>Â <em>of all hitherto existing society</em>Â <em>is the history of class struggles.</em>â So, the neo-liberals declared the class struggle dead. Even Aneerood Jugnauth, famous for not reading anything, said he took a copy to read in Rodrigues!</p><br /><p><strong>Â Simultaneously, as neo-liberalism was taking over, all sorts of âstrandsâ began to form NGOs of all kinds, posing as âleft-wingâ but being <em>within bourgeois ideology</em>, part of the neo-liberal thrust. Here are some of the strands.</strong><strong></strong></p><br /><p><strong>Â Copenhagen 1995</strong></p><br /><p>In response to Davos being an â<em>economic</em>â forum, and here we will see massive expansion of NGOâs, the UN organized a <em>Social </em>Summit in Copenhagen, in 1995. This split represents potential for a major ideological defeat for the working class: âthe economyâ and âthe socialâ were broken apart. The bosses look after âthe economyâ that runs on its own god-given laws, while governments and NGOs in the UN system, limit themselves to picking up the pieces, in âthe social sphereâ. And this is what brought us back to the age of 1800s â<em>charity</em>â. The likes of George Soros and National Endowment for Democracy replace Rhodes, Milner, Balfour and Rockefeller as both ideologues and bank-rollers for charity.</p><br /><p>Â <strong>Rent a multi-cultural crowd</strong></p><br /><p>When the IMF-World Bank turned 50, another movement run on bourgeois ideology was born: â50 Years is Enoughâ. Here is how they describe themselves: â<em>... dedicated to the profound transformation of the World Bank and the International Monetary Fund (IMF)</em>â. That is all they wanted. Just as the complete discrediting of these institutions was becoming evident, do-gooders come and âreformâ the institutions, instead of calling for their closure. <em>50 Years is Enough</em> was amongst organizations that was paying for NGOs all over the world to send members to demonstrate here and there. It became the fashion to sort of ârent a multi-cultural crowd of demonstratorsâ, fully sponsored by multi-nationals, to one city after another, giving an NGO reflection of some multi-Government event.</p><br /><p>Â <strong>Le Monde Diplomatique</strong></p><br /><p>Editor of the mainstream newspaperÂ <em>Le Monde Diplomatique, </em>Ignacio Ramonet, in 1998 launched the idea for the NGO called ATTAC, which pushed for a tax on finance capital. Leave finance capital No more. Leave them in place, but put a 1% tax on them.</p><br /><p>Â <strong>Jubilee</strong></p><br /><p>In 2000, a Christian strand joined in with all manner of new NGOs that claimed ârepentanceâ through debt cancellation for the millennium. Not just supposedly apolitical this time, and therefore political towards the right, but now outright religious.</p><br /><p>Â <strong>World Social Forum</strong></p><br /><p>From 2001, the WorldÂ <em>Social</em>Â Forum was started in Porto Allegre. This then further solidified the dangerous divide between economic and social that Copenhagen began. WSF founder Oded Grajew was member of <em>Ethos Institute for Business and Social Responsibilit</em>y, the mastermind of the reactionary concept of C.S.R! Behind the WSF, there are huge NGOs, bureaucracies bigger than many Governments in ex-colonies: Oxfam, Greenpeace, Action AID, Civicus, Amnesty International, Medecin sans Frontiers, etc. Most are funded by large corporations.</p><br /><p>Â And, while the WorldÂ <em>Economic</em>Â Forum in Davos is always full of all the top politicians, the WorldÂ <em>Social</em>Â Forum, literally bans working class political organizations. To participate, you have to be present for an NGO. So some 4th International parties like LCR in France, for example, have well nigh dissolved themselves, if not actually dissolving themselves, while their top cadres run the WSF.</p><br /><p>Â Although these NGOs were all supposedly âapoliticalâ (which means in favour of the status quo), there were moments when events overtook them. One demonstration, for example held in Seattle, attracted mass trade union mobilization and this produced something unexpected: the âBattle of Seattleâ, with very real demands moving forward.</p><br /><p><strong>Â Why is it that the NGO phenomenon interests LALIT now?</strong></p><br /><p>Letâs just look at why it is that LALIT is right now interested in the phenomenon of NGOs.</p><br /><p>1. It is a moment when history demands <em>political </em>struggle. This means we must discourage people from being drawn into NGOs, which even at their best, leave people without enough time to think, trapped in emotional double-binds of all kinds â whether they are members, or employees, or employers. NGOs encourage <em>displacement activity</em> when the times we live in demand <em>political thinking and political action</em>.</p><br /><p>2. Young people without work often turn to NGOs for a job. Fine. But this work must be considered to be like <em>any other work</em>. It cannot ever replace oneâs political commitment, or oneâs commitment to a proper association in oneâs neighbourhood. And beware of emotional blackmail, and unpaid overtime taking a hold of your life.</p><br /><p>3. If you are in an association that is under pressure to become an NGO, remember that it is preferable to keep your economic independence and do what seems less, than to lose it and do what seems more. What you are doing may, in any case, be more in favour of the bourgeoisie.</p><br /><p>4. It is a time when the invisible form of âsocial workâ, modest work in the neighbourhood by non-registered organizations is more likely to be in the right political direction than any funded NGO.</p><br /><p>5. NGOs in the last analysis, strengthen the ruling class because they are funded and controlled by it and/or its State.</p><br /><p><strong>Â What needs to be done?</strong></p><br /><p>1. In these times, because we know that the root cause of almost all social ills is the capitalist system, our first commitment must be <em>political</em>. This, at the same time, helps us orient ourselves as to which associations, unions, etc. we can work in â at grass-roots level, preferably.</p><br /><p>2. We should perhaps choose <em>pre-political</em> work not just âsocialâ and never <em>apolitical</em> work, in our commitment at neighbourhood or worksite level. We should remember that the word <em>apolitical</em> today means <em>right-wing political</em> and means at best âin favour of the status quoâ. Pre-political work is different; it aims at political change, and never at just masking a problem in the short run, and it assumes a political struggle must also be nurtured.</p><br /><p>3. Alert friends, colleagues, comrades, especially young people to the dangers of social work being â<em>charity</em>â, and often charity in the interests of the capitalist class.</p><br /><p>4. Denounce CSR. Expose its pro-capitalist nature: it is the proceeds of exploitation of the working people; the more profits are made from this exploitation, the more CSR money is available to pacify us.</p><br /><p>5. Expose the bureaucratic interests in so-called social work, in NGOs and even in some associations. This year, the UN has for example introduced 169 targets under its <em>Sustainable Development Goals.</em> NGOs will then be set to work towards these goals, and then, to justify their funding, their progress will need to be âmeasuredâ. They estimate this âmeasuringâ will cost $254 billion â twice the world annual Aid budget. This money will go to the people who work in NGOs i.e. to their bureaucracies. The CEO of an NGO,Â <em>Oxford Poverty and Human Development Initiative</em>Â is in fact selling their own â<em>Multidimensional Poverty Index</em>â to other NGOs!</p><br /><p><strong>Â Conclusion</strong></p><br /><p>This paper is meant as a kind of framework for looking at this phenomenon of NGOs. It aims to help us to recognize that the explosion of NGOs over the past 30-40 years is part of a political offensive by the neo-liberal, right-wing, finance-capitalist class. We need to respond politically to this. We need a political counter-offensive.</p><br /><p>Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â </p><br /><p><em>Lindsey Collen 29 July 2016</em></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

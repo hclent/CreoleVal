@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612093946" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612093946" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612093946" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612093946" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612093946" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612093946" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612093946" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612093946" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612093946" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Report and Analysis of the Bruneau Laurette Demonstration</h1><p class="subtitle">31.08.2020</p></h1>
+	<p class="newsarticle"><p>Saturday saw a demonstration that the organizer Bruneau Laurette described in his press conference held afterwards as gathering &ldquo;between 123,000 and 157,000 people&rdquo;. It was indeed a huge gathering. The only larger ones were perhaps the PMSD extreme-right anti-Independence rally in 1967, the pre-hunger-strike working class mass meeting in 1980, and the centre-left alliance of the MMM-PSM&rsquo;s victory rally after winning all the Parliamentary seats in 1982.</p><br /><p>The size of the crowd last Saturday was indeed unusual. That someone completely unknown to the public, who runs a security company, was trained in Israel and the USA in martial arts and guns, should appear on the national stage, whistling a flute, and draw this many people is indeed a feat.</p><br /><p>If the middle classes were not so disaffected and truly squeezed from even before Covid;&nbsp;</p><br /><p>- if the Covid epidemic and its consequent lock-down had not made people genuinely insecure;&nbsp;</p><br /><p>- if the fact that only the government gives out tenders and contracts when there is a lock-down did not make all those who did not win them furious;&nbsp;</p><br /><p>- if there had not been the sight of that hideous Wakashio oil spill on the pristine waters of the South East;&nbsp;</p><br /><p>- if the circumstances of the shipwreck were not so unusual; if 50 beautiful melon-head whales had not beached a few weeks after the spill;&nbsp;</p><br /><p>- if the four main opposition leaders were not such&nbsp;<em>desperados</em>&nbsp;that lasting four whole years until the next election seems an existential threat to each of them;&nbsp;</p><br /><p>- if there were not conflict in the Labour Party about whether Navin Ramgoolam should take a back seat or remain leader;&nbsp;</p><br /><p>- if the MMM and PMSD were not both at the same time outside Government for the first time since Independence for any length of time;&nbsp;</p><br /><p>- if there were not conflict in the Church about the successor to the Bishop;</p><br /><p>- if the biggest section of the bourgeoisie, the tourist-related section, was not so stubborn as to have left all its eggs in the tourist basket while borders stay, and for a good while,&nbsp;<em>must</em>&nbsp;stay, closed thus making their calls for early re-opening borders ring so inhuman;&nbsp;</p><br /><p>- if two press groups were not in open warfare with the Government on other matters and ready to pump almost anything so long as it was against Jugnauth;&nbsp;</p><br /><p>- if there were not a wink-and-a-nod from the USA and UK Embassies so furious with Prime Minister Jugnauth over the U.N. case claiming and winning Chagos, including Diego Garcia, and so furious that Jugnauth rightly accused the UK of a &ldquo;Crime against Humanity&rdquo; over the Chagos deportations;&nbsp;</p><br /><p>- if all this were not true, the size of the march would have been beyond comprehension.&nbsp;</p><br /><p>But all these things are true. So, they jelled around Bruneau Laurette and his slogan &ldquo;Lev pake, ale!&rdquo; or &ldquo;Pack your bags, and go!&rdquo; addressed by the march to the Jugnauth Government, elected only 10 months ago &ndash; a slogan expressing the vague hope that such an ejection would have the effect of a magic wand on all the genuine sources of anguish, and of different kinds of ruin for different social classes. And though working people and the poor are, as always under capitalism, hit most hard, it was, curiously, the middle classes, and bits of the bourgeoisie, that constituted the backbone of the mass gathering, although some union leaders and some working people were evidently present.</p><br /><p>The gathering showed that people sure can&nbsp;<em>move</em>&nbsp;when they want to. This is something that LALIT is characterized by knowing. The desire to act can have the positive effect of bringing change towards more humanity in society &ndash; as in mass working class movements that challenge class inequality &ndash; or it can, conversely, have the effect of bringing change towards the most unimaginably dark times in history &ndash; the characteristic of fascism being that it has a&nbsp;<em>mass social base</em> following its ideology of patriotism, its strong-man macho leader, its ethno-communalism, and its militarism. And remember, when fascism rose in Germany, there was a pretty awful Government, the Weimar Republic one, bungling along. Anyway, all this to say, mobilization needs to be strongly behind a clear demand or program in order to assure bringing progress. A program is made up of three or four things: a shared analysis of where we are in history; a set of demands that people understand for now and that they understand can be a bridge towards a better future; a vision of a possible better future society.</p><br /><p>Saturday&rsquo;s event can best be understood by watching the 58-minute Press Conference after the march. It was itself a desolate event held at Villa Chambly. Judging by it, you would think there were not 123,000 to 157,000 people but 123 to 157.&nbsp;</p><br /><p>In this Press Conference, the nature of the leadership that called the march is clearly exposed for all to see.&nbsp;</p><br /><p>Bruneau Laurette describes himself in it as a disaffected agent of Minister Kavi Ramano (against whom Laurette has since laid a private prosecution for not protecting the country) and then vacillates between saying &ldquo;we are four new faces&rdquo; here at the Press Conference, the new leadership everyone in the country is crying out for, and then saying he and his colleagues are not &ldquo;in politics&rdquo;, therefore not the new leadership of anything.&nbsp;</p><br /><p>His right-hand man, Trishna Balgobin, describes himself as having a &ldquo;Masters in Political Marketing&rdquo; specifying that this degree is from not just any university but &ldquo;an Italian University&rdquo;, before informing us that he is a former agent in charge of communications for none other than Prime Minister Pravind Jugnauth himself. And this was the case, he says, in both 2014 and 2019 elections, and he then goes on to blackmail Pravind Jugnauth and his wife about something he knows, but he is waiting for the right time to expose. So, that makes two disaffected MSM agents heading the huge protest march. In LALIT, we must admit that we were blind-sided that this was the most important part of the CV of the two main organizers!(1)&nbsp;</p><br /><p>The woman present, Corinne Lallman-Sit Yee, said she was involved in many &ldquo;projects&rdquo; including some with the Church, and was clearly a &ldquo;token&rdquo; presence to show that women were not altogether absent.&nbsp;</p><br /><p>While Sebastien Lenette waxed eloquent on how he advises people to be corrupt: when parties offer you something, take it. Take it, but then do not vote for them. He hardly spoke about the petition addressed to the President to remove the Prime Minister, treating the petition as a kind of informal &ldquo;referendum&rdquo;. Bruneau Laurette and Trishna Balgobin will be opening what promises to be a parallel Citizens&rsquo; Advice Bureau at Place du Quay. From there, you will be channeled to professionals.</p><br /><p>Speakers at the march, other than the leaders Bruneau Laurette and his lawyer Teeluckdharry, Patrick Belcourt and Trishna Balgobin, included Georges Ah Yan, Vassen Kauppaymuthoo, Ashok Subron, Ivann Bibi, Jayen Chellen, Ivor Tan Yan, and they all spoke in different directions &ndash; including against vaccination, just to give an idea. From the platform Belcourt called for &ldquo;re-opening of the borders&rdquo;. This is the tourist bosses&rsquo; demand &ndash; but one on which they have had, themselves, to turn their volume down, so as not to expose criminal negligence &ndash; because while Mauritius precariously maintains zero local infections for 4 months, most tourists come from France and South Africa where local cases are literally exploding. The main political leaders, though present &ndash; Ramgoolam (Labour Party), Duval (PMSD), B&eacute;renger (MMM), Boolell (as Leader of the Opposition) &ndash; did not speak at all, which is not surprising because they are desperate men, and would neither wish to risk too close an association with so bizarre a gathering nor would they, in fact, be welcomed at the microphone by most demonstrators, who had, after all, been invited on a strong &ldquo;anti-politics altogether&rdquo; rhetoric so they could not risk being booed.&nbsp;</p><br /><p><em>Who&nbsp;</em>were at the march, in class terms, was perhaps best described by one of the organizers, Percy Yip Tong, though through his abominable ethno-centric vision. It was on the French station TV-5Monde. (2) [for English translation.]</p><br /><p><strong>TV5Monde</strong>: Percy Yip Tong, &hellip; Vous &ecirc;tes l&rsquo;une de figures de proue de ce mouvement. &hellip; Vous avez lanc&eacute; un appel &agrave; la diaspora mauricienne &agrave; Londres, &agrave; Paris, elle s&rsquo;est mobilis&eacute;e aussi. Que reprochez-vous aux autorit&eacute;s?</p><br /><p><strong>Percy Yip Tong</strong>: &hellip; Apr&egrave;s 51 ans d&#039;ind&eacute;pendance, nous avons eu deux dynasties, deux familles, deux p&egrave;res et fils ont &eacute;t&eacute; premier ministre pendant 51 ans avec une br&egrave;ve d&rsquo;un franco-mauricien pendant deux ans et demi. Et il y a eu du n&eacute;potisme, la m&eacute;ritocratie n&#039;est plus l&agrave;, la corruption &agrave; gogo, vraiment du gaspillage de fonds publiques et aussi des communaut&eacute;s qui sont mis un &agrave; c&ocirc;t&eacute; de l&rsquo;autre parce que a la fonction publique, ceux d&#039;origine africaine n&#039;ont presque pas leur place. Ils ont dit &#039;stop&#039;. Ce qui est arriv&eacute; avec le Wakashio &hellip;&nbsp;&nbsp;a d&eacute;clench&eacute; une mar&eacute;e noire qui a &eacute;t&eacute; la goutte d&rsquo;huile qui a fait d&eacute;bord&eacute; le vase. Le peuple n&rsquo;en peut plus ...</p><br /><p><strong>TV5Monde</strong>: On voyait dans les rues, aujourd&#039;hui, c&#039;est notamment la classe moyenne qui manifestait. Pourquoi?</p><br /><p><strong>Percy Yip Tong</strong>: D&eacute;j&agrave;, on n&#039;avait jamais vu des franco-mauriciens et des sino-mauriciens manifestent dans les rues. Ces deux minorit&eacute;s, ils repr&eacute;sentant 1%. Parce que la classe moyenne est la plus touch&eacute;e par la crise &eacute;conomique qui affecte l&rsquo;ile Maurice apr&egrave;s le Covid. Parce que les classes pauvres, ils ont des aides sociaux. Les riches, m&ecirc;me s&rsquo;ils ont les 90% de leur richesse, pourront vivre pour trois g&eacute;n&eacute;rations. La classe moyenne est endett&eacute;e, ils ne peuvent plus envoy&eacute;s leurs enfants aux lyc&eacute;es priv&eacute;s, ils peuvent plus payer leur maison, les pr&ecirc;ts, ni leur voiture. Eux, ils en ont marre. L&agrave; on a vu les gens du secteur priv&eacute;, de hauts fonctionnaires, des directeurs de compagnie, dans les rues. Du jamais vu. Les chinois, n&#039;en parlons pas. Les chinois, j&#039;ai vu mes tantes, mes cousines dans les rues. J&#039;hallucinais. &hellip;</p><br /><p>Shenaz Patel, the Week-End journalist who supported the build-up march a month or so ago, though enthusiastic about this one, covers herself for later by saying that it bears repeating that: &ldquo;<em>Le fait qu&rsquo;elle n&rsquo;ait pas eu un agenda clairement d&eacute;fini et communiqu&eacute; ... men&eacute;e par un homme, Bruneau Laurette, dont on ne sait au fond pas grand-chose sinon qu&rsquo;il travaille dans le monde tr&egrave;s particulier de la &lsquo;securit&eacute; maritime&rsquo;, et qu&rsquo;il s&rsquo;affiche volontiers en Rambo porteur d&rsquo;armes.</em>&rdquo; (3) &ndash; for English. She also warns obliquely through the mouths of &ldquo;<em>certains observateurs</em>&rdquo; (not herself)&nbsp;<em>&ldquo;affirment d&eacute;j&agrave; que la composante hindou de la population n&rsquo;&eacute;tait pas pr&eacute;sente en masse &agrave; cette manifestation.&rdquo;</em>(4). Enough said. Laurette pulling Cassam Wadally up on to the podium in such an ungainly manner, after all the speeches were already over, was clearly an attempt to cover up another group seen as &ldquo;<em>pas presente en masse</em>&rdquo;.&nbsp;</p><br /><p>Symbolically, the demonstration gathered at Cathedral Square, received a message of support from the Church via one of the Press Empires that supported the event,&nbsp;<em>L&rsquo;Express</em>, and then terminated bold-faced in front of the USA Embassy. The Embassy is known to have complained formally to the Police Commissioner when an eleven-person group protested in the same place against the US military base on Diego Garcia. This time the USA unabashedly supported the protest. Also, there were probably enough bouncers present at the demonstration, something never seen before, to reassure the super-power of its safety! The itinerary from Catholic Church headquarters to USA headquarters could not better symbolize the old &ldquo;western alliance&rdquo;, made even more symbolic when the&nbsp;<em>La Sentinelle</em>&nbsp;press-and-real-estate empire covers the event, even giving messages from one of the two. &nbsp;</p><br /><p>The event was very male-led and male-attended, for a 2020 event. One big poster even suggested, in an illustrated joke, that Jugnauth did not show balls enough to be Prime Minister! Another huge banner equated sex, in a joke, with rape and destruction. All this to say, that the baseline militarism of a security guard outfit made the whole event revert to macho as default mode. Amongst recent quite big demonstrations of broad masses, there were the two organized by LALIT&rsquo;s joint committees on asbestos housing that involved more women than men out in the streets. And of course nearly all working class, very few middle class.</p><br /><p>Now the march is over, the organizers have a problem ahead. What are they going to do to oust the Government? That is their unifying aim? And elections were oh so recent? A petition. A new demonstration in Mahebourg. Then another new one in Black River, Laurette announces. Then what? Will they try to destabilize the government and the State in other ways? What are the dangers of this, when the political parties in the&nbsp;&nbsp;march are all so different, and many of the other organizations are not even parties, and include a cordillo individual or two, to boot?</p><br /><p>And what will the leaders of all the big Parliamentary parties now do with this mobilization? Is there anything they can do with it? They will no doubt win the Municipal elections. How long can these three unlike parties &ndash; Labour, the MMM and the PMSD &ndash; stay in even a loose alliance, however desperate they are? If they let Bhadain in, will this weaken or strengthen them?</p><br /><p>It is worth ending on a note about the singularly right-wing foundations of the Mauritian diaspora. In many countries, like France, Australia, the UK, Switzerland, the people who set up the first embers of a &ldquo;diaspora&rdquo; were those who fell for the extreme right-wing propaganda against universal suffrage, propaganda distilled by the Ralliement Mauricien, that became Parti Mauricien (and later the PMSD) and around the slogan of &ldquo;the Hindu peril&rdquo; (&ldquo;<em>Peril Hindu</em>&rdquo;). This was a vacillating campaign &ndash; sometimes against all &ldquo;pagans&rdquo; or &ldquo;non-Christians&rdquo;, and sometimes against all from Asia, and sometimes just against the &ldquo;Hindu peril&rdquo;, depending on tactics of leadership of the extreme-right of the moment. But it was &ldquo;Mauriciens&rdquo; making a &ldquo;ralliement&rdquo; (rally) against the immigrants from the East. Universal suffrage was seen in poster campaigns of the time as &ldquo;putting a blade into the hands of a monkey&rdquo;, to take one example, making out that the broad masses of Indian-descendants who were still field labourers and African descendants, though together clearly a majority, were far too inferior to vote. The campaign became so hysterical that people emigrated to escape the &ldquo;Hindu peril&rdquo; which they believed would come about. This later became the campaign as to who was an &ldquo;authentic&rdquo; Mauritian, and who was not. Or who was landlord (<em>proprieter</em>) and who was tenant (<em>lokater)</em>. In the run-up to Independence a decade later, the PMSD tried to mobilize all communities against just &ldquo;Hindus&rdquo;, and this caused more people to flee, some even affreighting a whole luxury liner to go to Australia. And these emigrants set up diaspora groups. When the PMSD joined Labour in a coalition in 1969, Gaetan Duval was Minister of Emigration &ndash; to help people emigrate. This diaspora has evolved until today, often with very old forms of communalism still present.&nbsp;</p><br /><p>All this to say that the patient work of organizing the working class continues. Again, it shows the importance of keeping the issues to class issues. LALIT, as you know, is involved in this at grass roots level &ndash; in everything from joint-housing committees to joint-fishers&rsquo; committees, women mobilizing around issues that affect them particularly, promoting the Kreol language, supporting the Palestinian people by actions, against violence of police and prison officers, and working to get the UK-USA out of Chagos, including Diego Garcia. And we need the help of more young people. Do be amongst those to contact us &ndash; but only if you are a little bit brave. If you want more information just go to our website (if you are not already on it), and look up the news archives, year by year from 2004.&nbsp;</p><br /><p>&nbsp;LALIT</p><br /><p>6:30 pm 31 August, 2020.</p><br /><p>&nbsp;P.S. At 8:00 pm. In Pravind Jugnauth&rsquo;s address to the nation on MBC TV, he announced a concession post-demonstration: the borders will be opened slightly from 1 October, and then later opened completely, depending on the situation. Under the present circumstances, when there are still no local cases here, and cases are rising so fast where tourists comes from, it is of concern that the Government is acting under pressure of the demonstration&rsquo;s demand, as ennunciated by Patrick Belcourt as a speaker at the demonstration.&nbsp;</p><br /><p>NOTES</p><br /><p>(1) We now, in retrospect, notice in lexpress.mu of 16 August, Bruneau Laurette announcing: &ldquo;<em>J&rsquo;ai escort&eacute; Kavi Ramano lors du meeting de La Louise durant la campagne &eacute;lectorale.&rdquo;&nbsp;</em><em>L&rsquo;Express also adds in an unusually harsh criticism of Bruneau Laurette,&nbsp;</em><em>&ldquo;</em><em>Ses d&eacute;tracteurs font aussi croire que c&rsquo;est parce qu&rsquo;il n&rsquo;a pas eu de contrat avec le gouvernement ou la police mauricienne qu&rsquo;il les attaque.&rdquo;</em></p><br /><p><em>(2)&nbsp;</em><strong>TV5Monde</strong>: Percy Yip Tong, &hellip; You are one of the figureheads of this movement&hellip; You called for the Mauritian diaspora in London, in Paris, to mobilize. What do you reproach the government?</p><br /><p><strong>&nbsp;Percy Yip Tong</strong>: &hellip; After 51 years of Independence, we have had two dynasties, two families, two fathers and two sons, as Prime Minister, with a break when there was a Franco-Mauritian for two and a half years. And there has been favouritism, there is no longer meritocracy, corruption agogo, a real waste of public money and also communities who feel left out like those of African origin who often don&rsquo;t find jobs in the civil service, they all said &lsquo;Stop&nbsp;!&rsquo; Then there was the Wakashio &hellip;&nbsp;&nbsp;which set off an oil spill that was the last straw. People could no longer ...</p><br /><p><strong>TV5Monde</strong>: When we look at the streets today, we are struck by the middle class protesting. Why?</p><br /><p><strong>Percy Yip Tong</strong>: For a start, one has never seen Franco-Mauritians or Sino-Mauritians marching in the streets. These minorities represent 1%. It is because the middle class is most affected by the economic crisis which has struck Mauritius following Covid. It is because the poorer classes get social assistance. It is because the rich, even with 90% of their wealth, can live for three generations. The middle class is in debt, can no longer send its children to private secondary schools, it owes housing loan repayments, other debts, money on a car. They are fed up. So there were people from the private sector, top employees, directors of companies, all hit the streets. Never seen before. Chinese people, of all people. They don&rsquo;t usually say a word. I saw mum aunts, my cousins out on the streets. It&rsquo;s unreal &hellip;.</p><br /><p>(3) &ldquo;<em>The fact that there is no clearly defined and clearly stated agenda&hellip;. led by a man, Bruneau Laurette, about whom little is known other than that he works in the rather special world of &lsquo;maritime security&rsquo;, and that he is happy being seen as an arms-brandishing Rambo.</em>&rdquo;</p><br /><p>(4) Some observers affirm from the outset that&nbsp;<em>affirment d&eacute;j&agrave; que la Hindu part of the population was not massively present at the demonstration&rdquo;.</em></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

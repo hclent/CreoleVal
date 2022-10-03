@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101344" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101344" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101344" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101344" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101344" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101344" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101344" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101344" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101344" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Homage to the Memory of John Percy, Revolutionary</h1><p class="subtitle">20.08.2015</p></h1>
+	<p class="newsarticle"><p>Homage to the Memory of John Percy, Revolutionary &ndash; by Lindsey Collen for LALIT</p><br /><p>Members of LALIT are marking the death in Sydney yesterday, 19 August, of John Percy, a socialist revolutionary, by launching a series of informal discussions in LALIT about his contribution to the struggle.</p><br /><p>John Percy became known personally to LALIT members during his visit to Mauritius as a Guest Speaker at the LALIT International Action Conference on Diego Garcia in 2010. His speech title then five years ago is still spot-on: &ldquo;<em>US Imperialism Today &ndash; economically weakened, but still politically and militarily deadly</em>&rdquo;.</p><br /><p>The week that John spent in Mauritius &ndash; he and Eva stayed with Ram Seegobin and me in Bambous &ndash; gave him time to get to know many members, both formally at the Conference and informally around shared meals, and just chatting.</p><br /><p>But before that, in the same year, Rajni Lallah and I had spent a lot of time with John during the week of the 4<sup>th</sup> International Conference on the coast of Belgium, analysing the state of the world movement for socialism. We discussed things political informally as well as sharing ideas on how to build really democratic revolutionary parties in times of the glorification of woolly mass movements with caudillo leaders.</p><br /><p>Before that, in 2009, Cindy Clelie and I attended and addressed the First Congress of the Revolutionary Socialist Party in Sydney, and we stayed with John and Eva.</p><br /><p>And, before that, our very first personal contact with John was in March 2005, when Ram attended and spoke at the Asia Pacific Solidarity Conference organized by the Democratic Socialist Party in Sydney. And it is since then, over 10 years, that LALIT has maintained a close relationship with John and his comrades. He and Ram established it.</p><br /><p>Just last year, Rada, in LALIT&rsquo;s name, participated in the Socialist Alternative "Marxism 2014" Conference in Melbourne, spending time again with John.</p><br /><p>And there were two particular ways in which John helped LALIT in practice. The first was that he and Eva, when they were here for the Diego Garcia action conference, advised us, especially Kisna Kistnasamy, our member who spearheads our documentation and archives, as to who could help us to conceptualize how to digitize our documentation centre. They linked us up with the person who actually helped us not just with the technicalities, but made us realize the immense value of our<em> primary sources</em>, and in particular, of the development of the written Kreol language since Independence, something which is largely within the files of our archives. We had been somewhat blind to the importance of these two aspects of our Archives. We tended to take for granted. It was like an epiphany. And so this advice will have lasting value to us in LALIT, and to everyone who uses our archives in the future, too.</p><br /><p>Secondly, John was absolutely fantastic in organizing to send LALIT a massive contribution of classic Marxist texts in response to our call following the 30 March 2013 floods where we lost so many of our books. In fact, amongst the books were a substantial number from the library legacy of another comrade, Doug Lorimer. &nbsp;&nbsp;&nbsp;</p><br /><p>In LALIT, we appreciated John&rsquo;s dedication to the political struggle, in the face of the onslaught of the corruptible current of &ldquo;NGO&rsquo;s&rdquo; on the one hand and union bureaucracies on the other, and yet, as well as being so thoroughly <em>political</em>, he also had very broad interests in things like literature &ndash; he and Ram, or he and I could discuss novels for ages together &ndash; and in his immense poster collection, and also his ability to sit and watch the sea. He maintained the capacity for being held <em>in awe</em>. All this made him both a fine revolutionary and a good person.</p><br /><p>We would like to produce below the article by Allen Myers, who some of us know personally. It shows the strength and humbleness of John, while putting emphasis on his central belief, like ours in LALIT, in the importance of building a revolutionary party, a party functions democratically.</p><br /><p><strong>John Percy, revolutionary party builder</strong></p><br /><p>19 August 2015, Allen Myers</p><br /><p>&nbsp;John Percy, a central figure in the development of the Australian revolutionary socialist movement over the past half century, died on Wednesday 19 August in Sydney, after suffering a severe stroke on 20 July and another on 13 August.</p><br /><p>Throughout his political life, John was a revolutionary party builder. &ldquo;Party builder&rdquo; was the highest praise he could bestow on another political activist.</p><br /><p>John and his brother Jim, his closest political collaborator until Jim&rsquo;s death from cancer in 1992, were key figures in the radical anti-imperialist wing of the movement against the Vietnam War in the 1960s. Their early political development was influenced by individuals who had been part of or close to the Trotskyist movement in Australia during and after World War 2, and this helped them to understand and oppose the class-collaborationist politics of both Stalinism and social democracy.</p><br /><p>John and Jim&rsquo;s perspective was that it was necessary to start, now, toward building an eventual mass party that would be capable of leading an Australian socialist revolution, in the way that the Bolshevik Party of Lenin had been able to lead the Russian October Revolution. In this, they differed from most of the activists produced by the 1960s radicalisation, who tended to look for fundamental change to &ldquo;left&rdquo; capitalist politicians and/or movements that would somehow know spontaneously what to do next.</p><br /><p>As well, Vietnam&rsquo;s struggle, the influence of the Trotskyist Fourth International and events like the Prague Spring and May 1968 in France gave them an unshakable conviction that the party they sought to build would have to be thoroughly internationalist in both theory and practice. John&rsquo;s many contributions to building an international movement included 18 months in 1974-75 working in New York on <em>Intercontinental Press,</em> the revolutionary news magazine produced by the US Socialist Workers Party on behalf of the Fourth International.</p><br /><p>Before Vietnam&rsquo;s victory over US imperialism, &ldquo;the Percy brothers&rdquo;, as they were widely known, had managed to assemble the political activists to create, first, a youth organisation (known as Resistance and Socialist Youth Alliance at different times) and then a party nucleus, the Socialist Workers League, later called Socialist Workers Party, Democratic Socialist Party and Democratic Socialist Perspective until its political degeneration and dissolution in 2010. (For convenience, I will refer to the organisation as DSP despite its actual name at any time.)</p><br /><p>It is difficult to write about John without writing a history of the DSP, because he was always centrally involved in initiating and/or implementing its major activities. Here I will try only to indicate some of the qualities that made him an outstanding revolutionary activist and leader.</p><br /><p>John had an outstanding ability to combine firmness of political principle with great tactical flexibility &ndash; primarily because he had a very clear understanding of the difference between the two. The importance of this was reinforced for most of us in the DSP in the 1970s by seeing how the conversion of a tactic into a principle contributed to the US Socialist Workers Party&rsquo;s transformation into a sectarian cult.</p><br /><p>This combination was important in allowing the DSP to discard an out-dated attitude toward the ALP in the 1980s and to relate to the sudden emergence of the Nuclear Disarmament Party and then the Greens. It contributed to successful fusions in the 1970s and later also allowed us to explore the possibilities of unity with the Communist Party of Australia and the Socialist Party of Australia, without suffering any political disorientation when those processes came to a dead end. We were accustomed to changing a tactic if it wasn&rsquo;t successful.</p><br /><p>John was good at party building because he was a team builder. He helped the DSP create a conscious culture of developing the skills of each member and combining them into a whole that was often more than the sum of its parts. This included particular attention to the training of women cadres and comrades from disadvantaged backgrounds.</p><br /><p>Different members of course had different abilities, and one individual or another might be known as having outstanding skills in a particular area, but they were encouraged to develop many skills, to become rounded revolutionary cadre rather than limited specialists. There was no &ldquo;star&rdquo; system; John and other leaders, in both word and their personal example, emphasised that all the tasks of party building, including the most mundane, were to be valued equally and carried out by all members, as professionally as possible.</p><br /><p>John himself led many different areas of party work, including being a branch organiser, editor, writer, national president, national secretary, public speaker. He was widely known both inside and outside the DSP as the partisan of a regular, attractive and party-building revolutionary press. Over the years, literally thousands of people met John selling a revolutionary paper on the streets of Melbourne or Glebe, at demonstrations or picket lines, wherever he could come into contact with people who might be thinking about politics.</p><br /><p>While national secretary of the DSP in the 1990s, John also made a tremendous contribution to developing the party&rsquo;s internationalism. The DSP withdrew from the Fourth International in 1986, deciding to base its international relations no longer simply on membership of an &ldquo;International&rdquo;, but on similarity of basic revolutionary outlook, no matter from what tradition parties originally came. It was during John&rsquo;s time as national secretary that this perspective fully bloomed. The DSP established close relations with parties in the Asian region, but also in Europe, that had no connection with Fourth International Trotskyism. Some had evolved from an earlier Maoist tradition. Some had no connections with any pre-existing currents.</p><br /><p>This new approach made it possible for the DSP to hold a series of international conferences with probably the largest representation of revolutionaries ever organised in Australia. John&rsquo;s role was key as a central party leader, but he also made specific contributions, building relations with the Communist Party of India (ML - Liberation) and with Lalit in Mauritius. John later toured India, meeting CPI (ML) leaders and addressing rallies of thousands of workers and peasants in a way that CPI (ML) leaders described as &ldquo;like a lion&rdquo;.</p><br /><p>But perhaps his greatest contribution was in initiating and organising international collaboration on a new magazine, <em>Links</em>. This was a unique publication in the history of the international revolutionary left. It was a publication at the core of which was collaboration between revolutionary parties, inspired by the Leninist party idea, no matter what traditions they had emerged from.&nbsp; It was a place where ideas could be exchanged between parties. Leaders of important parties were represented on its editorial board.</p><br /><p>John also understood the importance of revolutionaries studying and learning from their own history and experiences. John was always the unofficial DSP archivist, collecting shelf upon shelf and filing cabinet upon filing cabinet of documents, leaflets and posters from the Australian left. (A selection from his poster collection is scheduled for display at the Addison Road Community Centre in Marrickville, Sydney, in October.)</p><br /><p>In the 1990s, as long-time party members began to feel their years and capitalism celebrated what its propagandists claimed was a permanent triumph, John pushed the idea that comrades who had important party assignments had a responsibility to &ldquo;train your replacement&rdquo;. Revolutionaries had to prepare for however long it might take to construct a mass Leninist party.</p><br /><p>But in the atmosphere of &ldquo;the end of socialism&rdquo;, many leaders and members of the DSP began looking around for a way to avoid that long and difficult path. A tactical experiment, of attempting to create a &ldquo;broad left&rdquo; party, the Socialist Alliance, as a more concentrated audience for revolutionary ideas, proved instead to be a heavy burden on DSP resources.</p><br /><p>John and a minority of DSP leaders therefore advocated pulling back from the Alliance tactic. But a majority turned the tactic into a principled strategy, insisting that events would shortly bring an influx of members into the Socialist Alliance and propel it into an important position in Australian politics, including electoral politics. In the hope of such a development, they began replacing the DSP&rsquo;s revolutionary program with reforms that they thought might be electorally attractive.</p><br /><p>The differences broke into open debate within the DSP in 2005. Despite the failure of all their hopes for Socialist Alliance advances, the majority refused to change course, and in 2008 they expelled the entire minority.</p><br /><p>As one would have expected, John played a central role in the expelled minority&rsquo;s regroupment as the Revolutionary Socialist Party. It was a difficult time, and two years later a substantial minority decided that it really was impossible to build towards a revolutionary party in the current climate, and they resigned from the RSP.</p><br /><p>For John, health problems added additional difficulties. In 2008 he was diagnosed with throat cancer. This was eventually treated successfully, but involved months of X-ray and chemotherapy that drained his time and energy and left various side effects on his health.</p><br /><p>However, an important change was on the way. In 2012, Socialist Alternative approached the RSP with a proposal to explore the possibility of merging the two organisations. Since the major historical difference between the two tendencies &ndash; on the class character of the Soviet and Chinese states &ndash; had been removed by the changes in Eastern Europe and China, and since SA, like the RSP, was clearly committed to the construction of a revolutionary Leninist party, this was an eminently sensible proposal. At a conference in late 2012, RSP members voted unanimously to join Socialist Alternative, and this process was completed at SA&rsquo;s annual Marxism conference at Easter 2013.</p><br /><p>John was of course one of the RSP members elected to the National Committee of Socialist Alternative. Despite signs of declining health, he threw himself into building the united organisation, especially into distributing its new newspaper, <em>Red Flag.</em> He also continued his decades-long solidarity with the people of Vietnam as part of the Agent Orange Justice campaign.</p><br /><p>Two years ago, John passed out while selling <em>Red Flag</em> on the street in Glebe. He had suffered a small stroke, which in itself was not too serious. But the doctors&rsquo; examination revealed another condition, an untreatable aneurysm in the brain. They described this as a &ldquo;time bomb&rdquo; that could kill him at any moment.</p><br /><p>John responded by redoubling his efforts to complete his three-volume <em>History of the DSP and Resistance,</em> the first volume of which was published in 2005. The aneurysm struck before he could do so, but it may still be possible to compile his notes and completed passages into a useful text for current and future generations of revolutionary Marxists.</p><br /><p>Among the many lessons in that semi-completed history is one that stands out despite being only implicit in the text. John never wavered. Neither should we.</p><br /><p>John Percy, <em>presente!</em></p><br /><p>Source: <a href="https://redflag.org.au/article/john-percy-revolutionary-party-builder" target="_blank">https://redflag.org.au/article/john-percy-revolutionary-party-builder</a></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

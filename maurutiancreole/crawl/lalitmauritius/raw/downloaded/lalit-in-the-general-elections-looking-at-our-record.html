@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101630" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101630" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101630" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101630" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101630" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101630" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101630" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101630" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101630" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>LALIT in the General Elections: Looking at our Record</h1><p class="subtitle">16.12.2014</p></h1>
+	<p class="newsarticle">LALITâs election campaign got off to an early start. We were already quite well prepared for the âsnap electionsâwell before they were called for December, 2014 although they were only due in 2015. This preparedness was because LALIT had organized a residential seminar in August with the aim of coming to an understanding of the way in which general elections, perhaps snap elections, would present themselves. At this seminar, we discussed which political ideas we wanted to put forward as the stakes of the elections, and these would become the basis for our electoral program, which we, at once, began to work on after the seminar.<br /><br />So, our aim in participating with candidates was to put <i>economic</i>issues like job creation during the capitalist crisis, on to the agenda for the elections. We also decided to go in early and hard against the âSecond Republicâ that the outgoing Ramgoolam Government, in alliance with the outgoing BÃ©renger Opposition, intended to set up with the 3/4 majority they intended to win. We also decided to push for more democracy, in very specific ways, through proper electoral reform, since the issue of electoral reform was put on the agenda by the Labour Party and MMM. And we continued our campaign for the destruction of the central data-base for the new biometric ID Cards throughout the campaign, as we intended to do. We also aimed to, and succeeded in, putting the question of Diego Garcia and Palestine on the agenda, as well as maintaining pressure for womenâs emancipation and for the promotion of the mother tongues, Kreol and Bhojpuri. <br /><br />So, the first thing LALIT did was, over a two-or-three month period before elections were called, our branches and our weekly âprogramâ meeting discussed in depth and agreed upon an electoral Program. We published it in A4 format, all 64 pages, as well as putting it on to our web-site. The launch was on 1 October, even before the dissolution of Parliament on 7 October, and well before any other party. Other parties fielded their candidates first, and then announced their program, or their sketchy outline of a program. This upside-down procedure is partly lip-service to a program, and partly as mad as the Queen in Alice in Wonderland, âSentence first â verdict afterwards! âExcept for the LâAlliance Lepep which announced its â12 Measuresâ on 12 October, relatively early; but then again 12 measures are hardly a âprogram,â but more like populism.<br /><br />LALITâs tactic for the elections was to field 28 candidates, that is to say less than half, meaning we were standing for election as an Opposition and not for Government. <br /><br />We had a lot of debate on our campaign slogan, and finally chose: âBIZIN LALIT DAN PARLMANâ, which is not easily translated into English, because it is a pun on LALITâs name, implying that the struggle must also be in Parliament, as well as saying that the time has come for LALIT to be in Parliament.<br /><br />It caught on. This, for many reasons, including the fact that the electoral campaign had turned into a kind of referendum on the issue of the 2nd Republic and this in large part due to LALITâs early opposition to the anti-democratic plan of the PT-MMM alliance. This meant that the nature of âparliamentâ, as opposed to the less democratic presidential system being proposed, was under discussion. And the pun on âLalitâ also highlights the fact that Parliament is the most democratic of all State organizations, which is something we want people to be conscious of. Many other parties in the elections adopted the content of this slogan, in all their discourse. And it is one of those slogans that is not so empty that after the electoral campaign, it leaves no trace: on the contrary it outlines the importance of a dynamic Parliament in which debates of a class nature are given a national âlâechoâ as part of the process of controlling the Executive Branch of Government, including the Prime Minister and his Cabinet. <br /><br />LALIT members very early on began conceptualizing and designing our posters and banners, in terms both of the content and their form. <br /><br />And for the first time in an electoral campaign, we uploaded a couple of dozen YouTube clips, most of them on our political program itself, with one or two on members saying informally what aspects of LALITâs program are particularly important to them as a member. <br /><br />The main themes of our Program were:<br />-No to the Ramgoolam-Berengerâ2nd Republicâ!<br />- For an alternative politics on the âeconomyâ, faced with the capitalist crises of the moment!<br />- Plus we introduced LALIT campaign issues like destruction of the data-base for the ID Cards, more democratic electoral reform, Diego Garcia demilitarization and re-unification of Chagos with the Republic, support for the Palestinian peoplesâ struggle, against police violence, for womenâs liberation and in favour of using the mother tongue in all State institutions, including as a medium for content subjects in schools. <br /><br />And our Program, as a sign of our openness to working with others, includes four documents produced by other organizations, sometimes then adopted by LALIT, and sometimes prepared jointly with other organizations. <br /><br />And our Electoral Program clearly shows how our participation in an election is part of ongoing political work, not something that is the be-all and end-all. <br /><br />One novelty in the 2014 <br /><br /><br />LALIT electoral program: We included a chapter on our aim and strategy, as compared with the mainstream bourgeois parties, and as compared with others like RA and Bizlallâs various parties. (See News section of our Web for English translations of this chapter.)<br /><br />So, when we fielded 28 candidates, which is what we promised from Day One to do, it was on the basis of a common understanding of the tasks before us, as we had agreed in the Program. We did not do this bizarre thing of fielding candidates first, and then knocking together a program, as if for the gallery. <br /><br />So our 28 candidates aimed at the following:<br />- To stand for election as Opposition MPs. <br />- To aim at men-women parity in our list. In fact, we fielded 43% women, as well as drawing attention to the need for a political program for womenâs emancipation, and not just quotas. <br />- To give electors in all constituencies the choice to vote LALIT. <br />- To fill up all three candidatures in four of the 20 constituencies, two rural and two urban, as a sign that we have, unfortunately, got no allies, having no confidence in any other parties present.<br /><br />We organized ourselves into clusters of constituencies for our political campaign â the 4 Port Louis constituencies, 3 in the North, 3 in the East, the 2 in Beau Bassin and Rose-Hill, the 3 in Curepipe-Vacoas, 3 in the south, and then numbers 14+ 18.    <br /><br />We aimed at, and succeeded, in running a campaign fairly equally over the whole country (except Rodrigues), with help being brought in from other clusters for the North where LALIT has an historical weakness (especially as there were the 2 big leaders in Constituencies 5 and 7 in the North).<br /><br />We began by distributing, and having discussions around, our written program, and with popularizing our YouTubeâs/DVDs on the program.<br /><br />Our aim was to treat issues of national importance â in the context of the constituency concerned â rather than starting from localized complaints.<br /><br />Our 4-page Week-End format ânational bulletinâ, was perhaps our most innovative campaign tool, and it went together, like a puzzle, with the candidatesâ numbers, because the campaign was so short that we had to get the newspaper printed before the numbers were allocated to candidates after the date for desisting. We used this newspaper format document in different ways â door-to-door and in busy places.<br /><br />Our TV Programs in the broadcasts, which the law makes the national TV station run, were most coherent and politically strong. In terms of content, they were stronger than any other parties. And LALIT members did not use the tele-prompter, but just spoke, or in some cases, glanced at notes â because censorship is must more easily imposed by the State if you âsubmit a textâ than once youâve already said and recorded your part. But another important effect is that our members did not look slightly mechanical, the way Teleprompters make politicians and news readers look. The LâAlliance Lepep was relative coherent, but as explained in another LALIT article, only superficially so. The Les Verts, too, were both coherent and dignified in their campaign, although sometimes their program is slightly bits-and-piece. Much clearer class lines have emerged in their politics, and they, in fact, fielded the most women. Their relative coherence is probably due to the fact that, over time, they, like LALIT, distribute a publication regularly. <br /><br />The bourgeois press just outright boycotted LALIT. When there are not elections, they call in LALIT members every week, by contrast. However, we and all the others outside the two âlarge blocksâ of alliances, were, as usual, quickly marginalized, some, like us, more than others. <br /><br />LALIT makes an important distinction between <i>electoral</i> results and <i> political </i> results from the election.<br /><br /><b> LALITâs Results, electorally speaking</b><br />We received 11,400 votes in all. This means some 410 on average per candidate, with numbers varying because of the huge difference in size between different constituencies. <br /><br />This is about 1%. It is an honourable score for a revolutionary party. And what is interesting is that LALITâs candidates all got similar percentages of votes, and there are not the huge extremes you see in the results of other relatively marginalized parties, like EDP of Bizlall, RA of Subron of Parti Justice Social of Sheila Bunwaree, when the leaders got from 8 to 30 times more votes than some of their candidates. And what is serious about this is that the parties actually run bigger and âbetterâ campaigns where their âleadersâ stand, announcing, for example, where they will be standing for weeks on end while their other members are not allocated constituencies. They clearly spend much more money on some candidates, using colour photograph as posters, for example, and quad-leaflets with personalized narratives, and so on. This is incredible for parties that say they are doing politics in alternative ways, and that they are supposedly âon the leftâ. <br /><br /><i> LALITâs Results, politically speaking</i><br />Despite LALITâs score of around 1%, our party has succeeded 100% in determining what the stakes were for the election. Put in another way, we were strong enough to determine, to a high degree, the agenda for the elections. <br /><br />We did this through, for example, having distributed two sets of leaflets on a mass scale, very early on, opposing the 2nd Republic that Ramgoolam and BÃ©renger were proposing. We took great pains to make sure people understood the precise nature of the dangers of the proposal. We had agitated so hard, and so successfully on the new biometric ID cards, that they, too ended up on the agenda. This was partly due to our contacts with all the Village Councilors of the country about the ID Cards. We put emphasis on the importance of Parliament as an institution that should control the Executive, and by fielding nearly half women, contributed to womenâs emancipation also being on the agenda. It is clearly due to LALIT that the issues of both Diego Garcia and Palestine ended up on the mainstream agenda. And more important than any other issue, LALITâs constant campaign for an alternative economy, and politics of the economy, pulled the campaign agenda on to issues like unemployment, pensions, and new work sectors. The fact that we popularized our program so early, published it, used YouTube and DVDâs, all helped. <br /><br />Without LALITâs political work, it is quite possible that the <i> LâAlliance Lepep</i>  could have just ended up campaigning on issues like âMme Soornackâ, scandals and corruption. And people would have voted on banal issues, not on profoundly important ones. In fact, in the elections, the population of Mauritius rejected the idea of a President with power, and rejected the new ID Cards, for example. People plebiscited job creation.<br /><br />Look at all the issues LALIT put on to the agenda: issues that will leave a mark on the struggle in the future:<br /><br />- No to the 2nd Republic! All parties took this up against the incumbent, and it was the mainstay of the LâAlliance Lepep campaign. So, when they won, it is out!<br />- Yes to job creation! All the parties have put emphasis on this, and it is the mainstay of the SAJ-Lutchmeenaraidoo economic campaign. Even the PT-MMM announced job creation. <br />- No to the compulsory new ID Cards and their centralized data-base. This, too, was a direct electoral promise by the Alliance Lepep that won. <br />- Diego Garciaâs illegal occupation by a military base: Both alliances put it on their agendas in the campaign, and LâAlliance Lepep announced they would take the case to the ICJ, a direct LALIT demand.<br />- Palestine: The PT-MMM Alliance campaigned on opening an embassy, again in response to the political campaign spear-headed by LALIT.<br />- Social Housing: Both alliances ended up including social housing in their measures after LALIT exposed official statistics that define people who do not pay rent as being âhome-ownersâ, which has made consecutive governments conclude that social housing is no longer needed as 9/10 people are home-owners. <br />- Our proportion of women candidates (43%) has been a springboard for womenâs issues to get on to the agenda, from housing for single women to domestic violence. Other parties were forced to apologise for fielding so few women. The ECP (LâEntente pour Democratie Parlementaire) made a fool of itself by criticizing the lack of women candidates when they aligned less than 20%!<br />- âParliamentâ became central to the campaign, in part due to LALITâs poster and banner campaign coupled with our campaign for direct democracy for popular control of all Parliamentarians, including Ministers, and control by Parliament of the Executive. <br /><br />It is not often that a party with a marginalized result can determine an agenda to this extent.<br /><br /><b> Effects on LALITâs party structures</b><br />If, as a result of our participation in the elections, our party structures are reinforced, this would be a fantastic gain. However, never before, we should be realistic, has this been the case. But it seems to be different this time, if we are to judge by the sheer numbers of people who have requested adhesion to the party. A lot depends on us, now. <br /><br /><b>To conclude with  good âlessonâ for us from the elections</b><br />The Press is not ours. Nor does it favour us, or any other genuine challenge to the status quo. It loves bogus challenges. The press, taken as a whole, is<i> inside</i> our class enemy. So, we have no choice, and never had any really, but to develop our own âmediaâ. <br /><br />Central to our own media are:	Branches in all areas â beginning with a kind of network in all areas.REVI LALIT, our magazine must increase its circulation as a result of the new contacts.Our leaflets will have new ways of being distributed, learnt in the elections.<br /><br />So all that is work ahead of us. Now, there is the possibility of recruiting people on the basis of our ideas, as they heard of them for the first time, perhaps, during the campaign, on the basis of our program, distributed during the elections. We must aim at developing distribution networks country-wide, encourage readers to submit articles, or help them write them, take articles as dictation, as a LALIT member. This way, LALIT will become a well of new ideas and actions. <br /><br />We must continue linking this work with our ongoing mobilization around existing campaigns, and linked in to a nation-wide analysis. <br /><br />We must continue the new methods developed. Why not a regular YouTube? DVD? As well as our magazine. And our station leaflets can now be distributed in new ways learnt during the campaign. <br /><br />The political situation is in fact propitious for LALIT. The Labour and MMM hegemony is broken. No new bourgeois hegemony has been established in the political realm. All the other disparate forces have become centrist, have exposed their opportunism blatantly, and we, in LALIT, will continue the noble work of challenging the existing society with a view to a socialist future, where there are no different classes anymore, in society. This is what makes us revolutionary. There is no other way to change society for all of us who live in it.<br /><br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

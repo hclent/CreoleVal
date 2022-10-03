@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612092721" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612092721" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612092721" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612092721" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612092721" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612092721" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612092721" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612092721" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612092721" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Blog 5 &ndash; Need for a Lockdown and on Being Constructive during a Pandemic</h1><p class="subtitle">21.11.2021</p></h1>
+	<p class="newsarticle"><p>&nbsp;The time has come for the Government to impose a strict lockdown for a fortnight. Having missed a window of opportunity at the very beginning of the second wave, the Jugnauth Government must now at once consider a lockdown. It is well past the time when Government spokespersons can claim that things are under control. The situation is indeed critical. The spread is exponential, accelerated by the Delta variant. And will, as we have said a few days ago, worsen.</p><br /><p>After the First Wave was so well dealt with by the Covid scientists &ndash; Dr Gujadhur, Dr Gaud and Dr Musango &ndash; who helped us all completely contain Covid, the unfortunate campaign by the Opposition and the Press against these three epidemiologists, who the public trusted, led to the Government being without a proper &ldquo;covid czar&rdquo; to replace the triumvirate of doctors. So, we have been left, during the Second Wave, with the Health Minister, who must defend the Government at all costs by definition, and the Government political nominee Dr Joomaye, who must also defend the Government by definition, too. This lack of an independent team to monitor the health situation has made things so bad that we now need a severe lockdown, not to &ldquo;contain&rdquo; the epidemic &ndash; it is too late &ndash; but just to &ldquo;slow down its spread&rdquo;. At the same time, the Opposition and the Press was so critical of the health authorities&rsquo; successful dealing with the First Wave &ndash; we will hazard a guess how this happened below &ndash; that, when they criticize the mishandling of the Second Wave, no-one takes any notice. It sounds like &ldquo;Cry wolf!&rdquo;</p><br /><p>When LALIT calls for a lockdown now, we bring with us the credibility of having supported the way the Government dealt with the First Wave. Even for the Second Wave, having missed the window of opportunity at the outset to &ldquo;tuf&rdquo; the epidemic again, the Government has, even then, managed the vaccine roll-out, and the re-opening of the economy. But, now, when there is a peak nearing, we are in dire straits without a reliable leadership that is independent of the Cabinet. But, we need a lockdown. And the Government needs a three-person-team of epidemiologists (why not the same team? or a similar one?) who can explain a scientific strategy to lower the spread at once, and to protect health care workers and the health care system.</p><br /><p>The kind of lockdown we need should involve only essential workers going to work; the rest of us going out only for basic essentials, by alphabet. The Government will have to work out with the hotel bosses how to manage the tourist industry during this two-week period now that it has been left this late. They stand to lose more if they do not act now.</p><br /><p>And it means that the Government will have, once again, to find funds to pay WAS and Income Support, and NEF food supplies to those on the social register for a fortnight.&nbsp;</p><br /><p>And we, the people&rsquo;s organizations &ndash; political parties and unions, associations and co-operatives, village councils and sports clubs &ndash; will need to encourage all our members to be strict in isolating ourselves as much as possible, because we see the danger and not just because the Government says so. We also need to become militants who encourage others to do so. We must, as activists, keep up the explanations to those not yet vaccinated &ndash; in our view most people who are so far not vaccinated find themselves in vaguely anti-government circles and really need just a little bit of reassurance from those they respect to step up for vaccination. And we must call on&nbsp;<em>everyone</em>&nbsp;to really support health workers. Those few people not-yet-vaccinated end up being more than half those in ICUs and losing their lives.</p><br /><p>There has been a slight change for the better in the Press and on Radio and even on the MBC. It is wonderful to see more generalized glimpses of ordinary human kindness in the responses of public figures, people in the middle classes, to the Covid crisis &ndash; instead of adopting a superior, point-scoring attitude. It is good that the Press, or some of it, has begun to abandon rushing up to victim&rsquo;s families who have this minute lost a relative to Covid to get them to talk about suing the Authorities for damages and then putting out crass headlines based on what they, in their pain, say. Now the Press is beginning instead to publish content about people&rsquo;s sadness when a loved one dies. In some instances, the Press and Radio now even give prominence to patients&rsquo; appreciation of ENT health care workers devotion. It has taken some 18 months for this kind of empathy to transcend the petty point-scoring. Now, there are more political organizations and editorialists even beginning to make lists of proposals &ndash; instead of spewing adjectives against Ministers, or in the case of pro-government people, the Opposition. We know that there are people who have challenged the legitimacy of this Government that they believe &ndash; believe wrongly &ndash; &ldquo;stole&rdquo; the elections, or &ldquo;tricked&rdquo; the results. But now, at the very moment we are seeing the collapse of all their legal challenges one by one, we are also, at the same time, seeing the Second Wave of Covid getting ever more pitiless, taking ever more lives. And those same people who took Covid lightly enough to use it for point-scoring, and who used every excuse to attack the Health care workers and health service as a way of attacking the Government they believed not to be legitimate, are clearly beginning to feel just how cruel that strategy was. And they begin to change. The recent resurgence of empathy can only be a good thing.</p><br /><p>There is, at long last, a bit of empathy on&nbsp;<em>Radio Plus</em>&nbsp;for example. Friday Nawaaz-Jugdish, as they are affectionately called in good Kreol, were finally trying to really understand things, as their guest Dr Oaris was carefully deconstructing the fallacies the Press unconsciously spreads. In the context of the high death rate from those under ventilation, Dr Oaris repeated solemnly over the air that, once you are very sick, &ldquo;<em>Pena okenn medikaman ki travay lor Kovid! Mo repet li &ndash; pangar zot krwar mo inpe fu &ndash; parski na pena okenn medikaman ki travay kont le Kovid</em>.&rdquo; Can journalists please just stop here, and internalize this? It is a fact.&nbsp;</p><br /><p>Dr Oaris explained that, of course, you can get the standard treatment of some cortizone at a particular stage, and treat symptoms of the viral infection. Doctors now know to be careful not to intubate a Covid patient unless as a last resort, and so on. He added that only now are Pfizer and Merck developing medicines that have good results but remember that these must be taken from&nbsp;<em>before</em>&nbsp;you fall very ill; they prevent inflammation by slowing down the reproduction of the virus once you get it.</p><br /><p>Constantly putting emphasis on &ldquo;magic pills&rdquo; can be dangerous &ndash; Navin Ramgoolam does this, as indeed former US President Trump used to. Ramgoolam claims that only the magic treatment he got in India saved his life. When he says what it is, it is not magic at all. The point is some people pull through, others do not have the same luck. This line of thinking, however, creates space for the anti-vaccine propaganda to &ldquo;justify&rdquo; refusal to take up the vaccine &ndash; instead, you just criticize Government for not having magic pills, and then wait around for them to become available. It is a line that also nurtures the false idea that you can abandon strict social distancing guidelines. Note that Ramgoolam has not continued, as he ought to have, to apologize to the people for, himself, not getting vaccinated. He needs to call for us all to get vaccinated. Although, in his favour, Ramgoolam, who has clearly been through hell with Covid, was more empathetic than usual, making constructive proposals in his Friday radio interview. Minister Jagutpal, despite the inordinate stress he is under, showed kindness in his press conference, empathy for patients and their families and for health workers, and admitting, if late, that the situation is critical. Father Maurice Labour, too, has appealed to neighbourly kindness.&nbsp;<em>Radio Plus</em>&nbsp;and the MBC have started, at long last, to appeal for everyone to step up and get vaccinated, and suggested other ways that people can help out in the crisis.&nbsp;</p><br /><p>Opposition Leader Xavier Duval persists in trying to score points. He has not yet realized that in a pandemic there is a different kind of &ldquo;opposition&rdquo; politics to the usual petty games. In Parliament, like an anti-vaccination screwball, he said &ldquo;<em>the more that we vaccinate, the more people are dying</em>&rdquo; of Covid (See Hansard). This kind of absolutely dangerous garbage has, in turn, provoked a barrage of criticism for his representing particular pharmaceutical interests.&nbsp;</p><br /><p>Remember vaccination is nothing more than stimulation of your own defensive system to give you an advantage if or when the virus gets into you. Which vaccination does do. And this shields you from serious illness and death to a remarkable extent, and, importantly for us all, prevents you spreading the virus as much.&nbsp;</p><br /><p>MMM leader B&eacute;renger criticizes the Prime Minister but, in his favour, only for show, over a mere procedural issue &ndash; why Jugnauth left his Health Minister to reply to Duval&rsquo;s PNQ.&nbsp;</p><br /><p>But over-excited Labour MP Shakeel Mohamed, at the very moment his leader was saying how everyone should stop scoring political points and help get past the Covid peak, was busy calling for the resignation, mid-crisis, of the health minister. Some rare journalists, even now, persist in scoring points ala-Anju-Ramgulam, making sarcastic and inappropriate &ldquo;jokes&rdquo; instead of being constructive given the dire straits we, as a society, are now in. Other journalists persist in taking any &ldquo;preparedness plan&rdquo; as a proof that the Authorities are in a state of panic, and then, in turn, generating panic.</p><br /><p><strong>Boosters</strong></p><br /><p>Yesterday, at a personal level, Ram and I went for our booster shots, Johnson and Johnson, at the Bambous Stadium. We arrived just before 9:00 am opening time, and all was already in order. There were about 75 people, most seated on a verandah 6-foot apart sideways and 4-foot apart one behind the other. The verandah has an incredibly high ceiling with pigeons nesting up there and cooing to their little ones. Clearly the health workers had all been there for a long time because everything at 9:00 sharp got rolling. We got forms to fill in, and were called in 10 by 10. We saw doctors who were caring, moved on to get out vaccine injected by nurses who were, too. Then we moved on to wait for 15 minutes to check for possible reactions, and then after a little pep talk, left. We were, having gone past the chicken shop where Ram encouraged our &ldquo;<em>marsan pul&rdquo;</em>&nbsp;to get his vaccine which he has promised to do, home by 10:15. No side effects, other than a not-really-worth-mentioning tender left arm. Kisna had her 3rd dose Friday. Also no side effects.&nbsp;</p><br /><p>A friend whose father was a prime vaccine hesitator informs us that she has finally convinced him. He went ahead yesterday. Another friend has a colleague whose partner had been refusing to get vaccinated, and was persuaded by one of our blogs, which she read to him, to step up. This is why it is important &ndash; I say this to myself, too &ndash; to talk about the &ldquo;not-yet-vaccinated&rdquo;. They are not so much &ldquo;unvaccinated&rdquo; as &ldquo;not yet vaccinated&rdquo;. And remember they are very different people from the anti-vaccination propagandists and activists. In fact, many are victims of them &ndash; sometimes via a whole environment of anti-government feeling that has prevailed, left over from the &ldquo;eleksyon kokin&rdquo; campaign, and somehow got stuck to the anti-vaccine lies.&nbsp;</p><br /><p>Just to keep Covid to reasonable levels of spread, even with a sharp lockdown, we must prepare ourselves for the long haul: we might need boosters every 6 months for years to come. Remember the tetanus vaccine until today lasts only two years, then you need a booster.&nbsp;</p><br /><p>All this to say that the Government must at once consider a short, sharp lockdown. All the Opposition Parties have publicly called for this. And we need a team, or new team, of scientists who constantly explain how the way we are acting will guide us, as a people.&nbsp;</p><br /><p>And all the while, we must not lose sight of the strategies that have worked much better than the USA-Europe-UK strategy we have begun to follow. Australia, China and New Zealand are, for example, worth following closely to see how their approach works compared with the rough ride that the USA-Europe-UK are having.&nbsp;</p><br /><p>Lindsey Collen, for LALIT</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

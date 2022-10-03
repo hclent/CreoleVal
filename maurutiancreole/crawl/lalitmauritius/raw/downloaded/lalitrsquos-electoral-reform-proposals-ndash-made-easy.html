@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095756" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095756" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095756" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095756" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095756" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095756" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095756" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095756" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095756" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>LALIT&rsquo;s Electoral Reform Proposals &ndash; Made Easy</h1><p class="subtitle">30.09.2018</p></h1>
+	<p class="newsarticle"><p>There have been a number of requests for an article with a title something like: &ldquo;<em>LALIT&rsquo;s Electoral Reform Proposals Made Easy</em>&rdquo;. So, here goes.</p><br /><p>In particular, in this article, we will <em>argue</em> each point from first principles as we go, and not just emit some sort-of blueprint. To understand the proposals it is important to understand them <em>as a whole</em>, as well as to get the gist of the philosophy that underpins them. They have been developed over years &ndash; since 1982 or so, and took form during the 2002 debates, and then became even more precise in 2006 (1). Our proposals continue to evolve.</p><br /><p>So, we do not just come up with figures out of our head &ndash; which is what many intellectuals do, gaily rushing in where angels fear to tread &ndash; for how many constituencies or how many MPs or how many ministers.</p><br /><p>Our over-reaching concern is how to increase democracy. By that we mean, quite simply, how to give the people, all the people, more control over the state, in particular, and over their everyday lives, in general.</p><br /><p>We assume, although most no longer do in these reactionary times, that the very last place that any thinking person proposes scrimping or even skimping on money is on <em>how to increase democracy</em>.</p><br /><p><strong>These reactionary times</strong></p><br /><p>Let us just clarify that in the last 20 years, the extreme right in the United States, in particular, and everywhere else as well, has begun to attack democracy in devious ways.</p><br /><p>First, there is a constant pressure to <em>decrease Government spending</em>. The right wing hegemony has made even thinking people forget that there are two columns: not just expenditure, but also revenue. Revenue used to be made by taxing the rich. This has, in these dark times, become a no-no. People have come, temporarily, to be unable even <em>to see</em> spending the Government does on the capitalist class. Leaders of opinion are quick to deplore all government spending, even on universal old age pensions. It is the same propaganda against government spending -- even when on expenditure to make democracy work better. They proclaim that it is <em>a waste of money.</em>&nbsp; This perversion is relatively new: we noted it creeping in from about 30 years ago.</p><br /><p>And then, the right-wing foundations in the USA have begun to fund organizations and individuals to push for anti-democratic measures, often disguised as democratic measures. And these measures have the added advantage for the right-wing of ensuring that political struggles turn into circular issues, dogs-catching-their-own-tails: For example, all over Africa now, debate has been and still is, focussed on whether there should be a limitation to two terms of office. Once this restriction on democracy is in place, then the incumbent takes over and soon begins debate on how to lift this limitation. So, you never get to the real-life issues of job-creation and land reform! In cases like Putin&rsquo;s, Lee Kuan Yew&rsquo;s and Clinton&rsquo;s, the issue becomes how to get your nephew or wife to stand in for you for a couple of additional terms, and for their adversaries, how to stop them.</p><br /><p>&nbsp;In the USA, the ultra-right Koch Brothers finance petitions for the introduction of fixed terms for all elected people. We only have to know the immense contribution of more experienced Senators and House of Representative members to know that the ruling class is constantly challenged by them, and that the capitalist bosses would like them to be &ldquo;timed out&rdquo;. We only have to know that the bourgeoisie instituted the two-term limit for U.S. President after having to suffer the F.D. Roosevelt <em>New Deal</em> which brought in social security for the working class, to know that it is a reactionary measure. The demand for bureaucratic measures (like two-term mandates) has an even worse (if that is possible) perverse effect: it takes people&rsquo;s focus from the vital political struggles (for jobs, land reform, food security, control over capital, good free education and health) and concentrates it on procedural issues.</p><br /><p>&nbsp;Similarly, it is only in these reactionary times we now experience that people think a mere law, instead of hard political struggle, can somehow control the funding of political parties. They even think a Government department set up by this law, and expensive professional accountants, will somehow make elections fairer. They even forget that the Government department they call for is unlikely to be &ldquo;even-handed&rdquo; in treating <em>all</em> political parties, including Opposition ones! And then again, imagine trying to control donations when millionaires like Donald Trump come along and finance themselves and get free publicity from the media for all their antics and show business.</p><br /><p>&nbsp;So, fighting for more democracy begins for us in LALIT by opposing these anti-democratic measures that masquerade as &ldquo;democratic&rdquo;: measures like, using &ldquo;Government spending&rdquo; to prevent democracy expanding; like, two-term limits at the expense of democracy; and like, putting bureaucratic controls on party funding, risking <em>institutionalizing</em> the very partisan and anti-working-class bias that already exists, instead of, in all three cases, going through the hard work of political struggle.</p><br /><p>&nbsp;<strong>Parliament must be stronger, the executive Weaker</strong></p><br /><p>We in LALIT have long been struggling at the grassroots level for the National Assembly, for elementary democratic reasons, to have more power relative to the executive.</p><br /><p>Parliament consists of <em>elected </em>people &ndash; other than, at present, the Speaker and Attorney General. By contrast Cabinet consists of nominees, and they are nominated by someone (the Prime Minister), who is, himself, merely appointed by the President &ndash; even if, in both cases, they are nominated from amongst the elected.</p><br /><p>The executive is, historically speaking, the prolongation, more than the mere vestige, of the unaccountable god-given powers of the King. And the King-in-Cabinet or Prime-Minister-in-Cabinet runs the entire bureaucratic and repressive apparatus of the <em>permanent state.</em></p><br /><p>&nbsp;So, we in LALIT propose a change in the balance of forces between the <em>elected chamber</em> and the appointed executive branch.</p><br /><p>&nbsp;First, the change in relative strength can begin with the numbers i.e. <em>less</em> Ministers and <em>more</em> MPs. &nbsp;This means a relatively smaller executive and a relatively larger elected Parliament. In Britain, for example, it&rsquo;s 21 Ministers to 650 MPs. It is more democratic for the simple reason &ndash; a reason many are blind to &ndash; that people in a constituency can have and do have power over their elected MPs. In particular, the more mobilized people are, the more control they can have over their elected representatives. (Note, in passing, that it was LALIT that single-handed ran a campaign when the MSM-MMM Government disbanded <em>elected</em> Village Councils altogether in 2002. We managed through a grass-roots campaign to put the re-creation of Village Councils and Village elections on the general election agenda, and got them back. Not democratic enough of course, but better than disbanding the little democracy we have.)</p><br /><p>&nbsp;In parliament, the entire feeling changes when there are more MPs and less Ministers.</p><br /><p>&nbsp;Second, balance of power can be changed by working towards giving more power to the elected part of Parliament. So that, for example, more Parliamentary Committees, made up of elected, and preferably recall-able MPs, could oversee the executive&rsquo;s use of its power. We already have the PAC (Public Accounts Committee) which is a bit like that, as is the Parliamentary Committee under ICAC. So, there can be an Equal Opportunities Parliamentary Committee to oversee Ministry&rsquo;s, and even the PSC&rsquo;s, recruitment for jobs. There could be a Land Reform Parliamentary Committee, to find ways of getting land under popular control e.g. how to withdraw agricultural land from the speculative real estate market, like New Zealand is attempting to do by laws keeping foreign capital out of land acquisition. Parliamentary Committees could oversee the appointment of judges. There can be a Food Security Parliamentary Committee, to oversee the Minister of Agriculture&rsquo;s decisions that have traditionally favoured planting sugar cane in the interests of the big bosses, for example. &nbsp;</p><br /><p>More fundamentally, if it were feasible, we could have a system (unimagineable, but try to imagine it, anyway) of a National Assembly of the <em>entire adult population</em>. This would be ultimate democracy. But, it would obviously be unwieldy. Democracy, in its present still rather embryonic state, means ceding power of the people to representatives for five whole, unfettered years. Anyway, from our point of view, the more representatives for the same number of people the better, because the representatives are easier to control <em>than the executive </em>i.e. they are the more democratic branch of government. (The argument about how many MPs per person there were in 1968 and how many there are today is to stop this infantile &ldquo;shock, horror&rdquo; knee-jerk reaction so many people have developed during the ultra-reactionary times we live in. Even as recently as in 2002-4, Sachs and Collendavelloo, when they proposed 100 MPs &ndash; in order to have sufficient proportional representation in order to prevent unintended communal consequences in elections &ndash; nobody got up on their high horses against the mere <em>number.</em> It would have smacked of authoritarianism to balk at the State having to fork out for a bit of an advance in democracy. And anyway, <em>electors</em> in the Independence elections numbered 307,683 (Adele Smith Simmons <em>Modern Mauritius: The Politics of Decolonization</em>) and the last general elections of 2014 numbered 936, 975 (Electoral Commissioner&#039;s web site), so this makes the newish &ldquo;shock, horror&rdquo; response seem infantile. All those who are gasping about the expense of the National Assembly can cut the gasping, and just think about how poor Mauritius was then, and yet could afford more elected representatives per head than it has today.</p><br /><p>&nbsp;MPs are representatives. They are people who, typically, work as teachers or lawyers as well as being MP. And, they also represent those in their constituency. We need more of them, and we need to give them more oversight. This combined change will curb the preposterous impunity of the kind of dynasties that rule from the PMO surrounded by non-elected, nominated advisers. These two questions &ndash; the relative size of the elected Parliament relative to the Cabinet, and the need to increase the role of MPs &ndash; are <em>part </em>of a whole set of <em>democratic</em> proposals.</p><br /><p>&nbsp;One important proposal that changes the entire democratic environment is this: everyone who elects someone can revoke them.</p><br /><p>&nbsp;So, firstly, electors who, in a Constituency, vote for someone, therefore there must be able to have access to a <em>recall mechanism</em>. That is what LALIT proposes. it already exists in places all over the world. We postulate the possibility of electoral petitions, that need to be argued and need, say, 50% of electors in a Constituency to sign up formally next to their name, address and electoral register number. The argumentation in the petition and then the signatories need to be submitted to the Electoral Commissioner who checks them out, and if both processes have passed the defined test, the MPs seat is declared vacant, and a by-election held. Obviously, the importance of this right of recall is not that it will often be resorted to. It may be. But it will be very difficult. The point is that once the process is started, an MP will improve. Parties will be motivated to name people with less risk of a petition being launched against them &ndash; whether for not being responsive to the needs of the constituency, for betraying the electoral program on which they stood, or for any other argued reason.</p><br /><p>&nbsp;The National Assembly itself, the minute it is elected should, LALIT proposes, meet, and itself elect first a Speaker, and then a Leader of the House, or Prime Minister &ndash; both from amongst elected MPs. He must be elected by them. He, in turn,&nbsp;then comes up with a proposal for his Cabinet, which Parliament votes on, <em>en bloc</em>. Following this democratic logic, the MPs (who we elect) can then, in turn, recall any Minister, the Cabinet, or even the Prime Minister. At present, the Prime&nbsp;Minister can be put into a minority. So it is not a major change. But the logic of <em>more democracy</em> will have been followed. And even just getting there will be an education in democracy for us all. &nbsp; And, many of the proposals put forward by well-meaning civil society individuals are blind to the reasons for the 3-member constituency in countries like Mauritius. In countries with historical legacies, from colonization, of acute ethno-religious divisions, some form of &ldquo;dose&rdquo; of Proportional Representation can avoid to some extent any negative communal dynamic being stirred up as an unintended consequence of the First-past-the-post system. In South Africa in 1994, for example, the only way the Constituent Assembly could see to move forward overnight from no vote at all for most people to universal suffrage was by having a total &ldquo;dose&rdquo; of PR, with no constituencies at all and the whole Parliament elected on PR lists. This would be a step back for Mauritius, where we are already further advanced by being in 3-member constituencies, where MPs have to answer to their &ldquo;<em>mandan</em>&rdquo; while having left room for parties to accommodate this vestigial communalism. But then, in Mauritius, we are landed with the communal best loser system, which institutionalizes communalism. The best way, we in LALIT believe, to transcend this heavy slave-and-indenture legacy from colonization times, is to have a new PR list of some kind in addition to the first past the post system. But, we do not want technocrats and elitists getting into Parliament without facing the electorate in public. In LALIT we propose that everyone, even those on the PR list, therefore, must also have stood in constituencies. Thus our proposal for 4-member Constituencies, plus a publicly announced closed PR list <em>from amongst this broadened list of candidates</em>.&nbsp; This can subsume the Best Loser System. And while on the BLS, we would like to say how near LALIT had brought the country to consensus to do away with the communal best loser system by 2000 (at the time of the Seetulsing judgment after Yousouf Mohamed challenged LALIT and other candidates for drawing what community to put on the Nomination Paper from a hat). However, a bureaucratic-legalistic strategy of Ashok Subron has demobilized people, and has spent 14 years meandering around the Supreme Court, the Privy Council and the UN system --&nbsp; who cannot legislate, and we may add, fortunately they cannot because they are less democratic than the National Assembly. The Privy Council said it could not legislate, said to &ldquo;Go fight for it politically&rdquo;. The UN Human Rights Committee however said, in direct response to the Rezistans argumentation, that the Mauritian State must either do away with the communal best loser system or embark on the hideous project of a new communal census! And that is where we are today.</p><br /><p>&nbsp;Pravind Jugnauth&rsquo;s present proposals for Electoral Reform are pretty dubious in every way and not more democratic in any way. The parliamentary Opposition is split by the proposals. And a 3/4 majority seems like a mirage. We in LALIT have long struggled at the grassroots, and still do, for everyone to be allowed to be elected for Parliament &ndash; as a democratic right, and as part of a democratic electoral reform &ndash; and we thus call for the repeal of the language and literacy qualifications the Constitution imposes. We also reject the absurdity of speaking only in the languages of the last two colonizer powers in Parliament. These are vestiges, like the over-weighted Cabinet is, of colonial rule. Clearly, it is everyone in the country&rsquo;s responsibility to join a political party, or failing that to get together with others, to set up a new political party that is run on democratic lines, and whose finances are transparent, and that do not have dictatorial &ldquo;leaders&rdquo;, but elected and recallable ones, preferably a collegiate leadership. Avoiding dictatorial leaders cannot be imposed through legislation, but only won through hard political struggle &ndash; as indeed all democratic gains are won.</p><br /><p>&nbsp;<strong>Conclusion</strong></p><br /><p>Pravind Jugnauth&rsquo;s proposal&rsquo;s aims are 5-fold: to ensure more equitable representation while ensuring stability and governability, to do away with mandatory declaration of community, to ensure the majority remains numerically the same as after the first-past-the-post system, to ensure better representation of women, and to prevent crossing the floor. But none of these are really about making for more democracy in the sense of more power to the people. They leave the dictatorship of the Prime-Minister-in-Cabinet in place. The best <em>anti-transfuge</em> measure is the right of recall, of course. The best that can be done for women is a program for women&rsquo;s emancipation &ndash; including jobs, housing, and the right to recall, for example.</p><br /><p>&nbsp;The MMM demands nothing more than PR getting Parliament to be more representative of the peoples&rsquo; vote for different parties is an empty gesture, <em>un coup d&rsquo;&eacute;p&eacute;e dans l&rsquo;eau</em>, as long as Parliament is so totally dominated by the Cabinet. It&rsquo;s a waste of time. It relates in no way to a more profound democracy. It, too, leaves the dictatorship of the Prime-Minister-in-Cabinet in place.</p><br /><p>&nbsp;As for the Labour Party, it has been incoherent for years, and is still groggy from 2014.</p><br /><p>&nbsp;The official Opposition, the PMSD, seems to be reverting to ever-more-reactionary positions. It is now openly calling for a communal census.</p><br /><p>&nbsp;So, parties &ndash; including the MSM, MMM, Labour, PMSD &ndash; and any other thinking people, must come forward and outline their aims in electoral reform, and convince us that these aims are, somehow, going to bring more democracy, more power to the people. Otherwise, it is evident that the people of the country are right to feel they have no interest in the reform, because indeed it offers the people nothing in terms of more control over the State &ndash; through their elected representatives.</p><br /><p>&nbsp;In LALIT, we thus propose that all those elected can be recalled by the same &ldquo;constituency&rdquo; that elected them. This means MPs are recallable by electors in their constituency, Ministers including the Prime Minister are recallable by MPs. We propose an enlarged Parliament of 21 four-member constituencies plus one MP for Chagos, and 20 proportional representation MPs from a public, closed list from amongst candidates in the Constituencies. The four-member constituencies and the 20 PR will allow the communal Best Loser system to be done away with, without fear of unintended communal consequences. Each elector will get two bits of paper:&nbsp; one for electing 4 MPs, and the other to choose their party. The votes for parties will then be added up, and the PR seats allocated in the predetermined order, skipping those already elected by the First-past-the-post election. We agree that the Electoral Commissioner assures that those nominated by the PR election do not revoke the victory of one party being overturned by the PR votes. We propose less Ministers &ndash; say 15. We propose that Parliament gets increased powers, relative, in particular, to empowering it to control the Cabinet, the Ministers, and the Prime Minister. This way the people will have much more power then we have today. And it can be increased by political mobilization within our parties &ndash; the only real way to bring in change. &nbsp;</p><br /><p>&nbsp;20 September, 2018</p><br /><p>&nbsp;(1) We in LALIT have spent years and years talking to people about our proposals, and working them out in practice, too. We have studied and commented on, inter alia, the Albie Sach&rsquo;s Report of 2001 and the Collendavelloo Select Committee Report of 2004, the Guy Carcassonne proposals, the Labour-MMM&rsquo;s Constitutional proposals in 2014, the mini-amendment in 2014, and the mini-amendment to the mini-amendment. As well, of course, as the recent Pravind Jugnauth proposal.&nbsp; Our members have stood for bye elections, general elections, municipal elections, and have been in village election teams. We have had a famous Supreme Court Case against our candidates, which led to the Seetulsing judgment, which was perhaps the nearest the country has ever been to electoral reform. LALIT members are in democratically-run organizations &ndash; associations and trade unions and co-operatives &ndash; and our own party is run democratically. This is important because it means there is constant discussion as to what demands and what actions would increase democracy or reduce it. And &ldquo;democracy&rdquo;, in its fundamental meaning, is <em>the power of the people</em> over organizations of all kind, and, importantly, <em>over the State</em>. This power is under constant threat in a class society, like Mauritius, because the State is run, in the final analysis, by the ruling class i.e. the capitalist class.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

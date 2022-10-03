@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612104413" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612104413" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612104413" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612104413" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612104413" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612104413" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612104413" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612104413" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612104413" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Fallacies on Mother Tongue Medium</h1><p class="subtitle">09.11.2009</p></h1>
+	<p class="newsarticle"><br><i>[This article for LALIT by member, Lindsey Collen, was published in L'Express Thursday, 5 November, 2009 in a slightly abdridged form].</i><br><br>What Mauritian education urgently needs right now is the introduction of "mother tongue-based multi-lingual education" for all. And in LALIT we explain why. We explain how children will do better in all subjects, and will even do better in English and French, too, if they learn through the medium of the mother-tongue. "Medium" is a word that has an agreed meaning, and it is obviously not just a "support language" to which teachers in distress can "resort".<br><br>Some academics and other intellectuals really do need to sit up and follow the research. <br><br>It is just not good enough to come and spout old prejudices on radio programmes. Nor is it useful to stick your head ostrich-like into the sand and pretend that research has not proven again and again over the past 55 years since UNESCO first took a stand, that mother-tongue medium in schools is best. <br><br>It is not enough to persist with the brainless clichÃ©s about what human language. It is not just "a means of communication", as if it were a gadget like a telephone. Thoughtful studies have exposed the emptiness of such harmful clichÃ©s. <br><br>It is not enough to gargle colonial prejudice about some languages being superior to others when it has been patently proven for 50 years that they are not, and that any rumour that they ever were was based on ignorant prejudice. <br><br>And of course it is not enough to pull a veil over the vested interests of the private lessons industry. This iniquitous industry may give parents the illusion that they are "caring" for their children and the re-assurance that their children are "minded" until they themselves get home from work; it may give pupils a window of opportunity for a moment of freedom between what they experience as oppression at school and oppression at home; it may pour vast amounts of money from parents' to teachers' pockets, but most of all it has become a vested interest in making schools continue to fail children. This is patently harmful. Whenever we get the chance, we must denounce the private lessons industry and those who promote it.<br><br>But, let us see what we agree on. <br><br>Everyone agrees that CPE results are abominable. Everyone wants all children to be educated to the highest possible level, and to become multi-lingual at a high level. However, everyone is now gradually agreeing that even those young people who do "well" at CPE, then at HSC and at University often have difficulty with the abstract thinking that high level literacy demands - in any language. The cyber bosses have complained about people with top programming qualifications not being able to perform. The call centres moan about the abysmal level of English and French. University lecturers worry about the cognitive difficulties their students have. Last week I heard a top education man complain about the poor level of minutes being produced by quite high-up young civil servants. And yet many people, when faced with the patently poor results of the present system which seem to indicate that we are on the wrong track, want to stampede further and faster down this same wrong track. <i> "More English, earlier," </i> they cry.<br><br>In LALIT, we support the demand for change to mother-tongue based multi-lingual education. We believe it is intuitive to use the mother-tongue (how on earth can children's level of mathematics or science be held down to the level of their knowledge of a foreign language?), but we will show that it is in fact <i>desired </i>by a majority of people now, and, more importantly, that it has been <i>proven</i> by research to be better. We will go further and say that it is philosophically sound to use the mother tongue as medium once we understand more clearly what the faculty of "human language" is. <br><br>Our position, increasingly supported, now opposed mainly by a series of fallacies. We will expose some of these.<br><br><b>Fallacy no. 1: "A majority of parents are against using Kreol as the medium of instruction". </b><br><br>Amongst other people, Ms. Vina Balgobin, academic, on radio last week, repeats that parents are supposedly against Kreol as a medium. Not true, Ms. Balgobin. Ledikasyon pu Travayer has published the SOFRES survey conducted earlier this year which shows that only 38% of parents are against the introduction of Kreol medium education for science. 38% is not a majority. The total results of the survey are on www.lalitmauritius.org. What is amazing is that a majority of parents agree with the mother tongue as medium, despite the fact that they have very little knowledge of the relatively high degree of instrumentalization of Kreol. 75% of people think there is no Kreol Dictionary of any sort. 87.% do not know that there is a generally agreed orthography, Grafi Larmoni. 93% do not know that there has been a University module on and in Mauritian Kreol. And 80% do not know that Kreol is already used as medium in some schools, that is to say in Pre-vocational BEC schools, let alone that its use has met with success.<br><br>May we add that arguing that a "majority are against" is, in any case, the argument of the weak. It means nothing really. For example, it is perfectly true that a majority of people, including women, did not until recently say that women were intelligent enough to vote. This did not make it a good position to hold. It just meant a majority of people were prejudiced. Fortunately today only a minority are still prejudiced against the use of the mother tongue as medium in schools, despite the profound colonial oppression we have all suffered.<br><br><b>Fallacy no. 2: "Children already know their mother-tongue, so why do they need to learn it at school?" </b> <br><br>Primary school teacher and trade unionist, Mr. Vinod Seegum, said on radio last week that children don't need to be taught Kreol because they already know it. This position betrays a rather shocking lack of knowledge of, amongst other things, the work of Prof. Jim Cummins, which all teachers need to be aware of. The studies are not that new either. Mr. Seegum cannot just go on pretending there is no research. Otherwise, we have to deal with the difficult situation of the arrogance of the ignorant. <br><br>To reply, I would like to quote from Prof. Tove Skutnabb-Kangas where, in the Appendix to the Findings of the recent LPT <i>International Hearing into the Harm Done by the Suppression of the Mother Tongue in Schools</i>, she predicts this position and replies to it: "When children come to school, they can talk in their mother tongue about concrete everyday things in a face-to-face situation in their own environment where the context is clear: they can see and touch the things they are talking about and they get immediate feedback if they do not understand ("I didn't mean the apples, I asked you to bring bananas"). They speak fluently, with a native accent, and they know the basic grammar and many concrete words. They can explain all the basic needs in the mother tongue: they have <i>basic interpersonal communicative skills (BICS) </i>. This may be enough for the first grades in school where teachers are still talking about things that the child knows. But later in school children need abstract intellectually and linguistically much more demanding concepts; they need to be able to understand and talk about things far away (e.g. in geography, history) or things that cannot be seen (e.g. mathematical and scientific concepts, honesty, constitution, fairness, democracy). They need to be able to solve problems using just language and abstract reasoning, without being able to do concrete things ("if I first do A, then either D or E happens; if I then choose K, X may happen but Y may also happen; therefore it is best to do B or C first"). The <i>cognitive-academic language proficiency (CALP) </i>that is needed to manage from grade 3 on in school, in higher grades, upper secondary school and later in life, develops slowly. Children need to develop these abstract concepts on the basis of what they already know in their mother tongue. If the development of the mother tongue CALP (which mainly happens through formal education) is cut off when the child starts school, s/he may never have an opportunity to develop higher abstract thinking in any language.<br>"If teaching is in a foreign power language that a Kreol-speaking child does not know (e.g. English), the child sits in the classroom the first 2-3 years without understanding much of the teaching. S/he may repeat mechanically what the teacher says, without understanding, without developing her capacity to think with the help of language, and without learning almost anything of the subjects that she is taught. This is why many Kreol-speaking children leave school early, not having learned much English, not having learned properly how to read and write, not having developed their mother tongue, and almost without any school knowledge.<br>"If the child has the mother tongue, here Kreol, as the teaching language, s/he understands the teaching, learns the subjects, develops the CALP in the mother tongue, and has very good chances of becoming a thinking, knowledgeable person who can continue their education."<br>So, Mr. Seegum, please could you study the research first. It is so easy with the internet. Go to sites like Jim Cummins' or Tove Skutnabb-Kangas'. Read the UNESCO positions. Follow the African Academy of Languages' work. Study the results of comparitive work in India. It is just not enough to use the anti-communist propaganda of the Cold War that was directed rather inappropriately at the Seychelles and Madagascar governments.<br> <br><b>Fallacy no. 3: "Children will be confused and will not learn English and French well." </b><br><br>Again and again we hear that children will be confused and their English and French will not develop well. Wrong. Again I quote Prof. Tove Skutnabb-Kangas: "All mother-tongue-based multilingual education programmes should teach English as a SECOND language subject from grade 1 or 2. The teachers know both the children's mother tongue and English. In the CALP part of language, much is shared in the mother tongue and English (and other additional languages such as French). The child needs to learn reading and writing only once in life, and it is easiest to learn it in a language that one knows well. When the child has understood the relationship between what one hears and speaks, and the reading/writing system, in the mother tongue, this can easily be transferred to other languages (even if the script may be different). When the child has learned many abstract concepts in the mother tongue, s/he just needs to learn the "labels", new words for them in English; s/he already knows the concepts (even if there are, of course, cultural differences in nuances). In this way, only parts of the language (English) is new; the child already knows the content in various subjects (e.g. in mathematics). All languages share a <b>common underlying proficiency</b>. When the child develops this proficiency in the language she knows best, the mother tongue, it is easily transferred to other languages. And when the child is already high-level bilingual in the mother tongue and English, s/he learns French and other languages faster and better than if she starts French learning as monolingual in the MT. She needs fewer years of and less exposure to French, to learn it well. All research studies in the world show that the longer the child has the mother tongue as the main medium of education, the better the child learns the subjects and the better s/he also becomes in the dominant language of the country and in additional languages. The number of years in mother tongue-medium education is also more important for the results than the parents' socio-economic status." The studies, we should add, are not just one or two, but literally dozens, from all over the world, and they include longitudinal studies of up to 200,000 pupils.  <br><br><b>Fallacy no. 4: "Children's English is good enough for it to be medium." </b><br><br>People believe with a blindness that befits its outlandishness that children's English is good enough for it to be used as a medium. False. It is not, and it cannot be good enough. <br><br>Children need to have studied English (or French) as a subject in school for 6-8 years before they can be taught through it in intellectually or linguistically demanding subjects, like history, geography, science, or mathematics. This is true for children who do well in examinations, as well as for those who do not. <br><br>Then after 6-8 years as a subject, English can be used for teaching subjects like cookery, P.E. and music, which are not very intellectually and linguistically demanding, and involve the concrete "here and now". After 3-4 years of teaching "easy" subjects through the English medium, it can then be used for teaching the intellectually and linguistically demanding subjects. <br><br>This way children build on what they already know, move from the known to the unknown. They then make use of the "<i>common underlying proficiency" for all languages </i>that they develop in the mother tongue and simply transfer to other languages in due course as they learn them. Mother-Tongue Based Multi-Lingual Education is the best way to ensure that our children learn 2-3-4 languages, and learn them up to<i> a high level.</i> Not just the basic interpersonal communication skills that can survive being taught through English (or French).<br><br><b>Fallacy no. 5: "Language is just a means of communication, so, we need to use the most internationally used language from scratch." </b><br><br>Everyone agrees that we will all benefit from high level English or other internationally used languages. And we have shown that the results are bad if you just "submerge" children in English. They well nigh drown. But languages are<i> not </i>just "for communicating". They are <i>used for</i> "basic interpersonal communication", true. <br><br>But, language is also, and at a deeper level, <i>our tool for thinkin</i>g. A tool we share in common with other humans. Language is the means that humans have (and we have it naturally) to interpret the world outside of us, the world of our own emotions and thoughts inside us, as well as the most abstract concepts that don't "exist" at all like "minus 3 squared", or things that are extremely abstract like a "time-space continuum", or things difficult to comprehend at one and the same time like keeping "the whole" in mind, while studying the mutual effects of different "parts" of a system on each other.  All this is done through the high level development of our natural language capability, the mother tongue. So, language is much more than a means of communication. Its full development takes place and needs to be nurtured in school. International languages must be introduced "additively", that is to say, in addition to the full development of the mother tongue, not "subtractively".<br><br>In LALIT, we appeal to intellectuals to study the research a bit before exposing their ignorance, and also to study the new developments in the philosophy of language before assuming they know what human language is. We suggest that people read, for an introduction to the philosophy of what language is, Derek Bickerton's <i>Bastard Tongues: A Trailblazing Linguist Finds Clues to Our Common Humanity in the World's Lowliest Languages </i>(2008), and his<i> Adam's Tongue: How Humans Made Language, How Language Made Humans </i>(2009).     <br><br>Lindsey Collen<br>For LALIT<br>2 November, 2009<br><br><br><br><br><br><br><br><br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

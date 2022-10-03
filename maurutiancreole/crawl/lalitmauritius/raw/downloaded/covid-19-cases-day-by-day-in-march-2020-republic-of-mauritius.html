@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612094806" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612094806" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612094806" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612094806" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612094806" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612094806" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612094806" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612094806" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612094806" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>COVID-19: Cases day by day in March 2020, Republic of Mauritius</h1><p class="subtitle">01.04.2020</p></h1>
+	<p class="newsarticle"><p><img src="data:image/png;base64,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" alt="" /></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

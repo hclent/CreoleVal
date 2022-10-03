@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101038" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101038" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101038" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101038" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101038" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101038" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101038" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101038" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101038" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Kritik lor Erer enn Stratezi baze lor Morisyanism</h1><p class="subtitle">10.06.2016</p></h1>
+	<p class="newsarticle"><p>Â Sak lane, kan selebrasyon Lindepandans ek Repiblik pe aprose, nu tann buku koze ki sonn inpe ipokrit lor âlinite nasyonalâ, âtu kominote bizin mars lame dan lameâ. E nu pa kone kifer li sonn ipokrit kumsa. Nu mem tann patron fer eloz ânasyonalismâ, âpatriotismâ ekÂ  âMorisyanismâ. Lerla nu kumans dute kot problem la ete. Ena parti politik kuma PTr, MMM, MSM, PMSD, zot usi, promuvwar âlinite nasyonalâ ek âMorisyanismâ. Zot vasiye ant vant li kuma antidot fas-a kominalism e kuma lefet ki âtu dimunn bizin ser sintirâ, ki li ris ki li pov, nu âtu dan mem batoâ.</p><br /><p>Anfet Lindepandans enn pei li konsern avantu prosesis dekolonizasyon. Me teritwar Moris, ziska zordi, ankor tuzur demanbre, ankor tuzur su lokipasyon pei inperyalist. Mem kan 46 an inn pase depi 12 Mars 1968, nu tuzur kolonize. Chagos, inklir so pli gran lil Diego Garcia, e Tromelin osi, zot ankor tuzur okipe par Langleter ek Lafrans. Langleter finn mem su-lwe Diego Garcia ar enn lot pei inperyalist, USA. Ena travay pu fer, ena lalit pu amene pu reinifikasyon teritwar Repiblik Moris, pu konplet sa prosesis dekolonizasyon la. Alor, kestyon nu poze, se eski sa tez âMorisyanismâ swa âlinite nasyonalâ, zot anfet zuti ki apropriye zordi pu konbat sa bann lafors inperyalist, enn kote, e pu fer fas divizyon kominal ek danze kominal, lot kote?</p><br /><p>Â Me ki vedir âMorisyanismâ, ki so veritab konteni mem. Eski âMorisyanismâ enn stratezi politik ki vremem pu konbat kominalism? Eski li pu vremem ede dan lalit kont inperyalism? Ubyin eski ena enn lot aryer panse deryer term la?</p><br /><p>Â Dan LALIT, nu truv konsep kuma âMorisyanismâ byin vag, vid e mem kapav byin danzere. Kan an 2012 LALIT ti organiz enn Konferans pu remet ankestyon sa konsep âMorisyanismâ la, pu kestyonn li kuma stratezi politik pu konbat kominalism, e pu kontre kolonizasyon, ena dimunn dan lapres, dan sindika, ki ti ase soke par lefet ki nu pe kritik sa kalite konsep la. Li montre ziska ki pwin kanpayn ideolozik otur sa kalite konsep la finn trape. Li finn fer buku dimunn aksepte ki li tutafe normal ki nu truv âMorisyanismâ kuma kitsoz ki sakre, ki pa kapav tuse, e mem pli grav ki li enn stratezi ki vremem pu ede pu konbat kominalism, swa pu avans lalit kont inperyalism. Me kan dimann dimunn ki ete sa âMorisyanismâ la, kan zot-mem zot sey definir term la, lerla nu truve ki dimunn pa tro sir ki li ete, ki li vedir, e kimanyer li pu afekte nu stratezi, ki so danze.</p><br /><p>Â Dimunn ki promuvwar âMorisyanismâ, zot suvan kumanse par dir nu tu âMorisyinâ; âAvantu, zot dir, nu bizin azir kuma Morisyinâ. Dan Moris byinsir tu dimunn ki finn ne isi nu âMorisyinâ. Li enn fe birokratik. Ena dimunn ki finn viv isi ase lontan pu gayn nasyonalite Morisyin, zot osi âMorisyinâ si zot finn respekte enn seri lalwa birokratik. Alor, zot osi zot kalifay pu gayn enn paspor Morisyin. Me bann ki revandik âMorisyanismâ byin vit, dan zot diskur ena kumadir enn glisman, depi âMorisyinâ ziska âMorisyanismâ. Zot pu dir, u kone nu, nu bann Morisyanist, nu viv le âMorisyanismâ. E zot pu dir ki ena, lot kote, lezot dimunn (pa zot) ki âkominalâ, sa bann âkominalistâ la ki fer âkominalismâ. Alor pu zot, pu ki konbat sa kominalism la bizin promuvwar âMorisyanismâ, bizin azir kuma âMorisyinâ, antan ki Morisyanist.</p><br /><p>Â Deza ladan nu truv enn premye problem, parski parmi bann âMorisyanistâ, setadir bann âMorisyinâ ki sinpleman dir zot Morisyanist, ena bann kominalis osi, ki zot usi âMorisyinâ. Anfet tu kominalist dan Moris, zot Morisyin-mem. Â Alor ena problem kan pe definir kisannla âMorisyanistâ u pa, san mansyonn eski bann dimunn ki dir zot Morisyanist zot otomatikman pa kominalist.</p><br /><p>Â Par kont, pa zis dan Moris ki ena kominalism. Pa zis dan Moris ki ena rasism. Eski dan Lamerik, par exanp, dimunn regrupe otur âAmerikanismâ ubyin âZaponismâ dan Zapon pu konbat problem rasis? Eski dan Lend u truv Indyen promuvwar âIndyanismâ pu kontre kominalism? Eski dan Langleter u truv bann âAnglisistâ ki konfront grup rasis kuma dan BNP? Ubyin eski ena program anti-rasis, manifesto ubyen platform anti-kominal, ki amenn sa lalit la? Alor ki rezon spesyal kifer isi, Moris, nu bizin ena rekur a âMorisyanismâ kont âkominalismâ?</p><br /><p>Â Anfet dan Lafrans kuran politik dextrem drwat, ki pli rasis ki ena, mem fasist, kuma <em>Front National</em>, ki tultan fer kanpayn avek slogan kuma â<em>Nous sommes tous des Francais</em>â, â<em>La France pour les Francais</em>â. E suvan sa kalite kanpayn la, li kont imigran, kont non-Kretyin. Alor, si nu tu truv danze kan nu get sa sityasyon dan Lafrans, nu oblize poz nu lakestyon, eski pena mem danze kan nu kumans vinn lor sa terin âMorisyanismâ pu sanse konbat kominalism.</p><br /><p>Â Suvan bann protagonis âMorisyanismâ, zot reklam, dan zot konba, enn espes sinkyem kategori (dan kad kominal) ki apel âMorisyinâ e se sa, zot dir, bann dimunn ki âpa kominalâ. Lezot zot bann âkominalisâ. E sa li problematik dan enn lot sans. Li problematik parski 2 dan sa 4 sipoze âkominoteâ dapre Konstitisyon Moris, zot anfet relizyon, setadir zot inplik enn swa lor baz lafwa. Nu truv sa kalite derapaz la dan bann slogan ki Blok 104 itilize, kuma, â<em>Mwa mo 100% Morisyin, e twa ki to ete?</em>â Si zot deklar zot 100% Morisyin, eski lerla ena lezot ki selman 70% Morisyin, lezot mo pa kone komye %? Eski enn dimunn relizye, par exanp, dan enn sa de relizyon dan Konstitisyon, li mwins âMorisyinâ akoz so lafwa? Kumsidire ena dimunn ki âvre Morisyinâ ek ena ki bann âfosâ Morisyin! Kumadir enn kote, ena Morisyin otantik, ki 100 % Morisyin, ek lezot ki pa otantik, pa 100%, e ki, dapre zot lozik, se bann âkominalisâ. Malerezman, sa lozik la li donn leko kanpayn kominal âRalliement Morisyinâ ki ti vinn âParti Morisyinâ e ki finalman vinn PMSD. Me, ka ki Platform Komin pu enn Nuvo Konstitisyon (<em>Rezistans & Alternativ - Blok 104 - Muvman 1er Me) </em>finn perdi divan Privy Council, ti pe propoz an-efe kreasyon enn 5yem kominote (âMorisyinâ) apar sa 4 kategori ki ena dan Sedil 1 Konstitisyon pu nominasyon Best Luzer. Setadir zot ti revandik dan zot ka ki gard Best Luzer intak e fer plas pu bann ki refiz sa 4 kategori la, pu zot met enn 5yem. Samem ki zot finn zire dan zot afidavit.</p><br /><p>Â E alafin samem ki Guvernman Ptr avek lakor MMM finn done atraver zot âmini amandman Konstitisyonelâ, ki valab zis pu prosin eleksyon. Sa montre kuma konsep kuma âMorisyanismâ li reprezant enn form oportinism politik dirizan sa regrupman la, e se sa ki antrenn ver sa kalite inkoerans e devyasyon danzere la.</p><br /><p>Â Nu kone ki ena buku zenn ki vremem anvi konbat kominalism dan Moris. Kapav vremem zot apresye, kuma dayer nu tu nu osi apresye, sertin eleman partikilye dan lavi tulezur Morisyin, dan âkiltir ordinerâ â ki ena enn valer extra-ordiner. Alor pu buku zenn, ki pe regrupe otur âMorisyanismâ, samem ki zot pe petet vize, me zot stratezi, zuti ki zot pe servi, li pa pu amenn zot kot zot pe rod ale. Okontrer li enn stratezi ki konport buku danze, kan elve âMorisyinâ an enn konsep ideolozik, li enn pyez danzere.</p><br /><p>Â Sa kalite slogan otur âMorisyanismâ e bann âotantik morisyinâ, kan li enn stratezi politik pu ralye dimunn, finn prezan dan diferan lepok listwar Moris, deza, e sa osi, parey kuma Front National an Frans, li bizin azir kuma enn avertisman lor natir sa kalite ideolozi nasyonalist la.</p><br /><p>Â Kuma nu finn mansyone, dan bann lane 1950, dirizan <em>Ralliement Mauricien</em> (ki plitar dan bann lane 60 vinn <em>Parti Morisyin</em> e, apre PMSD) ti servi âMauricienâ pu fer distinksyon ant seki zot ti apel bann âvre Morisyinâ, setadir Morisyin âotantikâ ek lezot abitan Moris ki zot ti tuzur konsidere kuma bann sinp âimigranâ. RM ti rasanble dimunn âMorisyinâ, enn kote, e lezot abitan zot ti konsidere kuma âetranzeâ, bann imigran, bann âpa kone kot sortiâ kuma Gaetan Duval ti abitye dir dan so kanpayn kominal. Alor PMSD ti ena sa laliyn ki diviz popilasyon Moris ant enn kote bann Morisyin âotantikâ ek lot kote bann non-Morisyin, bann imigran. Ladrwat ki ti pe servi sa kalite slogan la, e so leko tuzur la. E ziska zordi ena mem enn parti ki sorti dan sa kuran PMSD la, Eliezer Francois ek so parti, MAM, <em>Mouvement Authentique Mauricien</em>, ki pe sey gard sa kuran dextrem drwat âmorisyen otantik a 100%â la intak.</p><br /><p>Â Alor nu truv difikilte, problem e mem danze kan nu vinn lor sa kalite terin pu definir dimunn lor baz apartenans a âLanasyon Morisyennâ, lor krwayan dan âMorisyanismâ. Kan nu servi konsep ideolozik ki vag ek vid kuma âmorisyanismâ, nu truve kot sa finn antrenn nu, kapav antrenn nu, e kot li pu antrenn nu.</p><br /><p>Â âMorisyanismâ ki ti pran nesans ar MMMSP ek Lel (swadizan) Gos MMM, li enn esafodaz ideolozik naif, enn sime kupe, enn form oportinism ki viz pu fer fas sa vre difikilte kominalism, vre difikilte rasism ki ena Moris. Me, li pa pu marse. Li pu amenn rekil. Morisyanism li enn konstriksyon ideolozik ki sertin dimunn veikile atraver bann nosyon kuma âlinite nasyonalâ, âlinite dan diversiteâ, âsosyete arkansyelâ, âenn sel lepep enn sel nasyonâ, âmwa mo 100% Morisyin,â âMorisyin otantikâ, etc â¦ E so rezilta, malerezman, se seki alafin li vinn afebli samem klas ki potansyelman kapav amenn vre konba kont kominalism, klas travayer. Se klas travayer ki ena lintere ek osi lafors neseser pu kontre kominalism. Kan bann âMorisyanistâ vinn dir tu Morisyin bizin regrupe deryer drapo âMorisyanismâ, zot pe amenn ansam travayer e patron lor enn mem platform. Ramgoolam pe fer li zordi. Patron pe pli fer li zordi, kuma zot fer li ar reklam pavyon Moris pu zur Lindepandans. Zot kone ki li zwe dan zot faver. âMorisyanismâ li enn konsep ki kapav akomod e patron e travayer ansam, me akoz patron ki tuzur opuvwar, se li, li gayne par sa. âMorisyanismâ fer abstraksyon sosyete deklas, e li viz pu dezarm travayer dan lalit ant bann klas, li obskirsi konsep kuma lalit deklas, setadir li gat zuti pli efikas ki nu ena kont kominalism. Li pa ede pu devlop sa konsyans deklas ki neseser parmi travayer e tu oprime, pu konfront kapitalist ek so sistem, so Leta ek imperyalism. Valer kan travayer konsyan so prop klas sosyal diferan se sa realizasyon la explik problem reyel ki li pe fer fas dan sosyete, antan ki travayer. Li explik so lamizer. Li eklersi kot so sufrans anfet sorti. Lerla ki li nepli bizin al rod fos-fos explikasyon kuma zot mizer akoz zot apartenir a tel u tel kominote, zot pena lakaz akoz zot tel u tel kominote, zot lapey ba akoz zot kominote, zot pena later akoz zot kominote, etc.</p><br /><p>Â Remarke ki, dan kontex kriz ekonomik, lerla ki patron vinn delavan ar so slogan, â<em>Nu tu dan mem bato</em>â, lerla ki li vinn dimann tu dimunn marye pike, kolabore pu tir bato la dan difikilte. Me li pa dir ki dan bato ena kapitenn, marin, kwizinye, mekanisyin. Li pa dir ena dan Klas Premyer, ena Dezyem Klas, ena dan lakal. âMorisyanismâ napa ede pu reponn sa propagann patron la. Okontrer, li mem zafer ki sa propagann patron! Li vinn met enn vwal lor realite sosyete deklas. Li vinn frenn kapasite inifikasyon travayer, e mobilizasyon tu klas oprime ansam ek klas travayer. Patron servi sa kalite slogan la, sa kalite ideolozi la pu tir fardo kriz depi lor so ledo e pu transfer li kareman lor ledo travayer. Li kapav fer sa dan kad âlinite nasyonalâ pu enn rezon byin sinp â pur lemoman se li ki tuzur opuvwar.</p><br /><p>Â Ena lezot difikilte ar sa konsep âMorisyanismâ la, ar sa kategori âMorisyinâ la. Dusma-dusma nu kumans truve kimanyer li ankuraz sa lide ki ena diferan kategori dimunn, kumadir enn lot âkominoteâ, apel âMorisyinâ, e sa, a son tur, li riske vinn enn form kominalism par limem. Par exanp, eski nu pe expreseman exklir Rodrige, Agaleen, Chagosyin, ki anfet ena paspor Morisyin, kan nu kumans koz âMorisyanismâ?</p><br /><p>Â Pu lalit anti-kolonyal, ki nu ti mansyone dan kumansman, li parey. Se bann Morisyin mem, ne isi laplipar ditan, ki vann pei la ar kolon ek ar inperyalist. Alor, li pa itil pu glorifye âMorisyanismâ kont inperyalism. Li pli itil nu amenn lalit kareman kont inperyalism.</p><br /><p>Â Dan bann lane 1979, 1980 klas travayer finn montre so potansyel, kan li alavanvard enn muvman demas, kan li inifye antan ki klas travayer, so kapasite mobiliz larz, kot lezot grup oprime zwenn ladan. Lerla ki kominalism rekile net.</p><br /><p>Â Kan travayer mobilize antan ki klas pu gayn so drwa, lerla ki li for, lerla ki kominalism rekile. Kan bann zenn mobilize antan ki grup oprime, kan nu servi zuti ki apropriye, kan nu konsyan kifer nu pe mobilize, lor ki demand, kan ansam nu devlop nu program ek nu stratezi e kone kot nu pe ale lerla ki kapav vremem konbat kominalism.</p><br /><p>Â Pa kan ralye deryer regrupman kuma âWANTEDâ ubyin Blok 104 otur konsep vag kuma âMorisyanismâ. Dan LALIT, nu panse ki bann zuti ideolozik e stratezi ki pu vremem konbat kominalism bizin repoz lor lalit deklas, lor devlopman konsyans deklas. E nonpa lor slogan ek konsep vag ek vid kuma linite nasyonal ubyin Morisyanism.</p><br /><p>Â Revi 104- âListorik deba lor nasyonalismâ, paz 9; Eski Morisyanism li vremem konbat Kominalism?, paz 13; Leta nasyon ek Inperyalism, paz 32;Deba lor size nasyonalism, paz 37</p><br /><p><a href="../../../resources/documents/194-Magazine_revi_lalit_number_104_%28creole_version%29.pdf">http://www.lalitmauritius.org/resources/documents/194-Magazine_revi_lalit_number_104_%28creole_version%29.pdf</a></p><br /><p>Revi 105, paz 28</p><br /><p><a href="../../../resources/documents/195-Magazine_revi_lalit_number_105_%28creole_version%29.pdf">http://www.lalitmauritius.org/resources/documents/195-Magazine_revi_lalit_number_105_%28creole_version%29.pdf</a></p><br /><p>Konsep lalit deklas (Ram Seegobin) http://www.lalitmauritius.org/viewnews.php?id=1409</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

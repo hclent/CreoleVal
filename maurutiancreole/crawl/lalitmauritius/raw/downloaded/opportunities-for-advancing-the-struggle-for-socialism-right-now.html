@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101442" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101442" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101442" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101442" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101442" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101442" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101442" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101442" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101442" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Opportunities for Advancing the Struggle for Socialism Right Now</h1><p class="subtitle">27.05.2015</p></h1>
+	<p class="newsarticle"><p>Over the past three months, since February, everyone in Mauritius has had very good political âlessonsâ, played out in a kind of live theatre before our eyes. This was the conclusion of a meeting of the LALIT âTrade union Commissionâ last Sunday. This article is a report on how this conclusion was reached.</p><br /><p>A crisis in just one big conglomerate, the BAI, together with the sudden exposure of the true class nature of the ousted Labour Party, have suddenly potentially changed the political situation, by changing peoplesâ understanding of politics. It shows that crises, while causing untold suffering for working people, are also moments of political insight for broad masses of the people, moments when the âseparationsâ between the flimsy âcompartmentsâ we divide our life into suddenly begin to collapse, one after the other, exposing <em>the big picture</em>.</p><br /><p>This gives an indication <em>in reality</em> of a point LALIT often makes i.e. how quickly the balance of class forces can change, when objective conditions change suddenly, as they inevitably do. It also shows the importance of a proper theoretical understanding of ârealityâ. The <em>Lepep Alliance</em> in power is, of course, set to stabilize the capitalist system as quickly as possible again, after this âupsetâ. But letâs look briefly at some 6 concepts that have become very clear to many working people, as the crisis is unfolding around collapsing companies like the BAI and around the disintegrating Labour Party.</p><br /><p><strong>1. âWhat exactly is the State bourgeoisie?â</strong></p><br /><p>This question is, quite suddenly, no longer difficult to answer. The Labour Party Regime, in being so publicly exposed for what it is, has shown us exactly what the State bourgeoisie is. It is a <em>section of the bourgeoisie </em>that uses the mechanisms of state power for its own economic benefit, at the expense of other sections, often older and larger, of the bourgeoisie, as well as of oppressed classes. Seen in another way, it is the result of a political party, like Labour since way before Independence, using state power in order to grant privileges to capitalist friends, often with racist vocabulary as cover for what is, in truth, favouritism and outright corruption. This âstate bourgeoisieâ often draws trade unions, particularly so far those of the sugar industry, into its fold in order to stabilize capitalist rule. It does this by a minimum of concessions to workers, and by liberal wheeling and dealing with opportunist union leaderships.</p><br /><p><strong>What was Labourâs âdemocratization of the economyâ relative to the State bourgeoisie?</strong></p><br /><p>Navin Ramgoolamâs addition to this âstate bourgeoisieâ strategy has been his use of the slogan of â<em>democratisation of the economy</em>â in order to put a new spin on the old practice. But of course by favouring your own cronies, who are already in the ruling class, you nevertheless end up reinforcing the rule of the bourgeoisie as a whole, just as earlier Labour did. The social base of the bourgeoisie becomes broader thus more stable, and there is an increase in the apparent legitimacy of purchasing part of peoplesâ lives, as wage slaves.</p><br /><p>Navin Ramgoolamâs reign ended on 10 December 2014 when he and his ally, BÃ©renger, were so thoroughly trounced at the polls. Then, with Ramgoolamâs âprotectionâ whisked away, the economic empires he had nurtured with State favours for 9 years, have gone into crisis mode. These are four main empires: the BAI insurance empire, the Gooljaury-Soornack businesses around the airport and trade mark clothing, Ah-Teckâs gambling, rock crushing, and other businesses, and the Bhunjun-Jeetah conglomerate around Betamax and tertiary education. Of these, the BAI empire is the one that was nearest to collapse, and that has collapsed without continued State protection. Ramgoolam, himself, is thoroughly disgraced, too. He is out on bail on charges of money-laundering, corruption and conspiracy. Ramgoolam is desperately clinging to his leadership of the Labour Party, as a buoy to hold him up, as he sinks under a deluge of criminal charges against him. He will do anything. He even calls his long-term mistress âa mistakeâ â though of course he doesnât specify at what exact moment she became a mistake, nor when he realized this. He even says he was keeping bad company, without mentioning that, being adult, he chose his own company. And he does not hesitate to set thugs on his challenger, Arvind Boolell (see the IONnews youtube showing this outrageous mise-en-scene). Nor does he mind bringing down the Labour Party with him.</p><br /><p>All this has happened so publicly that it is now suddenly easy for LALIT members to point out how the state bourgeoisie is an integral part of the working classâs enemy, <em>the bourgeoisie</em>.Â  In the past some people genuinely thought, while others pretended to think, we were referring, by the term âstate bourgeoisieâ to nominations in the state apparatus, or to communal favouritism. But, now it is clear as daylight: the state bourgeoisie is, alongside the historic bourgeoisie, part and parcel of the whole bourgeoisie. The defining characteristic of this section is, however, its extensive use of the levers of state power for its expansion.</p><br /><p>And it is important to understand the role of the âstate bourgeoisieâ, when you are in practical politics.</p><br /><p><strong>The MMMâs downfall linked to its lack of understanding of the âstate bourgeoisieâ</strong></p><br /><p>Look at what the MMMâs lack of understanding has finally brought down on itself: its near liquidation. The once-strong BÃ©renger Opposition, following last yearâs mad â<em>on-and-off</em>â alliance with Labour and subsequent electoral defeat, is now in a sorry state. With the 2015 resignations, the MMMâs 12 elected MPs are down to 7. The MMM, now rid of its pro-Labour wing, which incidentally included its freemason wing, is literally knocked out. So, it is trying to pull itself together for the Municipals, relying on its relatively reasonable reputation in city management. In fact, and here is the lesson: Since 1981, a long time ago, when BÃ©renger concluded his alliance with a wing of Labour around Harish Boodhoo, and simultaneously called for âconsensusâ with the bourgeoisie, the MMMâs decline as a working class party began, and has never stopped. The historical weakness of the MMM as a force for genuine change, and despite moments of massive electoral strength, is its incapacity, as a party, to come to grips with these two elements of the bourgeoisie: the historical and the state bourgeoisie. These two sections of the bourgeoisie are almost always in a state of clash, yet they are both part of the bourgeoisie, and this means, in the long run, they unite, and they have always inevitably united around what we in LALIT call a âhistoric blocâ of different classes cobbled together, mainly around sugar and cane. As soon as the MMM, and this is true for other parties too, decides to ally with one section of the bourgeoisie against the other, it means they are selling the vast majority of people, in particular the working class, right out. The MMM in allying with Boodhoo and in going for consensus with the bourgeoisie, has assured its destruction as a party for social change. It did not understand the âstate bourgeoisieâ that Boodhoo represented. Nor did it understand that, when opposing Ramgoolamâs âdemocratization of the economyâ, the MMM often took sides with the historic bourgeoisie. These are equally fatal moves, for a party desiring, as it originally desired, to bring about social change, not just â<em>alternance</em>â.</p><br /><p><strong>2. Why LALIT is so critical ofÂ  âfinance capitalâ, in particular?</strong></p><br /><p>The BAI empire is typical of present-day finance capital, which is in a predominant position world-wide as from the late 1990âs. Productive capital, whether agriculture, even mining, or industrial, even commercial, deals in real goods, makes money from producing and exchanging real commodities. The value of what is traded is linked, sometimes more directly than other times, to the amount of labour power involved in the production of the commodities. This is a stabilizing factor. Finance capital, however, <em>deals in capital</em>: it turns money, usually other peoplesâ money, into more money for the finance capitalists. It resembles gambling in that the levels of risk are extremely high. The value of its products has an increasingly negligible relationship with anything real. Thus huge bubbles inevitably form and burst.</p><br /><p>When the BAI companies are being evaluated, it becomes clear that there are huge holes in them. The whole conglomerate has not got enough collateral for its debts. By billions. It has billions of rupees of debts, covered up by a myriad of inter-related companies that transfer these debts around. Its Bank acted so as to cover insurance debts. It sold insurance products that resemble bank products like fixed deposits. It offered very high interest rates to attract new capital so as to pay off maturing insurance policies, interest rates that could not be respected. And so it went on. Until collapse.</p><br /><p>Â  <strong>3. What is so bad about de-Regulation?</strong></p><br /><p>LALIT is known for its long-term struggles against de-regulation of capital. Finance capital is a driving force for de-regulation, and the terrible effects of this de-regulation have become abundantly clear during the unveiling of the BAI scandal over the past three months. Even regulations that do exist, like the 10% maximum for investment in related companies, were impossible to implement in the general euphoria of capitalist de-regulation since the 1990s. Auditors and even the Financial Services Commission can ring alarm bells, and yet, in the context of de-regulation, nothing happens.</p><br /><p>World-wide there have been a series of serious economic crises since the 1990s, and all are related to the dominant role of finance capital and its concomitant de-regulation. This began with Reagan-Thatcher bringing in neo-liberalism, finance capital rule and de-regulation. They were applying the economics of the Chicago School (Friedman-Hayek), first âtried outâ through the Chilean Junta that ousted Salvadore Allende in the CIA-backed military coup in1973. This politics of the economy got a boost when simultaneously there was the fall of the USSR, the fall of the welfare state in Europe, and the fall of many pro-socialism governments in the developing world in the 1990s, all of these âfallsâ partly provoked by the neo-liberals. And after this, even when Governments announce new Regulations, they are inevitably a mere postponement of a looming economic crisis. They mean digging bigger holes to fill existing holes, so to speak. Under the reign of finance capital, there are no barriers to global ruin â of society and of the planet. Â </p><br /><p><strong>4. Do âLawsâ invent Social Classes? Or does the Ruling Class, in the last analysis, determine the laws?Â  </strong></p><br /><p>There is yet another issue that BAI has exposed. Laws are not the cause of everything, nor are they always obeyed. Laws certainly donât invent or determine the existence of the class divisions in society.</p><br /><p>Before the BAI crisis, class consciousness amongst workers has always been obsessed with laws, regulations, written conventions, and legislation. Often in a meeting of workers, it is hard to make progress, because of the refrain always indignantly expressed (and rightly, in a way), â<em>But does the boss have the right to sack me?<strong>Patron gayn drwa met mwa deor?</strong>â</em> The LALIT answer, to be truthful is, of course, â<em>In a class society, that is the ultimate right of the employer; the job you work in is <strong>his</strong> job; he only lends it to you. At best, he might have to compensate you for the way he sacks you. And should you make the mistake of forcing re-integration into a private company on some legal technicality and without sufficient work-site support, it is at the risk and peril of the individual worker/s. All this is bad, and it is precisely this bad reality that we want to change. Not just the laws, but the strength of the different classes.</em>âÂ  The mainstream assumption amongst workers till today is that ârightsâ and âlawsâ could somehow <em>define away</em> the class society we live in, without us having to do anything except somehow change laws. Many workers believe that we can just rely on existing laws protecting us, or struggle for some new âlawsâ to protect us better. You can even see union banners that read, as if it were an exception: <em>âNuvo Lalwa Travay pa protez travayer.â </em>What is so clearly misunderstood is that the legal framework under capitalism exists in order to allow capitalist exploitation to take place under the highest possible levels of profit. This level, in any given country, obviously factors in sufficient concessions to workers in order to prevent too much disaffection.</p><br /><p>The BAI debacle has exposed the superficiality of <em>legislation</em>. It has forced people to look underneath the level of âthe lawsâ. For example, the law that makes illegal any investment over 10% in related companies does not always apply. Under the general ideology of de-regulation, it is just too bad if you are investing over 65%Â  in related companies. Nothing is done about it. The Insolvency Act allows sackings, but when workers mobilize, the sackings are reversed. And working people are seeing all this before their very eyes.</p><br /><p>All this means that consciousness is getting closer to realizing the importance of revolutionary change, the importance of working for a change in <em>the balance of class forces</em>.</p><br /><p>âRightsâ suddenly look what they, in fact, are: the meagre, minimalist gains of past struggles. They are no longer what âprotectâ us, as if they were god-given. And they often protect the owning classes, against workersâ interests as humans. The owners have âproperty rightsâ, where the word âpropertyâ erroneously includes our personal items of clothing, the roof over our heads, our work tools, and also <em>the means of survival</em> of the whole of society, which is still in private hands: land, machinery, banks, etc. It is the bossâs ârightâ to hire and fire, under capitalism. These are at the very heart of why we in LALIT are <em>against</em> capitalism. This is what distinguished us from all the other parties in Mauritius, without exception. And this is what working people are realizing.</p><br /><p><strong>5. Nationalization? Is it still taboo to mention the word?</strong></p><br /><p>Since the BAI caused the massive sacking of 702 white collar workers, employed in banks, insurance, the Appollo Bramwell private hospital, Courts, Iframac and so on, suddenly quite ordinary office workers, before their sackings were annulled, had been calling for the Government to take over, and openly using the word ânationalizationâ. This is a massive change in consciousness. Recently there was a kind of almost religious taboo that you could not call for nationalization. Nawaaz Noorbux, was so overwhelmed when listeners rang calling for nationalization that he had to go right on to the defensive and say, âIf this means management like the MPCBâ (recently exposed for its truly outrageous practices), no thank you very much.â Heâs got a point. It should <em>not</em> be that kind of nationalization. And this brings us to the most surprising point of all.</p><br /><p><strong>6. Workersâ Control?</strong></p><br /><p>Suddenly workers, from Apollo Bramwell to BAI Boatyard, from Bramer Bank to BAI insurance, even Iframac workers, have all been talking about workersâ taking control. âIt is us that do the work,â they say, quite rightly, âwhile some of those bosses pay themselves millions per month and do nothing!â This kind of statement seemed to be something LALIT members could only hope to hear from masses of workers in some faraway future. One crisis, in one conglomerate, and there all the class consciousness is. Even amongst the most well-paid workers. Or maybe we should say, â<em>specially</em> in the most well-paid workers,â hurled, as they nearly were, into the proletariat by the crisis.</p><br /><p>And let us end with the poem we recently translated for Revi LALIT:</p><br /><p><strong>Kontrol Uvriye: âKonn u Lennmi!â</strong></p><br /><p>li byin <em>fupamal</em> kuler u lapo</p><br /><p>purvi u <em>travay pu li</em>;</p><br /><p>li byin fupamal <em>komye</em> u tuse</p><br /><p>purvi u <em>ogmant so rant</em> pu li;</p><br /><p>li byin fupamal kisannla abit <em>pli lao</em></p><br /><p>purvi batiman la pu <em>li</em>;</p><br /><p>li donn u liberte <em>parol pu kritik li</em></p><br /><p>purvi zame u pa <em>azir</em> kont li;</p><br /><p>li sant eloz grandyoz lor limanite</p><br /><p>mem li byin <em>kone</em></p><br /><p><em>masinn</em> kut pli <em>ser</em></p><br /><p>ki travayer;</p><br /><p>negosye ar li,</p><br /><p>li riye;</p><br /><p>enn dan lot,</p><br /><p>li gayne;</p><br /><p><em>me</em>,</p><br /><p>met li o-defi,</p><br /><p><em>la</em>,</p><br /><p>li <em>tuye.</em></p><br /><p>Pu li pa perdi pozesyon</p><br /><p>ki li finn akimile,</p><br /><p>li byin fupamal</p><br /><p>si li detrir lemond antye.</p><br /><p>Depi âReadings and Witnesses for Workersâ Controlâ,</p><br /><p>edite par Ken Coates ek Tony Topham (1970)</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100446" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100446" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100446" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100446" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100446" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100446" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100446" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100446" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100446" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>âDiego Committeeâ sends Open Letter to Jeremy Corbyn re Chagos Resolution</h1><p class="subtitle">01.08.2017</p></h1>
+	<p class="newsarticle"><div class="WordSection1"><br /><p>âThe Diego Committeeâ that LALIT is a member of has sent an Open Letter to British Labour Party Leader for him to take a stand on the United Nations General Assembly Resolution on Britainâs excision of Chagos and banning of Mauritians, including Chagossians, from the Islands that are part of Mauritius. The letter has been co-signed by Former President of the Republic of Mauritius, Mr. Cassam Uteem, and also by former Attorney General, Jean-Claude Bibi. The organizations that form part of the Diego Committee are the Muvman Liberasyon Fam, the Muvman pu Progre Ros Bwa, the Confederation Travailleurs Secteur PrivÃ© and LALIT, while individuals are also members. âThe Diego Committeeâ was set up after the First LALIT International Action Conference in 2010. Its name was never âchosenâ but gradually emerged. For the record, the late Lindsay Aza was one of the key founder-members of the Committee, when the Baie du Tombeau Village Council members were a driving force of the Committee.</p><br /><p>Â Here is the letter, which is also being sent to all Opposition MPs in the UK, starting with the 17 who have already taken a fine stand.</p><br /><p>Â To: Hon Mr. Jeremy Corbyn</p><br /><p>Leader of the Opposition Labour Party,</p><br /><p>UK House of Commons, London.</p><br /><p>Â 31 July, 2017</p><br /><p>Â </p><br /><p>Â Dear Sir,</p><br /><p>Â We write to ask you to consider making public the Labour Partyâs stand on an international issue that British Prime Minister Theresa May and Foreign Minister Boris Johnson took a rather colonial position on. We refer to the UN General Assembly of 22 June 2017.</p><br /><p>Â That day, a Resolution proposed by the African union called for the UN <em>International Court of Justice</em> at The Hague, to give an Advisory Opinion on a question about the decolonization of Africa <sup>(i)</sup>. In particular, for the ICJ to give its opinion on the legality of Britainâs actions:</p><br /><p>Â Â  a) in 1965 dismembering its colony Mauritius, three years before its Independence, andÂ Â </p><br /><p>Â  b) later banning Mauritians, including Chagossians, from the Chagos Archipelago, including Diego Garcia.</p><br /><p>Â The background geo-political reality was as follows:</p><br /><p>Â Britain, as its empire collapsed, took part in a secret plot with the USA, to âacquire Islandsâ so that the US could set up a military base beyond any social control. The UK, to do this, defied logic and international law, and cut its colony Mauritius in two, prior to Independence, keeping 60 Islands, the Chagos. It stole the Islands behind the backs of the British people, using the archaic instrument, a <em>Queenâs Order in Council</em>. It also âdepopulatedâ the stolen territory, forcibly removing the people on these outer Islands to the main Island. It did this by another <em>Queenâs Order in Council.</em> Then the receiver of stolen goods, the USA, went ahead and built and ran its surreptitiously planned military base <em>behind the backs of the peoples</em> of the USA, the UK and Mauritius.</p><br /><p>Â The Mauritian State, confident after having in 2015 won its case against Britain at the Tribunal under the <em>UN Convention on the Law of the Sea</em> for the <em>Marine Protected Area</em> set up alongside the Diego Garcia military base, and always under constant pressure from Mauritian people like ourselves, decided eventually to go through the UN General Assembly to the ICJ. The official Mauritian delegation included the Chagos Refugees Group represented by Olivier Bancoult.</p><br /><p>Â The African union took the lead, actually presenting the 22 June Resolution.</p><br /><p>Â Conservative UK Governmentâs position</p><br /><p>Here are the facts of the Conservative Governmentâs stand at the UN General Assembly of 22 June:</p><br /><p>Â 1. The Theresa May Government voted against the U.N. Resolution that requests an âAdvisory Opinionâ from the U.N. Court. As the Representative of Kenya put it, what could be âso unpalatableâ about that?</p><br /><p>So, this open letter is to ask: <em>How would Labour have voted?</em></p><br /><p>Â 2. The arguments put forward by the UK Representative were retrograde, even bizarre, and full of thinly veiled threats and bribes to the Mauritian Government and to Chagossians. Here are three points from his speech.</p><br /><p>Â a) He pretended that the Resolution was not proposed by the African union at all. Whereas in actual fact, in the real world, the African union Representative stood up and <em>presented</em> the Resolution âlive and directâ at the UN General Assembly <sup>(ii)</sup>. The UK did not <em>argue against what the African union representative said</em> but pretended he had never addressed the Assembly. Is this not a prolongation of colonial <em>Terra Nulla</em>, when Africa, all its 54 countries, puts forward a Resolution at the UN, and then this just <em>does not exist</em> for the UK Representative?</p><br /><p><em>Does Labour agree with this speech by the UK Representative?</em></p><br /><p>Â b) He claimed that the issue is not about de-colonization at all. It is a mere border dispute between any old two countries. But, as it happens, this, too, is not a question of opinion but of fact. It <em>is</em> about de-colonization, and it is known to be. A UN Resolution even warned Britain <em>against</em> it. In December 1965 the Assembly <em>âinvites the administering Power [Great Britain] to take no action which would dismember the Territory of Mauritius and violate its territorial integrity</em>â. Note that none of the 117 member states at the time voted against. Curiously not even Britain!Â  <a href="http://www.un.org/en/ga/search/view_doc.asp?symbol=A/RES/2066%28XX%29">http://www.un.org/en/ga/search/view_doc.asp?symbol=A/RES/2066(XX)</a> And now the UK Representative says itâs not a question about de-colonization, when it is. Even according to Britain in 1965.</p><br /><p><em>Does Labour think the 22 June, 2017 Resolution was not about de-colonization? </em></p><br /><p>Â c) The UK Representative went so far as to pretend that the Mauritian delegation to the pre-Independence negotiations somehow <em>sold</em> Chagos, including Diego Garcia, to Britain for a sum of money in Pounds. The absurdity of this stand is clear, when you know that:</p><br /><p>Â (i) In 1965, three years before Mauritian Independence, the Head of State of Britain, the supposed buyer of the 60 Islands, was Her Majesty Queen Elizabeth II. At the same time, the Head of State of Mauritius, the supposed seller of the 60 Islands, was her own Royal self, Her Majesty Queen Elizabeth II. She was represented on the Mauritian side by her appointee, the Governor Sir John Rennie, who presided at the Mauritian Council of Ministers.</p><br /><p><em>Does the Labour Party think the Queen can sell parts of her colonies to herself?</em></p><br /><p>Â (ii) The delegation for negotiations was not even the Council of Ministers, as the UK Representative pretended but 4 political partiesâ leaders and a Private Sector Representative! They were the Mauritian Labour Party, the PMSD, the IFB, the CAM and Mr.Maurice Paturau for the private sector. How such a happy band could have âsoldâ a part of a country is beyond imagination. <em>Does Labour think they could? It was, of course, the Harold Wilson Labour Government that did the dirty job. This means it is urgent for Labour to correct for this in 2017. </em></p><br /><p>Â d) The UK Representative said, in paraphrase, that <em>Sovereignty over the Chagos is not up for discussion, Mauritius having already sold the Chagos to Britain for a few pounds long ago, so the UK proposes </em><em>bilateral negotiations</em>. But, what is to be discussed, then? What on earth is there to discuss other than sovereignty? Or are they offering more blood money? More bribes? More threats? <em>What is the Labour Partyâs line on this?</em></p><br /><p>Â e) The UK Representative said thatÂ <em>Britain, as if Father Christmas, intends to âcedeâ Chagos to Mauritius when it is no longer needed for defence.</em>Â Why would they ever have offered to do such a thing, if it is <em>theirs</em>? Of course, all this is just stale Colonial hot air. Because who gets to decide <em>when</em> this magic moment arrives when Diego Garcia âis no longer necessary for defence purposesâ? Imperialist pretexts are without end. Until the empire ends. At first, the military base on Diego Garcia was necessary because of the USSR. When the USSR collapsed, there was a new threat. So, second, came âto control the oil routesâ. It didnât stick long. Third, âSomalian fishermen-turned-pirates in piroguesâ became a danger to the whole of the West. Now, of course, the pretext is âterrorismâ. What can a nuclear military base like Diego Garcia do against âterroristsâ whose most recent methods include cruelly driving trucks into city crowds?<em> Does Labour find all these pretexts reasonable? </em></p><br /><p><em>Â </em>And now itâs time to come to one or two things the UK Representative did not say. He did not say that torture was carried out on Diego Garcia. He did not say that the UKâs own Commission of Inquiry on the Iraq War found that the causes given for aggression were âfar from satisfactoryâ and that Saddam Hussein had posed âno imminent threatâ. Nor that the Niger-Iraq uranium deal was based on a forgery. So, the war was illegal. Yet B-52âs took off from Diego Garcia to bombard the civilian population of Baghdad. Nor did he say <em>which people</em> have the moral responsibility for either the torture on, or the B-52s from, a bit of the planet that he wants kept beyond all democratic control i.e. Diego Garcia.</p><br /><p>Â <em>Surely Labour wants this base simply closed down and cleaned up? Surely Labour can see that the way forward is for the BIOT (the British rump colony) to be closed down. And for decolonization to be completed. This way the people of Mauritius, including all Chagossians, will be free to come and go to and from the islands that are part of Mauritius, heads held high?Â  </em></p><br /><p>We realize that Labourâs 2016 Political Program for the UK General Elections maintains that Chagossians have the right to return to a still-colonized BIOT! Here is what we read in the Labour Program:</p><br /><p>We will always stand up for the rights, interests and self-determination of Britainâs overseas territories and their citizens, whether protecting the sovereignty of the Falkland Islands against anyone who would seek to challenge it, or supporting the right of the Chagos islanders to return to their homelands.</p><br /><p>Â What we would like to see is Labour Party leaders and members considering taking a stand for:</p><br /><p>1) Britain to retreat from Chagos altogether, so that Mauritius can enjoy sovereignty on all its territory and finally be united as a country and as a people.</p><br /><p>2) Britain to stop banning Chagossians and other Mauritians from Chagos.</p><br /><p>3) The US Military base to be closed down, with a full clean-up.</p><br /><p>Â We are pleased to note that there are MPs moving in this direction already. See the Early Morning Parliamentary Motion <sup>(iii) </sup>supporting the UN Resolution.</p><br /><p>Â Yours in solidarity with the international struggle for peace and freedom,</p><br /><p>Â  the following signatories, for <em>The Diego Committee</em> in Mauritius, which consists of four organizations, (Alain Ah-Vee on behalf of LALIT, Jane Ragoo on behalf of the<em> Confederation des Travailleurs du Secteur PrivÃ©</em>, Lindsay Morvan on behalf of the <em>Muvman Progre Ros Bwa</em>, Anne-Marie Joly on behalf of the <em>Muvman Liberasyon Fam</em> (Womenâs Liberation Movement), and individual members include Former Ambassador to Mozambique Alain Laridon and former Director of Nelson Mandela Centre Danielle Turner),</p><br /><p>and, importantly,</p><br /><p>this Open Letter is co-signed by Former President of the Republic, Mr. Cassam Uteem, Mare Gravier, Beau Bassin, Mauritius.</p><br /><p>Former Minster of Justice, Barrister Jean-Claude Bibi, Rue Dauphine, Port Louis, Mauritius.</p><br /><p>--------------------------------------------------------------------------------------------------</p><br /><p>NOTES</p><br /><p>(i)Â  General Assembly Resolution</p><br /><p><em>The General Assembly,</em></p><br /><p><em>Reaffirming</em> that all peoples have an inalienable right to the exercise of their sovereignty and the integrity of their national territory,</p><br /><p><em>Recalling</em> the Declaration on the Granting of Independence to Colonial Countries and Peoples, contained in its resolution 1514 (XV) of 14 December 1960, and in particular, paragraph 6 thereof which states that any attempt aimed at the partial or total disruption of the national unity and the territorial integrity of a country is incompatible with the purposes and principles of the Charter of the United Nations,</p><br /><p><em>Recalling also</em> its resolution 2066 (XX) of 16 December 1965 which invited the Government of the United Kingdom of Great Britain and Northern Ireland to take effective measures with a view to the immediate and full implementation of resolution 1514 (XV) and to take no action which would dismember the Territory of Mauritius and violate its territorial integrity, <em>and its further resolutions </em>2232 (XXI) of 20 December 1966 and 2357 (XXII) of 19 December 1967,</p><br /><p><em>Bearing in mind</em> its resolution 65/118 of 10 December 2010 on the Fiftieth Anniversary of the Declaration on the Granting of Independence to Colonial Countries and peoples, <em>reiterating its view</em> that it is incumbent on the United Nations to continue to play an active role in the process of decolonization, <em>and noting that</em> the process of decolonization is not yet complete,</p><br /><p><em>Recalling</em> its resolution 65/119 of 10 December 2010 declaring the Third International Decade for the Eradication of Colonialism, and its resolution 70/231 of 23 December 2015 calling for the immediate and full implementation of the Declaration on the Granting of Independence to Colonial Countries and Peoples,Â </p><br /><p><em>Noting</em> the Resolutions on the Chagos Archipelago adopted by the Organisation of African Unity/African union since 1980 and most recently at the African union Summit held in Addis Ababa, Ethiopia on 30-31 January 2017, and the Resolutions on the Chagos Archipelago by the Non-Aligned Movement since 1983 and most recently at the 17th Summit of the Heads of State and Government held at Margarita Island, Venezuela on 17-18 September 2016, and in particular the deep concern they express as to the forcible removal by the United Kingdom of Great Britain and Northern Ireland of all the inhabitants of the Chagos Archipelago,</p><br /><p><em>Noting</em> its decision of 16 September 2016 to include an item on the agenda of its 71st Session entitled âRequest for an advisory opinion of the International Court of Justice on the legal consequences of the separation of the Chagos Archipelago from Mauritius in 1965â, on the understanding that there would be no consideration of this item before June 2017,</p><br /><p>Decides, in accordance with Article 96 of the Charter of the United Nations, to request the International Court of Justice, pursuant to Article 65 of the Statute of the Court, to render an advisory opinion on the following questions:</p><br /><p>I. Was the process of decolonization of Mauritius lawfully completed when Mauritius was granted independence in 1968, following the separation of the Chagos Archipelago from Mauritius and having regard to international law, including obligations reflected in General Assembly resolutions 1514 (XV) of 14 December 1960, 2066 (XX) of 16 December 1965, 2232 (XXI) of 20 December 1966, and 2357 (XXII) of 19 December 1967?</p><br /><p>II.Â  What are the consequences under international law, including obligations reflected in the above-mentioned resolutions, arising from the continued administration by the United Kingdom of Great Britain and Northern Ireland of the Chagos Archipelago, including with respect to the inability of Mauritius to implement a programme for the resettlement on the Chagos Archipelago of its nationals, in particular those of Chagossian origin?</p><br /><p>Â (ii) Â All Votes and video of all Speeches.</p><br /><p>Â a)See how different countries voted at the UN General Assembly, 22 June 2017</p><br /><p>Yes: 94, No: 15, Abstentions: 65, Non-Voting: 19, Total voting membership: 193</p><br /><p>YES: 94</p><br /><p>Algeria, Angola, Argentina, Azerbaijan, Bahamas, Bangladesh, Belarus, Belize, Benin, Bhutan, Bolivia (Plurinational State Of), Botswana, Brazil, Burkina Faso, Burundi, Cabo Verde, Cameroon, Central African Republic, Chad, Comoros, Congo, Costa Rica, Cote D'ivoire, Cuba, Cyprus, Democratic People's Republic Of Korea, Democratic Republic Of The Congo, Djibouti, Dominican Republic, Ecuador, Egypt, El Salvador, Equatorial Guinea, Eritrea, Ethiopia, Fiji, Gabon, Gambia, Ghana, Guatemala, Guinea, GuineaâBissau, Guyana, India, Jordan, Kenya, Kiribati, Lebanon, Lesotho, Liberia, Madagascar, Malawi, Malaysia, Mali, Marshall Islands, Mauritania, Mauritius, Mozambique, Namibia, Nauru, Nepal, Nicaragua, Niger, Nigeria, Pakistan, Papua New Guinea, Peru, Philippines, Republic Of Moldova, Rwanda, Sao Tome And Principe, Saudi Arabia, Serbia, Seychelles, Sierra Leone, South Africa, South Sudan, Sudan, Swaziland, Syrian Arab Republic, Thailand, Togo, Trinidad And Tobago, Tunisia, Uganda, United Arab Emirates, United Republic of Tanzania, Uruguay, Vanuatu, Venezuela (Bolivarian Republic of), Vietnam, Yemen, Zambia, Zimbabwe</p><br /><p>Â NO: 15</p><br /><p>Afghanistan, Albania, Australia, Bulgaria, Croatia, Hungary, Israel, Japan, Lithuania, Maldives, Montenegro, New Zealand, Republic of Korea, United Kingdom, United States</p><br /><p>ABSTENTIONS: 65</p><br /><p>Andorra, Armenia, Austria, Bahrain, Barbados, Belgium, Bosnia And Herzegovina, Brunei Darussalam, Canada, Chile, China, Colombia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Grenada, Iceland, Indonesia, Iraq, Ireland, Italy, Jamaica, Kazakhstan, Kuwait, Kyrgyzstan, Latvia, Liechtenstein, Luxembourg, Malta, Mexico, Micronesia (Federated States Of), Mongolia, Myanmar, Netherlands, Norway, Oman, Palau, Panama, Paraguay, Poland, Portugal, Qatar, Romania, Russian Federation, Saint Kitts And Nevis, Saint Lucia, Saint Vincent And The Grenadines, Samoa, San Marino, Singapore, Slovakia, Slovenia, Solomon Islands, Spain, Sri Lanka, Sweden, Switzerland, The Former Yugoslav Republic of Macedonia, TimorâLeste, Turkey, Tuvalu</p><br /><p>NonâVoting: 19</p><br /><p>Antigua And Barbuda, Cambodia, Dominica, Georgia, Haiti, Honduras, Iran (Islamic Republic of), Lao People's Democratic Republic, Libya, Monaco, Morocco, Senegal, Somalia, Surinam, Tajikistan, Tonga, Turkmenistan, Ukraine, Uzbekistan</p><br /><p>Â b) Watch UN video to hear UK Representative (1:11:00 into video clip. (Whole session interesting.)</p><br /><p>Â <a href="http://webtv.un.org/watch/general-assembly-88th-plenary-meeting-71st-session/5480373432001#full-text">http://webtv.un.org/watch/general-assembly-88th-plenary-meeting-71st-session/5480373432001#full-text</a></p><br /><p>(Note the session begins with an obituary, which is not on the subject)</p><br /><p>Representative ofÂ CongoÂ Raymond Serge BalÃ© on behalf of the group of African States: 26:20</p><br /><p>Representative of theÂ Republic of Mauritius, Minister Aneerood Jugnauth: 35:40</p><br /><p>Representative ofÂ VenezuelaÂ Rafael Dario Ramirez Carreno on behalf of Non-Aligned Movement: 57:00</p><br /><p>Representative ofÂ AngolaÂ Ismael Abraao Gaspar Martins on behalf of SADC:1:02:25</p><br /><p>Representative ofÂ UKÂ Matthew Rycroft: 1:11:00</p><br /><p>Representative ofÂ USÂ Michele Sison: 1:25:25</p><br /><p>Representative ofÂ IndiaÂ Syed Akbaruddin: 1:30:10</p><br /><p>Representative ofÂ EgyptÂ Amr Abdellatif Abdoulatta: 1:34:05</p><br /><p>Representative ofÂ KenyaÂ Macharia Kamau: 1:35:50</p><br /><p>Representative ofÂ TanzaniaÂ Modest Jonathon Mero: 1:38:45</p><br /><p>Representative ofÂ UKÂ M.Rycroft: 1:43:10</p><br /><p>Representative ofÂ USÂ M.Sison: 1:44:29</p><br /><p>Representative ofÂ ChileÂ Cristian Barros Melet: 1:45:15</p><br /><p>Representative ofÂ CroatiaÂ Vladimir Drobnjak: 1:47:25</p><br /><p>Representative ofÂ France: 1:48:39</p><br /><p>Representative ofÂ Trinidad and Tobago: 1:50:45</p><br /><p>Explanation of Vote:</p><br /></div><br /><p>Â Representative ofÂ Australia: 1:56:20</p><br /><div class="WordSection2"><br /><p>Representative ofÂ Uruguay:Â 1:58:35</p><br /><p>Representative ofÂ Germany:Â 1:59:25</p><br /><p>Representative ofÂ China:Â 2:00:15</p><br /><p>Representative ofÂ Mexico:Â 2:01:20</p><br /><p>Representative ofÂ New Zealand:Â 2:03:08</p><br /><p>Representative ofÂ Sweden: 2:03:50</p><br /><p>Representative ofÂ El Salvador: 2:04:50</p><br /><p>Representative ofÂ Canada: 2:12:00</p><br /><p>Representative ofÂ Portugal: 2:13:32</p><br /><p>Representative ofÂ Israel: 2:14:52</p><br /><p>Representative ofÂ Brazil:Â 2:15:55</p><br /><p>Representative ofÂ Myanmar:Â 2:17:12</p><br /><p>Representative ofÂ Indonesia:Â 2:17:55</p><br /></div><br /><p>Â (iii) Early day motion 58 in UK ParliamentÂ  on 26.06.2017</p><br /><div class="WordSection3"><br /><p>U.N. VOTE ON CHAGOS ISLANDS</p><br /><p>That this House welcomes the adoption by the UN General Assembly of Resolution 71/292 which requests an advisory opinion of the International Court of Justice (ICJ) on the consequences of the separation of the Chagos Archipelago from Mauritius in 1965 including the consequences in international law for the resettlement of the Chagos Islanders; notes that the Chagos Archipelago was excised from Mauritius in 1965 prior to independence in 1968, notwithstanding UN Resolution 1514 of 1960 concerning the violation of territorial integrity of colonial countries prior to the independence, and Resolution 2066 of 1965 demanding the UK take no action which would dismember the territory of Mauritius and violate its territorial integrity; further notes that 94 UN member states supported Resolution 71/292 with 15 against, and 65 abstentions, including Canada and Switzerland, as well as 22 EU member states including France, Germany, Spain, Denmark, Belgium, the Netherlands,Â  Estonia, Latvia, Greece and Finland; believes that this vote signifies a diplomatic failure for the Government, which finds itself increasingly isolated and with diminishing influence on the world stage; encourages the Government to resume bilateral discussions with Mauritius with a view to resolving the issues and also to respect any advisory opinion given by the ICJ; draws attention to the 1,500 Chagos Islanders, and their descendants, who were deported from the islands by the UK between 1968 and 1973 so that Diego Garcia could be used as a military base by the US; is appalled that after nearly 50 years this situation remains unresolved; and demands that the Government fulfil its humanitarian and human rights obligations and allow the Chagossians to return home.</p><br /><p><em><span style="text-decoration: underline;">Sponsors</span></em><em>: Total number of signatures: 17</em></p><br /></div><br /><p>Â Cowan, Ronnie</p><br /><div class="WordSection4"><br /><p>Day, Martyn</p><br /><p>Doughty, Stephen</p><br /><p>Drew, David</p><br /><p>Edwards, Jonathan</p><br /><p>Grady, Patrick (Primary Sponsor)</p><br /><p>Hopkins, Kelvin</p><br /><p>Law, Chris</p><br /><p>Linden, David</p><br /><p>Lucas, Caroline</p><br /><p>McDonald, Stuart</p><br /><p>Monaghan, Carol</p><br /><p>O'Hara, Brendan</p><br /><p>Saville Roberts, Liz</p><br /><p>Shannon, Jim</p><br /><p>Stephens, Christopher</p><br /><p>Thewliss, Alison</p><br /></div><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

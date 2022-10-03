@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612110136" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612110136" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612110136" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612110136" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612110136" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612110136" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612110136" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612110136" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612110136" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Neville Alexander's Speech at LALIT's Congress</h1><p class="subtitle">06.02.2008</p></h1>
+	<p class="newsarticle">On 2 February, Neville Alexander, representing WOSA (Workers' Organization for Socialist Action), gave his keynote speech to the LALIT congress at Grand River North West. We have pleasure in reproducing the notes to which he spoke:<br /><br /><br />TITLE: THE REVOLUTIONARY SUBJECT <br />THE CONTEXT OF MY QUESTIONS<br /><br />By way of background to the issues I shall be raising for discussion and debate (1), it is essential that I make it clear that my intention is to raise issues which, in my view the Left has got to begin to discuss much more seriously than has occurred in our circles recently. In particular, I hope to suggest that there are ways out of the sectarian traps that we have got ensnared in for the past few decades, also in southern Africa.<br /><br /><br />POLITICAL REALITIES<br /><br />Under this heading, I want to refer to only four evolving and dynamic realities in the world at the beginning of the 21st century. <br /><br />Firstly, for reasons that I assume need not be spelled out, the collapse of the USSR and of its satellite states in Eastern Europe catapulted the pro-socialism forces in the world into one of their most deep-going and enduring crises. In particular, I think, there can be no doubt that the credibility of the socialist project as the only viable alternative to capitalism as a world system has been called into question. The very fact that the majority of human beings in the second half of the last century equated socialism with what had come into existence in the Soviet Union has once again raised the question of what we mean by the concept. This is not new, of course. At the end of the 19th century, similar debates were conducted among, especially, socialists in Europe, notably in the German Social Democratic Party. However, we live in an entirely different world today and the question has, therefore, to be approached with the new technological and ideological environment in mind. I realize, of course, that most of us have ready answers to this question but, as with other issues I shall be raising, I believe it is essential that we find a different language in which to articulate these answers. Otherwise, our cliche-ridden formulae will continue to alienate the popular consciousness. We have to use traditional as well as modern media in order to disseminate these answers in diverse and innovative forms among all of humanity. Stories, utopias, novels, plays, songs, rapping, even soapies, we need to experiment with all of these forms, and more, in order to get our message across more effectively.<br /><br />Secondly, the caving in of layer after layer of former so-called socialists to the pressures and enticements of neo-liberal bourgeois norms and aspirations, which has been one of the most melodramatic political developments of the late 20th century, has temporarily weakened the socialist forces numerically and intellectually but, in the longer term, has also laid the foundation for a much more solid political edifice built with the will and the knowledge of many dedicated men and women. Clearly, the question that we have to consider here is something along these lines: how do we, among other things, maximize the acceptance of the need by the majority of people in our societies to base their lives and their aspirations on the principle of sufficiency (Andre Gorz)? The question implies an understanding of the moral economy in an industrial environment, a countering of the capitalist myth of "economic rationality" and a reintegration of the, if you wish, pre-industrial, pre-capitalist values based on the notion that "enough is as good as a feast". This approach has obviously been reinforced by the insights derived from the researches of ecological science and activism. It is from this ideological mindset, formulated in political programmes of principle and practical action plans, that the motivation and the passion will be generated to oppose, and, therefore, not to emulate, the acquisitive and status-seeking desiderata which are the stock-in-trade of the capitalist system.<br /><br />We need as a corollary to this to spell out what we mean in practice when we proclaim that socialism is a process, not an event. For example, in the educational domain, should we not place the spotlight firmly on contextually appropriate pre- and primary school education and, consequently, universalize this phase of education as a defining component of any modern democracy? It goes without saying that we have to work out all the curricular and training implications of this proposal. In particular, the homogenising trap of "Universal Primary Education" has to be addressed urgently.<br /><br />Thirdly, there is very little doubt in the mind of any serious revolutionary socialist protagonist that the form of organization, the party, for short, that will lead or guide the struggle for socialism in the world has once again become a point of debate. This is so because of the elitist pretensions, authoritarian ethos and undemocratic practices that have come to be associated with so-called vanguard parties of the working class. We obviously need to consider the shape which things appear to be taking in Venezuela in this regard and reconsider the question of the "vanguard party" in relation to the conditions under which mass workers' parties such as the PSUV (United Socialist Party of Venezuela) can operate. In this connection, it is important to realize that the only reason why Hugo Chavez can suggest a "parliamentary road to socialism", i.e., if he actually said this - my information is second - or even third-hand - is the fact that he has, for the moment, control of the Venezuelan armed forces, a situation that is by no means impregnable. It ought not to be necessary to say that this is a fundamental question, one that requires from all of us total honesty and intellectual integrity, since the fact that socialist activists are - ideally - people who have specialized in the study of society and of history, necessarily equips them with a certain kind of knowledge that others either don't have or do not consider to be essential to their "happiness". Because of the social power that this knowledge endows us with, which, incidentally, is not very different from the power that technocrats such as civil engineers or nuclear scientists have, we are called upon to display higher levels of social responsibility than most "ordinary" people, something that recent history has taught us not to take for granted at all. (The problems that we are facing in South Africa at the moment with regards to the provision and distribution of electrical power, apart from other important lessons we can draw from the fiasco, speak volumes about the reality of the power of capital, of its technocrats and of state bureaucrats). <br /><br />Fourthly, we find ourselves in a strategic impasse. Both theory and history tell us that socialism in one country is impossible. Yet, the domino effect of socialist revolutions seems always to be interrupted by imperialist encirclement, embargoes and other machinations, including direct intervention. Hence, at the international level, where one always has to begin any analysis, the strategic question today is: what do we have to do in order to prevent the isolation of any socialist revolution such as that which is underway in Venezuela and other Latin American countries? This question is not about not fighting against your own bourgeoisie, as some wiseacre tried to tell me at a recent conference; it is about ensuring that your own efforts at the national level can be sustainable once they eventuate in successful overthrow of the existing system. It is also about the most effective practical manner of countering the paralyzing sectarianism of the Left. It is only when all revolutionary socialists in the world act together (in international brigades, large-scale boycott and sanctions campaigns against aggressor nations, etc.) that some of the edges that make it impossible for left-wing people to act in concert will begin to be rubbed off.<br /><br /><br /><br />POLITICAL ECONOMY ISSUES AT THE BEGINNING OF THE 21st CENTURY<br /><br />The centrality and dominance of the U.S.A. in the world economic landscape, though it continues to shape events and political economy processes, is beginning to become less taken for granted than even five years ago. This situation is most visibly manifest in the decline of the dollar and the rise of the euro. Besides the ever more obvious inter-imperialist rivalry between North America and the European Union, we are witnessing the appearance on the world stage of the Asian capitalist giants of China, India and Indonesia, as well as of the more established capitalist regimes of Japan, South Korea, Malaysia-Singapore and an assertive post-Stalinist Russia. The new dynamic that these relations have inserted into the world capitalist system has been exhaustively analysed by many Marxist and other progressive scholars. It will suffice, therefore, if I highlight a few issues that appear to me to be relevant to our discussions here.<br /><br />Firstly, the dominance of finance capital is clearly a high-risk situation as far as the system as a whole is concerned. The latest crisis triggered by the collapse of the so-called sub-prime market in the U.S.A. demonstrates this most clearly. Not only the banking system of the U.S.A. but of all countries ( as shown by the highly publicized example of Northern Rock in the U.K) have been put in jeopardy and are relying on their central banks (i.e., their taxpayers) to bail them out. The proverbial bubble (2) is about to burst.<br /><br />Secondly, and related to the first point, the bull markets of the past decade or more have been demand driven, i.e., based on consumption that is itself the result of the expansion (over-expansion) of credit. This situation is unsustainable and the continued creation of ever more sophisticated credit-creating instruments (especially the plethora of loyalty cards and smart cards for their not so smart "owners") is a recipe for the deepest possible recession and, ultimately, depression. This predictable fact has produced the usual oracular pronouncements about the collapse of capitalism from all manner of Marxist and other socialist analysts. It is my view that we should avoid this eschatological view of things, since it really does not enrich our understanding of how the system actually works. We cannot at one and the same time say that the system will not collapse of its own accord and, without any reference to whether or not the subjective factor, i.e, the leadership, the party and all that that implies, is adequately prepared to deliver the final blows, predict its "inevitable" fall. The so-called resilience of the capitalist system, as we know from especially the world and other wars of the last century is based on its "creative destruction" of resources through, among other things, primarily investment in the military-industrial complex and the conduct of war on the most threadbare of "justifications". If any person on earth still doubts the truth of this proposition after the exposure of the official lies about the so-called weapons of mass destruction in Saddam's Iraq, nothing will convince them. Just a few weeks ago, George Bush was embarrassingly stopped from publicly pushing in the direction of preparing for a similar war "game" in Iran by his own "intelligence service" releasing a report that shows clearly that Iran had given up any notion of producing nuclear arms as far back as 2003! <br /><br />Of course, a realistic assessment of the prospects for successful anti-capitalist-imperialist actions by large masses of exploited and oppressed people in many different parts of the world does not mean that one is suggesting that socialist revolution is not on the immediate agenda. In Latin America, as I have pointed out, the conditions for such a leap across the ideological and political hurdles that have been placed so very deliberately and effectively in the path of the workers of the world has become decidedly possible, even probable.<br /><br />Thirdly, from the point of view of the economic South of the globe, the entrance of China and India as major investors in infrastructure and consumers of raw materials and other commodities has the potential of re-establishing a "neutral" space for the elites that is not dissimilar from that which made it possible during the Cold War for a Nehru, a Nasser and an Nkrumah to strut large on the world stage, whatever their nationalist and personal attributes might have contributed to their stature. Block formation such as that manifest in the EU, AU, ASEAN, ALBA and other similar entities, is, in Manuel Castell's terms, initially a form of resistance to "globalization" by the elites. It implies the manifest rejection of the new international division of labour imposed by the international financial institutions on behalf of the U.S.A. hegemon on the rest of humanity (2). These resistance identities can, however, only succeed in the long run if the entities concerned manage to create what Castells calls "project identities", i.e., if the generality of the population identifies with the newly created block. This is the reason for the discussion about a European identity and for the ongoing discussion in South Africa of the question: Who is an African? For the Left, it poses the question (in Africa, for example) whether we can and should give new meaning to the pan-African project, i.e., as a left project that is implacably opposed to the capitalist-imperialist basis and the elitist ethos of NEPAD and all its ancillary formations. I believe that this is a fundamental question for socialists in Africa, one the consideration of which we can no longer defer.<br /><br />Fourthly, the increasingly coordinated strategies of the world capitalist class via entities such as the World Economic Forum as well as the yawning gaps between the rich and the poor that are the direct consequence of the neo-liberal economic orthodoxy and its barbaric practical instantiations  in most countries of the world, especially in the economic South, have given rise to a world-wide protest movement that has come to be associated in the main with the World Social Forum and its geographical offshoots with the catchy motto/slogan to the effect that Another world is possible, reminiscent of Schiller's Ode to Joy eternalized in the Chorale of Beethoven's 9th symphony. Now, whatever else the WSF might be, it is universally acknowledged that it is not, and should not try to be, a new International. It does, however, by implication raise many questions about the international coordination of revolutionary socialist and other working-class activities.<br /><br /><br /><br />A NOTE ON THE SITUATION IN SOUTH AFRICA<br /><br />Any illusions individual socialists or groups of socialists may have had about the class nature of most co-opted regimes, especially in Africa, have been dispelled by the blatant and abject subordination of the South African liberation struggle to the dictates of international and domestic capital. Africa's position in the international division of labour has been very firmly defined as supplier of certain raw materials, especially oil, gas, precious metals and plantation goods such as sisal, sugar and cotton. Only South Africa itself has a sufficiently diversified economic structure to withstand to some extent the devastating consequences of essentially monocultural economies. As has been pointed out by authors such as John Saul and Colin Leys in numerous publications, the situation of the urban and especially the rural poor in most of Africa is exacerbated by the fact that all previous populist notions of "African" socialism have been discredited, most of them even before the implosion of the USSR. In spite of this, of course, the sporadic and sometimes sustained protests and uprisings against the IMF and World Bank imposed austerity regimes, most prominently in Zimbabwe in recent years, but equally so in Zambia, in Uganda, Senegal and elsewhere, are a sign of the latent force of anti-neo-colonial and anti-capitalist resistance, of the potential of the second chimurenga. These actions have highlighted the need for <br /><br />(..) nation-wide movements and/or parties through which such local groups and initiatives can ultimately unite to confront the political and economic power of the transnationals and the states that back them (3). <br /><br />For this reason, as well as others, the direction that the class struggle takes in South Africa during the next few years will be crucial to the rest of the continent. Currently, because of all the smoke that is being projected by SACP sleight of hand as a raging fire of revolutionary "transformation" of the ANC into a quasi-socialist party, there appears  to be much confusion. However, the position can be stated clearly and simply. The working and unemployed masses are voting with their feet. Whatever their lingering loyalties and ever more feeble hopes in the myth that "the ANC will deliver", however big the gap between political consciousness and material practice, the thousands of township uprisings, countrywide strikes and serial metropolitan protest actions have one simple meaning:  WE REJECT YOUR POLICIES AND YOUR PRACTICES AS ANTI-WORKER AND ANTI-POOR. It is, in my view, a misnomer to refer to these stirrings of self-organisation of the working class as an expression of "collective insubordination" (4), even though their immediate impulse is usually reactive rather than proactive. They are saying very clearly and very loudly that the appeal to nationalist, blood and soil rhetoric has lost its power and that we are standing on the threshold of a politics shaped by a heightened sense of class struggle. It is this understanding that should inform our analysis and our estimation of the prospects for a more principled socialist-orientated direction of the struggle in South Africa. <br /><br />President Mbeki and his team are reaping the bitter fruits of the negotiated settlement of the early 1990s. They find themselves in the tragic situation described by Friedrich Engels in a memorable paragraph in the Peasant War in Germany which, you will agree with me, is worth citing at length:<br /><br />The worst thing that can befall a leader of an extreme party is to be compelled to take over a government in an epoch when the movement is not yet ripe for the domination of the class which he represents, and for the realization of the measures which that domination implies. What he can do depends not upon his will but upon the degree of contradiction between the various classes, and upon the level of development of the material means of existence, of the conditions of production and commerce upon which class contradictions always repose. What he ought to do, what his party demands of him, again depends not upon him or the stage of development of the class struggle and its conditions. He is bound to the doctrines and demands hitherto propounded, which, again, do not proceed from the class relations of the moment or from the more or less accidental level of production and commerce, but from his more or less penetrating insight into the general result of the social and political movement. Thus he necessarily finds himself in an unsolvable dilemma. What he can do contradicts all his previous actions, principles, and the immediate interests of his party, and what he ought to do cannot be done. In a word, he is compelled to represent not his party or his class, but the class for whose domination the movement is then ripe. In the interests of the movement he is compelled to advance the interests of an alien class, and to feed his own class with phrases and promises, and with the asseveration that the interests of that alien class are its own interests. Whoever is put into this awkward position is irrevocably lost (5).<br /><br />Of course, this characterization applies to most governments of economically dependent regimes operating according to the neo-liberal orthodoxy but, in the present context, it is particularly apt with reference to the situation in South Africa. The zig-zag progress of Hugo Chavez in his stated endeavour to get out of the clutches of the local and international bourgeoisie in quest of a "socialism of the 21st century" merely serves to underline the truth of this classic observation.<br /><br />Viewed from a different angle, the question we are confronted with is whether the revolutionary Left cadres will be able to find the requisite solution to the organizational question so that the debilitating and paralyzing fragmentation that has marginalized them can be overcome before this passionate resistance of the workers is transformed into the kind of passive resistance we associate with the disposition of the urban and the rural poor in most other post-colonial African  states or, worse, before the nightmare scenario of race war and ethnic cleansing that is being rehearsed in Kenya as we speak, finally overwhelms us. The strategic and tactical implications of this proposition are numerous and radical; among other things, we shall have to find practical answers to old questions in a new context, questions such as: <br /><br />* What kind of party or organization at national level should be created out of the confluence of all our political tendencies and traditions in order for the socialist alternative to be firmly rooted within this evolving social base? <br /><br />* What are the core issues around which a programme of transitional demands and an action plan can be formulated in a democratic process? <br /><br />* How can such a programme be connected to and informed by the essential task of rebuilding our communities and our neighbourhoods on the basis of cooperativist and collectivist values of ubuntu, of sharing and caring? <br /><br />* To what extent, if at all, do we seek or promote a strategic alliance with left elements inside the SACP? <br /><br />* How do we align ourselves politically with COSATU and with the other union federations or with individual unions? <br /><br />* Do we consider revolutionary parliamentarism as tactically feasible at this stage? <br /><br />* How do we work with the rest of the African working class, especially in southern Africa? <br /><br />* What position do we take with regards to the World Social Forum? <br /><br />* How do we relate to other left-wing international formations without getting encoiled in the sectarian knots or getting sidetracked and lost in the maze of largely irrelevant apologetics that constitutes the stuff of the debates among these sects?<br /><br /><br />A final thought<br /><br />Socialism is "on the agenda" at all times as long as the capitalist system - at whatever level - exists, since it is the only viable alternative as a system to real capitalism. The reformist critiques of capitalism, of which there is an ever-increasing number, for obvious reasons, cannot change the nature of the beast. It remains true, as Marx originally pontificated, that the real choice before humanity is Socialism or Barbarism.<br /><br />This insight, however, is something quite different from the judgment that leads us to postulate that "socialist revolution is on the agenda" at any given time or place. Being able to make this call, to use an apt Americanism, is indeed the mark of leadership. The debates that took place in the Bolshevik and Menshevik parties in June 1917 are a classic example of what I am referring to. Lenin's call, All Power to the Soviets!, represented the unique convergence of utopian vision, strategic grasp and tactical acumen that led to the initial success of the Great October Revolution. The strategic and tactical implications of these two related propositions are something that should preoccupy the thought of all those who are placed in positions of leadership in their specific organizations.<br /><br /><br />1 Input at Lalit conference, Port Louis 1 February 2008.<br /><br />2 When one of my grand-nieces was learning to speak as a two-year old, she often referred to balls and other round objects as "bubbleloons". This coinage seems to me to describe exactly the character of the world financial markets at the beginning of the 21st century.<br /><br />3 It should be noted, of course, that all of the mentioned formations, except for ALBA, are based on a vision of reforming the international institutions that keep guard over the international division of labour.<br /><br />4 Colin Leys, cited in Saul, J. 20065. The Next Liberation Struggle. Capitalism, Socialism and Democracy in Southern Africa. Scottsville: University of KwaZulu-Natal Press, p. 284.<br /><br />5 Celestin Monga, cited ibid, p.49.<br /><br />6 In Feuer, L. (ed.). 1969. Marx and Engels. Basic Writings on Politics and Philosophy. London: Fontana. (pp. 473-474).<br /><br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

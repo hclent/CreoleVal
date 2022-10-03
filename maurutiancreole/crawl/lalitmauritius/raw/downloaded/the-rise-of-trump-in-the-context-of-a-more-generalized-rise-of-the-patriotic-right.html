@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100655" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100655" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100655" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100655" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100655" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100655" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100655" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100655" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100655" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>The Rise of Trump: In the Context of a more Generalized Rise of the Patriotic Right</h1><p class="subtitle">02.02.2017</p></h1>
+	<p class="newsarticle"><p>&nbsp;Today it&rsquo;s not the first time in history that we have seen the dark clouds of patriotism, populism and fascism covering the skies, threatening bad times ahead, and barring our vision of a future socialist society.</p><br /><p>&nbsp;Since the gradual coming to power of the capitalist system, from about 250 years ago, this is the <em>third</em> time we have seen patriotism and populism go berserk. First, there was the patriotic build-up to the war of 1914-18 and the bloodbath itself; dark times, so well described by Rosa Luxembourg. Then there was the rise of fascist ideas in Europe and the USA (and fascism actually coming to power in three countries in Europe) in the 1920-30&rsquo;s; darker times still, so clearly predicted and described by Leon Trotsky. And right now, we see the third dark period coming upon us, threatening darker times still ahead.</p><br /><p>&nbsp;With the election of someone as bizarre as extreme-right caudillo Donald Trump as United States President (1), we really need to spend time getting to understand exactly what new reality in the world <em>permitted</em> such an election result (even if there are purely electoral elements and purely American realities that helped catapult him to power), and to anticipate what his taking power will mean for the future? Times ahead, though dark, are also challenging, for those of us who want to see the light of socialism in society.</p><br /><p>&nbsp;<strong>Globalization and the particular forms of &ldquo;anti-globalization&rdquo; movements</strong></p><br /><p>People in Mauritius will remember that for a few years, LALIT members participated in &ndash; even though with critical eyes &ndash; an international <em>anti-globalization movement. </em>It was a movement against the new <em>neo-liberal </em>agenda that &ldquo;<em>globalization</em>&rdquo; was putting into practice from about 1994. In fact, to be more accurate, neo-liberalism first came to power with the Reagan-Thatcher team in 1980, and then from 1990 consolidated their reign &ndash; what with the simultaneous collapse of the three previous challenges to 19th Century liberal capitalism: the degenerated Stalinian regimes around the USSR and the Warsaw Pact collapsed; social democracy and welfare state systems collapsed; and national liberation governments in the Third World also collapsed, all three replaced by the logic of the globalized world trade system based on the free movement of capital and goods, and pressures, but no rights, for mass worker-migration. All this, with militarism and war as a backdrop.</p><br /><p>&nbsp;LALIT participated in this anti-globalization movement mainly through our members&rsquo; participation, from 1996-99, in <em>All Workers </em>which was part of a LALIT strategy to unify the entire trade union movement around a program against neo-liberalism. Our aim, at the time, was to defy the conditionalities of the IMF and World Bank that impacted so heavily on workers, and to counter the nascent WTO and its logic of turning everything into a commodity and removing democratic control over ordinary things like education and health services, or nationalized industries.</p><br /><p>&nbsp;And we succeeded to a fair extent. First, the whole working class movement did get unified and stay unified for an incredible 3 whole years. Then, we did manage to actually halt many of the <em>conditionalities</em> being imposed, even though the loans had already been taken by the Mauritian Government. This was quite a feat. It means we still have, unlike most African and Asian countries, free school, free health care, universal pensions for over-60s, subsidized food and so on. But as from 1999, in LALIT we realized that this kind of political work, though it had been useful, would, if maintained, bind us into purely <em>defensive</em> strategies &ndash; <em>against</em> privatization, <em>against </em>de-regulation, for example &ndash; instead of the working class, through its own action and with the help of a party like LALIT, developing and popularizing a common program to seize the initiative and go on the counter-offensive. We kept finding ourselves fighting for a reality (like welfare state benefits) that existed a few years ago, a reality that we were and still are very critical of. This is just not good enough as a strategy. Revolutionary socialists, like us, must always seek to go on the counter-offensive &ndash; given that we want to finish this system and give a hand in setting up and organizing a new socialist society together with all the other oppressed people. This is what differentiates us, after all, from all the other mainstream parties that work within capitalist logic, within the logic that a few people &ldquo;give&rdquo; the rest of the people jobs (because they control the capital produced by everyone in the past), while the rest of humanity (more than 90% of people) has to beg for a job from those few who hire and fire.</p><br /><p>&nbsp;So, we gradually &ndash; in particular through our &ldquo;program for an alternative economy&rdquo; &ndash; extricated ourselves from the trap of eternally defending aspects of past social democracy even when it was, it is true, attacked by the neo-liberal right. We changed our emphasis to work more towards building and popularizing a <em>political program </em>for socialism. And we were right to do so.</p><br /><p>&nbsp;But, while we were in it, we were not the <em>only</em> anti-globalization current. There was, right from the beginning, a nationalistic, patriotic challenge to globalization led by sections of the bourgeoisie itself. (In passing, it is worth mentioning that there is some overlapping here, as when, for example, Prof. Michel Chossudovsky or Yash Tandon, left-anti-globalization thinkers were always on the lookout for possible allies against globalization in the &ldquo;nationalist&rdquo; bourgeoisie.) It is this right-wing that is today really becoming politically strong all over the place. And it is this that Trump ran his campaign against. He symbolizes this. What makes Trump more important than the others is not that he is different (although he is that, too), but that he is in charge of the country that has control over most of the world&rsquo;s military hardware and war machinery, as well as being patriotic.</p><br /><p>&nbsp;To give an idea, the USA, for example, spends some $600 billion on arms each year. The second biggest spender on the military spends only a third of this: China spends $200 billion. The list below gives an idea in rounded-off figures (Stockholm International Peace Research Institute, 2016):</p><br /><p>&nbsp;Country&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $billion</p><br /><p>USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 600</p><br /><p>China&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200</p><br /><p>Saudi Arabia &nbsp;&nbsp;&nbsp;&nbsp;90</p><br /><p>Russia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 65</p><br /><p>UK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 55</p><br /><p>India&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 50</p><br /><p>France&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50</p><br /><p>Japan&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40</p><br /><p>Germany&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 40</p><br /><p>South Korea&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 35</p><br /><p>&nbsp;When we add the next 9 countries after the USA, we equal the US budget.</p><br /><p>&nbsp;But, while the USA&rsquo;s military is very powerful, its economy is teetering on the brink of collapse.</p><br /><p>&nbsp;And what has happened over capitalist globalization is that heavy industry has delocalized out of the USA, and huge bands of cities and towns have seen their industries collapse, leaving ghost towns, literally rusting away. It is these cities (neglected by Obama, Clinton and the entire establishment) that were the tipping point that permitted Trump to be elected in a number of key traditionally Democratic states, and that thus led to his electoral college victory.</p><br /><p>&nbsp;And all that military power is in his hands now. This is very dangerous. But we will come back to that later.</p><br /><p>&nbsp;The precise moment that extreme-right patriotic movements were rising in the USA, in response to globalization&rsquo;s effect on the US economy and jobs, is when China is on the brink of overtaking the USA &ndash; in terms of the size of its economy. This means US hegemony is threatened. This, for the very first time. And as we know, hegemony, being a total control, is fragile. A crack ends hegemony. So, a fascist will to save the US as world leader gets strong.</p><br /><p>&nbsp;But, before going on, we must remind ourselves that this rise of the patriotic extreme right is a world-wide phenomenon. And it has grown in opposition to the globalization begun in the 1990s and causing economic and social havoc, especially for the working class.</p><br /><p>&nbsp;Here&rsquo;s a list (just to put Trump in perspective):</p><br /><p>&nbsp;* First, there was President Silvio Berlusconi elected to power from 1994-2013 in Italy. He was in just about all ways a precursor to Trump. A billionaire, amongst the 200 richest men in the world; a big TV boss; another raving misogynist; although a press magnate, he attacked the Press; right wing, like Trump, and almost as far-fetched as Trump.</p><br /><p>&nbsp;* Even in the USA itself, there were clear indications of what could come about. From 1993-4, we must not forget, we have seen political work being done by the Koch Brothers (2 brothers who together are the richest men in the world &ndash; heirs of an oil fortune) who, together with two big tobacco companies laid the ground at grass-roots level, knocking on doors and all, for what later became the <em>Tea Party</em>, and who aimed, it seems, to take over the Republican Party. Organizations like <em>FreedomWorks,</em> <em>Citizens for a Sound Economy </em>and <em>American Prosperity </em>all helped prepare for the <em>Tea Party.</em> Many people did not take them as a warning of dire things to come. In 2009, they rallied against Obama&rsquo;s &ldquo;bail out&rdquo; of the crashed and crashing banks in 2008. But also just against Obama. They included a racist, white supremacist, anti-woman current, even from then. Remember that before that, in 2008, there was Sarah Palin, a far-fetched right winger as Vice Presidential candidate &ndash; can&rsquo;t be more mainstream than that. And then in 2012, Michelle Bachmann in the Republican Primaries. All this to say, there was plenty of warning. [Perhaps the problem is partly that, instead of mobilizing <em>politically</em>, people spent time over decades organizing as NGOs and raising funds from Foundations that are only tax-deductible because they are non-political. The George Soros Open Society Foundation comes to mind. And there are loads of others. These are <em>pro-capitalist</em> philanthropists that have ended up having control over mobilization against the extreme right.]</p><br /><p>&nbsp;*In 1995 the <em>Danish Peoples&rsquo; Party</em> (Ms Pia Kjaersgaard) was set up, an ultra-nationalist anti-immigrant party. &ldquo;Danish identity&rdquo; is her strong point. Today she is mainstream: Speaker of the National Assembly now. &nbsp;</p><br /><p>&nbsp;* In Mauritius, we happen to know the situation in France rather better than other places. The right has remained consistently strong for 20 years now. In 2002, Jean-Marie Le Pen was one of the two candidates who got into the second round in the Presidential elections. Since his daughter Marine Le Pen took over leadership, she is often the most popular politician in France in the surveys. Then there was the notorious Dominique Strauss-Kahn (DSK) who was be to be elected President in 2011. How&rsquo;s that for mainstream. He was a millionaire and was then still married to billionaire heiress and journalist Anne Sinclair, as well as being the IMF&rsquo;s big boss. He, too, was a notorious misogynist, and all this while being in the <em>Socialist</em> Party. He was so similar to the extreme right leaders (like Berlusconi and Trump) that we must recognize an historic &ldquo;pattern&rdquo; of some sort. Note, in passing, that Mussolini was a union leader and Hitler called his party <em>nationalist</em> &ldquo;socialist&rdquo; (Nazi) party; DSK was thus not the first to launch an extreme-right career outside the traditional right-wing.</p><br /><p>&nbsp;* Meanwhile, from 2007 in Switzerland, the <em>Swiss Peoples&rsquo; Party</em>, an extreme right formation, began dictating the political agenda, and is now so mainstream that it got more votes than any other one party in 2015.</p><br /><p>&nbsp;* In Holland by 2009, Geert Wilders&rsquo; extreme right <em>Freedom party</em>, which is anti-Muslim, madly patriotic and built around Dutch identity had become a very strong, mainstream party.</p><br /><p>&nbsp;*In 2013, <em>True Finns</em> was already the 2nd biggest party in Finland &ndash; a xenophobic party.</p><br /><p>&nbsp;* Narendra Modi was in 2014, over two years ago, already elected Prime Minister of India. He is not as far-fetched as Trump, but he is associated with casteism and communalism, as well as Indian and even Hindu nationalism and patriotism.</p><br /><p>&nbsp;* Rodrigo Duterte is more violent and more farfetched even than Trump, but pre-dated Trump, becoming Philippines President in 2016. He has actually called for, and confessed to, assassinating people accused of drug-related crime. He is President in one of the world&rsquo;s biggest countries.</p><br /><p>&nbsp;* <em>Freedom Party of Austria</em> won 40% of the vote in the 2016 Presidential elections.</p><br /><p>&nbsp;* The Brexit vote in 2016 in the UK has advanced the extreme right UKIP (UK Independence Party). Note that Trump called his election &ldquo;Brexit 2&rdquo;.</p><br /><p>&nbsp;*Frauke Petry of the Alternative for Germany, like many extreme right parties is pro-Putin, anti-Muslim, anti-immigration. It has become quite strong.</p><br /><p>&nbsp;This is not a complete list at all. But it is a chilling reminder that we were definitely forewarned. Trump is not out-of-the-blue.</p><br /><p>&nbsp;When he has become US President in 2017, we can&rsquo;t say we did not get warnings beforehand. For 20 years extreme-right parties have been gaining strength. Here are their characteristics: <em>pro-capitalist, nationalist, anti-globalization, in favour of production-in-the-motherland, anti-women, patriotic, anti-immigrant, anti-disabled, repressive, anti-globalization, anti-Islam, strong on &ldquo;identity&rdquo; politics (ethnicity, nationality, religion) anti-establishment, anti-elite, and often pro-Putin</em>.</p><br /><p>&nbsp;Trump is more worrying simply because he has much, much more power. He is part of a wave of anti-neo-liberals, attacking globalization from the right. In this sense, things are not unlike in Europe in the 1930s, when three fascists came to power in the late 1920&rsquo;s and 1930s: Adolf Hitler-Benito Mussolini-General Franco, with Hitler being most dangerous because Germany was the strongest country.</p><br /><p>&nbsp;Trump is dangerous for a number of related reasons:</p><br /><p>&nbsp;First before looking at a point-by-point list, it is important to realize that Donald Trump represents a kind of &ldquo;direct&rdquo; capitalist rule, circumventing the political &ldquo;elite&rdquo;, and the political &ldquo;establishment&rdquo; that he, and many Americans, with reason, hate. So, he rallies people on working class points (bring production back, bring heavy industry back, produce in the USA, create jobs by big federal infrastructure projects) and yet names millionaires and billionaires in his Cabinet. And people are so against the political elite that they are taken in. Trump also ridicules the identity and gender politics by naming the odd millionaire to represent&nbsp; the sub-category concerned!</p><br /><p>&nbsp;Concentrating into the Cabinet billionaires and military men (1) is, in itself, dangerous. But here are the specific dangers:</p><br /><p>&nbsp;1. <em>Nuclear war</em>: Trump is so unpredictable that his being in charge of a nuclear arsenal is of extreme concern. But, for the moment, Trump is at least appeasing Russia, which is certainly better than the Obama-Clinton war-mongering.</p><br /><p>&nbsp;To give an idea: The USA has 7,300 nuclear war heads (of which 1,920 deployed) while Russia has 8,000 (with rather less 1,600 deployed). UK, France, China, India, Pakistan, Israel and North Korea have a total of 1,000 nuclear war heads between them, with the only deployed ones belonging to the UK and France (160 and 290 respectively).</p><br /><p>&nbsp;When it comes to US and European conflict with Russia, it is important to know the recent history of the situation because the mainstream press and television hide it so consistently. When Russia was disbanding the Warsaw Pact in 1991 (remember the Warsaw Pact&nbsp; was the USSR&rsquo;s equivalent of the US&rsquo;s NATO), there was an agreement that NATO would <em>not</em> set up shop in any ex-Warsaw Pact country. East Germany, however, became &nbsp;NATO by re-unification. And then NATO moved into Bulgaria, Estonia, Latvia, Lithuania, Romania, Slovakia and Slovenia. By 2004, NATO had gone into <em>all</em> previous Warsaw Pact&nbsp; countries. So, Putin&rsquo;s stance, when called aggressive by the BBC, CNN or France 24, must be seen in the light of the truth of history as to who is acting aggressive for the past 30 years.</p><br /><p>&nbsp;Anyway, the fact that Trump is avoiding confrontation with Putin is a good thing, even if the media and academia in the USA think that this can be used as a stick to hit Trump with. Such opportunism is dangerous, especially with such destructive weapons ready to fire.</p><br /><p>&nbsp;2. <em>Drone Warfare</em></p><br /><p>After Obama has set up an infra-structure outside all democratic control for a drone program that has involved over 25,000 bombs being dropped, one shudders to think what Trump will do with this already outrageous arsenal.</p><br /><p>&nbsp;3. <em>Environmental dangers</em></p><br /><p>Trump and many in his Cabinet are &ldquo;<em>climate change deniers</em>&rdquo; and Trump says that environmental protection is &ldquo;out of control&rdquo;. In fact, there is not enough care for the environment &ndash; not just on the front of fossil fuels, but on many different ways of measuring. So, our habitable planet is now facing new dangers, as the various thresholds beyond which there is irreparable damage are threatened.</p><br /><p>&nbsp;4.<em> Dangers of migrant crises</em></p><br /><p>Capitalism, mainly US capitalism, has provoked such violent wars (Afghanistan, Iraq, Libya, Syria) that millions of people have had to flee, creating a huge migration problem. At the same time, climate change will provoke further migration. These both fuel right wing populism and anti-immigrant patriotism even further. So, we risk a self-perpetuating inferno.</p><br /><p>&nbsp;5. <em>Danger provoked by the Despair of the Marginalized: An army for Populism</em></p><br /><p>Globalization with its neo-liberal agenda (worsened after the 2008 crash) has thrown working class people out of mainstream society &ndash; into unemployment, the inferno of the drug world, and into despair. With ghost towns, and rusted factories, there are whole societies of working people without jobs in the USA. Men&rsquo;s wages are now back to the 1960 level! Those with jobs are in unsatisfactory employment, in the main. As people fall into the criminal underworld or even just into drug-use, as they become unemployed, they soon cannot get work (even if there is any), and become the cannon fodder of the populist politicians like Donald Trump. Trump has mobilized the genuine despair of the working class. He claims to represent &ldquo;<em>all</em> Americans&rdquo; against the establishment, even while using thinly veiled white supremacist codes, meaning some Americans are not Americans.&nbsp;</p><br /><p>&nbsp;6. <em>Trump pumps up fascist ideology</em> &nbsp;</p><br /><p>On the ideological front, the broad masses, who are genuinely against the &ldquo;institutions&rdquo; that don&rsquo;t care about them even if they ever notice their existence, that they have fallen in behind the &ldquo;saviour&rdquo; Trump, who is also against these institutions. But, so anti-organization have people become over the past decades that they become against<em> organizing themselves</em>. They believe it is a waste of time. They believe all parties will turn out &ldquo;the same thing&rdquo;. This, in turn, justifies their remaining atomized individuals, more likely to follow a Donald Trump, and leaves them sitting ducks for a worse future under capitalism in crisis with a President like Trump.</p><br /><p>&nbsp;7.<em> Backlash: Fragmentation in terms of community, ethnicity, &ldquo;single issue NGOs&rdquo;, Religion</em></p><br /><p>In the USA and elsewhere, part of &ldquo;the left&rdquo; (often most of it) has adopted strategies of defence that fall into the trap of dividing the working class. (We use the term &ldquo;working class&rdquo; here to mean everyone who can only feed their family for the next years if he/she or another family member sells their labour in exchange for a pay; this includes white-collar workers, people who cannot find work or have given up trying, and workers who have retired.) The left, as under Barack Obama and Hillary Clinton, restricted itself, in the main, to organizing behind very minimalist, not quite political demands: a women&rsquo;s struggle for some woman to rise to positions of power <em>within the existing patriarchal and capitalist hierarchies</em>, oh how pathetic a demand, accepting existing inequalities, just having them equally shared between men and women; struggles that rely on race classification, or division into ethnic groups, communities, religions, castes, that aim at so-called &ldquo;<em>equity</em>&rdquo;, or the acceptation of class inequality, so long as it is equally spread out amongst Blacks, Latinos, immigrants, women, etc. Often people have aimed at the awful system called &ldquo;meritocracy&rdquo; the ultimate aim of which is to justify morally the unjustifiable inequalities of our society: those who merit it, meritocracy claims, will be rich, the others will be poor. And they deserve it. Often people have limited their struggles to blinkered &ldquo;<em>single-issue&rdquo; </em>campaigns, based essentially on &ldquo;the lost sheep of capitalism&rdquo; philosophy. Women are excluded, so pull them in, and all will be fine. Oh, those with a disability are left out, so pull them in and all will be fine; Oh, the LGTBQ people are left behind, or such and such an ethnic or communal group, so classify and organize them, separately to get back on the capitalist bandwagon of inequality. So instead of building a united working class program, together with all workers of all these sub-groups, like women, different communities, ethnies, sexual orientations, those with disabilities, immigrants, of different religious persuasions, and so on, they have restricted themselves to these separate, divisive campaigns that operate within the very categories that capitalism has hurled us into. These forms of organization cede leadership to the respective bourgeoisie of the sub-group. It&nbsp; is as though the left has organized in ways that destroy the broad masses of workers&rsquo; only real anti-dote to capitalism: working class unity. And this obviously risks backlash. And Trump is that backlash. White identity politics. And it is dangerous, and it is <em>not</em> minority and that increases the size of its threat.</p><br /><p>&nbsp;There is also the NGO phenomenon, encouraging non-political organization so that it is tax-deductible for CSR purposes. These often &ldquo;charitable&rdquo; organizations are masterminded by the oppressor for the benefit of the &ldquo;victims&rdquo; of &ldquo;marginalization&rdquo;.</p><br /><p>&nbsp;All this to say, we are confronted with a new wave of harsh reigns: fascist tendencies behind caudillos, identity politics behind patriotic identities, racism &ndash; either openly or in code &ndash; white supremacists, and a kind of new Christian hegemony.</p><br /><p>&nbsp;<strong>Perspectives</strong></p><br /><p>So, the sky ahead looks grim. And life ahead may become more grim for working people all over the world. This does make it more difficult for the working class, and also for a socialist party like LALIT.</p><br /><p>&nbsp;But since everything in society is always in motion, forever changing and, under capitalism, catapulting ahead out of crises, we must operate within this perpetual movement, as a party proposing not <em>socialism</em> but the <em>struggle for socialism.</em> And it is <em>there</em> that lies hope.</p><br /><p>&nbsp;We have to create, to nurture and to care for that human &ldquo;<em>will</em>&rdquo; for equality, a burning desire that resides in all of us. It is part of our nature. It is only by the will to cooperate, to struggle together, that humans survived for that at least 100,000 years, prior to the emergence of different classes, and the class inequality that comes with the classes. It is only in the past 5,000 to 10,000 years that we have lived under class domination, and even though for so small a part of our history, we are so used to it that we almost think it is &ldquo;natural&rdquo;. But our desire to rebel against this domination is too strong. It will come out. And we, as a party like LALIT, have to prepare so that when people rise up, they have the possibility of organizing so as to express collective will democratically, so that they can take power &ndash; everyone together. This present system will need to be overthrown and replaced by an egalitarian, caring, society that we will create and nurture together, as we did for 100,000 years.</p><br /><p>&nbsp;Many possibilities will be presenting themselves &ndash; worldwide.</p><br /><p>&nbsp;* Remember that now there is a much bigger percentage of people who can participate in a rational debate &ndash; because of and despite our education systems &ndash; than throughout class society&rsquo;s reign. So, we have the possibility of convincing people on the basis of rational, enlightened arguments. Beliefs in magic and superstition, in miracles and casting spells, submission to organized religious hierarchies, all this has lessened &ndash; with scientific knowledge and a strong current that believes in the power of reason, and in the modern concept of morality: predicting the consequences of one&rsquo;s actions, whether individual or collective, and acting so as to do what is best for everyone. &nbsp;</p><br /><p>&nbsp;* The human aspiration to control one&rsquo;s own destiny has grown.</p><br /><p>&nbsp;* Expectations from <em>democracy </em>have grown. It is easier today to get support for democratic control of all the land, all the capital, everything, than it ever was before.</p><br /><p>&nbsp;* We have new possibilities for <em>organizing, </em>new tools that can help build a program and popularize it.</p><br /><p>&nbsp;* And, it is a time when the old program:&nbsp; for the important things: <em>land, peace, food, freedom</em> &ndash; is on the agenda, instead of vague &ldquo;values&rdquo; that have become the fashion recently.</p><br /><p>&nbsp;What do we want?&nbsp;</p><br /><p>&nbsp;&nbsp; - Peace!</p><br /><p>&nbsp;&nbsp; - Land/water/the sea!</p><br /><p>&nbsp;&nbsp; - Work for all!</p><br /><p>&nbsp;&nbsp; - Housing!</p><br /><p>&nbsp;&nbsp; - Freedom from state oppression!</p><br /><p>We want more <em>democratic control over everything!</em> This way we can get the 5 things we have listed. This way we can ensure the greatest pleasure for all: through work, art, sport, leisure, contentment, friendship, camaraderie, equality.</p><br /><p>&nbsp;* And more than ever, we need an <em>internationalist</em> struggle. We need to oppose the divisive struggles of patriotism, nationalism, ethnicity, community, caste, and in Mauritius, &ldquo;Morisyanism&rdquo;. We must, as we develop a program, and as we popularize it, think international. For this, we need to go beyond the &ldquo;bureaucratic artefacts&rdquo; that people think are facts, and put forward programs based on the real issues of life: because these are universal, and will nurture internationalism.</p><br /><p>&nbsp;For Mauritius,</p><br /><p>* Let&rsquo;s continue putting emphasis on the <em>class struggle</em>, while not neglecting its articulation with the struggle for environmental protection (against selling off land to millionaires for gated communities, or pouring chemicals into the land and sea, for example), the anti-imperialist struggle (as in the Diego Garcia issue), the women&rsquo;s struggle against patriarchy;</p><br /><p>&nbsp;* Go on creating a program that evolves over time and that is always based on reality analysed, and that includes demands with long-term effects as well as immediate, and which is developed in the context of a common understanding of where history is coming from and where it is going. And as we build the program together, we popularize it, amend it and go forward with it. Our program aims to bring out the best in all oppressed people, and in the long run in all humanity. And remember we seek <em>no more than the earth</em>! Think big!</p><br /><p>&nbsp;* Continue always, in developing strategies and even tactics, to be <em>principled</em> &nbsp;&ndash; not act out of hysteria, nor opportunism, nor following fashion, nor manipulating or being manipulated, nor for short-term gain, nor for the tactical advantage of the leaders.</p><br /><p>&nbsp;This way, as things all seem their most dark and dismal, we keep calm, we are assured that our contribution is part of an <em>internationalist struggle based on a common program to create a socialist society, putting it on the agenda today.</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><br /><p>&nbsp;Lindsey Collen</p><br /><p>Based on paper presented on 26 January 2017</p><br /><p>&nbsp;(1) <strong>Brief Rough Notes on Donald Trump&rsquo;s Cabinet members</strong></p><br /><p>When we are talking about &ldquo;Donald Trump&rdquo;, we must remember that he is a product of a group of right-wingers, and he has, in turn, set up a new group around his Cabinet and his White House Staff of right-wingers. Just to get a glimpse, very quickly, here is some of his Cabinet line-up to date. Millionaires and military men, mainly indeed <em>men.</em> Many are known for their history of racism, misogyny, anti-immigration, and anti-Muslim ideas.</p><br /><p>&nbsp;- Secretary of State: Rex Tillerson, Ceo of Exxon mobil - a billionaire.</p><br /><p>- Treasury &ndash; Steve Mnuchin, Goldman Sachs (hedge funds manager); nicknamed <em>Foreclosure King</em> &ndash; multi-millionaire</p><br /><p>Defence Secretary: General James Mattis, quoted as having said trigger-happy phrases.</p><br /><p>Attorney General: Jeff Sessions &ndash; millionaire.</p><br /><p>Interior: Ryan Zinke, was in SEAL Team 6 (notorious &ldquo;special services&rdquo;).</p><br /><h4>Agriculture: Sonnie Perdue &ndash; multi millionaire</h4><br /><h3>Trade - Wilbur Ross - billionaire</h3><br /><h3 title="Andrew Puzder">Labour - Andy Puzder the CEO of a chain of Restaurance&ndash; multi-millionaire. Anti-worker ideas.</h3><br /><h3>Health - Tom Price &ndash; multi-millionaire; against any national health insurance.</h3><br /><h3>Housing - Ben Carson the Republican Presidential Candidate - millionaire</h3><br /><h3>Transport - Elaine Chao &ndash; multi-millionaire</h3><br /><h3>Energy - Rick Perry &ndash; multi-millionaire</h3><br /><h3>Education - Betsy DeVos &ndash; Heiress. Knows nothing of public education. She withdrew.</h3><br /><h3>Veterans - David Shulkin</h3><br /><h3>Homeland Security - General John F. Kelly</h3><br /><p>Other at Cabinet level</p><br /><p>Vice President &ndash; Mike Pence: very right-wing, conservative. At some point the establishment Republican Party might ditch Donald Trump in favour of Pence.</p><br /><h3>White House Chief of Staff - reice Priebus</h3><br /><h3>Chief Strategist - Stephen Bannon of Breitbart &ndash; extreme right propagandist - millionaire.&nbsp;</h3><br /><h3>Budget - Mick Mulvaney- wants to extend pension age, decrease health coverage. Millionaire</h3><br /><h3>Ambassador to the United Nations &ndash; Nikki Haley &ndash; Indo-American &ndash; millionaire.</h3><br /><p>Administrator of the Environmental Protection Agency- Scott Pruitt- &nbsp;&ldquo;<em>climate change denier</em>&rdquo;,</p><br /><h3>United States Trade Representative- Robert Lighthizer &ndash; bosses&rsquo; lawyer, protectionist like Trump.</h3><br /><h3>Chair of the Council of Economic Advisers - Linda McMahon (multi-millionaire/billionaire)</h3></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

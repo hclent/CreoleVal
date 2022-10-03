@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612092815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612092815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612092815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612092815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612092815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612092815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612092815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612092815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612092815" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>LALIT v. MSM-led Government</h1><p class="subtitle">28.10.2021</p></h1>
+	<p class="newsarticle"><p>This is the program upon which LALIT proposes that we all attack the MSMâMLâex-MMM Government.Â Without a program on which we attack the Government, we will not win.Â </p><br /><p>The complete lack of any proper program from the Opposition Leader, his party the PMSD, the Labour Party and the MMM, as well as other forces that oppose the MSM makes them unlikely to bring progress. It is imperative, if we want to oppose the Jugnauth regime, that we oppose the MSM-led government on the basis of specific programmatic points and concrete proposals.Â </p><br /><p><strong>Introduction</strong></p><br /><p>Mauritius was already in a deepÂ <em>economic</em>Â crisis before the additional crisis caused by the Covid-19 pandemic. Mauritius was also in a deepÂ <em>politicalÂ </em>crisis prior to the Covid-19 crisis. And Mauritius had been facing all kinds ofÂ <em>socialÂ </em>crises long before the sanitary crisis began. So, we need a political program that addresses the crises during the pandemic, as well as all the different crises that predate the pandemic. We need a program, yes. And only aÂ <em>politicalÂ </em>program can guide us in facing crises of such scope. Neither NGOs, nor trade-unions, nor the civil society can get us out of this deep crisis. It is only through our own mobilization â mobilization of the oppressed, and of everyone who wants a socialist society â on the basis of a political program, which will succeed.Â </p><br /><p>Here is what LALIT is putting on the political agenda:</p><br /><p><strong>On Land and Sea</strong></p><br /><p><strong>1Â </strong>The Jugnauth Government must stop using the<em>Â Mauritius Investment Corporation (MIC)</em>Â money for projects that do not concern key production, starting with investing this capital in food production on a large scale. This means that every transfer of money, as well as the signing of every contract, must also be made public. Every secret contract that concerns expenses from public funds must be made downright illegal. This way we can ensure that, first of all, this capital coming from public funds, that is from Bank of Mauritius reserves, will be used to replace much of the sugar cane plantation on sugar estates withÂ agro-food cropsÂ on a large scale, and to replace old sugar mills with factories to preserve-transform food crops â to ensure food sovereignty as well as getÂ foreignÂ currency into the country from foodÂ exports. Then, we must develop a large-scale sustainable fishing industry and prevent other ships from pillaging our exclusive economic zones of the ocean. This way we can propose food production, such as cooking oil â through planting and processing sunflower or peanuts, for example â and like flour made from breadfruit, corn, cassava, the production of all kinds of preserved food products â based around produce from land and sea, including what is transformed, such asÂ <em>vinnday</em>Â (spicy pickle) fish and aubergine, potato curry, tomatoÂ <em>rugayÂ </em>â and frozen and freeze-dried vegetables. The development of such a new industry in the production of what is essential will, for a start, create stable jobs â in the fields, in greenhouses, in factoriesÂ to preserve and transform these food crops, on industrial fishing vessels,Â in storage, in distribution, in transportation, in export, in marketing, in scientific research, in development of new products, in looking for regional and niche markets.Â This is the path to achieve food sovereignty. Everyone knows that the price of foodstuffs is increasing and that it will keep on increasing. And when there are disruptions in the supply chains, when freight is increasingly costly and marine cargo traffic can be disrupted, we will have at least basic food production to sustain the whole of the Mauritian people. This is also a way to get a reliable export product, and thus foreign exchange, as other countries will always need food products. Then, it can act as a foundation from which other sectors of the economy can be generated, and added on.Â </p><br /><p><strong>2</strong>Â The MSM government must stop giving sugar estates permits to sell off agricultural land to foreign millionaires. In addition to destroying agricultural land, this is a new form of colonization that must be made downright illegal. It is a form of selling off our means of survival in exchange for only a temporary small amount of money, that is, digging a graveyard for a viable economy in the future. Mauritius will inherit a deadly socio-political problem, as well. So, the government must immediately stop selling off agricultural land this way, for speculative-investment, luxury villas, and golf courses.Â </p><br /><p><strong>3Â </strong>The Jugnauth government must immediately retract its dumb offer, its criminal offer, to lease part of Mauritian land, Diego Garcia, to the USA for a 100-year (or for even a single year!), and must at once call for the immediate closure of this military base once and for all, for an ecological clean-up, and for the transformation of this land of the Mauritian Republic into what Chagossians, together with the Mauritian people, need and want. The Government must organize for a ship, or for a flotilla even, to sail off and plant the Republicâs flag on the Chagos Archipelago, as it has promised to do. [In Parliament on 26 Oct 2021, Jugnauth seemed afraid of UK and US threats to âsinkâ such a ship.]The Jugnauth Government must also forthwith publish the agreement it signed with the Indian Government on the seaport and airstrip on Agalega, and reassure people living in Agalega and all the Mauritian people that all these developments will be exclusively for civil purposes, not military. The Mauritian Republic must be closed to all warships, that is, no warship should be allowed into any ports, whether Port Louis, Port Mathurin, Agalega, Diego Garcia, Tromelin or on St. Brandon. War, especially nuclear war, is an existential threat facing humanity, and Diego Garcia is a nuclear base. It must be closed.Â </p><br /><p><strong>4</strong>Â The government needs an Emergency Program to make use of the land of Mauritius, Rodrigues, Agalega, and Chagos to build housing, including an option to rent aÂ <em>house-for-lifeÂ </em>to cater for a place to live for every adult with his/her family. It must be based on a model like the CHA that existed until 1993, with its Tribunal and all, where any aggrieved party can file a corruption complaint. Housing for all including this kind of rental possibility will solve many conflicts within the family in general, and will help to save women from patriarchal violence by giving women what they need the most: a house for her and her children.Â </p><br /><p><strong>5</strong>Â The Government must ban industrial pollution in general, especially agricultural pollution by the sugar estates, as well as marine pollution, that together are ruining the sea and the land. The forest area must be increased.</p><br /><p><strong>6Â </strong>The Government must organize for bicycle-lanes and walking tracks everywhere in the country, and especially from each metro station, so as to limit the need for vehicles that use fossil fuels.Â Environmental pollution and degradation are, like nuclear war, an exisistential threat for humanity.</p><br /><p><strong>On Democracy</strong></p><br /><p><strong>7Â </strong>Jugnauth must organize a national debate â with forums in every Village Council and every town Ward â on Constitutional changes to allow electors to revoke a member of parliament (the right of recall) on the basis of a formal petition that is accepted by the Electoral Commissioner (there is such a system in the UK already and in California right now). At the same time, we must argue over a change that will allow the members of parliament toÂ <em>elect</em>Â the Prime Minister (not be appointed by the President, as is the case now). And, Parliament then ratifies the Prime Ministerâs proposal forÂ his Cabinet, and this thus ensures that Parliament, the MPs (who we elect), has the power to recall any Minister in this Cabinet.Â This will increase democracy. This will give more power to the people. It will broaden and strengthen the National Assembly (the Legislature) relative to the executive. The Cabinet must be smaller, more accountable<strong>.Â </strong>There must be Permanent Select Committees that hold their meeting in public, and which are transmitted on public television, where all important nominations are subject to ratification, and where all policies can be challenged, a bit like the Senate Hearings in the USA, and Parliamentary Committees in Britain. With a bigger Parliament (we propose 4 MPs for each of the 21 existing constituencies, as well as the addition of two new constituencies with one MP each for Agalega and one-in-waiting for Chagos, plus 20 by proportional representation (a kind of non-communal best loser) this expansion thus making the elimination of theÂ <em>Best-Loser</em>Â system possible. The Kreol Language must enter Parliament next to the English Language. MSM must replace the Speaker Phokeer before the National Assembly resumes. The Speaker must fulfill his or her role of guaranteeing the supremacy of the National Assembly over the executive.Â </p><br /><p><strong>8Â </strong>There must be a system where Village Councils have an autonomous budget and more powers. It must be elected for 3 years, and Village Councillors should be able to be revoked through electoral petitions. Each town must have its Ward Councils with an autonomous budget and certain powers (a bit like Village Councils) to take care of each ward.Â </p><br /><p><strong>9Â </strong>The MSM government must organize an International Demand for Reparations from ex-colonizer countries for the harm caused by slavery. LALIT already has precise proposals on this.Â </p><br /><p><strong>10Â </strong>There must be aÂ <em>Freedom of Information ActÂ </em>that allows anyone to access any and all information about themselves, and everything that concerns them, that the State possesses. This way, journalists will also have access to information. Â­<em>Non-Disclosure Agreements</em>Â must be made illegal, starting with those used to cover criminal or immoral acts.Â </p><br /><p><strong>11Â </strong>MBC must become independent â its board and top-management must answer to the National Assembly, without any ties to the Prime Ministerâs Office. The MBC must have a system to give fair coverage, in reality, to different political currents as its constituting law already specifies. It must have a system where, for international news, MBC does not just parrot the analysis of USA or of France, but actually explains the position of the Mauritian State, for example at the UN, or on Israelâs continued colonization of Palestine.Â </p><br /><p><strong>12Â </strong>The MSM government must make MIE prepare the Kreol Medium (alongside English, i.e. dual-medium) for textbooks as well as for exams for science subjects and mathematicsÂ â for Grade 1 and 2 in 2022, for Grade 3 and 4 in 2023, for Grade 5 and 6 in 2024, and for every class up to HSC as from 2025.Â </p><br /><p><strong>13</strong>Â The Jugnauth Government must introduce a set of protocols for each profession so as to eradicate violence by officers of the state, such as the police and prison guards, that is to say, protocols as to how lawyers must act so as to expose brutality, how Magistrates must act to expose brutality, how hospital doctors must act to expose brutality, and how every policeman must act to expose their colleagues in the force, who make use of violence.</p><br /><p><strong>On Social ServicesÂ </strong></p><br /><p><strong>14</strong>Â The Jugnauth Government must recruit more nurses, assistant nurses, those that do contact-tracing, to assure a state-of-the-art free and universal healthcare system. There must be a mobilization of every staff member to go beyond the âbureaucraticâ mindset that prevails and to make the care of patients central. The same kind of transformation is necessary in the education system, where the goal of every staff member must become âto help children to enjoy learningâ, and to give children a structure for rational thinking and the development of a critical and creative mind. Pensions must remain universal, and must be re-indexed every year as from 2022 based on the cost of living. All the social services that we already have are the fruit of a long struggle of the working class, and we must carry on developing them, preventing their privatization. This means Jugnauth must retract his proposition to throw all civil service and parastatal employees into the hands of private medical insurance and the private health business instead of upgrading the hospital and dispensary system, and the public health system for preventive health around the regionalÂ <em>Biro Saniter</em>. There must be more social services so that each family can manage, so that these responsibilities do not simply fall on women and remain work done âinvisiblyâ. There must be â<em>Day Care Centres</em>â for people with disabilities, for old people, thus the State sharing the work of the family, and also crÃ¨ches to take care of babies, for women who work.Â </p><br /><p>OurÂ <em>Revi LALIT</em>Â no. 145 has several articles explaining the program upon which we are attacking the MSM-ML-exMMM Government. Our aim, for the working classes to overthrow capitalist rule, to introduce proper democracy and to nurture the building of a socialist society, must be linked in a dynamic way to this kind of transitional program, that starts with the specific problems with the Jugnauth Government, and proposes changes that people can envisage, and that will, in turn, change the balance of class forces so that it is more in favour of the working people of the country, instead of the oligarchy.Â </p><br /><p><em>Source: Original version in Kreol published in Revi LALIT no. 145 September-October 2021</em></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

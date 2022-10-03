@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095945" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095945" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095945" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095945" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095945" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095945" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095945" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095945" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095945" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>What De-colonization means for the working class by Kisna Kistnasamy (in Kreol)</h1><p class="subtitle">17.05.2018</p></h1>
+	<p class="newsarticle"><p><strong>Dekolonizasyon: Ki li Vedir Pu Klas Travayer? Par Kisna Kistnasamy</strong></p><br /><p>Sa lartik la li baze lor mo diskur pu Fet Travay pu LALIT, e lor mo nots pu sa diskur la.</p><br /><p><strong>Fet Travay â Travay kont Kapital</strong></p><br /><p class="BasicParagraph">Zordi, 1 Me 2018, li 80 an depi ki Moris selebre Fet Travay pu premye fwa. Li usi 50 an Lindepandans pei Moris. Alor, li enn dub selebrasyon.</p><br /><p class="BasicParagraph">1 Me, li zur Fet Travay pa zis dan Moris, me dan lemond. Li enn zur kot klas travayer, tu dimunn ki bizin travay pu viv, dan so sindika, dan so lorganizasyon politik, zwenn pu pas an- revi so sityasyon.</p><br /><p class="BasicParagraph">Zordi kan nu pe reflesi ansam, nu pwiz depi leritaz lalit tu sa zenerasyon travayer avan nu finn leg nu. Lalit travayer su kad legal âlesklavazâ, pas par kad legal âlangazmanâ ziska zordi âtravay-pu-lapeyâ â sa nuvo form esklavaz lapey â li kontinite lalit <em>Travay</em> kont <em>Kapital</em>.</p><br /><p class="BasicParagraph">Nu pwiz depi sa lexperyans ris, dan so defet kuma dan so viktwar.</p><br /><p class="BasicParagraph">Nu reflesi antan ki prodikter larises, lor so lalit divan nu,Â  e osi an tanki enn klas, klas travayer. Nu usi reflesi lor ki kalite program lalit pu neseser pu nu batir enn nuvo dime pu tu limanite.</p><br /><p class="BasicParagraph">Dan LALIT, nu finn swazir kuma tem pu zordi â<em>Dekolonizasyon: Ki li Vedir pu Klas Travayer</em>â.</p><br /><p class="BasicParagraph">An 1936, dan enn rasanbleman travayer, travayer prezan ti vote anfaver demand pu Lindepandans. Sa ti premye fwa ki nu okuran ki ti ena enn revandikasyon pu Lindepandans. Lerla, enn mwa plitar gayn nesans Parti Travayis. Klas Travayer an 1936 antan ki prodikter larises reysi, dan so sazes, <em>met kestyon dekolonizasyon lor azanda so lalit politik</em>.</p><br /><p class="BasicParagraph">Lindepandans li anmemtan enn dat inportan, le 12 Mars 1968, Â e li anmemtan enn moman partikilye dan sa long lalit ki kumanse byin <em>avan</em> Lindepandans e ki kontinye apre Lindepandans, ziska zordi â pu dekolonizasyon.</p><br /><p class="BasicParagraph">Enn lot moman inportan dan sa prosesis dekolonizasyon vini, kan an 1992, Moris vinn Repiblik â setadir Larenn Langleter nepli nu sef deta. Samem nu dir ki dekolonizasyon li enn prosesis ki kumanse avan Lindepandans e ankor pe kontinye ziska zordi 50 an apre â kuma nu pu truve.</p><br /><p class="BasicParagraph"><strong>Ki ete Lindepandans? Ki ete prosesis dekolonizasyon?</strong></p><br /><p class="BasicParagraph">Lindepandans vedir u pa depandan lor leta kolonizater, leta puvwar kolonyal. Lindepandans permet enn pei kontinye lalit dekolonizasyon dan enn fason akselere.</p><br /><p class="BasicParagraph">An 1992, ena Amandman Konstitisyon ki vinn definir teritwar Moris pu premye fwa: Lil Moris, Lil Rodrig, Agalega, St Brandon, Chagos, Tromelin.</p><br /><p class="BasicParagraph">Alor, Lindepandans se kan enn pei kapav devlop so resurs lor tu so teritwar. Anfet dan ka Moris, so pli gran resurs, e so definisyon mem, se so later/lamer ek so dimunn.</p><br /><p class="BasicParagraph">Sa vedir ki fode ena enn devlopman ekonomik â avek later/lamer santral dan prodiksyon â pu ki ansam nu reysi omwin reponn a nesesite debaz popilasyon â travay pu tu dimunn avek enn lalwa travay ki asir bon kondisyon travay, sekirite anplwa, bon lakaz pu tu dimunn, bon ledikasyon pu tu zanfan, dilo, elektrisite a enn pri ki dimunn kapav peye, pansyon iniversel pu vye dimunn, pu dimunn avek andikap, akse a enn lasante iniversel, sekirite alimanter.</p><br /><p class="BasicParagraph">Anmemtan, enn lepep bizin devlop lemwayin pu ki li aktivman partisip dan lavi politik, ekonomik, sosyal ek kiltirel pei la. Tutswit nu realiz kiksoz: nu langaz maternel tuzur kolonize. Langaz kolonyal Franse ek Angle inn tuf devlopman langaz maternel lepep Moris.</p><br /><p class="BasicParagraph">Anmemtan, enn lepep apre Lindepandans, li devlop lyin avek lezot pei indepandan dan rezyon, dan Lafrik, dan Lazi, dan Lamerik Latinn, dan Lemond antye, e li kontribye pu batir enn lafors pu ki bann pei indepandan kapav fer tann enn lavwa inifye kont restan ansyin kolonizasyon e kont nerport ki danze nuvo plan rekolonizasyon ki pei inperyalist pe tultan trafike.</p><br /><p class="BasicParagraph"><strong>1. Later/Lamer: Pankor dekolonize</strong></p><br /><p class="BasicParagraph">Dan lalit ver lindepandans, reform agrer, kontrol demokratik lor later, lor prodiksyon otur seki sorti dan plantasyon ek lelvaz (setadir lindistri liye ar later) e kontrol demokratik lor akse ar furaz pu zanimo.</p><br /><p class="BasicParagraph">Apre lindepandans, Guvernman vini, Guvernman ale, zot tu fer tu pu gard kann-disik pu dabor UK, lerla Lerop, e zot fer sa odetriman enn veritab diversifikasyon agrikol. Komsidire Leta Moris krwar so bi se pu asire ki later servi zis pu prodir kann pu kolonizater. Ziska zordi! [Anfet 2 semenn apre Fet Travay, Guvernman inn donn 1.3 milyar Rupi pu reflot lindistri sikriyer].</p><br /><p class="BasicParagraph">Alor prodiksyon ki baze lor later, li tuzur, parey kuma avan Lindepandans, propriyeter tablisman ki ena kontrol lor preske totalite bon later agrikol, e li servi li pu plant kann, prodir disik pu exporte. Pa finn ena okenn reform agrer avek Lindepandans, pa finn ena ditu diversifikasyon agrikol. Later agrikol res su kontrol tablisman. E li, li plant kann.</p><br /><p class="BasicParagraph">Kote devlopman lindistri lamer, Guvernman apre Guvernman finn neglizan. Moris pena mem enn lindistri pwason. Tu sa ban Moris ena. Tu sa 2.4 milyon kilomet kare lamer, e nu pena enn sel bato lapes pu Guvernman? Sesel fye buku lor so lindistri lapes, e prezervasyon/transformasyon pwason. Moris bizin devlop enn â mem li anretar.</p><br /><p class="BasicParagraph"><strong>2. Lekonomi: Pankor dekolonize </strong></p><br /><p class="BasicParagraph"><em>Nuvo Devlopman? Zonn Frans, turism</em></p><br /><p class="BasicParagraph">Sel nuvo devlopman depi Lindepandans ki finn kree buku anplwa, ti zonn frans. Laba inn inport matyer brit, e finn prodir, sirtu tisi ek linz, pu exporte.</p><br /><p class="BasicParagraph">Finn ena devlopman enn lindistri turist, ki finn gurma tu laplaz, e asterla buku lezot landrwa osi. Sa devlopman la finn direkteman odepan enn lindistri lapes modern. Guvernman inn ankuraz tu kapital pu rant dan turism. Enn bon parti ti kapav pran lavantaz sa 2.4 milyon km2 lamer. Kuma nu finn dir, pena mem enn laflot bato lapes.</p><br /><p class="BasicParagraph">Alor, Moris inn gayn enn <em>depandans</em> kronik lor tu kalite sekter ki pena lavenir.</p><br /><p class="BasicParagraph">Tu Guvernman kiânn vini, ziska sa guvernman zordi, pe rul pu tablisman.</p><br /><p class="BasicParagraph">Mem kan pri disik inn tonbe lor marse mondyal, tablisman plant kann. Guvernman, Lopozisyon Parlmanter, zot tu, zot obsede ar kimanyer pu sekur lindistri sikriyer.</p><br /><p class="BasicParagraph">Bann guvernman, enn apre lot, inn rul dapre plan tablisman. Zot pena zot prop plan pu diversifye lekonomi. VRS ek Blue Print (bann plan Guvernman), zot plan pu kapitalist propriyeter later tablisman. An 1979, dan Lagrev, ti ena 50,000 laburer ek artizan ti travay dan lindistri sikriyer. Zordi, 40 an apre, ena pa plis ki 8,000 travayer reste. Plis ki 40,000 dimunn inn perdi plas travay. Pli grav 40,000 plas travay inn detrir.Â </p><br /><p class="BasicParagraph">Zordi, anplas reform agrer, ki Guvernman pe ankuraz tablisman fer? Bayant so later! Fer vila, vande ar milyoner. Kree IRS pu vann ar tu kalite milyarder! Anmemtan, ena dimunn pena lakaz, ena dimunn pe bizin viv dan lakaz danzere ki Guvernman vinn vann ar zot â lakaz lamyant ubyin lakaz konstrir san kolonn, vande ar dimunn mizer.</p><br /><p class="BasicParagraph">Guvernman pe anfet betonn <em>lavenir devlopman</em>. Kontrol lor later inn res fize depi lepok esklavaz. E, purtan, ena enn nuvo form kolonizasyon pe vini â kot tablisman pe bayant later agrikol avek milyarder lot pei, ki vinn instale ar rezidans permanan, mem sitwayennte. Wi, sitwayennte a-vann. Ki kalite Lindepandans, sa?</p><br /><p class="BasicParagraph">Sa vedir, Guvernman Lepep li pa ti ena enn vre program. Alor, li pe swiv program tablisman. E program tablisman pe benefisye kapital finansye, atraver spikilasyon lor later. Pena prodiksyon! Pena kreasyon anplwa! Guvernman mem konplote pu âexportâ so popilasyon â atraver ankuraz emigrasyon, e mem enn zafer apel emigrasyon sirkiler â setadir, travay migran eternel.</p><br /><p class="BasicParagraph">Alor, kontrol demokratik lor later prodiktif li vinn santral pu konplet sa prosesis dekolonizasyon zordi.</p><br /><p class="BasicParagraph"><strong>3. Lalwa Travay: Pankor dekolonize</strong></p><br /><p class="BasicParagraph"><em>Listwar lalwa travay</em></p><br /><p class="BasicParagraph">Finn ena 3 diferan kad legal dan listwar Moris. Premye la ti âKod Esklavazâ (<em>Kod Nwar</em>), dezyem ki swiv ti Lalwa Travay lepok Langazman (pu imigran ek esklav libere depi bato esklav); e zordi nu pe travay anba enn kad legal pu lepok âtravay-pu-lapeyâ, enn lot form esklavaz, <em>esklavaz-lapey (wage slavery).</em></p><br /><p class="BasicParagraph">Pandan lepok modern, ti ena sirtu gran mobilizasyon klas travayer an 1937 ek 1943: atraver sa mobilizasyon, nu finn gayn drwa sindike, lalit politik ver sifraz iniversel, drwa devot, e tusala fer li posib pu klas travayer, depandan so degre konpreansyon ek mobilizasyon, <em>aplik presyon demokratik</em> lor guvernman eli.</p><br /><p class="BasicParagraph">Pandan bann gran lalit, klas travayer reysi gayn aki; gayn aki dan lalwa travay mem; swa pu meyer kondisyon travay, swa pu rediksyon lertan travay, swa pu ogmantasyon saler, swa pu enn sertin sekirite danplwa (kuma an 1964, kan gayn âkartâ dan lindistri sikriyer, setadir u gayn travay 12 mwa lor 12 mwa, an sekirite ale-mem).</p><br /><p class="BasicParagraph"><strong>Restan kad esklavaz ek langazman dan lalwa travay</strong></p><br /><p class="BasicParagraph">- <em>Overtaym obligatwar.</em> Kan overtaym obligatwar, sa li enn restan sa lalwa esklavaz la, kot patron fer u travay kantite ki li kontan. Mem a lepok, Kod Nwar ti dir pa kapav fer esklav travay Dimans dan kann ek disik. Kod Nwar ti dir travay depi soley leve, ziska soley kuse. Me, zordi, dan Lindistri Sikriyer pankor gayn lasemenn 40er, swa pu laburer lasemenn 5 zur. Dan lakup, oblize fer overtaym. Zonn frans osi, overtaym obligatwar. Mem dan nuvo sekter IT, informatik, korl sennter, mem si ena ler rantre, pena ler sorti, pena Samdi, pena Dimans, pena Konze Piblik, pena lizur, pena aswar. Patron ki deside kan lasemenn kumanse, kan kinzenn kumanse.</p><br /><p class="BasicParagraph">- <em>Double Cut</em> <em>(kup dub).</em> Patron tuzur, parey kuma dan lepok Langazman, gayn drwa kup 2 fwa plis ki u absan. Li kup bonis plis u zurne kan u absan enn sel zur; li kapav kup u sik, e fer u fer overtaym gratis.</p><br /><p class="BasicParagraph">- <em>Drwa lagrev pena</em>. Lepok esklav ek angaze, li ti kareman ilegal pu fer lagrev. Ziska zordi drwa fer lagrev li extreman limite. Anmemtan, patron kapav met deor fasil pu naryin. Alor, drwa lagrev inn âdevideâ depi so sinifikasyon.</p><br /><p class="BasicParagraph">- <em>Dominer atraver sistem Job Konntraktor</em>. Parey kuma sistem <em>job konntraktor</em> lepok Langazman, zordi patron pe al kas gro sayt travay â an but-but (seki dan Lalit nu apel âtiptizasyonâ). Ar job konntraktor, u pena sekirite danplwa, e mem avek saler minimem, u pa pu gayn li.</p><br /><p class="BasicParagraph">- <em>Mank sekirite danplwa </em>â parey kuma lepok apre langazman, kan tu dimunn ti vinn kazyel, li finn re-return parey. Ena travay kazyel, travay lor su kontra, travay bat-bate, travay zurnalye, travay sezonye, travay sutretans, travay ar ti kontrakter. E dan tu sa kalite ka la, li pa posib pu fer aplik lalwa travay. Nuvo <em>Lalwa EriA (Employment Rights Act) </em>ek<em> EReA (Employment Relations Act)</em> patron gayn drwa lisansye san konpansasyon. Anmemtan, nu truve ki globalizasyon li amenn travay kazyel, travay partaym, swadizan âflexibiliteâ, plis puvwar pu patron â<em>hire and fire</em>â. Nu truve ki konsep sekirite danplwa pe kumans disparet. Delokalizasyon galup dan pei kot lapey pli ba, kot kondisyon travay plis pa bon â tusala dan ket patron dan sistem kapitalist pu li galup deryer ogmant profi.</p><br /><p class="BasicParagraph">Zordi sa sistem <em>Award</em> par sekter travay la, li menase. Patron pe rod plis flexibilite, li pe rod maximem dereglemantasyon travay. Alor, tu drwa aki menase zordi.</p><br /><p class="BasicParagraph">Sa lepok la, li reprezant enn atak direk kont klas travayer.</p><br /><p class="BasicParagraph"><strong>5. Chagos: Pankor dekolonize</strong></p><br /><p class="BasicParagraph"><em>Dekolonizasyon Lafrik</em></p><br /><p class="BasicParagraph">Lemond finn militarize buku dan dernye 50 an. Larme inperyalist ena enn bi siprem: pu inpoz so reyn kapitalist, so lekonomi kapitalist lor tu but lemond. Anmemtan li kontrol larut marinn, e flo resurs natirel. Li fer nerport ki lager pu li gard sa kontrol la.</p><br /><p class="BasicParagraph">E ziska zordi, 50 an apre Lindepandans, teritwar Repiblik Moris â Chagos â ankor kolonize. Li tuzur ziska zordi, apre 50 banane, okipe militerman par UK-USA.</p><br /><p class="BasicParagraph">Me, tu pa finn res anplas. E zordi nu res 4 mwa, kan le 3 Septam 2018, apre 40 an lalit, nu finn reysi fors Guvernman Moris pu amenn Leta Britanik, Leta Amerikin ki pe okip Diego militerman, divan Lakur Internasyonal Lazistis (ICJ) dan LaHay. Lafrik ki ti amenn mosyon dan Nasyon Zini pu konplet dekolonizasyon Lafrik atraver chalennj sa lokipasyon militer ilegal la.</p><br /><p class="BasicParagraph">[E zordi, 70 an apre, lepep Palestinn tuzur kolonize â par enn pinse krab: Israel ek Leta Zini. Me, la osi, tu pa finn res anplas. Finn ena e pe kontiyn ena, gran gran lalit kont sa dominer la.]</p><br /><p class="BasicParagraph"><strong>6. Langaz: Pankor dekolonize</strong></p><br /><p class="BasicParagraph">Langaz maternel, langaz Kreol, pankor vinn medyom dan lekol. Li zis enn size. Li zis enn size <em>opsyonel.</em></p><br /><p class="BasicParagraph">Me â75, sa gran muvman etidyan ti ena plizir demand: egalite dan kolez, dekoloniz konteni ledikasyon, linportans langaz maternel, langaz Kreol bizin vinn medyom.</p><br /><p class="BasicParagraph">Kreol dan Parlman? Sa osi, pankor gayne. Nu ankor pe atann. Tu parti sanse dakor. 50 an apre Lindepandans, nu tann dir ena problem teknik.</p><br /><p class="BasicParagraph">MBC: langaz maternel pankor gayn so plas ki li merite lor stasyon nasyonal. Purtan li langaz ki gran, gran mazorite dimunn koze e konpran e reflesi,</p><br /><p class="BasicParagraph"><strong>Muvman Sindikal dan tusala?</strong></p><br /><p class="BasicParagraph">Apre Lindepandans, GWF su lidership politik MMM, fer enn gran lagrev, <em>Lagrev 1971â </em>pu Â kas zel saler. Anfet, <em>Lalit de Klas</em> ki pu plitar vinn <em>LALIT</em>, li ti organiz klas travayer pu li vinn an avangard pandan pli gran sulevman dan listwar Moris, <em>muvman lagrev zeneral Ut â79</em>, e kontiyn sa mobilizasyon la dan muvman travayer Sep â80 â pu drwa sindike, sekirite anplwa, pa ferm mulin. Klas travayer ti pran lofansiv.</p><br /><p class="BasicParagraph">Me, kan MMM vinn opuvwar an 1982, li ek so bann mamluk, met nu deor dan sindika (Kan mo dir ânuâ, mo pe koz tu delege ki ti dan <em>LALIT</em>, e tu manb <em>LALIT</em> ki donn kudme sindika). Deswit, MMM fer kraz tu bann brans, tu striktir demokratik sindika. E birokratizasyon donn bal.</p><br /><p class="BasicParagraph"><strong>Birokratizasyon amenn febles, ki amenn plis birokratizasyon, ki amenn ... </strong></p><br /><p class="BasicParagraph">Birokratizasyon finn amenn buku diferan febles. Enn-de vo lapenn mansyone.</p><br /><p class="BasicParagraph">1. Kapasite klas travayer pu chalennj enn lekonomi neoliberal, li afebli net, preske disparet. Â </p><br /><p class="BasicParagraph">2. Separasyon sekter prive ek sekter piblik â segmantasyon muvman sindikal.</p><br /><p class="BasicParagraph">3. Fayit Muvman sindikal pu devlop enn platform dekolonizasyon, enn platform tu-kur. Li ena tandans kantonn li a defann drwa aki â lalit defansiv, negosye pu reglemant explwatasyon, pa plis.</p><br /><p class="BasicParagraph">Sa vedir, lepok asterla, muvman sindikal pa arme pu fer fas a nuvo defi divan klas travayer.</p><br /><p class="BasicParagraph">Sa asontur vedir, li inportan pu klas travayer mobilize <em>politikman</em>, e pu pa fye lor sindika â mem pu defans so drwa aki.</p><br /><p class="BasicParagraph"><strong>Menas </strong></p><br /><p class="BasicParagraph"><em>Atak Kapital kont Travay</em></p><br /><p class="BasicParagraph">Tut long listwar modern, ki li dan Moris, ki li dan Lemond, finn ene enn lalit konstan ant <em>Kapital</em> ek <em>Travay</em>. E kan ena mekanizasyon, nuvo metod syantifik, santralizasyon, nuvo teknolozi, robotizasyon, olye alez fardo travay, pe fer sa âprogreâ la kareman lor ledo travayer. Kapitalist met travayer deor. Kapital bes pri travay, bes lapey pu asir so profi.</p><br /><p class="BasicParagraph">FMI/Labank Mondyal met presyon an-esanz pu lonn ki Guvernman atak drwa aki â pansyon vyeyes, dilo/CWA menas privatizasyon, e ektrisite/CEB osi pe menase ar privatizasyon. Tusala vinn marsandiz â pansyon vinn enn servis ki lindistri lasirans âvandeâ ar dimunn, dilo lalimyer vinn marsandiz avann pu profi. Alor, nu truv destriksyon lanplwa, privatizasyon, tiptizasyon. Anplas Welfare State, nu gayn presyon Kapital pu inpoz <em>means test</em>, sertifika mizerab. E finalman zot finn met enn espes Rezis Sosyal pu gete kisannla âmerit enn pansyonâ, sipa enn lot servis sosyal. Dapre Kapital, pansyon nepli enn drwa, okenn servis sosyal nepli enn drwa.</p><br /><p class="BasicParagraph">Anmemtan, ena enn menas konstan pu nuvo form kolonizasyon, espes ârekolonizasyonâ: Sa âAGOAâ ki patron ek Guvernman isi telman kontan, li enn lalwa dan USA ki fer Lafrik (inklir Moris) vinn enn koloni USA. Si u pa dakor ek so politik etranzer, li pa permet u triko, sipa u disik rant kot li.</p><br /><p class="BasicParagraph">Anmemtan, finn ena fayit parti politik sosyal demokrat pu vinn delavan avek enn <em>plan devlopman alternativ</em> a plan tablisman so plan pu zis vann later agrikol, dilapid li, ar milyarder lot pei, pu inplant bann koloni risar partu-partu atraver IRS, gated community, etc. Li parey kuma sa form kolonizasyon anakronik ki Israel pe fer dan Palestinn â avek so larme lokipasyon. Guvernman, Lopozisyon Parlmanter, zot tu koz sekurir lindistri sikriyer. Sekurir pu kifer?</p><br /><p class="BasicParagraph">Kan Guvernman pena enn veritab plan devlopman, lekonomi Moris uver li a kapital finansye, gro labank, kurtye. Pei la vinn otaz spekilater, sa but dan Kapital ki pli toxik.</p><br /><p class="BasicParagraph">Anmemtan, ONG pran lanpler, gayn finansman tu kalite, e li anmemtan ranplas servis ki Leta ti pe done kuma enn drwa, anmemtan li ranplas lorganizasyon demokratik klas travayer. ONG finanse par kapitalist, par pei inperyalist, par leta e par relizyon â e li enn palyatif ki pa fer plis ki pretann li pe sulaz lamizer. Li pa zame remet ankestyon sa sistem kapitalist ki responsab kree lamizer tulezur. Bann tel ONG pa alye klas travayer.</p><br /><p class="BasicParagraph"><strong>Konsta</strong></p><br /><p class="BasicParagraph">Zordi 50 an apre Lindepandans an 1968, prosesis dekolonizasyon Repiblik Moris pankor konplete. Bizin kontinye sa prosesis dekolonizasyon lor baz enn program klas travayer, dan lintere tu dimunn ki bizin travay pu viv.</p><br /><p class="BasicParagraph">Teritwar Moris ankor demanbre, Leta Britanik (ansyin puvwar kolonyal) inn kokin Chagos, Leta Franse (ansyin puvwar kolonyal) inn kokin Tromlin.</p><br /><p class="BasicParagraph">Pa finn ena reform agrer, later agrikol ankor su kontrol tablisman.</p><br /><p class="BasicParagraph">Pa finn devlopÂ  enn lekonomi alternativ a lekonomi ki puvwar kolonyal inn kit nu.</p><br /><p class="BasicParagraph">Langaz Maternel pankor pran so plas dan ledikasyon, dan Parlman, dan MBC.</p><br /><p class="BasicParagraph">Lalwa Travay ankor ena sekel, restan kolonizasyon.</p><br /><p class="BasicParagraph"><strong>Lespwar ek Lofansiv </strong></p><br /><p class="BasicParagraph">Zordi travayer mazorite dan lemond. Dan Moris, dan lemond, evolisyon kondisyon travay, evolisyon saler, pe kontinye degrade. Degre expropriyasyon depi valer ki travayer prodir, inn ogmante.</p><br /><p class="BasicParagraph">Alor, li vinn pli inportan ankor pu ranforsi lalit sindikal, e osi <em>lalit politik</em>, pu defann drwa aki ki reprezant leritaz lalit travayer <em>esklav</em> avan nu, travayer angaze apre zot, zenerasyon travayer ki ti nu lene dan lepok modern. Li nu devwar pu lite pu ki zenerasyon ki vini apre nu ena meyer kondisyon travay, meyer lalwa travay, drwa travay, lakaz pu tu dimunn, sekirite alimanter.</p><br /><p class="BasicParagraph">Sa lalit defansiv li neseser. Me fas a bann gran defi, klas travayer bizin osi prepare, mobilize pu konstrir sa muvman politik anmemtan <em>pu chalennj kapital</em>.</p><br /><p class="BasicParagraph">Kifer? Kifer li neseser chalennj kapital? Tu reform ki amenn progre pu travayer ek salarye, zot tultan pu res reversib, su menas, osi lontan ki se lozik profi ki dominan, osi lontan ki lozik kapitalist reyne. Tu progre konstaman menase.</p><br /><p class="BasicParagraph">Klas travayer oblize remet ankestyon sa <em>lozik kapitalist</em> la limem. Sa pu koresponn a enn resers pu veritab progre pu limanite, enn veritab sosyete sosyalist, kot nepli ena klas sosyal.</p><br /><p class="BasicParagraph"><strong>LALIT: program kontinye prosesis dekolonizasyon, kot Klas Travayer angaze ladan</strong></p><br /><p class="BasicParagraph">Dan lemond, dan tu peyi, muvman sindikal, tanki li rest alinteryer<em> lozik globalizasyon kapitalist, </em>li nepli posib pu li revandik nuvo drwa ek meyer kondisyon. Bann menas gran. Alor klas kravayer pena swa: Li bizin pas a lofansiv. Sa lofansiv la, li sinp. Bizin ena enn program pu:</p><br /><p class="BasicParagraph"><em>Kreasyon anplwa an irzans ek an gran kantite</em></p><br /><p class="BasicParagraph">Pu sa, bizin fors guvernman fors tablisman aret so politik destrikter, kot li bayant so later. Guvernman bizin revok tu lalwa ki ankuraz sa biznes <em>real estate</em> la, e li bizin stop tu proze IRS-RES-PDS-Smart City. Bizin osi fors tablisman servi so later pu plant manze. Prodwi alimanter kapav plante antreliyn e anmemtan ranplas kann gradyelman avek plantasyon prodwi alimanter. Bizin fors tablisman met dibut lizinn prezervasyon ek transformasyon prodwi alimanter, pu ki export prodwi alimanter lor gran lesel, osi byin ki servi li Moris. Sa pu kree lanplwa par milye, sa pu amenn deviz dan pei, sa pu gard lespas ver e anpes erozyon, e anmemtan met dibut lizinn transformasyon pu servi prodwi agrikol pu fer bwat konserv, dilwil kwi manze, prodwi alimanter friz-dray, prodwi valer azute kuma zasar ek vinnday dan po â tusala pu exportasyon.</p><br /><p class="BasicParagraph"><em>Pa bliye linportans prodiksyon manze! Li asir sekirite alimanter!</em></p><br /><p class="BasicParagraph"><em>Li osi enn kalite prodiksyon pu exportasyon, setadir li amenn deviz dan pei. </em></p><br /><p class="BasicParagraph">Sa kalite sekter prodiksyon pu exportasyon li ena kapasite kree anplwa par milye, dan limedya, e li pu amenn deviz dan pei pu asir inportasyon. Li ena kapasite asir sekirite alimanter pu nu pa depandan lor dikta FMI/Labank Mondyal.</p><br /><p class="BasicParagraph">Pu gard otan later fertil anba kann, kan li pa pe futi zener lanplwa, ni prodiksyon pu exportasyon, li enn krim. Sann kut la, kan pri disik inn degringole ziska napa bon, kann pe plante, pa pu disik me pu bagas, melas, etc. Ki li MMM, PTr, MSM opuvwar zordi, tu parti opuvwar depi Lindepandans refiz adres kontrol lor later ki servi pu prodiksyon. Zot zis koz sap Lindistri Sikriyer.</p><br /><p class="BasicParagraph">Bizin enn devlopman ekonomik ki zener lanplwa masif, plan lozman ki ranz lakaz pu tu dimunn, sekirite alimanter. Bizin kas sa depandans ekonomik lor bann pei inperyalist ki reste depi lepok kolonyal.</p><br /><p class="BasicParagraph"><em>Teritwar: dekolonizasyon, drwa de retur, demilitarizasyon</em></p><br /><p class="BasicParagraph">Li inportan ki anmemtan nu gard lor azanda integrite teritoryal post-Lindepandans. Nu bizin mobilize pu re-inifikasyon Chagos ek Tromlin dan Repiblik Moris, pu Ferm Baz Diego. Nu bizin prepar bato pu al Chagos pu fer kone li form parti Moris!</p><br /><p class="BasicParagraph">Anmemtan, Guvernman bizin asir <em>demokrasi rezyonal</em> pu Chagos. Li bizin prepar pu met dibut Island Council pu Chagos, met Island Council dan Agalega parey kuma Rodrig, e li bizin, an konsiltasyon ek lepep an antye, asir devlopman ekonomik <em>dan kad prodiksyon integre.</em></p><br /><p class="BasicParagraph">Guvernman bizin pran responsabilite met anplas enn laflot bato, ansam avek pei indepandan dan larezyon, pu asir sekirite maritim â setadir nu bizin viz pu kas depandans lor bann leta voler/reseler, UK, Lamerik, Lafrans, ki pe fer zandarm dan nu dilo teritoryal.</p><br /><p class="BasicParagraph">Dan labsans enn muvman travayer, planter, peser, ti-prodikter pu konteste plan burzwazi pu lekonomi, Guvernman pe gob ninport ki plan ki diferan seksyon kapitalist ki <em>pli for</em> met divan li. Guvernman li alatrenn kapitalist.</p><br /><p class="BasicParagraph">Ala kifer LALIT pe amenn mobilizasyon deryer enn program pu chalennj sa.</p><br /><p class="BasicParagraph">Kontrol demokratik lor later pu permet enn veritab devlopman ekonomik; kontrol demokratik lor lamer pu permet enn veritab devlopman lindistri lapes modern; kontrol demokratik lor lavi politik exziz enn rekonesans Langaz Kreol; li evidan ki enn pei indepandan bizin akonplir reinifikasyon tu so teritwar dan enn sel Repiblik.</p><br /><p class="BasicParagraph">Demokrasi rezyonal, veritab reform elektoral kot ena plis demokrasi â avek demokrasi direk kot kapav, par exanp, revok depite pu ki zot oblize rann kont a dimunn ki finn vot zot.</p><br /><p class="BasicParagraph">Nu bann tem delit viz inplik klas travayer dan sa prosesis dekolonizasyon.</p><br /><p class="BasicParagraph">LALIT ena sa bann tem kuma nu kanpayn depi lontan. Nu ti ena enn kanpayn apel <em>Disik ki Lavenir</em> depi 1984.</p><br /><p class="BasicParagraph">Travayer lor tu sayt travay, kot nu reste, dan nu sindika bizin amenn deba â partu, kuma dan bis, dan klib, dan lasosyasyon â amenn deba pu nu konstrir sa muvman pu kontinye lalit dekolonizasyon, pu met anmars enn devlopman ekonomik ki reponn a aspirasyon dimunn ki travay pu viv.</p><br /><p class="BasicParagraph">Klas travayer ena misk ek lafors, e li osi ena lintere antan ki enn klas, pu li mobilize pu met enn tel program an viger. Kumsa dan Moris, nu pu fer nu but dan konstrir sa muvman mondyal kont sistem kapitalist ki responsab lamizer, lager, destriksyon lanvironnman dan so sel traka pu ogmant profi. Kumsa nu batir enn program pu vre sosyalism.</p><br /><p class="BasicParagraph">Mersi.</p><br /><p class="BasicParagraph">Â </p><br /><p class="BasicParagraph">Lartik ekrir baze lor mo nots pu diskur 1 Me,</p><br /><p class="BasicParagraph">Kisna Kistnasamy</p><br /><p class="BasicParagraph">Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

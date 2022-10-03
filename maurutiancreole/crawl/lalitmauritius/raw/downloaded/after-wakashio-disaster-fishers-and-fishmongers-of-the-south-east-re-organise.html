@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612093723" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612093723" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612093723" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612093723" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612093723" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612093723" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612093723" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612093723" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612093723" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>After Wakashio disaster, fishers and fishmongers of the South East re-organise</h1><p class="subtitle">12.01.2021</p></h1>
+	<p class="newsarticle"><p>&nbsp;Lalit releases a memorandum and report of meeting between members of the Komite Konzwin peser-san-kart Sid-Est &ndash; Rezyonal LALIT Curepipe-Sid, fishers with registration cards and without and fishmongers, all from the Wakashio affected South-East region of the island of Mauritius, trade union leader Judex Ramphul, and the Minister responsible for Fishing with his senior officials in his Ministry. This document was prepared in English, translated into Kreol both in written and oral form for circulation to all delegates present in the formal meeting so that they could propose changes, add to and correct the document. The Minister in the formal meeting announced that he will present the demands of fishers and fishmongers of the South East in Cabinet this Friday and would be meeting fishers of the South East on Monday 18th January at the Lakaz Peser in Mahebourg at 10 a.m. This memorandum was presented to the Minister through his Secretary. You can find an oral kreol version of this document in the video section of our website or click&nbsp;<a title="https://www.lalitmauritius.org/en/videos.html?videoid=107" href="../../../en/videos.html?videoid=107" target="_blank">https://www.lalitmauritius.org/en/videos.html?videoid=107</a></p><br /><p align="center"><strong>Memorandum and Report of Meetingbetween Fishers and Fishmongers &amp; the Minister of Ocean Economy</strong></p><br /><p>This memorandum and report follows the formal meeting held Thursday 7<sup>th</sup>&nbsp;of January 2021 morning between:</p><br /><p>A. A delegation of 14 artisanal fishers with fishermen&#039;s cards, without fishermen&#039;s cards and fishmongers whose activities are based on the Wakashio-affected South East fishing area, delegates of the&nbsp;<em>Komite Konzwin peser-san-kart Sid-Est &ndash; Rezyonal Curepipe-Sid LALIT</em>, and Judex Ramphul of the fishers union, and</p><br /><p>B. The Minister, Hon Sudheer Maudhoo and senior staff of the Ministry of Ocean Economy, Marine Resources, Fisheries, and Shipping including Assistant P.S Mrs Swaleha Gungadeen, Director of Fisheries Mr Devanand Norungee, Controller of Fisheries Protection Service Mr. Sad Amar Bauhadoor.&nbsp;</p><br /><p>This emergency meeting followed the government decision to stop the Rs10,200 allowance awarded to artisanal fishers and local fishmongers when it decided to open off-lagoon fishing activities as from the 12<sup>th</sup>&nbsp;of December 2020, which means an allowance of only Rs 3,600 for December. Delegates pointed out that no notice was given by government to fishers and fishmongers, no consultation held prior to this allowance being stopped. Delegates present in the meeting explained how putting an end to this allowance has resulted in hardship for artisanal fishers and locally-based fishmongers who as from December 2020, have been without the means for livelihood for the following reasons:</p><br /><p><strong>For fishers with registration cards:</strong></p><br /><p><em>Given that:</em></p><br /><p>1.The great majority of artisanal fishers with registration cards are not equipped for off-lagoon fishing not having or having no more than one fishing boat motor and/or not having an appropriate fishing boat for safe off-lagoon fishing;</p><br /><p>2.&nbsp;Those who were equipped before the Wakashio disaster have not had the means to ensure maintenance of their fishing boats, fishing boat motors and are therefore not in a position to fish safely outside the lagoon; many have lost their&nbsp;<em>casier</em>and other fishing gear as they were unable to retrieve them when Wakashio environmental disaster occurred and consequently, the lagoon being closed;</p><br /><p>3.As fishing activities are closed inside the lagoon, the few fishers in a position to fish outside the lagoon have no access to the bait they habitually use for fishing. It is only in the meeting that fishers were made aware that the Ministry has started organising uncontaminated bait for South-East fishers to fish off-lagoon in Wakashio affected areas at the Ferme Marine de Mahebourg near Pointe aux Feuilles and that furthermore, and it is not clear whether the bait to be provided is that what fishers habitually use (seaweed, larche-dame, lamam, sardines, ti-ruze, solda, krab?), what distribution system will be set up so that appropriate bait be made available to fishers of each affected village, and whether when it finally gets to fishers, how such bait will be kept fresh enough to be usable;</p><br /><p>Only 4-5 fishers have been in a position to fish off-lagoon in the Wakashio-affected South-East;</p><br /><p><strong>For applicant fishers without registration cards:</strong></p><br /><p>1.Fishers without registration cards cannot own and operate a fishing boat as only registered fishers can apply for a fishing boat license and are therefore in no position to fish off-lagoon;</p><br /><p>2.They depend on fishers with registration cards for a livelihood and as fishers with registration cards have not been in a position to fish off-lagoon, they too have been without the means for livelihood as from December 2020;</p><br /><p>3.In addition, applicant fishers without registration cards do not even get the &ldquo;Bad Weather Allowance&rdquo; that registered fishers receive monthly, and will obtain for the month of December 2020 and January 2021 when there has been/is particularly bad weather;</p><br /><p><strong>For fishmongers who depend on fishing activities in Wakashio-affected South-East areas:</strong></p><br /><p>1.The great majority of artisanal fishers who supply locally-based fishmongers have not been in a position to fish off-lagoon, locally-based fishmongers have also been without the means for livelihood as from December 2020;</p><br /><p>2.Revenue is distributed unevenly during the year and that the greatest share of revenue is when there seasonal net fishing is open (gran lasenn uver), during the octopus season which is not in this period of the year;</p><br /><p>3.Even when locally-based fishmongers have been able to procure fish from unaffected areas of the South or East, they have been unable to sell fish as fish-buyers are afraid that their marine products may originate from Wakashio-affected areas and therefore be contaminated;</p><br /><p><strong>Made aware of the situation, the Minister pledged to propose to Cabinet that for fishers (both registered and not yet registered) and fishmongers who live off fishing activities of the Wakashio-affected South-East seas,</strong></p><br /><p><strong>1. The Rs10,200 allowance be re-introduced until experts deem that the lagoon is safe to fish in and that consequently the government open the lagoon for fishing,</strong></p><br /><p><strong>2. That a full-allowance, that is Rs6,600 be paid for December 2020 given that they received an allowance of only Rs 3,600 for the first 11 days of December 2020;</strong></p><br /><p><strong>3. That the Rs. 10,200 allowance be continued for a further 2 months as a moratorium after&nbsp;the opening of the lagoon for fishing so as to assist fishers in maintenance and upkeep of their fishing material so as to be fully prepared for fishing work again.*&nbsp;</strong></p><br /><p>The Minister also announced in the meeting that he would meet with fishers and fishmongers on Monday 18<sup>th</sup>&nbsp;January 2021, at 10.00 a.m at the&nbsp;<em>Maison des Pecheurs</em>&nbsp;in Mahebourg as a follow-up to this meeting.&nbsp;</p><br /><p>A third announcement made by the Minister in the meeting is that the Ministry intends to allot 500 fishing registration cards for fishing outside the lagoon. The Minister said that he would like this process to be accelerated by finding a way for certification of practical skills if an applicant already has the skills necessary to fish outside the lagoon. It was agreed that this point would be taken up in a next meeting as this present one was a joint meeting on the question of the the Rs10,200 allowance only.</p><br /><p>Given that this emergency meeting was not minuted, the contents of this memorandum and report has been prepared in English, with a translation in Kreol both in written and vocal form for corrections, amendments and additions for it to be endorsed by a majority of the participants of fishers and fishmongers present in the meeting.&nbsp;</p><br /><p>Given that only some 60 fishers and fishmongers of the Wakashio affected South East had the means to come to Port Louis to meet the Minister on Tuesday 7<sup>th</sup>&nbsp;of January morning, and that a report back of the meeting is already being given to those who could not come, we will be releasing this Memorandum and Report of the meeting publicly as it has been endorsed by all sections and regions representing fishers and fishmongers in the delegation once it has been presented to the Minister.</p><br /><p><em>* Note that this third point was proposed and endorsed as a common demand by fishers and fishmongers for the Minister to consider, after the formal meeting.</em></p><br /><p><strong>Apre dezas Wakashio, peser ek bayan Sid-Est re-organize</strong></p><br /><p>Lalit pe pibliye enn memoranndem ek rapor rankont ant manb Komite Konzwin peser-san-kart Sid-Est &ndash; Rezyonal LALIT Curepipe-Sid, peser avek kart peser ek ki pena kart peser, ek bayan, tu depi rezyon Sid-Est afekte par dezas Wakashio, lider sindika peser Judex Ramphul avek Minis Lapes ek so bann ot-fonksyoner. Sa rankont-la ti ena lye Mardi 7 Zanvye 2021. Sa dokiman-la ti prepare an Angle, tradir an-kreol dan enn versyon ekri ek vokal pu sirkilasyon a tu delege ki ti dan rankont kumsa zot kapav propoz sanzman, adisyon, koreksyon. Minis dan rankont ofisyer ti anonse ki li pu prezant demand peser ek bayan Sid-Est sa Vandredi-la dan Kabine Minis. Li finn osi anonse ki li pe zwenn peser Sid-Est Lindi 18 Zanvye 2021 dan Lakaz Peser, Mahebourg, 10.00 a.m. Enn delegasyon finn prezant sa memoranndem-la a Minis atraver so sekreter. U kapav ekut enn versyon vokal sa dokiman-la ki dan seksyon video nu websayt, uswa u kapav klik&nbsp;<a title="https://www.lalitmauritius.org/en/videos.html?videoid=107" href="../../../en/videos.html?videoid=107" target="_blank">https://www.lalitmauritius.org/en/videos.html?videoid=107</a></p><br /><p align="center"><strong>Memoranndem ek Rapor Rankontant peser ek bayan avek Minis Lekonomi Losean</strong></p><br /><p>Sa memorandem ek rapor rankont-la, li swiv rankont formel ki finn ena lye Zedi 7 Zanvye 2021 gramatin ant::</p><br /><p>A. Enn delegasyon 14 peser artizanal ki ena kart peser, ki pankor gayn kart peser ek bayan ki zot aktivite baze lor lapes dan lamer ki finn kontamine par dezas Wakashio, reprezantan&nbsp;<em>Komite Konzwin peser-san-kart Sid-Est &ndash; Rezyonal Curepipe-Sid LALIT</em>, ek Judex Ramphul reprezantan sindika peser, avek&nbsp;</p><br /><p>B. Minis Lapes, Lonorab Sudheer Maudhoo ek ot-fonksyoner Minister of Lekonomi Losean, Rezurs Marinn, Fishri ek&nbsp;Shiping, inklir&nbsp;Asistan P.S Mm Swaleha Gungadeen, Direkter Fisheriz M. Devanand Norungee, ek Kontroler seksyon Proteksyon Fisheriz M. Sad Amar Bauhadoor.&nbsp;</p><br /><p>Sa rankont dirzans-la swiv guvernman so desizyon pu aret donn alokasyon Rs10,200 ki ti donn peser artizanal ek bayan ki depann lor lamer afekte par Wakashio pu gayn zot lavi. Enn desizyon ki li dir li finn pran kan finn desid pu uver lapes andeor lagon dan sa rezyon-la apartir le 12 Desam, 2020 ki vedir ki pu Desam 2020, peser ek bayan finn gayn zis Rs 3,600 pu 11 zur. Dan rankont, delege finn suliyne ki pa finn donn okenn preavi ki alokasyon pu kupe, ni finn ena okenn konsiltasyon lor sa size-la. Delege dan rankont finn explike ki sa desizyon pu kup alokasyon Rs10,200 finn amenn&nbsp;<em>hardship&nbsp;</em>pu peser artizanal ek bayan ki depi Desam 2020 nepli ena mwayin sirvi pu bann rezon swivan:</p><br /><p><strong>Pu peser ki ena kart peser</strong></p><br /><p>Etan done ki:</p><br /><p>1.Gran mazorite peser artizanal ki ena kart peser pa ekipe pu lapes andeor lagon, ki pena u pena plis ki enn moter bato ek/uswa pena enn bato apropriye pu ki lapes andeor lagon an-sekirite;&nbsp;</p><br /><p>2.Seki ti sifizaman ekipe avan dezas Wakashio pa finn ena lemwayin pu asir mintenans bato ek moter alor nepli dan enn pozisyon pu lapes andeor lagon an-sekirite; buku finn perdi kazye ek lot materyel lapes akoz zot pa finn kapav ramase kan finn ena dezas anvironnman Wakashio ek lamer laba finn ferme;</p><br /><p>3.Pu bann ki an-mezir lapes andeor lagon, pa kapav ramas labwet akoz lagon ankor ferme. Li selman dan rankont ki zot finn aprann ki Minister pe organiz labwet ki pa kontamine pu peser servi pu lapes andeor lagon kot Laferm Marinn Pointe aux Feuilles, e anplis, li tuzur pa kler ki kalite labwet pu gayne (gomon, larsdam, sardinn, lamam, ti-ruze, solda, krab?) ki kalite sistem distribisyon Minister pe organize pu peser sak vilaz afekte gayn akse a sa labwet-la, ek kimanyer li pu res sifizaman fre pu ki kapav servi li;</p><br /><p>Alor pu tu sa rezon-la. zis 4-5 peser finn an-mezir lapes andeor lagon dan rezyon Sid-Est afekte par Wakashio e gran mazorite peser tuzur pena mwayin gayn zot lavi;</p><br /><p><strong>Pu peser ki finn fer aplikasyon pu kart, me pankor gayne:&nbsp;</strong></p><br /><p>1.Peser san kart pena drwa rul enn bato par li-mem akoz zis peser avek kart ki gayn laysenns e alor pa dan enn pozisyon pu al lapes andeor lagon;&nbsp;</p><br /><p>2.Zot depann lor peser ki ena kart pu gayn zot lavi e peser ki ena kart pa finn kapav lapes andeor lagon alor zot osi, pa finn ena mwayin sirvi apartir Desam 2020;&nbsp;</p><br /><p>3.Anplis, peser-san-kart pa mem gayn alokasyon movetan ki peser ki ena kart gayne tule mwa ek pu gayne pu Desam 2020 ek Zanvye 2021 kan finn/pu ena buku movetan;&nbsp;</p><br /><p><strong>Pu bayan ki so aktivite baze lor lapes dan rezyon Sid-Est afekte par Wakashio;&nbsp;</strong></p><br /><p>1. Gran mazorite peser artizanal ki furni bayan sa rezyon-la pa finn kapav lapes andeor lagon, zot osi finn san mwayin sirvi apartir Desam 2020;2. Reveni etale lor enn an normalman, ena moman li pli buku, ena moman li pli tigit ek pli par par reveni li kan gran lasenn uver, ek kan ena sezon urit ki pa dan sa lepok lane aktyelman- la;&nbsp;3. Mem kan bayan finn kapav gayn prodwi marinn depi lezot landrwa kot lamer pa poliye, zot pa finn kapav vande akoz dimunn pa le aste tansyon li sorti depi rezyon kontamine.</p><br /><p><strong>Alor, kan li finn pran konesans tu sa rezon-la, Minis finn pran langazman pu sulev dan Kabine Minis ki:</strong></p><br /><p><strong>1.</strong><strong>Bizin retablir alokasyon Rs10,200 par mwa pu peser (avek kart ek san kart) ek bayan ki viv lor lapes dan rezyon Sid Est afekte par Wakashio;&nbsp;</strong></p><br /><p><strong>2.</strong><strong>Bizin pey ful alawenns pu mwa Desam 2020 etan done ki finn gayn zis Rs3,600 pu premye 11 zur Desam 2020 pu tu peser (kart ek san kart) ek bayan ki finn afekte par Wakashio. Setadir bizin azut Rs6,600 pu mwa Desam.&nbsp;</strong></p><br /><p><strong>3.</strong><strong>Bizin kontiyn pey alokasyon Rs10,200 pu ankor 2 mwa apre ki lagon re-uver pu lapes kuma enn moratwar, pu asiste peser pu kapav met lekipman a-zur pu kapav prepare pu rekumans lapes.*&nbsp;</strong></p><br /><p>Minis finn osi anonse dan rankont ki li pu zwenn peser ek bayan sa rezyon-la Lindi 18 Zanvye 2021, 10 a.m kot Lakaz Peser dan Mahebourg pu fer swivi.&nbsp;</p><br /><p>Trwazyem lanons ki Minis finn fer dan reinyon se ki so Minister ena lintansyon alwe 500 kart peser pu lapes andeor lagon. Minis finn dir ki li ti pu kontan akseler sa prosesis-la par rod enn mwayin pu sertifye pu aplikan kart ki deza ena kapasite ek konesans neseser pu lapes andeor lagon. Finn tom dakor pu diskit sa dan enn prosenn rankont akoz rankont aktyel li enn rankont konzwin zis lor kestyon alokasyon Rs.10,200.</p><br /><p>Etan done ki pa ti ena minits pu sa rankont dirzans-la, sa memorandem ek rapor rankont finn prepare an Angle ek tradir an kreol tulede an-ekri ek an-form vokal pu ki ena koreksyon, amandman ek adisyon pu ki li andorse depi mazorite partisipan dan rankont kote peser ek bayan.&nbsp;</p><br /><p>Etan done ki zis enn 60enn peser ek bayan rezyon Sid-Est afekte par Wakashio ti ena lemwayin al Port-Louis pu zwenn Minis Mardi 7 Zanvye gramatin, ek ki delegasyon dan rankont pe bizin donn rapor ki finn arive dan rankont, nu pe rann piblik sa Memoranndem ek Rapor Rankont ratifye par seksyon ek rezyon peser ek bayan dan delegasyon, enn fwa ki nu finn sumet li a Minis.&nbsp;</p><br /><p><em>* Nu fer resortir ki sa 3yem demand finn propoze ek adopte kuma enn demand komin par peser ek bayan pu Minis konsidere apre rankont formel.</em></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

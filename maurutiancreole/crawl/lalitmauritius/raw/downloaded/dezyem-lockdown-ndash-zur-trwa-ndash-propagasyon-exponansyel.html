@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612093629" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612093629" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612093629" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612093629" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612093629" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612093629" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612093629" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612093629" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612093629" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Dezyem Lockdown &ndash; ZUR TRWA &ndash; Propagasyon Exponansyel</h1><p class="subtitle">12.03.2021</p></h1>
+	<p class="newsarticle"><p>&nbsp;Si yer ti enn zur kan nu kumans santi angwas, zordi nu finn leve avek enn panik apenn degize. Pu mwa panik la pa telman personel me plito sosyal. Mo viv dan lafreyer ki sistem lasante pu kolaps, si buku dant nu tom malad anmemtan. Parey kuma pe arive dan Brezil. E seki gayn malsans al tom malad. Alor nu bizin fer fas lafreyer e resi sirmont li. Nu bizin res lakaz, mem si nu anvi sorti.&nbsp;</p><br /><p>Nu bizin kontinye konverse avek vwazin &ndash; atraver baraz fennsing, lot kote sime, depi lao lakaz kan u pe chek si dilo pe monte dan tenk, pandan ki vwazin pe okip zot plant dan po lor zot lakaz parey kuma Geeta, ubyin pe met linz sek kuma Parvedee, ubyin pe balye fey lao lakaz kuma Guy.</p><br /><p>Zordi, nu finn leve avek 99 ka lokal.</p><br /><p>Premye ka detekte ti le 5 Mars. Set zur apre 1=99, enn fason parle. Sif exponansyel li fer per. Nu refiz al ziska konklizyon lozik kot sif la amenn nu. E sa refi la &ndash; mo ule dir nu tu dan gran piblik &ndash; pu fer sa miltiplikasyon amezir li vinn andeor kontrol, ki fer nu vinn bann san-konpran vizavi epidemyolozist, ki zot zot bann kreatir exponansyel. Samem, avek rezon, apel nu Coco-vid.</p><br /><p>Lor la, nu pa kone si ena plis ki enn &ldquo;pasyan zero&rdquo;. Komye bres dan baryer karantenn finn ena? Telman buku dimunn pena sinptom. Sa fer lepidemi, pa kuma u ti pu atann, ankor plis pir. Lerla, eski viris la inn rant dan rasanbleman Mahashivratri kan zot ti kumanse? E dan bis 40-er lwe pu al plizyer legliz? Eski lerla li finn propaze inpe partu dan Moris, e pankor detekte? Dan ki fet familyal li finn reysi rantre? Ki lezot sayt travay?</p><br /><p>&nbsp;Asterla, Sirkonskripsyon nimero 15, 16 ek 17 ena barikad stil militer par Special Mobile Force depi minwi, eski Lotorite pe ferm lekiri kan suval fini sove? Nu zis kapav atann. Enn ti pursantaz parmi nu, apre de semenn, pu ena inpe proteksyon depi premye doz vaksin.</p><br /><p>Pli pir: Si, mo dir si viris la, la mo pa pe repet move reportaz France 24, li enn parmi varyan ki propaze vit-vit, mem si li pa pli fatal: Si u gayn enn lamor Kovid par mwa, esperon pa, depi viris orizinal, e lerla u gayn enn mitan ki 1.5 fwa pli kontazye, esperon pa, prosenn mwa u pu gayn 11.4 lamor. Pa zis 1. So mwa apre 129 olye 1, ek apre ankor enn mwa 1,630 olye 1 &ndash; si nu sipoze pena enn lokdawn. E sa kanmem komye fwa nu tu repet &ldquo;Esperon pa&rdquo;. Ala, enn surs langwas explike.</p><br /><p>Alor, zordi gramatin pena jok lor, &ldquo;Ey extra, zordi si enn konze piblik!&rdquo; Zur Lindepandans ki pu selebre dan morozite, ki pu et onet, li abitye kumsa. Dan enn sertenn fason, Lindepandans pa finn refas sa santiman sufrans sa de trazedi lepase ki lye. Bagar rasyal dan Port Louis deklanse par enn kuran politik anti-Lindepandans ek&nbsp;&nbsp;alimante par enn-de gang. Ek deplasman kriyel Chagosyin par UK-USA pu ki zot kokin Chagos ek met dibut enn baz militer lor Diego Garcia. Chagosyin abandone lor lepor Port Louis al fini par res dan bann lakaz abandone par dimunn ki ti pe sove depi bagar rasyal. Kumsa lepase li dan leprezan. Kumsa santiman, mem siprime, returne pu vinn ant nu Zur Lindepandans.</p><br /><p>Alor, les nu fer fas bann fe, e gete ki nu kapav fer. Premye, nu bizin konsolid tu regleman lasante piblik &ndash; pa fer laful, gard distans sosyal depi lezot, met enn mask u mem de tuletan kan nu sorti, ek lav nu lame avek savon suvan. Dezyem, otan ki posib res lwin depi dimunn ki pa res dan mem lakaz, tuzur kontinye gard kontak ar nu vwazin atraver baraz ubyin atraver telefonn. Trwazyem, prepare pu kan relans kanpayn vaksinasyon &ndash; nu kapav atann ki vaksin AstraZeneca pu kontinye dan Moris &ndash; Linyon Eropein ek UK pe ankor rekomann li malgre ena enn espes panik dan enn-de pei Lerop. Nu pu ena usi, nu panse, vaksin Sputnik ek vaksin UN Covax.</p><br /><p>Kanpayn vaksinasyon pe montre so febles kan pe relanse. Pa kone kifer, Minister Lasante pa finn servi striktir Sekirite Sosyal deza anplas pu kanpayn vaksin lagrip. Sa kanpayn la finn teste lor plizyer lane. Kifer Minister Lasante pa zis antrenn ankor inpe depi staf existan? Olye, Guvernman finn swazir pu fer kiksoz ki moralman inakseptab par al antrenn staf dan 8 klinik prive. Setadir Jugnauth pe dir nu seki ena larzan, pena pu fer lake. E li pe donn stok vaksin (gratis?) a bann klinik pu zot fer biznes? Eski si ti vann li ar klinik sa pa ti pu pli pir?&nbsp;</p><br /><p>Anmemtan, filyer medsinn prive lerla pu azir kuma enn kanpayn reklam gratis pu rekrit nuvo kliyan dan sekter swin lasante prive (sistem ki fer santaz larzan lor lasante), enn sekter ki pe tultan debat pu gayn pasyan, usi lontan ki lopital ek dispanser pe fer zot travay byin. Dan enn sertenn fason, sa turnir evennman la pa enn sirpriz parski prinsipal portparol Jugnauth, li Dr Zouberr Joomaye, ki anplis de et enn kandida bati dan dernye eleksyon, li usi propriyeter enn klinik prive seki vedir li ena enn lintere dan privatiz sekter swin lasante. Pli lopital ek dispanser pa marse, pli bon pu sekter klinik prive.</p><br /><p>Alor, nu fer apel pu ki:</p><br /><p>1. Guvernman servi so striktir vaksinasyon deza anplas dan Sekirite Sosyal pu relans kanpayn vaksinasyon olye bann klinik prive. Sa pu vinn azut avek tu lezot fasilite Minister Lasante.</p><br /><p>2. Guvernman bizin dimann Dr Gujadhur returne kuma advayzer konntak-tresing. Li, Dr. Musango depi WHO ek Dr Catherine Gaud ti enn triyo gaynan pandan premye vag lepidemi &ndash; alor kifer pa rekree sa mem triyo la. Li enn travay siper teknik e li usi dimann buku konpasyon. U bizin metriz syans la pu kone si pu vit-vit kumans tras par divan anpremye (kisannla pasyan teste pozitiv finn zwenn depi ki li pozitif) uswa kumans met aryer anpremye kisannla li finn zwenn avan li teste pozitif) e statistik ki kontak pli relevennt, par exanp, pu idantifye ek tras enn evennman &ldquo;siper-propagater&rdquo;. U usi bizin ena sa lar pu ed dimunn pu rapel tu dimunn ki zot finn zwenn, e mem konvink zot pu dir laverite lor zot bann kontak mem si li enn &ldquo;sekre&rdquo; ubyin ena enn laont sosyal pu dimunn konserne. Alor li enn konbinezon rar syans statistik ek lar pu kone kimanyer diferan tip dimunn Moris risponn dan enn fason pozitiv dan diferan kalite fason &ndash; par klas, par sex, par laz, par lavil u lakanpayn, par relizyon ek devwal tu so bann kontak sosyal.</p><br /><p>3. Minister Lasante bizin retablir sa de mezir ki ti finn retire depi regleman karantenn setadir ofisye Minister Lasante ki bizin repran sarz sant karantenn dan bann lotel ek 7 zur adisyonel pu kikenn ki truv li dan enn batch dimunn kot ena enn test pozitif apre 14 zur orizinal.</p><br /><p>Esperon dime amenn enn blog pli leze , kapav mem avek inpe limur. A kurterm, buku depann lor komye li finn propaze dan dernye kinzenn, e sirtu dan dernye semenn.</p><br /><p>Li depann a mwayin term, omwin ziska enn sertin pwin, lor nu tu ek manyer nu konport nu pandan prosenn 10 zur. Li usi depann lor Guvernman pa galfat sa Kanpayn Vaksinasyon par depann lor sekter prive.</p><br /><p>&nbsp;</p><br /><p>Lindsey Collen</p><br /><p>Tradiksyon: BK avek kudme AA</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

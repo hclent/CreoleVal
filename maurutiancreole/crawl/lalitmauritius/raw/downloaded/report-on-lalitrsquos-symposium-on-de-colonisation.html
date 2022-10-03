@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095856" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095856" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Report on LALIT&rsquo;s Symposium on De-colonisation</h1><p class="subtitle">31.07.2018</p></h1>
+	<p class="newsarticle"><p>LALIT&rsquo;s<strong> </strong>&ldquo;Symposium on Decolonization: 50 years after Independence&rdquo; held on Saturday 28 July and Sunday 29 July in Port Louis had an activist sub-title: &ldquo;<em>Republic of Mauritius: 50 years of Decolonization: Progress, and Proposals for Accelerating Decolonization</em>&rdquo;. In all there were 22 different speeches, each taking on the issue of decolonization from a different angle. By sheer chance, 11 papers were delivered by LALIT members and 11 by others who had responded to the call for papers. So the symposium was a wonderful meeting together of intellectual analysis and of placing real life political action in a long-term political perspective. The totality by hinting at the vastness of the subject, ended up being much more than the sum of the parts, which was in itself massive, given the standard of the papers.&nbsp;</p><br /><p>&nbsp;<strong>Introduction</strong></p><br /><p>In his introduction, Rada Kistnasamy, for LALIT, spoke of the mainstream way of seeing Independence is as a flag and a national anthem. By contrast, LALIT sees de-colonization (or Independence) as a process starting around 1936 and not yet completed. He said there are even new forms of recolonization before we are rid of the old colonization. To illustrate his point, he indicated how the blow-ups on the wall behind the panellists, highlighted this: In 1936, there was a grainy photograph of an outdoor meeting of the urban working class at Champs de Mars; then in 1975, an even grainier photograph because taken in the heat of the moment, when the riot police were beating boy and girl students during the mass uprising of high school students; next is the 1980 mass meeting of workers during the 1978-79-80 uprising of the organized working class; and then in 1981 the police arresting Chagossian and Lalit women members, two of whom were present; and finally in 2010 a colour photograph of the Lalit-organized street demonstration against the British land-grab through the &ldquo;declaration of a Marine Park&rdquo; over Chagos.</p><br /><p>&nbsp;He also thanked everyone for their contribution &ndash; in preparing talks, bringing themselves here, bringing their lunch along &ndash; and expressed appreciation for LPT ceding Lalit its Hall. It is important that we realize that this symposium, he said, cost us next to nothing. Even the biscuits and bergamot juice have been brought along by participants. In fact, LALIT&rsquo;s only outlay was for tea, coffee and milk and two small banners. This realization reminded many present, as Rada referred to LALIT&rsquo;s previous Symposium on the &ldquo;Phenomenon of NGOs&rdquo;, where funding, in itself, often becomes a kind of colonial corruption.</p><br /><p>&nbsp;<strong>Rajni Lallah on Lalit&rsquo;s Class Analysis as a Contribution to De-colonization </strong></p><br /><p>Rajni Lallah&rsquo;s paper was built around meticulous research on the development of an original class analysis of Mauritian society. Her sources were based on the 100 first LALIT magazines from 1976 to 2011. She will put the references on-line for everyone to be able to access them. She outlined what was original about LALIT&rsquo;s analysis, and its usefulness in the struggle for decolonisation and socialism. She said literally dozens of LALIT members had contributed to this work.</p><br /><p>&nbsp;<strong>Sanjay Jagatsingh on a Framework for Analysis of Decolonization</strong></p><br /><p>Sanjay Jagatsingh&rsquo;s paper, &ldquo;Framework for Analysis of Decolonization&rdquo; was an original approach to evaluating the catastrophic effects of colonization on the economy of countries colonized, and he used the example of India. He ended on an up-beat note showing statistical indications that the two-alliance system is reaching its limits, based on the number of parties in by-elections since Independence needed to add up to 60% of votes cast which has gone from 2 steadily up to 6.</p><br /><p>&nbsp;<strong>Kavinien Karupudayyan on Suppression of the Mother Tongue in Schools</strong></p><br /><p>The third paper in the first panel was delivered by Kavinien Karupudayyan and was entitled: &ldquo;An Elephant in the Room: Suppression of the Mother Tongue&rdquo;. He gave his own experience as a teacher to show the constant pressure to suppress the mother tongue, even above and beyond the strict institutional prohibitions.</p><br /><p>&nbsp;<strong>Debate after each panel</strong></p><br /><p>After the panel, Rada opened the floor for debate. Amongst the 80-100 people present over the two days, many participated, either through questions &ndash; some of which provoked very interesting points &ndash; or through their own views, during the course of all 6 different slots for debate after each of the 6 panels.</p><br /><p>&nbsp;<strong>Nirmal Betchoo on the 1975 Students&rsquo; Strike</strong></p><br /><p>The next panel began with Nirmal Betchoo&rsquo;s paper &ldquo;The Iconic 1975 Students&rsquo; Strike&rdquo;, and its demands for accelerating decolonization. He said he was too young to participate in it, and yet it marked him. He projected rare photographs from the strike during his talk.</p><br /><p>&nbsp;<strong>Alain Ah-Vee on Written Kreol and De-colonization</strong></p><br /><p>Alain Ah-Vee&rsquo;s paper was on &ldquo;Written Kreol and Decolonization&rdquo;, drawing attention to the curious balking of the reactionaries against <em>written</em> Kreol, even while they may accept spoken Kreol. He also showed how the contribution of the elite to the recognition and improved status of Kreol was always negligible, and often specifically containing Kreol where it was.</p><br /><p>&nbsp;<strong>Soufia Bham on Mauritian Kreol and Decolonizing the Self</strong></p><br /><p>Using Ngugi wa Thiong&rsquo;o work and her own life experience, Soufia Bham spoke of the work one has to do on one&rsquo;s own mind, in order to decolonize what is internal, at the same time as what is outside of one.</p><br /><p>&nbsp;<strong>Ram Seegobin and August 1979 strike and decolonization of unions</strong></p><br /><p>The afternoon session preside by Alain Ah-Vee, began with Ram Seegobin&rsquo;s speech on &ldquo;August 1979 Strike Movement: Democracy in the Trade union Movement&rdquo;. He spoke of the contradictory legacy that the working class had of the progress made by the trade unions in Britain coming to Mauritius through colonization, and the repression of unions by the colonizing power. The build-up to the strike and the strike movement until September 1980 and for a while afterwards led to a democratization of the union movement. It was short-lived. When the MMM came to power, as a result of this mobilization, the MMM already had anti-working class interests at its heart, and had adopted &ldquo;consensus&rdquo; politics.&nbsp;</p><br /><p>&nbsp;<strong>Gordon Barnes on Class Struggle in Mauritius in the Shadow of d&rsquo;Epinay: </strong></p><br /><p>Gordon Barnes, Ph.D. candidate at City University of New York and also a member of a left organization in the USA, presented a fascinating paper that began with the appropriate symbolism of the prominent statue of d&rsquo;Epinay in the Company Gardens dominating the place while a bust of Lenin is tucked away in the Cassis Gardens. He said that in his view the only right wing uprising against colonialism in the world until then was the d&rsquo;Epinay-led group of planters against abolition of slavery.</p><br /><p>&nbsp;<strong>Sadna Jumnoodoo: Decolonization and Colonial Religion</strong></p><br /><p>An unusual paper was presented by Sadna Jumnoodoo, who took the example of the privileged position of Catholic chapels in the two traditional public hospitals, Jeetoo and Candos. She showed photographs of the two chapels taken while she was preparing her paper. She said this reserved place for a religion dates from French colonization, which means from before 1814, and yet after 200 years it remains. She said it seems to be not easy for society to resolve the issue, as we should. She suggested the chapels be turned into quiet spaces. But, what happened is, when society got communalized (over other issues), people from two other religious denominations actually built a mosque and a temple, respectively, on the hospital plot at Candos. And she showed two more pictures &ndash; of the ship-wrecked mosque and temple on Candos land.</p><br /><p>&nbsp;<strong>Teri Bonne: Education: Still colonized? </strong></p><br /><p>Teri Bonne, using PowerPoint, analysed the different ways in which schooling was still colonized, and ways in which it was de-colonized.</p><br /><p>&nbsp;<strong>Lindsey Collen: The Land Question, Decolonization, Recolonization</strong></p><br /><p>The issue of the boundaries of Mauritius, its land and sea, was not made clear at Independence, and Lindsey Collen showed how this was not innocent, or merely an error. So, the first part of her paper was on the continued colonization of Chagos, including Diego Garcia. Then the main part of her paper was how the sugar estate owners still monopolize the near totality of arable land, and how this idea of land-ownership is a colonial legacy.</p><br /><p>&nbsp;<strong>Farhad Khoyratty: Mauritius is a Beach</strong></p><br /><p>In a witty, but highly intellectual speech, Farhad Khoyratty spoke of Decolonizing Representation and Self-Representation in Mauritius Islands with reference to the portrayal of Mauritius in the cinema industry, in mainstream films from India, Pakistan and France, but where Mauritius is the backdrop. He had clips from the relevant films in the background as he spoke.</p><br /><p><strong>&nbsp;Kisna Kistnasamy: The Importance of the Anti-Imperialist Struggle</strong></p><br /><p>Kisna Kistnasamy took on the interesting topic of the importance of the anti-imperialist struggle in the process of decolonization. She referred to all the different forms of anti-imperialist and anti-war and anti-bases movements in Mauritius since Independence, as the back-bone of decolonization itself.</p><br /><p>&nbsp;Presided by Ram Seegobin, the Sunday papers were equally riveting.</p><br /><p>&nbsp;<strong>Elsa Wiehe on Decolonization as Freedom to Learn</strong></p><br /><p>With meticulous research, and clear argumentation Elsa Wiehe showed how the school system as a prolongation of the colonial education system stifles children. She used PowerPoint to show some of the mind-numbing exercises children were given to do. She also showed that children were actively <em>dis</em>couraged.</p><br /><p>&nbsp;<strong>Jason Lily: Music and Decolonization</strong></p><br /><p>In a paper prepared together with Rajni Lallah, Jason Lily referring to his own background as the son of a musician and music lover, and as a musician himself, found that there was a great deal of repression against musicians, but that artists still, nevertheless, emerged. Some music, he said, historically and today was and is produced for those who pay musicians. Some music, he said, was and is produced for the sheer joy of it.</p><br /><p>&nbsp;<strong>Rada Kistnasamy on a short history of housing in Mauritius</strong></p><br /><p>Ending with a video clip of the recent demonstration on asbestos housing, Rada Kistnasamy gave a brief outline of housing from slave times, through indenture, through tied housing, and on to the cit&eacute; originally constructed after cyclones, and then to the neo-liberal version of housing as a business.</p><br /><p>&nbsp;<strong>Danielle Turner gives Plea for a Decolonized Education System</strong></p><br /><p>In a strong speech against forms of colonization in education, Danielle Turner began with the important symbolism of the curious names of the most prestigious colleges: <em>Royal</em> and <em>Queen Elizabeth</em>! Not only colonial but downright monarchical! She spoke of the need to change <em>society</em> at its root, at the same time as change the education system, which functions so as to reproduce existing capitalist society.</p><br /><p>&nbsp;<strong>Jean-Luc Caliste on the need for Kreol as Language in Parliament</strong></p><br /><p>Jean-Luc Caliste spoke with cohesion, precision, eloquence and conviction in his carefully argued paper in favour of Kreol as a language in Parliament alongside English, with French also permitted.</p><br /><p>&nbsp;Presided by Rajni Lallah, the afternoon session was also very interesting.</p><br /><p><strong>&nbsp;Kisna Kistnasamy on the MBC, and what Measure of Decolonization?</strong></p><br /><p>In a carefully researched paper, Kisna Kistnasamy showed how the MBC was still heavily colonized: from the time allocated for news in different languages to the treatment of sport and even international news.</p><br /><p>&nbsp;<strong>Anne-Marie Joly: All Workers&rsquo; Conference: A purely Defensive Strategy</strong></p><br /><p>Anne-Marie Joly analysed the All Workers&rsquo; Conference as a fine trade union common front that lasted for some 16 conferences, although only one was planned. However good the All Workers was as a defensive strategy, this was not, and will never be sufficient for the working class.</p><br /><p>&nbsp;<strong>Leo Couacaud: Evolution of the term &ldquo;creole&rdquo; and its different meanings in Mauritius</strong></p><br /><p>Leo Couacaud shared his original research into the use, and the evolution of the term &ldquo;creole&rdquo; especially during British colonization, and gave an idea of how the word developed its different meanings in Mauritius.</p><br /><p>&nbsp;<strong>Lindsey Collen on the Bravery needed to oppose very strong forces</strong></p><br /><p>The last paper was by Lindsey Collen and was titled: T<em>he Violent Repression that Opposition to Colonization Provokes: An Example LPT suffered. </em>Lindsey Collen drew attention to the defence of colonization that people in the elite constantly run, almost invisibly, against anti-colonial forces. She gave an example of the unexpected violence of defenders of colonization. Her example was of Le Mauricien&rsquo;s editor lashing out at LPT and at Alain Ah-Vee the secretary of the organization following a mild criticism of their internalized colonization.</p><br /><p>&nbsp;Rajni Lallah then gave a brief closing speech. She emphasized the collective nature of the event, and of how everyone&rsquo;s contribution added towards making it such a success. She said that, although it was very intense, and the papers were varied and profound, there was also an element of pleasure. In fact, many papers were linked to current political events. She said the symposium served to stimulate our minds, so that we would be able to go on developing our understanding of the issues more deeply. <em>Viv lalit pu de-kolonizasyon!</em></p><br /><p>&nbsp;Many people stayed on after we had all cleared up the Hall, stacked the chairs, put away the magazines and books, and even washed the dishes together. As though we did not want the event to end.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

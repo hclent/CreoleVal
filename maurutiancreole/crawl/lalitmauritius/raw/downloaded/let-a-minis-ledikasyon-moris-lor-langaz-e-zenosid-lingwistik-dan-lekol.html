@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612140643" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612140643" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612140643" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612140643" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612140643" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612140643" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612140643" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612140643" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612140643" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Let a Minis Ledikasyon Moris lor Langaz e Zenosid Lingwistik dan lekol</h1><p class="subtitle">05.11.2003</p></h1>
+	<p class="newsarticle">Dan kad Zurne Mondyal Langaz Kreol Ledikasyon pu Travayer finn avoy sa let la a Minis Ledikasyon, Moris.<br /><br />Ledikasyon pu Travayer<br />153 Main Road, Gran Rivyer Nord West, <br />Port Louis, Republic of Mauritius.<br /><br />Minis Ledikasyon,<br />Minister Ledikasyon ek Syans,<br />Phoenix.<br /><br />31st October, 2003<br /><br />Ser Minis Steve Obeegadoo,<br /><br />Nu pe ekrir u lor kestyon medyom lanseynman dan lekol. U kapav konsider let-la kuma enn avertisman.<br /><br />U finn ansarz Minister Ledikasyon pandan 3 an. Antan ki Minis ansarz Ledikasyon, u ki responsab zanfan ki al lekol Moris, Rodrig, Agalega. An partikilye u legalman responsab asterla, apre ki ledikasyon finn vinn obligatwar e apre u kanpayn pu obliz paran avoy zot zanfan lekol. U Departman pa zis furni ledikasyon a paran ki swazir pu avoy zot zanfan lekol, me lalwa asterla obliz paran avoy zot zanfan lekol.<br /><br />Alor, fode pa lekol fer zanfan ditor.<br /><br />Si zame zanfan pe sufer ditor dan lekol, sirtu si ditor la li fer par expre ubyen par neglizans, ek sirtu si ditor la ena lefe a-lonterm, se u ki pu bizin pey reparasyon. E se u ki pu ena sa ditor la lor u konsyans.<br /><br />Alor, sa let-la se pu averti u ki u politik lor medyom lanseynman li ekivo enn zenosid lingwistik dan lekol.<br /><br />E zordi, dan kad Zurne Mondyal Langaz Kreol, nu pe fer apel a u pu aret tuy langaz maternel zanfan dan lekol atraver u politik exklizyon Kreol Morisyen ek Bhojpuri Morisyen. Nu pe formelman fer apel a u pu aret fer zanfan sufer dega mantal inestimab, par konstaman "donn sinnyal" dan lekol ki langaz maternel zanfan li inferyer, li pa itil ubyen li pa enn vre langaz.<br /><br />Sa let-la se pu explik an-detay ditor ki u pe fer zanfan Moris. Sa let-la se pu explike ki partu dan lemond tu lingwist, tu militan drwa imen, pu dakor ar nu kan nu akiz u krim ki apel 'zenosid lingwistik', si zame u kontinye avek sa mem politik la, mem kan nu finn formelman inform u de u erer.<br /><br />Nu pe ekrir parski pangar u pa kone. Pangar u pled "linnyorans". Pangar Guvernman pled linnyorans.<br /><br />Nu finn note ki u ti anonse ki u pu gete sipa pu servi langaz maternel dan lekol. Li depann, u ti anonse, seki UNESCO dir u. Lerla dan enn intervyu dan Le Mauricien Samdi 27 Septam, u finn dir ki UNESCO dir bizin servi langaz maternel. Normal. Tu exper dan lemond dir sa depi lontan. <br /><br />Lerla, kan UNESCO finn dir u sa, u finn anonse dan mem inntervyu ki u pa pu ekut UNESCO kumsamem. U pu plito zis fer 2 ti proze pilot, enn lekol Moris, enn Rodrig avek langaz maternel.<br /><br />Alor, sa vedir u pe rod kontiyn pretann, malgre ki UNESCO dir u, ki u pa okuran ditor ki lekol pe fer TU ZANFAN, akoz pe servi medyom lanseynman ki pa bon.<br /><br />Medyom lanseynman dan Lekol, li pa zis enn kestyon "Ki medyom pu fer zanfan gayn pli bon rezilta?" (Klerman tu letid dan lemond, kuma u byen kone, deza pruve ki langaz maternel kuma langaz lanseynman, li prodir rezilta buku pli bon dan tu size pu tu zanfan, depi syans ziska bann langaz adisyonel, depi size ki inplik kreativite ziska size ki depann lor rezonnman. Nu ena enn seksyon lor tu sa resers la plitar dan sa "Let Uver"-la.)<br /><br />Seki pli inportan, se itilizasyon langaz maternel (e isi nu pe koz, an premye lye, Kreol ek Bhojpuri), li permet tu zanfan devlop zot intelizans plis. Zot progre kognitif li buku pli bon (pandan tut long lavi) si zot aprann atraver langaz maternel dan lekol. Alor, li pa zis anterm rezilta lexame.<br /><br />Langaz imen li enn kapasite natirel ki tu imen ena. Li nu mwayen par-exselans pu nu konpran lemond. Nu kapasite lingwistik, li devlope depi avan nu mem realiz li dan enn ti-baba, e pandan tut so lanfans, e pandan so lavi net. Si nu devlop so langaz maternel byen, e si pena kit politik ki vinn antrav so devlopman lingwistik, si li vinn letre ziska enn ot-nivo, li pu kapav fer refleksyon a enn ot-nivo, li pu kapav fer letid a enn ot-nivo, li pu kapav fer enn kontribisyon akademik a enn ot-nivo. <br /><br /><b>BICS ek CALP</b><br />Ena enn mond de diferans ant seki apel Basic Interpersonal Communicative Skills (BICS) ek Cognitive Academic Language Proficiency (CALP) . Dan Moris, laplipar zanfan, mem seki ariv Liniversite, temwayn enn problem otur zot aprantisaz kognitif, setadir CALP. Ena profeser liniversite temwayn sa difikilte la avek zot zelev.  Dan enn 2yem ek 3yem langaz nu pa kapav vreman "depas" nu devlopman dan nu langaz maternel. E dan lekol, u pe sistematikman antrav devlopman natirel zanfan dan so prop langaz.<br /><br />E si nu devlop sa kapasite-la dan nu langaz maternel, lerla nu kapav vinn egalman kapab dan lezot langaz. Se sa ki apel "bileng" a enn ot-nivo. (Langaz maternel a enn ot-nivo, plis enn lot langaz, ki, si langaz maternel a enn ot-nivo, kapav vinn a enn ot-nivo, li osi, setadir onivo CALP). Trileng vedir langaz maternel a enn ot-nivo plis de lezot langaz. Miltileng vedir langaz maternel a enn ot-nivo plis buku lezot langaz.<br /><br />U sistem lekol, M. Obeegadoo, pe fer zanfan kontinye vinn "demi-leng". Ki savedir? U pe fer zanfan vinn inkapab debruye a ot-nivo dan okenn langaz. Seki nu pe akiz u se anpes zanfan gayn enn devlopman a-ot nivo dan ninport ki langaz. <br /><br />Si kikenn "ini-leng" a-ot nivo (setadir ena CALP an zis Kreol ubyen zis Bhojpuri), li pu kapav debruye anterm kognitif ek akademik. E, pli bon ankor, pu ki li kapav vinn bi-leng ubyen tri-leng a ot-nivo (CALP), fode li ena enn ot-nivo DAN SO LANGAZ MATERNEL osi. Dan LPT, kanta nu, nu anfaver zanfan vinn milti-leng a ot-nivo.<br /><br />Si kikenn pa devlop so skil lingwistik dan so langaz maternel ziska enn ot-nivo, lerla, apre lekol formel, li kapav pran ziska 9-an ledikasyon formel adisyonel pu sey konble seki finn perdi, kan finn redwir devlopman enn zanfan ziska nivo so konpreansyon enn langaz ki pa so langaz maternel.<br /><br />Nu osi akiz serten o-kad Minister ek o-kad MIE e akademik Liniversite konpleyzan anver Minis Ledikasyon. Zot pretann ki langaz Kreol ek Bhojpuri pa bon pu servi kuma medyom, akoz zot "gayn sinnyal" depi bann politisyen opuvwar ki zot bizin dir sa. Kan Prof. Derek Bickerton  ti isi, kan li fer seminar ar bann o-kad, zot tu pretann ki zot dakor net ar li. Li dir bizin servi langaz Kreol kuma medyom. Kan Prof. Tove Skutnabb-Kangas  isi, tu profeser ek gran akademik pretann ki zot dakor ar li. Li osi dir bizin servi langaz Kreol kuma medyom. Kan Dr. Neville Alexander  isi, la osi, okenn akademik lingwis dan Moris pa challenj li kan li dir bizin servi langaz Kreol ek Bhojpuri kuma medyom. Ena enn rezon byen sinp pu sa: okenn lingwis dan lemond pa kapav dir divan so bann koleg lingwis ki li konseyab pu servi bann langaz ki pa langaz maternel kuma medyom dan lekol.<br /><br />Bann presize kumkwa langaz Kreol ek Bhojpuri inferyer, zot sorti lepok kolonyal, kan bann kolon ek zot akademya, zot servis sivil, mem zot yerarsi relizye, ti pe mintenir ki sa bann langaz la inferyer parski dimunn ki koz zot, zot inferyer. Zot esklav. Zot angaze. Alor, zot langaz inferyer.<br /><br />Eski u, M. le Minis, ankor pans sa u?<br /><br />Ubyen u zis aplik enn politik ki baze lor la? <br /><br /><br /><b>Drwa Imen</b><br />M. le Minis, inpozisyon langaz inkoni ek malkoni kuma medyom anseynman dan lekol li al kont tu prinsip drwa imen ki finn etablir, e pe kontinye devlope.<br /><br />Langaz maternel nu zanfan li napa inferyer a okenn lot langaz.<br /><br />Nu dir ki u Departman pe donn sinnyal ki Kreol ek Bhojpuri zot inferyer. Kimanyer pe donn sa sinnyal la? Ala seki nu obzerve de u polisi: <br /><br /><br />Labsans total text-book dan Kreol ubyen Bhojpuri. <br /><br />Labsans lanseynman literesi ek nimeresi dan Kreol ubyen Bhojpuri. <br /><br />Labsans liv pu lir, labsans devlopman sante, zwe ek lezot zuti pedagozik dan Kreol ek Bhojpuri. <br /><br />Labsans total lexame an medyom Kreol ubyen Bhojpuri.<br /><br />Labsans Kreol ek Bhojpuri kuma size dan lekol.<br /><br />Tandans, akoz u politik langaz, ankuraz profeser transmet a zanfan enn mepri pu langaz zot paran.<br /><br />Labsans antrennman profeser lor kimanyer servi langaz maternel pu ki zanfan gayn konpreansyon avek presizyon dan klas, e ki zanfan kapav exprim li avek presizyon dan klas.<br /><br />Tandans fors zanfan pu anprann dan enn fason peroke, purvi li pa an Kreol ubyen Bhojpuri. <br /><br />Tandans al kont prinsip pedagozik pu redwir distans ant aprantisaz lakaz ek lekol.<br /><br />U pena traka si ena tromatism mantal ek moral lor zanfan, ki, a son tur responsab pu blok devlopman pandan lekolaz ek mem kan fini kit lekol.<br /><br />U polisi al kont prinsip kumans avek seki koni, al ver linkoni. U fer zafer ridikil kot anseyn seki pa koni atraver linkoni.<br /><br />U polisi, li konsyaman, ogmant distans sosyal ant profeser ek liv, enn kote, ek zanfan, lot kote.<br /><br /><br />Nepli kapav kontiyn avek interpretasyon kolonyal lor drwa lingwistik. U departman bizin kumans respekte lasyans lingwistik ki fini pruve ki langaz Kreol ek Bhojpuri egal a ninport ki lot langaz.<br /><br />Sinon, u pe antrav drwa elemanter zanfan. <br /><br />Serten sa bann drwa la deza inskrir dan Konstitisyon Moris ek dan bann Konvansyon International, mem si dan enn fason ki tuzur anbriyoner.<br /><br />Li dan enn lespri drwa imen ki tu langaz, depi lontan, finn deklare 'egal'. Sa li indepandan de si langaz-la ekrit ubyen non, indepandan de si zot oral ubyen siyn, indepandan de komye dimunn koz li. (Dayer e Kreol e Bhojpuri zot parmi bann "gran" langaz dan lemond, enn zafer ki kapav-et u napa kone.)<br /><br />Se dan sa lespri drwa imen-la ki nu bizin aret bann prezize kolonyal e kumans dispans ledikasyon dan fason ki pli bon pu zanfan e ki pli bon pu limanite. <br /><br />Atraver lalit eroik lamas dimunn kont kolonyalism e dan prosesis lalit pu lindepandans, nu finn benefisye enn seri drwa konstitisyonel. Seksyon 12 Konstitisyon protez e garanti nu liberte dexpresyon, ki inklir drwa pu resevwar linformasyon ek konesans e pu propaz lide ek linformasyon san okenn antrav. <br /><br />Onivo international, lalit pu zanfan servi lang maternel dan lekol finn debus lor lartik 13 Konvansyon UN lor Drwa Zanfan. Sa konvansyon ki bann Leta, ikonpri u guvernman, finn ratifye an 1990, asire ki drwa tu zanfan a ledikasyon respekte, e ki tu zanfan lib pu rod, resevwar e propaz linformasyon ek lide oralman, an ekri ubyen inprime, san okenn diskriminasyon. Malgre sa, u pe persiste avek u politik langaz ki atak devlopman mantal ek blok lintelizans nu bann zanfan lor enn baz diskriminatwar. Li telman grav ki u fer diskriminasyon kont plis ki 90% zanfan. <br /><br />M. le Minis, nu pu rapel u ki an 1994, linstans UN, Committee on Economic Social and Cultural Rights (ECOSOC) dan so rapor lor Moris ti note avek inkyetid ki Kreol ek Bhojpuri sel 2 langaz ki koze par gran mazorite popilasyon, pa pe servi dan sistem ledikasyon Moris e ki Guvernman pe aktivman dekuraz ki servi zot dan tu linstitisyon. Eski u pu kontiyn res parey mem, insansib a inkyetid ki finn exprime par enn gran linstans Internasyonal?<br /><br />An 1996, Human Rights Committee UN ki tom su Konvansyon lor Drwa Sivil ek Politik, ti rekomande dan so rapor ki Moris pran mezir neseser pu pibliye materyel edikatif sirtu pu zanfan dan langaz vernakiler, setadir Kreol ek Bhojpuri. Ziska zordi ni u ni u predeseser pa finn get sa kestyon-la avek tu so serye neseser. (Apar M. Kadress Pillay dan premye draf so Plan, avan li kaptile.)<br /><br />M. le Minis, u pu devet rapel lagrev etidyan an Me 75. 20,000 etidyan ti desann lor lari pu dimann dekolonizasyon ledikasyon, e pu dimann servi langaz Kreol dan lekol. Sa lagrev la finn debus direkteman lor ledikasyon gratis. Me viktwar la ankor res inkonple san dekolonizasyon sistem ledikasyon.<br /><br /><br />Onivo kontinan Lafrik, prosesis dekolonizasyon finn pran diferan form. An 1987 Language Plan of Action, inisye par OUA (ki zordi finn vinn Linyon Afrikin ki finn adopte Language Plan of Action ek lezot rezolisyon OUA) koz anfaver itilizasyon langaz Afrikin kuma langaz ofisyel e kom veikil linstriksyon dan ledikasyon. Pu Moris, ki siynater sa plan daksyon la, sa vedir ki ti bizin itiliz langaz Kreol ek Bhojpuri kuma medyom instriksyon. Zame guvernman Moris finn respekte sa langazman la.<br /><br /><br />M. le Minis, zordi u pe anons konstriksyon lekol partu, u pe inpoz lekol obligatwar lor zanfan, me u pe ranvway desizyon lor kestyon itilizasyon langaz maternel dan ledikasyon. Par sa manyer azir la, u konplis pu aplik enn politik lingwistik dan lekol ki pa konpatib avek lespri Konstitisyon e ki kont tu bann Konvansyon Internasyonal ki Moris finn adere. U konplis pu fer ditor imans a nu bann zanfan. <br /><br /><br /><b>Zenosid Lingwistik</b><br />Alor, Leta pe antrav enn lepep dan lexpresyon natirel so prop langaz, Bhojpuri ek Kreol, e Guvernman pe fer enn krim kont limanite. Ala seki nu pe akiz u. Ninport ki individi avek puvwar ki antrav lexpresyon lib langaz natirel enn grup dimunn, li kupab de zenosid. Zenosid lingwistik se kan Leta obliz zanfan abandonn langaz so paran, par exanp atraver politik langaz dan lekol, ubyen kan li infliz ditor mantal lor tu bann zanfan ki koz enn langaz parktikilye.<br /><br />Guvernman pe fors zanfan aprann dan enn fason "retire" (an Angle, dir sa "subtractively") e par fer sa, Guvernman li kupab de "zenosid lingwistik". Ki sa vedir "subtractively"? Li ule dir ki pu zanfan fer tantativ akerir seki pe montre li atraver Angle ek Franse, lekol pe obliz li detrir so progre lingwistik an Kreol ek Bhojpuri. Setadir lekol pe tuy langaz Kreol ek Bhopuri. Kan nu dir "zenosid lingwistik", nu pe servi definisyon Nasyon Zini lor zenosid lingwistik, krim kont limanite. Donk zanfan aprann langaz ki lekol montre odetriman zot lang maternel e sa reprezant zenosid lingwistik, parski li enn travay ki evre dan sans pu tir enn zanfan depi enn grup (grup lingwistik Kreolofonn ubyen Bhojpurifonn) e met li dan enn lot grup lingwistik (Frankofonn ubyen Anglofonn).<br /><br />Lartik II (e) dan Konvansyon Nasyon Zini dir: "Zenosid se kan obliz zanfan enn grup transfer ver enn lot grup". Savedir Guvernman pe obliz zanfan transfer depi zot prop grup a enn lot grup atraver politik lingwisitik ek kiltirel parski ledikasyon zanfan pe fer dan langaz dominan ek etranze, Angle e Franse, e napa dan zot lang maternel Bhojpuri e Kreol kuma medyom lanseynman. <br /><br />Zenosid lingwistik vedir anpes servi langaz enn lepep dan lavi tulezur, ubyen, seki konsern nu dan sa let-la, dan lekol, ubyen met antors a imprime, distribye, ubyen pibliye dan langaz sa lepep la. Guvernman pe kontribiye dan sa "zenosid lingwistik" par refiz prepar ek pibliye liv lekol dan Bhojpuri e Kreol. Guvernman pe anpes servi Bhojpuri e Kreol par pa fer li vinn langaz ofisyel. Bhojpuri e Kreol pena stati ofisyel, stati politik, e pa servi li kuma medyom prinsipal dan ledikasyon. Guvernman osi responsab ki lekol ek mas medya zot bann azan direk dan zenosid lingwistik Bhojpuri ek Kreol. <br /><br />M. Obeegadoo, lane dernyer Ledikasyon pu Travayer ti invit enn lingwis de renome internasyonal, Prof. Tove Skutnabb-Kangas, e ala seki li finn dir: "Si enn zanfan pa aprann dan so langaz maternel ek fors li pu aprann dan enn langaz etranze (se seki u pe fer), sa pu fer enn ditor mantal grav a enn zanfan. Sa kapav anpes devlopman potansyel, sikolozik, an term idantite, dan travay ek partisipasyon demokratik dan enn sosyete." Alor, sa vedir u pe fer zenosid lingwistik dan enn 2yem fason. Anplis de tir enn zanfan dan enn grup, fors li dan enn lot grup lingwistik, u pe osi al ankont tu prinsip par infliz enn ditor mantal grav lor zanfan. Lartik dan definisyon konvansyon Nasyon Zini dir ki "zenosid vedir [osi] fer ditor fizik ubyen mantal a bann mamb enn grup" (dan nu ka dan Moris sa vedir 93% popilasyon Moris ki dir zot koz Kreol ek Bhojpuri dapre resansman ofisyel Guverman pu lane 2000).<br /><br /><br /><b>Temwayaz Moris</b><br />Nu pran 2-3 temwaynaz dan Moris asterla, nu pei. Buku dimunn kontant zot dekrir Moris kuma "enn pei bann miltileng", me avek lantetman u Departman, nu plito "enn pei bann demileng". Nu espere sa bann temwayaz pu ede u pu konpran gravite erer u ek u bann konseye pe fer, Misye Minis. U dan erer parski u pe fer zanfan konn 2 langaz etranze selman apepre ek fer zanfan vinn for lor konpran dan enn fason aproximatif, koz dan enn fason ape-pre. U pe fer zanfan aprann enn espes "patwa Franse" ek enn "Angle byen rizid", e anmemtan pe antrav ful devlopman zanfan dan so langaz maternel, Kreol ek Bhojpuri.<br /><br />Ala temwaynaz lor tretman ki ekivo a "serious mental harm", kot dimunn finn blese mantalman akoz politik Minister Ledikasyon.<br /><br /><br />Premye temwaynaz (fam asterla 30 an):<br />Dan mo fami nu tu koz langaz Kreol, ek zame ni mo mama, ni mo papa pa finn koz Franse ni Angle dan lakaz. Dayer mo papa pa finn al lekol ditu, e purtan li enn dimunn byen reflesi, byen intelizan. Li kapav tini enn konversayon an Kreol, Angle ek Franse.(Ondire li enn lexanp aprantisaz "aditif".)<br /><br />Mo ti al lekol Site Richelieu pandan 2 premye lane lekol, e tu finn pas byen. Kan mo paran finn demenaze pu vinn res Porlwi, mo finn bizin sanz lekol. Deza li enn bulversman pu sanz lekol, me li ti inevitab.<br /><br />Lerla, dan 3yem, enn zur mo ti santi mwa malad enn sel ku dan ler klas. Mo vant ti fermal for. Mo ti santi mo anvi al twalet irzan. Kan mo finn al dir mo profeser, enn Mis, ki mo anvi al twalet, li finn dir mwa ki li pa pu les mwa ale, parski mo bizin adres avek li dan langaz Franse. Li finn anons mwa ki mo bizin ekrir 200 fwa "Je dois m'adresser a mon Miss an Franse." Sa zur la, kan li finn anpes mwa al twalet, mo finn sufer enn tromatis terib, mo finn tata dan mo linz. <br /><br />Ek pandan enn an dan klas, buku zanfan enpe meskin, finn res sikann mwa, enn parski mo pa koz Franse, ek de parski mo finn tata dan mo linz.<br /><br />Mo papa ti telman ankoler ki li ti pe rod tir mwa lekol (anfet, ziska ler, parfwa mo panse vomye li ti tir mwa lekol, akoz mo ti res byen malere dan lekol, ziska kolez). Mo osi, kuma mo papa, mo plito enn oto-didak.<br /><br /><br />2yem temwaynaz (zom asterla 43 an):<br />Dan klas Franse, kan mo ti dan 6yem, Profeser Franse (enn apele Misye I.D.) dan klas Franse, ti pe fer enn lekzersis pu swadizan devlop kapasite pu koz byen Franse avek enn bon aksan. Li ti dabor fer enn lekzersis ki konsiste ar pran enn kreyon papye, ek met li atraver nu labus, kuma enn brid, e lerla fer nu lir enn teks a ot-vwa. Kan u ena kreyon papye dan labus u vreman paret kuma pe dres enn zanimo. Sa ti enn lekzersis byen penib, li ti enn vyolans kont zanfan.<br /><br /><br />3yem temwayaz (enn zanfan 11 an asterla):<br />Kan mo ti dan fers, mo mis ti dir nu bizin koz Franse pu nu dimande pu al twalet. Mo pa ti kontan.<br /><br /><br />Alor, sa temwaynaz la montre ziska ki pwen, dan bann ka extrem, sa "ditor mantal" kapav ale. Me anfet, tulezur, kan u insilte (a ot vwa, ubyen par insinyasyon, ubyen par polisi) langaz maternel enn zanfan, li enn "ditor mantal extrem", li osi.<br /><br />Guvernman pe permet langaz Angle ek Franse res gran "langaz asasin" (killer languages) dan Moris. Angle ek Franse zot bann pli gran "langaz asasin" dan lemond. Dan Moris parey, parski guvernman pe fors zanfan aprann "gran" langaz dan "gran" langaz, par system "retire" (setadir odetriman lang maternel) plito ki dan enn fason "aditif" (anplis de lang maternel).<br /><br />Avek sa akizasyon zenosid ki nu pe porte kont u, li evidan ki nu pu akseler nu kanpayn pu servi langaz Kreol ek Bhojpuri dan lekol pu lanseynman. E pu met fin a seki pe ariv istaz, avek ledikasyon obligatwar, enn zenosid lingwistik. E se u ki ena sa lor u konsyans. <br /><br />Resers ek letid lor langaz ek lekolaz<br /><br />Depi 1953 UNESCO ti rekonet piblikman ki "li enn evidans ki meyer medyom pu servi pu montre zanfan li atraver so langaz maternel". Sa pozisyon UNESCO-la li baze lor rezilta resers ki exper e pedagog onivo internasyonal finn fer. Ziska zordi UNESCO ankor mintenir sa mem pozisyon-la.<br /><br />Buku letid pli resan finn konfirm seki UNESCO e seki tu pedagog ki reflesi ti pe deza dir anfaver servi langaz maternel pu montre. Les nu get enn rezime konklizyon mazer ki kapav tire depi sa bann nuvo letid-la.<br /><br />1. Tu serser dakor ki kan servi langaz maternel pu montre zanfan, sirtu dan zot bann premye lane lekol primer, li benefik pu zot devlopman kognitif. <br /><br />Konklizyon pli inportan ki Nadine Dutcher finn tire dan so rapor lor bann lexperyans lor itilizasyon enn premye langaz (ubyen langaz maternel) ek enn dezyem langaz dan lekol, dir: " Kan u bi se pu montre, inkli montre enn dezyem langaz, bizin servi premye langaz zanfan kuma medyom lanseynman dan bann premye lane lekol " Dan mem rapor li azute, "Pu enn rezilta optimal, bizin kontiyn servi premye langaz zanfan dan primer kan zanfan-la pe anprann enn dezyem langaz. Si li posib, bizin inklir zelev so premye langaz kuma size dan segonder kan medyom lanseynman finn sanze. Premye lang li esansyel pu introdir lektir, e konpreansyon konteni size ki pe anseyne. Samem fondasyon neseser pu devlopman kognitif e lor lekel repoz akizisyon enn dezyem langaz." Pli lwin li dir "Kan zanfan kapav anprann enn dezyem langaz? Enn bon prinsip baze lor lexperyans dir ki li bizin apre ki zanfan finn ena literesi dan so premye lang." <br /><br />2. Enn parti bann serser afirme klerman, e laplipar lezot rekonet inplisitman, ki ledikasyon atraver langaz maternel donn zanfan plis konfyans dan zot mem e dan zot idantite. Zanfan partisip plis e avek pli buku lantuzyas dan klas. Zot degre lasirans personel e zot langazman kritik avek zot profeser ogmante.  <br /><br />Bann letid dan 64 klas lekol dan Mozanbik an 1997  ek dan 2 Departman kot zanfan koz Quechua dan Bolivi  finn demontre mem rezilta.<br /><br />3. Enn bon baz konesans dan langaz maternel fasilit aprantisaz lezot langaz. Dapre resers, si zanfan pe oblize anprann atraver enn langaz ki zot pa kone, zot ena enn gro dezavantaz e zot pa reysi ratrape apre.<br /><br />Letid ki pli explicit lor la li seki David Ramirez finn fer dan Lamerik.  Li enn letid longitidinal lor enn period 8 an, ant 1983 a 1991. Sa letid-la konsern 51 lekol primer dan distrik California, Texas, Florid, New York ek New Jersey. 2,000 zelev ki zot premye lang Espanyol ti partisip dan sa letid-la, inkli zot paran. Bi letid-la sete pu gete ki ariv bann zanfan, ki zot premye lang napa Angle, kan montre zot inikman an Angle ubyen kan servi Angle e Espanyol pu montre. Bann lekol primer kot ti fer sa letid-la ti divize an 3 kategori:<br /><br />(i) lekol kot montre an Angle net<br /><br />(ii) lekol kot montre dan langaz maternel mwins ki 40 minit par zur ziska lafen 2yem ubyen 3yem lane<br /><br />(iii) lekol kot montre dan langaz maternel pandan plis ki 40% lazurne ziska lafen 6yem lane.<br /><br />Rezilta sa letid-la demontre ki pli lontan u gard itilizasyon langaz maternel dan lekol pli li bon pu zanfan e pli zot performans bon. Zelev ki ti anprann dan zot langaz maternel (dan sa ka la Espanyol) ziska 6yem pa zis zot ratrap byen vit lor nivo Angle seki ti anprann an Angle net, me zot nivo dan Angle mem (ki anfet zot dezyem langaz ) ti pli elve ki premye grup e so tandans ti pe kontiyne progrese . Get graf kuma atachmennt.<br /><br />Lezot letid ki finn fer dan Haiti demontre mem zafer. Zelev Kreolofonn ki ti anprann dan langaz Kreol Haityin dan lekol, ti akerir otan kompetans dan 2yem langaz (dan sa ka-la, Franse) ki zelev ki finn expoze zis ar Franse , plis natirelman plis konpetans dan bann size apar langaz.<br /><br />Enn zanfan so devlopman dan so langaz maternel li pli inportan pu akizasyon enn 2yem langaz ki introdiksyon boner dan lekol, a dezyem langaz-la. Buku dimunn ti panse ki li enn lavantaz pu expoz enn zanfan a enn dezyem langaz dan lekol e zot ti panse ki pli li boner e pli li lontan u fer sa, pli li bon. Buku letid finn vinn kas sa mit-la. Li enn foste. Kuma letid ki finn fer dan Nigeria ki finn truve ki zelev ki koz Yoruba e ki finn anprann dan sa langaz-la depi so premye lane primer ziska sizyem ena pli bon performans dan tu kalite test aptitid dan dezyem lang (Angle) .<br /><br />Mem rezilta finn gayne dan Guatemala National Program for Bilingual Education ki finn montre kimanyer zelev ki ti anprann dan zot langaz maternel ti ena meyer performans dan bann test dan dezyem lang ki zelev ki ti anprann selman dan sa dezyem lang-la.<br /><br />Enn lexanp depi Papua New Guinea<br /><br />Popilasyon Papua New Guinea li anviron 5 milyon, e li pei ki ena pli gran nomb langaz dan lemond. Ena plis ki 850 diferan langaz. Oparavan, ledikasyon ti prinsipalman atraver medyom Angle. Me, finn ena enn gran devlopman, e ariv lane 2002, ledikasyon dan pre-skoler, e premye de klas dan lekol, ti fer dan 470 langaz. Pa 2, kuma nu pe dimande, Kreol ek Bhojpuri, me 470.<br /><br />Papua New Guinea li pa parmi pei pli ris dan lemond, li.<br /><br />Ki ete rezilta? Zot ti kumans sa lexperyans-la an 1993, setadir 10 banane desela. Nu pu sitr rezilta depi letid David Klaus. "Zanfan vinn letre pli vit, e pli fasilman. Zot aprann Angle pli vit e pli fasilman ki zanfan avan zot lepok ti fer dapre vye sistem medyom Angle. Zot pa fer drop-awt. Zanfan, e sa inklir tifi, res lekol. Apre premye sis banane, zanfan konpoz enn lexamen obligatwar. Dan sa bann provens ki ti kumans nuvo sistem premye, an 1993, zanfan ki ti ena langaz maternel kuma medyom ledikasyon ti tir pli bon rezilta dan lexame lafin lane, ki ti an Angle, ki bann zanfan provens ki ti ankor tuzur pe montre atraver medyom Angle depi premye zur lekol." <br /><br />Enn konparezon 2 pei vwazin, Zambi ek Malawi<br /><br />Ena enn lekzanp depi Zambi ek Malawi, dapre enn letid ki finn fer par Edward Williams kot ti fer enn letid avek 1,500 zanfan dan grad I-VII depi laz 6 an ziska 14 an. Letid-la finn demontre ki zanfan Zambi finn edike atraver medyom Angle. Letid finn konklir ki ena enn nomb inportan zanfan Zambi (tu edike an Angle) ena konpetans extreman feb ubyen mem zero konpetans lektir dan 2 langaz.<br /><br />Dan Malawi par kont zanfan ti anseyne dan plizyir langaz lokal, langaz maternel dan laplipar ka. Pandan premye 4 lane lekol zot ti ena Angle kuma enn size, e depi sinkyem lane zot ti kumans etidye tu an Angle.<br /><br />Kan Edward Williams konpar zot konpetans an langaz Angle avek zanfan Zambi, li truve ki zelev Malawi tit ena rezilta pli bon dan tes Angle ki zelev Zambyen.<br /><br />4. Enn zanfan bizin an zeneral omwin 12 an pu anprann so premye langaz (Collier 1989 sit McLaughlin 1984). Buku paran panse ki zanfan deza konn so premye langaz ase kan li rant lekol donk li pa neseser li anprann sa langaz-la dan lekol. Anfet zame u fini anprann u langaz; tultan u pe kontiyn anprann nuvo zafer dan u langaz, e sa ziska u vye. Efektivman enn zanfan 6 an fini ase devlope onivo BICS, me so CALP, li minim. Sa li devlope pandan prosenn 12 an.<br /><br />5. Resers ki finn fer truve ki li fos ki ledikasyon bileng baze lor langaz maternel li kut pli ser. Okontrer li kut mwins kan servi langaz maternel pu montre. <br /><br /><br /><br />Tu sa bann letid-la pruve ki langaz maternel li inkonturnab dan ledikasyon zanfan dan lekol. Dan Sid Afrik zot kontan servi zimaz esafodaz dan konstriksyon pu ilistre linportans servi langaz maternel. Kan u pe konstrir enn batiman apre ki u fini met so baz, osi lontan ki u gard ek kontinye mont esafodaz u kapav azut ankor letaz. Dimoman u anlev esafodaz, demont li ubyen aret mont li pli ot, u nepli kapav kontiyn azute, u konstriksyon bizin aret lamem. Dan lekol, langaz maternel li kuma sa esafodaz-la. Tank u gard li, tank u kontinye mont li, ledikasyon zanfan (inklir so akizisyon konpetans a ot-nivo lezot langaz) kapav kontiyn batir, elarzi e aprofondi so konesans. Sinon, zanfan-la ena tandans res o-nivo enn konpetans lingwistik ase elemanter, Basic Interpersonal Communicative Skills.<br /><br />Donk li responsabilite lotorite ansarz ledikasyon, sirtu minis Ledikasyon, pu asire ki dan tu lekol piblik, ena sa esafodaz langaz maternel pu ki zanfan anprann dan enn fason ki pa antrav devlopman so kapasite kognitif e osi anprann lezot langaz byen. Samem UNESCO ek tu sa resers modern-la pe dir. Kan lekol pa furni sa esafodaz-la li antrav enn tel devlopman.<br /><br /><br /><br />Sityasyon Lingwistik dan Moris dapre 2 dernye resansiman<br /><br />Langaz dimunn abitye koze lakaz dan Repiblik Mauritius dapre Resansiman Ofisyel 1990 ek 2000 donn enn indikasyon lanpler sa zenosid lingwistik ki pe perpetre par u Minister.<br /><br /><br />Langaz dimunn abitye koze lakaz<br /><br />1990					2000<br /><br />Total popilasyon			1,056,660				1,178,848<br /><br />Kreol				   652,193 ( 61.7 %)			   826,152 (70.1%)<br /><br />Kreol ek enn lot langaz	    93, 899 ( 8.9 %)			   123,118 (10.4%)<br /><br />Bhojpuri			   201,618 ( 19.1 %)			   142,387 (12.1%)<br /><br />Bhojpuri ek enn lot langaz	     21,953 ( 2.1% )			       7,645 (0.6 %)<br /><br />Franse				     34,455 ( 3.3%)			     39,953 (3.4%)<br /><br />Angle				       2,240 (0.2%)			       3,512 (0.3%)<br /><br />Lezot langaz			     49,208 (4.6%)			     32,190 ( 2.7%)<br /><br /><br />Extracts of figures from official Census on language usually spoken at home in 1990 and 2000.<br /><br /><br /><br />Komanter<br /><br />Sa bann sif-la pe montre imans nomb dimunn ki koz Kreol e Bhojpuri lakaz, e ki ase fyer pu dir ofisye Guvernman ki sa-mem zot koze lakaz.<br /><br />Progre ki langaz Kreol finn fer. An 1990 ena 70.6 % dimunn ki finn dir zot koz Kreol ubyen Kreol ek enn lot langaz lakaz. An 2000 sa sif-la finn vinn 80.5%.<br /><br />An 2000 totalite dimunn ki dir zot koz Kreol e Bhojpuri li 93.2%; li ti 91.8% an 1990.<br /><br />Ena zis 5% popilasyon ki dir zot abitye koz Angle, Franse ubyen enn langaz Oryantal lakaz.<br /><br /><br /><br />Ki Ledikasyon Pu Travayer pe demande pu aret sa zenosid lingwistik la? <br /><br />Ledikasyon Pu Travayer, dir ki Minister Ledikasyon bizin aret asasinn lintelizans zanfan. <br /><br />Nu propoze ki Minister Ledikasyon enn fwa pu de bon kumans servi langaz maternel zanfan Kreol ek Bhojpuri kuma medyom lanseynman. Apartir sa lane, Minister Ledikasyon bizin pran tu dispozisyon pu introdir Kreol ek Bhojpuri dan ti-klas pandan 2004. Sa pu permet enn introdiksyon gradyel medyom apropriye.<br /><br />Pu ki nu kapav asire enn bon tradiksyon sak text-buk, nu propoze ki, Minister Ledikasyon organiz bann gran "konkur nasyonal tradiksyon an Kreol ek Bhojpuri" tu bann liv lekol ki bann zanfan pu servi. Si neseser guvernman donn enn pri (Rs 100,000 ubyen plis) a pli bon tradiksyon sak text lekol. Minis ena zis pu nom enn ziri konpetan. Sa pu ed Minister gayn bon tradiksyon dan langaz maternel pu ki bann zanfan kapav servi dan lekol.<br /><br />2. Nu propoze ki Minister Ledikasyon ofer langaz Kreol ek Bhojpuri kuma "size" dan lekol, parey kuma ninport ki lot size, depi enn zanfan rant primer ziska so letid tersyer.<br /><br />3. Ledikasyon pu Travayer fer demand ki Guvernman rekrit enn grup lingwis profesyonel avek expertiz pu dekrir gramer Kreol syantifikman ek pu kontinye develop lanseynman langaz Kreol. Mem zafer pu Bhojpuri.<br /><br />4. Nu propoze ki guvernman met dibut dan MIE, MCA, MGI ek Liniversite Moris, enn Departman ki ena responsabilite pu fer bann letid ek resers lor langaz Kreol, ek enn lot pu langaz Bhojpuri. <br /><br /><br /><br />Lefet ki buku bann profeser, atraver zot sindika finn deza pran pozisyon anfaver introdiksyon langaz Kreol kuma medyom lanseynman dan sistem ledikasyon, lefet ki buku profeser deza servi langaz maternel kan zot pe donn zanfan leson parski li langaz ki servi dan lavi tulezur, sa vedir ki pa pu ena difikilte pu bann profeser fer zot travay avek vokasyon ek antuzyas.<br /><br />Sa nuvo politik ki nu pe insiste pu pli bon pu zanfan, li pu natirelman osi permet paran kontribye plis dan ledikasyon zanfan.<br /><br /><br /><br /><b>Dezyem kalite zenosid</b><br />An konklizyon, nu ti pu kontan atir u latansyon lor enn lot kestyon byen grav, kan lekolaz finn vinn obligatwar. Zordizur ena tuzur buku landrwa kot ena zis enn lekol primer RCEA, setadir enn lekol ki furni enn ledikasyon ki, dapre Guvernman, li "spesifik" dan kote relizyon. La osi, si u, an tan ki Guvernman, kontiyn obliz paran Tamarin ubyen St. Pierre, par exanp, avoy zot zanfan dan enn lekol ki pe montre tu size dan enn fason "Katolik", sa osi, malerezman, li ekivo, dapre tu norm internasyonal, a enn zenosid. U pe fors zanfan kit zot grup relizyon, rant dan enn lot grup.<br /><br />U truve, kan lekolaz vinn obligatwar, u, antan ki Minis, gayn enn responsabilite anplis. U bizin konstrir lekol sekilye dan tu landrwa. Sinon, u pu bizin peye, si ena reparasyon. E u pu responsab enn ditor imans a zanfan.<br /><br />E u bizin fer ledikasyon dan langaz maternel, pu evit perpetre enn zenosid lingwistik, par inpoz langaz inkoni ek etranze lor zanfan.<br /><br />Nu espere ki u pu tutswit kumans enn prosesis pu aret enn politik kolonyal ki finn dire pandan tro lontan asterla.<br /><br />Antuka, u kapav sir ki nu, dan Ledikasyon pu Travayer, nu pu kontinye lite pu liberasyon zanfan depi sa dominasyon ki u pe kontinye inpoze.<br /><br /><br />Salitasyon,<br /><br />Alain Ah-Vee					Lindsey Collen<br />Sekreter LPT					Prezidan<br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101322" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101322" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Report on Lindsey Collen Talk on &ldquo;The State over Time"</h1><p class="subtitle">24.09.2015</p></h1>
+	<p class="newsarticle"><p>At a session at Grand River North West presided by Shabeela Kalla, Lindsey Collen gave a talk on &ldquo;The State over Time&rdquo;, with the emphasis on the need to develop a conception of &ldquo;the State&rdquo; that makes sense for different epochs of human existence, as opposed to one relying on projections from recent prejudices about relatively recent times only. In other words, we need to challenge dominant ideas on &ldquo;the State&rdquo;.</p><br /><p>&nbsp;Shabeela Kalla introduced the talk by saying how unusual it is for &ldquo;the state&rdquo; to be centre-stage in the news, as it is at the moment with the &ldquo;refugee crisis&rdquo; in Europe provoking borders around the edges of Europe (an entity with state-like aspects), and conflicts between different States within Europe, and reminding us of the arbitrary and fluid nature of today&rsquo;s &ldquo;nation state&rdquo;; &ldquo;the state&rdquo; today concerns both people and boundaries, as we see before our eyes on Television news, often people fleeing war, often provoked by states, including European states.</p><br /><p>&nbsp;Lindsey Collen said that peoples&rsquo; conception of &ldquo;the State&rdquo; is, rather curiously, often closely linked to their conception of &ldquo;human nature&rdquo;. And dominant ideas about &ldquo;human nature&rdquo; date from about 500 years back.</p><br /><p>&nbsp;In particular, there is a belief that &ldquo;the State&rdquo; is a necessary blessing to protect us from the barbarity into which we would fall, by nature, were it not for the State. A nice circular argument. And it is based on the assumption that we are bestial, barbaric, greedy, egoistical, self-seeking creatures <em>by nature</em>. But today, this dominant idea about what &ldquo;human nature&rdquo; is, she said, is <em>known to be</em> based on completely out-dated, unscientific ideas &ndash; or more accurately, on ignorance, in particular, about how long human beings have actually existed, and how we lived for most of our time on earth.</p><br /><p>&nbsp;The dominant ideas on &ldquo;the state&rdquo; are thus frozen in out-dated concepts, concepts that developed over the course of the gradual coming to power of the modern capitalist &ldquo;state&rdquo; over the past 500 years. On the one hand, these ideas come and rather conveniently justify the system of economic exploitation, which has been in power for a mere 250 years, and on the other hand, they are based on <em>erroneous</em> views of &ldquo;human nature&rdquo; based on ignorance as to the <em>duration</em> of human society, over time. And this is what we will talk about today.</p><br /><p>&nbsp;In particular, she said, dominant ideas on &ldquo;human nature&rdquo; developed when philosophers, and even scientists, thought humanity had existed only a few thousand years, all of which time <em>in hierarchic societies</em>.</p><br /><p>&nbsp;Now paleontologists, geologists, evolutionary biologists and studies of the human genome, have shown that we have existed, in human societies, for hundreds of thousands of years. And during most of this time, all sorts of studies show how we, as humans, managed to survive together by our collective thinking and action, by our co-operation, by our planning things jointly because of our linguistic capacity which is natural, and so on. The exact opposite of the &ldquo;bestial&rdquo;, &ldquo;greedy&rdquo;, &ldquo;barbaric&rdquo; nature that dominant ideology propounds.</p><br /><p>&nbsp;So, our conception of what exactly &ldquo;human nature&rdquo; is must change, so as to accommodate this new knowledge.</p><br /><p>&nbsp;We need to know that the dominant concept of &ldquo;human nature&rdquo; remains based on the projections back only five or so hundred years, sometimes, and at most to five or so thousand years, during which relatively recent time, <em>society</em> made us seem very different from what our &ldquo;nature&rdquo; probably is.</p><br /><p>&nbsp;Lindsey Collen said that we need firstly to challenge these fallacious ideas on human nature that are used in order to produce moral justifications for &ldquo;the State&rdquo; and anything it does. And then we can go on and look for a definition of the state that takes into account the whole of the history of humanity, and not just the last little bit.</p><br /><p>&nbsp;At this point, Lindsey brought out a piece of blue raffia, about 40 feet long representing 500,000 years, which those present for the talk held, draped in their hands, around the room. <em>That</em>, she said, is the length of time (seen as a metaphor of space) that our species, Homo Sapiens, has existed &ndash; by scientific knowledge of the day. There was a knot in the raffia to mark 160,000 years, since our sub-species, Homo Sapiens Sapiens, is known to have existed &ndash; 14 feet of raffia ago, as it were. And then a 5 inch bit, showed the 5,000 years in which there have, in various places, been &ldquo;states&rdquo; that emerged with the emergence of classes, following the accumulation for the first time of stocks (of harvested food, and of animals) that resulted from the development of agriculture. 1/4 of an inch represented the 250 years when the bourgeois or capitalist state came to power. So, for a start, she said, we will need a theory of the state, which includes the 155,000 years of our existence &ndash; when we lived mainly in peace and in co-operation with each other &ndash; without a state. And we will, of course, need to develop an idea of &ldquo;human nature&rdquo; that is not based on recent prejudice and on ignorance of our own history on the planet. In fact, our history is becoming clearer and clearer since, say 1974, with the discovery of Lucy, a hominid woman (from our genus, the bigger family than species) dating from 3.5 million years ago, with the studies of the human genome, showing how we are all from Africa, and the studies of linguistic diversity, which re-enforce the studies of genetic diversity, showing we are one family, all coming from Africa.</p><br /><p>&nbsp;She then took some five or six influential thinkers over the past 500 years, who have, in their ignorance and perhaps their need to justify the power of the oppressors, defined the dominant ideas on human nature, on the one hand, and on what exactly the state is, on the other. They all spoke from a lack of any knowledge or (in the case of the most recent ones) of any feel for the length of the history of humanity.</p><br /><p>&nbsp;<strong>Outline History of Dominant ideas on &ldquo;human nature&rdquo; and &ldquo;the state&rdquo;</strong></p><br /><p>Just to get an idea, we will look at a political advisor, a philosopher, an economist, a historian, and then some more economists over the last 5 centuries.</p><br /><p><strong>&nbsp;1513:</strong> Nicollo Macchiavelli (advisor to politicians in the City States of Italy): He introduced the idea of two different kinds of morality, one for ordinary life and the other for &ldquo;the state&rdquo;, what the French call &ldquo;raison d&rsquo;etat&rdquo;. Politics, he maintained, was ruled by other laws to do with power, not by normal human decency, and this is fine. This is why Bertrand Russell called it &ldquo;a handbook for gangsters&rdquo;. We still suffer from this brilliant, yet iniquitous, &ldquo;justification&rdquo; of the unjustifiable. And from then on, it became commonplace to deny that &ldquo;War is murder&rdquo; or &ldquo;tax is theft&rdquo;.</p><br /><p>&nbsp;<strong>1650</strong>: The concept of &ldquo;human nature&rdquo; was developed for the first time, and from then on, it has been linked to the nature of &ldquo;the state&rdquo;. In his book&nbsp;<em>Leviathan,</em>&nbsp;the British philosopher Thomas Hobbes said, &ldquo;No man giveth but with intention of good to himself; because gift is voluntary; and of all voluntary acts the object to every man is his own pleasure.&rdquo;&nbsp;He launched the idea of self-interest being a good thing.</p><br /><p>&nbsp;<strong>1750:</strong> 100 years later, the economist, Adam Smith, came up with the &ldquo;invisible hand&rdquo; that meant that when everyone acts in his own interest in the market, this will produce a good society.</p><br /><p>&nbsp;<strong>1850</strong>: Another 100 years, the British historian, Macaulay asked himself the question, &ldquo;What proposition is there respecting human nature which is absolutely and universally true?&rdquo;, and replies, &ldquo;We know of only one . . . that men always act from self-interest.&rdquo;</p><br /><p>&nbsp;<strong>1950:</strong> The economists of the Chicago school, Friedman and Hayek, justify self-interest of the worst kind, and try out their theories in Chili, after the coming to power of the military junta.</p><br /><p>&nbsp;And in <strong>2008</strong>, Alan Greenspan, in charge of the Federal Reserve Bank at the time of the massive financial crisis, in his notorious quotation, had nothing more to blame for the hideous crisis than &ldquo;human nature&rdquo;. The same old tune about human greed being natural.</p><br /><p>&nbsp;These few men show the development of the idea of human nature, one which justifies exploitation, and anything the State does, in maintaining it &ndash; from military juntas to mass bankruptcy.</p><br /><p>&nbsp;But in fact, over our 500,000 years as our species Homo Sapiens, and over our 160,000 (as Homo Sapiens Sapiens), we find that our survival depended upon us being co-operative, altruistic, peace-loving creatures. In fact, our defining feature <em>par excellence</em>, our linguistic capacity, exists only in collective existence. In a way, it is a proof of our nature as collective creatures. And it is now being increasingly proven that we lived not as greedy, egoistical, barbaric creatures, but peacefully.</p><br /><p>&nbsp;What has happened over the past 5,000 years (and at most 11,000 years) is that, here and there on earth, societies have developed stocks. And these stocks were always, until recently, limited. They were not enough for plenty for everyone, as today, perhaps for the first time, they are.&nbsp; So, in the struggle to control these stocks, class societies developed, and hierarchies. These hierarchies, like all hierarchies, have a very few at the top with a control over a great deal of stocks, and a great many people at the bottom, with no control whatsoever over them. It is a state that maintains this unstable situation.</p><br /><p>&nbsp;This is the Marxist view of the State.</p><br /><p>&nbsp;And it is, of course, increasingly being shown to be a useful definition. A state is the totality of mechanisms by which a small minority maintains its control over the stocks produced by a big majority of people.</p><br /><p>&nbsp;Its usefulness is also proven by the fact that, for the 160,000 years of Homo Sapiens Sapiens societies, when there was no State, the reason for there being no State is clear. There was no surplus. There were no stocks.</p><br /><p>&nbsp;So, it is not &ldquo;human nature&rdquo; but the &ldquo;nature of society&rdquo; (some societies) over the past 5,000 years only out of a total of at the very least 160,000 years that makes those who are dominant justify their egotism, greed, etc.</p><br /><p>&nbsp;And the Marxist view of the State is even more useful. It shows a way to a better possible future. When there is enough food for all, and enough housing, clothing, education, health care, and all the basics, as is the case now, it is be &ldquo;envisionable&rdquo; that indeed the state will wither away. A minority will not need to control the stocks. We can all look after things on a kind of rotational basis. We can use our technology to enable this new form of democracy.</p><br /><p>&nbsp;The only thing standing in our way is the vested interests of the tiny minority, &ldquo;the 1%&rdquo; that control the entire capitalist system, world-wide.</p><br /><p><strong>Conclusion </strong></p><br /><p>So, in order to understand &ldquo;human nature&rdquo;, it is certainly not sufficient to look at the past 250 &ndash; 500 years, or even the past 5,000 &ndash; 11,000, when our species Homo Sapiens or humanity, has existed for 500,000 years. We have survived with our <em>nature</em> for hundreds of thousands of years. In fact, we are one of the few surviving primates, and we are the only surviving Hominid, of all those that emerged from 30 million years ago. So, the question of our survival is posed. Was it because of our capacity to co-operate together? To put our heads together? Was it because of the development of our capacity to think by means of our linguistic capacity, something innate in us? We are able to talk about things not present. This also means telling the truth is important &ndash; for survival. We are able to give our word for a future action. This also means trust is important &ndash; for survival. All this is part of our essence of our nature, and contributed to our survival.</p><br /><p>&nbsp;And we mention all this when talking about the State, for the simple reason that the most influential of reactionary thinkers, who still represent the dominant ideas, all based their ideas on the state upon their ideas of human nature. And then they came up with ideas on human nature that justified a repressive state. This, as we have seen, is only partly due to vested interests of the ruling class, but such ideas could become influencial and still persist&nbsp; due also to ignorance about the existence of a very long and peaceful history of humankind. But, now known.</p><br /><p>&nbsp;So, we end by mentioning once again the two opposing theses on the state:</p><br /><p>In Mauritius, many human rights activists have the reactionary model in their heads. Their discourse goes as follows: Humans are by nature barbarians, and without the State, which guarantees human rights, people would like in bestiality. You could hear this in Amnesty International (Mauritius) and still hear it in Dis Moi. At an international level, there&rsquo;s Alan Greenspan&nbsp;and his: &laquo;&nbsp;It&#039;s human nature, unless somebody can find a way to change human nature, we will have more crises and none of them will look like this because no two crises have anything in common, except human nature.&rdquo;)</p><br /><p>&nbsp;And the other thesis, the more useful one, comes from Karx who saw the State as something external to ordinary human society, and which permitted a small minority to expropriate-and-dominate the rest of humanity, thus imposing something that goes against our innate nature as altruistic and caring beings.</p><br /><p>&nbsp;- End of talk.</p><br /><p>&nbsp;There was lively debate, especially on the hybrid nature of most states. At a more contemporary issues level, people spoke of the Lepep Alliance being elected and having to deal with the continuing &ldquo;Labour Party&rdquo; state apparatus. Britain, when confronted with a judgment favourable to the return of Chagossians, had not qualms about reverting to a previous State: the Queen just issued Orders-in-Council.</p><br /><p>&nbsp;There was also reference to present-day &ldquo;failed states&rdquo;, and how when there is inequality a &ldquo;failed state&rdquo; leaves a vaccuum which does result in near mahem &ndash; and that this then gives the appearance of confirming the reactionary definition of the State. People also spoke of the relatively &ldquo;new&rdquo; States now in Europe, and at the front-line of the &ldquo;migration crisis&rdquo;, and of Greece, a case where there is a conflict between the Greek State and the European near-State it is in.</p><br /><p>&nbsp;People concluded by saying that we all think we know what the State is, then as we think things through, we begin to feel we don&rsquo;t understand what it actually is at all, and this adds to us fearing it.&nbsp;</p><br /><p>&nbsp;<strong>Here are some of the Appendices Lindsey referred to during her speech &ndash; saying she would make them available (They are, like her talk, in Kreol).</strong></p><br /><p>&nbsp;<strong>Appendix 1</strong></p><br /><p>&nbsp;<em>500,000 an desela</em>:&nbsp;&nbsp; Imin (homo sapiens) emerze. Pena leta. Me, deza ena natir imin, nu spiyshiz,</p><br /><p><em>&nbsp;160,000 an desela:</em>&nbsp;&nbsp; Imin (nu sub-species: homo sapiens sapiens) viv an-gran grup, san klas sosyal diferan, san inegalite sosyal, san stok ni &ldquo;<strong>leta</strong>&rdquo;. Pena leta ditu, me deza ena natir imin. Ti pe ramas frwi, fuy rasinn, lapes, fer keyet dimyel, lasas e kwi ti-zanimo e gran zanimo. Imin ti nomad. Ti buz avek sanzman sezon, etc. Buku konesans ti stoke dan latet sak dimunn. Ti depann pu sirvi lor koperasyon profon, liye ar nu kapasite lingwistik. Imin kapav limit &ldquo;mank prediktabilite&rdquo; dan lavi atraver planifye ansam, e koze avek presizyon. Linportans koz laverite, pu sirvi nu spiyshiz. Linportans kopere, planifye, sa osi pu sirvi nu spiyshiz.</p><br /><p>&nbsp;<em>5,000 &ndash; 12,000 an desela:</em> Emerzans leta isi-laba avek sa nuvo devlopman la: <strong>Revolisyon lagrikiltir.</strong></p><br /><p>Isi-laba ena dekuvert 2 kalite lagrikiltir distink: lelvaz, plantasyon, parfwa le 2. Sa kontiyn lor letan; tu kalite nuvo zafer devlope.<strong> </strong>Nu gayn sosyete &ldquo;sedanter&rdquo;, res anplas. Devlop enn stok manze, ki bizin garde.<strong> </strong>Anfet an Angle &ldquo;stock&rdquo; vedir &ldquo;trupo&rdquo; e osi &ldquo;stok sirplis&rdquo;. E kan gard semans, u pe anfet met de-kote enn stok pu lavenir. Kan vinn sedanter, kan prodir enn stok, li provok enn seri lezot sanzman konportman:</p><br /><p>&nbsp;- Ena enn grup (klas) ki gayn kontrol lor sa stok la, lor sa sirplis la.</p><br /><p>&nbsp;- Sa klas la, li extirp sa sirplis la depi travay lezot (peyzan), li garde.</p><br /><p>&nbsp;- Alor, enn klas li vinn enn klas dirizan/posedan e li ansarz leta.</p><br /><p>&nbsp;- Enn ti-poyne reyne lor lezot</p><br /><p>&nbsp;&nbsp;&nbsp; -- atraver relizyon/krwayans/siperstisyon.</p><br /><p>&nbsp;&nbsp;&nbsp; -- atraver disan (kast, larenn, gran nasyon, zaminndar, sheik, warlord.</p><br /><p>&nbsp;&nbsp;&nbsp; -- atraver kontrol lor kapital, plis ofer lezot &ldquo;sitwayin&rdquo; enn eleksyon pu enn ti but leta (0.2%) anterm depans.</p><br /><p>&nbsp;<strong>Appendix 2 </strong></p><br /><p>Reyne (atraver enn &ldquo;<strong><em>leta</em></strong>&rdquo;) vedir esansyelman 2 zafer:</p><br /><p>- Pran tax ar leres dimunn, servi li dan lintere u klas, e dan lintere reyn kontinyel u klas.</p><br /><p>- Gard enn larme/lafors arme kuma lapolis, ki extern a sosyete ordiner: pu mem rezon. Mem si klas dirizan dir li pe ofer proteksyon kont lennmi (vre ek imaziner) ar sa lafors zom arme, kan anfet pli buku letan li pe servi zot pu gard u dan enn rol sumet.</p><br /><p>&nbsp;U sumet pu 2 seri rezon:</p><br /><p>- Krwayans ki oblize sumet (li inevitab) &ndash; realite ranforsi sa.</p><br /><p>- Lafors brit (li pu anpes u gayn manze, sipa ferm u).</p><br /><p>&nbsp;<strong>Appendix 3</strong></p><br /><p><strong>Kalite Leta</strong></p><br /><p>Leta kapitalist (leta burzwa) - li opuvwar depi 250 an parla. Li byin tigit. Me, li ena tras bann reyn avan, dan so natir aktyel.</p><br /><p>Lor Letan, finn gayn 3-4 kalite reyn prinsipal (e zot tu inpe ibrid) ubyin &ldquo;Leta&rdquo;&nbsp;:</p><br /><p>&nbsp;<em>- Teokrasi&nbsp;:</em> Enn relizyon reyne, gard enn larme, pran tax, fer dimunn sumet&nbsp;; 5,000 &ndash; 10,000 an desela ziska zordi.</p><br /><p>Lexanp klasik&nbsp;: Vatikan ant lane 400 L.K. par la ziska 1600 L.K. an desela Lerop. Ayatollah dan Liran.</p><br /><p>&nbsp;<em>- Reyne par desandans&nbsp;:</em> Lerwa, larenn, prins, gran nasyon, aristokrat, nob. &ldquo;Disan&rdquo; (me, avek permi divinn, <em>divine right of kings</em>).</p><br /><p>&nbsp; - Lafami Saud dan Larabi Saudit.</p><br /><p>&nbsp; - Lafami rwayal dan Lafrans ziska 1792, lafami rwayal Britanik ziska 1700 par la.</p><br /><p>&nbsp; - Reyne par pwisans komersyal (konpayni) + melanz sa 3 la.</p><br /><p>&nbsp;<em>- Reyne par kapital&nbsp;:</em> Apartir 1800-1850 par la&nbsp;: Dan USA, Grand Bretayn, Lafrans, Laoland, Lalmayn. Imans birokrasi, akapar later, akapar dibyin ubyin kapital (frwi travay lepase), akapar konesans (propriete intelektyel) &ndash; sertin &ldquo;leta&rdquo; byin for, zot leta kolonyal, inperyalist, Leta Nasyon (<em>nation state</em>) okip tusala (avek kudme birokrasi sipra-nasyonal&nbsp;: OTAN, WTO, IMF, WB)</p><br /><p>&nbsp;Alor, &ldquo;Leta&rdquo; li pa plis ki enn reyn par grup ki pwisan. Li ariv existe, selman apartir kan divize an <em>pwisan</em> ek <em>pa-pwisan</em>. Setadir, dan dernye 5,000 an (isi laba)&nbsp;:</p><br /><p>&nbsp;Lor 160,000 lexistans kuma Homo sapiens sapiens, ek 500,000 kuma Homo sapiens. E selman o gran maximem 5,000 an lexistans leta.</p><br /><p>&nbsp;<strong>Appendix 4</strong></p><br /><p><strong>Definisyon Meynstriym</strong></p><br /><p>Wikipedia: &ldquo;A <strong>state </strong>is an organized <a title="Political division" href="https://en.wikipedia.org/wiki/Political_division">political</a> <a title="Community" href="https://en.wikipedia.org/wiki/Community">community</a> living under a single <a title="Government" href="https://en.wikipedia.org/wiki/Government">system of Government</a>. &hellip;&nbsp;<a title="American English" href="https://en.wikipedia.org/wiki/American_English">American English</a>: <em>state </em>&amp; <em>government </em><a title="List of words having different meanings in American and British English: A&ndash;L" href="https://en.wikipedia.org/wiki/List_of_words_having_different_meanings_in_American_and_British_English:_A%E2%80%93L">synonyms</a> &hellip; an organized political group that exercises <a title="Power (social and political)" href="https://en.wikipedia.org/wiki/Power_(social_and_political)">authority</a> over a particular territory.&rdquo;</p><br /><p>&nbsp;&ldquo;&hellip; Many human societies have been governed by states for millennia, but many have been <a title="Stateless societies" href="https://en.wikipedia.org/wiki/Stateless_societies">stateless societies</a>. The first states arose about 5,500 years ago in conjunction with the rapid growth of urban centers, the invention of writing, and the codification of new forms of religion. Over time a variety of different forms developed, employing a variety of justifications for their existence (such as <a title="Divine right of kings" href="https://en.wikipedia.org/wiki/Divine_right_of_kings">divine right</a>, the theory of the <a title="Social contract" href="https://en.wikipedia.org/wiki/Social_contract">social contract</a>, etc.). In the 21st century the modern <a title="Nation-state" href="https://en.wikipedia.org/wiki/Nation-state">nation-state</a> is the predominant form of state to which people are subject.&rdquo;</p><br /><p>&nbsp;<strong>Appendix 5</strong></p><br /><p>Veritab definisyon &ldquo;leta&rdquo; bizin inklir bann letap swivan:</p><br /><p>&nbsp;Kan pa ti ena Leta (98% letan imin existe).</p><br /><p>Teokrasi (Reyn ar &ldquo;permi Bondye&rdquo;)</p><br /><p>Rwayote/reyn bann nob (reyn akoz u disan &ldquo;meyer&rdquo; &ndash; suvan avek &ldquo;permisyon divinn&rdquo;)</p><br /><p>Merkantilism: Reyn par komersan/konpayni (e.g. East India Company, zordi reyn konpayni kuma petro-simi, semans, farmasetik, armaman.)</p><br /><p>Despotism, Fascism, Bonapartism - reyn ki melanz sa 3 lao, plis komersan.</p><br /><p>Demokrasi burzwa akote, e ibrid avek birokrasi (Birokrasi kuma su Stalinism, War Lords dan Lasinn lontan, birokrasi sipra-nasyonal kuma WTO, IMF-WB, EEU, NATO, zordi)</p><br /><p>&nbsp;Alor, nu bizin enn definisyon ki anglob tusa kalite form reyn.</p><br /><p>&nbsp;Marx ki ena enn definisyon &ldquo;leta&rdquo; ki permet konpran tu so form, e ki permet mazinn byin ki:</p><br /><p>a) li pa ti existe pu laplipar listwar limanite</p><br /><p>b) li kuver tu sa bann diferan sistem reyn la</p><br /><p>c) li pa neseser (kuma enn zafer andeor sosyete), si nu reysi gayn enn sosyete kot pena klas sosyal diferan (setadir diferan relasyon ek mwayin sirviv/prodir)</p><br /><p>&nbsp;Anfet kan li ti ena 24 an, li interese pu kone ki Marx, kan li ti pe travay avoka, ti ekrir enn-de long lartik lor &ldquo;ki sa vedir kokin dibwa dan bwa&rdquo;? baze lor enn vre ka. Sa ki finn fer li kumans konpran natir leta.</p><br /><p>&nbsp;Leta se mekanism atraver lekel enn ti-minorite res opuvwar, angrese, reyne, kan enn gran mazorite res kraze, travay pu res vivan, pa futi pran&nbsp; par dan fer-desizyon. Alor, li existe akoz sosyete divize an-klas. Kan sosyete pa ti divize an-klas pandan 98% so listwar, pa ti ena leta. Ni pa ti ena barbari. Ti ena koperasyon ek lape, kuma reyn zeneral, ant dimunn egal.&nbsp; E kan sosyete nepli pu divize an-klas dan lavenir, pa pu ena nesesite enn &ldquo;leta&rdquo; andeor sosyete.</p><br /><p>&nbsp;Leta ena 3 brans zordi:</p><br /><p>1) Enn ki taxe u. Li enn birokrasi (enn bann dimunn apar) ki ramas larzan depi popilasyon, sirtu seki travay. (Ena tax ofisyel ki gm pran kuma TVA, inkom tax, ladwann + ena tax inofisyel (kasyet dan pri lartik ubyin servis - dizon konpayni lasirans, bwason gazez, farmasetik, konpayni petrolye - zot ase pwisan pu zot met enn pri pli for ki vreman neseser, pu ki lerla zot ki desid bann zafer kuma:</p><br /><p>- ki kalite resers neseser, pa neseser.</p><br /><p>- ki zot gayn monopol lor enn prodwi zot finn invante pandan 10 an ubyin plis.</p><br /><p>- ki evennman sportif bizin sponnsorize (depi lalig futborl, lekip futborl, zweer golf, partisipan dan Olinpik)</p><br /><p>- ki lar, lamizik, etc pu sponnsorize</p><br /><p>- ki parti politik pu donn baking</p><br /><p>&nbsp;Pli li pa demokratik, pli sa tax la enn sinp &ldquo;vol&rdquo;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><br /><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2) Lerla, li pran sa larzan tax pu gard enn birokrasi, suvan ase vyolan, ki ena monopol lor servi zarm&nbsp;; arme/lapolis/sistem zidisyer/lopital mantal - sanse pu protez u, me anfet pli suvan pu dominn u. La osi, pli li pa demokratik, pli li arbitrer.</p><br /><p>3) Leta konpoze de enn ta institisyon ki efektivman kuyonn u ek mwa: so sistem ledikasyon (piblik ek prive, lapres (sekter prive), Radio-TV (Gm ek sekter prive). Me, pli inportan ankor, li fer krwar ki seki existe zordi, samem ki <em>natirel</em>. Sistem kapitalist, li normal, li inevitab, li reyel. E li reyel-mem.</p><br /><p>&nbsp;<strong>Appendix 6</strong></p><br /><p><strong>LETAN DIFERAN KALITE LAVI LOR BUL LATER</strong></p><br /><p><em>Bul later: &nbsp;</em></p><br /><p>4.6 milyar banane (Later pe fer ron otur soley).</p><br /><p><em>Lavi:</em></p><br /><p>3.6 milyar banane &ndash; selil sinp emerze pu premye fwa.</p><br /><p>3.4 milyar banane - &nbsp;selil ki fer fotosintez</p><br /><p>2 milyar banane &ndash; selil konplex (eukaryotes)</p><br /><p>1.2 milyar banane &ndash; selil ki fer reprodiksyon sexyel</p><br /><p>1 milyar banane &ndash; lavi miltiseliler</p><br /><p>600 milyon banane &ndash; kreatir sinp</p><br /><p>550 milyon banane &ndash; bilaterians &ndash; lavi akwatik kot ena enn kote divan ek enn kote deryer</p><br /><p>500 milyon banane &ndash; pwason ek proto-anfibi</p><br /><p>475 milyon banane -- &nbsp;plant terest</p><br /><p>400 milyon banane -- &nbsp;<a title="Insect" href="https://en.wikipedia.org/wiki/Insect">insek ek plant avek lagrin.</a></p><br /><p>360 milyon banane -- &nbsp;<a title="Amphibian" href="https://en.wikipedia.org/wiki/Amphibian">amfibi</a>;</p><br /><p>300 milyon banane -- &nbsp;<a title="Reptile" href="https://en.wikipedia.org/wiki/Reptile">reptil</a>;</p><br /><p>200 milyon banane -- &nbsp;<a title="Mammal" href="https://en.wikipedia.org/wiki/Mammal">mamals</a>;</p><br /><p>150 milyon banane -- &nbsp;zwazo</p><br /><p>130 milyon banane -- &nbsp;<a title="Flower" href="https://en.wikipedia.org/wiki/Flower">fler</a>;</p><br /><p>60 milyon banane -- &nbsp;primat</p><br /><p>20 milyon banane --&nbsp; &nbsp;fami&nbsp;<a title="Hominidae" href="https://en.wikipedia.org/wiki/Hominidae">Hominidae</a>&nbsp;(&ldquo;great apes&rdquo;)</p><br /><p>2.5 milyon banane &ndash; genus Homo (inklir imin ek nu predeseser) &ndash; enn ta spiyshiz, tu extink, apar nu.</p><br /><p>500,000 banane &ndash; imin anatomikman kuma nu (nu spiyshiz)</p><br /><p>160,000 banane &ndash; imin modern, kot enn fosil finn dekuver. (nu sub-spiyshiz)</p><br /><p>&nbsp;<strong>Appendix 7:&nbsp; Nomb spiyshiz</strong></p><br /><p>Antu estim finn ena 5 milyar spiyshiz par-la ki finn existe. 99% extink (kuma dodo). Zordi ena ant 10 million ek 14 million, e ladan 1.2 million finn dokimante. 86% seki existe zordi, pankor dekrir.</p><br /><p><sup>&nbsp;</sup><strong>3 parmi bann &ldquo;extinksyon masif okazyonel&rdquo;</strong></p><br /><p>- 2.4 milyar banane desela, <em>Great Oxygenation Event</em> kot tuy buku selil ki ti anerobik.</p><br /><p>- 252 milyon banane desela, Gran Lamor, 96% tu spipyshiz lamer, 70% verteb terest. Sel extinksyon demas insek.&nbsp; 57% tu fami, 83% tu genus extink. Biodiversite pran 10 milyon banane refer.</p><br /><p>- 65 milyon banane ago, extinksyon ki tuy dinosor.</p><br /><p>&nbsp;<strong>Apendix 8:</strong>&nbsp;&nbsp; <strong>Dilem Prizonye</strong></p><br /><p>Sa dilem anba, kuma enn pezel, li montre ki seki bon pu nerport ki enn dimunn, pa neserman seki pli bon pu totalite dimunn konserne.</p><br /><p>Dizon ena 2 prizonye, A ek B ki finn fer enn deli ansam. Sakenn pu gayn enn santans depandan lor si li konfese ubyin non, e osi depandan lor si so kamarad konfese ubyin non. Zot pa sir ki zot kamarad pu fer.</p><br /><p>Si tulde konfese, sakenn pu gayn 5 an prizon ferm, ubyin enn total 10 an prizon.</p><br /><p>Si tulde pa konfese, sakenn pu gayn 2 an prizon ferm, enn total 4 an prizon.</p><br /><p>Si A konfese, B pa konfese, A pu gayn 6 mwa, B pu gayn 10 an, enn total 10 1/2 prizon.</p><br /><p>Si B konfese, A pa konfese, B pu gayn 6 mwa, A pu gayn 10 an, enn total 10 1/2 prizon.</p><br /><p>Li pruve ki egoism pa tultan enn lavantaz pu totalite dimunn konserne.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

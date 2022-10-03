@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612110037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612110037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612110037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612110037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612110037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612110037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612110037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612110037" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612110037" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Ledikasyon Politik: Rajni Lallah lor "Leta"</h1><p class="subtitle">03.03.2008</p></h1>
+	<p class="newsarticle">Nu ena plezir reprodir an form enn text, Rajni Lallah so "Introdiksyon a Leta" ki ti form parti premye sesyon "Ledikasyon Politik" LALIT, dan so nuvo seri.<br><br>Size ki nu pe debat, "Leta", li enn size byin vast, ek ena buku ki finn ekrir lor sa dan literatir Marxis. Etan done kontrint letan, mo pu konsantre plis lor "Leta burzwa" dan sa sesyon la.<br><br>Ena plizyer kalite definisyon ase restren, ek ena fwa kareman fos lor seki Leta ete. Ki bann kalite lide ki nu tande lor Leta?<br><br>Byin suvan dimunn truv zis kote politik, administratif ek 'institisyonel' Leta. Zot panse Leta li vedir sa sistem kot ena institisyon kuma Parlman, Kabine Minis, Minister, zidisyer, lapolis, servis sivil. Zot redwir Leta a enn definisyon plito legalist, get li parey kuma Konstitisyon Moris definir "The State of Mauritius". Sa li enn fason byin limite pu get Leta.<br><br>Dimunn an-zeneral kone ki "Leta" li vedir plis ki sa. Samem dan langaz ordiner, dimunn suvan koz anterm kisann-la ena "pawer", uswa kisann-la kapav donn "baking". Sa inklir lapres-medya, osi byin ki nomini politik guvernman, azan parti o-puvwar dan landrwa; ena fwa sa inklir sef relizye, uswa mem sindikalist. Dan langaz ordiner, dimunn koz "bann lotorite" ki inklir tu seki Leta ete, depi so sef klan dan lafami, ziska so sef relizyon organize, ziska institisyon patronal osi byin ki bann institisyon formel dan Leta. Alor dan langaz ordiner, nu truv enn definisyon byin pli larz ek exak lor seki Leta vremem ete.<br><br> Suvan sa bann mem dimunn ki insiste pu truv Leta zis kuma Konstitisyon definir li, zot ena lide kareman fos lor Leta:<br><br>* Leta sanse kitsoz ki "andeor" lasosyete, ki sanse "indepandan" depi tu lafors dan sosyete;<br><br>* Leta swadizan kitsoz ki "neutre", ki pena "parti pri",<br><br>* Leta kitsoz ki sanse tuzur "konsilye" kan ena konfli, e swadizan amenn "lord ek lape" dan lasosyete. <br><br>* Leta swadizan gide par bon lide "moral' uswa "zis" lor manyer lasosyete ti devet rule, uswa gide par "larezon".<br><br>* Zot panse ki sanse tu sosyete imin bizin ena enn Leta pu li kapav fonksyone.<br><br>  ANALIZ MARXIS LOR LETA<br><br>Ena buku dan literatir marxis lor "Leta", me ena enn travay kle byen boner par Friedrich Engels. Lenin, dan so livre lor "Leta ek Revolisyon" pibliye an 1917 fye buku lor sa travay Engels la. Engels so liv lor leta apel "Lorizinn Lafami, Propriyete Prive ek Leta" e li ti pibliye an 1884. Dan sa liv la, Engels apiy buku lor resers ki Morgan finn fer lor bann ansyin sosyete imin. Resers-la ti pibliye an 1877. Engels finn montre kimanyer letid Morgan pruve ki pa ti ena Leta dan ansyin sosyete imin. (Depi lerla, tu resers finn konfirme ki pa ti ena Leta dan sosyete pandan plis ki 9/10yem listwar limanite.) Dimunn ti viv kolektivman, an-grup, ek ti pran desizyon ansam lor kimanyer zot pu organiz zot mem dan lasosyete. Engels demontre kimanyer Leta li pran nesans zis kan kumans ena "sirplis" dan lasosyete. Avan sa, pa ti ena sirplis, ek tu dimunn zot lokipasyon prinsipal sete pu rod manze pu kapav sirviv. Akoz pa ti ena stok manze, pa ti ena larises, pa ti ena sirplis, pa ti ena inegalite de klas, alor pa ti bizin Leta. <br><br>Alor nu premye konklizyon se ki Leta li pa obligatwar pu sosyete imin fonksyone. Dayer, pandan pli long but listwar imin (seki parfwa apel "pre-listwar", setadir pre-sirplis, ek osi pre-lekritir), pa ti ena Leta.<br><br>Engels dan so liv montre kimanyer Leta pran nesans kan sosyete imin devlop sa kapasite pu ena enn sirplis e kan ena:<br><br>* Divizyon "sosyal", setadir kot zis enn ti-poyne dimunn ki "kapav" ranpli sertin fonksyon spesyalize dan lasosyete ek mazorite dimunn pa kapav partisipe ladan. Sa divizyon sosyal la li vinn posib kan enn dimunn kapav servi mindev enn lot dimunn - li pa bizin fer sa travay la limem;<br><br>* Etablisman enn nuvo zafer ki apel "propriyete prive" mwayen sirvi sosyete. La li pa pe koz propriyete prive dan sans si pa marto kikenn, si pa linz kikenn. Li pe koz kan stok manze, mwayin sirvi lasosyete vinn "propriyete prive". Li nepli propriyete kolektif kuma li ti ete avan.<br><br>* Diferans dan kantite larises ki sakenn posede, setadir kan kumans ena "inegalite".<br><br>Mo fer enn ti-parantez pu dir ki dan Moris, nu finn deza truve kimanyer Leta, li fonksyonn inpe kuma enn "garan" sa bann stok propriyete prive. Rapel kimanyer dan premye faz revolt kan Kaya ti mor dan Alcatraz an Fevriye 1999, dimunn dan rezyon lavil sirtu, ti atak stasyon lapolis, larg prizonye Prizon Grand Rivyer ek atak lezot sinbol Leta, ziska so pano piblisiter tu. Kuma Leta sufer enn defet, ek anmemtan dan labsans demand uswa program lor kimanyer pu transform lasosyete, premye zafer ki arive, se ki bann stok "propriyete prive" kumans sibir atak. Dimunn, tu kalite, zom, fam, kumans kas laport godam, gran gran magazin, pran seki li anvi, ek al lakaz. Sa li ti enn veritab ledikasyon lor ki Leta burzwa vedir parski li montre nu ki kan na pena Leta, stok propriyete prive su menas.<br><br>Nu return a seki Engels explike dan so liv: li dir ki Leta, li rezilta konfli irekonsilyab ant diferan klas sosyal. Alor si li ti posib pu "konsilye" diferan klas sosyal, amenn lakorite permanan ant diferan klas sosyal, lerla Leta li pa ti pu existe. Sa li ed nu konpran buku zafer lor Leta:<br><br>* Leta se lafors "andan" lasosyete ki prodwir li. Pwiske li rezilta konfli ant diferan klas sosyal.<br><br>* Leta li zuti ki enn klas sosyal servi pu li reyne lor lezot klas sosyal. <br><br>* Leta li permet ki klas ki pli for ekonomikman vinn pli for politikman. <br><br>* Mem si ena fwa, Leta azir pu tanper konfli ant diferan klas, anfindekont, li inpoz  so "lord", enn "lord" ki klas dirizan, li etablir. <br><br>Alor seki Engels so travay anseyn nu se ki Leta li pa "neutre", li pa "indepandan", li ena parti pri, li anfindekont "inpoz" enn lord etabli par klas dirizan dan enn sosyete-de-klas, plito ki "konsilye" kan ena konfli. E li pa vremem gide par bon lide moral, uswa par lazistis, uswa par larezon, me par exzizans enn dominasyon de klas.<br><br>KI ROL LETA? KIMANYER LI MARSE?<br><br>Leta ena buku fonksyon ki li ranpli dan sosyete burzwa. Mo mansyonn sertin fonksyon pli santral ki li ena:<br><br>* Li diviz teritwar. Diferan Leta partaz teritwar. Sa nu konn byin isi avek sa konfli lor Diego Garcia ek Chagos, pu ki Leta zot ete.<br><br>* Kan Leta diviz teritwar, li osi diviz dimunn an "sitwayin" diferan Leta, kumadir sak dimunn li enn "size" Leta burzwa, enn sitwayen enn pei, parey kuma lontan dimunn ti "size" Lerwa/Larenn.<br><br>* Seksyon Leta pli kler se so "puvwar piblik" ki Engels dekrir kuma enn "kor" ubyen enn "band" bann "zom arme". Sa inklir lapolis, RIOT, SMF (dan pei kot ena larme, larme sirtu ladan). Dan laplipar pei, personn pena drwa servi zarm apart lapolis ek larme. E zot ena stasyon, selil, prizon, a zot dispozisyon. Sa "band zom arme", li lebra koersif ek represif, Leta. Liye ar sa ena osi zidisyer kot ena prosekiter, mazistra, probeysyonn, etc ki kontrol dimunn. <br><br>* Me pu ki pena enn sityasyon de ger permanan dan sosyete burzwa, ena osi enn lot kalite 'lebra' Leta ki tulezur, tultan pe fann bann lide ki tini sistem kapitalis anplas. Sa ideolozi burzwa la, li propaze depi dan lafami kot nu sipoze swiv lord "sef klan" ek ekute seki li dir, ziska lor ban lekol, kot ti-zanfan aprann "akute" kan lotorite donn zot lord, ziska so sef relizye ki rod konvenk nu pu "aksepte nu sor, pu gayn paradi dime", ziska so editoryalis dan medya ki tultan pe fer eloz sistem kapitalis. Leta osi ena enn seksyon zidisyer ki regle dispit ant sitwayen ek konpayni, ant konpayni ek konpayni.<br><br>* Leta, li osi ansarz taxasyon. Li tusel ki kapav extrer tax: TVA, Inkom Tax, tax lor konpayni, fre ladwann tusala, pu li rul lararey deta.<br><br>* Enn bann gran fonksyon Leta, se pu garanti kondisyon neseser pu ki ena prodiksyon kapitalis. Pa pu nanye ki nu truv Sithanen tultan pe pran traka kimanyer pu atir "investisman" kapitalis par bes tax lor kapitalis, tir servis sosyal iniversel, liberaliz pri, sanz lalwa travay pu ki garanti enn to explwatasyon travayer pli ot. Si nu get li inpe pli larz ek bliye Sithanen pu enn ti-mama, nu truve ki anfet Leta li garanti ki ena enn marse nasyonal, enn sistem moneter nasyonal ek osi enn sistem an-ekri ek formel pu komers ek investisman kapitalis onivo internasyonal.<br><br>Kan nu get rol Leta dan sa fason-la, nu truve ki Leta li fer 2 zafer anmemtan:<br><br>Parey kuma enn laglas ki get relasyon ek rapor ant tu bann klas sosyal, li reflet balans de fors ant klas sosyal, ek anmemtan, li intervenir dan sa balans de fors ant klas sosyal la. Li intervenir pu li gard klas dominan o-puvwar. <br><br>DIFERAN FORM LETA BURZWA<br><br>Leta li pa idantik dan tu pei. Bizin gard antet ki se lalit de klas ki fasonn Leta. Lalit de klas dan sak pei infliyans manyer ki Leta dan sa pei-la forme, evoliye, ek fonksyone. Nu mem kapav dir ki sak but dan laparey Leta, li ena so listwar kot ena lanprint sa lalit de klas ki finn prodwir li. Alor ena varyasyon ant Leta burzwa dan diferan pei. Me apar sa kalite varyasyon la, nu kapav dir ki ena diferan form Leta burzwa, e mo pu mansyonn zis 2 ladan: Leta Bonapartist, ek Leta Fasist.<br><br>LETA BONAPARTIST <br><br>Sa Leta la, li forme kan okenn klas sosyal pa pe kapav asir so reyn. Li arive suvan kan klas kapitalis finn sufer defet ek kan anmemtan klas travayer pankor ase for pu ki li pran puvwar. Lerla mem ki enn birokrasi Leta, enn birokrasi polisyer ek militer intervenir pu li inpoz so "lord". Se sa ki ti arive an 1851 kan Prezidan Louis-Napoleon Bonaparte ti organiz enn ku deta kont so prop guvernman ek ti instor enn diktatir. (Louis-Napoleon Bonaparte osi koni kuma Napoleon III, pwiske li ti ti-zanfan ti frer premye Napoleon Bonaparte). Nu pu revinn lor Leta Bonapartist plitar dan sa sesyon-la. <br><br>LETA FASIST<br><br>Kondisyon pu ki ena Leta fasist, li vinn mir kan ena gran kriz ekonomik ek sosyal, e kot ti-burzwazi vinn dezespere akoz inflasyon egi ek kriz ekonomik zeneralize. Ti-burzwazi ki form baz sosyal fasism. Ti-burzwazi lev enn listeri, ek ralye deryer enn lider, enn espes "zistisye", kuma Hitler ek Mussolini, ki kumans kuma bann espes "Raddhoa". Sa lider la li depann lor so larme prive, so prop rezo prive ki pu li res o-puvwar. Ar kudme so rezo ek so larme prive, li kraz tu rezistans depi klas travayer, ek lezot form rezistans osi.<br><br>DAN MORIS <br><br>Dan Moris, ena enn form Leta ase partikilye ki kontenir buku eleman Leta bonapartist ladan. Analiz ki mo pu dekrir, li enn analiz ki finn devlope par LALIT, sirtu par kamarad Ram ek Lindsey. E li enn analiz ki finn devlope ek re-aktyalize par tu manb LALIT. Li enn analiz ki enn zuti inportan pu nu konpran sityasyon dan pei zordi kan nu pe gete ansam kimanyer nu pu sanz sa sosyete-la.<br><br>Dan Moris, Rodrig, Agalega, nu finn erit enn Leta kolonyal. Li enn form Leta ki 'sirdevlope' konpare avek Leta dan Lerop, kot kapitalism ti vinn opuvwar avan. Leta isi ena enn lotonomi relativ konpare avek sa bann Leta-la. Nu kapav mazine kifer ena sa kalite Leta la parski dan lepok kolonizasyon, sant Leta ti lwin (dan Laoland, dan Lafrans, dan Langleter) alor guverner ek leres birokrasi kolonyal isi ti bizin ena sifizaman puvwar pu zot pran desizyon san ki zot bizin konsilte 'Sant' a-sak ler. Leta kolonyal ti bizin ena sifizaman puvwar pu ki li kapav kontrol TU bann klas ek kus sosyal isi - ki li kolon franse ki ti detenir puvwar ekonomik, setadir klas dirizan lokal, ki li so birokrasi lokal, ki li esklav, ki li travayer angaze. Leta kolonyal ti bizin ena ase puvwar pu li kapav akimil kapital, pu ki li ena enn akse privilezye a sirplis ki prodwir dan so koloni. Alor Leta kolonyal ti bizin kapav asir enn kontrol lor lekonomi an-antye, ek li ti bizin kapav intervenir dan manyer ki striktir sosyal evolye.<br><br>Isi, mo sit depi enn lartik kle dan revi Lalit de Klas nimero 1 apel "Leta ek Eleksyon" ki explik nu klerman lor natir Leta kolonyal ek ki montre kimanyer li diferan ek lezot form Leta burzwa:<br><br>"Dan Lerop, Leta li simant bann relasyon sosyal explwatasyon kapitalis tandi ki dan koloni, li ti enn instriman pu instal sa bann relasyon-la". <br><br>Apre lindepandans dan Moris, ti-burzwazi ti'nn agrandi buku. Sa li ti'nn arive avek relansman lekonomi zis apre lindepandans, e avek depar buku kolon. Lekonomi avan sa ti bloke par kolonizasyon. Anmemtan, laparey Leta ti agrandi buku apre lindepandans, alor ti ena enn gran ogmantasyon staf dan laparey deta.<br><br>Apre Lindepandans, ti ena enn sityasyon kot burzwazi istorik, enn burzwazi byin konservater, ti'nn akile. PMSD, so parti politik, tinn perdi 'eleksyon lindepandans' an 1967. Sa burzwazi istorik-la ti atase ar so kann, so disik, so melas (e ziska ler li ankor kumsa), ek li ti sosyalman bloke dan lesans ki li pa ti kapav abzorb nuvo seksyon kapitalis ek expann fasilman.<br><br>Alor apre Lindepandans, nu gayn enn sityasyon kot burzwazi istorik finn akile, kot ti-burzwazi pe agrandi, me kot klas travayer pankor pare pu pran puvwar. Savedir ti ena kondisyon neseser pu ki ena enn Leta Bonapartist. Seki nu truv emerze apre lindepandans, se enn nuvo Leta (avek puvwar pu dikte burzwazi ziska enn serten mezir) e ki ena kom bi pu devlop enn nuvo burzwazi atraver baking Leta, setadir pu sanz konpozisyon burzwazi. Se sa Leta-la ki amenn formasyon burzwazi deta. Sa burzwazi deta la li ti devlope sirtu dan Zonn Frans, e osi dan lindistri sibstitisyon (diber, sanpwin, plastik), e nu kumans gayn bann ti-lanpir kapitalist Leal, Currimjee, Kalachand, du Mee, Dookun, Fon Sing, Maurel, SAMLO, Gamma Civic, pu nom zis serten. Nu kapav apel sa Leta la enn Leta "Ramgoolamist" - ti ena Ramgoolam-per apre Lindepandans, ek Ramgoolam-fis zordi, ek enn but letan ant kot ti ena Jugnauth a-la-tet Leta. Zot tu partaz sa mem bi pu instal burzwazi deta. Se samem ki Parti Travayis apel "demokratizasyon lekonomi", e se samem ki explik seki Parti Travayis reprezante zordi. <br><br>Nu truv rezim Ramgoolam-per ti met Leta dirzans, sansir lapres, met sindikalis dan prizon, ranvway eleksyon. Anmemtan li devlop Welfer Stet, introdir ledikasyon gratis dan kolez e pran enn seri mezir pu li gayn ase sutyin depi klas travayer pu ki li apiy burzwazi deta. <br><br>Parey kuma zordi, Ramgoolam-fis kapav pran mezir kuma transpor gratis pu etidyan ek trwazyem az, retablir pansyon vyeyes iniversel pu li gayn ase sutyin popiler pu ki li gayn gran lager piblik avek MSPA, ziska menas ki li kapav retir so baking pu sekter disik parski li ena plan B,C, D tu. Li fer sa, pa lor nom klas travayer, me lor nom planter, sirtu gran planter ki pe anvi zot par dan "klester" rafinnri, distilri, prodiksyon elektrisite, ek so par IRS. Savedir, ankor enn fwa, rezim Ramgoolam pe favoriz burzwazi deta. Ramgoolam-fis ena so yunit "demokratizasyon lekonomi" ki kuma Jean-Claude Bibi ti fer resortir dan Kongre LALIT kumansman Fevriye, enn yunit atase avek biro Premye Minis limem. Li pa zis enn komisyon parti-la. Anmemtan, nu truv Ramgoolam-fis propoz lalwa travay retrograd ki kapav fer lerdtan travay normal ariv 12ertan par zur pu travayer. Sa li enn mezir ki pu benefisye tulede burzwazi istorik e burzwazi deta. Kuma dan lezot Leta bonapartis, Ramgoolam-fis kapav menas lalwa pu "kontrol medya" ki pu restrenn liberte dexpresyon si medya tro atak li. Lot eleman tipikman bonapartis: nu truv puvwar konsantre dan lame Kabine Minis, e sirtu, dan lame Premye Minis limem. <br><br>Depi lindepandans, burzwazi istorik finn oblize/dakor pu sed inpe terin a burzwazi deta, me tulede seksyon burzwazi, zot tuzur an-rivalite, sirtu dan kontex sa kriz sistemik ki ena aktyelman. <br><br>DEBA LOR PRIZ DI PUVWAR<br><br>Eski li posib pu ki ena priz di puvwar klas travayer inikman par eleksyon?<br><br>Finn ena buku deba lor si pa li enn bon stratezi pu klas travayer sey pran puvwar par pran kontrol lor Leta burzwa. Ofet, enn gro seksyon deba dan literatir Marxis zisteman lor sa size-la depi kumansman syek dernye ziska zordi. Listwar montre nu ki sa stratezi-la pa marse. Me, li pa inposib ki eleksyon dan laparey deta burzwa kan-mem ena enn rol pandan enn peryod revolisyoner.<br><br>Dan Moris, ena lexperyans MMM ki dan kumansman, ti ena pretansyon sosyalist. Me li ti'nn fini abandonn politik sosyalist avan mem ki li ti pran guvernman pu premye fwa an 1982 kan MMM-PSM (PSM ti parti Harish Boodhoo ki ti existe a-lepok) gayn eleksyon 60-0. Sa deba-la byin dokimante dan LALIT - ena enn seri lartik dan revi Lalit de Klas osi byin ki enn liv LALIT lor MMM dedye a sa size-la net apel "L'histoire d'une trahison". <br><br>Mem si enn parti sosyalist reysi tini avek so program sosyalist, pran puvwar par eleksyon, gayn mazorite dan Parlman e form guvernman, la osi listwar montre nu ki li pa reysi. Seki arive se ki enn fwa li "pran puvwar", sant puvwar dan Leta, li buze li al enn lot plas. Li nepli kot u pu krwar li sipoze ete.<br><br>Get par exanp dan Chili, kan guvernman Allende, enn guvernman sosyalist vinn o-puvwar par eleksyon, byin vit, an 1973, birokrasi militer ranvers li. Rapel kimanyer dan Kongre LALIT, Neville Alexander ti explike kimanyer zordi zur dan Venezuela Chavez pe selman kapav tini akoz birokrasi militer pe toler li pu lemoman. <br><br>Ti ena enn seri televizyon Britanik byen instriktif apel "Yes Minister" ki ti montre kimanyer mem kan enn Minis anvi fer kitsoz inpe progresist, ki pa telman kadre avek Leta burzwa, sipa uver plis lekol pu zanfan ena akse a ledikasyon, sipa uver plis lopital gratis, ena sa but permanan dan Leta kyapel "Servis Sivil" ki rod tut sort mwayin pu blok sa kalite desizyon-la. Kan get byin, Minis kapav ale, vini, me Servis Sivil, li, li reste. Li la an-permanans. Li blok sanzman.<br><br>Leta burzwa depann lor kredi labank, lonn, lor investisman pu li kapav rule. Si zame enn 'guvernman sosyalist' o-puvwar, li byin fasil pu ki kapitalis dan Labank sabot li, pu ki kapitalis an-zeneral fer enn espes boykot investisman. Alor si sistem prodiksyon, si sistem ekonomik pa sanze anmemtan ki pe ena sanzman politik, enn muvman sosyalist pa kapav reysi. <br><br>Pa pu nanye ki apel Leta burzwa enn Leta "burzwa".<br><br>KI KALITE PUVWAR? KI KALITE LETA? ESKI BIZIN ENN NUVO LETA?<br><br>Ena buku deba lor sa bann kestyon-la dan literatir Marxis. Gran difikilte ki ena pu klas travayer pran puvwar se ki avan ki li pran puvwar, li pa detenir puvwar ekonomik ek ideolozik. Li oblize mat Leta burzwa avan, par pran puvwar politik. Dan listwar, lezot klas sosyal ki finn fer revolisyon, kuma burzwazi, ti fini "pran puvwar" ekonomik ek so ideolozi ti deza dominan kan li finalman pran puvwar politik. <br><br>Dan enn lepok pre-revolisyoner, setadir zis avan enn revolisyon sosyalist, ena enn lepok kot ena seki apel "dub puvwar" kot travayer ek dimunn ki oprime kumans met dibut nuvo striktir puvwar. Sa bann nuvo form lorganizasyon ki dan sa nuvo striktir puvwar zot kapav pran tu kalite form: zot kapav devlope otur bann komite de grev demokratik dan sak rezyon pandan enn lagrev zeneral, zot kapav devlope atraver bann "Konsey Sayt" par rezyon (Gramsci finn ekrir buku lor sa kalite lexperyans "factory councils" dan rezyon Turin an 1919-1920). Ena lexperyans revolisyon Larisi limem an 1917 avek bann Konsey travayer rezyonal apel "Soviet". Se sa bann nuvo striktir puvwar demokratik ki ne dan lepok pre-revolisyoner ek ki rule kolektivman ki enn revolisyon sosyalist viz pu met o-puvwar. Kumsa mem gran slogan revolisyon dan Larisi ti "Tu Puvwar bizin al dan lame Sovyet". "Sovyet" ti ena enn lot sinifikasyon sa lepok la, ki pena naryen afer avek seki Stalin ti fer URSS devini.<br><br>Kan ena enn revolisyon sosyalist, lot gran deba ki ena se eski bizin ena enn nuvo kalite Leta uswa eski bizin aboli Leta. Ena enn kuran dan lagos, kuran anarsis ki dir bizin aboli Leta tutswit. Me difikilte, kuma nu finn truve, seki nuvo striktir puvwar ki klas travayer finn forme, li ankor frazil konpare avek sistem kapitalis etabli, alor pandan enn tan, ena nesesite pu enn "Leta Travayer" pu demantel Leta burzwa, e pu anpes ki burzwazi repran kontrol.  <br><br>DANZE LETA STALINYIN<br><br>Me anmemtan, lexperyans listwar finn montre nu ki bizin ena enn zefor konsyan pu ki sa "Leta Travayer"-la pa vinn enn birokrasi permanan. Dan Linyon Sovyetik su Stalinism, ti kree ek mintenir enn espes karst birokratik o-puvwar. Zot ti kontrol enn laparey deta represif terib. Olye ki klas travayer pran puvwar, se enn birkokrasi ki ti'nn isirp e gard puvwar. Pu prodiksyon, nu kapav imazinn li kuma enn pei ki rule par bann sef departman, nomini politik, kuma CEB sipa CWA, e pli pir, li rule kuma DWC! La, se pa klas travayer ki rul pei, me se sa kus birokratik ki nome par parti-la. Kumsa mem ki al fini ek enn Leta Stalinyin. Me, bizin rapel ki lepok revolisyon, klas travayer ti byen minoriter dan Larisi (peyzannri ti mazoriter e li pa ti kapav rul enn Leta demokratik), e li ti desime par Lager. Apre Larevolisyon Larisi, tu Guvernman kapitalis finn avoy zot larme kont nuvo puvwar. <br><br>Ena buku deba lor kimanyer pu evit ki sa kalite Leta birokratik-la instale. Sertin bann pwin santral dan sa deba la se nesesite pu asire ki pandan sa lepok tranzisyon kan ankor ena enn Leta Travayer,<br><br>* Lapey bann "administrater" bizin pa plis ki seki zuvriye, travayer kalifye gayne pu zot pa vinn enn karst privilezye;<br><br>* Tu plas manejer, kad, zot bann fonksyon kot elir dimunn a sa post la (ofet deza li kumsa pu sertin post administratif dan Leta Zini) ek ki tu sa bann fonksyoner-la revokab a nerport ki moman - savedir mem linstans ki finn elir zot, kapav tir zot osi;<br><br>* Ful liberte pu tu organizasyon travayer ek sosyalist ki na pa pro-kapitalist.<br><br>Ek finalman, pu termine, amizir ena transformasyon puvwar, ek devlopman nuvo striktir puvwar, klas travayer ek dimunn oprime, nepli ena nesesite pu enn Leta. Zot nepli oprime, e zot pa ule vinn opreser. Leta travayer li deperi amizir nepli bizin li. Samem Engels ti pe fer referans kan li ti pe koz "the withering away of the State". <br><br>Baze lor nots Rajni Lallah pu Kur ledikasyon Politik lor Analiz de Klas ek Leta ki ti fer le 21 Fevriye, 2008.<br><br>REFERANS<br>TEORI MARXIS LOR LETA<br>The Origin of the Family, Private Property and the State par Frederik Engels, 1884.<br>The State and the Revolution par Vladimir Ilyich Lenin, 1917<br>Introdiksyon a Marxis Pu enn Sosyete san Klas par Ernest Mandel, tradir ek adapte par militan Lalit de Klas, pibliye an 1980. (Sapit 3, 10, 12 ek 15 zot lor size Leta).<br>The Marxist Theory of the State par Ernest Mandel ki kapav gayne lor internet osi lor ladres www.internationalviewpoint.org<br>ANALIZ LOR NATIR LETA DAN MORIS EK BURZWAZI DETA<br>Lartik Leta ek Eleksyon, Revi Lalit de Klas nimero 1, Novam 1976<br>Lartik Puvwar Politik e Lalit de Klas, Revi Lalit de Klas nimero 2, Desam 1976<br>Ut 1983 a Desam 1984 - enn analiz lor Natir de Klas rezim-o-puvwar ek lopozisyon, Revi Lalit de Klas nimero 58<br>Burzwazi, Ramgoolamism e Larevolisyon Sosyalis (Ziyet 1986), papye seminar LALIT prezante par R.S.<br>Lartik What happened to the 60-0 electoral Victory in 1982 ki ti paret dan liv LALIT "L'histoire d'une Trahison", Zanvye 1987<br>REVOLISYON SOSYALIST EK LETA TRAVAYER<br>All Power to the Soviets, par Tony Cliff lor lexperyans Revolisyon Larisi, 1976. Sapit 17, 18 ek 19 an partikilye koz lor Leta, ranversman Leta burzwa ek instorasyon enn Leta Travayer. <br>Lartik Gramsci: the Turin years par Megan Trudell ki kapav gayne osi par internet lor ladres www.isj.org.uk<br><br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

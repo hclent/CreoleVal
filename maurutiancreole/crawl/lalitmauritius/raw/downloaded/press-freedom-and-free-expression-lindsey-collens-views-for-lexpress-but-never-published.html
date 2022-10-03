@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612111153" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612111153" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612111153" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612111153" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612111153" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612111153" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612111153" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612111153" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612111153" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Press Freedom and Free Expression. Lindsey Collen's Views for L'Express, but Never Published</h1><p class="subtitle">27.02.2006</p></h1>
+	<p class="newsarticle">Here is the content of an interview done by Lalit member, Lindsey Collen, for the daily newspaper L'Express. The interview, due for publication on Saturday 11 February, was never published. Lalit has it on reliable authority that this is because the direction does not agree with 'Lindsey Collen's views'.  Irony of ironies, the interview, done in the dual context of the cartoons from Denmark and demonstrations against them and of Ministers threatening the press in Mauritius, was on the question of press freedom and free expression. This strange phenomenon of interviewing someone only not to publish the interview follows the non-publication of another interview for L'Express last year with Ram Seegobin, for which the reason for non-publication given was that the journalist, Nazim Essoof, had 'lost his notebook'. He says it disappeared from his desk.<br /><br />Here is the gist of the recent interview with Lindsey Collen.<br /><br />L'Express: What do you think of the state of press freedom in Mauritius?<br /><br />LC: Three Ministers have recently criticized, and,or threatened the press, the Prime Minister, Navin Ramgoolam, the IT Minister Sinatambou, and the Education Minister, Gokhool. This is serious. The Press should jealously protect itself from any form of control by the State, as it is doing, and we in Lalit support the Press's total freedom from State interference. The Press should, in the long term, be accountable to the public, to the people.<br />Ministers make a mistake sometimes. Prime Minister Navin Ramgoolam for instance had a bad deal from the press over the scurrilous 'Macarena Party' articles, which were really gutter-press stuff. Now, when they start again with this 'demon de minuit' campaign after some supposed accident, he is justifiably hurt. He should be able to denounce this kind of gutter journalism in a political way. Take on those responsible in a battle of ideas. He makes a mistake to threaten the press with repression. This just adds an additional problem (that of attacking liberty) to the problem of gutter journalism.<br /> <br />But as I say, the press ought to be responsible vis-a-vis the people. This is unfortunately not the case yet. The kind of democracy we have so far does not stretch to this. As well as possible State interference, the structure of the Press in Mauritius, and in most of the world, makes it neither 'independent' in any true sense of the word, nor accountable to the people. In the first place, a newspaper is a private company. As such it is legally and practically accountable to its shareholders through its board. The aim of companies is generally to make profit, so there is always this structural problem of a private company controlling peoples' only real mass access to information and analysis. In a secondary sense, there are the companies (increasingly multinationals in commerce and finance like insurance and banking) that can and clearly do exercise control over the content of newspapers in addition to controlling the space they buy. We know that journalists feel some embarrassment at the end of the year or as other festivals approach, when ads invade the newspaper massively, and news and analysis gets cramped into the leftover spaces. <br /><br /><br />Q: Do you really think the private companies who put ads can control the content?<br /><br />LC: In general, on a day-to-day basis, they don't. Individual journalists have relative autonomy. But in the final analysis, the private companies who put ads in clearly can veto an article or insist on one. And no newspaper is going to run a consistent, long-term campaign against one of its major sources of income; and it might be the case that it would be morally important to run such a campaign. In the case of a strike, when the bosses are in a class confrontation, there also, the newspaper will take the side of its 'bayer de fon'. The way the financing of the media is run today is really a form of taxation without representation: we all pay more for goods and services (increasingly to multinationals, at that) than their real price, then the bosses take this excess money and use it in order to subsidize, and thus get some control over, the press. In fact it isn't only the Press that suffers from this problem: today sports and arts are often subject to looking for 'sponsors' who use the money from over-pricing of goods and services to the public, and are then in a position to dictate what arts and sports we can enjoy. It could be otherwise.<br /><br /><br />Q: What do you mean, it could be otherwise? Give examples.<br /><br />LC: Well, even before we have democracy that stretches to democratically elected press and arts and sports, there are three or four interim measures that work. For example, the BBC radio and TV in England, though financed through accountable taxation, is relatively free to publish what it wishes. Only in crunch situations does it bow, or get forced to bow, to the State. Generally it is free.<br /><br /><br />Q: Can you imagine the MBC being like that?<br /><br />LC: Well, the British people fought for that kind of press freedom, so we can too. People hate the MBC when it is subservient to the Government.<br /><br /><br />Q: Other ideas? <br /><br />LC: Well, The Guardian has a sort-of Readers' Ombudsman, which the Board (which appoints management) appoints directly. So, the Ombudsman is not responsible to management, but directly to the Board. Recently, Professor Noam Chomsky challenged the scurrilous reporting of his interview in the Guardian. It caused a hullabaloo. And the Ombudsman found that the Editors had been wrong on three counts.<br /><br /><br />Q: Anything else?<br /><br />LC: Here, whenever there is a threat of repression, then Ministers 'threaten' the Press with a Press Council. This is not a solution. What professional journalists need to do is to get together and form a Professional Association, just like lawyers or doctors do, that distances itself from forms of corruption that are either structural or just ordinary corruption on the part of people in their 'metye'. Journalists have a lot of power to destroy someone's reputation, and as a 'corps' they should work to maintain standards. In this association, perhaps it would not include the top management or editors, but all the other journalists could be members, equal in their status. They could draw up their own code of conduct. The kind of Trust Fund, like Media or the Trade Union Trust Fund,  are false solutions because there are representatives of the State present. <br /><br /><br />Q: Would journalists not fight amongst themselves?<br /><br />LC: Maybe. But when they feel their reputation is getting ruined, they have an interest, as other professions have, to protect themselves from the dishonour brought by those who abuse the power of the profession. It is through abuses being exposed that professionals defend themselves from being associated with the disreputable. Let me give an example. Until we have a Freedom of Information Act, the public has not access to information that ought to be public. And even when there is such an Act, the public will often only get access through the Press. What happens now is that individual journalists have to get information, for example, from the Police. The police department at the moment does not do press briefings. So, how does information get out? We don't know. But journalists get copies of the statement of accused or police diary books or autopsy reports. Do they pay for this? Or is it 'donan-donan', so that journalists have to cover for torture by the police that they get information from?<br /><br /><br />Q: In other countries is the press structured similarly?<br /><br />LC: Well, it is generally worse. The Murdock, Fox News, Berlusconi empires are really capitalist empires with a very clear right-wing political line. In Mauritius it is not like that. The structure is the same, but not the sheer clear agenda.<br /><br /><br />Q: What do you reproach the Press in Mauritius?<br /><br />LC: I reproach the Press for being 'enchanted' by sugar and cane. I can understand the sugar bosses being enchanted by their own cane. As Amedee Darga has described them, they are a 'bourgeoisie rentier'. They sit and watch the cane regrowing, wait for government to go sell it, and pull in profits. No wonder they are 'ensorceller' by their own sugar. But why should intellectuals be enchanted? For decades, even centuries, the entire Mauritian elite has been duped into believing in the magic qualities of sugar and cane. Even when there is to be a 39%, and maybe more later, fall in price, they still want to stick to sugar. Or at best, to cane. What with their aim of producing ethanol from cane and of producing electricity from bagasse. Even when Europe is lowering the price to force diversification from sugar, the press goes on and on about sugar being made 'rentable' and cane being important. Why not diversify?<br /><br /><br />Q: Is the press racist? And why do people refer to 'enn seksyon de lapres'?<br /><br />LC: The Press used to be controlled until the last couple of decades by a very small urban elite. There was a fair degree of overlap of class and community. The press in the past did have a fairly racist view, because of its restricted class basis. This past reality still impinged on the future. Because, although the press has diversified, there is still the 'restan' of this ethos. <br /><br /><br />Q: Can you give examples?<br /><br />LC: Well there are some people who seem, for example, to have what we refer to in Lalit as a Press 'Pardon', referring to the scurrilous 'pardoners' that represented or pretended they represented the Vatican and who duped ordinary people in the European Middle Ages that in exchange for money or status, they could forgive your sins. Say, if a woman with close connections to the Press circles, has a tragic depression around childbirth and loses her mind and kills her child, there will be a small, respectful article, if there is any mention at all. I agree with this. But it should be the respect everyone gets. You should not have to be in a position to exact a pardon. <br /><br />Similarly, there are some people who get really attacked in a long campaign by the Press for the very same kind of corruption that others are just 'pardoned' for and not mentioned again.<br /><br />As for 'a certain section of the Press', I think people are referring to the Press that dates from the days of the small urban petty-bourgeoisie that controlled the entire press. Its leftovers are still there. <br /><br /><br />Q: Now, let's come to the international situation. What do you think about the question of the cartoons about the Prophet Mohammed and the reactions against it? Should free expression also take into account peoples' feelings?<br /><br />LC: At the outset, let us state that the cartoon is racist. It collapses Islam into terrorism. This is ordinary foul racism. <br />In Lalit, we situate the conflict over the cartoons in two realities.<br />First there is a geo-political and propaganda war by the most powerful States in the world, the US and its allies, against States where they get their oil supplies from. Most of these offensives are against countries where there are many people of Muslim faith. Right now, we have the Palestinian people, who have always been led by secular parties. The Palestinian people have been militarily occupied by the USA through Israel, until they have turned to Hamas, an Islamist party. In Iraq, which was a secular State, the US has deposed secularism, to put in place an Islamist apparatus. Even in Egypt, the Islamists have won 20% of seats, in the face of the terribly economic realities that people face. And right now the US and its allies are making up new lies, even as the lies for the invasion of Iraq are being exposed, to invade Iran. There is military occupation in both Palestine and Iraq now. So, the cartoons come as part of generalized belligerence, bullying and baiting. They should be condemned.<br />Secondly, and it is related to this first point, over the past 50 years, intelligent people in the West and world-wide have become increasingly sensitive to avoiding making racist, sexist and anti-Semitic comments, jokes, cartoons, generalizations. And yet, flying in the face of this general tendency, it seems you can get away with making this type of comment about people of Islamic faith. People rightly object to these double standards.<br /><br />Perhaps we should also realize that the USA's interest in the Middle East is not only ton control oil supplies, strictly speaking, but also something else, related. Its currency, the dollar has become a world standard, replacing gold, and it is backed by oil, by petro-dollars. When Iraq was about to start selling oil in Euros for the very first time (which would threaten the US empire which is suffering the mortal 'double debt' of balance of payments and budget deficits), the US invaded. In March 2006, Iran is intending to launch its 'Oil Bourse', which is also due to be in Euros. So, this explains the geo-political attack. It is very serious, and peoples' religion becomes a kind of easy target.<br /><br />And on another level, every person of Islamic faith is today, to some extent, regarded differently, as he or she crosses any border into Europe or the USA. <br /><br />This is not to argue for censorship. But to argue, instead, that racism is not acceptable.</p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

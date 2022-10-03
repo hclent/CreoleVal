@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612102256" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612102256" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612102256" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612102256" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612102256" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612102256" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612102256" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612102256" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612102256" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>LALIT replies to NGO re UN Human Rights Committee Findings</h1><p class="subtitle">25.08.2013</p></h1>
+	<p class="newsarticle"><br />Below is a letter that LALIT recently sent to Charlotte Penel of the Centre for Civil and Political Rights, which is based in Geneva, Switzerland and âwhich works to support, facilitate and enhance civil society engagement with the UN Human Rights Committeeâ. She had written specifically to ask LALIT for input on âthe implementation of the decisions taken by the Human Rights Committee in individual casesâ, in particular on the case Narrain et al about the right to stand as candidate for general elections without declaring oneâs community.<br /><br /><br />Dear Charlotte Penel,<br /><br />Thank you for your request for details on the implementation of the decision of the UN Human Rights' Committee views in the Narrain case. We realize the constraints of your mandate, and you will appreciate that we have no such constraints. We say this so that it is clear that we have understood what you want from us, but that we have more general considerations that we are obliged to keep in mind. In particular, we are dedicated to doing what is best for progress in Mauritius on this issue.<br /><br />There are some articles on the case itself (and its political flaws) and on the UNHRC's decision on our website www.lalitmauritius.org  Perhaps you could peruse them. I shall paste one below, for you to read. It focuses 100% on the decision. <br /><br />As one of the findings of the UNHRC was that the official Census on communal classification should be updated, we should just point out that we in LALIT are very pleased that this part of the UNHRC judgment is NOT being implemented. We are not alone in this. Every thinking person in the country, including those who put the case it would seem, do NOT want this remedy at all. But the findings clearly put this as an obvious "remedy". Fortunately, we may say, we have both at present both a Government and a main Opposition party (both of whom are our political adversaries) which do not want to go down this dangerous road. A new communally classified Census question would inevitably provoke demands for further fragmentation (this is what is commonly referred to as the âPandora's Boxâ), and would, in any case, require a Constitutional change, needing a 3/4 majority in Parliament. Remember that the Constitution, itself, now requires the 1972 Census figures to be used in applying the Best Loser calculations.<br /><br />We realize the limitations of this kind of "legal" redress that Narrain et al sought -- and of judicial redress in general -- when concerned with eminently political and even democratic issues -- and we also recognize the limitations, and even risks, of pursuing <i>single issues </i>without looking at the broader picture all the while. The UNHRC ruling that the communal Census be updated is just one of the kinds of perverse effects that can be provoked by the seeking of this kind of narrow remedy on a broad constitutional issue.<br /><br />The other possibilities for implementation depend, to a large extent, on Constitutional changes. These (one is obliged to say "fortunately" again) cannot be expected to be made by decree, Mauritius having sufficient democracy to prevent that -- even if the UNHRC decision does constrain the State to implement its findings, and even if Mauritius has signed the Optional Protocol. The large political parties in Parliament have to reach an agreement on the content of such Constitutional Amendments, so that the necessary 3/4 majority can be attained, and this lies firmly in their hands -- not in the hands of any unelected bodies -- or else it lies in the hands of the people of Mauritius who have to find political ways to plebiscite such changes, say, through a future general election. However, the UNHRC has said that Narrain et al must be able to stand as candidate without filling in a community AT THE NEXT ELECTIONS. Quite a conundrum. The Government is supposed to publish a "White Paper" by about now on Electoral Reform in general, but which will, if it materializes, no doubt include proposals for implementation of the UNHRC findings. But, it is not in the hands of Government alone; it does not have that size a majority --  by a long shot.<br /><br />We, in LALIT, have opposed the need to declare one's community in order to stand for general elections, and this for many years. We have done so by political means of all kinds, including the drawing of a community to fill in on the Nomination Paper. We have in the past been taken to Court by people who opposed this form of passive resistance, and we have even been re-classified into "General Population" by the Supreme Court. All this to say we know the issue rather thoroughly. We have gathered signatures for petitions (of elected village councillors, of artists, or sportspeople), we have held forums, distributed leaflets, pasted up posters, and had meetings all over the country. <br /><br />We had by as early as 2005 gathered immense political support for changes in the laws concerning communal classification. The quasi totality of the intelligentsia was moving across towards doing away with the classification.  The balance of forces was in favour of political change in these laws -- laws originally intended, to some extent, to limit communalism and racism by protecting so-called minorities, but which laws, over time, have tended to justify the very scourge they were designed to diminish.<br />However, the endless litigation for the past 8 years that Narrain et al have embarked upon, going all the way to the Colonial remnants of the Privy Council, have put political progress on "hold", as everyone has been sitting around, waiting for more and more judgments to be handed down from above, instead of struggling politically, winning people over the hard way  -- by argument, by logic, by reasoning. The endless litigation, though causing a lot of media hype, has also caused a great deal of confusion on the actual issues involved. This makes change for the better more difficult. Those who put the cases (Narrain et al) kept maintaining (and even swearing under oath) that they were not, by their litigation, intending to challenge the Best Loser System, but were merely wishing to stand as candidates without putting down a community on their Nomination Papers. This was some kind of essentially <i>legal </i>tactic, we believe. However, their political propaganda said the exact opposite, of course: that they were interested in nothing else but the doing away with the Best Loser System. People would not be wrong to judge them either cavalier with their oaths or confused in their thinking.  <br /><br />See if the article pasted below is of any help.<br /><br />Yours sincerely,<br /><br />Lindsey Collen<br />For LALIT<br /><br /><b>The Mauritian State is in a difficult position. </b><br /><br />First, it is trapped in a contradiction. It has strong reasons, as everyone agrees, to respect the âPronouncementâ of the UN Human Rights Committee (however shoddily it is drafted) and it also has an absolute obligation to respect the relevant Judgment of the Full Bench of the Supreme Court; these two institutions say the exact opposite concerning whether or not anyone can be disqualified as candidate for General Elections if he/she has failed to declare a âcommunityâ on his/her Nomination Paper. As you read this, you may understand now, if your think hard, why LALIT has always drawn lots in order to protest against this system, why we have used political methods to build support, why we have relentlessly worked towards changing the balance of forces, <i> while refraining from resorting to the judiciary. </i>The delays and dangers are predictably<i> unpredictable. </i> As Rama Sithanen aptly put it, this is the worst judgment ever on the electoral system. And it is a Pandoraâs Box, as he put it, to boot.<br /><br />Second, the Mauritian State will also need a three-quarters majority if it intends to amend the Constitution so as to get out of this contradiction. But the Government does not, on its own, have one. This might mean accentuating the absurd cobbling together of alliances and Constitutional changes to suit political leaders in tight corners. We are dealing with âdesperate menâ, we must remember, including those in Government. We need proper informed and rational debate, amongst the broad masses, for Constitutional change.<br /><br />Three, there are two time-limits pressuring Government now. The UNHRC gives six months from 31 August for the State to act on its âpronouncementâ. While the Electoral Commission and its officials will absolutely<i> have to know </i>what on earth to do with candidates who do not give a community at whatever time a new General Election comes round. This, as we all know, could be at any time the Prime Minister decides to <i> âlarg eleksyon zeneralâ. </i>The base-line is, presumably, they would respect the Supreme Court if a snap election comes soon. Then, there will be another decade of âwaiting for Godotâ, putting genuine political struggle, debate, progress on hold for another set of years, while everyone sits round waiting for judges here, and then judges of the Queenâs Privy Council over there, to decide on what Rezistans & Co put before the Courts, while we listen to completely different versions of their cases in the Press.<br /><br />All this, taken together, means that it is important for us to understand exactly what the UNHRC actually says in its pronouncement. And once we understand what it says, it is important to<i> tell people the truth </i>about what it says. Then, people can form an opinion on how to move forward. It will be necessary for example to reject out of hand, one of the pronouncements i.e. the obligation to update the 1972 Census, regarding community affiliation asterisked <i> âFor BLS purposes onlyâ . </i><br /><br />We are pleased to see that some editorialists have, once they understood the implications of the Rezistans strategy to go to the UNHRC, warned of the dangers of at least this pronouncement. (See editorials of Raj Meetarbhan 6 and 13 September and Lindsay Riviere 9 and 16 September, to name just two.) It is worth noting what <i> âvictoryâ </i> means, in this context. Does the pronouncement signal âvictoryâ for what Rezistans in fact demanded of the UNHRC, or for what the propaganda they put out said they were demanding? Yes, to the former. They got what they asked for; they will not be disqualified. Since Rezistans did not put the BLS into question, and in any case it is beyond their mandate, the UNHRC could see no other solution than to propose an update of the 1972 Census. So no, they did<i> not </i>get what they claimed in their media frenzy i.e. the end of the communal best loser system. No, they did not.<br /><br />We are now at a place somewhat behind where we were at after Yousouf Mohamed took LALIT and others to Court in the year 2000 and the Seetulsing Judgement. And the balance of forces within society as a whole is now much less propitious than in 2000. The communalist and obscurantist socio-cultural organizations in Mauritius have increased their leverage relative to the Regime and to the Parliamentary Opposition. This has meant a massive increase in institutionalized communalism.<br /><br />What the Pronouncement in fact says<br /><br />The UNHRC says that the Government has to compensate <i>Rezistans </i>candidates for their expenses.<br /><br />The UNHRC says that the Government must not in future reject candidates who do not fill in the Nomination Paper.<br /><br />However, the Pronouncement says that   the State can reject candidates if it adequately justifies it, by doing one of two things.<br /><br />So, candidates must not be rejected for not filling in their Nomination Paper, <i>UNLESS certain conditions are fulfilled </i>So here is the important part:<br /><br />- Candidates must not be rejected for not filling in their Nomination Paper, <i>unless</i> the Government justifies adequately, within 6 months to the UNHRC, why in 1982 it decided to stop classifying the people in the Census, and to use the 1972 Census. This explanation would be necessary, the UNHRC says, to show that the decision to reject the<i> Rezistans & Alternativ</i> candidates was not an arbitrary one, but one with âadequate justification in this regardâ. Paul BÃ©renger has leapt up to say he will help Navin Ramgoolam do this explaining. It was indeed, to their credit, the MMM-PSM Government that abolished the question from the Census. This was when there were massive street demonstrations against the communalism of the Best Loser System, at the height of the 1982 mobilization. The UNHRC stresses that this part of the pronouncement is âwithout [the UNHRC] expressing a view as to the appropriate form of the State partyâs or any other electoral system.â This would clearly be something the Committee is simply not empowered to do. Not only that, but Rezistans told them they were not challenging the Best Loser System. They said: Paragraph <i>3.2: The authors [Rezistans ek Alternativ] further maintain that the absence of categorization of candidates does not affect the operation of the âBest Loser Systemâ, for which it was designed, as the only consequence for a candidate without categorization would be to lose his entitlement to be returned under this system. And 9.5 The authors [Rezistans ek Alternativ] submit that they do not dispute the constitutional status of the âBest Loser Systemâ and that the system was devised to provide a balanced communal or ethnic representation in Parliament. However, they dispute that the criterion of classification âthe way of lifeâ has any objective significance and that the system rests on population figures of 1972. </i><br /><br />The trouble is the Rezistans propaganda was not the same as the content of its Case. They were merely misleading the Press for 7 years. Unless of course they were hood-winking first the Supreme Court, then the Privy Council, then the UN Human Rights Committee.<br /><br />Alternatively, candidates must not be rejected for not filling in their Nomination Paper, unless the Government within six months takes measures<i> âto update the 1972 census with regard to community affiliation.â </i><br /><br />And since the UNHRC ânotes that the current election system is being reviewed by the Governmentâ and notes that âThe Prime Minister has stated that he considers the <i>Best Loser System</i> to have outlived its usefulness, even though it has served wellâ, it therefore includes that alternatively Government must<i> within six months, </i> âreconsider whether the community based electoral system is still necessary,â something Government has been reconsidering, as it mentioned in its submission to the UNHRC in any case. It is only because the State had made this statement that the UNHRC was in a position to mention changes in the electoral system.<br /><br /><b>Why LALIT can speak on this</b><br /><br />LALIT has militated on this issue for years. We accentuated our campaign for the end of the institutionalized communalism of the electoral system in 1982 at the time of the 60-0 victory, and in 1994 with the<i> Movement Against Communalism </i>mobilization, and in 2002 with our popular<i> Proposals</i> in the context of the Sachs Commission, in 2005 with the wide circulation of our 240-page book on the <i>Communalism in the Best Loser System, </i> and in 2010 with a series of successful open meetings to further develop our ideas on electoral reform, including a way beyond the communal best loser system. And we have since then, until today, worked towards replacing this system by means of an <i>electoral reform </i>that transcends the old system. The past seven years have been an uphill battle, because everyone has preferred to sit âWaiting for Godotâ. People have sat around waiting for judges of different kinds, instead of joining political action, based on the debate of ideas, and on a common understanding of what we are talking about. All eyes have been fixed on what a few judges will say, while people, even those who should know better, have persisted in confusing all the issues. Total confusion has reigned for seven whole years as to the âdoing away with the BLSâ or with merely âdoing away with classification of candidatesâ (a-la Balancy, Banwell, Subron, Berenger). Some people have persisted believing these were the same thing even after Justice Balancy showed they were clearly not. Others have said under oath that doing away with classification of candidates will in no way make the Best Loser <i> âimpracticable, unworkable, or unpurposeful or otherwise otioseâ. </i><br />We have often ended up with too many people who should know better both speaking and writing complete rubbish. At long last, since the <i>pronouncement, </i> some of the litigants have at least finally stopped claiming they have been conducting a brave âfrontalâ attack, and are conceding the attack over seven whole years was merely âlateralâ. It is obviously hard for them to accept that amongst the recommendations of the UNHRC is to update the 1972 census. Both the Prime Minister and the Leader of the Opposition have recognized that this is indeed one of the pronouncements, and fortunately they have both refused categorically to take this road. In any case the next Census is due in 2021, so that means at least two General Elections are due before then. But it is remarkably dishonest to pretend that the Census up-date was<i> not </i>one of the pronouncements, when the Committeeâs Views are in the public domain, and any literate person can read them.<br /><br /><b>Where to go from here</b><br /><br />These are times for calm debate, and sensible suggestions.<br /><br />Here are LALITâs proposals: Increase the number of MPs, as the population has doubled since 1968, so that this allows the smooth conversion to a non-communal system: 4 seats per constituency, 3 seats for Rodrigues, 1 seat for Chagos including Diego = 84 first-past-the-post, plus 20 best losers for candidates who were not elected and who are on a Party List <i>â in an order pre-determined by the Parties, </i> and submitted by the party concerned to the Electoral Commissioner on Nomination Day for publication. The best public spending on Government is on its elected arm, on democracy, on the legislature. Penny-pinching can be done elsewhere. The larger National Assembly and the proportional representation coming from best losers off a list predetermined by the party â would completely avoid the pernicious need to classify either the population by means of a new census, suggested by the UN Human Rights Committee, or continued classifying of candidates in order to respect the judgement of the Full Bench of the Supreme Court.<br /><br />And LALIT will comment on proposals by the Prime Minister, Leader of the Opposition, Rama Sithanen or others, as and when they are formulated formally.<br /><br />LALIT<br />19 September, 2012<br /> <br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612103932" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612103932" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612103932" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612103932" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612103932" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612103932" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612103932" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612103932" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612103932" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>The Downfall of the MMM as a Force for Positive Change</h1><p class="subtitle">16.06.2010</p></h1>
+	<p class="newsarticle"><b>The Downfall of the MMM as a Force for Positive Change</b><br />By RAM SEEGOBIN AND LINDSEY COLLEN, <br /><i>(Article published in Le Mauricien 16 June 2010)</i><br />for LALIT<br /><br />The long battle within the MMM that led to the formation of LALIT in 1982 now makes clear how right the LALIT tendency was, and how disastrous the MMM leadership`s two-pronged strategy embarked upon from December 1980 was. The negative fall-out from this double-act of treachery is still all around us in 2010, plain to see in the last elections and in their results. But what were the two parts of this fateful strategy ? And how did their combined effect contribute to destroying the MMM <i>as a force for positive change</i> ? How did they allow Labour to remain in power so long ? How did they poison Mauritian politics in so lasting a way ?<br /><b>The first half of the erroneous strategy : "Consensus Politics"</b><br />When the MMM at the end of 1980, out of the blue, started to turn towards a new strategy it called <i> Nouveau Consensus Social, </i>  it torpedoed its own class strategy. It was starting the process of liquidation that has continued to destroy what had until then been a thriving movement, a movement and a party driven by working class organizations in a state of mobilization, challenging both the capitalists and Labour-PMSD-CAM rule, and supported by sections of the petit-bourgeoisie like very small planters who don`t employ anyone, <i>   "ti-marsan" </i> and other small businessmen, and professionals whose ascension was blocked by Labour`s hold on the State. The MMM had built a stable class alliance which took it from strength to strength, until its highest points during the 1979 general strike movement and on until the 1980 mass movement.<br />Then, as LALIT predicted, the MMM when it formally adopted its <i> New Social Consensus</i> strategy in March 1982, ended up no longer representing any class and, instead of growing, began to head inexorably for explosion. Before a year had passed, it did explode. Since then the MMM has stalled, then later meandered aimlessly, imploding a couple of times as it teetered along, seeking opportunist alliances, and often, as a result of trying to represent all classes in "consensus", ending up objectively representing the strongest class, the sugar oligarchy itself.<br />What keeps a party alive and growing is the coherence of its program, and the fact that this program overtly represents a distinct class. This is what drives a party. The MMM is no exception.<br />The Labour Party, unlike the MMM and for all its defects and defeats, has risen again and again because it, by contrast, consciously represents an ever-forming class that is changing from being small-sized capitalists to becoming bigger-time capitalists through the use, abuse and misuse of State power ; it represents small and medium and even big planters in their eternal fights against the mill owners ; it represents medium-sized capitalists against oligarchs, small businesses against hotel magnates. Labour knows that this is what it represents. And, it is even conscious that its electoral power relies on its ever-continuous forging of an alliance between this State bourgeoisie (these owners of medium-sized capital getting bigger) and the working class. It does this, too, by a program, not always respected but nevertheless there, in favour of the welfare state, maintaining universal old-age pensions and free education and health, keeping even some food subsidies, and with a discourse that attacks big capital. This<i> "representing a class",</i>  and getting this class a strong class ally, is what keeps the Labour Party alive. So that, even though Labour applied Sithanen`s pro-big-capital monetary policies for five years in the Social Alliance Government, Labour knew it had to get rid of Sithanen before elections, and let the anti-oligarch discourse of Deerpalsing, Sayed-Hossen, Jeetah, Assirvaden run the campaign and win. Sithanen`s politics did not represent the interests of the classes that keep Labour alive, so he had to go. All this despite the fact that the Labour<i> Government, </i> once it takes over the State, its actions taken<i>  as a whole</i> , always represent the interests of the whole of the bourgeoisie, including big capital, in the final analysis. But the Labour <i> Party</i>  would not dream of constantly doing this, as it would then lose its class base.<br />The MMM`s decision not to represent any class at all, or worse still, <i> "all classes"</i> , condemned it to becoming ever more nebulous and weak. This is what we predicted in our protracted fight from December 1980 to April 1982 against the MMM leadership, when we were the LALIT de KLAS tendency. The leadership`s selling out its own class strategy, we predicted, would lead to its downfall. And it has.<br /><b>The second half of the erroneous strategy : Alliance with the PSM</b><br />The MMM leadership in 1981, even as the MMM was heading for an outright electoral victory, again quite out-of-the-blue, turned to Harish Boodhoo and his PSM for an electoral alliance. The reason given by Paul BÃ©renger at the time was that this alliance would <i> "re-assure the Hindu community"</i> . Now this overt communal strategy was a second selling out. It was a selling out of the MMM`s previous anti-communal strategy. And then, so as to make the PSM, a ridiculously weak little split from Labour`s right-wing, look politically significant, the MMM gave them a whole 18 tickets.<br />The MMM leadership had decided that their weird idea of having Anerood Jugnauth as a figurehead Prime Minister <i> because of his community</i>  was not enough, and they allied with an inflated PSM for the same reason. An even weirder idea.<br />This produced an immediate, predictable and hideous effect. In the rural areas, many labourers, who had been MMM from very early (winning a by-election in Triolet in 1970, and by 1976, the MMM winning as many seats in the countryside as in the towns in general elections), were suddenly informed that their community might somehow disqualify them from genuine membership of the MMM party. This was something labourers had never "known" before. In addition, Harish Boodhoo`s PSM represented a right-wing part of Labour that promoted the interests of big planters and spread communal ideology, both of which labourers had, within the MMM, fought against.<br />The MMM began, as LALIT had predicted, the slippery slope of representing "minorities", and of thus falling into the vacuum on<i>  the right</i>  that was created by the PMSD, the arch-protector of minorities, as it repeatedly went into coalitions with Labour. In Mauritius, as in South Africa and Zimbabwe, the old ruling class is a powerful "minority". You represent it at your political peril. Yet, the MMM had condemned itself willy-nilly to representing it.<br /><b>Combined Effect of the Two Acts of Treachery</b><br />Now the combined effects of these two acts of treachery began very soon to produce diabolical effects.<br />The MMM thus did the bizarre thing of putting up as Prime Minister Anerood Jugnauth and as Constitutional Vice Prime Minister Harish Boodhoo. And it put them up, not because they were natural leaders (they patently were not) but because they were from the so-called "majority community". And the MMM no longer represented a working class in struggle. Combined, these two new realities condemned the MMM, by default, to representing the<i> "minority communities"</i> . Paul BÃ©renger thought, like Navin Ramgoolam today thinks, that he was a <i> "rassembleur"</i>  without a community, standing somehow above reality, while all the rest of us savages are stuck in our communities.<br />Here is what happened.<br />Soon enough after the 60-0 victory, BÃ©renger and his acolytes in the MMM started one hideous campaign against Harish Boodhoo for not having the <i> "Ã©toffe" </i> of a Minister. Racist and anti-rural jokes against him became the past-time of the urban elite around the MMM. Having used Boodhoo to win elections, he was being dispensed with. At the same time, BÃ©renger, in his role as Finance Minister, adopting as if his own, the IMF-World Bank dictates, was helping the sugar bosses out of the very real economic distress they were in, and this caused whole MMM branches to leave him in droves and join LALIT. We expanded from 9 branches to around 50 in a few months. The working class, especially in the countryside, was leaving the MMM, which had abandoned it.<br />In some alarm and in a bid for power, BÃ©renger and a majority of the Cabinet, thinking they were using <i> "chantage"</i> , resigned as Ministers. This was March, 1983. Anerood Jugnauth, Kader Bhayat and a good half of the MMM plus the PSM (later together to become the MSM) stood firm and took over Government as well as the left-seeming high moral ground. Jugnauth remained Prime Minister and Boodhoo Vice-Prime Minister, while BÃ©renger was left in Opposition, now condemned to representing the "minorities", as the dynamics he had created by his double treachery played out. He no longer represented the working class and its struggle (a real, objective force), but a wishy-washy "consensus", while the creatures he had created in order to "reassure" the Hindu community, took their independence and did what he set them up to do. They still do it. BÃ©renger has remained stuck in the groove his opportunistic double decision led him into.<br /><b>Destruction beyond just the MMM</b><br />Of course, the destruction that was set in motion has continued. Communal politics, so thoroughly defeated by the early MMM, was then fostered by this new MMM without a clear working class drive behind it. Communalism would thus come back in a big way. Today, Labour can ally with the MSM, give it 18 tickets, so as to "re-assure" the Hindu community, while maintaining its "historic block" of the planters, traders, middle sized capitalists, with enough working class support, even if mainly rural, to stay in power. The MMM is left saying, as it has since the 1983 elections, that it represents the vague interests of "minorities", or, failing that, of a "minority". Cehl Meeah with his thinly disguised communal roots in the Hizbullah, can in 2010, for the first time be elected directly into Parliament.<br />Working class politics, so well harnessed for progress by the early MMM, was converted by the New Social Consensus into the working class sitting <i> "at the same table"</i>  as the bosses even while the bizarre reality was the boss getting the chair while his boot rested nonchalantly on the head of the working class which lies under the weight of repressive legislation, <i>  under</i>  the table.<br />As new waves of automation and centralization have struck, this "consensus" politics has remained centre-stage, with the working class demobilized, often paralyzed, under-unionized and in unions with caudillo leaders who feed not on working class strength but on its weakness. Too many unions function undemocratically, where anything can be "negotiated", and where strikes can be "announced" on posters, or called off without assemblies, with many workers still seeing their main hopes lying in tripartite talks around tables in Port Louis or in Geneva, instead of in confrontations at work site level and political struggles of their own for their emancipation around a common consciously understood political program for taking power as a class.<br />Today, when communal politics are back in full swing and the working class is so weakened, we must recall the moment of the defeat : it was the double treason of the "New Social Consensus" and the alliance with the PSM, and their combined effect. This is what has permitted the Labour Party to still be in power, to still use State power for the economic advancement of its bourgeois social base, and that after it had been so thoroughly defeated by the working class in the 1970s and in the 1982 general elections. And the working class has since then been kept weak by the objective process of being replaced by heavy machinery and electronic processes, and the subjective process of accepting the logic of ultra-liberal economic policies. During this most recent technological revolution and ideological counter-revolution, finance capital has come to power and increased the share of surplus of the capitalists relative to the working class, and of finance capital relative to productive capital.<br />Both history and economic reality today, thus explain the crying need for a consciously understood political program for working people to come to power, so that a new economy, one controlled by the people who produce, can replace the exploitative relations of capitalism.<br />This is the main task that a party like LALIT is addressing today.<br />15 June, 2010<br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

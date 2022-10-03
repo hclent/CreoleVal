@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612110438" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612110438" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612110438" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612110438" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612110438" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612110438" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612110438" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612110438" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612110438" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Open Letter to Minister of Education & Director of Mauritius Qualifications Authority</h1><p class="subtitle">28.08.2007</p></h1>
+	<p class="newsarticle">Below is a copy of workers' education association, Ledikasyon pu Travayer's "Open letter to Hon. Dharam Gokhool, Minister of Education & Human Resources, & to Director of the Mauritius Qualifications Authority". LALIT has pleasure in publishing the open letter.<br><br><br>Dear Sirs,<br><br>We write to you as Minister and as Director of the Mauritius Qualifications Authority that falls under the Ministry. We are appalled at the erroneous definition of "literacy" that is being used by the Authority in its draft Literacy Course, and we write to ring an alarm bell. The kind of "Standards" being set will not only be useless, but they will be harmful; they will add emotional trauma to the suffering of adults who have often already had their cognitive development damaged by language policy in schools. <br><br>What is tragic about this is that the stated aim of the MQA is laudable: proposing a form of evaluation for adult literacy, so that adults can learn to read and write and then slot into the IVTB or other courses, once literate. The problem is that the evaluation proposed has nothing whatsoever to do with "literacy". We will be analysing the content and form of two of the MQA papers, the introductory over view and Unit 1.<br><br>We apologise for leaving it so late to raise this objection but when we were invited to a meeting Wednesday 8 August 2007 we only then gathered that there had, in fact, been some five previous meetings to which we were not invited. Some NGOs, who had been present, had already colluded with the MQA in making the mistakes we are writing this letter to explain to you. <br><br>We have chosen to give a detailed reaction below in the text of this letter, and also in Appendix I and Appendix II, which are MQA documents annotated by us. In the appendices, we have used CAPITALS when we wish to draw attention to the English language mistakes made by the MQA in its outline of its National Certificate in Literacy, whereas we have used underlining when we are making a substantive criticism. [This web article does not include the appendices. If anyone wants a copy, just write to lptmail@intnet.mu and you will receive a copy.] <br><br>We have drawn attention to the mistakes made in English by the MQA drafters, not in order to humiliate those who drafted the text, but in order to point out that in their mother tongues they would not have made such mistakes. In fact, we regret having to humiliate anyone for the way in which he or she manages a foreign/second/third/nth language precisely because our principal complaint about the MQA tests is that they humiliate people. But we believe that if we can draw attention to the problems that MQA staff (and most of the rest of us in Mauritius) suffer because of the failure to recognise the naturalness of human language (when it is the mother tongue) then this will bring it home clearer.  <br><br>The MQA tests expose an utter confusion in the minds of those responsible between what natural human language capacity is (something very, very highly developed naturally) and what "literacy"  is (a formally acquired, fairly easy to learn way of then encoding this vast natural linguistic proficiency). In general, the MQA is pretending to test "literacy" and is in fact testing the knowledge of a foreign language, thus exposing students to gross and unnecessary humiliation.<br><br>It is not surprising that the drafters of this MODULE made that many mistakes in English. It is not their mother tongue. But what is dangerous at the moment is that staff and cadres in the Ministry and MQA seem to be ignorant as to WHAT HUMAN LANGUAGE IS. Then they suffer from the arrogance of the ignorant. They don't know that they don't know a very important subject area: human language. Then they confuse it with literacy.<br><br>This is a very serious state of affairs.<br><br>We take this opportunity of calling for some humility in the face of the vast linguistic repertoire that Mauritians (including MQA staff) have in their mother tongues, Kreol and Bhojpuri. <br><br>We take this opportunity of introducing a succinct introduction to what human language is. We regret having to resort to giving a "lecture" on this, but we see no alternative, given that there is this persistent confusion. There are THREE things that come quite naturally in our mother tongues, as Prof. D. Bickerton (1) explains. The third is the most important, but let's start with the other two:<br><br><br>1. Predicability: [Note we are using CAPITALS to refer to the word WORD]<br><br>"We can say THE STORY WAS INTERESTING, and THE STORY WAS TRUE, but not THE STORY WAS PLUMP or THE STORY WAS SORRY. We can say FARMER GILES WAS INTERESTING, FARMER GILES WAS PLUMP, or FARMER GILES WAS SORRY, but not FARMER GILES WAS TRUE.... We can say THE FRUIT WAS INTERESTING or THE FRUIT WAS PLUMP, but not THE FRUIT WAS TRUE OR THE FRUIT WAS SORRY. And we can say the fight was interesting, but not THE FIGHT WAS TRUE, THE FIGHT WAS PLUMP, or THE FIGHT WAS SORRY. ..."(2)  This "predicability tree" (developed by Frank Keil from previous work by Frederick Sommers) holds true across languages, so it is no problem. If we know it naturally in Kreol, we can then fairly readily, if not instinctively, follow the rules in English, French, Mandarin, Hopi Indian, Hungarian, Finnish and so on. We know it naturally. We don't even have to think as we say these things or never say those.<br><br>However, not all the natural do's and don'ts are the same in different languages.  Look at the two cases below, so as to understand why it is normal that foreign language users (like those drafting the texts) should make mistakes.<br><br><br>2.  Grammaticization:<br><br>"TAKE ANY SENTENCE THAT YOU MIGHT THINK OF. Well, why not the one before this? It contains eight words. Only one of them expresses a concept that refers to something you could point at: SENTENCE. Another, TAKE, expresses a concept that you could at least try to demonstrate.... A third word, THINK, expresses a concept that would be a good deal harder to demonstrate. But in what sense do the other five words in the sentence express concepts? At best they are very hard to define, and at worst they seem to be altogether devoid of meaning.<br><br>"Take ANY, for instance. It doesn't, unlike THIS or THAT, specify which sentence is being referred to. Indeed, it UNspecifies: it says 'what is said here applies to ALL SENTENCES'.  But ALL SENTENCES would not have worked in this context, since you were intended to take one only. So what ANY means is 'out of all possible sentences, one, but not any particular one'. But we have now included ANY in its own definition.<br><br>"Now look at THAT. It is not the THAT of THAT PEN or I LIKE THAT. Those THATS refer to something, but this THAT seems merely to link two parts of the sentence together. YOU looks more reassuring, but again it doesn't really have any definite reference. YOU can mean anyone who happens to be addressed, or one might say, 'the participant(s) in any dialogue that isn't the speaker' (but is this [text], for example, a dialogue?) ...<br><br>"As for MIGHT, it can express anything from a rather petulant request (YOU MIGHT CLOSE THE DOOR) through a rather remote possibility (I MIGHT DO IT IF I COULD ONLY FIND THE TIME) to something quite predictable (YOU MIGHT GUESS HE'D SAY THAT! YES, WE MIGHT HAVE KNOWN!)<br> <br>And perhaps OF is the vaguest of the lot. It is a preposition without a noun after it, at least without an overt noun, and yet contrary to what you may have been taught at school, it is not really possible to get it away from the end of the sentence...<br><br>"It is a surprising fact that at least half the words we utter, hear or read are like these: grammatical items (as opposed to lexical items that have some kind of demonstrable referent). Some of these items are not even full words but mere inflections, like the -ING in WORKING ... Grammatical items, then, play as crucial a role in meaning as do lexical items, although unlike lexical items they are seldom within our power to pick and choose, and we cannot invent or add new ones. ...<br><br>[Grammatical items] "constitute, as it were, the coordinates of the linguistic map, a kind of topological grid whereby the positions of objects and events can be plotted relative to the observer and to one another.<br><br>"This relativity is a critical attribute of grammatical items, as it is of adjectives. Just as SMALL is always relative to the category under discussion,... so items like UP or DOWN are used without any reference to absolute distance. <br><br>"The relations that grammatical items can express include relative location (ABOVE, BELOW, IN, ON, AT, BY, NEXT TO), relative time (BEFORE, AFTER, WHILE, and the various indicators of tense), relative number (MANY, FEW, SOME, the -s of plurality), relative direction (TO, FROM, THROUGH, LEFT, RIGHT, UP, DOWN), relative familiarity (THE for things the speaker thinks the hearer will recognize, A for things the speaker thinks the hearer won't recognize), relative possibility (CAN, MAY, MIGHT) and relative contingency (UNLESS, ALTHOUGH, UNTIL, BECAUSE), as well as a variety of relationships such as possession (OF, possessive -S, HAVE), agency (BY), purpose (FOR), necessity (MUST, HAVE TO), obligation (SHOULD, OUGHT TO), existence (BE), non-existence (NO, NONE, NOT) and so on... Only relations found in English have been listed here. Other languages may not always express all those relations, or may express ones that English does not."<br><br>You will note that for grammaticization, different languages are different. In Kreol, for example, it is not easy to translate the sentence used. Perhaps we could try:<br><br>"Donn mwa nerport ki fraz ki u kapav mazine." One glance tells us that the grammatical items are not easy to find equivalents for. We have KI twice, we use KAPAV that is not exactly MIGHT, and NERPORT has additional meanings to those that it shares with ANY.<br><br>But the really difficult thing, and the one that comes naturally in the mother tongue, is syntax.<br><br><br>3. Syntax:<br><br>The difference between humans and other species is, perhaps more than anything else, our syntax. Often when people think of language, they think of the part that has referential meaning, the lexicon, but the syntax is the most important feature of the language capacity.<br> <br>"TRY TO REARRANGE ANY ORDINARY SENTENCE CONSISTING OF TEN WORDS."<br><br>["REARANZ BANN MO DAN NERPORT KI FRAZ ORDINER DIS MO".]<br><br>These two phrases each have 10 words. There are 3,628,800 ways in which you could re-arrange them. For English, as for Kreol, only one is a correct and meaningful result. That means 3,628,799 of them are ungrammatical. How did we learn this? Certainly no parent or teacher ever told us, as Bickerton wittily points out. The only way in which we can know it is by possessing, as he puts it, some recipe for how to construct sentences, a recipe so complex and exhaustive that it automatically rules out all 3,628,799 wrong ways of putting together a ten word sentence and allows only the right one.  "For all its complexity, we acquire that structure without the least conscious effort." <br><br>This facility of acquisition holds true, as we all know, for the mother tongue. Our language proficiency means our linguistic capacity in our mother tongue. <br><br>That is our language capacity as human beings. This is not referring to our capacity in any particular language. <br><br>This language capacity can be tested orally by recording people talking in the bazaar, joking, messing about at break time, fighting in a tavern and then analysing it linguistically. Higher level linguistic proficiency can be measured in other ways (See Prof Jim Cummins work on BICS and CALP). <br><br>So, "literacy" is not the same thing as "language capacity", and has very little link with foreign language knowledge. (3) If it did, most people in Germany, Scandinavia, Japan, China would certainly be illiterate. As would people in US, UK and France, if foreign languages were tested. In fact, the MQA test would declare them illiterate.<br><br>Literacy is a fairly simple technique (about which there is nothing natural at all) for writing down on paper with pen what one can already say with utter perfection, for reading (decoding until it becomes automatic whole phrase recognition, with practice) what one can already understand absolutely perfectly through one's ears. We do not understand why the MQA is revising the UNESCO definition of literacy, which has held good since 1958: "Literacy is the ability to write and read a paragraph of about 125 words about themselves and their daily life." (4)<br><br>The MQA tests are a total muddle. By a lack of understanding of what "literacy" and "language" are, they have introduced tests of English and French language. These have little to do with literacy. And this is the danger.<br><br>People who the iniquitous school system has caused to fail by suppressing their mother tongues, and who now once again approach the system so as to learn to read and write, are confronted once again with this genocidal policy of the Education Ministry. It is too, too cruel.<br><br>We object strongly, and call for the withdrawal of the proposed tests, and the preparation of genuine literacy tests.<br><br>Yours sincerely,<br><br><br>Alain Ah-Vee<br>for Ledikasyon pu Travayer<br>22 August, 2007<br><br><br>ENDNOTES<br>(1) Language and Species, Derek Bickerton, 1998.<br>(2) "Nu kapav dir zistwar la ti interesan ek zistwar la ti vre, me nu pa kapav dir zistwar la ti gro ubyen zistwar la ti regrete. Nu kapav dir Marday Planter ti interesan, Marday Planter ti gro, ubyen Marday Planter ti regrete, me nu pa kapav dir Marday Planter ti vre. .... Nu kapav dir frwi la ti interesan ubyen frwi la ti gro, me nu pa kapav dir frwi la ti vre ubyen frwi-la ti regrete. E nu kapav dir lager la ti interesan, me nu pa kapav dir lager la ti vre, lager la ti gro, sipa lager la ti regrete. ..."<br>(3) It is an internationally recognized imbecility to say Mauritians whose mother tongues are Kreol and/or/Bhojpuri in the main are "bilingual in English and French". If they can speak English and French they are trilingual. Bilingual means "your mother tongue plus one other language". <br>(4) See LPT's 160 page book GID PROFESER LITERESI, 2007.<br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

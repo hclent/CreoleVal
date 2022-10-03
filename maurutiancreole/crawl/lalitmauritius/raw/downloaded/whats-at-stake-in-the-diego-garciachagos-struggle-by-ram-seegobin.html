@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100833" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100833" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100833" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100833" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100833" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100833" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100833" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100833" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100833" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Whatâs at Stake in the Diego Garcia/Chagos Struggle? By Ram Seegobin</h1><p class="subtitle">12.10.2016</p></h1>
+	<p class="newsarticle"><p>Before I begin my talk on whatâs at stake in the struggle over Diego Garcia and the whole of Chagos, I'd like to respond to two things Former President Cassam Uteem said.</p><br /><p>Â The first one is he mentioned how it was difficult to know what exactly is in the contract between the British and the USA. over the Diego Garcia âleaseâ. This is hardly surprising. Can you imagine a contract between a thief and a receiver of stolen goods? Britain stole Chagos. Thereâs the thief for you. Britain stole it, and kept it. Then Britain handed it over to the USA for its military base. The USA thus occupies Chagos today as a receiver of stolen goods. There is not a contract between thief and receiver. The French in their laws have a name for this kind of combine: they call it an â<em>association des malfaiteurs</em>â. That is what their contract amounts to: an agreement between bandits.</p><br /><p>Â The second thing is this. If you read the press here, especially one of the dailies recently, they raise a strange question. They are debating the bizarre issue of whether Mauritius <em>sold</em> Diego Garcia, <em>sold</em> the whole of Chagos, to the British in 1965 or not. They announce with straight faces: âDiego Garcia is already sold. Mauritius got the money. Mauritius even signed a receipt.â Â âChagos was sold way back,â they say, âso how can you get it back?â Â What is important in what Cassam Uteem said when he drew attention to a new item of information in the Fernand Mandarinâs book, is that it can help to shut the mouths of those who come up with this nonsensical debate. What kind of a debate is it to discuss whether in 1965, Chagos was sold or not sold, when, in 1963, the British â the colonial power here â was also already the colonial power in Chagos, and the British could already even before 1965 prevent people returning to Chagos from Mauritius â even before negotiations at Lancaster House began. This one fact helps to understand it all. It is not a question of whether Chagos has been sold or not sold. It never has been a question. In 1965 Mauritius was territory of the Queen of England. Chagos, being part of Mauritius, was territory of the same Queen of England. Britain was the territory of the Queen of England, too. So, what exactly was the Queen selling to herself? This debate must be put to rest. People who talk about having âsold Chagosâ must be treated with the contempt they deserve. They are acting like a 5th column of the British State, and we must mistrust them accordingly.</p><br /><p>Â Letâs come to the question as to what is at stake. Alain Ah-Vee, who is presiding, said how LALIT is the only political party that has kept Chagos on the agenda permanently over the past four decades â in our publications, on our website, in conferences we have attend all over the world and in our demonstrations. We have understood its importance. We donât just bring the subject up from time to time. We donât just put our views on record. If you visit our website or read our publications, youâll see that from as early as 1975 - 1976, we were already talking about Chagos and acting on the Chagos issue. LALIT militants have participated in hunger strikes â in Cassis, in La Chausee. We have maintained the issue on the agenda, always.</p><br /><p>Â Over the past 40 years, we have found that at different times, the stakes were different. There have been different factors that have impacted upon this struggle. We need to understand what is at stake if we want to make the struggle move forwards. If we donât understand the real stakes, we risk treading water instead of moving forward.</p><br /><p>Â The stakes depend on local and international political changes. We need to be aware of these. They also depend on the economic environment. We need to understand this too. There are things at stake that depend on international laws, conventions and institutions, like the UN and the ICJ. So, we need to keep all these stakes in mind because at any one time or another, different stakes have different weights. Understanding the shifting stakes helps us know where to put our efforts at a particular moment.</p><br /><p>Â In LALIT, we never look at the struggle for Diego Garcia and Chagos as an academic issue or an intellectual exercise. We see it as a struggle that is down-to-earth, one that we fight every day. And it is a struggle that we intend to win. It is not a struggle that exists just on paper. It is one we must win. We must win for Chagossians, and for the Republic of Mauritius.</p><br /><p>Â Letâs come to present moment. What is at stake now.</p><br /><p>Â We need to understand firstly that the long struggle that the Chagos Refugees Group (GRC) has been involved in in the Judiciary in London is slowly reaching its limits. Is it possible to win a struggle over Chagos through the Courts in London? Or will the case inevitably bump into a hard limit? Here too, I'm going to quote a French expression because it is so accurate. They call it â<em>raison dâetat</em>â. You can maybe win against the Queen â even in the Queen's Courts â and then you lose on appeal. And if you win on another appeal, then you get an Order-in-Council, a decree, passed against you. The Queen does not bow down to any Statutes in the final analysis. The Queenâs power is hers, directly. That is the meaning of <em>raison dâetat</em>. And now we are at a moment when any hope of victory through this long struggle that the GRC has maintained with such determination before all the different Courts in London, is beginning to shrink. We need to bear this in mind.</p><br /><p>Â We also need to keep in mind, that as this happens, the leaders of the GRC have seen that it is necessary â and for this I take my hat off to them â that they form part of the political platform that is claiming Mauritian sovereignty as well as the right to return. You will all have seen on the television that Olivier Bancoult was sitting in the UN General Assembly as an integral part of the delegation of the Republic of Mauritius. The Platform of the delegation was sovereignty and the right to return. So, at long last, we have seen the setting up of a common platform.</p><br /><p>Â In LALIT, we have a rather different platform. For us, we say, sovereignty, most certainly. But sovereignty in order to close down the base. This is why in all our slogans, on all our posters and banners, there is emphasis on Diego. We learnt this from Lisette Talate. She always said that the key was Diego. She understood this. She taught us the importance of Diego in this struggle. When you put the military base, when you put militarism, on the agenda, you get a much broader support base. On the issue of the right to return, for what the Chagossians have suffered, you get a certain amount of support on a purely humanitarian basis. Similarly, on the issue of sovereignty, you can get support for decolonization from African countries, from India, and China, it's true. But, when your platform includes opposing the military base, you get support from huge anti-war movements, huge anti-war groups, movements for world peace, anti-imperialist movements. You garner all this support. We saw it when we were in a delegation to Mumbai for the No Bases meeting, where the GRC was present alongside us. There, when we exposed the problem of Chagos and Diego Garcia, we got massive support from the international anti-war movement. It is important to keep the question of base closure on the agenda.Â  We have put pressure to get a UN Resolution, and we have won one. Thatâs all to the good. Both Alain and Cassam Uteem have mentioned how long we have sought a UN Resolution to go to the ICJ. But, there have been all kinds of occult pressures that have led to the Resolution, while staying on the agenda, being put on âholdâ. It is pending. Mauritius is supposed to go and negotiate. But, to negotiate with who? Those perfidious ones? With those perfidious ones that have been stringing us along for 50 years? Mauritius should go and negotiate with them? For 50 years, they have refused to address the problem. So, how are negotiations going to help? Now? In these next seven months Britain is going to do what it has refused for 50 years to do? We have begun our research to find out if this âholdâ operation is normal, that is to say, to have something on the agenda, but suspended for later discussion. It is not usual. And when you see the pressure the UK and USA have already put on Mauritius, the threats they have already meted out, it is easy to understand how they get Item Number 87 on the Agenda put on âholdâ until June next year.</p><br /><p>Â But the Resolution is on the agenda. And if there is a vote at the UN General Assembly, then the dispute between Mauritius and Britain will go before the ICJ. And the ICJ will be called upon to give an Advisory Opinion on what happened in 1965. It is not binding. It is not even binding. And yet Britain and the US are trying to avoid it like the plague.</p><br /><p>Â Look at Britain on this.</p><br /><p>Â Britain accepts the jurisdiction of the ICJ.Â  When Mauritius put a case over 10 years ago, they said, âNo, we are in the Commonwealth, and countries in the Commonwealth canât bring binding cases against us at the ICJ.â So, I remember the Mauritian Government at the time, of which the MMM was part, said, âWell if thatâs how it is, we will leave the Commonwealth and take the case to the ICJ.â What did the British state then do? It went and changed its contract as concerns the ICJ. From that moment onwards, even countries that <em>were</em> in the past in the Commonwealth can no longer put binding cases against Britain.</p><br /><p>Â And now, they come and say go and negotiate with this kind of State? With this? Boris Johnson, I agree with Cassam Uteem on this, why on earth did Jugnauth agree to go and meet this buffoon? He is a buffoon. (I can say this about him because he went to the same University as me.) [Laugher.]</p><br /><p>Â But in this period, between now and June next year, we are in a time of great dangers. We will be living times during which the Mauritian Government will go and sit with Theresa May or with Boris Johnson or other British officials.</p><br /><p>Â This period represents all kinds of dangers. In particular, both the UK and the USA will work on other countries, using the same kinds of pressure they already use on Mauritius. They have time to pressure countries into not voting for the Resolution.</p><br /><p>Â They have other ways of working, too. And we need to be conscious of this kind of danger. Amongst the Chagossians are certain, especially in the UK, in Crawley, who have opinions very different from the opinions we share here. Amongst one of the groups in the UK, they say they prefer Chagos remains BIOT. They prefer living in a British colony. They say it openly. But this represents a Trojan Horse for the British, in the sense that the British will work within the Chagossian community, especially in the UK but also here. They will threaten a referendum. They will say, âLet the Chagossians decide!â They will invoke international principles like âself-determinationâ, by calling for Chagossians to decide. Whatever they decide, Britain means, Mauritians will have nothing to say in the matter. This danger is what we have to face up to in the next 7 or 8 months. This flagrant disavowal of the decolonizing principle. We must be conscious of this. This is the what we mean when we refer to what is at stake. This is just one part of the stakes.</p><br /><p>Â There are other aspects of the national and international political situation.</p><br /><p>Â Internationally, there is the coming change in who is President of the USA. Whether Obama or Clinton or that other buffoon Trump, it makes little difference because in those countries, whether the US or UK, it is, as I mentioned earlier, <em>raison dâetat</em> that, in the end, wins. It is not what any politician, whether Obama, Clinton or Trump, thinks. It is the military-industrial complex that decides.We cannot count on the kind of change that happen when the small bit of the State that is elected changes.</p><br /><p>Â In the UK, there has also been a change. Britain has voted for Brexit. This then led to Cameron resigning, and being replaced by a new Prime Minister, Theresa May. Here too, it is true that Theresa May or Boris Johnson have not a different stand from previous governments.</p><br /><p>Â In Mauritius, too, there are changes coming.Â  We have a Prime Minister now who is much older than me â very old â and I do not believe that he will remain Prime Minister for his 5 years. Everyone seems to accept that he will step down. We donât know who will replace him but maybe the <em>Civil Status Office</em> will get a word in edgeways on this [laughter]. Will there be a change in the Mauritian stand? Will the new Prime Minister have the same fixed determination as Aneerood Jugnauth? He is a stubborn one. That is his good point, and also his bad point. He is stubborn. Will his successor have the same steam in his engines as Jugnauth has on the issue? <em>This depends on us.</em> On the Chagossians. On everyone involved in this struggle. It depends on us to make the Government stand firm, even when pressures come from the UK and USA, open pressures and hidden ones. We determine what our Government does or does not do.</p><br /><p>Â The British High Commissioner said in a press interview that friends donât take friends to Court, meaning of course that Mauritius should not take the British to the ICJ. Maybe. But friends donât steal from friends either [laughter]. If they steal, it is surely fair game to go to Court.</p><br /><p>Â So, these are some of the stakes, some of the dangers, some of the forces we are up against. Knowing all this helps us make the struggle move forward. The Title of our conference if about <em>winning</em>. For 50 years we have struggled, and it is not now that we are going to say letâs wait another 50 years. We must win this battle. Knowing the stakes helps us lead the struggle where we need it to go for victory. Thank you.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

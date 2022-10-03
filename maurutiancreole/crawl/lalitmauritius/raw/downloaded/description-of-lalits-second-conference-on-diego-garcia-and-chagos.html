@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100855" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100855" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100855" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100855" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100855" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100855" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100855" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100855" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100855" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Description of LALITâs Second Conference on Diego Garcia and Chagos</h1><p class="subtitle">03.10.2016</p></h1>
+	<p class="newsarticle"><p>LALITâs Hall and adjoining veranda were full of people, all transfixed by the consistently high level of the content of the speeches â precise and to-the-point â and by the calmly committed integrity of the people giving the speeches at the LALIT Second Conference on Diego Garcia.</p><br /><p>Â <strong>Visually</strong></p><br /><p>As they spoke, the speakers stood in front of 6 photographic tableaux, a panorama starting from the Nordvaerâs last voyage to Port Louis from Chagos in 1973, through LALIT and Chagossian womenâs street fights with the Riot Police in 1981 demonstrations, up to the bright colour photo of a LALIT demonstration against the British 2010 ploy of a <em>Marine Protected Area</em> near Diego Garcia and now declared illegal by international courts. So, photographs spanning 50 years of history alongside brightly coloured banners calling for military base closure made for a striking visual back-drop. The part of the audience that had overflowed on to the veranda sat amongst some 45 photographs of the history of the struggle against Chagos â by the doyen of press photographers, Vel Kadarasen.Â </p><br /><p>Â <strong>The Context</strong></p><br /><p>Alain Ah-Vee began with a clear outline of where we are today: the end of the 50-year illegal lease between the thief of Chagos, Great Britain, and the receiver of the stolen goods, the USA comes at the end of the year; finally, at long last, we have been able to force the Mauritian State to put a Resolution on the table before the United Nations General Assembly where it is today, in order to take Britain before the International Court of Justice. The British have, however, put pressure on the UN General Assemblyâs President to arrange an unprecedented 6-month âon holdâ for the Resolution. As Rajni Lallah would later point out in her speech, this is precisely what the Mauritian bourgeoisie had called for through its mouthpiece, <em>LâExpress</em>, in an editorial signed KC Ranze a month before! So, the Conference would thus expose that this was a new conspiracy, adding to all those already exposed in the British Courts in the 2000 judgment in the Bancoult case, as the hideous colonization continues into the 21st Century. Alain Ah-Vee said that we would work, during the Conference, towards a Second Resolution of Grande Riviere, if possible, one that moves forward from the First Resolution of Grande Riviere in 2010, copies of which were distributed along with the Program for the two days.</p><br /><p>Â <strong>The participants</strong></p><br /><p>The audience of participants was made up of delegations from organizations that work close to LALIT, including the Chagos Refugees Group, LALIT members from branches all over the country, LALIT supporters, and international and local guests.</p><br /><p>Â <strong>Former President of the Republicâs Opening Speech</strong></p><br /><p>The Opening Speech was by Former President of the Republic, Cassam Uteem. He presented a requisitory of accusations, closely argued, against the US and British States, as the perpetrators of so much suffering. One of the high points of his speech was the analysis of how the massive refugee problem facing Europe, and not just other neighbouring countries like Turkey, Jordan, the Lebanon, Pakistan, is the direct result of US bombing, carried out by B-52âs, many of which take off from Diego Garcia. So, the suffering in terms of deaths, injuries, displacement and exile, is directly linked to the need to close down the base.</p><br /><p>Â <strong>Ram Seegobin on the Changing Stakes</strong></p><br /><p>Ram Seegobin, for LALIT, described the changing nature of âthe stakesâ, and how to struggle for the end of this 50-year military occupation of the country always has to stay abreast of these changes. The Chagos Refugee Groupâs cases before the British Courts have more-or-less reached their limit; and it is not surprising when we know that state institutions, including the judiciary will, in the final analysis, play â<em>raison dâÃ©tat</em>â as their trump card. He also mentioned that the GRC has finally been integrated into the platform reclaiming sovereignty as well as âthe right to returnâ. And that the state of the Republic of Mauritius has finally got a resolution on the agenda right now before the UN General Assembly to take Britain to the International Court of Justice at the Hague, after last yearâs victory before the Tribunal under the Convention on the Law of the Sea (UNCLOS). So, it is a time of hope, he said, and of dangers: the dangers have already manifested themselves.</p><br /><p>Â <strong>Music</strong></p><br /><p>The composer, musician and singer, Mennwar, with just his guitar as accompaniment, gave a heart-rending performance of a song against the military base: the refrain picked up one of the light motif of the Conference: military bases are what make war and bomb-dropping possible. They exist for killing. And later Rajni Lallah and Joelle Hoseiny performed a second heart-rending song, composed by Rajni, about the dismembering of a countryâs land and sea, the removal of Chagossian people, and the deathly bombing of a wedding <em>barat </em>in Afghanistan.</p><br /><p>Â <strong>Jean-Claude Bibi on Sovereignty</strong></p><br /><p>Jean-Claude Bibi, former LALIT de Klas member and also former Attorney General and Ambassador, spoke on the political aspects of âsovereigntyâ. After a dryish, academic beginning, he went on to expose the bandit nature of the two states perpetrating the Diego Garcia and Chagos problem, Britain and the USA, and how we need to be aware of the lengths to which they go.</p><br /><p>Ragini Kistnasamy, for LALIT, gave a brilliant account of the struggle as it changed its nature over the years, and how the toughest moments of confrontation, built up over years, then brought the biggest advances.</p><br /><p>Â <strong>Documentary Films</strong></p><br /><p>Each day began with a documentary. So, as guests finished drinking a cup of welcoming tea, they would move into the Hall for a film. The first day was the Irish TV classic Peadar King documentary, with long soliloquys by Aurelie Talate and Fernand Mandarin, as well as clear analyses by Olivier Bancoult and the late Chief Justice, Rajsoomer Lallah. The second day was John Pilgerâs powerful, accusatory film against the State apparatus of both the US and Britain over 50 years.</p><br /><p>Â <strong>Interpretation</strong></p><br /><p>It is something of a lesson to those who organize international conferences in academia in particular, that the entire Conference was held in the mother-tongue. Visitors from abroad were provided with interpretation, done by the team of nine volunteers, on hardware invented by LALIT-member, Jean-Yves Dick. Often they also had an English draft of the speakerâs prepared speech, as a guideline. Then when visitors spoke in English, Kreolophone participants were provided with little radios and earphones to listen in in Kreol.Â </p><br /><p>Â <strong>David Vine</strong></p><br /><p>David Vine, author of <em>Island of Shame </em>and <em>Base Nation</em>, was the first international speaker. American by nationality, he has worked for years with the Chagossians. To everyoneâs warm appreciation, he spoke at the microphone entirely in Kreol. His speech was an indictment of US military bases.</p><br /><p>Â <strong>On Victory</strong></p><br /><p>For LALIT, Lindsey Collen spoke on the necessity of keeping victory in sight always, and of not ceding on any of the issues of principle: base closure/clean-up, complete decolonization of Mauritius including Chagos, and the right to return under conditions of free circulation within the entire Republic.</p><br /><p>Â <strong>Debate</strong></p><br /><p>After each session, there were naturally questions, comments and points of debate raised from the floor, making for a rich sharing of ideas.</p><br /><p>Â The Fernand Mandarin book on Chagos was on display and for sale at the Conference, as a tribute to his struggle.</p><br /><p>Â <strong>Homage to Vel Kadarasen, Photographer</strong></p><br /><p>Doyen photographer, Vel Kadarasen, was paid homage to by the Conference. The <em>Muvman Liberasyon Fam</em> had organized the photographic exhibitions as a contribution to the struggle that it, as a womenâs association, has long been involved in. Sadna Jumnoodoo, in a speech on the veranda at lunch time, in the present of Vel, his wife, his two daughters, and their families, expressed everyoneâs admiration for the art of capturing a moment in time to represent an epoch, something that Vel was so thoroughly professional about.Â </p><br /><p>Â <strong>Militarism in the US</strong></p><br /><p>Clare Bayard, a San Francisco anti-militarist activist and trainer spoke on movements in the US against police violence, even as the police force in the US becomes more and more militarist, itself, more and more like an army for oppressing the US people. She linked the struggle against militarism with the land question, as indigenous people in the US and beyond rise up and unite against the occupation and destruction of their lands. She said how militarism, and even genocide, were the foundation stones of the âstateâ of the USA. Â Â Â Â Â Â </p><br /><p>Â <strong>US Methods of infiltrating other countries</strong></p><br /><p>Rada Kistnasamy presented an outstanding paper on how the US operates politically within a country, through methods as diverse as SOFAs (creeping militarization of US presence through Status of armed Forces Agreements with their hosts of their embassies worldwide) and giving âsilenceâ money to NGOs and having soldiers visiting primary schools and then adopting whole villages.</p><br /><p>Â <strong>Joseph Gerson, world-renowned writer on US Bases on Skype Call</strong></p><br /><p>In a Skype call, Joseph Gerson said how bases were and are part of the war machinery. They are there in order to make war. He also spoke of the forces within the US society that are against this war machinery, and how sometimes victories come unexpectedly against almighty forces. He gave examples.</p><br /><p>Â <strong>Pelindaba Treaty: Noel Stott on Skype</strong></p><br /><p>On the Pelindaba Treaty, the Conference benefitted from the detailed knowledge of exactly where this new Treaty is up to in terms of its Secretariat, just about to begin to function in South Africa. This gave ideas for an item to add to the Resolution, if there would be one.</p><br /><p>Â <strong>Report from Britain and New York by Olivier Bancoult</strong></p><br /><p>The first report from the UN delegation in New York was given by Olivier Bancoult at the LALIT conference. He said he was proud to be part of the Mauritian delegation, and was pleased to see the sovereignty and right of return issues linked this way. He spoke of how the British state had offered him and his association a one-third share of 20,000 Pounds Sterling, which he refused. He had, however, accepted secret negotiations with the British. Boris Johnsonâs main concern was as usual about the military base. He wanted to assure that Olivier Bancoult believed that the base could cohabit with the Chagossianâs presence. And Olivier gave him this assurance, he said. LALIT member Kisna Kistnasamy called formally and publicly on Olivier Bancoult to take this question of collusion with the military base back to his members for re-consideration, saying it was a mistake to take this line. It weakens all his struggles and our struggles, which need to be principled. LALIT believes, as the late Aurelie Talate put it, that Diego Garcia is both the cause and the key to resolving the problem: the base must be closed, Kisna Kistnasamy added.</p><br /><p>Â <strong>Former US Navy Employee now Anti-Militarist, Maricela Guzman Â Â Â Â </strong></p><br /><p>Coming from a poor family from Mexico, originally working as âsan-papyeâ in California, she joined the US Navy in order to pay for her studies, so that she could be the first person in her family with a university diploma. She chose to be stationed at Diego Garcia, and while she was there, she realized that the US Navy employed people from the Philippines plus a few Mauritians, she said, to work in slave-like conditions on the base. She did not agree with this, and this began a process of personal change in her.Â  She said there are many âveteransâ from the US armed forces who are against the military.</p><br /><p>Â <strong>The Mauritian Bourgeoisie: The US-UK Fifth Column</strong></p><br /><p>Rajni Lallahâs speech outlined the way in which from the very Lancaster House negotiations from 1965 onwards, the Mauritian bourgeoisie was a fifth column for the UK-US imperialists. The capitalists blatantly put their interest in profit before any interest in peace, sovereignty or human dignity.</p><br /><p><strong>Wilbert van der Zeijden on US military bases</strong></p><br /><p>Wilbert van der Zeijden, who was speaker at LALITâs First Conference on Diego Garcia in 2010, was again speaker. He showed how US bases surround Europe, the Middle East, Japan and China. He put emphasis on the way in which there are a series of new SOFA (Status of armed Forces Agreements) creeping into Africa, thus giving the US more and more military presence. He said we should beware of this creeping present from a very small military presence, like the âtemporary drone baseâ recently inveigled into Niger. He said closing bases is not easy, but bases have been closed. He mentioned some. He said, however, that the good news is that the economy that maintains these very expensive military installations is no longer strong, and it is possible that the US will be forced to reduce its overseas bases.</p><br /><p>Â <strong>Allies</strong></p><br /><p>Alain Ah-Vee spoke on how in all struggles we must be clear who our allies are. And while States world-wide have been our allies in the UN system and other international groupings of countries, our real allies are âpeoplesâ not states. And in Mauritius and world-wide, it is working people, the working class that is the staunchest ally.</p><br /><p>Â <strong>Resolution</strong></p><br /><p>A series of points were agreed one by one by show of hands, to be included in a Second Resolution of Grande Riviere that the Conference called to be drafted accordingly by 6 people within the next 10 days. The Proviso is that there is no retreat further back than the First Resolution. This will be published soon.</p><br /><p>Â <strong>Workshops</strong></p><br /><p>Three workshops then met to do brain-storming, and collect ideas on three different aspects of the future struggle:</p><br /><p>1. How to consolidate the massive support that has so far been built up internationally over the years, including in letters sent for the Conference.</p><br /><p>2. What actions can be encouraged within the US and UK. One example was how to work to get the US to ratify the Cluster Bomb Treaty, so that there can be UN inspections on Diego Garcia, for example to see if there is compliance with the Treaty.</p><br /><p>3. What actions can be encouraged in perhaps all countries: for example, how to oppose the SOFAs that inch forward, world-wide, and how to encourage people to refuse US Embassy hand-outs, and to call them âsilence moneyâ or even âblood moneyâ.</p><br /><p>Â <strong>Social Gathering</strong></p><br /><p>Before going home people gathered around snacks, tea, coffee and drinks â so that everyone could chat to the visitors from abroad, or to friends from further afield in Mauritius.</p><br /><p>Â </p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

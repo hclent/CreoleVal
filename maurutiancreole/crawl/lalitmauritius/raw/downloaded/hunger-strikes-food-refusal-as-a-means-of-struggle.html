@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612104125" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612104125" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612104125" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612104125" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612104125" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612104125" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612104125" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612104125" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612104125" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Hunger Strikes: "Food-refusal" as a Means of Struggle</h1><p class="subtitle">20.03.2010</p></h1>
+	<p class="newsarticle">We would like, in the context of the series of hunger strikes in Mauritius over the past few months, to reprint below LALIT leading member Ram Seegobin's analysis of the hunger strike as a means of struggle. It was first published in a shorter version in <i>L'Express</i> in 2006. On Friday 20 March, the hunger strike by a group of planters to get a higher compensation for loss of leased agricultural land was called off, after the Government set up a Committee-of-Two-Assessors to look into their "cases" one by one. This was only after the Catholic Church hierarchy had called for the Government to act. This hunger strike was the third in a series in quick succession. They are what we  can call "pre-electoral" hunger strikes, all mainly aimed at regularizing genuine, but one-off, grievances. <br><br>Hunger Strikes: "Food-refusal" as a Means of Struggle<br><br>Usually "food refusal" is the prerogative and weapon of the spoilt child. But sometimes in the course of history "food refusal" becomes a potentially powerful tool of struggle -  <i>the hunger strike. </i> But this is only possible under exacting conditions, without which, a hunger strike is exposed to the risk of being weak and manipulative, thus counter-productive. Recent debates have tended to portray the "hunger strike" simply as a means to exert some form of blackmail. It is becoming essential that we clear up our ideas on the subject, otherwise there is a risk that we will lose the very powerful tool of struggle that is the hunger strike.<br><br>As organizations, we should be very careful which hunger strikes we encourage our members to participate in. Although, of course, everyone will feel pity for individuals, shattered at losing their jobs or houses, who go on a hunger strike to show their despair. Any support that people give, in such cases, is likely to be only part of a general duty of support to anyone threatening suicide - whether by stopping all food intake or by blowing himself up with a gas cylinder - no more. <br><br>I have thought a lot about the question of hunger strikes, having been on two myself. I know how difficult they are, politically, emotionally and physically. While on hunger strike, one has a lot of time to analyse the action, its theoretical basis as well as practical implications. One shares ideas with other participants who may have slightly different views on the methods and aims of hunger strikes.<br><br>As a medical practitioner, hunger-strikers also sometimes call on me, perhaps inappropriately, given that they are voluntarily not eating, so the only medical advice they can expect is that they'll feel better if they start eating again! <br><br>As well as personal experience, history is always a guide. <br><br>Most hunger strikes worldwide are those done by a category of people who have very few choices of method: <i>prisoners. </i> Political prisoners often go on hunger strike to get books, pen and paper, for example. The aim, though limited, is noble: for all prisoners to benefit from books and writing materials. The means are reasonable: there are not many options in jail. There are also hunger strikes that are started because people are up against almost impossible odds, like when one is confronted with a creature like an "empire". <br><br>Bobby Sands<br>Bobby Sands, the famous Irish Republican Army prisoner who stood for election while in jail 25 years ago, died on the seventieth day of a water-only hunger strike. His demand: political prisoner status for IRA detainees, better prison conditions for all, and the freedom of Ireland from domination by the British State. Bobby Sands certainly fulfilled the basic criteria for the justification of a hunger strike: he was up against overwhelmingly powerful odds, his demands were part of an overall political strategy, and he had very little other choice of method.<br><br>He certainly didn't consult a doctor after a few days on hunger strike. He was serious. When people like Bobby Sands go on hunger strike, they prepare themselves psychologically to expect to feel sick, to become weak, to suffer discomfort and pain, eventually to become ill, and ultimately, if the conditions set out at the beginning are not met, to risk irreversible damage to their bodies, and to die. <br><br>The Suffragettes<br>British people, too, the Suffragettes who fought  a 100 years ago for women's right to vote, used the hunger strike against the British State that jailed them for their demonstrations. They, like Bobby Sands, had a demand formulated to be in the direct interests of broad sections of the masses. Their demand won increasing support as they continued their hunger strikes. Their aim, as the aim of a hunger strike should be, was to build up, day by day, enough mass support so as to change the balance of forces in society sufficiently so as to force the State to change its policies.<br> <br>Gandhi<br>In India's independence struggle, Mahatma Gandhi used the public hunger strike as a method against the same British State. Again, we note he had demands that could be taken up by the broad masses all over India. Again, we note the action was part of a larger political strategy: for Independence. We also note that Gandhi had a clear strategy. What he was saying was this: "We demand India's Independence. There is a state of insurrection in India, as the parties working towards Independence gain strength, and there is a risk of violence. However, the people trust me and as long as I am alive and leading them, I can prevent violence". <br><br>He didn't hope the King of England would feel sorry for him after a couple of weeks of hunger strike. Like Bobby Sands, he was part of a political party. Their actions, as hunger strikers, were part of much larger conscious movements, and this unity around the demands is an important criterion for a successful hunger strike.<br><br>Demands in all three hunger strikes against the British State were formulated in such a way that gradually, over the course of the hunger strike, day by day, more and more people in the broad masses understood the demands, agreed with them, felt that they were their own, and as such would begin to act on the basis of the demands.<br><br>All three hunger strikes had the political machinery to make use of the hunger strike in order to propagate the demands of the whole movement, and also to mobilize support from more and more people.<br> <br>August 1979 <br>In 1979, after a week of strike by labourers and artisans for trade union recognition and against mill closures, at a time when the working class's leading sectors, Dock and Transport Unions, were being weakened by VRAC and individual buses, respectively, the rest of the working class consciously joined into what became a general strike "movement", in order that the labourers and artisans' unions could get strong enough to take part of the burden of leadership of the working class at this crucial time.<br><br>After two weeks' strike movement, as everyone was aware, there was a state of near-insurrection in the country. The Labour Government in power still refused concessions, while bosses sacked striking workers. It was at this point that a general assembly of workers of the federations involved decided that the strike movement's leaders, Paul BÃ©renger, myself and others, would go on a hunger strike. Because of the white-hot state of mobilization, the decision was that we go on hunger strike without food <i>and without water</i>. This is called a "sudden death" hunger strike. It gave us six or seven days to live. This was a conscious choice. It was taken because of the urgency required. There was high mobilization after the two whole weeks of the strike movement, and this needed to be maintained for a few days. The demands were clear: recognition of the sugar industry unions, no to mill closure, and re-integration of sacked strikers.<br><br>The hunger strike successfully mobilized thousands and thousands of people. More and more every day. The Jardin Compagnie became the focus for mass demonstrations. Trade union and neighbourhood groups poured in from all over Mauritius. When the riot police acted, and later the SMF, the people began to riposte by turning cars upside down all over the streets of Port Louis.<br><br>After four days, the "Lakor 23 Ut" (it's name still rings in popular memory) was signed: trade union recognition would be on its way, the mills would not be closed, all workers sacked in the strike would be given alternative jobs.<br><br>From the hunger strike point of view, there were lessons. A hunger strike being designed to force decision-makers to change their policies, something they do not like doing, creates its own built-in enemy. We realized we had to be in full view of the public 24 hours a day. This was proof we were respecting the hunger strike. We also realized that it was partly the known integrity of hunger strikers that permitted our movement to withstand rumours invented by enemies, including the National Security Service's whose despicable "job" it often is to do just this. <br><br>There was another lesson. Everyone has to be equal in a hunger strike. There were nine of us in the hunger strike<i> indefinitely</i>, and yet, erroneously, there was one from amongst us who would be replaced, he announced, in three days' time by another member of his party. This particular hunger strike was strong enough to withstand the adverse effects of accepting the offer of an additional "short-term" hunger striker.<br><br>September 1980 <br>A year later, the Government had not yet got work for every sacked striker. So the unions concerned planned a new hunger strike, <i>Lagrev Lafen '80 </i>. This time we would take water.  We chose this formula and publicly announced it and its reasoning. We needed time in order to build up the mass movement again so as to force government to give everyone their jobs back. This hunger strike, too, was successful. <br><br>It had its lessons, too. One unionist decided at the very last minute "to join in" the hunger strike. This meant he was not psychologically prepared. On the second day, we suspected him of having received food from a visitor, who may have visited the bathroom. Paul BÃ©renger and I announced to him and the other strikers that we would check that he was on hunger strike like the rest of us, day and night. Three hours later, faced with a real hunger strike, the man had a bad panic spell, with palpitations and all. He had no choice but to pull himself together. Which he did.<br><br>Another lesson was that one or two of the participants would bring medical problems to me, a co-hunger striker. Their tummies hurt; they felt weak or dizzy. So, I had to remind everyone we were on hunger strike in order to be unwell, so as a doctor I was no longer of any use. I said I had a good idea why they felt so awful, and I did too. They, like me, hadn't eaten for many days. And if and when, I said, any of us felt unwell, it was all to the good. If we got really sick, so much the better. Hunger strikes are serious, and, failing victory, we had to face the prospect of illness and death, I concluded my pep talk.<br><br>This hunger strike found a vociferous enemy: Elizier Francois. He held public a meeting near the old GWF office on Moka Road where the 1980 hunger strike was held, billed as <i>Jabaljass v/s Grevistes de la Faim</i> trying unsuccessfully to turn the public against us.<br><br>Diego Garcia Women <br>In the 1970's and '80s, the women of Chagos had many hunger strikes on the triple demands for compensation & the right to return, the retrocession of Chagos from Britain to Mauritius, and the closing down of the United States' base on Diego Garcia. Again, like Gandhi and Bobby Sands, the hunger strikers were up against a whole empire. The 1981 hunger strike and the street demonstrations supporting it, forced the British government to negotiate, and to pay the first proper compensation.<br><br>The theoretical basis of the hunger strike<br>Every hunger strike is important, even if poorly planned, generally misunderstood, or plain misguided. Because each one contributes to the way the broad masses see hunger strikes, understand this particular means of struggle and to what extent they are prepared to give support.<br><br>The hunger strike is an ultimate weapon, when there is total deadlock in negotiations. Is it aiming simply to provoke a "humanitarian reflex" in the heart of the deciders?  That would be a very hazardous path. The real aim is to increase the political price that the deciders will pay, if they persist in maintaining the deadlock; the real aim is to alter the balance of forces in such a way that negotiations can resume, but on a different footing, more in one's favour.<br><br>To achieve this aim, the action needs to have the sort of credibility that is beyond any questioning. The nature of the strike needs to be widely known, in terms of what exactly are the strikers depriving themselves of: food, water, liquids. It has to be made quite clear under what conditions the strikers will seek medical advice and treatment, and under what conditions they will refuse to be subjected to forced feeding.<br><br>But when it comes to changing the balance of forces, the absolutely central element is the "Support Committee" that is constituted around the action: a support committee that is logical in its content and where the strikers themselves have the final say. But at the same time it needs to be the sort of support committee that is capable of taking decisions, should the strikers reach a state where rational decisions are difficult, if not impossible. The Support Committee also determines the team of negotiators that will take up further negotiations when necessary. Perhaps the central role of the support committee is to constantly exclude the pack of vultures that will inevitably gather, with their own agenda. There will always be the temptation to accept support from wherever it comes, but it has to be born in mind that some support can do more harm than good to the cause.<br>    <br>Demands <br>The demands, if one expects mass support, need to be presented in their <i>general nature</i>: not only to win an advantage for the participants or some small group of people, but to advance a cause that the broad masses can be part of. The hunger strike needs also to be part of an on-going, consciously fought, history-making struggle. It must be clear how the hunger strike re-enforces the ongoing movement.<br><br>The economic and social context also needs to be taken into consideration when the demands are formulated. If, as in the context of the recent hunger strike, 8,000 labourers and artisans of the sugar industry are being laid off with a VRS-type package quite similar to the one offered to the 200 DWC workers, it is counter-productive not to constantly draw the paralell. There is frequently an erroneous belief that a solution to a problem is easier to reach if that particular problem is kept in strict isolation, but this reasoning somehow ignores the absolute necessity to change the balance of forces in one's favour.<br><br>So hunger strikes are fraught with difficulty. We all have a duty to defend the credibility of this weapon of struggle, especially at a time when all reasonable demands run the risk of coming up against the same old argument of "<i>There is no alternative</i>", when the "logic" of economic measures is presented as "not negotiable", even when they cause great hardship to large numbers of people. <br><br>Ram Seegobin<br>For LALIT, 27 December 2006 <br>Originally published in a shorter version in L'Express 28 December, 2006.<br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

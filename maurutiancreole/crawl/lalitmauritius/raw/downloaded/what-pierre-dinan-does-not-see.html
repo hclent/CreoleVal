@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100146" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>What Pierre Dinan does not see</h1><p class="subtitle">21.01.2018</p></h1>
+	<p class="newsarticle"><p>Â This is a rejoinder to an article in 7 January <em>Week-End,</em> â<em>Pour une Ã©conomie intÃ©grÃ©e et inclusive</em>â by economist Pierre Dinan. His sentiments are humane and his intention honest, yet the article remains one of those weird bits of reading that only bourgeois economists can so consistently produce:Â  a huge elephant stands <em>unmentioned</em> in the middle of the room. Even when they try to, they canât <em>see</em> the main thing. Even when they finally admit that âgrowthâ is not a reasonable aim for âeconomicsâ, that the wealth of the environment is not infinite or that so much inequality is unjust, they still canât see it.</p><br /><p>Â Capitalism was well outlined by its first analysts, like Adam Smith, and then explained in depth by Karl Marx. But since then, bourgeois economists refuse to see how society itself is deformed <em>by the economy.</em> They prefer to pretend that <em>social</em> inequality is part of the <em>natural order </em>of things, to be taken as âgivenâ by economics. So though Pierre Dinan is contrite about problems in Mauritian society, he cannot see the one big reality in front of him â the âelephantâ standing in the middle of his room.</p><br /><p>Â <strong>Land</strong></p><br /><p>At a time when the Mauritian âeconomyâ is selling off huge tracts of good arable land to private owners world-wide, concreting land up in IRS real estate schemes, he cannot see that <em>control </em>over the land is skewed <em>by the economic history of Mauritius</em>. Even when talking about ânatureâ and the âenvironmentâ, he does not see <em>land ownership</em> as a problem. To him, Dame Nature created land-owners. They decide what to do with it. She created a massive class to work the land â daunted by the legal framework of slavery, then by indenture laws, now by labour laws, keeping all of us working people, including Mr Dinan no doubt, in check by ceding to us <em>the minimum necessary </em>to keep us âin placeâ. So, social inequality is also, to well-meaning analysts like Pierre Dinan part of ânatureâ. It is âgivenâ. It does not enter the minds of bourgeois economists that there <em>could</em> be democratic, collective control over land, the very resource that could create a cascade of jobs, in agriculture and industry. Economists rarely acknowledge that for 200,000 years humans lived in systems where land is now known to have been controlled <em>collectively</em>. Private appropriation of land is a relatively new phenomenon, begun some 10,000 years ago, and only generalized worldwide for a mere 200 years. Economists take the unequal control over land as <em>given</em>. This explains why Mr Dinanâs title is so minimalist: even slave-owners and field-worker slaves were â<em>integrÃ©e</em>â into one system that was â<em>inclusive</em>â.</p><br /><p>Â <strong>Social Capital Privately Monopolized</strong></p><br /><p>Similarly, the <em>capital</em> that has been amassed by financial institutions is only related to the masses of human beings that created it by economists like Mr Dinan when there is the â<em>effondrement</em>â of the banking system, as when it collapsed 10 years ago. The thing itself â the <em>capital</em> â is not seen as produced socially by an aggregate of all us human beings, but as something given by god or the gods to the employer capitalists, and landing somehow in the hands of bankers.</p><br /><p>Â <strong>The Elephant in the Room</strong></p><br /><p>So, land and capital are monopolized by a tiny minority of human beings. This is the elephant in the room.</p><br /><p>Â <strong>Self-criticism</strong></p><br /><p>The first half of Mr Dinanâs article is about the doughnut metaphor proposed by Kate Raworth as an apology for economistsâ 200 years of wrong assumptions. It describes the pressure of the <em>environment</em> on the outside of the doughnut ring, and the pressure of <em>human needs</em> on the inside. The environment and even humans are âpressuresâ on the economy. But it is still the <em>existing economy</em> which is âthe thingâ, the doughnut.</p><br /><p>Â But what is this capitalist economy, itself, today? It is simply control over nature (land and also another natural thing, our human <em>capacity to work </em>with our brains and hands) by a tiny â and shrinking â group or class. These are the finance capitalists. They have for over 100 years dominated not just working people but capitalists in <em>production</em>, too. Lenin described their take-over in <em>Imperialism, the Highest Stage of Capitalism</em> (1917). After the fall of the Soviet challenge to capitalism, financiers had a free hand, and by 2008 suffered total collapse, nearly destroying 250-year-old capitalism, itself â had there not been massive nationalization of financial institutions.</p><br /><p>Â Pierre Dinan describes the â<em>quasi-disparition de lâÃ©conomie collectiviste</em>â as though it is yet another act of god. The collapse in 1991 of the Stalinist state represented <em>not</em> the collapse of the revolution but of the <em>counter</em>-revolution. There <em>was</em> an anti-capitalist revolution 100 years ago in Russia, the Tsarist empire, where working people were still in a tiny minority and unable to defeat the counter-revolutionary forces that crushed the revolution a few years later. All these historical events are part of the on-going class struggles participated in by flesh-and-blood human beings. They are not just mechanical economic processes. The collapse of the Soviet Block state-controlled economies that had ended up being run for the benefit of a greedy bureaucratic class was the collapse, not of socialism let alone communism, but of that counter-revolution. Capitalism, and the capitalist state, is still what we need <em>today</em> to challenge, if we are to create a collective, democratically controlled economy. The economy is the way we survive in society. It must eventually be controlled democratically and collectively!</p><br /><p>Â When Mr Dinan pivots to talking about Mauritius, he is rightly sarcastic: â<em>Nous sommes encore loin du stade de consommation massive envisagÃ©e par [certain] comme Ã©tant le summum du bien-etre!</em>â He is qualifying his use of the âdoughnutâ schema for a less-developed country like Mauritius. But notice how â and this is the key to understanding bourgeois economists â for him, all Mauritians can be averaged out as far as their consumption and their damage to nature is concerned. While some Mauritian families run four cars on fossil fuels and consume gallons of water, others travel by bus and use so little water they donât pay.</p><br /><p>Â These âother Mauritiansâ have so little control over land, they donât even have a house.</p><br /><p>Â <strong>Housing </strong></p><br /><p>In LALIT, we estimate that 40% of Mauritians do not have a home of their own. They live most often in the legal purgatory people call â<em>lakaz zeritye</em>â. This means they live in a house that an ancestor acquired, then when he died, his four children each inherited a room. Each one married, and had 2 children in the room, some of whom are now married with children. Living in that kind of âhouseâ produces unspeakable conflict.</p><br /><p>Â <strong>Housing has âuse valueâ</strong></p><br /><p>Capitalism, Mr Dinan fails to notice, turns land-and-housing from something with a use-value â a place to live â into something with an exchange value on some market.</p><br /><p>Â Then, under capitalism, land being a good guarantee for loans, when Banks had too much liquidity, colluding Governments sold âCitÃ©â houses to the occupier. This way, new people could repay loans <em>at interest.</em> In France, of course, the State knows that, with its rigid â<em>forced heirs</em>â Napoleonic laws, which Mauritius has unfortunately inherited, HLM housing for workers is only on <em>lease</em>. It is not private property. But successive Mauritian Governments turned even that land into a commodity, got it on the market â never mind the total mess that poor families are hurled into. Donât we read the headlines, â<em>Meurtre sur un fond de conflit autour dâun terrain</em>â week after week? Donât we see 3,000 people in cyclone refugee shelters for a mild cyclone that missed Mauritius Island pointing to a hidden problem of homelessness?</p><br /><p>Â <strong>Land and housing speculation</strong></p><br /><p>Now, Sugar Estate land in Mauritius has become âcapitalâ on which people <em>speculate</em>. Billionaires can get <em>Permanent Residence</em>, even <em>Mauritian Citizenship</em>, for âinvestingâ in real estate. While ruining natureâs land, this also pushes the exchange value up beyond the reach of working people. Monopoly control of all this land by a handful of people, coupled with the commodification of what is left, is surely <em>the</em> main problem â both ruining the environment and maintaining injustice â in todayâs Mauritius.</p><br /><p>Â <strong>Environment </strong></p><br /><p>When Mr Dinan comes to â<em>exigences ecologiques</em>â he says, â<em>Dieu sait si nous avons des ressouces: la canne a sucre, et ses produits dÃ©rivÃ©s</em>â â as well as sun and sea. God is witness to sugar and its by-products being âourâ resources. Or did He give it to the sugar oligarchs? And then didnât the capitalist <em>State</em>, Minister-after-Minister, sign permits for oligarchs to sell off the land â even waiving tax for converting land use, for parcelling it, registration duty, even VAT on building materials, even income tax? All this is not for Mr Dinan to question? Oh, no. It remains the god-given private property of rich men. So Mr Dinan can have <em>voeux pieux</em> about environment-friendly energy production, but, the decision is not his to take. Decisions will be taken democratically only if we challenge capitalism, itself.</p><br /><p>Â <strong>People as helpless âby-productsâ</strong></p><br /><p>Mr Dinanâs concern about the <em>Metro Express</em> not being coupled with proper alternatives to private fossil-fuelled cars is laudable. As is his recognition that economic âdevelopmentâ has brought worse inequality. He deplores âproductionâ giving way to rule by finance capitalists and land speculators. But once again, he sees the people of Mauritius as a helpless by-product of this de-industrialization: â<em>les laisses-pour-compte se retrouvent davantage dans des secteurs en perte de vitesse</em>.â People must, he urges, be more flexible. We must somehow get education, he says. Causes of all this inequality, he says, include favouritism, corruption, single parent families, dysfunction of democracy. But never does he mention the elephant in the bourgeois economistâs room: the monopoly control since colonization and slavery of the land and capital that should be under everyoneâs control.</p><br /><p>Â <strong>His proposals</strong></p><br /><p>Mr Dinan proposes education for all and more justice in sharing riches produced. Both are fine.</p><br /><p>But, does he not see that people â we human beings â need to wrest democratic control over not just a few state institutions but over the economy, banks, all production, over the land â and take decisions that create jobs, ensure housing for all, food security, increased exports, education for all? This way, together we get to control who gets what education, and more fundamentally, what to produce, under what conditions, what proportion to go to everyoneâs consumption, what proportion to be re-invested, and how to avoid ruining the environment.</p><br /><p>Â So, <em>production</em> must be shared better. Not just <em>consumption</em>. Capital and land must be controlled democratically instead of workers begging for more crumbs from the capitalistsâ table.</p><br /><p>Â This is what is different about LALIT and other political parties in Mauritius. This is what separates us from Mr Dinan, too.</p><br /><p>Â Lindsey Collen</p><br /><p>19 Jan 2018.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

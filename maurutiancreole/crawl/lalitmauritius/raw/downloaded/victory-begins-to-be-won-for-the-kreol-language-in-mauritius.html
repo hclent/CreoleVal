@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612102921" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612102921" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612102921" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612102921" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612102921" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612102921" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612102921" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612102921" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612102921" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Victory Begins to be Won for the Kreol Language in Mauritius</h1><p class="subtitle">31.12.2011</p></h1>
+	<p class="newsarticle"><br />Dear Web Visitors,<br />LALIT has pleasure in publishing the article below, written by three LPT members, as LPT members, but who are also in LALIT. The article was dedicated to the International Panel that adjudicated at LPT's 2009 International Hearing into the Harm Done by the Suppression of the Mother Tongues in Schools.<br /><br /> <br /> <br />Victory Begins to be Won for the Kreol Language in Mauritius<br /> <br />When people are struggling for the recognition of their mother-tongues all over the world, particularly for languages in the Creole family, they will in 2012 be looking to Mauritius to try to glean hints as to how militants for the mother-tongue won here. Because in Mauritius we have, as 2012 dawns and as you may already know, begun to win.<br /> <br />Even in these otherwise dark times of a general downturn during the sustained neo-liberal attacks on working people, we have begun to win on the mother-tongue, Kreol. It will be introduced in January, 2012 as a subject in government schools. We have not been able, until now, to cry âHooray!â too loudly because the present Government has often back-pedalled on its intentions, and did actually threatened to back-pedal on Kreol â in Rodrigues Island at least, after a press campaign in this direction â just a few weeks back. But, now the teachers are trained, the parents have taken their option, and Mauritian Kreol will be taught in schools as of next year. But it will only be taught as an optional subject. That is why we do not say it is a âvictoryâ, but the beginning of one.<br /> <br />And in this short note, we would like to be able to give some signposts for people abroad and in Mauritius to help understand the complex unfolding of the history of this <i>victory being born.</i> This way, lessons can perhaps be learnt for the future â not just by others abroad, but by us, ourselves, here, too. This way we can correct the erroneous idea that the Government has out-of-the-blue decided to introduce the mother tongues out of the goodness of its heart, or as a result of a change in the mood of the Prime Minister. This way we can put into a just perspective the petty-bourgeois communalist forces that continue to divide people, woo nominations, enjoy self-flattery and claim it is âtheirâ victory, even as they attack the gains being made. This way we can also be wary of crying âvictoryâ too early.<br /> <br /><b>What re ally brought about this beginning-of-a-victory?</b><br /> <br />The conscious struggle that has brought this victory so near goes back to 1975-6, which means it is 36 years of sustained and planned political and socio-political energy, organized. If you were to name the two organizations that, without in any way diminishing the contribution of others, have contributed the most to these immense gains over these 36 years, it is clearly <i>Lalit and Ledikasyon pu Travayer </i> (LPT).<br /> <br />It is a political struggle, and <i>Lalit</i>is the only political party that, over all this time, has promoted the mother-tongues. It has done so not blindly out of âideologyâ as its opponents like to pretend, but so that the use of these languages can contribute, in turn, towards nurturing the <i>understanding </i>by working people and the oppressed of their own struggle for their own liberation, towards their own seizing of power, which is <i>Lalitâs</i> program. This program involves shared linguistic proficiency in philosophy, history and politics, as well as in programs, strategies and tactics â in which everyone is involved. And this is, and needs to be, primarily in the mother tongue.<br /> <br />Meanwhile, in parallel, <i>Ledikasyon pu Travayer </i>(LPT) is a workersâ education association that has the much narrower aims of adult literacy and mother-tongue promotion. But LPT does these <i>through and for liberation</i>. So, it is LPT that has accomplished the broad-based popularization of the more technical, pedagogical and literary aspects of language promotion.<br /> <br />And while <i>Ledikasyon pu Travayer </i>gets public recognition in Mauritius , and has even been awarded the UNESCO World Literacy Prize in 2004 with a citation on its contribution to mother-tongue promotion, <i> Lalit </i>does not often get the recognition it deserves for its immense contribution. Except of course from ordinary people, who in all the streets, cry out that <i>Lalit </i>is finally winning not just battles but the language war! Except of course for those artists who think outside the box. Without<i>Lalit </i>boldly making the political space, other organizations like LPT, would have been crushed by the weight of the status quo.<br /> <br />We, the three signatories are writing as LPT members, but we are also <i>Lalit </i>members. And we write in praise of <i>Lalit</i>, our party, because its role is often either ignored or denied by the elites, whether academic, political or media.<br /> <br /><b>Lalit: Not just some far-fetched âideologyâ </b><br /> <br />It needs to be understood that <i> Lalit, </i> most of whose members are not also in LPT, and <i></i>  Ledikasyon pu Travayer, </i>  most of whose members are not also in <i> Lalit, </i>  have, however, consciously shared overlapping aims, as organizations. <i> Lalit </i> produces written materials (leaflets, magazines, books, posters) in the mother-tongue precisely because the party wants working people to understand in detail what it writes and what it means, and because it simultaneously wants working people to contribute in <i> writing </i> to the development of these ideas and programs, these strategies and tactics. Itâs a two-way process. Part of the political liberation </> Lali</i> seeks for everyone, unlike other parties, is the freedom for oppressed people to be able to create and then integrate new ideas from their own standpoint into the political sphere and thus to be able to direct the struggle for liberation. <i> Lalitâs </i> meetings, minutes, correspondence, invitations as well as forums, public meetings, and seminars are all in Kreol. But <i> Lalit, </i>  unlike any other party, nurtures <i> written </i> Kreol consciously as a strategic long-term necessity. <i> Lalit </i> has resisted the defeatist circular argument that âPeople wonât read Kreol because they are not used to it.â It is vital to <i> Lalit</i> to resist this argument because of the importance the party attributes to the precise and rich understanding of issues that only the mother-tongue gives. Also, of course, <i> Lalit </i> knows that there is only one way to get used to reading a language and that is to knuckle down and get used to it. So, <i> Lalit </i> has broken this vicious circle. This was a pre-requisite for success in the struggle.<br /> <br />And this is how it did it, and this is why it did it: This is why <i> Lalit</i> has published 102 editions of its magazine <i> Revi Lalit</i> to popularize its ideas, each <i> Revi </i> averaging 85,000 words in Kreol, over the 36 years; this is a total of 8,500,000 words, in an average of 1,000 copies distributed each time; that is 102,000 magazines distributed. This is why <i> Lalit </i> has published 111 editions of its newspaper (average 1,200 copies, i.e. 133,200 newspapers) of six A3 pages on average at the rate of 2,000 words a page, or a total of 1,332,000 words, over the same time period. This is why <i> Lalit </i> has published 6 books of around 200 pages on subjects over a vast area of content: on the Diego Garcia military occupation, on the Electoral System & Communalism, on Class, on The State, on The MMMâs Sell-0ut in 1981-2, and on the huge August 79 Strike Movement. On average half the content of each book is in Kreol or 1,200/2 pages x 600 words per page = 360,000 words, for on average 500 copies of each title published. This represents 3,000 books of 200 pages. This is why <i> Lalit </i> distributed 10,000 to 12,000 leaflets on average 3 times a year over the years, with 1,500 words or a total of 36 x 3 x 1,500 = 162,000 words, for a total of 1,188,000 leaflets. These leaflets are well-nigh never thrown away, but are folded up by the recipients, who often share them with others in their transport to work, at work, and then at home and in the neighbourhood in the evening. 3 or 4 times more people read a <i> Lalit </i> leaflet than receive one. All this gives an idea of the massive scope of the <i> Lalit </i> production in Kreol -- for a population only now reaching 1.3 million.<br /> <br />There is hardly a subject <i> Lalit</i> has not written on. It is not surprising that the first <i> Mauritius Institute of Education </i> examination for educators who will be teaching Kreol for the first time ever in primary schools next year, used as its text for a very advanced questionnaire on the Mauritian Kreol language a <i> Lalit de Klas </i> piece from its âscience cornerâ on <i> What is a Rainbow? </i> Isnât it a wonderful homage to the best in political parties, we say this in passing, that a party writes a piece on </i> What is a rainbow? </i><br /> <br /><i> Lalitâs </i> work has often gone unheralded. Today we, writing on behalf of LPT, praise all the </> Lalit </i> members who have so unstintingly loved and nurtured Kreol, without ever counting the cost. We, in LPT, get too much of the credit. Today, we in LPT, praise </i> Lalit </i> for showing not just the fracture but also the continuity linking slavery, indenture and modern labour laws, into the flow of history, so that we can understand our past without going into the divisive games of blood-lines and communalism. Today we, in LPT, praise all the </> Lalit </i> members who have confronted the right-wing elements who derided them when they distributed leaflets in Kreol in the early years, saying our language was vulgar and its written form unintelligible, and all those who defied the supposed leftists and trade unionists who said that </i> Lalitâs </i> monthly magazine was âfat ally flawedâ (fatal) because it was in Kreol! The magazine is no longer considered vulgar, if it ever was. It is no longer unintelligible in written form, if it ever was. It is still thriving today, while other parties and their publications in French have disappeared, one after the other, even as their leaders derided Kreol. So much for internalizing colonization! So much for cowardice! They do not stand up, in the long run, to the principled promotion of what you believe in. Today we, in LPT, praise <i> Lalit, </i>  as a party, for having such a profound respect for democracy and equality, such a profound love for people and their own languages, as to have maintained and sustained an ongoing production of ideas in Kreol, oral and written, and their sharing, in the face of retrograde forces. Today, we, in LPT, pay homage to the <i> Lalit </i> members like the late Suresh Ramsahok who led <i>Lalitâs mise-en-demeure</i> against the MBC as part of a legal challenge to the denial of news in Kreol or in Bhojpuri. Today we, in LPT, praise the then <i> Lalit</i> member Rex Stephen for his facing the violence of having his microphone switched off at the National Forum on Language in 1982. We take our hats off to<i> Lalit </i> for organizing simultaneous interpretation for its 2010 International Action Conference on Diego Garcia Occupation, and its members for having invented a poor-manâs interpretation kit. This ongoing political courage of<i> Lalit</i>, maintained until today, through thick and thin, has been the basis for the present victory. Today, at a glance, you can go and see for yourself that there is only one site on the whole of the internet, even though the internet is simultaneously an <i> international</i> tool, that has such a big space for Mauritian Kreol. Of course it is <i> Lalitâs </i> website www.lalitmauritius.org. It is being extensively used as a data base by theoretical linguists studying Mauritian Kreol.<br /> <br /><i> Lalit, </i>  having led the biggest mass movement in history, the August 79 strike and the related September 80 uprising, and thus being a powerful political party until today, even if elector ally marginalized, has created the political space for everyone else with the political will to be able, in reality, to exist and to promote the Kreol language. This is especially true for us in LPT. Otherwise, the MMM would have finished LPT off. Berengerâs men tried and failed to finish LPT off in 1984 and again v<br />i> Lalit </i> gave LPT the political space necessary for an Association to be able to resist and to live on. <i > Lalit</i> was leadership of a mass movement in which all of the 100,000 striking workers in 1979 read their leaflets in groups by lamp-light at night, to spread the decisions taken democratic ally in Port Louis during the strike. That was the key moment for the acceptation into the hearts of the people of written Kreol and Bhojpuri.<br /> <br /><i> Lalit</i> has also encouraged a handful of its members to dedicate themselves to the more technical work that we in LPT have done, in order to âamenazâ the Kreol language, its corpus planning and its status planning. <i> Lalit</i> saw the value in LPTâs work. We, the signatories, are amongst those few <i> Lalit</i> members who have dedicated ourselves, inter alia, to the language struggle.<br /> <br />Let us now turn to ourselves, to LPT as an organization.<br /> <br /><b> LPT: not just charity-minded do-gooders</b><br /> <br />Just as <i> Lalit</i> is not just a one-dimensional political party, but a fore-sighted organization that aims towards everyone in the country getting their dignity and getting control, so we in LPT are not just some technical âadult literacyâ do-gooders.<br /> <br />We are not of the CSR-subsidized â<i> accompagnement scolaireâ </i>  brigade, made up of well-meaning charity-minded people helping kids adapt to a non-functional, damaging education system, or teaching adults to obey written instructions, fill in bureaucratic forms, and write letters to beseech authority. No! In LPT, we teach and learn reading and writing not in order to adapt to and submit before the existing reality, nor its hierarchies. But in order to be able all the better to change society. We are of the school of Paulo Freire at his most advanced. When teachers and learners of literacy <i> write the world</i>, not just the word. We do adult literacy in order to participate in self-liberation of the oppressed. We, in LPT, have dedicated ourselves not just to teaching people to read and write, but to <i> promoting</i> the language in which it is appropriate for us to be learning to read and write, Kreol. And in promoting the language, LPT has published some 100 titles in runs of between 500 and 2,500 on almost any imaginable subject. All this gives us our own dignity, as Mauritian people, not just a technical proficiency in literacy. All this shows respect for our own natural language and our own culture. All this shows up the pettiness of the existing school system with its imperial languages compulsory and its past ethno-religious languages optional, and until now the suppression of the two mother tongues, Kreol and Bhojpuri.<br /> <br />LPT, in order to promote the Kreol language, did not only teach literacy to thousands of adult pupils, and train hundreds of volunteer teachers, and write manuals and teachersâ guides and texts. Nor did we just publish and print on a mind-boggling variety of subjects, in Kreol. Nor did we just hold seminars, forums, exhibitions, meetings, conferences in favour of Kreol. Nor did we just organize petitions. Nor did we just prepare Charters in favour of the Mother Tongue, adhered to by hundreds. Nor did we just nail up our opposition to the colonialism of the <i> francophonie </i> on the gates of the French embassy. Nor did we just do nation-wide poster campaigns in favour of Kreol and Bhojpuri. Nor did we, in the past, just walk out of Government set-up committees when they sabotaged their own stated aims of looking at the use of Kreol. Nor did LPT just gather 40 writers together to celebrate 40 years of Independence from colonization in a single anthology, and then to meet a Nobel Chemist poet, all together. Nor do we just bring sculptors and artists together to celebrate creativity, around a theme: against war, for peace; against repression, for freedom. Nor do we just unite the entire trade union movement around the All Workersâ Conference, which in turn, opposes international finance capital and its conditions, while publishing âWhite Papersâ in the form of booklets on subjects like Opposing Privatization, The Transport System, Pensions, Women Workersâ Rights by the thousand. In Kreol. Nor did we just publish the beautiful prose-poem Le Mornebefore the mountain was even proposed as a World Heritage Site status. Nor did LPT just run 5-6 Literary Contests, and nurture hundreds of new writers. Nor did we just bring together more than 30 Kreol-lovers for a <i> Colloquium on Kreol</i>, and then just publish its papers.<br /> <br />But, LPT also organized an <i> International Hearing on the Harm Done by the Suppression of the Mother Tongues in Schools. </i><br /> <br /><b> International Hearing on the Harm Done by Suppressing the Mother-Tongues in School</b><br /> <br />The Findings of this Hearing came and showed, proved, that there is severe cognitive and emotional harm done to children when their language is suppressed in schools. Findings established by our panel for the âtribunalâ: Tove Skutnabb-Kangas, Vinesh Hookoomsing , Jean-Claude Bibi, Beban Samy Chumbow, Vidya Golam, Robert Phillipson, Medha Moti, after 50 people gave evidence, led by a team of 9 women prosecutors. This was in October 2009.<br /> <br />These findings were then submitted form ally to various bodies in the State apparatus, as well as being published and circulated widely, especially amongst those in favour and against the mother-tongues.<br /> <br />And it is these Findings that, in our humble opinion, led directly to the introduction of the mother-tongues as subjects in schools for next year, 2012.<br /> <br />How did it happen? Six months after the Findings, there were the General Elections of 2010, before which both the outgoing Prime Minister and the Leader of the Opposition began to speak in favour of the mother tongue/s for the first time. After the elections, LPT once again presented to the Education Minister of the new government, a copy of the Findings. By then, the rearguard against the mother-tongues within the State apparatus had lost some influence relative to the more enlightened people within the State. This, too, was largely due to the Findings, but in the context of the 40-year-struggle. The Minister was then in a position to hold a National Forum on the Kreol Language, and after this, to immediately set up the Akademi Kreol Morisyen, on which two LPT members who are also Lalit members, sit. In the space of less than a year, the AKM very swiftly, under the guidance of Arnaud Carpooran , came up with an Orthography for Mauritian Kreol, and under the guidance of Daniella Police, came up with a Grammar for teachersâ use. All this, under the Chairmanship of Vinesh Hookoomsing , the doyen amongst academics who have worked on Kreol.<br /> <br />But this concatenation of events would not have taken place had there not been the 36 years of preparatory work. All sorts of opposition came up against the Akademi. Some even said the Chair should be removed because of his community. That is a âfirstâ in Mauritius amongst reactionary demands!<br /> <br />But here it is important that we name some of the other organizations and individuals who, alongside and in parallel to the LPT and<i> Lalit, </i> supported Kreol, or Kreol and Bhojpuri, other than those already mentioned.<br /> <br /><b> Those who contributed to this âvictoryâ-in-the-making, alongside LPT and Lalit</b><br /> <br />There is Dev Virahsawmy, poet, and MMMSP political party leader and head of the publishing house <i> Bukie Banane</i>, long-time promoter of Kreol, from before LPT and <i> Lalit </i> even existed. There is Rama Poonoosamy and <i> Immedia </i> who has published an anthology of stories, including Mauritian Kreol stories, every year for 14 years. There are some 50 poets and short-story writers, who have written and still write in Kreol, and some 100 song-writers who have composed segas and other songs in Kreol, over the past years, like the late Reginald Topize, Kaya. And there are their publishers and producers who have been vital in allowing all this work to be disseminated. Henri Favory has written the finest play in Kreol, <i> Tras</i>, that takes its place amongst the hundreds of plays in Kreol, written often for film festivals and often never published. Whole literary books and other books in Kreol have been written by, amongst others, Richard Sedley Assonne , Alain Fanchon, Vijay Naraidoo, Jocelyn Louise, Rishy Bukoree, Krishna Somanah, Michel Ducasse, Rafik Gulbul, Georges Legallant, Anil Gopal, Vidya Golam, Lindsey Collen, Dev Virahsawmy, Renee Asgar ally , Khal Toorab ally , Bam Cuttayen, Rajni Lallah, Jean-Claude Bibi, Ragini Kistnasamy, Georges Cheung, Jocelyn Gregoire, Bertrand de Robillard, Mansoor Lallasaib, Vijay Ram, Shenaz Patel, Jameel Chooramun, Marcel Poinen, Alain Ah-Vee, Rene Noyau, Pushpa Lallah, Paulo Ninan, Ansu Dilmohamed, Sharma Ramnarain, Ashok Subron, Soondeeren Periacarpen, Claude Chiffonne, Kamini Ramphul, Sobhanund Seeparsad, Ian Maingard, Jeanne Gerval Arouff, Charles Baissac, Michaella De Souza, Mohunparsad Bhurtun, Deepak Bhookhun, Ramesh Ramdoyal, Philippe Laville, Joe Seetohul, Shyam Ramgoolam, Emmanuel Richon, Vimala Rungasamy, Bharati Ammigan, Lorens Sofi, Radha Gungaloo, Sham Naarai, Zoze Ogisten, Azize Asgar ally , Jacques Latour, Eshan Abdool Raman, Patrick Ramdhony, Fareed Chuttan, Noel Hermann Assy, Prakash Rajpaul, Vimal Ramdharrysing, Rashid Bundhoo, Rajoo Marianen, Rowin Naraidoo, Gaindranuth Seetohul, Woomed Bhewa, Goswami Seetohul, Ram Seegobin . There are even translations of Shakespeare plays by Dev Virahsawmy and Richard Etienne. There are organizations like the Federation of Pre-School Playgroups that have run dozens of pre-school playgroups and produced dozens of beautiful childrenâs books in Kreol, as well as running their associations and federations in Kreol. They won a Supreme Court Judgment to get a âcurriculumâ, which the Ministry had introduced, withdrawn because the mother-tongues were oppressed by it. There are organizations like <i> Abaim, Muvman Liberasyon Fam, </i> MPRB, and <i> Terre de Paix</i>, which promote and use Kreol, and have done so for years and years. There is <i> kiltir.com, </i> a Kreol site, run by Krishna Thirapati-Appadoo. There is the <i> Bureau Education Catholique, </i>  and in particular Jimmy Harmon, who introduced written Kreol for Pre-Vocational secondary school pupils, a first in terms of the national education system. There are âidentityâ groups, and individuals like the late Mario Flore, who over the past 12 or so years promoted the Kreol language as part of a more general communal identity. All the religions in the country have been publishing in Kreol for some 20 years, from the Assembly of God to various Islamic students, from the Arya Samaj in the times of the Bissoondoyal brothers to the Jehovaâs Witnesses, from the Bible Society to promoters of the Mahabharat. And the Catholic Church has fin ally , since 1999, started the process of self-criticism for having suppressed the language of most of its followers, in the past. There are the theoretical linguists like Prof. Dany Adone and Dr. Fabiola Henri who have begun to crack the mysteries of the Mauritian Kreol grammar for us all. And theorists like Derek Bickerton who have not only helped cracked Kreol grammar, but also human grammar in the widest sense, and have contributed to our understanding of language. There is the team of hundreds of university students who have, under the leadership of Arnaud Carpooran , developed the first Kreol dictionary, that followed the original LPT Kreol-English one, and the Philip Baker and Vinesh Hookoomsing Kreol-English-French Dictionary. Philip Bakerâs book on Kreol was at a key moment in history, and dynamized the development of written Kreol. The late James Burty David brought out a Kreol-French phrase book. Les Verts/Fraternel have a web-site with lots of Kreol on it. They now write whole articles in it, like their critique of the Truth and Justice Commission report. Almost all the trade unions and federations also write their leaflets in Kreol, as do many, many cooperatives, neighbourhood associations, burial societies, PTAâs and so on. Health and illness manuals have been produced in Kreol. As have labour laws. Womenâs magazines by the MLF. The struggle for our written collective memory to be in Kreol (for minutes for the Registrar) is an ongoing struggle, and has brought together dozens of associations in Mauritius and Rodrigues to build up a charter. There is the increasingly loud demand for Kreol to be used in Parliament, as well as English. And strangely enough, material forces are such that even people who may not have decided to promote Kreol, have had to do so to further their own aims: private radio stations made Kreol hegemonic for phone-ins, while all the publicity teams soon realized that not only oral Kreol but also written Kreol sells things, from insurance to cars, from holidays to soft-drinks. Many bosses, in order to get ISO certification, have produced long and technical works in Kreol so as to be in line with health and safety best-practice norms. The Police and judiciary have used written Kreol from long, long ago. And so the list goes on.<br /> <br />And today, the Mauritian Kreol language is being introduced as an optional subject in schools. This has meant its orthography has been accepted by the authorities. That is one last pretext swept away. This has also meant that a grammar has been accepted by the authorities. There goes another of the last pretexts, swept away. A curriculum has been prepared by the MIE for next year, under the able leadership of Nita Rughoonundun, in line with the National Curriculum Framework. From the Ministry Menon Munien, Om Varma and H.B. Dansinghani have all contributed, together with their teams, to getting Minister Vasant Bunwaree's policy of introducing Kreol in schools, in place and into practice. So, all is set. Kreol is making its way into schools. There is just the beginning of the end of the harm being done to children by suppressing their mother-tongues.<br /> <br />Now, we must continue the struggle, of course, until the mother tongues are introduced as medium in schools. The mother tongues must be used for teaching science, maths, geography, social studies, history â for as many years of schooling as possible, but at least the first eight years of school.<br /> <br />So, it is not all over yet.<br /> <br />The forces of reaction are gathering, ever weaker, ever more pathetic. Wherever you turn, over the past three months, the French language is being pushed by reactionary forces â sometimes in opposition to Kreol, sometimes in paralell with Kreol. This last little âpushâ is part of an existing fear amongst francophiles of the Anglophone world hegemony, but also part of the fear of Mauritian Kreol marginalizing French in some spheres. But mother-tongues are not in conflict with other languages. Mother tongues are essential to the mastering of second languages.<br /> <br />So, we continue in LPT fighting for a mother-tongue-based multilingual education, and for Mauritian Kreol to be used in Parliament, for the Minutes of Associations for the Registrar of Associations, and in all spheres of life. But now we continue the struggle in the knowledge that the State has recognised the orthography, the grammar, the language itself. These are, in themselves, victories. We celebrate them, as 2012 comes in.<br /> <br /><b> Tips</b><br /> <br />And we hope that these few pages of notes will have helped you understand how the victory in Mauritius is beginning to be won. It has been part of a long, sustained, conscious, clearly enunciated battle â part political, part more pedagogical-technical-literary. It takes courage. It takes patience. It takes understanding. It takes truthfulness. It takes political clarity. All these things help us to move towards victory. But the essence is that particular warmth that comes of a general political commitment to and love for people who are oppressed, as part of our love for humanity.<br /> <br />Alain Ah-Vee<br />Rada Kistnasamy<br />Lindsey Collen<br /> <br />December, 2011- January, 2012<br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101709" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101709" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>LALIT Replies to WIP Invitation to Event to be Addressed by US Embassy</h1><p class="subtitle">28.10.2014</p></h1>
+	<p class="newsarticle">In reply to an invitation to LALIT from Women in Politics (WIP) to an âeventâ being organized for women candidates of all parties to be held on 31 October at the IFM, LALIT replied as follows:<br /><br />Dear Mary Coopan, Nushrat Gunnoo, and all at WIP,<br /><br />We are truly shocked that a womenâs group like WIP [Women in Politics]should invite the US Embassy, the representative of a foreign military power that occupies Mauritian territory, and does so illegally, to be present at a political event that you organize, and we are equally shocked that you expect political party candidates for the general elections to sit and listen to a speech by this representative of an occupying power. It is absolutely outrageous. This makes it impossible for us even to consider attending. We shall naturally present your letter formally to our next national meeting, but we can reply at once, because it is a matter of ethics and principle, on which we make no compromise. <br /><br />For your information, we attach below, a copy of the letter signed jointly by four organizations and adhered to by dozens last year, warning against this kind of collusion, whether in exchange for a few dollars or not. <br /><br />We call on you to discuss urgently this Open Letter in your networks and not to hide it from them. This is in the interests of freedom of information and expression, and of decolonization. We call on you also to be sure to take a stand in public on issues like the banishment of the people, including women and children, from Diego and Chagos to make way for the USAâs military base, like the illegal rendering of prisoners and torture that has gone on there, including a pregnant woman prisoner, like the Marine Protected Area against which even the Mauritian Government has gone to the UNCLOS Tribunal, like the illegal detachment of part of the country for a military base and the continued colonization of part of an independent country, and finally on issues like the bombardment of civilians, including women and children, from this land of ours when our elected Governments have not declared war on anyone. <br /><br />We assure you that, even before WIN [Women in Networking] or WIP existed, and before we had cordial meetings with your representatives, and until now, we have had by far the highest level of representation of women on all our lists of candidates for general elections (44% last time we fielded candidates). Womenâs participation at all levels is way higher in LALIT than in all other parties. You only have to go and watch our You-Tube Channel series to see this, or the ION news report on YouTube of our last press conference. We may add that we are surprised that WIN and WIP, in the interests of truthfulness, do not publicly draw attention to LALITâs having the âbest practicesâ in terms of womenâs representation amongst candidates. <br /><br />Yours sincerely,<br />Lindsey Collen<br /><br /><br /><br /><br /><br />OPEN LETTER to NGOS, UNIONS, ASSOCIATIONS, GROUPS of ARTISTS in REPUBLIC of MAURITIUS<br /><br />Dear Friends in Organizations of all kinds,<br /><br />The time is fast approaching when the USA will need to negotiate a new lease â illegal as the old one was â with the UK, for its military base that sits on part of Mauritian territory, Diego Garcia. <br /><br />The original lease expires in 2016, but stipulates that negotiations for renewal begin in the year 2014. 2014 is right around the corner.<br /><br /><b>Throwing candy from moving cars</b><br />The US Government obviously seeks ideal socio-political conditions for its negotiations. In particular, the US would adore utter silence from the people of Mauritius. To promote such silence, the US Embassy has, for the past few years, gone to great lengths to curry favour with Mauritian civil society organizations. First, there was the AGOA, making exceptions for the free zone employers to sell their apparel. Then, there has been, and this is what we write to you about, a conscious effort by the US Embassy to buy the silence of NGOs. It is as if they were throwing sweets out of a car window at us. The USA was notorious for doing precisely this under the Papa Doc dictatorship in Haiti and the Batista dictatorship in Cuba for the same reasons as it is now handing out money. American leaders literally threw candy out of moving cars at the starving children of the slums of these two countries. The children would then fight over the sweets that fell into the dust left by the passing limousine. Today passing US Embassy officials throw the candy at NGOs and civil society here.<br /><br />We need to start refusing to take any of this âcandyâ. It is, after all, not very clean.<br /><br /><b>Refuse hand-outs from an occupying power! </b><br />This idea of a boycot was born in November last. There was an important speech made at the vigil in support of the people of Gaza being bombarded from the air while under seige. While it was Israel that perpetrated the atrocities, the financial support was from the US. The ACIM representative, Jayen Chellum, made a call for NGOs to take a stand against the US<i>by refusing the money hand-outs it gives. </i><br /><br />This kind of action is now cryingly necessary to protest against any new lease for the military base on Mauritian soil, on Diego Garcia. Our right to speak up and speak out on this military occupation of part of Mauritius is at stake. In the recent past, no doubt without thinking about the implications, how many womenâs associations, neighbourhood groups, human rights organizations, even a Chagos group, have all gaily taken this US Embassy silence-money? <br /><br />The purpose of this letter to you today is to call on you, as an Association, a trade union, a co-operative, an NGO, an academic or artistsâ group, to bring up this issue in your organization, and to convince your organizations on the need to boycot this unsavoury moneyed link with an occupying power.  <br /><br />The one thing a moral person does not do is to accept hand-outs from an Occupying Power. <br /><br /><b>Tendency to forget a part of our country is under military occupation</b><br />But sometimes we forget we are an occupied people. We are encouraged to forget. And we do indeed forget.<br /><br />How did the USA come to occupy part of Mauritius?<br /><br /><b>UK and US Conspiracy and Crime</b><br />As you know Britain detached part of Mauritius, dozens of Chagos Islands, from the rest of the country in the run-up to Independence. This was an illegal act. It is universally condemned. Britain then proceeded, with the collusion of the USA, to remove all the Mauritians, Chagossians, living and working there, as well as some Seychellois. Britain then stole further islands from the Seychelles and set up its final colony, a figment of a State called <i>British Indian Ocean Territories, </i> recognized by strictly no-one other than the thieves and the receivers of stolen goods, themselves, as commentator Yvan Martial so rightly calls them. Seychelles has since then demanded and won its Islands back. All these illegal acts by the UK and US were done for one single reason: in order to create a place for one of the 740 military bases that the USA maintains outside its own borders.<br /> <br />Given the low moral ground that is occupied by the UK and USA on this issue â having flaunted the<i> United Nations Charter</i> by illegally dismembering a country as a condition to Independence, having cruelly uprooted all the people living on Chagos and deported them in the most vile conditions in order to end up with âdepopulated islandsâ, having subsequently ruined the environment of one of the most beautiful gems of the worldâs oceans with nuclear pollution, having used the occupied Mauritian islands as a springboard for its B-52âs to bombard civilians in both Iraq and Afghanistan, having conducted odious ârenditionsâ of illegally kidnapped prisoners on Diego Garcia, having duped environmental organizations into supporting a âMarine Protected Areaâ there, having had all this exposed in Court Cases, in the British Parliament and in the worldâs Press â both Governments are now desperate not to be further exposed as thieves and receivers, as time comes up for the renewal of their controversial âlease agreementâ. Last time round it involved a shady deal, cheap Nuclear sub-marines for the British against a 50-year lease of the stolen atoll for the US. All cloaked in secrecy.<br /><br /><b>The decline of the US empire </b><br />Not only are the US and UK on low moral ground, but the imperialist economies â both the US and Europe â are in heavy economic decline. The USA is as unpopular as ever for its Drone assassinations, for its cavalier invasions, for its arrogant foreign policy, for its suppression of its own people and for its spying on everyoneâs Facebook accounts and telephone conversations, as well as for its ongoing torture on another illegally occupied base, Guantanamo on Cuba. <br /><br />All this to say that it is a good time to refuse the US Embassyâs hand-outs.<br /><br />The USA is working at penetrating Mauritian society. We need to work against this penetration. <br /><br /><b>Stop US Embassy penetration into Mauritian Society</b><br />The US Embassy in Port Louis, has, for instance, increased its financing of civil society organizations. It even sends American soldiers into class rooms with toys for little children, trying to hide its true military interests behind philanthropy. It funds <i>Public Speaking </i>contests amongst the youth of Rodrigues. It even infiltrates the Ministry of<i> Youth and Sports</i> and runs joint âleadershipâ courses for some hundred youngsters. It has acquired strong influence in the Press. For example, recently Nad Sivaramen was named Editor-in-Chief of all the <i>LâExpress </i>group publications. He says publicly he does not work for the CIA, the US secret service. But what is undeniable is that he did work for the<i> Centre for Strategic Studies </i>which is financed directly by the Pentagon itself, that is to say the US Ministry of Defense, and this is in his own CV. He worked there from June, 2008 for 5years + 2 months, which would appear to being us to July 2013. Before this, according to his Linked-In CV, he even worked for the <i>U.S. Central Command/Combined Joint Task Force, Horn of Africa. </i><br /><br />The MBC-TV is also responsible for re-transmitting the State Department <i>Voice of America </i>propaganda station on one of its channels. We call on the MBC to halt these re-transmissions of propaganda of an occupying power.<br /><br />We have a duty to be vigilant as to what the Press and Radio/TV choose to put on the agenda, how it reports âfactsâ, and what its editorials say. We have to beware of the role of those academics, who have been given âla bourseâ by the US Government. We have to reply to the kind of nonsense put out by people like IOC chief, Jean-Claude de LâEstrac, with his fallacious  argument that âDiego has already been soldâ. There is no way that a bunch of Pre-Independence political parties plus a private sector boss could conceivably have been in a position to sign away one bit of the British Empire to another. <br /><br /><b>Minimum moral duty</b><br />Faced with this penetration into our society, we have certain minimum duties. We have to refuse this money, and advise all NGOs to do the same. It is not for us to blame those who, in the past, accepted this money. Perhaps they did not give a thought to the implications. But, once it has been made clear that there are, in the context of military occupation, serious moral consequences to accepting such hand-outs, they evidently have an ethical choice to make from now onwards. From now on they will stand blamed if they accept. <br /><br /><b>Unity with the people of the UK and US against their Governments</b><br />It is vital that we ally ourselves with the peoples of the UK and US in the struggle against their Governments. For this, we need first and foremost to make sure they are informed about the crimes and conspiracies of their Government. The Olivier Bancoult cases have helped in this regard. David Vineâs book does too. However, we must as associations inform all our international contacts, particular in the US and UK, of our struggle on the Diego Garcia issue: base closure + re-unification of Mauritius + proper reparations for the displaced Chagossians. So, this is our second appeal in this letter. <br /><br />We must also involve the people of the African and Indian Ocean Rim regions, what with the <i>Pelindaba Treaty for a Nuclear-Arms-Free Africa </i>now in force, making base closure possible. This will at the same time assure security from nuclear accidents and incidents that remain a constant threat to the people of these regions.<br /><br />Sincerely,<br /><br /><br />â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦    â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦.â¦.   â¦â¦â¦â¦â¦â¦.â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦.  â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦â¦.â¦â¦â¦.  <br />Lindsay Morvan, <i> Mouvement pour le Progres de  Roche Bois   </i>                             <br />Haresh Ramluckhun<i>, Confederation des Travailleurs de Secteur Prive</i><br />Jean Akin FelicitÃ©, <i> Groupe Unitaire de la Baie du Tombeau</i>  <br />Anne-Marie Joly. <i> Muvman Liberasyon Fam</i><br />Ragini Kistnasamy, LALIT   <br /> <br /><i>who represent their organizations in the</i> DIEGO COMMITTEE<br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

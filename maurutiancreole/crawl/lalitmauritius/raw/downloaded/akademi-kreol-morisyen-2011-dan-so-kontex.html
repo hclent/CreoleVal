@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612103539" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612103539" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612103539" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612103539" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612103539" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612103539" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612103539" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612103539" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612103539" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>âAkademi Kreol Morisyenâ 2011 dan so Kontex</h1><p class="subtitle">30.12.2010</p></h1>
+	<p class="newsarticle"><br /><i>Ledikasyon pu Travayer</i> finn sumet enn lartik pu lapres lor so analiz lor ki travay <i>Akademi Kreol Morisyen</i> bizin fer an 2011, me kot li sitye li dan so kontex istorik. LALIT ena plezir repran analiz LPT an antye:<br /><br />Akoz finn ena enn travay suteni lor 40 an anfaver langaz Kreol, finalman sa finn port so frwi. Guvernman finn met dibut<i>Akademi Kreol Morisyen</i> an Oktob 2010 avek bi ase teknik pu desid lortograf pu Guvernman servi, dekrir gramer Kreol, prepar liv zanfan, get treyning profeser pu ki Guvernman introdir langaz Kreol kuma enn size opsyonel dan lekol. Sa vedir Leta finn kumans azir dan enn fason koeran. Dan lepase, Guvernman MMM-MSM ti deza fer enn travay inportan kot enn Komite teknik ti desid Grafi Larmoni, enn lortograf inifye, enn Komite Vinesh Hookoomsing ti prezide.<br /><br />Ena osi enn travay imans ki finn fer dan lepase par tu kalite lorganizasyon ek individi. Akademi pu natirelman batir lor travay existan, travay ki finn fer lor letan. <br /><br /><b>Organizasyon ki finn travay pu langaz Kreol</b><br />LPT panse ki ena enn travay vreman remarkab kote LALIT depi 1976, e avan li pandan 2-3 lane par MMMSP. LALIT finn promuvwar langaz Kreol dan lapratik. Li finn popilariz li. Li finn permet dimunn ekrir an Kreol, lir an Kreol par dizenn milye dimunn. Li finn pibliye lartik, lagazet LALIT, Revi LALIT DE KLAS ek Revi LALIT, trak, lafis, tut-enn-arsiv dokiman profon an Kreol, liv otur 180 paz an Kreol, par exanp Leta (2008), Klas (2009), Lagrev Ut 79 (1989), Diego Garcia (2002), Kont Kominalism dan Best Loser System (2005). So Revi LALIT finn sorti bimansyel sa lane la. Li ena enn websayt ki gayn 1,000 hits pase par zur, e ki ena buku lartik an Kreol. Diksyoner LPT dan form elektronik lor sa sayt la. LALIT finn deza servi MBC enn miz-an-demer pu gayn nuvel an Kreol. Anfet, si ena enn lorganizasyon ki koni pu promuvwar langaz Kreol, se LALIT. Tu dimunn dan pei rekonet sa. <br /><br />Federasyon Playgroup ki finn devlop enn pedagozi extra-ordiner an Kreol. Sa travay la finn fer depi 1975. Playgroup finn prodir tut enn libreri piblikasyon pu zanfan an Kreol ek Bhojpuri, ek materyel pedagozik an Kreol. Li finn devlop riyder pu zanfan lir, ek liv zistwar. Li ena so kaset sante zanfan, ki tu maternel zwe. Li ena so nyuzletter an Kreol osi. Li finn gayn viktwar dan enn ka divan Lakur Siprem kont enn kerikilem ki Guvernman ti mete, e ki pa ti respekte langaz maternel.<br /><br />Ena osi travay ABAIM ki finn tir buku kaset ek liv an Kreol. Li finn popilariz bann sante zanfan ek zwe zanfan lontan. Li finn kree nuvo sante. E li finn promuvwar langaz Kreol dan lapratik. <br /><br />Latrup Henri Favory ki fer teat an tu langaz, me sirtu Kreol depi 1974. Li finn fer animasyon an Kreol dan tu gran muvman ki finn ena dan pei dan lane 1970 ek 1980. Henri Favory finn ekrir ek prodir pyes <i>Tras</i>, enn sedev an Kreol.<br /><br />Legliz Katolik, apre rebelyon 1999, finn fer enn remiz ankestyon zeneralize. Swit a sa bann deba intern, <i>Bureau Education Catholique</i> finn demar enn travay vreman istorik. Li finn introdir Kreol kuma medyom dan so bann lekol Pre-Vok. Sa ti premye travay institisyonel onivo nasyonal ki rekonet langaz Kreol. Li finn inplik tutenn sistem treyning, prodiksyon liv, organiz lexame an Kreol, fer resers, e natirelman, amenn argimantasyon parmi profeser ek paran lor valer langaz maternel kuma medyom.<br /><br />Terre de Paix, li osi, depi avan BEC, anseyne an Kreol parmi zanfan an difikilte e finn devlop enn pedagozi prop a li, e finn promuvwar langaz Kreol alabaz dan so Sant.<br /><br />Dan dernye 5-6 an ena serten lorganizasyon idantiter ki finn azut zot lavwa pu premye fwa anfaver langaz Kreol, lor baz kominote.<br /><br />Ena osi individi ki finn travay pu langaz Kreol.<br /><br />Premye ladan se Dev Virahsawmy, limem. Li finn promuvwar langaz Kreol antan ki ekriven, pedagog, lengwis, peblisher, militan MMMSP. So travay dan BEC pu antrenn enn zenerasyon profeser ti byen inportan osi. <br /><br />Ena osi bann lingwis individyel, ki truv zot lor Akademi zordi. Plis ena serser kuma Derek Bickerton, Philip Baker, Dany Adone ek Fabiola Henri.<br /><br />Parmi ena Arnaud Carpooran ki pa zis finn fer premye diksyoner Kreol (an Kreol), me li finn interes par santenn zenn etidyan Liniversite Moris dan sa demars anfaver langaz Kreol la.<br /><br />Lezot individi ki finn ekrir buku an Kreol inklir Jean-Claude Bibi, Ram Seegobin, Ragini Kistnasamy, Rajni Lallah, Alain Ah-Vee, Lindsey Collen, Rada Kistnasamy, kote nonn-fiksyonn, ek buku buku poet, ekrivin, ek santer, kote literer. Nu pe mansyonn enn parti: Mohunparsad Bhurtun, Henri Favori, Claude Chiffone, Jocelyn Louise, Patrick Ramdhony, Khal Torabally, Edouard Maunique, Noel Allas, Vidya Golam, Richard Sedley Assonne, Anil Gopal, Rishy Bukoree, Vijay Naraidoo, Marcel Poinen, Ramesh Ramdoyal, Lorens Sofi, George Legallant, Rama Poonoosamy, Michel Ducasse, Eshan Abdool Raman, Dany Bastien, Rashid Bundhoo, Rowin Naraidoo, Lindsey Collen, Bam Cuttayen, Alain Fanchon, Jeanne Gerval Arrouf, Rajni Lallah, Alain Muneean, Renee Asgarally, Tahir Birbhay, Loga Virahsawmy, Shyam Ramgoolam, Emmanuel Richon, Joe Seetohul, Umar Timol, Shawkat Toorawa, Deepak Bookhun, Pushpa Lallah, Shenaz Patel, Kamini Ramphul, Azize Asgarally, ek lezot.<br /><br />Kote santer, ena telman buku ki finn fer zoli sante, ki finn mark enn lepok. Ena dimunn kuma Ti-Frer, Serge Lebrasse, Kaya, Fanfan, Micheline Virahsawmy, Bam Cuttayen, Jean-Claude Gaspard, Menwar, Rajni Lallah, Tive Masson, Rama Poonoosamy, Kenneth Nelson, Rosemay Nelson, Marousia Bouvary, Nelzire Ventre, Roger Clency ek Marie-Josee, Alain Ramanissum, Linzi Bacbotte, Bruno Raya, Cassiya, Sandra Mayotte, Gerard Louise, Richard Beaugendre, Claudio Veeraragoo, Claudio Cassimaly, Sylvio Louise, Alain Muneean, Odille Chevraux, Mario Armel, Nancy Derougere, Cyril Labonne, Ram Joganah, Nitish Joganah, Michel Legris, Rosange Andre, Roger Augustin, Eric Triton, Marie-Josee Couronne, Fami Cassambo, Alain Permal, Cyril Ramdoo, Claude Lafoudre, Zul Ramiah, Marclaine Antoine, Laval Veerasamy, Mario Justin, Marcelino Chaton, ek buku lezot.<br /><br />Kote bann komedyen imoristik, ena Micheline Soobraydoo, Sam Ammigan, Lindsay Moutien ek buku lezot.<br /><br />LPT, kanta nu, finn fer literesi adilt an Kreol, finn antrenn profeser ek treyn zot profeser. Pu sa travay la ena tutenn pedagozi, e LPT finn mem prodir enn Gid Profeser 156 paz. Nu finn pibliye enn santenn tit an Kreol, tu kalite liv. Nu finn organiz 6 Konkur Literer. Nu finn osi organiz Public Lecture an Kreol, e finn fer grup detid an Kreol ek lor langaz Kreol. Nu finn fer premye diksyoner Kreol-Angle, ki finn sorti an 6 riyprinnt, 1,000 kopi sak fwa. Anfet, nu finn fer buku expozisyon ek telman buku kur, pa kapav konte. Nu finn organiz plizir petisyon ek mem manifestasyon anfaver langaz maternel. Nu finn selebre Zurne Mondyal Langaz Kreol depi lane 1983, kan nu ti fondater Bann Zil. Parfwa nu finn fer selebrasyon sa Zurne la konzwentman ek Minister Ledikasyon ubyen Kiltir, parfwa konzwentman avek enn Minisipalite. Kuma enn apersi nu travay dan dernye 10 an, ant-ot LPT finn pibliye liv <i>Lemorn</i> (2000), organiz <i>Kolok 2002 lor Langaz Kreol </i> (avek so liv), organiz <i>Artis kont Lager</i> (poet, plastisyen, mizisyen) an Kreol an 2003, <i>Artis kont Represyon</i> (tuzur poet, plastisyen, mizisyen an Kreol) an 2005, pibliye <i>Gid Profeser pu Literesi</i> an 2007, pibliye liv <i>40 Poet</i> (tule 40 poet an Kreol) an 2008, komemorasyon par lamizik ek riyding Lemorn zur lafen lesklavaz an 2009, ek finalman nu gran Hearing Internasyonal lor Ditor ki fer kan Siprim Langaz Maternel dan Lekol an 2009. An 2009, nu finn osi fer enn manifestasyon divan Parlman pu ki langaz maternel rant dan Parlman, e nu finn fer 2 gran seminar avek enn 20enn lorganizasyon ki finn kilminn dan enn Sart pu Langaz Maternel pu minits lasosyasyon.  <br /><br />Buku, buku lorganizasyon, buku buku dimunn individi, finn aport zot kontribisyon. Ena enn lyen inportan ant individi (kuma, pu pran zis enn lexanp, santer Gerard Louise) ek so grup (Cassiya), ek ant grup kuma Playgroup, enn lorganizasyon an antye, ek individi ki manb (Pushpa Lallah). <br /><br />Alor, kan Akademi met dibut, li dan kontex tu sa travay la. <br /><br />Alor, Akademi li enn viktwar pu tu sa lalit la. <br /><br />Antretan, apenn travay kumanse, finn gayn demisyon enn manb, Dev Virahsawmy. Tutswit apre sa finn gayn enn kumansman enn chalennj kont Cher lor baz kominal, me sa demars erezman pa finn al byen lwen. <br /><br />Me, anfet, tu bann Su-komite dan Akademi finn sumet rapor interimer byen interesan. Zot lor kat size: kestyon lortograf, gramer, kerikilem, treyning. Anplis, Akademi preske fini pran tu desizyon lor lortograf pu liv lekol an Kreol; res zis pu gete kot met tire (dan mo kuma âan-pasanâ, par exanp, eski met tire, ubyen ekrir âanpasanâ, ubyen âan pasanâ), kot met apostrof (eski met li pu liânn, par exanp), let kapital (pu zur lasemenn ubyen pa, pu nom bann mwa, pei, etc ubyen pa). <br /><br />Alor, dan 2 mwa Akademi finn fer ase buku progre pu langaz Kreol. Sa, li sirtu akoz pu premye fwa, tu dimunn kone, pena bare, langaz Kreol pe rant dan lekol.<br /><br /><i>Ledikasyon pu Travayer</i> finn konstate ki:<br /><b>1.Akademi reysi fer buku travay parski ena buku konpetans reyni dan enn sel striktir</b><br />Kontrerman a seki Dev Virahsawmy finn dir dan lapres, anfet <i>Akademi Kreol Morisyen</i> li finn reysi amenn ansam dan enn sel striktir buku konpetans, lexperyans ek lantuzyasm:<br />- Buku lingwis ki finn travay lor diferan laspe langaz Kreol Morisyen, setadir lekritir, sosyo-lingwistik, lexikografi, etc: Arnaud Carpooran, Vinesh Hookoomsing, Daniella Police-Michel, Nita Raghoonundun, Rada Tirvassen.<br />- Plizir manb lasosyasyon ki promuvwar langaz Kreol: Pushpa Lallah (Playgroup & LPT), Lindsay Morvan (JUSTICE & MPRB).<br />- Buku dimunn ki finn travay lor diksyoner ubyen lor lortograf: V.Hookoomsing, A.Carpooran, P. Lallah (<i>Playgroup</i>), N.Raghoonundun, R.Tirvassen, D.Police-Michel.<br />- Buku pedagog ki ena lexperyans dan itiliz langaz Kreol Morisyen dan ledikasyon a diferan nivo: P.Lallah (Playgroup onivo preskoler, primer, profeser-paran); J.Harmon, Gilberte Chung (BEC â onivo prevok, profeser), Arnaud Carpooran (Liniversite: antrenn etidyan dan preparasyon diksyoner).<br />- Plizir zesyoner institisyon ki servi langaz Kreol pu so ladministrasyon ek/ubyen so pedagozi: J.Harmon ek G. Chung, P.Lallah.<br />- Plizir ekrivin/zurnalist an Kreol: Pushpa Lallah (zistwar, ese), Alain Romaine (liv nonn-fikshenn), Daniella Police (Les Verts).<br />- Mem plizir peblisher an Kreol: J.Marie Richard (<i>ZM Edisyon</i>), P.Lallah <i>Editions Playgroup ek LPT Books</i>).<br />- E plizir dimunn ki ena lexperyans dan ledikasyon zanfan Morisyen: Om Varma, Ramesh Padaruth, Arnaud Carpooran, Danielle Turner, Vinesh Hookoomsing, Menon Munien, Nita Raghoonundun, Pushpa Lallah, Dev Virahsawmy.<br /><br />E pu premye fwa dimunn depi MIE, Liniversite Moris, Playgroup, LPT, BEC pe travay ansam dan mem loptik pu fer lang Kreol Morisyen rant dan lekol.<br /><br /> <b>2. Asterla, paret ena enn polisi Guvernman pli kler</b><br />Guvernman, pu premye fwa, atraver Minis Ledikasyon dan Forom Nasyonal finn pran enn langazman ferm pu introdir langaz Kreol Morisyen kuma size opsyonel dan lekol. Pu nu sa li pa sifi, me li enn kumansman rekonesans langaz maternel. <br />Li finn osi anons lezot polisi inportan:<br />- Zame okenn profeser pa pu gayn problem akoz li koz Kreol Morisyen ubyen akoz zanfan dan so sarz koz Kreol Morisyen dan lekol. <br />- Dezyem pli gran langaz maternel anterm nomb, setadir Bhojpuri Morisyen, pe, li osi, introdir osito li posib (setadir li enn viktwar pu <i>langaz maternel</i>).<br /><br /><b>3. Akademi, par limem li potansyelman enn viktwar</b><br />Langaz Kreol Morisyen inn gayn so Akademi. Kuma nu finn mansyone, sa li deza enn viktwar. Li anliyn avek desizyon Linyon Afriken pu met dibut so akademi, ACALAN. Kreol Morisyen li premye langaz Moris ki ena enn Akademi. Sa par limem li pe elve stati lang Kreol Morisyen.<br />Isi, kan nu pe al ver introdiksyon Kreol Morisyen dan lekol kuma enn lang opsyonel, LPT krwar nu bizin evit 2 pyez depi direksyon opoze:<br />(a) Fode pa nu tard-tarde pu donn letan ek lespas bann reaksyoner, kuma Dev Virahsawmy dir, pu ki zot mobilize pu blok introdiksyon langaz Kreol Morisyen dan lekol. Nu kone ena enn tipti grup frankofil ki anti-langaz Kreol Morisyen (me, sertennman pa tu dimunn ki pro-langaz Franse ki kont langaz Kreol Morisyen), e zot osi anti-Bhojpuri. Ena osi serten dimunn dan elit (seki apel â<i>tit- burzwazi</i>â dan so sans teknik presi), ki kont langaz Kreol Morisyen, e zot osi, zot byen suvan osi kont Bhojpuri.<br />(b) Fode pa nu al telman vit ki nu swa fer enn travay bakle, swa fer kit erer ki lerla vinn pret flan nu adverser apre.<br /><br /><b>4. Langaz Maternel se seki inifye tu zanfan</b><br />Etan done nu dan enn lepok kot klas sosyal ki servi langaz Kreol Morisyen pli buku, e ki servi li tulezur (<i>laburer, travayer zonn frans, artizan, marsan bazar, kontroler bis, sofer, mason, travayer bulanzri, sekiriklinn, sekirikor, travayer konstriksyon, travayer manyel lotel, travayer travo piblik, infermye ek ners, kwizinnye restoran, zardinye, travayer minisipalite, ti-marsan, plonblye, marsan legim, elektrisyen, servant lopital, kaser ros, peser, ti-planter (legim, fler, kann), elver, vasye, travayer werkshop, polisye, dimunn balye lari, e lezot sekter</i>) li dan enn pozisyon febles relatif dan konzonktir aktyel, e etan done ki li sirtu klas travayer, kan li for, ki reysi anpes lamonte kominalism, lerla pli gran danze pur lemoman se nerport ki demars ki al ver kominaliz kestyon langaz maternel.<br />Fode pa nu kumans klasifye zanfan, zot paran, zot profeser anterm ras/relizyon kan nu pe koz langaz maternel. Lepok apartheid erezman finn fini. Kuma Doudou Diene, ex direkter UNESCO ek Raporter spesyal Komisyon Nasyon Zini lor Drwa Imin, abitye dir, persistans ek perpetyasyon klasifikasyon rasyal li enn-de bann sekel pli grav ki kolonyalism finn kite.<br />Pu nu, seki inportan se Kreol Morisyen ek Bhojpuri Morisyen, zot langaz maternel zanfan, e zot lang oprime.<br /><br /><b>5. Enn fliwidite ver lavenir</b><br />Nu, dan LPT, ule ki langaz maternel, sirtu langaz tu dimunn oprime, servi dan lekol. Dan ka Kreol Morisyen ek Bhojpuri Morisyen, kuma nu tu kone, ena 92% dimunn ki dir zot normalman koz swa enn, swa lot, swa tulde sa 2 langaz la, alor li enn mazorite absoliman imans. Anplis, deza ena 2/3 dimunn <i>anfaver</i> introdir langaz Kreol dan lekol; sa osi li enn byen gran mazorite. Ena zis enn-tyer ki kont, e zot kont an gran parti parski zot pa informe lor fayndings tu bann letid syantifik lor linportans aprann dan langaz maternel, sirtu pu devlopman kognitif zanfan, ni zot pa kone ki ditor fer kan servi enn langaz ki pa langaz lanvironnman imedyat zanfan la â ditor kognitiv, ditor emosyonel, ditor kiltirel, ditor drwa imen. Alor, kan Kreol Morisyen pe introdir dan lekol kuma size, nu bizin gard enn fliwidite dan sa demars la, pu nu kree enn prosesis dinamik ki al ver langaz maternel kuma medyom. Fayndings Hearing Internasyonal LPT, li enn gran larises argimantasyon lor sa size la.<br /><br /><b>6. Milti-lingwis baze lor lang maternel</b><br />Si nu anvi al ver enn milti-lingwis ot nivo, kuma dan LPT nu anvi, nu bizin ena bon ledikasyon <i>dan</i> langaz maternel ziska enn ot nivo, setadir kot langaz maternel li medyom. Dan buku pei Lafrik, par exanp dan Sid Afrik, politik milti-leng finn fer buku progre, ek ACALAN kapav enn gid pu nu Akademi. <br /><br />Pu lane 2011, LPT pe lans enn nuvo âstedigrupâ lor kestyon gramer Kreol. Nu pe kontiyn travay dan mem direksyon ki latrup Henri Favory, LALIT, Terre de Paix, Federasyon Playgroup, Grup Abaim, ek tu individi ar lekel nu abitye travay pros, pu langaz maternel avanse.<br /><br />LPT (Desam 2010)<br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

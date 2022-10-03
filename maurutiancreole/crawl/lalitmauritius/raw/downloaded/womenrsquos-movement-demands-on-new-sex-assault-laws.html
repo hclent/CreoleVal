@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095425" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095425" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095425" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095425" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095425" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095425" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095425" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095425" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095425" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Women&rsquo;s Movement Demands on new Sex Assault Laws</h1><p class="subtitle">27.05.2019</p></h1>
+	<p class="newsarticle"><p align="center">LALIT is publishing below the full text of a&nbsp; Press Comunique from Muvman Liberasyon Fam on demands on the new Sex Assault Laws.&nbsp;</p><br /><p style="text-align: left;" align="center">GOVERNMENT REJECTS LAW REFORM COMMISSION SEXUAL ASSAULT LAW PROPOSALS</p><br /><p style="text-align: left;" align="center">T<strong>wo Demands from the Women&rsquo;s Movemen</strong>t</p><br /><p>&nbsp;The <em>Muvman Liberasyon Fam</em> (1) learnt, through the Press, about the <em>Law Reform Commission</em>&rsquo;s Discussion Paper on new laws on sexual assault. Our Committee members studied it and decided to submit formal objections to its proposals. On 10 May, we learnt via Defi Media outlets that Government has rejected the proposals. The MLF welcomes this. The proposals were a cut-and-paste from the reactionary French law, coupled with increases in prison time. The Government has called on the LRC to rely instead on the Canadian law on sexual assault. This, too, we welcome.&nbsp;</p><br /><p>Here are the two points the MLF objected to in the original LRC proposals:</p><br /><p>1.<strong> MLF says Sexual assault must be defined by <em>absence of consent</em></strong></p><br /><p>MLF calls for the <em>words</em> &ldquo;without consent&rdquo; to be the key element in the definition of all types of sexual assault. We note that, while the LRC&rsquo;s <em>argumentation</em> relies on absence of consent, as does the <em>case law</em> it cites, their proposals had recourse, instead, to French law that relies on the completely different logic of establishing &ldquo;violence, constraint, threat or surprise&rdquo;. We fail to understand how this monumental <em>non-sequitur</em> occurred. Canada&rsquo;s law is, thankfully, based on the absence of consent.</p><br /><p>&nbsp;Another interesting aspect of the Canadian law is that &ldquo;sexual assault&rdquo; is a sub-category of &ldquo;assault&rdquo; <em>tout court.</em> This is one of the MLF&rsquo;s long-time demands. It is a formulation that sees rape and sexual assault for what they are: aggression, bullying, physical abuse. This simplifies the law and prevents it from going into all sorts of bizarre situations one-by-one. Seeing sexual assault as assault <em>tout court</em> also makes reporting much easier for the women and girl victims &ndash; often the only witnesses &ndash; and makes giving evidence less traumatic. Also interesting is the Canadian law&rsquo;s specific out-lawing of evidence of the girl or woman&rsquo;s prior sexual activity. This, too, we welcome.</p><br /><p>We believe that, if the concept of &ldquo;consent&rdquo; is the basis for the law, many of the sub-categories in the LRC draft will be subsumed into the very logic of the definition. We mean victims <em>under the age</em> of consent, or <em>unconscious, drugged, asleep</em>, with <em>mental disabilities</em>, or where perpetrators use &ldquo;<em>violence, constraint, threat, or surprise</em>&rdquo; (that the French law cites). Sodomy will then clearly be illegal when without consent. Marital sexual assault and &ldquo;contract rape&rdquo; need specific mention in the law, given their prevalence.</p><br /><p>The French law is arguably worse than Mauritian law. Note that President Macron, himself, in his famous 2017 speech specifically criticized the law, referring to the &ldquo;consent&rdquo; issue. In fact we, as non-lawyers, are shocked at the implications of what he said, referring to <em>&ldquo;la pr&eacute;somption de consentement&rdquo;</em>(3). We deduce that the logic of the French law is that there is a need to have this list of &ldquo;<em>violence, constraint, threat and surprise</em>&rdquo; precisely because there is a hideous, patriarchal concept (4) of<em> &ldquo;pr&eacute;somption de consentement&rdquo; </em>in French law. The patriarchal implication is clear: &ldquo;Who would, after all, dare say &lsquo;no&rsquo; to a male?&rdquo; Especially a powerful one. The model the LRC proposed is a cruelly accurate reflection on just how backward French society is on this issue. And while President Macron promises to move forwards, the LRC original proposals threatened moving backwards here.</p><br /><p><strong>2. Draconian Prison Terms are Absurd, Harmful to women, and bear grave Unintended Consequences</strong></p><br /><p><strong>&nbsp;</strong>Everyone in the women&rsquo;s movement, though not in society as a whole, knows that:<strong></strong></p><br /><p><strong>Sexual assault (including rape) is a Widespread Societal Problem</strong></p><br /><p>a) Somewhere around 10% of adult males in Mauritius &ndash; we estimate this from our 43 years of collective experience and documentation &ndash; perpetrate sexual assault multiple times. It is a crime that is, unfortunately, widespread. We mean some 50,000 male perpetrators are at large. It is a shocking but true reflection of society. Sexual assault is part of a generalized social problem under patriarchy. This assault occurs most frequently within the family circle or in groups of friends and colleagues. It is covered up constantly. We believe that the quasi-totality of Mauritian women have experienced sexual assault by the time we reach, say, 40. The same 10% of men are the perpetrators of these abuses on nearly 100% of women. Such is the pervasiveness of the assault on women. The LRC, an all-male panel of six, may not itself be aware of this, but their sisters, wives, mothers, aunts, daughters and nieces already <em>know </em>this. A much smaller number of men are victims of similar assault. The sad fact is that <em>society,</em> including non-predatory males, does not yet know how to rein in these predators. Society still fears them. They operate everywhere with impunity. The way forward is certainly not to choose a few dozen men for locking up for decades to rot in prison, thus merely pretending to address the problem while turning a blind eye to 50,000 perpetrators. It&rsquo;s absurd. &ldquo;Exemplary&rdquo; punishment like this, i.e. sentences imposed on one person to deter other people, is basically an unjust tool, anyway. Society has to work out ways to help women to denounce these men <em>in front of society</em> (to friends, the family, the Press, religious and civil authorities, the CDU, and this way to end the continual on-going assault. We commend the #MeToo movement in the USA, founded in 2006, for showing the way&nbsp;</p><br /><p>b) <strong>The &ldquo;revenge&rdquo; and &ldquo;punishment&rdquo; aspects of criminal law are part of patriarchy&rsquo;s own arsenal.</strong> When used, they re-enforce patriarchy. They are not part of &ldquo;justice&rdquo; but of a cycle of aggression. Patriarchy is not the reign by &ldquo;men&rdquo;, but the reign by <em>dominant</em> males, often at the top of pyramidal social hierarchies &ndash; bosses at work, heads of Government departments, leaders of parties and unions, officers in charge of an enquiry, big brothers and older uncles who lead a clan, husbands as heads of household and so on. Patriarchy is an unequal &ldquo;balance of power&rdquo; between <em>dominant males,</em> on one side, and <em>all women and most men</em> on the other. In the women&rsquo;s movement, we do not subscribe either to &ldquo;revenge&rdquo; for crimes like sexual assault, including rape &ndash; whether this revenge is meted out by the State or by men in the victim&rsquo;s clan resembling lynching &ndash; nor do we subscribe to &ldquo;punishment&rdquo; meted out to <em>beat the evil</em> out of men perpetrators. We put store on social control. As for the <em>law</em>, what is important is the <em>process</em> i.e. someone is tried in public for a sexual offence, and thus is brought to book. Then, when it is just to do so, he is found <em>guilty,</em> again in public. This is the role of the law in decreasing sexual assault and rape: to make it clear that society no longer acquiesces. The perpetrators &ndash; dozens of thousands of them &ndash; must no longer be free to act with <em>social</em> impunity. They must be <em>called out. </em>So, the law must assure, when there is a <em>prima facie</em> case, that the authorities arrest, release on bail where possible, and put on trial, hear evidence, and judge someone &ndash; all within a reasonable time &ndash; months, not years. As for prison sentences, we, in the women&rsquo;s movement, see prison as a time for <em>reform</em>. In extreme cases of a perpetrator with pathological violent behavior, it can be a social necessity to put him in prison to protect society. Generalized, draconian prison sentences, however, are part of a cycle of patriarchal brutality. The State just adds fuel to the patriarchal fires. When we say we want to end impunity, we mean encouraging victims to come forward, to speak out in general, to tell their friends and sisters, publicise the truth, talk in public whenever possible, in the courts when appropriate. Society must listen, pay attention; when there is a complaint, the authorities must accuse the person in public, try him (and sometimes her) in public and then give a verdict in public. Putting all the emphasis on punitive, even vengeful punishment, is a hallmark of patriarchy. As such, it also often adds to the notorious difficulty for girls and women to come forward with complaints. The draconian punishment raises the stakes, often within the family, remember, higher than the girl or women victim can risk going, and so they end up perpetuating silence.</p><br /><p><strong>c) Girls and Women Will Risk Being Murdered as Well</strong></p><br /><p><strong>&nbsp;</strong>Calls for long prison times (or worse still, the death penalty) stem from either righteous anger or, more sinisterly, from those who project their own predatory tendencies on to others and then seek to punish <em>this other.</em> We must recognise this as part of the &ldquo;lynch gang&rdquo; tendency. And then, society obsesses constantly over &ldquo;the man&rdquo; while ignoring the girl victim. Look how everyone cries for long sentences on-the-spot, while it has taken the women&rsquo;s movement 17 years&rsquo; struggle for a system whereby women by-pass the police station and go direct to the hospital to report sexual assault. And do people care so little about girls and women that they fail to notice that long prison sentences cause, and can be <em>predicted </em>to cause, the murder of victim? The only witness is often the victim. Once the perpetrator terminates his abuse, he immediately, realizing the danger of 20 years in prison, acts quickly so as to be rid of the only witness i.e. the victim. This is an unintended &ndash; if predictable &ndash; consequence of excessive, vengeful, or &ldquo;exemplary&rdquo; sentencing.</p><br /><p><strong>Conclusion</strong></p><br /><p>We, therefore, call on the LRC to propose decreasing, not increasing, prison sentences. This, coupled with a law similar to that in Canada on &ldquo;consent&rdquo; is then part of a broad campaign <em>against sexual assault</em>. The campaign must include consciousness-raising on &ldquo;consent&rdquo; &ndash; assuming consent is the centre-piece of the new law. It must encourage victims to denounce men. Victory must be measured not by locking up a few perpetrators forever but by society making sexual assault so unacceptable that no man wants to risk the ostracism it will bring.</p><br /><p>NOTES:<strong></strong></p><br /><p>(1) <strong>MLF&rsquo;s &ldquo;Locus Standi&rdquo;</strong></p><br /><p><strong>&nbsp;</strong>Our Association, founded in 1977 after a year of preliminary neighbourhood meetings from 1976, is one of the oldest, if not the oldest nation-wide women&rsquo;s organization in the country. Our first manifesto has a position on the issue of sexual assault. Our magazine <em>Fam Lite!</em> has published and sold two editions on the issue. We initiated and kept up the annual <em>Solidarite Fam</em> common front celebration of International Women&rsquo;s Day from 1978-2000, and each year gave speeches and held discussions on sexual assault and rape. Our first action against a rapist was in Sir William Newton Street in 1977, and another was held against police officers who raped two women at the Police Station in Petite Riviere. We have members who have published creative writing &ndash; poems and prose work &ndash; on rape. We gave evidence to the Parliamentary <em>Select Committee on Sexual Offences</em> in 2007. It is through the MLF that finally, at long last, there is a kind of &ldquo;protocol&rdquo; adopted by all main hospitals in Mauritius and Rodrigues as a one-stop-shop for victims of rape and sexual assault, who no longer have to go to the Police stations, for example. Right now we have filed a complaint with the Ombudsperson for Children for these protocols not being sufficiently publicised by the State, nor sufficiently used. In 2011, MLF brought out its <em>New Women&rsquo;s Manifesto</em>, and this has been widely circulated. And we have written articles in the mainstream press on this issue throughout the 40 years of our existence. One example, is an article on rape in 2007: <a href="../../../en/newsarticle/549/rapethe-sexual-offenses-bill-a-view-from-the-womens-movement/">https://www.lalitmauritius.org/en/newsarticle/549/rapethe-sexual-offenses-bill-a-view-from-the-womens-movement/</a> Another from 2018 is, at <a href="../../../en/newsarticle/2072/outline-in-recent-history-of-women-opposing-sex-abuse-in-mauritius/">https://www.lalitmauritius.org/en/newsarticle/2072/outline-in-recent-history-of-women-opposing-sex-abuse-in-mauritius/</a> In 2019, against paedophilia and on sentencing see https://www.lalitmauritius.org/en/newsarticle/2246/mlf-right-to-live-with-your-spouseimportance-of-speaking-out-against-predators-in-kreol/</p><br /><p><strong>(2) Legal Definitions of Rape in various countries</strong><strong><em></em></strong></p><br /><p><strong>Canada</strong></p><br /><p><strong>265 </strong>(1) A person commits an assault when</p><br /><p>(<em>a</em>) without the consent of another person, he applies force intentionally to that other person, directly or indirectly;</p><br /><p>(<em>b</em>) he attempts or threatens, by an act or a gesture, to apply force to another person, if he has, or causes that other person to believe on reasonable grounds that he has, present ability to effect his purpose; or</p><br /><p>(<em>c</em>) while openly wearing or carrying a weapon or an imitation thereof, he accosts or impedes another person or begs.</p><br /><p>(2) This section applies to all forms of assault,&nbsp;<span style="text-decoration: underline;">including sexual assault</span>, sexual assault with a weapon, threats to a third party or causing bodily harm and aggravated sexual assault.</p><br /><p><strong>&nbsp;</strong></p><br /><p><strong>271</strong> Everyone who commits a sexual assault is guilty of (a) an indictable offence and is liable to imprisonment for a term not exceeding 10 years and, if the complainant is under the age of 16 years, to a minimum punishment of imprisonment for a term of one year; or (b) an offence punishable on summary conviction and is ...</p><br /><p><strong>272</strong> Sexual assault with a weapon, threats to a third party or causing bodily harm - Every person commits an offence who, in committing a sexual assault,</p><br /><p>(a) carries, uses or threatens to use a weapon or an imitation of a weapon;</p><br /><p>(b) threatens to cause bodily harm to a person other than the complainant;</p><br /><p>(c) causes bodily harm to the complainant; or</p><br /><p>(d) is a party to the offence with any other person.</p><br /><p><strong>273</strong> Aggravated sexual assault - Every one commits an aggravated sexual assault who, in committing a sexual assault, wounds, maims, disfigures or endangers the life of the complainant.</p><br /><p><strong>Consent</strong></p><br /><p>(2) Where no consent obtained &ndash;</p><br /><p>&nbsp;No consent is obtained, for the purposes of sections 271, 272 and 273, where</p><br /><p>(a) the agreement is expressed by the words or conduct of a person other than the complainant;</p><br /><p>(b) the complainant is incapable of consenting to the activity;</p><br /><p>(c) the accused counsels or incites the complainant to engage in the activity by abusing a position of trust, power or authority;</p><br /><p>(d) the complainant expresses, by words or conduct, a lack of agreement to engage in the activity; or</p><br /><p>(e) the complainant having consented to engage in the sexual activity, expresses, by words or conduct, a lack of agreement to continue to engage in the activity.</p><br /><p>In addition,</p><br /><p><strong>266&nbsp;</strong>(3) For the purposes of this section, no consent is obtained where the complainant submits or does not resist by reason of</p><br /><p>(<em>a</em>) the application of force to the complainant or to a person other than the complainant;</p><br /><p>(<em>b</em>) threats or fear of the application of force to the complainant or to a person other than the complainant;</p><br /><p>(<em>c</em>) fraud; or</p><br /><p>(<em>d</em>) the exercise of authority.</p><br /><p><strong>Inadmissibility of evidence on previous sexual activity.</strong></p><br /><p><strong>276.</strong>&nbsp;(1) In proceedings in respect of an offence under section [concerning sexual assault], evidence that the complainant has engaged in sexual activity, whether with the accused or with any other person, is not admissible to support an inference that, by reason of the sexual nature of that activity, the complainant</p><br /><p>(<em>a</em>) is more likely to have consented to the sexual activity that forms the subject-matter of the charge; or</p><br /><p>(<em>b</em>) is less worthy of belief</p><br /><p><strong><em>&nbsp;</em></strong></p><br /><p><strong><em>Britain</em></strong></p><br /><p>British <em>Sexual Offences Act</em> (2003):</p><br /><p>&nbsp;(1) A <strong>person (A)</strong> commits an offence if&mdash;</p><br /><p>&nbsp;(a) he intentionally penetrates the vagina, anus or mouth of another person <strong>(B)</strong> with his penis,</p><br /><p>(b) <strong>B </strong><strong><em>does not consent</em></strong> to the penetration, and</p><br /><p>(c) <strong>A</strong> does not reasonably believe that <strong>B</strong> consents.</p><br /><p>It is referred to as &ldquo;sexual assault by penetration&rdquo;.</p><br /><p><strong><em>United States of America</em></strong><strong> (Federal Law)</strong></p><br /><p>USA Department of Justice says:</p><br /><p>&nbsp;&ldquo;Penetration, no matter how slight, of the vagina or anus with any body part or object, or oral penetration by a sex organ of another person, <strong><em>without the consent</em></strong> of the victim.&rdquo;</p><br /><p><strong><em>&nbsp;</em></strong></p><br /><p><strong><em>India (2103)</em></strong></p><br /><p>375. [For rape or other sexual assault, it is done by a man to a woman]</p><br /><p>&ldquo;... under the circumstances falling under any of the following seven descriptions:</p><br /><p>&nbsp;Firstly. &ndash;&ndash; Against her will.</p><br /><p>&nbsp;Secondly. &ndash;&ndash; <strong><em>Without her consent</em></strong>.</p><br /><p>&nbsp;Thirdly.- With her consent, when her consent has been obtained by putting her or any person in whom she is interested, in fear of death or of hurt.</p><br /><p>&nbsp;Fourthly. &ndash;&ndash; With her consent, when the man knows that he is not her husband and that her consent is given because she believes that he is another man to whom she is or believes herself to be lawfully married.</p><br /><p>&nbsp;Fifthly. &ndash;&ndash; With her consent when, at the time of giving such consent, by reason of unsoundness of mind or intoxication or the administration by him personally or through another of any stupefying or unwholesome Substance, she is unable to understand the nature and consequences of that to which she gives consent.</p><br /><p>&nbsp;Sixthly. &ndash;&ndash; With or without her consent, when she is under eighteen years of age.</p><br /><p>&nbsp;Seventhly. &ndash;&ndash; When she is unable to communicate consent.</p><br /><p>&nbsp;....Provided that a woman who does not physically resist to the act of penetration shall not by the reason only of that fact, be regarded as consenting to the sexual activity.</p><br /><p><strong><em>Australia</em></strong></p><br /><p>In Australia, the law is state-by-state. At a glance, most States have texts with the words &ldquo;<strong><em>without consent</em></strong>&rdquo;.</p><br /><p><strong><em>New Zealand</em></strong><strong></strong></p><br /><p><strong>Sexual violation defined</strong></p><br /><p>(1) Sexual violation is the act of a person who&mdash;</p><br /><p>(a) rapes another person; or (b) has unlawful sexual connection with another person.</p><br /><p>(2) Person A rapes person B if person A has sexual connection with person B, effected by the penetration of person B&rsquo;s genitalia by person A&rsquo;s penis,&mdash;</p><br /><p>(a<strong><em>) without person B&rsquo;s consent</em></strong> to the connection; and (b) without believing on reasonable grounds that person B consents to the connection.</p><br /><p>(3) Person A has unlawful sexual connection with person B if person A has sexual connection with person B&mdash;</p><br /><p>(a) <strong><em>without person B&rsquo;s consent</em></strong> to the connection; and (b) without believing on reasonable grounds that person B consents to the connection.</p><br /><p>(4) One person may be convicted of the sexual violation of another person at a time when they were married to each other.</p><br /><p>Section 128:&nbsp;replaced, on&nbsp;20&nbsp;May 2005, by section 7 of the&nbsp;Crimes Amendment Act 2005&nbsp;(2005 No&nbsp;41).</p><br /><p><strong>&nbsp;</strong></p><br /><p><strong><em>South Africa</em></strong><strong></strong></p><br /><p><strong>Rape</strong></p><br /><p>Any person (&lsquo;A&rsquo;) who unlawfully and intentionally commits an act of sexual penetration with a complainant (&lsquo;B&rsquo;), <strong><em>without the consent</em></strong> of B, is guilty of the offence of rape<strong></strong></p><br /><p><strong>Offence of Compelled Rape and Compelled Sexual Aggression (South African law)</strong></p><br /><p><strong>Compelled rape</strong></p><br /><p><strong>&nbsp;</strong>&nbsp;Any person (&lsquo;A&rsquo;) who unlawfully and intentionally compels a third person (&lsquo;C&rsquo;), <strong><em>without the consent</em></strong> of C, to commit an act of sexual penetration with a complainant (&lsquo;B&rsquo;), without the consent of B, is guilty of the offence of compelled rape.</p><br /><p><strong>[Similarly, Compelled sexual assault, and compelled self-sexual assault]</strong></p><br /><p><strong><em>United Nations </em></strong><strong>(2017, glossary)</strong></p><br /><p>&ldquo;Penetration &ndash; even if slightly &ndash; of any body part of a person who does not consent with a sexual organ and/or the invasion of the genital or anal opening <strong><em>of a person who does not consent</em></strong> with any object or body part.&rdquo;<strong></strong></p><br /><p><strong>(3) Quote from President Macron 2017 speech: </strong><em>&ldquo;De m&ecirc;me, nous ne pouvons admettre ce qui encore ces derni&egrave;res semaines a &eacute;t&eacute; comment&eacute;, connu, le fait qu&rsquo;on puisse reconnaitre qu&rsquo;un enfant de 11 ans puisse &ecirc;tre <strong>r&eacute;put&eacute; consentant</strong> lorsqu&rsquo;il a eu une relation sexuelle avec un adulte. Notre Code p&eacute;nal laisse l&agrave; des ambigu&iuml;t&eacute;s intol&eacute;rables. &hellip; Ces affaires ont r&eacute;v&eacute;l&eacute; un vide juridique que nous souhaitons combler. C&rsquo;est pourquoi nous fixerons une r&egrave;gle claire dans la loi, parce que nous ne pouvons admettre que <strong>la pr&eacute;somption de consentement</strong> s&rsquo;applique de fa&ccedil;on aussi floue lorsqu&rsquo;advient une relation sexuelle entre un mineur et un adulte</em>.&rdquo;</p><br /><p><strong>&nbsp;</strong></p><br /><p><strong>(4) To Avoid any Misconception: A Brief Introduction on How we See at least one aspect of &ldquo;Patriarchy&rdquo;</strong></p><br /><p>&ldquo;Patriarchal structures, it is interesting to note, make many men suffer, too. Not just women and children. When Mr. Naden Pakeeree lost his wife after she had had an abortion under the patriarchal law that still out-laws abortion since 1838, although she pays the ultimate price, he too suffers beyond all imagination. Mr. Suresh Dawaking, whose wife was killed by a hired rapist and killer, has suffered for years for his loss, and fought a long battle to get to the truth. Ms. Veronique Topize and Ms. Bindu Ramlogun have suffered acutely from the loss in police custody of their respective husbands: but their husbands were killed by a patriarchal hierarchy. Killed in much the same manner as women who die from domestic violence: behind closed doors, and with the blame being supposedly on them. All this to say that patriarchal violence is a very harsh and dangerous phenomenon, and it is in everyone&rsquo;s interests to end its rule.&rdquo; (Quote from full version of interview given by one of our members, Lindsey Collen to <em>L`Express </em>25 November, 2009.)</p><br /><p>15 May 2019</p><br /><p>[Published in Le Mauricien 18 May 2019]</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612093848" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612093848" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612093848" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612093848" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612093848" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612093848" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612093848" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612093848" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612093848" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>A Racist Joke</h1><p class="subtitle">04.10.2020</p></h1>
+	<p class="newsarticle"><p>One racist joke &ndash; told in private then made public on video &ndash; is, in itself, of no great import. Once the joker has apologized, we can all salute him and forget about it. That he, and all those who laughed at his racist joke were clearly sozzled, wine glasses on the table to prove it, is also presumably the usual macho &ldquo;extenuating circumstance&rdquo; for bad behavior. Antlers of a dead trophy nailed to an upright add the sniff of a hunting lodge, thus the further excuse of their &ldquo;locker-room talk&rdquo; . Umar Timol is right to draw attention to the harm of this kind of racism. Its consequences can be dire in times of extreme crisis that we live in today, when the ruling economic and political classes are bands of desperate men.</p><br /><p>The fact is the joke was built around one group of people finding it hilarious to stereotype a different group of people by shifting references to their &ldquo;race&rdquo;/ &ldquo;community&rdquo;/ religion/ place-of-origin. This, in itself, is offensive to anyone with an ounce of decency. And this stereotyping does need to be rejected.&nbsp;</p><br /><p>The joke is full of the &ldquo;M-word&rdquo;. Which is the Mauritian equivalent of the &ldquo;N-word&rdquo; in the USA and the &ldquo;K-word&rdquo; word in South Africa. The words are part of a colonial history of a demented theory of a&nbsp;<em>hierarchy</em>&nbsp;of &ldquo;races&rdquo;/ religions/ places-of-origin &ndash; signifying that the field labourer &ldquo;pagans&rdquo; from Africa/India and their descendants are &ldquo;inferior&rdquo;. These words, all three, are terms of abuse, used by those with vestigial colonial power of some sort in order to abuse, mock, insult, or even, as in this case, to entertain friends at the expense of others who are, as a group, absent and also systematically the butt of the supposed joke. That Mauritius has been independent for over 50 years and South Africa liberated for over 25 does not end this show of &ldquo;entitlement&rdquo;. The hegemony of white monopoly capital lives on &ndash; in the economy, and also in stereotyping. The man making the joke uses the &ldquo;M-word&rdquo; not just once in the joke. He says it on purpose five-or-six times. And once refers to &ldquo;<em>bann la</em>&rdquo;.</p><br /><p>In Mauritius, the &ldquo;M-word&rdquo; has a history, just as the equivalents in the USA and South Africa have theirs.&nbsp;</p><br /><p>The &ldquo;M-word&rdquo; is associated with the Gaetan Duval&rsquo;s rallying cry, when he was leader of the Parti &ldquo;<em>Mauricien&rdquo;</em>&nbsp;(as it was significantly called, after having previously significantly been called &ldquo;<em>Ralliement&rdquo;&nbsp;</em>Mauricien &ndash; rallying all the &ldquo;real Mauritians&rdquo; against the hordes of oriental, non-Christian, immigrants). The slogan was:&nbsp;&nbsp;&ldquo;<em>M... nu pa ule!</em>&rdquo; This was the rallying cry against Independence. It went alongside what was seen as &ldquo;the Hindu peril&rdquo; which, in turn, went alongside posters of skin-and-bones people, dying of the starvation predicted after the inevitable maladministration once the country was in the hands of&nbsp;<em>&ldquo;bann la&rdquo;</em>. Anyway, the &ldquo;M-word&rdquo; refers to &ldquo;immigrants of the Hindu religion&rdquo;, who are, it is implied, not &ldquo;real Mauritians&rdquo;. Gaetan Duval for years after independence gave long speeches about who the&nbsp;<em>real</em>&nbsp;proprietors of the country were. The rump of the PMSD, led by former PMSD Minister Elizier Francois is, till today in 2020, called &ldquo;<em>Mouvement&nbsp;<strong>Authentique</strong>&nbsp;Mauricien</em>&rdquo;.&nbsp;</p><br /><p>Before that, when it came to the right to vote, the PMSD campaigned openly and in writing not to &ldquo;<em>met razwar dan lame zako</em>&rdquo;.&nbsp;</p><br /><p>The narrative recounted in the now-infamous joke, is that a plane, or even a whole airline, put in the hands of the &ldquo;M-word&rdquo;, is exactly like putting a sharp object in the hands of a monkey: it will crash, and in the joke it does. What else, the joke says, can you expect! Instead of seatbelts, there is coconut rope. Instead of &ldquo;proper&rdquo; food, there are faratas, instead of Parisian&nbsp;<em>gateaux</em>, there are &ldquo;gato delwil&rdquo;.&nbsp;&nbsp;One of the usual terms of abuse is &ldquo;m... delwil&rdquo;, showing disdain for caring for hair with coconut oil. Though now a western fad, the trope clearly dies hard.&nbsp;<em>Air India</em>, in the man&rsquo;s joke, instead of supplying flares (in case of forced sea-landing), hands out oil lamps. Ha! Ha! Ha! And the audience all LOL.</p><br /><p>Curiously, the term of abuse that the &ldquo;M-word&rdquo; is usually refers specifically to&nbsp;<em>Mauritian</em>&nbsp;people of Hindu faith and/or culture, who were brought here along with other people of Indian origin&nbsp;<em>en masse</em>&nbsp;as cane labourers, and their descendants, and is interchangeable with the term &ldquo;coolies&rdquo;. In the joke being told, however, the same word is now consciously being extended to&nbsp;<em>everyone in India now</em>&nbsp;or everyone in the entire Indian sub-continent. The joke is now against other whole nations.&nbsp;&nbsp;&ldquo;By the million&rdquo; they are the &ldquo;M-word&rdquo; over there, he says in the joke.</p><br /><p>And this, in turn, then sheds some light on the massive, pre-printed tarpaulin banner Bruneau Laurette took with him to the trade union demonstration the previous month on 11 July &ndash; with a slogan that stuck out like a sore thumb amongst the other mainly trade union slogans, &ldquo;<em>Nous pas oule RSS mercenaire MODI lor territoire Mauritius&rdquo;.</em>&nbsp;The photos of Bruneau Laurette with the banner are not tricked, as one journalist suggests some are. He even returns to the microphone, having forgotten to say these words, in order to say them. Just like in the joke, it is not clear&nbsp;<em>who</em>&nbsp;is being attacked. Who are these &ldquo;mercenaries&rdquo; he is referring to that he wants to out?&nbsp;&nbsp;Indians from India? Does he mean part of the Indian armed forces? Why call them &ldquo;mercenaries&rdquo;, then? Or is he talking about Mauritians who are paid by Modi, thus &ldquo;mercenaries&rdquo;? Then, how do you expel them? Or, is he referring to the elected Government for somehow acting for Modi? Or what? Just &ldquo;<em>nou pas oule</em>&rdquo; them? Or is the man simply after some contract for his private security firm, and up against some competition? Who knows? And why this particular slogan at a demonstration about the effects of the new post-Covid laws on people? It is bizarre. And he takes the trouble to draft it, to get it printed and presumably pay for it, to talk about it, and then to get the whole, heavy, confused thing carried from Cathedral Square to the Company Gardens? Slogans are by definition things designed for people to understand: Over 90% of Mauritians do not know what the RSS is. So, who is Bruneau Laurette threatening? And what with? And does this help elucidate the subtext of his platform for the big demonstration of 29 August?</p><br /><p>And to get back to the joke. Of course, in all the macho hilarity, we find the inevitable homophobic tropes thrown in, with their concomitant terms of abuse. And what could invoke more hilarity than a &ldquo;p... m...&rdquo;? This mocking of others, too, needs to be denounced.&nbsp;</p><br /><p>The joke, were it not so full of white supremacist, male dominant, colonial ideology, would indeed be too pitiful to comment upon.&nbsp;</p><br /><p>However, offensive as it is, it is&nbsp;<em>not</em>&nbsp;the role of the State to act against this joker. So,&nbsp;<em>Lalit</em>&nbsp;calls for the police to stay out of this. It is&nbsp;<em>society&nbsp;</em>that has to sanction this behavior, as we are doing in this article. The man&rsquo;s friends, family, colleagues and acquaintances should just inform him of just how harmful such jokes are. This will make him a much better joke-teller, too.</p><br /><p>At the joker&rsquo;s workplace, the conglomerate Alteo, his bosses reminded him and the entire class of&nbsp;<em>kolom</em>, that they are all&nbsp;<em>mere employees</em>, however well-remunerated they might be, and that they are&nbsp;<em>not&nbsp;</em>the owners of the Sugar Estate. His bosses promptly suspended him as agri-manager. Suspension is reasonable in that presumably managerial staff need to have respect for those they manage. His re-instatement could presumably be conditional on his making an undertaking to all working under him that in future he will be more respectful of&nbsp;<em>all</em>&nbsp;people.</p><br /><p>These are times when the colonial tropes and supremacist ideologies are resurging world-wide, even as capitalism&rsquo;s bankruptcy becomes manifest. Right-wing ideology is again on the rise in almost every European country, as it was in the 1930s. In power, there are white supremacist apologists like Trump, who incidentally is a military occupier of part of the Republic of Mauritius, as well, and now in a military alliance with Modi, elected on a Hindutva program. And there is also Bolsonaro in Brazil. There is Netanyahu in Israel imposing an Apartheid State on Palestinians. There is Orban, the notorious xenophobe, in power in Hungary. And all over the world, including in Mauritius, systemic racism, especially against people of African origin, and also First Nation people, is perpetuated every single day. Islamophobia is on the rise in many places, notably in the USA during the Trump administration and in India under Modi. So is xenophobia in many countries. And, just as Trump deftly morphs from Islamophobia to rallying &ldquo;real&rdquo; Americans toting the national flag against those less &ldquo;real&rdquo;, and as he morphs from xenophobia to white supremacy, so here, too, nationalism around Mauritianism has all the same built-in flaws. We need to be vigilant against this world-wide tendency, and not pretend it does not exist here when clearly it does. As the joke bears witness.&nbsp;</p><br /><p>And the video clip of the joke ends on a scary note.&nbsp;</p><br /><p>It seems the joker&rsquo;s friend, who uploaded it according to his lawyer, believed this ending to be relevant. After the joker folds up his notes &ndash; yes, the joke is scripted &ndash; and as the laughter dies down, someone in the audience speaks. Remember they are a few days before the Bruneau Laurette Port Louis demonstration of 29 August. Loud and clear someone says: &ndash; &ldquo;<em>To bizin rakont sa le 29, le 29, dan manifestasyon laba</em>&rdquo; while other chorus, &ldquo;Wi&rdquo;, &ldquo;wi&rdquo;, &ldquo;weh!&rdquo; So, for this happy band of tipsy males, the program on which they intend to attend the Bruneau Laurette demonstration, as a group, is clear. No wonder people are offended by the dominant slogan of&nbsp;<em>&ldquo;B... li deor!&rdquo;</em>&nbsp;with its forced sodomy threat. It is shocking in itself, and also in the increasingly unclear idea of who is to be forced out, and of what? This is the danger of all forms of nationalism. Mauritianism is no exception. While for the&nbsp;<em>kolom</em>&nbsp;class and for most of the petty bourgeoisie, taken as a whole, politics and stereotyping people is just a game, but the consequences can be life-threatening for the working class, if ever it were to tail behind this class.&nbsp;</p><br /><p>And the geopolitical stakes are high. The UK-USA, with its military occupation of Diego Garcia fragilized by the ICJ and UN General Assembly, and now in alliance with India, will be very active in Mauritian politics. So, we need to be vigilant.</p><br /><p>LALIT&nbsp;</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

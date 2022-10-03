@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101223" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101223" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101223" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101223" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101223" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101223" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101223" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101223" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101223" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>All the Dangers Lurking behind the &ldquo;Smart Cities&rdquo; Strategy</h1><p class="subtitle">17.12.2015</p></h1>
+	<p class="newsarticle"><p>&nbsp;The new Aneerood Jugnauth coalition Government is banking on the strategy of a new &ldquo;pillar of the economy&rdquo;, so-called <em>Smart Cities,</em> accompanied by a new wave of colonial &ldquo;settlers&rdquo;<em>. </em>The Prime Minister went to Dubai in person to convince billionaires to invest in the project, and the laws governing the Smart Cities are full of tax incentives of all sorts, including of course both the right to residence and, after two years, to full citizenship. These Smart Cities will, curiously, fall neither under any Municipality nor any District Council. Indeed, the picture of the colonization of Palestine comes clearly to mind.</p><br /><p>&nbsp;In the 2015-16 Budget Speech, Finance Minister Vishnu Lutchmeenaraidoo referred to a whole &ldquo;new economic miracle&rdquo; being constructed around 13 <em>Smart Cities.</em> In June this year, while launching a new <em>Smart City</em> by the big Mon Tresor bosses at Plaine Magnien, the Prime Minister explained that the aim is to make Mauritius become a &ldquo;high-income country&rdquo; i.e. to have a high average per capita revenue. The devious aim is now becoming clearer: import rich people, export the jobless working class, thus Mauritius, by simple adding and dividing by number of heads, will join the ranks of the high-income countries. All this without increasing wages at all!</p><br /><p>&nbsp;Talk about a con-trick.</p><br /><p>&nbsp;But what exactly are these <em>Smart Cities</em> that the State is pretending augurs some kind of technological fix? Or some kind of environmental-protecting angel? Into what is the State pouring billions of dollars of public money? For what reason are thousands of acres of land being despoiled this way? What kind of jobs, other than initial construction jobs, and then servant-class jobs will there be around this appalling new &ldquo;sector&rdquo;?</p><br /><p>&nbsp;In fact, the <em>Smart Cities</em> are just a re-packaging of the unpopular &ldquo;gated communities&rdquo;, called IRS and RES, which we all know by the acronyms, having almost forgotten by now that the letters stand for <em>Integrated Resort Scheme</em> and <em>Real Estate Scheme. </em>They were first started under Jugnauth-B&eacute;renger regime by means of IRS Regulations in 2002, continued under Ramgoolam from 2005-2014, and now being madly expanded by the present regime.</p><br /><p>&nbsp;The aims are all but glorious. They do not include employment creation, revenue increase for working people, environmental protection, or anything noble at all.</p><br /><p>&nbsp;First the sugar estate bosses get to pocket windfall gains, in terms of real estate value increase.</p><br /><p>&nbsp;Secondly, billionaires from abroad get to pick up a second home with second residence thrown in. The plan is truly terrifying. The big boss of Smart Cities, architect Gaetan Siew, announced in an international forum that Mauritius expects to attract, through these Smart Cities, 150,000 settlers! He brags about this re-colonization. This astronomic figure, representing 15% of the existing population, is also mentioned in <em>Mauritius Times</em> (23 Nov 2015) when Dr. Vasantt Jogoo, calling himself a consultant in <em>Sustainable Development,</em> expresses reasoned concern about the effect of such an invasion of so many rich people into a poor country.</p><br /><p>&nbsp;Thirdly, the Government gets to brag that the &ldquo;average income&rdquo; will have risen so high, with the import of 15% new settlers that Mauritius will qualify as a high income country.</p><br /><p><strong>&nbsp;What is this monstrous <em>Smart Cities </em>project?</strong></p><br /><p>The figures vary between 13 and 20 Smart Cities. In The Budget, the Government proposed 5 &ldquo;technopoles&rdquo;, which take up 50 arpents of land each, and 8 larger Smart Cities. These include the Omnicane bosses at <em>Mon Tresor Airport City</em> (already mentioned), the St. Felix Village, the M&eacute;dine Integrated Park, one at Roches Noires, the Azuri Phase 2, Cap Tamarin, and Terra-Beau Plan for Integrated Development, as well as the Highlands City and Jin Fei at Riche Terre. Then one in Pailles is also mentioned. Each of the big capitalist conglomerates gets to get one.</p><br /><p>&nbsp;Three are due to start operating in 2016. Mon Tresor at Plaine Magnien, one at Cap Tamarin and the Royal St Louis in Pailles.</p><br /><p>&nbsp;These first three alone involve investment of Rs54 billion, and will swallow up 1,256 arpents of land. In all, the <em>Smart Cities</em> will destroy some 7,000 arpents, all rich agricultural land being ruined. They will imbibe over Rs120 billion rupees. When people began to ask a few tentative questions about who all these houses were for, the Government announced that &ldquo;only&rdquo; 75% were for capitalists from abroad, and 25% were to be reserved for local and diaspora capitalists.</p><br /><p>&nbsp;The new legal framework is already, of course, in place. In June, 2015 Government voted the <em>Investment Promotion Regulations 2015</em> (<em>Smart City Scheme</em>), defining the tasks of any <em>Smart Cities Company</em> (SCC) and the new entities <em>Smart Cities Developer </em>and<em> Smart Cities Management Company</em>. The laws create little colonies quite outside existing democratic frameworks, and outside existing supplies of energy, water or refuse collection.</p><br /><p>&nbsp;Part 6 of the law says that 75% of the units can be sole to non-citizens, or companies run by non-citizens, and the other 25% by diaspora, or Mauritians. If non-citizens pay over $US 500,000, then they get citizenship for themselves, spouses, children, and other dependents. If they live here two years, they get citizenship. Tax&nbsp; exemptions are massive: Income Tax exemption for 8 years, VAT exemption for all construction and other equipment, exemption from <em>Customs Duty</em> on imports and, of course, no <em>Land Transfer Tax, Registration Duty, Land Conversion Tax</em> or <em>Morcellement Tax</em>. These taxes are all for the poor, local inhabitants.</p><br /><p>&nbsp;So, the <em>Smart Cities</em> project will help give more power to the resident capitalists who get to make a packet from the real estate deals, and simultaneously remove vast tracts of rich agricultural land from any hope of being used for food production. If it&rsquo;s not cane, it has to be Smart Cities, otherwise land is just&nbsp; not available!</p><br /><p>&nbsp;The tragedy is that using land that was once under cane for agricultural diversification, coupled with a strategy to preserve, transform and market food products, would create stable, long-term jobs very quickly for the fast-growing proportion of jobless Mauritians.</p><br /><p>&nbsp;In fact, what is happening is the State is ceding partial control for town and country planning to the private sector. Organizing how the country develops will no longer be the concern of the Local Authorities, but of the sugar bosses&rsquo; companies, who run the Smart City real estate scams. Already, the <em>State Land Development Company</em> is hardly governmental, being chaired by architect Gaetan Siew, the father of the Smart Cities and a leader of the defunct political party <em>Ensam</em>, that ran candidates in the 2014 general elections, and posed as a progressive force, without actually saying how. Mr Siew will be the private sector&rsquo;s man, in charge as Binod Bacha was of the public sector. Mr. Siew was even a member of the official Mauritian delegation to Ghana in November, to sell the concept of <em>Smart Cities</em> there.</p><br /><p>&nbsp;In fact, the privatization of the town-and-country-planning of Mauritius has already got underway. Medine sugar bosses announced their Master Plan 2005-2025, and have already opened their school and university. Omnicane has outlined its <em>Urban Master Plan</em> for Mon Desert-Mon Tresor until 2065. The capitalist class has just taken over infrastructure projects, leaving the vast masses completely disenfranchised. In Honduras, there are already whole zones called ZEED (<em>Zones for Employment and Economic Development</em>), completely under the private sector, where even the legal framework is private, and outside the official judiciary. This, too, is clearly another form of dispossession of human beings from the land, a new form of colonization.</p><br /><p>&nbsp;The State, with its tiny elected part, the National Assembly, is thus gradually &ndash; or rather, quickly &ndash; losing its democratic hold, which was always relatively small. Land use and economic development within the nation-state boundaries are now being decided entirely by the capitalist class, with the State simply facilitating.</p><br /><p>&nbsp;<strong>The sellers of technological fixes</strong></p><br /><p>And behind all this tragic dispossession of the people is another powerful force which we have not yet mentioned. The big, mainly American, but also European and Chinese producers of technological innovations need to be able to sell them, and to sell them fast. So firms like IBM, CISCO, Software AG are all seeking the big contracts. Big cities like Songdo in South Corea, too, have been built around this technological concept &ndash; with automatic air-con, and access controlled from centralized computers, electric lighting using sensors to follow human movements, and so on. And of course with big contracts for the Security Firms like G4S, which runs Israeli security. Just like a George Orwell novel. In India, Prime Minister Modi threatens 100 <em>Smart Cities</em> by 2020, thus competing with China, that is quite advanced already. US President Obama in November announced releasing $160 million to create &ldquo;<em>smart&rdquo; cities</em>.</p><br /><p>&nbsp;<strong>Percy Mistry&rsquo;s Persistent press campaigns</strong></p><br /><p>In Mauritius, the idea of calling buildings or areas &ldquo;smart&rdquo; is not so new, and was used for the Ebene Cyber City. Some MSM leaders want the whole of Mauritius to be one big smart Cyber Island. The Navin Ramgoolam-Xavier Duval regime, encouraged all the IRS ghettoes, surrounded by walls and barbed wire, and electronic gates with surveillance systems.</p><br /><p>&nbsp;But the real ideologue here has been former World Bank cadre, Percy Mistry. In one of his many interviews in <em>Mauritius Times, </em>in 2011, he calls for Mauritius to become one big <em>Smart Island</em> like Singapour &ndash; for billionnaires from Asia, Africa, Australia : &ldquo;<em>In my view the future of Mauritius lies in becoming: (a) the world&rsquo;s most attractive and pleasant island city-state that is a globally tax-efficient home to Asia&rsquo;s, Africa&rsquo;s and Australia&rsquo;s billionaires with infrastructure and governance to match...&rdquo;</em> He is a right-wing ideologue, for example on the welfare state this is what he says in <em>New Statesman</em> 8 Feb 2008: <em>&ldquo;You [must] get rid of this notion that everything should be universalised for everybody -- that everybody should have free education, free health, free transport"</em>. Percy Mistry also runs seminars for private companies on these themes.</p><br /><p>&nbsp;The Lalyans Lepep <em>Smart Cities</em> threaten to fracture Mauritius into two: <em>Smart Cities</em> run by private companies where rich people live with their own, fine infrastructure high-tech for everything from transport to leisure and the rest of the country left run-down, without investment, and gradually strangling the towns and villages that remain under the Municipalities and District Councils.</p><br /><p>&nbsp;This kind of change is not in the interests of the people. It will increase the stranglehold of the capitalist class. It will decrease the little democracy that we have won over the past two hundred years. And it is a recipe for a social upheaval in the future.</p><br /><p>Alain Ah-Vee</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

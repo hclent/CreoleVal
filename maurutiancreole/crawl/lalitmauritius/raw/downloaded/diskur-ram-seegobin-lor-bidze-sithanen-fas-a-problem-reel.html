@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612110914" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612110914" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612110914" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612110914" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612110914" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612110914" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612110914" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612110914" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612110914" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Diskur Ram Seegobin lor "Bidze Sithanen fas-a Problem Reel"</h1><p class="subtitle">31.07.2006</p></h1>
+	<p class="newsarticle">ZISKA KI PWEN BIDZE SITHANEN ENA LYEN AVEK BANN PROBLEM REEL DAN PEI?<br>ZISKA KI PWEN BIDZE LA PU KAPAV EDE PU REZUD SA BANN PROBLEM-LA?<br><br>Sa papye la ti prezante par Ram Seegobin dan Seminar Internasyonal Lalit 25 Zin, 2006<br><br>1. BI SA PAPYE-LA<br>Bi sa papye-la li pa ditu pu fer enn analiz global de seki ena dan Bidze. Li enn travay ki anfet finn deza fer, dan nu premye reaksyon, mem swar ki diskur Bidze. Nu reaksyon finn pibliye dan lapres, mamb Lalit finn al dan program lor radyo, e nu finn sirkil bann dokiman avek analiz Lalit lor Bidze. Alor nu finn deza fini komante lor Bidze dan so globalite. Zordi-mem (Dimanns 25 Zin), dan lagazet Week-End ena enn intervyu Lindsey Collen kot li finn koz lor Bidze.<br><br>Bi sa papye-la se pu get Bidze, me par rapor a ki solisyon ki Sithanen pe propoze lor kriz ekonomik ek sosyal dan lekel nu ete, e pu konpar bann sipoze solisyon ki Sithanen pe propoze avek seki Lalit pe propoze. Alor, nu pu konpar sa Bidze la avek program ki nu, nu pe amene. Nu finn lans enn Program  pu enn Lekonomi Alternativ, depi ase lontan, anfet depi avan eleksyon zeneral. E dan kanpayn elektoral, se sa politik ekonomik alternativ ki ti inpe lepinn dorsal nu kanpayn elektoral lor radyo, lor televisyon e dan bann renyon e miting.<br><br>Alor, Sithanen dan so Bidze li konstat kriz ekonomik, li konstat lanpler kriz-la, sirtu an term anplwa, anterm somaz. Me anfet kan li vinn propoz bann solisyon, li vinn propoz bann solisyon ki dyametralman opoze ek seki nu dan Lalit pe propoze.<br><br>Mo fer resortir ki kan nu ti pe propoz sa politik ekonomik alternativ avan eleksyon, nu ti pe dir, a lepok, ki nerport lekel dan sa 2 blok politik, ki li Lalyans Sosyal, ki li Lalyans MSM-MMM, nernport lekel ki form prosen guvernman apre eleksyon, li pu ena enn politik ekonomik iltra-liberal. Setadir nu ti predir ki zot pu rod bann solisyon a kriz ekonomik ki fer klas travayer ek dimunn mizer sarye tu fardo pu sa kriz-la.<br><br>Dayer, kriz ki anfet responsabilite burzwazi, responsabilite bann ansyen guvernman, zot pa finn antisipe ki  pu arive e dan textil e dan disik, ni ki li pu arive anmemtan. Sa li enn zafer ki pe vini depi 10 an, depi 20 an. Tu dimunn ti kone. Me ni patrona, ni bann rezim politik ki finn swiv enn apre lot pa finn antisip problem-la kuma ti bizin. E dan kanpayn elektoral, nu ti pe dir ki, ki li Lalyans Sosyal, ki li Lalyans MMM-MSM ki pran guvernman, zot pu vini avek bann solisyon pu kriz ki pu fer klas travayer ek dimunn mizer sarye tu fardo. Dan nu kanpayn elektoral nu ti mem met an gard kont enn politik losterite. Se bann mo ki nu ti servi kan nu ti fer nu bann program lor TV ek radyo pandan kanpayn elektoral. Nu ti dir ki ena posibilite ki kan kriz pu morde, pu ena enn espes guvernman "koalisyon". Nu ti dir alepok ki ena tu sans ki li pu enn guvernman Travayis-MMM. Nu ti dir kan pu inpoz sa politik losterite-la, pu ena anfet danze represyon. Tusala, nu ti'nn fini dir avan eleksyon. Tusala nu ti pe predir li pu parey, nerport lekel ant sa de blok-la gayne.<br><br>Zordi MMM fer inpe gayn riye kan Berenger pe vinn tret sa Bidze la de "iltra-liberal". Berenger limem li ena enn politik iltra-liberal - tu dimunn kone. Kan aster li pe dir ki Bidze Sithanen iltra-liberal, mo sipoze li pe dir "iltra-iltra-liberal". (Dimunn riye.) E sa li vre. Sa li inpe demagozi ki nu ti kapav atann depi lopozisyon parlmanter. Zordi MMM kapav dir nerport ki ete, e lerla li kapav vinn dir so lekontrer anmemtan.<br><br>Enn premye zafer ki nu pu fer, se gete kimanyer Bidze sa guvernman Lalyans Sosyal propoze pu fer fas a kriz ekonomik ek sosyal. Nu pu ziz sa atraver bann mezir spesifik dan Bidze. Kimanyer apre sa Bidze-la (parski Bidze-la li la), kimanyer nu pu kontinye nu kanpayn? Finn fini ena Diskur Bidze dan Lasanble Nasyonal, finn ena so lexamen dan "komite", e Bidze finn vote. Alor Bidze-la aster li enn done. Kimanyer, nu, onivo Lalit, kimanyer lefet ki ena enn tel Bidze, lefet ki ena sa bann mezir-la, kimanyer li vinn afekte manyer nu pu kontinye nu kanpayn? Sa osi li pu enn laspe inportan dan travay ki nu pu bizin fer zordi pandan nu Seminar Teorik. Analiz Bidze-la par rapor a bann solisyon ki finn propoze, e osi gete kimanyer nu bizin rektifye, modifye nu kanpayn par rapor a seki aster enn done pu ankor omwen enn an, e anfet pu plizir banane ki pe vini.<br><br>2. TIT DISKUR BIDZE<br>Tit diskur Bidze "Secure a transition from trade preferences to global competition" vedir kimanyer pu asir enn tranzisyon depi enn lekonomi baze lor bann marse preferansyel, sirtu pu disik ek textil, a enn lekonomi baze lor konpetisyon global. Setadir lindistri kuma disik ek textil nepli ena enn proteksyon. Aster zot pe vinn lor marse global e Moris pu bizin "konpetitif". Sa tit Bidze li explik buku lor filozofi ki ena dan Bidze.<br><br>LAFEN MARSE PREFERANSYEL<br>Tit Bidze vinn koz "marse preferansyel" ek "konpetisyon global". Me marse preferansyel, li pa enn zafer abstre. Marse preferansyel pu disik ek textil, li 2 gro sekter prodiksyon. Li enn ta lizinn textil, li 80% nu later agrikol, li 11 mulen disik. Alor pa vinn apel sa zis "Trade preferences". Li 2 pli gro sekter, 2 gro sekter ki anplway dan Textil 40,000 - 50,000 dimunn malgre ki li finn bese, li ankor anplway 40-50,000 dimunn. Dan Lindistri Sikriyer ena ankor ase buku lanplwa, laba usi lanplwa inn bese buku. Alor kan u vinn koz "Trade Preferences", u pe koz 2 gro sekter prodiktif ki anplway plis ki 100,000 dimunn, direk ek indirek. Lerla u dir u pu fer enn tranzisyon ant sa ek "konpetisyon global". Kan u pe koz "konpetisyon global", u pa pe koz prodiksyon ditu. U pa pe koz ki lizinn pu ena? Ki pu plante? Ki pu prodir? U pa pe koz sa ditu. U pe vinn dir kimanyer pu prodir nerport ki ete, me bonmarse. Alor tit lamem pe gete kimanyer pu asir tranzisyon depi enn sityasyon kot 2 gro sekter spesifik ki anplway buku dimunn a enn lot sistem ekonomik kot li pa pe dir u ki sekter pu ena. E li pa dir u si li pu anplway dimunn. Alor sa li inpe vinn expoz seki ena dan latet Sithanen e dan latet sa rezim Lalyans Sosyal.<br><br>Me lafin sa bann marse preferansyel se enn zafer ki pe vini-mem sirtu depi World Trade Organization (WTO) inn met dibut an 1994-1995. Li ti evidan seki pe arive aster-la ti pu arive. So tayming kitfwa dimunn pa ti kapav predir exakteman, me li ti evidan ki li pu arive. E seki pe arive zordi, e dan textil, e dan lindistri sikriyer, li osi dan enn lozik, li dan sa lozik globalizasyon kapitalist. Sa li vinn kuma lanwit ek lizur. Kan u get lozik globalizasyon kapitalist, u truve seki pe arive, anfet sa kriz ekonomik-la li dan sa lozik-la pir ek simp. <br><br>LEFE GLOBALIZASYON KAPITALIST<br>Seki sa Bidze pe vinn fer, li pe vinn expoz pu premye fwa, pu  lamas dimunn dan pei truve, sa bann veritab lefe globalizasyon kapitalist. Dan lezot pei, bann lefe inn fini kumans resanti ena trwa, kat, sink, sis an desela. Kuma dan Lend, Lamerik Disid, Lafrik. Inn kumans resanti bann lefe direk. Kan mo dir bann lefe direk, mo ule dir bann lefe direk lor lavi tulezur dimunn. Dan buku pei sa bann lefe inn fini kumans paret. Samem dan Lend u pe gayn bann asosyasyon peizan, ti-agrikilter, ti-elver, avek 10 milyon mam. Dan Lend, nu ti pe kumans gayn bann sityasyon kot agrikilter, kan finn rant dan sa langrenaz bann miltinasyonal otur bann OGM (Organism Zenetikman Modifye), zot pe bizin vann enn leren pu zot aste lagren pu prosenn rekolt. Sa li parski bann regleman WTO pe rwinn bann ti-agrikilter, pa zis dan Lend, me dan Lamerik Disid, mem dan Lafrans bann ti-agrikilter otur lasosyasyon paysanne, otur JosÃ© BovÃ©, fini kumans reazir a bann lefe globalizasyon. Me dan Moris, dan enn serten mezir lamas dimunn inn inpe proteze par zisteman sa bann marse preferansyel, zot proteze pu enn an, de an, trwa an, me lozik-la pe dir ki proteksyon pu ale. Me anfet, asterla Bidze pe vinn montre ki lefe sa pu ena lor lamas dimunn kan sa proteksyon-la ale. Se sa ki Bidze pe vinn fer. Kuma mo ti dir, kitfwa pu premye fwa lamas dimunn pu resanti, granmatin kan li al aste so dipin, kan li avoy so zanfan lekol, kan li pe rod enn travay pu so zanfan ki'nn gayn 16 an, 17 an. Sak instan, li pu kone ki ete kriz, li pu santi li dan so laser ki ete sa lozik globalizasyon kapitalist. Bann muvman dan gran konferans dan Mexik, dan Mumbai dan Lend, dan Porto Alegre dan Brezil, bann gran-gran konferans kot ena 80,000 a 100,000 dimunn prezan, depi diferan lorganizasyon, tusala finn diskite depi ase lontan. Dayer, onivo Lalit isi, ti ena enn delegasyon 4 dimunn ti prezan dan World Social Forum dan Mumbai kot ti ena apepre 100,000 dimunn prezan.<br><br>Se zisteman tusala ki ti pe diskite de-trwa an desela, dan Mumbai. Sa muvman ki apel muvman altermondyalist, depi plizyer lane finn explik exakteman seki zordi pe ariv lamas dimunn dan Moris.<br><br>3. KIMANYER BIDZE SITHANEN PE PROPOZE PU FER FAS A DISPARISYON MARSE PREFERANSYEL<br><br>Pu fer fas a disparisyon marse preferansyel, anu gete ki Bidze Sithanen pe propoze pu relans lekonomi, pu atir investisman, pu retablir to krwasans, pu kree lanplwa.<br><br>Li kler ki kriz dan lindistri sikriyer ek dan textil, li prinsipalman enn kriz lanplwa. Zot tule de, 2 gro sekter lanplwa. Dan lindistri sikriyer ek textil, fini kumans ena rediksyon lanplwa ase dramatik depi dernye sink an, kitfwa inpe plis mem. Me asterla li kapav vinn katastrofik enn ku. Me sirtu ki zot 2 pli gro sekter ekonomik kot pa pu ena kreasyon lanplwa. Non, pu ena rediksyon lanplwa. Zis pu montre kimanyer sa lozik la, li enn lozik ki pe vini depi lontan, kitfwa zot pu rapel ansyen guvernman, ek  Minis kuma Sushil Kushiram, ek  kuma BÃ©renger, kuma Pravind Jugnauth, ki sa bann Minis Finans ansyen rezim MSM-MMM, ti fini kumans koz sa langaz la, dan enn premye tan kan zot ti pe koz lanplwa. Zot ti fini kumans koz enn zafer ki zot ti apel "jobless growth". Setadir krwasans ekonomik san kreasyon lanplwa. Apre inpe letan, zot dir 'kapav nu ti ena tor', kapav et seki pu ena se "job-loss growth" setadir krwasans ekonomik avek rediksyon lanplwa. Alor nu truv sa lozik la pe vini depi enn bon but letan. E li finn travers diferan rezim-la. Lozik-la li pa gete kisannla finn gayn eleksyon dan Rose Belle! (Dimunn riye.)<br><br>Nu get enn ku ki Sithanen pe propoze pu fer fas, ki li pe propoze pu atir investisman, pu retablir to krwasans ek pu kree lanplwa. <br><br>(a) Diminye saler reel. Gro but dan Bidze, depwindevi klas travayer ek dimunn mizer, se li pe propoz pu diminye saler reel, e diminye kondisyon travay. Kan u lir sa diskur Bidze-la, de nu pwindevi, se sa so pwen santral. Li pe viz pu atir investisman, li pe viz pu asir to krwasans e kree lanplwa atraver premyerman redwir kud prodiksyon, redwir saler reel. Mo pu revinn lor la an plis detay lor kimanyer li pe fer sa.<br><br>(b) Privatizasyon. Kan u pe ferm Development Works Corporation (DWC) e u pe ankuraz travayer developman met dibut enn konpayni prive e zot mem kapav aste lekipman puri depi DWC e rul li kuma enn konpayni prive, li enn form privatizasyon dan sekter konstriksyon. Pe ena privatizasyon National Transport Authority (NTA), setadir fitnes pu fer par bann konpayni prive. Ena plizyer lezot ka kot ena privatizasyon, kuma garaz lapolis ki ti pe antretenir tu bann veikil guvernman. Sa usi pe ferme. Setadir pu awtsors, pu privatize, pu al dan sekter prive. Mo finn pran enn traka, si ferm garaz SMF, ki pu fer ek dimunn kuma Raddhoa, tusala! Me sa, li inpe enn saydifek. (Lasal riye)<br><br>Me privatizasyon ek an mem tan enn luvertir a kapital internasyonal, savedir pe pran enn trale mezir pu rann Moris plis innvaytinng, plis atiran, pu bann investiser internasyonal. Li pa zis spekilater, me ikonpri ena lamafya, tu kalite flaybaynayt, investiser ki pu vini pu fer seki Angle apel enn "quick buck". Lerla zot ris zot kales byin vit, zot ale, kan zot finn fini fer zot profi. Alor sa privatizasyon-la li inklir dematelman Welfare State. Nu pe dekrir demantelman Welfare State kuma enn form privatizasyon parski kuma u kone dan Moris e dan nerport ki pei, dimunn ena pu al lekol, dimunn ena pu sweyn limem kan li malad, lerla Welfare State so pwen de baz se Leta furni swen medikal, Leta furni ledikasyon gratis, sa se fondman Welfare State. Leta furni sa a tu dimunn. Kan u pe vinn koz targetinng, kan u pe vinn koz pu fer dimunn pey pu serten servis, li enn form privatizasyon dan lesans ki u pe dir dimunn pu ledikasyon li pu bizin al dan enn institisyon prive parksi Leta nepli pu provayd. Pu swen medikal, li pu bizin al dan enn institisyon prive parski Leta nepli pu provayd gratis. Alor li enn form privatizasyon. E sa privatizasyon-la li usi ena kom bi pu atir investisman internasyonal. U get kote ledikasyon, sa depi inpe letan nu pe predir ki su presyon WTO, su so aranzman pu komers an "servis", bann "GATS" (General Agreement on Trade in Services), Leta pe uver pei a investisman sirtu dan sekter tersyer, onivo liniversite. Aster u pe gayn enn kantite liniversite Ostralyin, Sid Afriken, depi inpe partu ki pu vinn uver liniversite isi. Setadir ledikasyon tersyer pe privatize par extansyon. Lekol segonder parey, lekol primer parey, deplizapli u pe gayn investiser ki pe finn investi dan bann institisyon edikatif prive. Anfet pe privatiz seki ti lontan bann servis su Welfare State.<br><br>(c) Enn trik kontab<br>Bidze ena enn gro trik kontab. Sithanen ti enn kontab kot Rogers, alor li konn bann trik kontab. (Dimunn riye.) Nu, nu kwar ena enn gro trik kontab dan sa Bidze-la. Sithanen inn propoz bann mezir ki pu ankuraz spekilasyon lor later.<br><br>Ena enn serten nomb mezir ki paret kuma bann bon mezir, kuma rediksyon lanrezistreman kan u aste teren, me dan Moris, pena buku dimunn mizer ki ena posibilite aste teren. Alor, nu dir li tu sinpleman enn mezir ki fasilit tranzaksyon fonsye, tranzaksyon later.<br><br>Lerla enn lot mezir se pu ankuraz Integrated Resort Schemes (IRS) e li pe etann so skop. IRS kuma ansyen guvernman finn invant li ti ondire bann geto, bann anklav turistik kot turis byen ris pu vinn aste kanpman Rs15 milyon. Zot pu ena golfkors, zot pu ena marina, bato, zot laplaz tusala. Sa ti ansyen konsep IRS stil MMM-MSM. Sa nuvo guvernman-la pe vinn etann skop IRS, kot u pu ena bann IRS ki pu ofer tu kalite diferan form rezidans. Sa usi pe amenn enn ankurazman a sa spekilasyon fonsye, tranzaksyon later e buku tranzaksyon lus. <br><br>Kitfwa bann kamarad isi inn lir dan lagazet yer ek zordi, tablisman konpayni sikriyer Medine, tutswit apre Bidze inn vini ek enn plan grandyoz. Li pu ranz bann nuvo site dan Lwes pei. Li pu ranz nuvo sime. Li ena bann proze rezidansyel. Li pu ena golfkors. Enn kanpayni sikriyer prive pu vinn re-amenaz enn-kar pei Moris. Li pa enn kwinsidans ki konpayni sikriyer Medine, enn semenn apre Bidze vini avek sa proze-la. Me sa li enn proze, kan u examinn li, li enn proze ki pe fer Medine sorti depi enn konpayni sikriyer, li pu gard so kann wi, me aster li pe vinn enn konpayni fonsye. Aster li pu fer so bann profi atraver tranzaksyon later, atraver konverti later.<br><br>Fode pa nu bliye ki atraver proze IRS, tablisman gayn sa privilez kot zot kapav konverti later agrikol fer li vinn later rezidansyel. Kan u fer later agrikol vinn rezidansyel, u miltipliye so valer par 10 a 15 fwa. Anplas. Guvernman nek ena pu siyn enn but papye. Pu dir ki sa but later Medine ki ena kann zordi lor la, li later agrikol, guvernman nek siyn enn but papye dir sa later-la li enn later rezidansyel. Ek sa tibut papye-la grander enn paz kaye fer 1,000 arpan later Medine enn ku so valer miltipliye par 10, par 15 fwa. Zis enn but papye. Se sa kalite spekilasyon fonsyer ki vremem Sithanen pe ankuraze atraver enn seri bann mezir.<br><br>Kifer mo ti apel sa enn trik kontab? Sithanen pa enn kuyon. Preske! (Dimunn riye.) Seki Sithanen pe fer, kan later agrikol so pri pe vinn enn pri ki miltipliye par 10 ubyen 15 kuma later rezidansyel, kan Medine lerla morsele ankor later, li ranz bann site, li ranz sesi, li ranz sela, tutswit ena seki u apel enn valer azute. Vedir valer azute kontab, parski u pa pe prodir nanye, mem but later-la sa. Nek u finn sanz so natir e so valer miltipliye par 10 u 15 fwa. Alor lerla, dan 5 an, dan 4 an Sithanen pu vinn dir u "Alalila bolom, bann mezir ki mo finn pran, finn amenn krwasans ekonomik 4.5%, 5%, 6%". Me li enn krwasans ekonomik kontab, parski li baze lor spekilasyon. Li baze lor bann valer artifisyel tranzaksyon later. Alor ek sa bann mezir-la, savedir IRS, fasilite pu nuvo kalite IRS, proze grandyoz kuma Medine ena, tutswit Sithanen pu ogmant so to krwasans, me dan enn fason byen byen artfisyel. Se pu sa rezon-la ki mo apel sa enn trik kontab.<br><br>Ala 3 veritab mezir. Lerla ena buku mezir pu ankuraz PME (Petites ek Moyennes Entreprises). Ala nu ena enn Minis de Finans. Dan so mem diskur kan li pe get problem lindistri sikriyer, kan li pe dir u nu bizin konpetitif global, dan lindistri sikriyer li dir nu ena 11 mulen dan pei, sakenn pe prodwir an mwayenn 50,000 tonn disik, ena inpe plis, ena inpe mwens, an mwayenn sakenn pe prodir 50,000 tonn disik; dan so mem diskur Bidze kan li dir li enn grav problem ki prodir "zis" 50,000 tonn disik, li pa vyab; Kan li pe dir dan enn sityasyon de konpetisyon global, enn mulen disik ki pa prodir plis ki 100,000 tonn disik sak lane, li pa vyab; alor dan lindistri sikriyer pe vinn met artizan deor, pe vinn santralize parski pu vinn konpetitif bizin bann gro, gro inite prodiksyon. An mem tan, dan sa mem diskur Bidze la, Sithanen pe vinn dir seki pu sov Moris, se 1,000, 2,000, 3,000 tipti lantrepriz. <br><br>Anplis, li pa spesifye. Li pa dir ti lantrepriz pu fer ki ete? PME, an Angle SMI, inn vinn kuma enn manntra zot nek ena pu dir PME, PME, dan tel pei PME inn prodir lanplwa, dan tel lot pei PME inn prodir lanplwa, isi usi PME pu prodir lanplwa. Be PME ki ete sa? Ki li pu prodir? <br><br>Sithanen li pa kuyon, li byen kone ki premyerman laplipar bann PME pa prodir lanplwa. Si u pran tu bann PME ki'nn kumanse, u reget zot dan 5 an, otur 75% inn disparet parski li pa finn marse. Deza li enn gaspiyaz resurs extraordiner kot pe nek ankuraz dimunn pran lonn, met so later angaz, met so bizu angaz, pran lonn pu kumans enn ti-biznes e 75% ladan deklar bankrut avan 5 an. Bidze-la pa vinn dir u sa bann PME-la ki zot pu fer? Ki zot pu prodir? Pu ki marse zot pu prodir? Tusala Sithanen pa vinn dir u ditu. Enn ti tabazi usi, li enn espes PME. Eski u pe imazinn dan Moris, sak dimunn pu bizin uver so prop tabazi? (Dimunn riye.) Eski se sa lekonomi ki nu pe antisipe pu tir Moris kot li ete? E zot pe met buku lanfaz anfet lor PME. <br><br>4. KI KALITE PRESYON LOR GUVERNMAN?<br>(a) Presyon depi FMI, Labank Mondyal e WTO<br>Me Guvernnman, nerport ki guvernman burzwa, kan li ena pu fer enn Bidze, li sibir diferan presyon. Li sibir presyon depi institisyon kuma FMI, kuma Labank Mondyal, WTO. E la pu ena plis presyon ankor parski nu fini kumans tande depi enn Sekreter Finansye, enpe par interim pa kone si li lor kontra ubyin li pe ranplase, apel Ally Mansoor, inn fini kumans negosye enn gro lonn avek Labank Mondyal.<br><br>Kan u negosye lonn avek Labank Mondyal, pa zis presyon ki u sibir, me u de "zorey" pu dan leto! (Lasal riye.) Alor enn guvernman sibir sa bann presyon-la, depi FMI, Labank Mondyal, WTO.<br><br>(b) Presyon depi patrona lokal, finansye internasyonal e ideolog patrona<br>Guvernman sibir presyon osi depi patrona lokal ek bann finansye internasyonal. Kapav-et bann kamarad finn lir enn seri bann long long intervyu par enn bug apel Percy Mistry (li inpe enn mister, "very mystery"), li enn bankye, enn bankye investiser dan enn grup bankye ki baze dan Oxford dan Langleter. Depi enn bon but letan, li pe ekrir bann long-long intervyu dan Mauritius Times, e li klerman ena enn proze, enn proze politik, enn proze ekonomik pu Moris. E kan u ekut deba lor Bidze, suvan tann nom Percy Mistry fer sirfas. U pu tann kikenn kuma Sithanen dir "al gete ki Percy Mistry inn dir". Ondire seki Percy Mistry dir, li enn levanzil. Li kapav enn levanzil pu kapital finansye, me nu pa forse ekut seki Percy Mistry dir.<br><br>Lerla ena ideolog, bann ideolog dan firm kuma De Chazal Du Mee, bann firm konseltennsi, Kemp Chateris, u ena sa bann ideolog, konsiltan ki tultan pe donn zot lopinyon lor nerport ki zafer sirtu lor enn zafer kuma Bidze. Ena usi ideolog dan lapres, dan lagazet. Ena enn serten nomb zurnalist zordi ki zot pa zis zurnalis, zot plis enn espes press atache pa pu Minis guvernnman me pu bann sekter ekonomik, pu sekter prive. U pu gayn enn zurnalis ki li so travay se pu defann pwendevi MSPA, tablisman. Enn lot zurnalist, li so travay se pu defann pwindevi gro patron zonn frans. Kan u lir lagazet, u truv sa enn ku. Ena bann ideolog la. Alor Guvernman li su presyon sa bann diferan institisyon internasyonal, institisyon lokal e ideolog patrona.<br><br>(c) Kont-presyon depi sindika, asosyasyon konsomater<br>Ena enn kont-presyon depi muvman sindikal, e depi lasosyasyon konsomater. Me li enn kont-presyon ki depi enn bon but letan enn kont-presyon ase feb. Li feb pu buku diferan rezon, li feb parski sa guvernman ki nu ena zordi-la, li finn gayn enn mazorite telman kler dan 3 eleksyon ki finn fek fer, mwens ki enn an desela. Eleksyon Zeneral. Eleksyon Minisipal. Eleksyon Vilaz. Alor ena enn rezim ki santi li pa oblize sede a presyon lamas dimunn. Li pu sede ase fasilman a so bayerdefon, a patron. E li pa santi li oblize sede a presyon depi lamas dimunn, depi bann lorganizasyon de mas kuma sindika, parski li finn fek gayn sa mazorite byen kler. E mo fer resortir ki li finn gayn sa mazorite byen kler-la lor baz enn manda. E so manda-la sete pu demokratiz lekonomi, so manda sete "put people first". Se sa ki finn donn li sa mazorite-la. Se sertennmann pa seki li pe fer dan Bidze ki'nn donn li sa mazorite-la.<br><br>Me kont-presyon depi muvman sindikal li osi feb, dan enn sertenn mezir, parski dan muvman sindikal li ase difisil pu sindika dan  diferan sekter sorti andeor enn lozik. Pu enn sindika sorti premyerman andeor lozik so prop sekter, so sekter travay e dezyemman pu sorti andeor lozik prodiksyon kapitalist, parski bann sindika zot opere a linteryer sistem kapitalist. E an zeneral seki zot vize se pu gayn enn meyer tretman pu travayer me a linteryer sistem la. Sindika gayn buku difikilte pu chalenj sistem-la.<br><br>5. BIDZE: KI TRANZISYON?<br>Dernye parti mo papye se pu get Bidze e poz kestyon "Ki swa ena?" Ki kalite tranzisyon ti kapav ena par rapor a seki pe arive onivo mondyal? Par rapor a sa kriz, ek par rapor a lanplwa sirtu? Par rapor a kriz dan lindistri sikriyer ek textil?<br><br>Swa ki ti ena se premyerman retablir krwasans e kree lanplwa par retablir to profi. Sa li enn swa. Ena kriz ekonomik pe vini, ena kriz lanplwa, ena lisansiman buku, ena dimunn pe rod travay. Pu fer fas a sa, u sey truve kimanyer pu relans lekonomi. Enn de bann fason pu fer li, e Bidze sey fer li, se pu retablir krwasans ekonomik ek kree lanplwa, me atraver retablir to profi, setadir par fer bann konpayni, bann biznes vinn plis profitab. Lozik sa filozofi-la, se sa pu ankuraz krwasans. Sa li enn swa. <br><br>Dezyem swa, se atraver enn Bidze, u kapav pronons umem anfaver etablir bann baz pu enn re-oryantasyon dan laparey prodiktif. Sa li inportan, parski kriz dan Moris zordi se kriz dan laparey prodiktif textil ek disik. Ek dan enn Bidze kumsa si u pe sey rod fer fas a sa kriz-la, u oblize vinn propoz bann alternativ kot pu ena lanplwa. Bann sekter alternativ, prodiksyon alternativ kot ena lanplwa, kot ena sekirite danplwa, kot ena buku lanplwa byen vit. Li ena enn obligasyon pu fer sa.<br><br>E nu kanpayn ki nu pe amene evidaman li baze lor dezyem swa e seki Sithanen ek sa guvernman la inn swazir, inn swazir premye swa. <br><br>Asterla, nu pu get sirtu sa opsyon iltra-liberal, ena dimunn apel li "monetarist", ki Sithanen finn swazir pu so Bidze. So bann mezir konkret ki li pe propoze, se pu fasilit biznes, me par dereglemantasyon. Savedir pu abandonn tu reglemantasyon ki ena lor biznes pu akseler prosedir.<br><br>Guvernman finn amenn enn dereglemantasyon, mem dipwendevi lanvironnman. Lontan avan u kumans enn lantrepriz, u ti bizen enn Environment Impact Assessment (EIA) pu gete si sa lantrepriz-la pu afekte lanvironnman. Asterla non. U nek kumans enn lantrepriz, u pa bizin atann plis ki 3 zur, u nek kumans li. Nek apre ki pu gete si sa lantrepriz-la pe rwinn larivyer akote, ubyen pe anpwazonn vwazen. Apre pu get sa. Alor fasilit bann biznes, bann lantrepriz par dereglemantasyon. Kuma mo ti dir avan, sa li osi viz pu ankuraz bann PME.<br><br>Sa opsyon iltra-liberal ki Sithanen finn swazir. Li finn swazir osi pu diminye to taxasyon. Setadir li pe dir ki bann biznes, bann konpayni pu fer plis profi parski zot pu pey mwens tax. Finalman dan propozisyon Sithanen, konpayni ek individi alalong pu pey mem tax, tu pu pey zis 15%. Setadir pe diminye tax konpayni buku pu rann konpayni, antrepriz pli profitab. Me pe rann zot pli profitab par rapor a enn rediksyon dan reveni bidzeter. Setadir nu tu, nu pe pey pu sa ogmantasyon profi-la.<br><br>E osi pe diminye Innkom Tax lor dimunn byen ris. Sa barem 25-30% ki ena lor bann dimunn byen ris sa usi pe disparet. Alafen enn dimunn ki gayn Rs200,000 par mwa, san nom okenn nom, (Dimunn riye, akoz dan lagazet ena enn lexanp mem zur) li usi, li pu pey mem to 15% ki enn ti-profeser ki li, li pe gayn Rs10,000-15,000 par mwa. Zot tu pu pey mem tarif tax, 15%. Zot pu pey parey kuma IBL u Rogers u Harel Mallac. Tu dimunn pu pey mem tarif Innkom Tax. <br><br>Kuma mo ti dir avan, sa bann mezir pu ankuraz spekilasyon later par konversyon, par morselman, par uver marse fonsye dan Moris a aster internasyonal. Setadir u pu morsele e vann later Moris me lor enn marse internasyonal. Akoz to desanz, akoz diferans dan nivo pri, bann dimunn dan lezot pei - u pran tu bann futborler ki nu pe truve 3 fwa par zur lor TV - sa bann dimunn ki tus Rs 1 milyon par semenn sa! (Lepok Kup Dimond.) <br><br>Alor ena bann dimunn dan lemond ki tus bann sif, reveni, dividenn astronomik. Zot pu vinn puse kan pe vann sa later Moris alankan. Samem ki pu pus pri later, valer later buku.<br><br>Bidze ena bann mezir ki sirtu viz pu fer Moris vinn enn pei ek mindev bonmarse. Zordi Moris li pa enn pei ek enn mindev osi bonmarse ki lezot pei. E dan lepase parski Moris so mindev pa osi bonmarse, nu ti truv patrona delokalize, al Mozanbik, al Madasgaskar, al Tanzani, al kot mindev pli bonmarse. Me aster dan Bidze, Sithanen pe vinn pran bann mezir ki pu fer mindev Moris osi bonmarse ki mindev dan tu lezot pei, sa pe fer sa sanse pu retablir konpetitivite global. Me sa pu nerport ki rezon ki zot pe fer li, so rezilta seki klas travayer ek dimunn mizer pu gayn mwens saler reel pu mem travay ki zot ti abitye fer.<br><br>ANU GET BANN MEZIR KI PE PROPOZE DAN BIDZE PU FER KUD PRODIKSYON BESE PAR FER MINDEV VINN BONMARSE:<br><br>a) Konpansasyon saler ki ti ena enn fwa par an, li la pu permet travayer fer fas a tu ogmantasyon pri. Me ena enn laspe dan konpansasyon saler ki nu pa tann koze <br>buku. Se ki, kan ena ogmantasyon pri dan Moris, li prensipalman lakoz ena depresyasyon rupi. Se depresyasyon ki amenn inflasyon. Alor ogmantasyon pri li vinn ansam ek depresyasyon. Depresyasyon li ule dir windforl profi pu bann lantrepriz. Si u get enn lantrepriz ki prodir T-shert, li vann so T-shert pu US$1. Avan depresyasyon sa T-shert-la kan patron-la gayn so US$1, li al sanz li dan labank li pu gayn Rs28. Lane apre ena depresyasyon, patron vann enn T-shert parey a mem pri US$1. Me sa kut-la kan patron al labank, labank donn li Rs32 pu sa mem T-shert-la akoz depresyasyon. Alor patron-la fer enn winndforl profi sorti Rs28 vinn Rs32. Ek konpansasyon saler, so filozofi sete pu dir patron u finn fer enn winndforl profi akoz depresyasyon, depresyasyon inn rann travayer pli mizer, seki nu pe dimann patron fer par konpansasyon se pran sa winndforl profi-la donn enn parti ladan travayer. Setadir sa laspe kot nu get travayer kuma enn prodikter, pa get travayer zis kuma enn konsomater, sa enn laspe inportan. Me kuma fason nu pe ale, setadir lane apre lane travayer so saler reel setadir seki so saler kapav aste pu diminye ankor pli vit. <br><br>b) Dan Bidze, pe anons klerman ki bann institisyon kuma National Remuneration Board (NRB), Pay Research Bureau (PRB) pe disparet, ek pu ranplase par enn National Wages Council. Me sirtu bann award, NRB e PRB, dan enn serten mezir zot determinn saler minimem dan diferan sekter. Bann award zot determinn kondisyon danplwa dan diferan sekter pu diferan grad travayer. Sa patron pa ule., Li ule tu travayer polivalan setadir kan ena travay dan lizinn u travay, kan pena komann dan lizinn, donn u enn balye dir u al balye lakur. Patron ule sa kalite polivalans-la. Patron usi ule kan ena somaz, li ule profite. Patron ule kapav ofer lanplwa mwens ki saler minimem parski dimunn pe krev de fen. Patron pu dir u, "Get sa, u pe krev defen mem, abe vinn travay, mo donn u Rs12 lazurne". E si u zanfan pe krev de fen, u pu al travay pu Rs12 lazurne. Me award zordi pa permet sa. Seki Sithanen pe fer, li pe fer sa arive. Patron pu kapav ofer travay pu Rs12 lazurne. <br><br>c) Bidze pe vinn propoz pu amar tu saler avek prodiktivite, e avek kapasite pu patron peye. Savedir pu u gayn enn ogmantasyon saler, u pu bizin prodir plis. Si u pa kapav prodir plis, u saler pu res parey. E sa mem saler la pu aste mwens rasyon. Dan Moris isi, tu patron pa kapav pey nanye! (Dimunn riye.) Alor kan vinn koz "capacity to pay", u pe kuyonn dimunn parski an prensip patrona pu dir li pa kapav peye. An prensip tu patron fer lapert. Kan u marse lari La Chaussee u truv zot pe dimann sarite! An prensip zot mari mizer! Fransman zot pa kapav peye! (Lasal riye)<br><br>4. Enn lot zafer dan sa Bidze-la, enn laliyn dan sa diskur Bidze-la ki nu truv byen grav. Zot pe vinn propoze pu sanz lalwa travay pu diminye preavi. Zordi si u ena tan banane servis, patron oblize donn u enn preavi, enn mwa, de mwa u trwa trwa mwa avan li lisansye u. Guvernman pe propoz pu sanz sa. Zot pe propoz pu sanz kantite Severenns Alawenns ki enn patron oblize peye kan li lisansye enn travayer. Dan diskur Bidze, manyer ki zot dekrir sa (si li pa ti usi dramatik, si li pa ti usi trazik, u ti preske kapav riye). Dan diskur Bidze, manyer zot dekrir diminye preavi ek diminye Severenns Alawenns, se zot pe amenn bann mezir dan Bidze seki zot apel diminye "cost of separation", setadir seki li kut patron pu li separ limem depi so travayer. Ondire enn espes divors, enn separasyon. Alor zot pe vinn dir ki fode pa separasyon-la kut tro buku a patron. Zot apel sa "cost of separation" kan enn travayer pe perdi so plas travay, pe perdi so mwayen pu li nuri so fami. Pu Rama Sithanen, sa li enn "cost of separation". Li get li dipwendvi ki sa pu kut patron pu li separ limem depi so travayer. <br><br>5. Lerla evidaman, ogmant laz retret sorti 60 an pu vinn 65 an. Apartir 2008 ziska 2018. Kikenn dir mwa "Ki? Avek sa mezir la zame mo pa pu gayn pansyon. Sak fwa mo pu ariv laz pansyon zot pu azut ankor 2 mwa". (Dimunn riye.) Setadir apartir 2018, retret pu vinn laz 65 an. Mo ti mansyonn sa dan enn Forum FCSOU, kan u pran ogmantasyon laz retret u azut li avek seki Bidze pe dir ki travay pu vinn travay sezonye, pu vinn travay preker, pu vinn travay bat-bate, li grav. Mo ti pran lexamp enn mason 61 an. Li bizen atann 4 an avan 65 an. Eski u kapav mazinn enn mason 61 an pe mars-marse, pe rod travay lor santye konstriksyon? Kisannla pu anplway enn mason 61 an pu poz blok, pu krepi plafon? Sa mason-la li bizin atann ziska 65 an avan li gayn so pansyon. Alor kan u pran sa 2 mezir dan Bidze, u met zot ansam, li prodir enn zimaz ki fer vremem per. Si a laz 61 an, dimunn pe ankor marse pu al rod enn ti bulo isi laba. Abe kisannla pu donn enn zardinye 61 an, enn mason 61 an, enn anfle kamyon 61, travay? Sa li vremem enn panse ki fer per. <br><br>6. Dernye mezir pu kuronn tusala, Sithanen vinn anonse ki aster pu ena enn sel marse trav</p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

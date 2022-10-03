@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612104550" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612104550" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612104550" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612104550" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612104550" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612104550" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612104550" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612104550" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612104550" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Analysis of 1987 Plot against LALIT <i>(Re-Loading)</i>.</h1><p class="subtitle">31.05.2009</p></h1>
+	<p class="newsarticle">Following the recent hacking of our site, we are re-loading the 2008 analysis (below) of the 1987 plot against LALIT, because these things tend to happen again and again in not too different a form.<br /><br />Since the original loading of the article, two of the people mentioned by us as being in posts that could implicate them in the plot, have contacted us formally, and we are satisfied that they were not involved actively in the machination. These two people are Gilbert Ahnee and Soubash Gobin.<br /><br /><br />[See below article from file]<br /><br /><b>BÃ©renger, Le Nouveau Militant and Le Mauricien<br />History and the Future</b><br /><br />As parties position themselves for alliances before a possible by-election and for the coming General Elections, LALIT would like to share with readers of our site, an amazing story about the lengths some people will go in order to attack and to try to discredit LALIT, in particular in the period <i>before</i> a General Election.<br /><br />At present, Prime Minister Navin Ramgoolam is in an extremely weak position. Institutional crises shake him from every side, each one a new sign of the systemic crisis that is accompanying the end of sugar, the "raison d'etre" of Mauritius for so much of our history. When he tries to address any problem, he is faced with "solutions" that only make things worse. He is increasingly discredited. His Government shaky. It is a time when working people need to challenge the foundations of his politics.<br /><br />He is in the same kind of trouble that Anerood Jugnauth was in three years after the 1983 elections. Trying to hold on, as scandals are exposed on all sides. The main difference being that Anerood Jugnauth was creating jobs, while Navin Ramgoolam is destroying them. This makes Navin Ramgoolam very weak.<br /><br />And yet, Opposition Leader Paul Berenger is<i> also </i>weak today. As is his party.<br /><br />Curiously, that is also just as he was then, back in 1987.<br /><br />So, as LALIT takes on both of them politically, as we did in 1987, let us forwarn people who follow politics, and the Press in particular, of the kind of scenario we expect to repeat itself. <br /><br />The true story we will recount took place 21 years ago, before Berenger was as wily as he now is, so just imagine what the future might hold. He was leader of the Opposition then, too. He was, remember, weak then, too. <br /><br />It is important for us to publicize the scenario he set in motion in 1987 before the General Elections, because many of the accomplices he drew into his plot are still present today. Often in positions of power in their sector. Many of them may be tricked once again into giving Berenger a hand in his dirty tricks. Others may at the time have done it for gain - political or financial - and may do so again. Others still may have done it because they were consenting adults and they, too, may consent again, thinking their roles would somehow be forgotten by history. And in fact they would have been forgotten by history had Berenger succeeded in his plan, a plan which clearly aimed to finish LALIT off. But, LALIT is not finished off that easily, as it turned out.<br /><br />And, of course, new people will presumably be available as accomplices to Paul Berenger in the future. But at least we already know the names of those in a past plot: Jean Claude de L'Estrac, Soobash Gobin, Gilbert Ahnee, Dev Ramano, Jack Bizlall, Venou Ramsamy, Gaetan Pillay, Pierrot Benoit, Sydney Selvon. It sounds like an unlikely mixture of people. And they did each have different roles, as we shall carefully point out. How much each of them knew of the overall plot is not clear. But most new most of it.<br /><br />This is what happened.<br /><br />LALIT and another left formation that existed at the time called OMT-FNAS (1) led by Dev Ramano and Venou Ramsamy, had already made an electoral pact. We had agreed to field 60 candidates, 30 each. Berenger was personally, remember, in fact about to be defeated at the poles. Prem Nababsing would afterwards lead a weak opposition. So, the MMM, in full knowledge of its weakness, was terrified of having to fight Jugnauth (MSM-PMSD Alliance) in Government, at the same time as having to fight this LALIT and OMT-FNAS Alliance, which had a good left program. In fact, the left could have made considerable inroads into the working class bases of all the bourgeois parties at the time: the MMM, the MSM, Labour and the PMSD.<br /><br />So, Berenger's plot was simply to provide a reason to the OMT-FNAS for them to break their pact with LALIT. This plan was aimed to make it possible for Berenger to face the electoral campaign, and also, equally important, to save the MMM from extinction afterwards. Later we found out from ex-OMT-FNAS members that there was also a car and money involved, as well, and that this became a bone of contention which later led to a split in the OMT-FNAS, but this aspect of the thing is just the corrupt tip of the iceberg. <br /><br />What was important was that Berenger needed to supply <i>political </i> "reasons" for the OMT-FNAS to break their alliance with LALIT. <br /><br />So, to do this, Berenger needed to draw in his accomplices. <br /><br />As the 1987 elections approached, Berenger brought out a brand new series of his newspaper. The first one was titled "Numero 1" of this "Nouvelle Serie" of "Le Nouveau Militant". The Director General was Jean Claude de L'Estrac, the Editor was Soobash Gobin and the Assistant Editor was Gilbert Ahnee. All three are top actors in the commercial press today, in the three main press empires. None of the staff of Le Nouveau Militant ever dissociated themselves from the calumny contained in this first newspaper of the series. On the contrary, the just sat and waited for Le Mauricien to come in, according to the Berenger scenario, and spread the calumny to a wider readership. And then for each to publish a second article, too. As if to prove they knew, thus tying their hands to the dirty work. The editor of Le Mauricien was Pierrot Benoit, assistant editor, Sydney Selvon. No apology, private or public was ever expressed by anyone involved, even once the lies were proven soon afterwards to have been lies all along. We will re-publish the calumny in toto, with our comments in italiques and in square brackets. It makes for something of a puzzle for the reader to decypher. But it will be worth your while to see an example of the kind of journalism and politics that Mauritius has known.<br /><br />The article was the main banner headline in the top-of-the-page position on page one of this Numero 1 Nouvelle Serie of Le Nouveau Militant on 8 July 1987 edition of Le Nouveau Militant. The title read: "FinancÃ© par Jugnauth [a lie]: Le groupuscule Lalit offrira son temps d'antenne au MSM [<i>a lie, later to become a proven lie, thus making the first lie also evident as a lie</i>]". <br /><br />The two first paragraphs in bold read: "Le MSM financera les frais d'inscription [<i>a lie</i>] et de pseudo-campagne [<i>a lie, we had a very hard campaign against the MSM and the MMM</i>] du groupuscule [<i>LALIT was a party</i>] d'extreme-gauche LALIT qui presentera soixante candidats aux elections general du 30 aout [<i>False. At the time it had already been published that we were fielding 30 candidates and the OMT-FNAS 30]. </i> Lors d'une rencontre, Vendredi dernier, entre M. Aneerood Jugnauth et les responsables de LALIT, [<i>A lie. There was no such meeting] il a ete convenu que les animateurs de LAKAZ ROS [a scurrilous reference to the registered association, Muvman Liberasyon Fam, and its women's centre; we can only leave the misogyny implied to the imagination of the reader as the MLF and its Centre have nothing to do with the narrative</i>] utiliseront leur temps d'antenne, lors de la campagne televisÃ©e officielle, pour faire campagne pour le MSM. [<i>A lie. Later proven to be a lie. What is haunting about this phrase is that it shows that Berenger intended to destroy the OMT-FNAS as well as LALIT, something he did succeed in doing, because the OMT-FNAS did, in fact do the exact same immoral task for the MMM that it falsely accused Lalit of doing for the MSM. The OMT-FNAS  agreed and actually did "utiliseront leur temps d'antenne, lors de la campagne televisee officielle, pour faire campagne pour le". . . MMM</i>].<br /><br />The article continues: "En 1983, deux partis fantoches, le FMI et le POP furent utilisÃ©s a cette besogne. [<i>True, Gaetan Duval set up these two phantom âparties' when the PMSD was in alliance with the MSM in order to get more âtemps d'antenne'</i>.] En 1983, le MSM, pour cette meme tache, a decidÃ© de faire appel a ceux qui revendiquent le pur heritage de l'ideologie revolutionnaire. A la place de Siddick Omar Said, dit La Tete, [<i>Only the lowest journalism does this kind of sullying someone's reputation by making a grammatical association between someone and a known drug dealer</i>], on trouvera le Dr. Ram Seegobin [<i>later in the article the use of the term âDr.' for further calumny, will become clearer</i>] et l'inevitable Lindsey Collen [<i>what kind of journalism uses a word like ?inevitable' gratuitously like this, or is it just more misogyny]. </i><br /> <br />The article then continues, still on page one: "Le groupe LALIT qui dispose d'un journal LALIT, et d'une imprimerie offset Ledikasyon pu Travayer [<i>another scurrilous reference, this time to LPT, another registered association which does own a press</i>], mene campagne, depuis plusieurs mois contre le MMM, accusant le principal parti d'Opposition d'ideologie bourgeoise et de trahison de l'esprit revolu- [suite page 4] tionnaire pur et dur, un esprit dont LALIT revendique l'exclusive enonciation orthodoxe. [<i>We still accuse the MMM of bourgeois ideologie and selling out. But now the contradictions in the article start to take form. Why should LALIT candidates need their âfrais d'inscription' of Rs 250 when they have a running newspaper and own an offset printing press? As for the "enonciation orthodoxe", it's just so much gobbledygook, the sign of a rather sick mind</i>.)<br /><br />"Les amis du Dr. Ram Seegobin, grand prophete de la santÃ© populaire [<i>Ram Seegobin had by then contributed to setting up a health co-operative in Bambous with a membership of 500 families, and had worked as a doctor in it for 12 years, that's a fact] </i> prendront les relais des amis de Siddick Omar Said, trafiquant de drogue, destructeur de la santÃ© de milliers de Mauriciens. <i> [This is the most vile slur on Ram Seegobin, utterly false in every way, and defamatory, insinuating that as a medical practitioner who does community and preventive health care, he had done things as bad for health as a drug dealer. None of those implicated in this scurrilous article have ever presented apologies, even for this outrageous defamation. </i>]  En effet, en 1983, l'Alliance suscitait la creation de deux partis fantoches, le POP et le FMI qui presenterent, respectivement, trente-cinq et trente neuf candidats aux elections du 21 aout. Le FMI avait pour leader Ismet Clement Hossenbaccus et presentait comme candidat, dans la circonscription No. 3, Siddick Omar Said, dit La Tete, mafiosi aujourd'hui en prison a la Reunion." [<i>This scurrilous journalism of âamalgam' continues . . </i>.]<br /><br />Here the article digresses into a few paragraphs on the POP-FMI farce, itself.<br /><br />Then it continues: "La farce POP-FMI n'etant pas concevable a nouveau, on fait donc appel aux farceurs de LALIT. [pettiness.] Que les ideologues et grands moralistes donneurs de lecons d'hygiene publique de LALIT aient a prendre le relai de Siddick Omar Said ne semble pas gener aux entournures de Dr. Seegobin et Dame [<i>why âDame', if not further misogyny] Lindsey. [Clearly Berenger had already sullied himself so thoroughly that LALIT had become like a mirror held up to remind himself of what he might have been, but was not. It is as though Berenger was somehow jealous of our âideological' stands and of our morality, even though he had lost his. Interestingly, the OMT-FNAS will use the same term, âmoralitÃ©', in order to explain why they desisted in favour of the MMM. In fact, they only desisted after the date for withdrawing candidature, so that they would be able to be awarded air-time. They would then, believe it or not, use their air-time to call on people to support the MMM. In this way, the MMM gave away its plan that it and the OMT-FNAS would actually, and did actually, do what the PMSD did with the POP and FMI. A psycho-analyst of Berenger and the journalists who plotted with him would have a field-day with this manifestation of a mental disorder of some kind. </i>]<br /><br />"Par ailleurs, contrairement au POP et au FMI qui soutenaient des theses ultra-liberales, les godillots de LALIT tenteront, eux, de seduire les electeurs de gauche. Une maniere de venir braconner sur le terrain du MMM. [<i>Here Berenger is confessing what actually drives him crazy about LALIT;  he wants to cover the left territory, while at the same time having already gone far over to the right. </i>] Tout cela confirme un observation aujourd'hui classique: les reveurs de l'extreme gauche font toujours le lit de la droite. [<i>Curiously it was Berenger who actually âwent to bed' with Jugnauth, to use his expression, only a few years later as history would show when he went into a coalition. </i>] Souvent involontairement. Ici ce sera volontaire, deliberÃ©, monayÃ©. [<i>Total lies</i>.]<br /><br />"LALIT prevoit un petit meeting de quartier pour Vendredi prochain, le 10 juillet, aupres de la boutique Ah-Fat a Camp La Boue, Montagne Longue. Plus de cent Affiches ont ete placardees [<i>a lie, there were 25</i>]. On ne sait encore si la feministe Lindsey Collen choisira de presenter M. Kissoon Mungolah a son auditoire. [<i>Mysogynist calumny, implying she is in favour of rapists or those who cover up rape. </i>]" END OF ARTICLE.<br /><br />The very next day, Le Mauricien, came up with its unsigned gem under the benign heading âUne polemique MMM/"Lalit" â. The article is on Page One. <br /><br />"Selon les mauves, le parti marxiste leniniste [sic] s'est allie au MSM: "LALIT" nie', reads the sub-title. Lalit's reply in which we "nie" is not published. Nor does Le Mauricien mention that we specifically call the Le Nouveau Militant article a pure "fabrication of facts". This Le Mauricien article is worth quoting from rather extensively, too, because it is the counterpoint that makes the Le Nouveau Militant plot work for Berenger:<br /><br />"Une information [sic] a la une du quotidien Le Nouveau Militant, hier, a provoquÃ© une vive polemique entre le parti marxiste-leninste [<i>we have never, just for the record, described ourselves this way, and have always been in strong opposition to the Stalinist and Maoist groups in Mauritius that used this term to describe themselves</i>] dirigÃ© par le Dr. Ram Seegobin, et le journal MMM. Selon les mauves, il y aurait une alliance sous tapis conclue entre le MSM de M. Anerood Jugnauth et le parti dirigÃ© par le Dr. Seegobin et son epouse, L. Collen.<br /><br />"Cette alliance est comparÃ©e par le MMM a celle qui lia, en 1983, les partis de l'alliance gouvernementale au POP et au FMI [<i>This is stated as though it is not outrageous</i>], ce dernier groupuscule etant dirigÃ©, rapelle le MMM, par Ismet Clement Hossenbaccus et le trafiquant d'heroine [<i>note Le Mauricien adds the precision, just to make the calumny a teeny bit worse, that he dealt in hard drugs</i>], Siddick Omar Saib, dit La Tete: [<i>Le Mauricien, the "independent" newspaper, now dirties its hands, spreading the same filth</i>] le but etait de presenter 60 candidates sous la banniere de ces groupuscules afin d'obtenir plus de temps d'antenne sur les ondes de la MBC pour l'Alliance. Toujours selon Le Nouveau Militant, qui parait depuis hier en quotidien, une meme astuce aurait ete mise au point par le Dr. Ram Seegobin et d'autres parties marxistes-leninistes avec le MSM pour les elections du 30 aout prochain afin d'obtenir un temps d'antenne maximal pour une campagne anti-MMM."<br /><br />Le Mauricien then goes on to say that LALIT had already sent a letter to Le Nouveau Militant editor, confirming that we are fielding 60 candidates together with our ally, OMT-FNAS, but that we say "il n'y a pas d'alliance avec le MSM". The Le Mauricien unsigned news article then says as if it is a fact that "Lalit identifia le MMM comme son principal ennemi [<i>false</i>] et ses analyses devinrent plutot favorables a l'Alliance [<i>opinion, and biassed, at that].[And then comes the gem. Who could have written this? Who took responsibility for this? During an election campaign, we read this in a news article</i>]: "Lalit se livre systematiquement [<i>false</i>] a des attaques extrement violentes [<i>a lie</i>] - sans precedent depuis l'independance en ce qui concerne n'import quelle religion - contre l'eglise catholique et, dans ses recentes editions, a violemment [<i>false</i>] pris a partie Mgr Margeot, eveque de Port Louis, apres son homelie. Lalit attaque egalement, avec une rare virulence, la presse independante, en particulier Le Mauricien et L'Express, et ses articles sont souvent reproduits par la presse gouvernementale. [<i>This, too, in a news article, unsigned. This paragraph may have been the ultimate aim of the plot i.e. to put the Press and the Church off Lalit. In fact, LALIT had criticized the hierarchy of the Bishop of the Catholic Church for the political position he chose to take in his Easter Message when he openly supported the Government ending the Export Tax on the Sugar Estates; our position was an eminently reasonable one</i>.]<br /><br />"Il a multipliÃ© ses attaques contre le MMM recemment, accusant ce parti d'avoir evolue vers la droite. Mais il nie avoir contractÃ© une alliance avec le MSM, ce qui refute, a nouveau, le journal MMM dans un article paru ce matin pour maintenir son information." [<i>So, Le Mauricien, maintains that all this obvious calumny is âfact', when it could not conceivably be fact</i>.]<br /><br />True, the Le Nouveau Militant printed an article entitled "Lalit avoue", pretending to mean we admitted to the accusations made the day before, but in fact lamely saying we admitted that we had decided to field, with our allies, 60 candidates in the coming elections. How pathetic. Like the "koze dekuyone" of a Form II newsletter.<br /><br />It is worth repeating what this newspaper at that time again maintained the next day, in order to show that all its staff must, by that time, have become aware of the calumny: "Le Nouveau Militant maintient son information [<i>sic</i>] a l'effet que le MSM financera LALIT pour que le groupuscule puisse aligner 60 candidats et se serve de son droit d'antenne pour promouvoir une campaigne pro-gouvernementale et anti-MMM. [<i>Lies and calumny. </i>] Les modalitÃ©s du soutien que Lalit apportera a la campagne electorale de l'Alliance ont ete egalement discutÃ©es lors de la reunion Jugnauth-Lalit [<i>No such meeting was ever held. No such arrangement was ever made. Pure fabrication. </i>] Lalit a promis d'offrir des tickett [<i>sic</i>] d'agents a des salles de vote a l'Alliance. [<i>And here we have another indication that Berenger and his team's intention was not only to discredit and destroy LALIT, but also to discredit and destroy the OMT-FNAS, which it did do. In fact the OMT-FNAS gave their agents' cards to the MMM, and even campaigned with loud-hailers in the car supplied by the MMM, for the MMM. </i>]<br /><br />And Le Militant ties up its article with "D'apres un autre arrangement auquel sont parvenus hier les dirigeants de l'Alliance et ceux du MSM [<i>Who with whom? The MSM is part of l'Alliance. So, it's just the journalism of pure insinuation</i>], les journaux pro-Alliance se chargeront de publier integralement le communique de presse portant la signature de Ram Seegobin." [<i>What a childish sign of Berenger's state of panic, as he presumably tries to prevent the LALIT Press Communique being published in any newspaper</i>.] <br /><br />10 days passed. <br /><br />During this time, a quite large delegation of LALIT members received a quite large delegation of OMT-FNAS members at our headquarters. Negotiations continued, though the visitors behaved extremely oddly on certain points. However, when LALIT brought up the subject of the Le Nouveau Militant article, the OMT-FNAS leaders replied very reasonably in front of everyone present that there was no need to discuss the matter at all, it was just invented "palab", they know Berenger, they said, only too well, and they reassured us that they did not for an instant believe any of it. We should not waste time with this kind of thing, they said.<br /><br />Then Le Mauricien came up with the denouement of the MMM's machination. <br /><br />So, for a second time, again in an unsigned scurrilous "news" article, Le Mauricien joins the plot.<br /><br />"Arrangement plus possible: l'OMT et le FNAS condamnent le sectarisme de LALIT" is the title. And listen for the echoes of the Le Nouveau Militant campaign throughout the article:<br /><br />" ... Dans une perspective unitaire, en precisant que personne ne peut pretendre detenir le monopole de la gauche, encore moins celui du socialisme, nous condamnons les visÃ©es et les propos sectaires de Lalit' ecrivent au nom de l'OMT et du FNAS, respectively, Venoo Ramasamy et Louis Gabriel Puttee, dans un communique emis le 17 juillet. âMalgre la reaction du parti Lalit sur les allegations faites contre lui, a l'effet qu'il ait des contacts avec la droite, un certain doute plane toujours parmi nos militants et dans la gauche en general. La reponse de Lalit ne permet pas de dissiper completement ces doutes,' poursuivent les deux responsables de l'OMT et du FNAS." [<i>Can you believe what Venoo Ramsamy and his colleague are saying? In fact, they are saying the exact opposite of what they told us. They now believe the lies. They are now breaking our alliance "dans une perspective unitaire". Alice in Wonderland</i>.]<br /><br />And Le Mauricien again seizes the opportunity to spread the original filthy calumny further. Just in case any of its readers had missed it. So much for an independent press. "Dans son edition du Mercredi 8 juillet, le Nouveau Militant revelait la teneur d'une rencontre, [<i>fabrication</i>], le Vendredi 3 juillet, entre le Premier ministre et les responsables du groupuscule Lalit. Nous  annoncions [<i>note this is now a fact</i> to Le Mauricien] que les responsables du groupuscule avaient accepte le principe d'un financement de leur campagne par le MSM. [<i>This is no longer our "frais d'inscription" that will be financed, but a new more developed calumny, to the effect that the whole of our campaign will supposedly be financed; just as, curiously, the whole of the OMT-FNAS's would later be</i>.] En retour, Lalit qui devait presenter soixante candidats [<i>lies</i>] s'engageait a utiliser son temps d'antenne pour critiquer et attaquer le MMM [<i>lies</i>]. Commmentant l'information, nous etablissions un paralele entre cette demarche et celle du POP-FMI. [<i>Note that Le Mauricien proudly claims that it was they, themselves, that invented this paralell. Why? </i>] Dans un communique immediat, le Dr. Ram Seegobin dementait notre information et nous accusait de fabrication de fausse information. [<i>Finally, once the alliance is broken between Lalit and OMT-FNAS, Le Mauricien publishes the fact that we accused Le Nouveau Militant of "fabrication de fausse information" </i>.]<br /><br />"  ... Information publieÃ© par Le Nouveau Militant etait tout a fait fondÃ©e [A<i> completely invented original Le Mauricien lie</i>] et elle etait deja connue des milieux proches de l'extreme gauche. Le communique de l'OMT et du FNAS [<i>Note how they make up a team together, all of them, quoting each other for proof</i>] ecrit:  âLalit, en tant qu'organisation independante a le droit de rencontrer qui elle veut. [<i>OMT-FNAS informed us they did not believe there was this fictitious "rencontre", now insinuate there was one</i>]. Mais la persistance [<i>persisting by means of the plot to maintain the lies, especially in Le Nouveau Militant and in Le Mauricien] </i>de cette confusion n'est pas benefique pour l'avenir de la gauche et pour l'avancement de la luttle de la class ouvriere.' <br /><br />"Par ailleurs, l'OMT et le FNAS reprochent a Lalit l'empressement avec lequel son journal a annoncÃ© la concretisation d'un âFron revolisyoner' dont l'OMT et le FNAS etaient censÃ©s [<i>note this âcensÃ©s' seems to be from Le Mauricien, because it is outside of the direct quotes</i>]  <nbsp>*<nbsp>*<nbsp> L'OMT et le FNAS soutiennent qu'il n'est pas possible de parler de front sans qu'il ne soit constituÃ© âsur la base d'une plateforme, d'une stategie [<i>sic</i>] d'action, s'un symbole, d'une couleur et d'un programme common'." [<i>How weak can an argument get. </i>]<br /><br />And then here comes the OMT-FNAS's opportunism and Le Mauricien's most disgraceful bit of journalism: "L'OMT et le FNAS avouent qu'ils ne disposent pas de moyens financiers leur permettant de s'engager dans un grand nombre de circonscriptions. Face a cette limite financiere de ses eventuels partenaires, Lalit souhaitait presenter quarante candidates, en laissant vingt a ses partenaires moins bien dotÃ©s financierement. [<i>This is utter lies, inventions, fabrications after the event, by the OMT or Le Mauricien. </i>] Dans leur communiquÃ©, l'OMT et le FNAS revelent [<i>this term means it is a fact, not an allegation, according to the"independent" newspaper, Le Mauricien</i>]: âLalit nous a fait part qu'il compte presenter des candidats dans toutes les circonscriptions. Eh bien, [<i>what a give-away little expression for an amateur lie-detector</i>] Lalit a le droit de se permettre le luxe de se hasarder dans les voies qu'il veut [<i>What kind of language is this? </i>], car, de toute facon, la puissance des moyens financiers et materiel de Lalit n'est plus un secret pour personne.' " [<i>So, we have come full circle, from the lie of LALIT  not having enough money to pay the Rs 250 deposit to stand for elections, to the new lie of us having enormous "puissance des moyens financiers et materiel". Lies, lies, and contradictory lies. </i>]<br /><br />The whole episode was such a shame for all those involved. <br /><br />Look what happened next.<br /><br />The time for "desistement" came around. The OMT-FNAS had 30 candidates, most of whom presumably thought they were bona fide candidates. Could they all have been in the know? Not likely. Or, were three-quarters of them just mamelukes who do whatever they are told by Dev Ramano? The thought is upsetting. Anyway, none of them desisted. One of them came and confessed to us, and told all. And then all the rest, once their names were to be on the bulletins, and more relevantly, once they would (like POP and FMI, themselves) get air-time from the MBC, they would desist <i>in political reality</i> in favour of the MMM, and they would campaign in favour of the MMM. The OMT-FNAS even brought the FPU and GWF, Jack Bizlall and Gaetan Pillay, respectively, to speak on their phantom MBC programmes in support of the MMM. They all said MMM was the best bet. The MMM, they said, won on "morality", echoing the Le Nouveau Militant's stupid article about Lalit being "grandes moralistes". What morality is there in lies and calumny, and in buying OMT-FNAS's support with a car and some money, and no doubt other things we don't know about? So the MMM succeeded in getting Lalit's "allies" on its side. Some allies. <br /><br />LALIT fielded 42 candidates. In our campaign, LALIT attacked both the MMM and the MSM. We held public outdoor meetings, we distributed leaflets, we continued to bring out our newspaper as usual. We had a thoroughly good campaign. We campaigned against the MSM development strategy, in particular against the free zone politics, against its budgets, against its way of restructuring the sugar industry, and against its maintaining of the IRA and POA laws. We put on the agenda issues like security of employment, women's rights, anti-apartheid, the Diego Garcia military base, the use of the mother-tongues. On our political broadcasts we in LALIT attacked the MMM and the MSM equally hard for their pro-capitalist politics. Many people still remember our political broadcasts for that election, especially the last one by Ram Seegobin. We remained calm, despite the calumny. We remained dignified, despite being calumnied by the concerted efforts of forces so much more powerful than ourselves: the press, the MMM, the OMT-FNAS and two trade union federations, which taken together included people as powerful in their different roles as Berenger, L'Estrac, Gobin, Ahnee, Pillay, Bizlall, Ramano, Ramsamy, Benoit and Selvon.<br /><br />Despite all this self-degrading activity, the MMM lost the elections. Any soul it had left, was thoroughly lost, too. <br /><br />Berenger was thus outside of Parliament altogether. He, then pulled the OMT-FNAS (already discredited) into the Front KANAK (a farcicle venture, much pumped up by the Press at the time), and later pulled them into the sad little<i> Fron Unitaire de Gauche</i> of 1988, together with Bizlall and GWF leaders as well.<br /><br />Will history repeat itself?<br /><br />Since 1987, LALIT has tried on a number of occasions to work once again with people who were duped by Berenger, people like Dev Ramano, Venou Ramsamy and Jack Bizlall. <br /><br />But we think a new plot will soon be brewing, so we are warning everyone.<br /><br />What is clear is that every time Lalit stands against the MMM, Berenger has a plot.<br /><br />If we were to explain what happened in the run-up to the 2005 elections, it would involve the study of a year or two before the elections, and some whole newspapers during the campaign to show how the plot unfolded. Berenger had presumably become cleverer by then. Also, Berenger had, himself, learnt the hard way in the 1970's from how Le Mauricien-Weekend editor, Lindsay Riviere's pumped up the MMMSP in order to "punish" Berenger every time he took a position in favour of the working class. Berenger learnt, in turn, how he, too, could get the mainstream press to pump others relative, this time, to LALIT. Both Le Mauricien and Le Matinal fell for that in 2005. It was a bit transparent and pitiful. Particularly because during an electoral campaign, <i>Lalit</i> has neither the means to expose, nor the interest in exposing, these shenanigans. <br /><br />But in the long run, the attacks seem to make <i>Lalit</i> more resilient, its members wiser. Meanwhile, the MMM has continued to fall from glory to being worth nothing in the struggle for change.<br /><br />And the protagonists know that their shenanigans get lost from the desire everyone has to forget them - because they are so awful.<br /><br />We are choosing today not to forget. <br /><br />We write up this true story from 1987 twenty-one years later, in the year 2008.<br /><br />Why?<br /><br />Because we will be waiting to see which of the same characters fall for Berenger's new bait and new hooks for the next elections? Before the 1976 elections, when Berenger was still relatively innocent, this is the gist of what he said about his own potential collaborators: "There are three kinds of people to trap. Those who you have to hide a hook very carefully for, in a juicy bit of bait, then lie in wait for them, strike to hook them, and then you have to fight to reel them in. There are those who it suffices to tie a bit of juicy bait on to the end of the line, and once they grab it, they are so venial they don't let go, and you can reel them in without so much as a hook. And there are those, the stupid ones, who you can just lay a hook for, you don't even need any bait. They'll bite it without bait on it, and they will âtrangle' on it," as he put it. <br /><br />We will see who they are next time.<br /><br />The MMM has been practising. On the DWC national platform, it hooked quite a few allies. Never mind that the MMM had itself sacked 800 DWC workers. On the SC and HSC platform, the same thing. Never mind that it was in the MMM-MSMs own budget speech that there was the first threat to do away with universal subsidies. Now perhaps the MMM will hook new allies over the sacking of trade unionists by the Mauritius Telecom, which the MMM sold off to France Telecom, thus making such sackings possible. Meanwhile, the MMM and MSM having suppressed employment on the land and in mills, having past the Prevention of Terrorism Act, having abolished Village Elections, having laid the foundations in their own words for the Employment Rights and Employment Relations Acts, will once again pretend to be an ally of the left, while continuing to move even further to the right. Just at the very time when it is necessary to have profound criticisms of the political economy of Navin Ramgoolam's Labour and his Alliance Social. Just at the very time when independent working class criticism of the two ERA's are so necessary. Just at the very time, when for the first time in Mauritian history, we can challenge the land-ownership in the country.<br /><br />If present working class leaders cannot see that the MMM and MSM only choose issues that are superficial and draw them into alliances on these, while opposing workers' interests on every significant issue, it cannot be helped. <br /><br />But now they cannot say they did not know. We must inform workers of the bait, hooks and lines used on their leaders  by Bunwaree and by Berenger.<br /><br />But sometimes in Lalit, we wonder how come it is so easy for people to take hooks and bait?<br /><br />The answer is simple: they have their own interests, separate from those of the working class. These interests are sometimes bureaucratic (for the advantage of their particular organizations), and other times personal, for themselves as individuals. These are sometimes carrots (cars and money, jobs and scholarships) and sometimes sticks (knowledge of their secrets, things like going against the law, living lives they are not proud of, etc.) These all make many people susceptible to hooks and bait. Those who know how to, use this susceptibility. Then, this adds further sources of shame to those already existing.<br /><br />And this brings us to the more murky issues lurking under the surface. Take the example of the journalists named in this article who have this skeleton in their cupboards. They were responsible, until we are informed otherwise, for those articles in Le Nouveau Militant and in Le Mauricien. They are still powerful men in today's press. The dangerous part for us is that they still have an interest in destroying Lalit, until today. The memory of these skeletons in their cupboards can only be destroyed by the destruction of Lalit.<br /><br />Which is another reason we publish this article now. 21 years later. To put the skeletons out in the open. So that, if ever it is possible, they can be laid to rest.<br /><br />Anyone who we have exposed in this article, who wishes to explain anything that might exonerate him from blame, or who might like, however late it is, to perhaps apologize, is most welcome.<br /><br />Particularly, if they also promise to watch out in the future for hooks and bait placed neatly in their paths.<br /><br />Especially before elections. <br /><br /><br /><br />(1) Organizasyon Militan Travayer-Fron Nasyonal Anti-Somaz (which was led by Dev Ramano, Serge Rayapoulle, Venou Ramsamy).<br />(2) Front Unitaire de Gauche, which united the OMT-FNAS, the GWF, the FPU, and the MMM<br /><br /><br />Bits<br /><br />And then, no sooner defeated in the elections, Berenger used these accomplices in order to set up a front called FUG (2) with the GWF (Gaetan Pillay), the FPU (Jack Bizlall) and the OMT-FNAS (Dev Ramano and Venou Ramsamy), a Front which held a farcical "demonstration" against French imperialism, and then celebrated Labour Day before finally falling apart. But which was prepared for in Berenger's plot against Lalit.<br /><br />Sep 2008<br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

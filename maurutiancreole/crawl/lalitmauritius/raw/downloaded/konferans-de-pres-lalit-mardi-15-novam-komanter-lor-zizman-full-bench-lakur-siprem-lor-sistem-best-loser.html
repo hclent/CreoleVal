@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612111406" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612111406" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612111406" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612111406" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612111406" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612111406" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612111406" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612111406" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612111406" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Konferans de Pres LALIT Mardi 15 Novam: Komanter lor Zizman Full Bench Lakur Siprem lor Sistem Best Loser</h1><p class="subtitle">15.11.2005</p></h1>
+	<p class="newsarticle"><br><br>Prezan pu Lalit: Ally Hossenbokus, Pascale Mavisa, Andre Pierre, Alain Ah-Vee, Ram Seegobin, Rada Kistnasamy, Lindsey Collen, Rajni Lallah.<br><br>Lapres prezan: L'Express, Le Mauricien, MBC-TV, Radio Plus. <br><br>INTRODIKSYON<br>Rada Kistnasamy, ki ti prezide, finn dir ki Zedi 11 Novam Full Bench Lakur Siprem finn vinn ranvers zizman Balancy lor zafer Best Loser. Dan zot zizman Full Bench finn vinn rann li obligatwar pu tu kandida dan Eleksyon Zeneral deklar enn lor sa 4 kominote dan Konstitisyon kan zot sumet zot Nomination Paper. <br><br>Rada Kistnasamy finn dir ki Lalit finn tultan opoz sistem Best Loser kominal, enn sistem retrograd e ki klasifye tu parlmanter, osi byen ki popilasyon Moris an antye an kategori kominal. Sistem Best Loser li perverti demokrasi parlmanter.<br><br>Li finn dir ki depi ki Lalit ekziste li finn partisip dan plizir eleksyon zeneral, e a sak fwa ki li finn deside pu partisipe, li finn amenn kanpayn kont kominalism e kont sistem Best Loser kominal. Lalit finn fer bann aksyon pu konturn e ridikiliz sa sistem Best Loser-la.  Fas a sa obligasyon ki inpoze lor bann kandida pu met enn kominote lor Nomination Paper tultan kan nu aliyn kandida dan eleksyon, dan eleksyon 1983, 1987, 2000 e 2005 nu finn prosed a enn tiraz-osor pu determine ki kominote sak kandida Lalit pu met lor so Nomination Paper. Alor par sa aksyon-la nu finn konturn sa obligasyon pu ki bizen kategoriz bann kandida ki poze dan eleksyon. Anmemtan, nu finn kritik sistem la.<br><br>Lalit kont sistem Best Loser li enn lalit eminaman politik e li depann lor volonte e desizyon politik pu sanz li, li finn dir.<br><br>Sa lalit-la li form parti lalit kont kominalism, enn lalit ki nu dan lalit pe amene depi byen lontan. Mem depi kan nu ti ankor dan MMM nu pe amenn sa lalit-la. E an 1982 kan nu kit MMM li ti zisteman lor baz sa konsesyon a lalit kont kominalism ki ladireksyon MMM ti fer, kan zot ti fer lalyans ek PSM.<br><br>Lalit finn osi partisip dan lezot platform kont kominalism. Bann militan Lalit finn aktif dan Muvman Anti Kominalis an 1995. MAC ti regrup plis ki enn ven lorganizasyon ek individi dan enn lepok kot ti ena enn remonte kominalism. <br><br>An 2005, dan kad kanpayn elektoral, anplis fer tiraz osor, nu finn pibliye enn program kont kominalism e kont sistem Best Loser (enn liv referans 200 paz), e pibliye enn Sart kont Best Loser kominal ki nu ti dimann lorganizasyon enndors e osi enn kod kondwit pu kandida, azan e politisyen pu sa eleksyon ki fek traverse-la. Ladan finn dimann zot pa tom dan bann kanpayn kominal e rezet Best Loser. <br><br>LINDSEY COLLEN KOMANT LOR ZIZMAN FULL BENCH LAKUR SIPREM E KI MARS ASWIV APRE<br><br>Lindsey Collen finn dir ki dan Lalit nu panse ki ler finn vini asterla kot bann Parlmanter, e Guvernman e Lopozisyon, parski pu bizen 3/4, nepli ena enn sime pu fwir, pu nepli kapav ena lespas pu, an Franse dir sa, 'faux fuyant'. Savedir ler inn vini asterla kot dusman-dusman depi lekzistans Best Loser, li deplizanpli afebli, e zordi li opyedimir.<br><br>Alor seki  neseser aster se pu revok obligatwarman sa laspe kominal dan sistem Best Loser.<br><br>Lalit enn parti koni pu so lalit anti kominal. Enn dan 2 rezon kifer nu ti kit MMM an 1982 se akoz nu ti estime ki MMM tinn trahir so prop langazman dan lalit anti kominal avek so lalyans ar Harish Boodhoo. Kan pe amenn enn lalit kont kominalism akoz li enn zafer retrograd, kote politik li enn stratezi inportan pu viz bann laspe institisyonalize de kominalism kuma Best Loser ete.<br><br>Alor si nu get li istorikman sistem Best Loser li inplik 3 zafer:<br><br>1. Divizyon popilasyon Moris an antye an 4 kominote. Sa sistem-la li karyate inpe depi enn amandman 1982 ki vinn dir bizin diviz popilasyon Moris an kominote dapre Resansman 1972. Ziska 2005 li ankor kumsa. Resansman 1972 pe servi pu diviz popilasyon Moris an 4 kominote, dapre prinsip Best Loser.<br><br>2. Sak kandida dan eleksyon zeneral bizen klasifye limem dan enn parmi 4 kominote ki Konstitisyon ofer u. Swa a, swa b, swa c, e sinon, lerla d. <br><br>Ek si ena kik kontestasyon, lerla se Lakur Siprem ki pu vinn fer sa klasifikasyon etno-relizye. Parey kuma dan Sid Afrik Lakur Siprem ti ena tash, egalman problematik, ek moralman kestyonab pu klasifye dimunn su sistem aparteid.<br><br>Alor pran sif pu sak "kominote" dapre 1972 dan popilasyon pei, lerla diviz li par nomb depite sa mem "kominote" la. Sa vedir, TU DEPITE, sa premye 62-la osi, li inportan pu note, liye par sa matematik ar enn nomb dimunn dan pei dan enn "kominote" spesifik. Komisyon Elektoral fer sa kalkil-la e li pu alwe enn serten nomb popilasyon Moris ar sak depite, dapre kominote. Ek diviz li pu gete ki swadizan ki li reprezante. Lerla li nom ankor 8, tuzur avek sa bann kalkil kominalist la.<br><br>Lindsey Collen finn dir ki li finn relev 6 fwa ki Lakur Siprem finn bizen statye. Parski enn sistem bankal kumsa, anplis li politikman danzere, moralman an portafo, li osi teknikman extreman difisil pu aplike. Ena 6 fwa ki Lakur Siprem finn bizen statye depi 1968. E sak fwa zot sey met lord zot amenn ankor enn lagren destriksyon dan sistem-la. <br><br>Finalman Ziz Seetulsing an 2000 finn kareman plede pu ki Parlman amand sa lalwa-la enn fwa.  Lakur Siprem pa pu kapav klasifye dimunn, li finn dir.<br><br>Guvernman alepok finn kontiyne avek enn espes pratik fwir depi so responsabilite. Sa politik fwit la finn ekziste depi ki sa sistem-la met an kestyon, depi 1970-71.<br><br>An 2000, apre zizman Seetulsing, kan finalman gayn Komisyon Sachs ki ti ena pu get reform elektoral, ki nu truve? Albie Sachs resevwar enn "brif" (an Angle, "brief") atase ek sa, depi MMM, depi le parti MMM. Brif la dir fode pa sanz Best Loser. Ziz lakur Siprem fek dir rann enn servis sanz sa sistem-la. E, Sachs gayn enn instriksyon pu fer enn gran zafer lor reform elektoral me kot pa bizin met ankestyon Best Loser.<br><br>Lerla an 2005, Paul Berenger, kan li Premye Minis, fer amenn enn Bil dan parlman pu ranforsi Best loser, pu azut enn Best Loser fam. Sa Bil la ti re-met sistem Best Loser Kominal, anmemtan.<br><br>E sa lane-la, parti politik Rezistans ek Alternatif, bann dimunn ki finn kit Lalit 1-2 banane desela, finn sumet zot Nomination Paper san met kominote. Kan rezet zot kandidatir, zot finn amenn sa divan Lakur Siprem. Finn gayn zizman Balancy. Ena 3 zafer inportan dan zizman Balancy, enn konsern Best Loser, 2 konsern lezot pwen:<br><br>1. An seki konsern Best Loser, Balancy efektivman finn kree enn 5yem kominote. Setadir u gayn drwa pu et enn obzekter de konsyans. Enn kandida pu eleksyon zeneral, dapre sa zizman la kapav met A, B, C,D, e sinon E.<br><br>Sa finn ena enn lot lefe. Sa kominote apel 'General Population' finn gayn enn espes frontyer pu premye fwa, e vinn enn kominote inpe plis lor mem pye degalite ek lezot swadizan kominote definir dan Konstitisyon.<br><br>Zizman la, kuma Rex Stephen, avoka dan ka la finn dir, li finn plizumwen les sistem Best Loser intak. Li finn stabiliz li pu ki bann dimunn kuma numem ek lezot dimunn, ena enn plas pu met nu si nu pa truv nu ni dan, ni pa dan, sa bann kominote-la.<br><br>Zizman Balancy ena 2 lezot lefe ki pa konsern Best Loser:<br><br>1. Sa filozofi eklere ki ti gid Balancy dan so zizman, li ti enn tantativ pu afebli Best Loser. Li finn klerman seye pu azut dan enn prosesis pu demantel Best Loser.<br><br>2. Li vinn defer enn tandans depi 10 an dan Lakur Siprem, enn tandans eklere, pu definir demokrasi dan enn fason deplizanpli larz, par referans a bann lide modern, e bann konvansyon drwa imen modern. <br><br>Me, lefe zizman Balancy, li diferan depi ki zizman la ti ule dir. Nu finn gayn enn sityasyon politik ase kerye e inatandi, tutswit apre Zizman Balancy. Premye Minis alepok, P. Berenger ti dir ki asterla "Best loser pu mor enn lamor natirel".  Sa li kerye parski enn lalwa pa kapav ena enn mor natirel. Li la, bizen azir politikman pu tir li.<br><br>E dezyem zafer ki kerye, popilasyon, tu dimunn ki swiv politik enpe e mem dimunn ki pa tro swiv, inn kwar ki sistem Best Loser inn fini. Telman sa lide-la ti partu ki avoka bann Rezistans ek Alternativ, Rex Stephen ti ekrir enn let dan Le Mauricien pu dir ki sistem Best Loser ankor tuzur la. <br><br>Me, dimunn inn kumans supsonn kitsoz kan enn gran defander Best Loser, Youssouf Mohamed, vinn dir ki kan li finn etidye zizman Balancy byen, li pa trakase ki li met Best Loser an danze.<br><br>Alor sa pu explike kimanyer zizman Balancy e lefe zizman Balancy ti inpe diferan.<br><br>E sa finn vinn plis konplike avek rezilta eleksyon zeneral le 4 Ziyet.<br><br>Interpretasyon kominal rezilta eleksyon zeneral ti fer buku komantater sulaze ki ankor ena Best Loser. Zot ti aret sek koz zizman Balancy depi sa. Li ti finn al anba enn karpet byen epe.<br><br>Asterla, seki finn arive se Full Bench finn bizen rann enn zizman kan Komisyon Elektoral finn met enn ka divan Lakur Siprem pu dimande ki li bizen fer prosen eleksyon.<br><br>Dan zot plent zot finn explik problem-la kumkwa akoz tigit vot Rezistans ek Alternativ finn resevwar dan eleksyon, zizman Balancy pa finn debalans so kalkil teknik pu Best Loser.<br><br>Me asterla, dan lavenir, kandida, dapre zizman Balancy pa bizen klasifye zot mem, alor si ena kandida ki pa klasifye limem dan sa 4 premye-la, li kapav al dan sa 5yem-la. Me, si zot eli, ubyen si zot parti eli, lerla kalkil-la (pu Best Loser) pa pu marse. Samem ena sa plent Komisyon Elektoral. So difikilte li ti pu fer fas seki ena enn seksyon 47 2(d) Konstitisyon Moris ki met sa First Schedule lor mem pye degalite ar bann drwa fondamantal. Savedir u bizen pa zis 2/3 me u bizen 3/4 vot bann eli dan Parlman pu amand sa seksyon Konstitisyon.<br><br>Komisyon Elektoral finn truve pa finn gayn 3/4 Parlman.<br><br>Zizman Full Bench finn vini e, premye zafer li finn fer, se li finn balye sa filozofi eklere deryer zizman Balancy e malerezman anmemtan balye filozofi ase eklere sa seri zizman dernye 10 an.<br><br>KI LEFE ZIZMAN-LA<br><br>Li finn vinn dir lor pwen pratik ki li obligatwar pu sak kandida dan eleksyon zeneral met li dan A, B, C u D. Sanksyon si non: so Nomination paper pu rezete.<br><br>Full Bench Lakur Siprem dakor ki lefet ki kominalism institsyonalize li pa bon (zot sit zizman Lallah). Lefet ki lakur Siprem pa kapav ziz 'way of life' (depi zizman Seetulsing an 2000) enn sitwayen li enn problem. E lefet ki pe servi sa lane 1972 pu Resansman rann tusala inpe ridikil.<br><br>Zot dir ki se bann lezislater ki bizen azir e 3 ziz pa kapav ranplas 3/4 eli.<br><br>Premye reaksyon piblik a sa zizman Full Bench se Paul Berenger ki finn dir ki bizen enn Selek Komiti. Sa li enn Non Sequitur. Sirtu si u get so konportman avan. Me li pa presize si bizen fini ar Best Loser kominal.<br><br>Rama Sithanen, exper lor sa size-la kote guvernman, finn dir ki ena linanimite, ant le liyn nu pe konpran li pe rod dir ant Ptr e MMM. <br><br>Dapre li ena enn lakor pu enn reform elektoral. <br><br>Lalit ki dir:<br>1. Li finn vinn evidan asterla kifer dan Lalit nu ti bizen ena rekur a tiraz osor.<br><br>2. Li finn vinn evidan ki bann eli e Guvernman bizen vinn delavan ar enn amandman Konstitisyon pu ki tir institisyonalizasyon kominalism dan Konstitisyon.<br><br>3. Enn Selek Komiti li pu itil selman lor kondisyon ki dan so atribisyon li spesifye ki bizen tir kominalism dan sistem Best Loser, u tir Best Loser net.<br><br>4. Sa bizen fer, dapre Lalit, dan kad enn reform elektoral ki introdir enn doz proporsyonel.<br><br>Ler inn vini asterla. Pena plas pu "faux fuyants". Bann eli pa kapav sove. Sistem Best Loser akile. So degre li pa bon, li inaplikab e ki li ridikil finn vinn byen kler pu tu dimunn. Mem pu Lakur Siprem. <br><br> <br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

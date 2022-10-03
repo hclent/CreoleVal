@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612093839" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612093839" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612093839" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612093839" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612093839" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612093839" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612093839" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612093839" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612093839" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Mauritius and Covid: Five months since last Case in Community</h1><p class="subtitle">17.10.2020</p></h1>
+	<p class="newsarticle"><p>Though there have been no cases in the community for five months now, Covid-19 is still with us world-wide.&nbsp;</p><br /><p>And the difficulty with the epidemic remains the same: there is no specific medicine for it and there is no vaccine for it. The main threat, as an epidemic, continues to be its capacity to overwhelm health care services, and even burial or cremation services. Thus the need, when the epidemic gets an inroad, for extreme measures that then, in turn, ruin the economy. The illness continues to vary wildly from asymptomatic to causing weeks of torture in ICU, from mild illness to fatalities. Because the illness is so often asymptomatic, it is very difficult to control the spread once it gets into the community. Hence the importance of controlling Mauritius&rsquo; borders and containing spread as cases are picked up in incoming people during quarantine.&nbsp;</p><br /><p>Because there is no specific treatment nor a vaccine, the best way to measure a country&rsquo;s handling of the epidemic is by means of deaths per 100,000 people. This figure thus measures mainly the degree of containment (or not) of the epidemic and also the age profile of a country and the age-group that gets infected.</p><br /><p>During the epidemic 10 people died of Covid-19 in Mauritius.&nbsp;&nbsp;(To date 415 people have been detected with the virus.)&nbsp;</p><br /><p>This means, by way of comparison, that the death rate from Covid is less than 1 per 100,000 people for Mauritius while the world-wide death rate is 14 per 100,000. France stands somewhere at around 48 deaths per 100,000, the UK 63 deaths per 100,000 and in the USA at 67 per 100,000. Sweden, where they attempted the &ldquo;herd immunity&rdquo; strategy, is also amongst the highest, standing at 58 per 100,000. Other countries with less than one death per 100,000 include: South Korea, New Zealand, China, Thailand, Singapore, Malaysia, Sri Lanka, and a number of African countries ranging from Mali to Botswana, South Sudan to Benin, Tanzania to the DRC.</p><br /><p>So, in Mauritius how will we deal with the epidemic in days to come?&nbsp;</p><br /><p>Covid will certainly be back, especially as we see the number of imported cases in the country, in quarantine, is often over 30 at any one time. The chances of the quarantine being broken, especially without enough constant explanation to us all of the science as it develops, and the epidemic starting up again are real.&nbsp;</p><br /><p>And Mauritius has not, to our knowledge, done the three things that the 5 month break from local cases gave us the chance to do:</p><br /><p>1. The tourist and sugar cane bosses have not diversified out of these two non-essential industries into food production (crops, animal-rearing for milk, and fishing) with concomitant preservation and transformation industries. They have just wasted Government subsidies.</p><br /><p>2. Contact tracing has not been built up significantly.</p><br /><p>3. Nurses and attendants in hospitals are sorely lacking right now. This is for two reasons &ndash; even before a single new local case of Covid since April &ndash; i.e. there were already staff shortages, and now staff are being seconded to hotel quarantine establishments and the airport, thus exacerbating already stretched services.</p><br /><p>This is of great concern.</p><br /><p>This dire situation is the fault of the spineless, imagination-less bosses in tourism and those in sugar cane who hog the arable land &ndash; and of the MSM-ML Government, which prefers to pick up credits for containing the epidemic, even if it has to resort to repression to do it.&nbsp;</p><br /><p>&nbsp;<strong>Mauritius, so far</strong></p><br /><p>By contrast, the&nbsp;<em>people&nbsp;</em>of Mauritius, including Rodrigues and Agalega outer islands, have so far dealt with the epidemic well. We put emphasis on the&nbsp;<em>people</em>&rsquo;s actions. This is important because containing an epidemic is only possible when people act consciously in order to control it, and people will only do this when they understand the unfolding of an epidemic, as understanding of it develops in real time. It is particularly difficult at this moment in history to understand epidemiology, which is a science of the collective of humanity, when neo-liberal individualism tries, all the time, to reduce it to &ldquo;protecting yourself&rdquo; and, if you fail, then &ldquo;curing&rdquo; yourself as an &ldquo;individual&rdquo;. Donald Trump, President of the USA, personifies this entrapment into a model that does not fit how epidemics are contained.</p><br /><p><strong>Prevention: The Main, and so far only, Remedy</strong></p><br /><p>Until there is a vaccine, the epidemic can only be dealt with by preventing its spread. This is done within a country by social means &ndash; we all join in to quell the spread of the epidemic. The virus only survives by continually getting into a new person. We prevent this mainly by everyone wearing a mask so as to protect others because we do not know who already has the illness but symptoms have not yet become visible, or will never appear and yet we are able to infect others. Mask-wearing needs to be accompanied by keeping social distance as far as possible. And, we protect both ourselves and others by washing our hands often and thoroughly, and by cleaning surfaces. Inasmuch as we do not succeed in doing this, we then end up with different degrees of lockdown or confinement when the spread gets too rapid and threatens to overwhelm the health and burial services.&nbsp;</p><br /><p>All these measures that people take are then coupled with contact tracing done by the Bureaux Sanitaires. But this too depends on the masses of the people wanting to tell the Bureaux Sanitaires about their contacts because they understand the importance of this information for the good of the whole of society.&nbsp;</p><br /><p>So, those in power have not only to take wise decisions, but need always to inform everyone of all the facts, even as they evolve every day. This way there is a conscious effort by the whole of the people.&nbsp;</p><br /><p>There are also essential economic measures that permit people to respect the rules of hygiene. For example, during a lockdown, food has to be delivered to people. Homeless people cannot stay at home if they don&rsquo;t have a home. So, the State has to look to essentials.</p><br /><p>Firstly, Rodrigues and Agalega, two of the three inhabited Islands in the Republic of Mauritius had no cases. It sufficed to close the external borders and the inter-island borders, which the Government did. Just as external borders were closed after the first three cases were detected on the Main Island of Mauritius, so the inter-island borders were also closed, until containment was reached. But containment requires constant vigilance.</p><br /><p>Secondly, very quickly the 3 cases in the Republic of Mauritius became over 300 cases.&nbsp;</p><br /><p>The exponential spread of the epidemic could have continued apace.&nbsp;</p><br /><p>But for five months now, there have been no new local cases. This means that the epidemic has, so far, been stopped in its tracks. This, we emphasize, is the wonderful state that is called &ldquo;containment&rdquo;.&nbsp;</p><br /><p>This was accomplished by the strict and unequivocal behavior of the totality of the people of Mauritius. The Government, for whatever reason, left the leadership of the response in the hands, by and large, of the three doctors, Gujadhur, Gaud and Musango, whose advice was sound, and whose advice was taken by the people. There has not been a single new case in the community since 26 April.&nbsp;</p><br /><p>This has happened, despite a fairly unpopular Government. Let us see how things worked.</p><br /><p><strong>Detection</strong></p><br /><p>How were the cases detected in Mauritius? This is important because it allows prevention to work.&nbsp;</p><br /><p>In Mauritius, over 50% of cases that tested positive were detected by means of the contact-tracing mechanism. Contact tracing is quite advanced here due to ongoing malaria control that has been consistent, since the mass mobilization that brought eradication in the 1950s. This means once the first three cases were detected, all their social contacts (before and after their own detection) were visited by contact tracers, and then admitted to hospitals even though they were mostly symptom-free. The same procedure was done for some 20% of cases, which were picked up by the Health Ministry services &ndash; services which are popular in Mauritius and which are, importantly, completely free of charge. These services were expanded, opening up &ldquo;fever clinics&rdquo; on the outer edges of all main hospitals, for initial screening, and are still fully operational. The other 30% were picked up at the borders, during quarantine in centres decreed &ldquo;quarantine centres&rdquo; where health ministry workers are present.&nbsp;</p><br /><p><strong>Death rate</strong></p><br /><p>The death rate in Mauritius is low by all international standards. There are two or three ways of measuring the death toll:&nbsp;</p><br /><p>1. Number of deaths per 100,000 population. This we have used in this article so far. This figure shows both the rate of infection and the rate of death per case of infection combined, and is referred to as the &ldquo;Crude Mortality Rate&rdquo;. Death certificates are usually used so as to ascertain cause of death. Comparisons are not totally reliable because of different rates of testing, including post-mortem testing, and different degrees of certainty about the diagnosis.</p><br /><p>2. The number of deaths per confirmed case of Covid. In Mauritius, as of 16 October, with the total number of cases at 415 and with 10 deaths, the percentage is 2.4. In France, on 6 July, total cases there were 166,960 cases and 29,893 deaths, or 17.9%. In the USA and Germany, the death rate per confirmed case is around 4-5%, the UK is 15.5%. This measure is also a fairly &ldquo;crude&rdquo; measure because of the varying testing rates, and different ways of ascertaining cause of death for statistical purposes.&nbsp;&nbsp;But, Mauritius fares well in both ways of calculating the rate.</p><br /><p>3. The third way of estimating deaths is to compare number of deaths in, say, 2018, 2019 and 2020 for the respective months of the epidemic. This we can do after the epidemic. In Mauritius, initial indicators support the fact that there have not been more deaths than usual. This contrasts sharply with the USA, for example, where preliminary figures show a 20% increase in deaths over the Covid period, signifying that Covid deaths are under-reported there.&nbsp;</p><br /><p><strong>Why different Death Rates in different Countries</strong></p><br /><p>There are many causes of the differences in&nbsp;<em>real&nbsp;</em>death rates. But before listing these, it must be stressed again that there are different ways of keeping statistics: Some countries, for example, count only &ldquo;cases confirmed by a test&rdquo; while others count &ldquo;clinical diagnosis&rdquo; as confirmation, too. And rates of testing, as well as how testing is targeted, obviously affect the figure.</p><br /><p>However, there are differences in the real rate of death, as well, that need to take into account:&nbsp;</p><br /><p>a)&nbsp;<em>Age of population as a whole, and age most affected in this first wave of the epidemic before preventive actions were taken.</em>&nbsp;In Germany for example, it is believed that skiers from Italy and Austria &ndash; mainly young people &ndash; brought the illness to Germany, so it first spread amongst young people, who are known not to suffer as much as older people, once infected. In the USA, the second part of the first wave has affected young people, who went out to restaurants, bars, beaches, night clubs as well as went back to educational institutions, as soon as restrictions were loosened. While, the region most hit in Italy is known for the longevity of people living there.&nbsp;</p><br /><p>b)&nbsp;<em>The proportion of old people living in care homes.</em>&nbsp;In the early days of the epidemic, any entry of the virus into a home caused a big cluster of cases. And, for example, there is a very high number of people in old-age homes in Belgium.</p><br /><p>c)&nbsp;<em>The rate at which there are bacteria that do not respond to anti-biotics</em>, thus leaving people more exposed to death from subsequent bacterial infection. Italy has the highest rate of resistant bacteria rates in Europe in its hospitals.</p><br /><p>d)&nbsp;<em>The rate at which underlying conditions are present in the population</em>&nbsp;&ndash; diabetes, high blood pressure, asthma &ndash; and amongst those hit by the first wave.</p><br /><p>e) Other causes of death-rate differentials could be in&nbsp;<em>health care facilities</em>&nbsp;&ndash; most importantly the hospitals not being over-run at a peak in the epidemic. It might also be over-resorting to use of ventilators, not turning patients over on to their chests which the UK doctors found saved lives, and use of other treatment protocols not yet fully confirmed but which may decrease death rates. Note that the &ldquo;overtreatment&rdquo; of VIP patients can be dangerous for their health, as studies of the VIP-treatment syndrome have shown.</p><br /><p><strong>Moving forward &nbsp;</strong></p><br /><p>Guidelines that LALIT believes important, moving forward, include:</p><br /><p>1. Do not rush to open the tourist industry. It is a better plan to diversify very fast out of tourism and into agro-industries and fishing, thus also ensuring employment and food. In any case, tourists will not come in numbers expected. We have wasted months since the epidemic emerged in January.</p><br /><p>2. Nurture the ability to quickly do a lockdown if (or when) cases resurge. This means immediate building of new housing and the immediate preparation of networks for food distribution to all families in the country.</p><br /><p>3. Government must take on more contact-tracers.</p><br /><p>4. Government must take on more full-time permanent nursing staff and attendants.</p><br /><p>5. Government must provide people with accurate, up-to-date information on a daily basis.</p><br /><p>6. Government must allow the team of doctors to do the explanations. (Spare us a private sector doctor, whose only qualification is that he is a defeated candidate from the last elections for the party in power.)</p><br /><p><strong>Warning</strong></p><br /><p>There are a number of warnings to the Mauritian Government for the next surge in the coronavirus disease.&nbsp;</p><br /><p>1. They must investigate all allegations of profiteering, nepotism and corruption in the allocation of contracts during the emergency. If this is not done, the credibility of Government is undermined just when it is most necessary. We suggest Select Committees, and other public enquiries.</p><br /><p>2. The Government must commandeer hotels, and not pay them commercial rates, for use as quarantine centres, when there is a surge.</p><br /><p>3. The Government must commandeer clinics, when necessary, and not pay them commercial rates, but amalgamate them with the rest of the health care system.</p><br /><p>4. The Government must commandeer importing firms and producing firms, when necessary, and again not pay them commercial rates.</p><br /><p>&nbsp;LALIT</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

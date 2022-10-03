@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612104526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612104526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612104526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612104526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612104526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612104526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612104526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612104526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612104526" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Comments on Judgment in the First-ever Torture Case</h1><p class="subtitle">15.07.2009</p></h1>
+	<p class="newsarticle"><i>"LALIT has pleasure in publishing an article by Rajni Lallah and Lindsey Collen for JUSTICE: ASSOCIATION AGAINST VIOLENCE BY OFFICERS OF THE STATE which gives a critique of the recent judgment in the first ever torture case in Mauritius."</i><br><br>Comments <br><br>Appeal against Not-Guilty Judgment in the First-ever Torture Case<br><br>The Association JUSTICE was very keen to see how the new law against torture would be put to the test in the Courts.  Four MCIT officers, Jagdawoo, Madarbux, Levasseur and PotiÃ©, had been charged with torture in the first-ever torture case under the 2003 Criminal Code Amendment Act Section 78. They were also charged with a second count, that of conspiring to do a cover-up of the torture. These charges follow the death in detention of the late Mr. Ramdoolar Ramlogun. <br>Since Mr. Ramlogun's death in 2006, there were already four indicators that something serious had happened after his arrest. There was a "Foul Play" verdict at the Judicial Enquiry into his death. There were originally "murder charges" laid by the Police against the same four men plus three other MCIT men. There were also the findings of the National Human Rights Commission to the effect that prosecution was necessary because of "suspicious circumstances" around the death. Widow Bindoo Ramlogun and her three children had, meanwhile, in addition been awarded Rs7,000,000 in damages, as the State recognized before the Supreme Court that it had had responsibility in his death. <br>On 29 May, 2009 the Intermediate Court magistrates, however, handed down a verdict of "not guilty". <br>The DPP has fortunately appealed against this judgment.  The Appeal is on 19 points (See News Section of www.lalitmauritius.org). The DPP has challenged the learned magistrates for having "misdirected themselves", having "erred", been "plainly wrong", having "misapprehended the evidence", drawn "unreasonable conclusions", "failed to appreciate" evidence, having been "in breach of procedural fairness", that they "shut their eyes to the obvious", "utterly failed" to address things, and even that the findings are "perverse". <br><br><br>Misrepresentation in the Press<br>Before looking at the judgment, there's a preliminary point that JUSTICE would like to make. <br>There has been a consistent misrepresentation in the Press of the nature of the very serious charges against the four officers. We do not know why. But instead of referring to the case as "the torture case", the Press invariably refers to the charges in a most convoluted way. They call the torture "abusing authority as public officials". They fail to add that the particular abuse that the police officers are accused of in the formal charges is, to use the Magistrates' expression, "to wit" to subject a detainee to torture. The four men are charged, in fact, with torture. <br>The Press refers to the second charge as "conspiracy". They fail to add that the specific conspiracy the four MCIT men are being accused of is "to wit" to cover up the torture. <br>Basic Facts<br>Anyway, the facts at the basis of this torture case are that a 46 year-old civil servant, a family man, Mr. Ramlogun (called "Rajesh" by his family and friends) was well on 12 January, 2006. He got home from his work in Government, and was later taken in by the MCIT for questioning about a particularly gruesome double murder that had taken place eight days earlier, in the street where he lives. Two days later, after being held in custody by the Mauritian State, he was lying dead in the mortuary. His body bore the hallmarks of torture: bruising on the soles of his feet. His face bore the mark of what was confirmed by the pathologist in Court as the death blow. The blow was described by the autopsy doctor as "a swinging blow" to the left side of his face that sent his brain hurtling against the inside of his skull on the other side, and twisted and tore blood vessels, both these effects of the swinging blow causing slow internal bleeding that led to his losing consciousness and later dying.  <br>Witnesses<br>As well as Mr. Ramlogun losing his life, the head of the notorious MCIT team CI Raddhoa has meanwhile also lost his life. Another witness, Constable Soumarie, who was the first to draw attention to the injury to Mr. Ramlogun's face, has also passed away since the events of 2006. So three key witnesses were dead. <br>The doctors who had seen him on his first trip to hospital and who had clearly not diagnosed him accurately were, curiously, not even called by the DPP to give evidence.<br>The four accused police officers chose silence and did not testify in Court. <br>Witnesses that did give evidence included a plethora of police officers from a police force so accustomed to covering up for other police officers' offenses that many came and did their usual stunt of saying most often that the detainee was perfectly well, absolutely normal, uncomplaining ... until he was in fact already dying. <br>So, the learned Magistrates were bound to have a hard time knowing what had happened.<br>The death blow<br>When reading the judgment, one often has the disturbing impression that the findings will be that Mr. Rajesh Ramlogun is, in fact, still alive. Again and again we hear without a hint of irony how "well" he was. Every time there is a reference to the mark on his face, the very mark that Dr. Gujalu has clearly identified in Court as the death-blow, it is referred to as "minor", as "small" and sometimes even a "scratch" or a "mosquito bite". <br>In our experience, police officers notice and draw attention only to an injury that might result in them being charged with an offense, themselves. It was this fear, in the experience of JUSTICE that contributed to causing officers at Alcatraz to break the code of "omerta" by mentioning the injury at the very moment of taking custody of Mr. Ramlogun. They actually insisted on the injury that turned out to have been the death blow, being inscribed into the Diary Book. From this point onwards the death blow is referred to again and again by witnesses.<br>This type of life-threatening blow by torturers is usually delivered, in our experience, with something like a telephone directory, so that the point of impact leaves as unclear a mark as possible. The victim is often hooded at the time, as well, both so as to make the mark diffuse, and also to inspire fear through preventing the victim knowing from where or by whom the next blow will be delivered. <br>In the Appeal judgment, perhaps the Supreme Court might think it appropriate to call for lawyers and doctors to be trained in recognising signs and symptoms of torture, so that they do not end up inadvertently being part of a cover-up, themselves, especially now that there is a specific anti-torture law. Even after being taken to hospital the first time (and believe us, it is not an easy feat for someone in Alcatraz to get himself taken to hospital) Mr. Ramlogun is described without irony as "not complaining". The doctors at the hospital for this first visit, where Mr. Ramlogun was wrongly diagnosed, were curiously not even called to testify. In fact, Mr. Ramlogun had been transferred downstairs at Alcatraz earlier in the day on 13th January, the day before his death, and was probably being watched over as he was dying.<br>When arrested?<br>Another important thing we in JUSTICE hope that the Supreme Court might clear up through this appeal is the "zone d'ombre" between someone being called in as a "witness" and then gradually being converted into an "accused" and a prisoner of the State. The reason we want this cleared up is that our experience of work with survivors of torture in Mauritius informs us that this "zone d'ombre" is one of the things that allows torture to take place on a routine basis as a supposed means of extracting a "confession". Mauritius must be the only country in the world where a confession suffices to convict someone (the notorious Section 75 of the Criminal Procedure Act). The police then create a "zone d'ombre" in which to extract a "confesson", and their work is thus "over".<br>The judgment of the Intermediate Court unfortunately does not help clear up the confusion. On page 2, the Magistrates announce that another man and "Ramdoolar Ramlogun were arrested and brought to Lallmatie police station" on the afternoon of 12 January, and then Mr. Ramlogun "was brought" to the MCIT office.  So, he was arrested before being taken to the Police Station in Lallmatie.<br>In the very next paragraph, we read Constable Manoovaloo was much later informed at the MCIT headquarters that "Ramdoolar Ramlogun would be detained" (future tense). On p. 3, as if to confirm the confusion, we read, "It was borne out during trial that the decision to lodge the provisional charge against Ramdoolar Ramlogun was taken by a superior officer. Following instructions received from late ASP Raddhoa by inspector Jokhoo, Accused No. 1 was informed [sic] to arrest Ramdoolar Ramlogun." It is not specified when he was "informed" to carry out this order. In Lallmatie? Prior to interrogation? After interrogation? At one point in the judgment, you might expect clarification when the learned magistrates refer to the "circumstances of the arrest" of Mr. Ramlogun, but instead we are given the "reason". The MCIT office was not "satisfied with the explanation of Ramlogun as to his whereabouts on the day of the murder", and Accused No. 1 Jugdawoo was instructed to "detain Ramlogun" (p. 15). This was already at the MCIT offices. The confusion is total. The only reason for the arrest ever suggested in the judgment, an extremely flimsy one, is that the police were not satisfied with Mr. Ramlogun's explanation as to his whereabouts on the day of the murder. The very "reason" for arrest could only conceivably have come into being after an interview or interrogation of some kind. But, on p. 2, PC Manoovaloo says Mr. Ramlogun was arrested at his house and brought to the police station in Lallmatie. There, he was not even taken out of the van, it would seem. So, it was not possible for the police to have taken any statement from him, nor therefore to find out whether they were satisfied or not with his whereabouts on the day of the murder. To make matters worse, the judgment states that Mr. Ramlogun was questioned from 17 hours to 22:15 hours on 12th January, 2006. The judgment also states that "[Mr.] Ramlogun was asked to give a statement under warning and he refused" (p. 17). There are similar statements reproduced on pages 16 and 18 and another on p. 13 reading "no statement was recorded from Ramdoolar Ramlogun". More precisely at another place on p. 16, we read "Ramlogun declined to give a statement in the absence of his Counsel". Well, why on earth was he interviewed for five hours and 15 minutes? Is it possible to let confusion like this go unnoticed? If someone has clearly said in the first five minutes of an "interview" that he "declines to give a statement in the absence of his Counsel", the interview can only be an illegal interrogation of some sort. It will be interesting to read what the Supreme Court thinks of this kind of situation at MCIT headquarters.<br>The same confusion reigns as to who authorized the provisional charges. DI Rughoonundhun according to the judgment "did not enquire who was the gazetted officer who had given instructions to lodge the provisional charge. He also did not enquire who had prepared the charge sheet for Ramdoolar Ramlogun." Presumably our police practice is to arrest someone when there are reasonable reasons to put a provisional charge. Perhaps the Supreme Court will comment on the practice of the police of creating a "zone d'ombre" between someone being a witness and becoming a suspect.<br>Hallmark of torture<br>A point of concern in the judgment is its failure to acknowledge the importance of the bruises on the soles of the feet of the late Rajesh Ramlogun. In the first case under the new torture law, you might expect some definitions of torture, however tentative. And yet this tell-tale sign of torture, this hallmark of torture, this intentionally inflicted and intentionally hidden violence is merely dealt with in a haze of confusion. This is done despite Dr. Gujalu having testified quite clearly that the marks were consistent with Mr. Ramlogun having been hit hard on the soles of his feet with a rod, a known form of torture. Dr. Gujalu knows what the marks are, and informed the Court. His evidence was not rebutted or in any way shaken. <br>The Magistrates even state without comment that a medical practitioner witness, Dr Ori said "he was stunned by the dirtiness of the patient's feet". Do the magistrates mean that Dr. Gujalu's expert testimony to the effect that this apparent "dirt" was in fact none other than marks consistent with having been beaten on the soles of his feet, is to be disregarded? That Mr. Ramlogun really had dirty feet? We are unable to understand what the judgment means when it fails to weigh up the seriousness of the autopsy doctor's testimony on what the black marks on the feet actually were, relative to the testimony of a doctor who had to explain away why the marks of beating had not been noticed by him during an examination. Dr. Gujalu would have cut into the victim's feet in order to study the depth of the injuries to the tissue before he gave this expert assessment of the cause of the marks. The judgment on p.12 quotes Dr. Ori as admitting he "had not noticed the injuries revealed by the autopsy". Surely this means he had not noticed, inter alia, the signs of torture on the feet, or had misinterpreted them as being dirt? On p. 22, however, the learned Magistrates continue, "According to Dr. Ori, the injuries that Ramlogun bore at his soles would not have allowed him to walk properly." But this doctor was not even present at the autopsy. He had seen only "dirt". He had not even noticed the injuries revealed at the autopsy. What value do the Magistrates attribute to this doctor's testimony in this case? It is not at all clear.<br>The learned magistrates make no findings on the basis of the marks of beating on the soles of Rajesh Ramlogun's feet.<br>Inaccuracy and vagueness<br>The judgment includes some inaccuracy, as well. While everywhere else in the judgment the four accused are said to have done their interrogation of Mr. Ramlogun on 12th January for five or six hours, at one place in the judgment, however, we read they questioned him on 13th January (See p. 13 ). Which is correct? Is it just a slip of the tongue, or a later typing mistake, when D.I. Rughoonundhun "stated that the enquiry has revealed that on 13.01.06 from 17:00 hours to 22:15 hours, Ramdoolar Ramlogun was interviewed by Accused Nos. 1, 2, 3 and 4"? We guess it is just a mistake due to poor proofreading, and that it should read "12" not "13'. Or was Mr. Ramlogun removed from his cell on 13th as well, which explains the use of the strong terms "the enquiry revealed"? <br>There is no comment in the judgment about Mr. Ramlogun's being interrogated at night, and up to so late an hour at night. This is, in itself, potentially a cruel and unusual practice. <br>And his broken glasses are found a month later in his sealed-off cell, or is this another typo and they were, in fact, found a day later? This bizarre fact is also not analyzed thoroughly. Broken glasses, in the context of someone being given a death blow to the face, are potentially important. <br>Another factual mistake in the judgment is the reference to the murder of the "two Jhurree sisters [sic]in Lallmatie" at p.1, when they were in fact sisters-in-law.<br>Internal Contradiction<br>But there is one central internal contradiction in the judgment that is perhaps of greatest concern. The Supreme Court will hopefully be able to sort this out. <br>It is about the death blow.<br>"The Court," reads the judgment, referring to a co-detainee, Mr. Solay Seedeer's evidence connecting MCIT officers with beating Mr. Ramlogun, "cannot act on this evidence of Mr. Seedeer as according to him the face of Ramlogun was swollen in the morning of 13/01/06. This is not supported by any officers of the Detention Centre or the SSU officer".  So, this evidence is thrown out because it is not corroborated. No other reason is given for throwing it out.<br>However, the judgment says at p.12 that Dr. Ori corroborated it:  "The patient was unconscious with a puffy face". Surely swollen and puffy mean the same thing. So, there is a doctor's testimony confirming Mr. Seedeer's. Widow Bindoo Ramlogun (p.15) said that her husband's "face was swollen". So, there's further confirmation from someone who knew the deceased very well. <br>So, then you re-read what the learned Magistrates said, and you think, "Oh, maybe what they meant was that the swelling was not corroborated as early as on the 13thJanuary". At p.8, the judgment reads, however, that Constable Jogeedoo "saw that his face was a bit swollen".  He gave evidence that "he only had a close look at detainee Ramdoolar Ramlogun when he helped the detainee out of the cell. He saw that his face was a bit swollen and he bore a small scratch mark at the left cheekbone." Always the same reference to the same injury. The injury that we all know about by now because it has been described so clearly by the autopsy doctor as the death blow.<br>That was on the 13th. So, the judgment is perhaps internally inconsistent.<br>Of course, Dr. Gujalu's Post Mortem report (p.13) also confirms "injuries to his left side of face". The death blow, itself. Surely there is no more reliable corroboration than this.<br>But even on the evening of the 12th January, and significantly only after he arrives at Alcatraz, there is, in fact, clear evidence, evidence actually mentioned in the judgment concerning this injury to the left side of Mr. Ramlogun's face. At p.4 witness MCIT Constable Arnasala reports that during handing over: "The attention of the witness was drawn to a red mark the Detainee had on his cheek which he had not noticed before that. According to PC Arnasala, the red mark was small and looked like a mosquito bite". But it was there. A mark. A red mark. A swelling of sorts. Like a mosquito bite. An injury bad enough to be worth mentioning. The injury that Dr. Gujalu said was the death blow.<br>Corroborating this, at p.6 Constable Koo Wan Cheung of the Detention Centre says that on 12 January, "On being informed by late constable Soumarie that detainee Ramdoolar Ramlogun bore marks on the face, constable Koo Wan Cheung verified and he saw red marks on the left side of the face of the detainee at the temporal region." Note the plural "red marks", twice used. Then the judgment continues, "It was in fact a small red circle shape at the temporal region. On questioning the detainee about that mark, he replied that he was fine." So the marks were of sufficient concern for a police officer to ask about them. Meanwhile, we, and the Magistrates, in fact know, after listening to the medical evidence from the autopsy that this was the death blow. <br>Constable Dookhoo, under cross examination, revealed that he noticed "a red scratch mark on the left cheek of the detainee" (p.10). Maybe he did not mention the swelling, but he saw the redness. Maybe he did not mention the swelling, but he saw a scratch mark. <br>Any lay person can be expected to notice either swelling, or redness, or a scratch mark when someone has all three on his face. It would depend on how long you saw him for, the light on his face, how close you were, and how good your eyes are, in addition obviously to the angle from which you saw him. (Not to mention whether you are trying to both avoid perjury charges, yourself, and to exculpate your work colleagues, at the same time.) The police officers and note-takers are, in addition, Kreolophone,  so a word like "ruzer" is not necessarily just "redness", "grife" is not necesarily a mere "scratch" but can, in our experience, mean anything up to a tiger's ripping someone's face open, "rapÃ©" might be quite a bad graze, translated as "scratch" in the necessarily restricted English vocabulary used by police officers and Court scribes who, like all of us, live their lives in the Kreol language. The point, however, is that this officer, too, saw signs of the injury. They drew notice to a lesion. The very lesion that Dr. Gujalu has told the Court is the death blow.<br>What this all means is probably that anyone who said that there was no mark on Mr. Ramlogun's face when marks were seen from a specific point in time onwards, was either not observant and thus not a reliable witness, or just plain lying and not a reliable witness in that case either. The fact is that death resulted from the blow that made that mark. The Supreme Court judgment will certainly be able to clear this up for us.<br>So, Mr. Seedeer's statement about the swelling is corroborated either fully or substantially not by nobody, but by the following (according to the judgment itself):<br>Dr. Ori, Dr. Gujalu, Widow Ramlogun, Police officer Koo Wan Cheung, the late officer Soumarie, and officers Arnasala, Jogeedoo, and Dookhoo.<br>Eight different affirmations that there were signs of an injury on the left cheek of the late Mr. Ramlogun, all confirm what Mr. Seedeer said, and one of them proves that this "mark" was the death-blow. Surely, what Mr. Seedeer said is the main finding of the judgment. Can it be called "not corroborated"? In all, eight people gave testimony about the wound to the left temple/upper cheek area of the face, the wound that was the death blow.<br>Other strange things worthy of comment<br>Constable Dookhoo could not wake Mr. Ramlogun up at 07:15 on the fatal day of 14th January. This is surely a major crisis. But it was only ONE HOUR and 15 minutes later that the MCIT was contacted by the officer's superior to take Mr. Ramlogun to hospital. Perhaps the Court of appeal will comment on this delay. By then Mr. Ramlogun was so ill, he could not be lifted, but had to be carried in a blanket. Summarizing Constable Arnasala, by the 14th January, "detainee Ramdoolar Ramlogun was then lying on the floor in his cell, unconscious, unable to walk and very weak. He was placed in a blanket and conveyed to hospital." Is it normal that there is not even a stretcher in a detention centre the size of Alcatraz? Is it normal to carry human beings "in a blanket"? This too, the Supreme Court might decide to enlighten us on.<br>At no time does the judgment go into the question as to why Mr. Ramlogun was transferred to the downstairs cell. At p. 7 of the summary of PC Jogeedoo's testimony, the officer is said to have resumed duty on 13 January at 15:00 and that "he saw that detainee Ramdoolar Ramlogun had been transferred in [sic] cell no 4 on the ground floor". Why? The judgment just announces laconically that it was Constable Dookhoo who took the decision. Did the police officers already realize he was very ill, even dying? <br>Co-detainee Solay Seedeer describes CID officers coming into Mr. Ramlogun's cell and kicking him. This too, kicking a detainee, is mentioned by the learned Magistrates as if it is quite normal in our paradise island. Normal to kick a man lying down, a man dying. Jurisprudence on what the Courts think of this kind of behavior would be very important in the first-ever case of the anti-torture law being tested in Court. <br>Is it normal for CID officers and MCIT officers to come into Police cells like Line Barracks Detention Centre, and to take people out of the cells? Obviously not. At p.7, during the summary of PC Khodabacus's testimony, we read that they "did not make any entry in the Diary Book to the effect that the MCIT officers entered the cell of the detainee to take him to the hospital." In our experience, this practice has been closely linked, in the past, to torture, and to deaths in detention; we would very much appreciate hearing the Supreme Court's view of the practice.<br>Widow not informed of his whereabouts or illness<br>The judgment at no time deplores the fact that the wife of Mr. Ramlogun was not informed of either his arrest, whenever it was effected, or of his whereabouts while he was in detention. The way in which she was sent from Lallmatie to Line Barracks then to Flacq on a wild goose chase, instead of being informed clearly of her husband's precise whereabouts, meant that she was not able to see him on 13th January. She was not able to see the injury that all the police officers and other detainees saw. At p.3 we read when PC Mariemootoo was giving evidence: "his colleagues went to fetch the detainee who was in a weak state and had to be helped to get in the police vehicle." He was "in a state of drowsiness". This is on 13thJanuary. This is a day before the fatal admission to hospital. At p.6 we read in the summary of PC Khodabacus's testimony that on 13 January, "He asked the detainee if everything was fine. Detainee Ramdoolar Ramlogun made no reply but raised his hand." His evidence continues ... "the witness was informed that detainee Ramdoolar Ramlogun was unwell. He went to check out on the detainee who agreed to have medical treatment ..." And at p.7 he "noted that the detainee was in a weak state when he was being taken to the hospital. R. Ramlogun remained very weak and very sleepy when he was brought back from the hospital". At p. 7, when PC Jogeedoo "asked R. Ramlogun to have his food, the detainee shook his head declining to come out of the cell for food." "... At about 20:00 hours on 13.01.06 the witness, in company of late constable Soumarie, asked constable Khodabacus, the station orderly, to check on detainee Ramdoolar Ramlogun who had not eaten anything. Constable Khodabacus spoke to detainee Ramdoolar Ramlogun to ask him if he was unwell and if he wanted medical treatment. The detainee agreed to medical treatment as he was feeling unwell." ... "Normally when a detainee is to be taken to hospital, he goes to the reception where he is picked up and conveyed to the hospital. In the case of detainee Ramdoolar Ramlogun, he was so weak that the MCIT Officers were allowed to go in the cell of the detainee to help Officers of the Detention Centre take him out as the detainee could not stand on his feet." He was brought back after having been on a drip for two hours. "Detainee Ramdoolar Ramlogun was still very weak and he had to be helped by the MCIT officers. Entries were made in the Diary Book but the detainee who should have signed the entries was unable to do so." Mr. Ramlogun was unable to sign his name on 13th January, he was that ill. <br>Even though her husband was taken out of Alcatraz and to hospital in a weak state that day and then returned to his cell too weak to sign his own name, she was not informed. His condition was hidden from his family. The question never asked is "why"? <br>In JUSTICE we all know that the family, and even Counsel, are routinely duped and kept away when there has been injury to a detainee. This is yet another sign of the practice of torture. It would be very good to have the judiciary comment upon the practice of keeping the family and Counsel in the dark.<br>Expected to complain when Torturers are in charge?<br>The judgment repeatedly puts emphasis on the fact that the deceased at no time complained about his having been tortured. The fact is he was dying. The fact is he received a death blow 24 to 48 hours prior to his death. To the left of his face, causing the right of his brain to hit the inside of his skull, and begin to bleed. All this is in the judgment.<br>But who ever heard of a victim of torture being expected to defy the torturers' threats and inform on them? Such an expectation is an absurdity.  The torturers are the very same police officers who accompany the detainee to Court and/or to the hospital.<br>The judgment fails to elucidate even a precise time of arrest, nor even a precise time of death. And yet these are absolutely vital moments. Dr. Gujalu testified that the death blow occurred 24 to 48 hours prior to Mr. Ramlogun's death. We believe he was, in fact, arrested around 14:15 on the 12th and died at around the same time two days later on 14thJanuary.  This is 48 hours later. It would obviously seem from these elementary calculations that the death blow was at a time after his arrest in Lallmatie.<br>Conclusion<br>As everyone knows, the people of any country abhor torture<br>Governments and States that use torture in their cells and then cover it up in the police departments and prisons, even in the hospitals and courts concerned, eventually learn the hard way that people detest torture. It is, for example, in large part, torture in Abu Grahib prison and torture on Guantanamo Bay that have led to the total discrediting of the George W. Bush regime in the USA.  History will continue to judge him, and all the officers concerned in these cases of torture and cover-up. And it was, of course, the death in detention of Reginald Topize, also known as Kaya, with 33 marks of injury on his body, that led young people all over Mauritius main island, to barricade the streets for three days in spontaneous protest against torture in police cells.<br>Our responsibility, as ordinary people, is to expose torture by officers of the State, and to end the impunity that this torture has benefitted from. Officers of the State have an even greater responsibility to open their own eyes to torture by their colleagues, and to bring it out into the open. Professional associations of doctors, lawyers, magistrates, journalists, all need to develop "protocols" as to how to deal ethically with possible torture.<br>We hope that the Appeal in this first-ever anti-torture case will permit judges to elucidate us on what the Courts consider torture to be, and how it can be completely eliminated from the State apparatus.<br>Perhaps they will also comment on the need for the long-promised independent body that will investigate violence by police officers, so that we no longer have to be faced with the "omerta" that continues to contribute to the cover-up of torture in the country.<br>JUSTCE<br>7 July 2009<br><br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

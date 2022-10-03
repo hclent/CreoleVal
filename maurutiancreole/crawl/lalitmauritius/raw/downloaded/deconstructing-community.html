@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101042" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101042" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101042" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101042" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101042" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101042" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101042" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101042" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101042" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Deconstructing âcommunityâ</h1><p class="subtitle">10.06.2016</p></h1>
+	<p class="newsarticle"><p>This article is being re-loaded, following the LALIT open meeting for brainstorming on art and culture held Sunday 5 June, 2016.</p><br /><p>Â It was originally written in the year 2000.</p><br /><p>Â It was written after three events:</p><br /><p>(i) after the Supreme Court judgment of 8th September, 2000 by Justice Seetulsingh in the âreclassification caseâ against LALIT members and others, and</p><br /><p>(ii) after the coming to power of a new government elected on 11th September, 2000 with a majority sufficient to change the Constitution, and</p><br /><p>(iii) after, once again as in 1982 and 1991, the Electoral Supervisory Commissionâs inability to nominate the Best Losers without recourse to the Supreme Court.</p><br /><p>Â The aim of the article is two-fold: Firstly, to show how classification by community must go. The system must be changed immediately because it is no longer viable. In particularly, it is no longer viable for both ethical/political reasons and for practical/logical reasons. It is caduque and, if left in place, will become increasingly dangerous.</p><br /><p>Â Secondly, the article aims to appeal for a specific change in the electoral system: electoral reform that maintains the âbest loserâ system but removes all need for communal classification of candidates for general elections. The precise proposal, worked out by LALIT, comes at the end of this article.</p><br /><p>Â <strong>Ongoing opposition to communal classification</strong></p><br /><p>As everyone who follows current affairs already knows, LALIT has opposed classification by community ever since we were founded in 1976 when we were still a tendency in the MMM. When we stood for General Elections in 1983, 1987 and 2000, and because we were obliged by the Constitution to choose one of the four communities defined in the First Schedule to the Constitution in order for our Nomination Papers to be valid, we did the exercise by a public drawing of lots.</p><br /><p>Â In 1983 and 1987 we had as legal advisers Guy dâArifat and Madun Gujadhur QC, respectively, to stand-by for any legal objections before the Supreme Court. But there were not any objections.</p><br /><p>Â This time, in the year 2000, 17 years after the first drawing of lots for âcommunityâ, an elector, Mr. Parvez Carrimkhan did challenge 15 of our 20 candidatesâ so-called âcommunityâ as we filled it in on our Nomination Papers. He also challenged five Nouvo Lizour and six Tamil Council candidates in the same affidavit. As lawyers, LALIT and Nouvo Lizour briefed Rex Stephen, Sheila Keetaruth and Michel Ahnee.</p><br /><p>Â In the course of the hearing, Mr. Mohammed withdrew his case against the Tamil Council members, who he accepted are members of the âG...Pâ¦â as they had claimed they were.</p><br /><p>Â It should be noted that Mr. Parvez Carrimkhan works as a messenger â¦ for his advocate, Mr. Yousouf Mohammed, who, in turn, was a long-term supporter of communal classification. So the case is really that of Mr. Mohammed himself. However, it should be noted that the political party that Mr. Mohammed is <em>membre honorifique</em> of and special advisor to â and this must be said in its favour â has recently changed its name from <em>ComitÃ© dâAction Musulmane</em> to <em>ComitÃ© dâAction Mauricienne</em>. This means even Mr. Mohammed has, himself, moved with the times on the question of âre-classificationâ. He has thus stayed abreast changes Justice Seetulsingh mentioned in his judgement: âMany [candidates] thought themselves to be citizens of the Republic of Mauritius and belonging to the Mauritian Community.â And that: âIt was then believed [at the time of the writing of the Schedule to the Constitution] that all Mauritians would be interested in preserving the best loser system. However with the passage of time, many Mauritians have come to feel that it is not necessary that they should be divided into different communities. The Constitution does not cater for a situation where candidates wish to stand for election, but reject the best loser system.â</p><br /><p>Â <strong>Schedule that perverts the Constitution itself</strong></p><br /><p>The Constitution itself, as Justice Seetulsingh pointed out, makes no mention of so-called âcommunityâ. Drafted by Mr. de Smith, the Constitution itself, was, at the time of its drafting, a modern democratic document.</p><br /><p>Â However, the addition of âSchedule Oneâ introduced the concept of dividing the nation and of classifying all candidates.</p><br /><p>Â This leads to a perversion of democracy.</p><br /><p>Â The communal classification of candidates unfortunately undermines the whole of the electoral exercise, as we shall see, not just the âexercise of the best loser nominationsâ as many people think.</p><br /><p>Â The communal classification in Schedule One has became completely obsolete with the advent of a Republic. While we were âsubjects of the Queenâ, it was feasible if evil for us to be divided into ethno-religious tribes, but once we became âcitizens of a Republicâ in 1992, the very concept of dividing us into categories of citizens became absurd, as well as bad.</p><br /><p>Â Imagine for a minute if all the 20 LALIT and Nouvo Lizour candidates who were brought before the Supreme Court for re-classification had subsequently actually been elected. We have to imagine this, because the Constitution cannot make electoral laws which do not cater for victory. We must bear in mind that the Applicant, Mr. Parvez Carrimkhan had said that âwrongful declarations [as to the community the candidates are members of] will upset the proper allocation of the best loser seats after the proclamation of the results of the general electionsâ (quoted from Judgement, bold is ours). After a public hearing in open court, in order to determine whether or not to âcorrectâ the âcommunityâ which LALIT and Nouvo Lizour candidates had filled it in on Nomination Papers, the 20 candidates were formally âreclassifiedâ by Justice D.B.Seetulsingh, a Judge of the Supreme Court on Friday, 8th September. They were all classified under the Constitution, and without appeal, as being âmembersâ of the âGâ¦Pâ¦â and the Returning Officers of the relevant constituencies were instructed to delete what was already on their Nomination Papers and replace it with Gâ¦.Pâ¦, unless it already said that by the drawing of lots. Later we will come back to this.</p><br /><p>Â <strong>Acclaim </strong></p><br /><p>The judgment, meanwhile, has been widely acclaimed for the wise comments it includes, especially those which criticize communal classification and show its shortcomings. LALIT has also acclaimed the judgment. There were fine articles on the judgment in <em>Le Mauricien</em> (9th September), News on Sunday(10th September), <em>LâExpress</em> (10th September) and <em>Week-End</em> (10th September).</p><br /><p>Â In this article, and so as to show the impasse that ethno-religious classification now finds itself in, we would like to touch on some of the difficulties that arise as a result of the communal classification by Schedule One.</p><br /><p>Â The Schedule says: âFor the purpose of this Schedule, the population of Mauritius shall be regarded as including a Hindu community, a Muslim communlty and a Sino-Mauritian community, and every person who does not appear, from his way of life, to belong to one or other of those 3 communities shall be regarded as belonging to the General Population, which shall itself be regarded as a fourth community.â (In our article we will continue, as part of the protest against this type of classification, by referring to these so-called communities by their initials only.)</p><br /><p>Â The so-called âGâ¦Pâ¦â, although being what the judgement refers to as a âresidual communityâ, is nevertheless entitled under the Schedule to the Constitution, to seats under the âBest Loserâ system. This contradiction means that the judgement, rather fortunately, poses grave problems for the continuation of this communal system. Aware of these grave problems, and in order to try to cushion the effects of communal reclassification, Justice Seetulsingh in his judgement says: âI also find that the undertaking that they [LALIT and Nouvo Lizour candidates] have given not to participate in the allocation of best loser seats, should they be entitled to do so, is binding upon them and I recommend that the Electoral Supervisory Commission should take into account this undertaking if there is any dispute as to the allocation of best loser seatsâ.</p><br /><p>Â These findings are despite the fact that earlier in the Judgment, we read: âthe Electoral Supervisory Commission has not agreed that the 2 parties will not be considered for such allocation, should the candidates be entitled to the same. The Commission will carry out the exercise as spelt out in the First Schedule and it will be up to the candidates to decide what stand they will adopt.â</p><br /><p>Â But, Justice Seetulsingh has only addressed one half â the smaller half â of the problem: if we are not elected but get sufficient votes to qualify for a communal Best Loser seat. Then, our letter, he advises the Electoral Supervisory Commission, is binding. Much more important than this is another issue â one which proves that the communal classification in the Best Loser system in fact infects the entire system, and that ALL members of the National Assembly are communally classified in order to name the eight Best Losers on the basis of community.</p><br /><p>Â After attempting to give redress for âupsetting the proper allocation of best loser seatsâ, the Supreme Court judgment will, as we will show, risk, if used as a guideline in the future lead to even more âupsetting the proper allocation of best loser seatsâ, within the logic of the system, iniquitous as this logic may be.</p><br /><p>Â Let us explain. We go back to the earlier sentence: Imagine for a minute if all or most of the 20 LALIT and Nuvo Lizur candidates who were brought before the Supreme Court and re-classified had, in fact, been elected. All of them are now reclassified by the Supreme Court as being members of the âGâ¦.Pâ¦.â Then, once the Electoral Supervisory Commission sits down after elections to work out the best losers, this classification would be brought out along with all the other elected membersâ communal auto-classification. Because there is a block of âGâ¦ Pâ¦â members elected (all the LALIT and Nuvo Lizur candidates having been thus re-classified and subsequently elected), this means that there will be fewer âGâ¦. Pâ¦.â best losers for the rest of the candidates than if we had been left with ârandomâ communities we attributed to ourselves through the drawing of lots.</p><br /><p>Â Thus the âproper allocationâ (within the awful logic of the communal best loser system) would be even more upset by the Judgment than it could possibly have been by our action of drawing lots.</p><br /><p>Â The reason for this strange state of affairs is two-fold.</p><br /><p>Â First âcommunityâ, as we know it in Mauritius, is no more than a âshared set of prejudicesâ reinforced every time there is a General Election. That is to say, âcommunityâ only exists as an ideological construct, except at the moment of self-classification or of classification by the Supreme Court, when it becomes a kind of âbureacratic factâ.</p><br /><p>Â Second, the fourth community, the âGâ¦. Pâ¦.â is both a âresidual communityâ and also, at the same time, entitled to best loser representatives âproperly allocatedâ. This implies two opposite types of nature: first, that the Gâ¦. Pâ¦. is âall the restâ meaning almost the opposite of âa communityâ, and also that any one Member of the National Assembly who is a âmember of the âGâ¦. Pâ¦.â can represent x number of people of the âGâ¦ Pâ¦.â (as a proportion from the 1972 Census) as if the âGâ¦. Pâ¦.â was a homogenous community, once calculations are done under the procedures of the First Schedule.</p><br /><p>Â These two representations in set theory models would be as follows:</p><br /><p><em>4 Communities for definition of âcommunityâ:</em> 3 smaller circles of different sizes, within one bigger one.</p><br /><p><em>4 Communities for allocation of seats:</em> four smaller circles of different sizes all floating about in space.</p><br /><p>Â Here is the difficulty that arises from this major flaw in the system: LALIT and Nouvo Lizour have no undertaking not to take up ELECTED seats.</p><br /><p>Â On the contrary, we will obviously accept them. That is why we stand for election: in order to be elected. But these elected Members of the National Assembly of LALIT and Nouvo Lizour are also classified communally for the exercise of the best loser allocation for eight other candidates. Note, that, as if to make this point clear to everyone, the Constitution demands that ALL candidates, including independent candidates, declare a âcommunityâ on their Nomination Papers, even though independents do not themselves qualify to be nominated Best Losers. This is because if one or more independents were actually elected (i.e. not just potential best losers) they would be included in the calculations on which the eight best losers are done.</p><br /><p>Â So, there is a philosophical flaw in taking too much note of LALITâs letter in which we said we will not be âBest Losersâ. If we are elected, the problem remains as large as ever. This is because the whole of the National Assembly is infected by the communal classification system. We were aware of this philosophical deficiency when we sent in our letter. We submitted the letter anyway, in order to show that we were not writing down a community just in order to gain some personal advantage from our re-classification, but as a proof of our honesty.</p><br /><p>Â We believe that there is no such thing as âcommunityâ except as a set of shared prejudices existing at a particular time and place. We do not share those prejudices, and are therefore UNABLE to classify ourselves as being either IN or NOT IN any of the so-called âcommunitiesâ.</p><br /><p>Â In addition, there is a logical problem within the Judgement: Once classified âproperlyâ by the Supreme Court under the Constitution, we should, legally speaking, become âreal representativesâ of our supposedly objectively correct community, and we should expect to be encouraged by the law to take up âbest loser seatsâ. (For political and moral reasons, we would of course, in turn, refuse.) But instead the judgment wants us to be bound NOT to take best loser seats (so as not to count our âcommunity), while yet still being entitled to take up elected seats (where our âcommunityâ will be totted up in the best loser system for eight others).</p><br /><p>Â <strong>Strong words: âmember of a partyâ, âmember of a communityâ on Nomination Papers</strong></p><br /><p>Another point needs emphasis. Becoming a âmemberâ of something is a very specific act. One applies and is accepted by others into a usually fairly closed group. In order to oblige someone to decide if he or she is or is not a member of, say, something as vague as âthe Hâ¦ communityâ and to do this âby his or her way of lifeâ is indeed a tall order.</p><br /><p>Â By contrast, when the identical question is asked of candidates on the Nomination Paper for General Elections about their membership of a political party, this is very easy to answer. I say I am a member of the LALIT Party. I know I am, because I applied for membership, I pay my dues and I attend meetings. In addition, I am required to produce a letter from the leaders of this party in which they certify that they know that I am a member and that I am to stand for election in such and such a Constituency for the party. This also is very easy for them to do because they know it. Members of LALIT and non-members of LALIT are two clear categories in the world.</p><br /><p>Â But what does one do as regards the declaration on the Nomination Paper as to membership of a âcommunityâ? I never applied for membership of any community, and I know no-one else in the country who ever did either. There are no dues and no meetings. The fact that I do not know if I am a member of, say, âthe Hâ¦. communityâ or am not a member is a problem for me. Once I am in this difficulty, according to the Supreme Court Judgment in the recent case, I would probably need to check with myself if I am a member of âthe Mâ¦. communityâ or âthe S-Mâ¦ communityâ and if I do not know that I am a member of these three, then I am automatically to assume that I am a member of âthe Gâ¦. Pâ¦.. communityâ. But it is not as simple as that. My difficulty is compounded by the fact that I donât know for sure of anyone else in the country who is a member of the first three communities, while at the same time I also know, from the 1972 Census, that some three-quarters of the people were then classified by the state as being in these first three communities, and these exact figures are now kept to by the Constitution itself, and used by the Electoral Supervisory Commission in the increasingly complicated task of allocating best loser seats. Since I donât know who are the people who are members of the Hâ¦ Community, for example, how can I know that I am or I am not one. The only guidelines I am given are that I must compare my âway of lifeâ with the âway of lifeâ of other people, who I know are or are not in the community, and then classify myself. And this is just not helpful to me in deciding, because I cannot classify other people either, neither by their way of life, nor any other way, into these so-called âcommunitiesâ. Other peoplesâ way of life is remarkably similar to mine: I do similar work to many people, I catch the same buses, I speak the same language as everyone else in the hospital and at the post office, I chat to the neighbours about this and that just like everyone else does, I visit friends and relatives like other people do, I wash my clothes and clean my floors like everyone else, I go and buy things in the shop or the supermarket just like most other people, the house I live in is a lot like most other peoplesâ houses.</p><br /><p>Â Curiously, the only people in Mauritius who have ever been individually classified in public (since Independence at least, and they are in fact auto-classified) are those individuals who stood as candidates for General Elections. Each candidate placed a âcommunityâ on their Nomination Papers in 1976 (413 candidates), 1982 (260 candidates), 1983 (297 candidates), 1987 (350 candidates), 1991, 1995 and 2000 (535 candidates). This is presumably why people blame âpoliticiansâ for communalism.</p><br /><p>Â The number of people individually classified in this country is thus around 3,000, at a guess, of whom a certain number have died or emigrated, out of some 1,000,000 - 1,200,000 inhabitants. These candidates in General Elections have declared on their Nomination Papers that they are members of the âxâ community, and this has been published in newspapers and stuck up on the special notice-boards put up at the Schools that are used for each constituency. But no-one else has been classified. And in any case, there is no authentication (thank goodness) that this âmembershipâ of a community is correct, by âleadersâ, âwar-lordsâ or anyone else.</p><br /><p>Â The reason for all this difficulty brings us back, of course, to âcommunityâ not being a âfactâ, but at best an ideological construct.</p><br /><p>Â Of course, at worst âcommunityâ is a âfictionâ, and a bad one at that, representing no more than the shared prejudices of an immediately post-colonial society. âCommunityâ can only be made into the imitation of a âfactâ by the act of classification by the state in a Census or by oneself under duress in order to be a candidate. Even this is not a real fact, but a kind of âbureaucraticâ fact; âit is a fact that Mr. A. is classified as being a member of x community.â</p><br /><p>Â This kind of bureaucratic fact is, of course, the hallmark of a regime like the Nazi regime, where Jewish people were obliged to classify themselves publicly by wearing a yellow star on their clothing, or of the South African apartheid system with its âpass systemâ. The apartheid regime attempted over the course of some 46 years, from 1948 to 1994 to get a-hold of every individual and classify him or her. It may be added, for the record, that this task was never ever completed, and could never be. And curiously, when cases came up before the Courts for what was termed âreclassificationâ when there were objections lodged as to someoneâs classification, the law dictated that the Judges use the âway of lifeâ of the person as the main criterion.</p><br /><p>Â <strong>Big Brother</strong></p><br /><p>The Court Room for the hearing became rather bizarre at one point, and took on the allures of an Inquisition. Yousouf Mohammed questioned LALIT candidates on their private lives and they refused to answer, refused again and again to answer.</p><br /><p>Â Most LALIT and Nuvo Lizur candidates refused to answer questions about their religious beliefs or practices on the grounds that this was a private concern (<em>lavi prive</em>); one said his religious beliefs were âsacredâ to him (<em>Sa enn zafer sakre pu mwa</em>) and he would not disclose them; one agreed to answer, only to say that he attended no temple, church or mosque, because he did not believe in any god or gods. One candidate when asked what he saw when he looked in the mirror, he said âMo truv enn imenâ. Another when asked what he âfeltâ <em>(âKi manyer u santi u?â</em>), answered â<em>Normal</em>â.</p><br /><p>Â In his judgment, Justice Seetulsingh warned in strong words against this type of intrusion. I quote: âThe issue further arises as to how the judge can determine the way of life of a citizen unless he becomes like a Big Brother in H.G. Wellsâ (sic) novel 1984 and watches how a citizen leads his private life.â</p><br /><p>Â One of the âown goalsâ (to use a football metaphor) that Yousouf Mohamed scored in his case for the âre-classificationâ of the 15 LALIT and 5 Nuvo Lizur members, was when his star witness, Maulana Haroon, said that a personâs faith is âdan so lekerâ. This privacy of oneâs âconscienceâ is an important part of the debate, and Mr. Mohammed put a lot of emphasis on âreligionâ in his cross-questioning, often implying that it was synonymous with âcommunityâ. Religion is most certainly not the same thing as âcommunityâ for a start. As Judge Seetulsingh pointed out that the so-called âSino-Mauritian communityâ is not a âreligionâ. Nor is the so-called âgeneral population communityâ a religion. Thatâs already two communities that are not linked with any specfic religion. And, in any case, the Constitution specifically says that community must be judged by âway of lifeâ. The Constitution also says that freedom of conscience makes oneâs religion what one says it is, so a âreligionâ cannot be imposed upon one by force as a âcommunityâ obviously can.</p><br /><p>Â But deeper than this, even if religion is one of the many pointers to the âway of lifeâ of those people who are in or not in two of the âcommunitiesâ specified (i.e. so-called âHindu communityâ and so-called âMuslim communityâ), religious practice is just not the same thing as religious faith. And conscience or religious faith is in the heart, as the Maulana pointed out. The state cannot get into peoplesâ hearts.</p><br /><p>Â Another difficult terrain for the state to get into â even when merely seeking pointers as to someoneâs way of life â is the terrain of who exactly is a person practising a religion and who is not. When questioned about names being âMuslimâ names or not, and about âwhoâ exactly is a âMuslimâ or not, Yousouf Mohamed again saw his witness, Maulana Haroon, scoring an own goal. He said that in his opinion people who are Ahmadiya are not âMuslimâ and are not âmembers of the Muslim communityâ. This is a very thorny problem for the state to get involved in: when some people claim to practice a particular religion, while others who claim to be practitioners actually deny that the first ones are practitioners of the religion.</p><br /><p>Â In the section on âBig Brotherâ, it should be mentioned that Counsel for the Applicant, Yousouf Mohammed, once given free rein, seemed to lose all respect for people giving personal answers. We were subjected to the nasty spectacle of seeing deeply private questions being invoked in public, not as facts relative to the public domain, but as as part of the strange ritual of the state âclassifyingâ someone, often on the basis of his mother and fatherâs âcommunityâ. It felt deeply sullying to everyone present, deeply reminiscent of Apartheid.</p><br /><p>Â To give an example of the excesses. Counsel for the Applicant asked Diya Dholah the names of her parents, thus starting the process of classifying Ms Dholah by classifying her parents first. They are both dead. They died at the ages of 48 and 57 respectively within a matter of months of one another, leaving 9 children, eight of them not yet married at the time. The violence of the turn of questioning became apparent to everyone present in Court who knew that both her parents are dead. She gave their names. This meant that because she had stood as a candidate for general elections, she was subjected to the humiliation of having her dead parents classified in public.</p><br /><p>Â In the same vein, the Counsel then went on to insult Rada Kistnasamy for not knowing the âreal nameâ of his father, for only knowing a ânom gateâ of his own father, who Rada Kistnasamy had already said was dead. Those of us who know that his father died before Rada was big enough to remember him were again quite upset at the line of questioning, classifying a father he had never known. Later we found out that the name Rada Kistnasamy had given was his fatherâs real name. That was what Yousouf Mohammed was laughing at in public in Court. Then he asked Rada Kistnasamy what his son was called. When he gave his sonâs name, Yousouf Mohammed seemed amazed. Immediately after this, when Rada Kistnasamy refused to answer questions about his religious faith, Yousouf Mohammed went on to threaten to get him locked up for contempt of court for refusing to answer a question about his religion. Then the Judge stepped in, saying that Mr. Mohammed had not threatened previous members of LALIT with being locked up, so it was not appropriate to start threatening one member now.</p><br /><p>Â But by then, no-one present had ever seen so shaming an event in Court. So much for the state getting involved in this kind of private matter.</p><br /><p>Â <strong>The real meaning of the four words âhis way of lifeâ in the Schedule</strong></p><br /><p>There could be nothing more difficult to distinguish in only a few words any one human being relative to any others than by the vague term âhis way of lifeâ, or as it should be termed to be more precise âhis or her way of lifeâ which incidentally already implies two categories, that of male and female. The words âhis way of lifeâ, in ordinary English, mean quite simply everything about a human being.</p><br /><p>Â The broadest differences in âway of lifeâ between different Mauritians would probably be between people who work and live at sea, and those who work and live on the land. The way of life of a professional sailor or fisherman, and that of others is different. Or between night-shift workers and the rest of us. Or between those living in a âdependanceâ and others. Those who are house-bound and those who move around every day. Those who are hedonists, and those who work doggedly through life. Those who are young and those who are old. Or between the four categories: Employer, employee, unemployed, self-employed. More objectively put, whether one buys the labour of others or sells oneâs own labour to another, or seeks to sell oneâs labour but cannot find a buyer, or produces and sells something independently. Or between those without a home and those with a home. Or between rich and poor.</p><br /><p>Â Justice Seetulsingh, himself said: âOur attention was drawn to the fact that a way of life can also be dependent on class distinction, for a rich Hâ¦ and a rich S-Mâ¦ may have a similar way of life, depending on their financial means, whereas a rich Hâ¦ and a poor Hâ¦. may lead altogether different ways of life.â And indeed it would be hoped that a good political system would one day end up ârepresentingâ all these different categories fairly.</p><br /><p>Â But a good political system, of course, aims to represent different political opinions not just different categories of people.</p><br /><p>Â But, back to the question of âway of lifeâ; in Mauritius, âway of lifeâ has for the past 30 years been assumed to mean a clump of some rather ill-defined prejudices, gathering around name, religion, and race.</p><br /><p>Â In the Constitution of Mauritius, it is assumed that a candidate for general elections can somehow know that he or she is or is not a member of a âHâ¦.,â âMâ¦.â, or âS-Mâ¦.â community by his or her way of life.</p><br /><p>Â The state itself, it should be noted, has â thank goodness â since 1968 only classified people in one Census (1972) and even then this classification was â again, thank goodness â confidential information of the Central Statistical Office, and used as a statistic.</p><br /><p>Â Subsequently, in 1982, the state actually took a decision, performed a positive act, and placed this act into a Constitutional Amendment, i.e. that the state would no longer continue with the practice of classifying people into these four or any other so-called âcommunitiesâ, but would make do with the 1972 Census figures instead. But until when?</p><br /><p>Â <strong>Whatâs in a Name? </strong></p><br /><p>One might think that a surname is a useful indicator of âway of lifeâ. But this is where pure prejudice again comes into it. I think it would be safe to say that there is not a single surname in Mauritius which is unique to any ONE so-called community, nor was there such a surname even at the time that the government did the last Census in 1972.</p><br /><p>Â Mr. Carrimkhan in his affidavit did no more than submit the names of people, their membership of parties, and their âmembership of communitesâ as filled in on their Nomination Papers. Thus ânameâ of a candidate was used as a âprima facieâ case. Then, later on, Mr. Mohammed proceeded to demolish his own prima facie case. In the witness box, Mr Mohamedâs client, Mr. Carrimkhan, only ever referred to two âcommunitiesâ that he thought two different candidates should be re-classified into. His case was very weak. He said he knew that Ms. Minerve (from her name) was âa Crâ¦.â and proceeded to refer to a form of classification not used in the Constitution, and Mr. Anenden (from his name) was âa Mâ¦.sâ And proceeded to refer to yet another form of classification not used in the Constitution. One can only wonder how Mr. Carrimkhan could manage to bring this case without even knowing the four communities that the Constitution requires candidates to fill in. The mind boggles.</p><br /><p>Â Yousouf Mohamed saw Maulana Haroon scoring a third own goal. He said that in his opinion Ahmadiya people may have names that are Muslim-sounding names but that they are not, in his opinion, members of âthe Muslim communityâ. So names are clearly problematic. And this is just one small example of the difficulty of using names as indicators of being members of the community.</p><br /><p>Â This is true even of âgiven namesâ, first names. These âfirst namesâ are not only quite difficult to classify with any certainty, but fashions change in child-naming. Many first names now quite fashionable have never been used before in Mauritius, and are therefore unknown. No judge can be expected to know which names are âMâ¦. namesâ and not âJewish namesâ and thus âgeneral population namesâ, for example. Nor can a judge be expected to know which names are âHâ¦â and not âJain namesâ, and therefore âgeneral population namesâ. Nor can a judge know which names are âS...Mâ¦namesâ and not, say, âVietnamese and thus âgeneral population names.â In evidence, huge books of names would need to be produced in order to prove that such-and-such a name was, let us say, a âHâ¦ nameâ and NOT a âMâ¦ nameâ in any part of the world. And there is, in any case, no way that the name oneâs parents choose to give one soon after birth can be used as an indicator of oneâs adult âway of lifeâ, so the exercise would be quite futile. It is plainly absurd.</p><br /><p>Â And while we are on names, let us look at some of the five candidates that Yousouf Mohammed and his client did not challenge. One of our candidates is called Georges Legallant. He filled in the Nomination Paper after drawing lots with his community specified as âMâ¦â He was not challenged on the grounds of his name presenting a prima facie case. Doris Ah-Vee, who had filled in Gâ¦. Pâ¦., was also not challenged. Curiously, Ram Seegobin was challenged for being âGâ¦. Pâ¦.â while his wife (who is me, and I can assure you we have the same way of life) was not challenged.</p><br /><p>Â <strong>Piecemeal Constitutional Amendments a-go-go</strong></p><br /><p>The thorny provisions for communal classification and the best loser nomination exercise has caused the Supreme Court to have to be called in to decide what to do on numerous occasions. The first time was in 1982 after the first 60-0. The shoddy drafting of the First Schedule meant that it did not cater for a 60-0 situation. So, after the Supreme Court had sorted out the 1982 nominations, the government brought the first important Constitutional Amendments to the First Schedule. Then in 1991, we found that neither the First Schedule nor the Supreme Court judgement of 1982 nor the 1982 amendments had catered for the particular 57-3 situation we had got. The Supreme Court was again called upon. Further amendments again had to be made. Even then the judges remarked that âthe question also arises as to whether now in the years to comeâ the best loser clause âcould be properly implementedâ. Now, in 2000, once again we see the spectacle of the poor Electoral Supervisory Commission unable to name or to decide not to name some of the communally classified best losers. Neither the Schedule, the Supreme Court judgements nor the two sets of amendments, catered for the 54-6 situation either.</p><br /><p>Â Talk about the law making an ass of itself. And not just any law: the Constitution itself, humiliated, again and again, by this wicked Schedule.</p><br /><p>Â <strong>LALITâs proposal for electoral reform: Keep the best loser, but remove the communal classification from it</strong></p><br /><p>LALIT has a very simple proposal. It goes in the sense of history.</p><br /><p>Â Keep the Best Loser seats. On the contrary increase the number slightly. But remove all question as to âcommunityâ from the nominations.</p><br /><p>Â We propose 63 elected members (first past the post), 3 per 21 constituencies, and then 12 nominations to be made by the Electoral Supervisory Commission on a strict âparty scoreâ basis, taking the names of unelected candidates, in an order pre-determined by the Party leaders from a list of 12 candidates from amongst those already standing for election and submitted to the Electoral Commissioner on Nomination Day, as priority âbest loser nominationsâ. [This should be done regardless of their individual score, and be considered as a party list nomination.If ever all these 12 are already elected (or elected and nominated) and the party is still âunder-representedâ in the National Assembly, then the ESC should nominated the next unelected candidate with the highest score from that party, using the form of computation already used in the existing law.]</p><br /><p>Â The Best Loser system would thus be converted into an instrument with which to correct (after counting) for the under-representation of parties in terms of number of seats won relative to the number of votes cast for the party on an over-all national level.</p><br /><p>Â This proposal means a dose of proportional representation by party. It also means that parties can put any order they choose in their lists of 12 top priority for nomination as Best Loser. This way any âbalanceâ a party may want to make sure of â sex, rural-urban, community, class, party leaders, strong candidates placed in difficult-to-win constituencies â can be catered for. But the state will no longer classify people, nor do parties have any need to.</p><br /><p>Â And the 1972 Census figures for so-called âcommunityâ need never be used again for elections, nor would candidates have to classify themselves, nor would the Electoral Supervisory Commission find itself unable to fulfill its Constitutional role every time thereâs an election, nor would the Supreme Court have to go through the degrading procedure of re-classifying individual citizens.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

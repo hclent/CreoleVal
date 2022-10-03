@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100009" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100009" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100009" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100009" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100009" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100009" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100009" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100009" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100009" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Sex Abuse: Pulitzer Prize to Journalists in USA; relative silence in Mauritian Press</h1><p class="subtitle">25.04.2018</p></h1>
+	<p class="newsarticle"><p>Journalists who exposed sex abuse at work won the Pulitzer Prize for journalism last week.</p><br /><p>Â <strong>Harvey Weinstein, once exposed, is socially punished</strong></p><br /><p>Ronan Farrow of <em>The New Yorker</em> and Jodi Kantor & Megan Twohey of the <em>New York Times</em> jointly won the award for their years of careful work for articles that finally exposed Harvey Weinsteinâs method of harassing, abusing and raping women in work-related meetings. Farrow also detailed Weinsteinâs web of colluders â at his firm, on his Board, amongst journalists, lawyers, and private detectives.</p><br /><p>Â Indeed Farrow in his second article in <em>The New Yorker</em> shows how the Israel-based detective firm <em>Black Cube</em>, used women ex-Mossad agents to infiltrate and thwart attempts by victims to expose Weinstein. The <em>New York Times</em> ended up firing its own lawyers, David Boies, for their role while also having Weinstein as a client, in a âsting operationâ <em>against women journalists</em> of the NY Times.</p><br /><p>Â The brave women who spoke out about their having suffered sex harassment and abuse and the brave journalists, who persisted despite intimidation, have all been vindicated. The vindication comes in the middle of what is a veritable womenâs revolution world-wide against patriarchy. What is interesting about the uprising is that it teaches us what patriarchy is. It also gives hints as to the small every-day actions are that we should take to curb it. These three journalists did their bit. The women, like Rose McGowan, who spoke up, did theirs. The 6,000 women workers at Ford and the 600,000 agricultural workers, who all spoke out, did their bit.</p><br /><p>Â The outcome is a lesson to all male predators. Weinstein, the symbol of patriarchy, has been disgraced. He is a reviled male predator, exposed in public. His previous roles in the âWomenâs Marchâ and funding Hilary Clinton are exposed as a veneer. His huge company is bankrupt. He had to offer to undergo therapy. His wife has left him. The prosecutor who decided not to prosecute him is under investigation for his decision. The Board Members of the Weinstein Company are all being charged for the criminal offense of assisting in sex abuse.</p><br /><p>Â And there are more general lessons. Women victims have made public the danger that NDAs (<em>Non-Disclosure Agreements</em>) are being used for covering criminal offenses perpetrated by bosses, including sex abuse. Before that, we did not know that women were being forced to forego free speech this way. Coupled with the use of Black Cube style detectives, NDAs get signed as part of a blackmail sting operation, covered over with a payment of $100,000 or whatever. Then the woman victim is publicly denounced by colluding journalists for âjust being after the moneyâ! And she cannot defend herself because of the NDA. Ms. Stormy Daniels, also doing her bit against patriarchy, has exposed her NDA for which she owes Donald Trumpâs lawyer $1,000,000 every time she refers to her affair with Donald Trump. She has challenged the NDA. One woman in the UK who wanted to sue Weinstein or get him charged ended up signing an NDA, and as part of the NDA, she is not even allowed a copy of the NDA, itself. Itâs a kind of slavery. Now we know about Non-Disclosure Agreements that cover illegal acts, we can fight for these clauses to be abolished.</p><br /><p>Â And society has changed in the USA, and other countries that have followed the developments in the news, in other ways.</p><br /><p>Â Women who have been abused or harassed can now expect similar treatment to victims of any other violent physical offense â like inflicting wounds and blows, causing grievous bodily harm, and so on. It is no longer a private matter. You have high chances of being believed. You cannot be the target for attacks, socially speaking. The bosses, the press and the police donât go into a frenzy of shrieks of âinnocent until proven guiltyâ anymore, but treat the accusation as any other accusation. And of course, accused are innocent until proven guilty, like all other accused, no more no less. And the phrase âinnocent until proven guiltyâ no longer keeps the totality of women silenced about sexual assault â just in case their words ruin the reputation of a powerful men.</p><br /><p>Â Except in Mauritius. Here the silence has remained.</p><br /><p>Â Or it had, until the case of the young woman athlete, Jessika Rosun, who reported sex abuse by the chef de mission at the Commonwealth Games to the authorities in Australia. Kaysee Teeroovengadum, twice the victimâs age, is being charged with sex assault. The sports people and sports journalists have done themselves proud, standing firmly with the woman athlete. They have begun to break the silence. And the PMSD, MMM and LALIT all took a stand to support Jessika Rosun, while the MLF has called for the destitution of the Olympic Committee President, Philippe Thyn Voon.</p><br /><p>Â But all too often, sex abuse, and even rape, are shrouded in silence in Mauritius.</p><br /><p>Â <strong>Take the case of Tariq Ramadan</strong></p><br /><p>But, take the case of Tariq Ramadan. If you look at the Mauritian Press, there is little information on the charges for which he is locked up pending trial. In fact, there are more articles supporting him than telling readers what the accusations against him are. Instead of talking of the rape charges, we read more about how he is the victim of a conspiracy. The conspiracy claims are hard to take seriously, when reports from Switzerland show that he was already denounced for sex with underage pupils in the 1980s. Is the plot supposed to date to back then? Swiss education authorities are now under investigation for their inaction.</p><br /><p>Â One would expect rape charges against Tariq Ramadan to be widely reported. He is someone who has been to Mauritius dozens of times. The Press should warn women. It was the Press that gave him the same high profile the Press in France gave him, in the first place. He has delivered dozens of speeches, given interviews to the Press and Radio in the country. I was on a Radio Panel with him a few years ago. He has been formally accused of rape by five women â three in France, one in Switzerland and one in the USA. The pattern is the same: A woman is in some distress (divorce, some other trauma); she corresponds on social media with him as spiritual leader; he organizes to meet her, usually in a Hotel; he lures her into his room; once he closes the door, he becomes extremely violent.</p><br /><p>Â The sudden violence is not unlike Weinsteinâs. Not unlike DSKâs. Not unlike many rapistsâ misogyny.</p><br /><p>Â But, we have been greeted by silence in the media about the specific charges. We read more about for him: an article here about his fine alibi, one there about his defense being his chastity, and mainly about how he is a role model. They say he is being locked up unfairly, not given bail like everybody else. Except that 28% of prisoners in France are pre-trial like him. He is accused of very serious violence. He is denounced by many women. Or do the women victims just not count for many in the Press here?</p><br /><p>Â Tariq Ramadanâs alibi â that he had arrived too late in the day to have met, therefore to have raped, one of his accusers â has since been shown to be false. Although he had an airline <em>booking</em>, he actually arrived, it is reported by two sources, on an earlier flight. Losing an alibi is a disaster. It means you are a liar.</p><br /><p>Â Then the Belgian judiciary announces this month that Tariq Ramadan paid 27,000 Euros to a Belgian-Moroccan woman for her silence about a relationship in 2015. This is also pretty disastrous for his line of defense.</p><br /><p>Â And finally, after having used as defense strategy that he has not had relationships with his accusers, is a faithful husband, a man of the utmost moral integrity, that these charges are all a <em>coup montÃ©, </em>a conspiracy against him, he has had a shock: One accuser has submitted a black dress for DNA testing. As in President Bill Clintonâs sex abuse of a <em>stagiare</em>, a stained dress will perhaps be important. So, Ramadan had to act fast.</p><br /><p>Â The first effect of the black dress is that Ramadan announced through his lawyer that he did have âa relationshipâ with one of his accusers, the very one who has submitted the black dress. He has thus abandoned his defense strategy.</p><br /><p>Â This, in turn, has had its own effect. His support groups, having relied upon the âfaithful husband suffering a <em>coup montÃ©â</em> defense strategy, panicked. They fear being left defending lies.</p><br /><p>Â <em>LibÃ©ration</em> of 19 April analyzed the effect of the sperm-stained dress gone for DNA testing:</p><br /><p>Â â<em>Des rÃ©vÃ©lations terribles ont Ã©tÃ© publiÃ©es aujourd'huiÂ»,</em> a-t-on lu dans un communiquÃ© briÃ¨vement mis en ligne (avant dâÃªtre prÃ©cipitamment retirÃ©) sur le site RÃ©sistance et Alternative [<em>not to be confused with Rezistans ek Alternativ</em>], une association crÃ©Ã©e en janvier pour diffuser la pensÃ©e du prÃ©dicateur, faisant allusion aux articles mentionnant le revirement de situation. AprÃ¨s son retrait, ce communiquÃ© a continuÃ© dâÃªtre envoyÃ©, plus confidentiellement. â¦ Â Sur sa page Facebook, elle a aussi fait disparaÃ®tre la photo de la banniÃ¨re oÃ¹ lâon voyait Tariq Ramadan.âÂ </p><br /><p>The support committee on the night of 17 April closed its internet fund-raising campaign.</p><br /><p>Meanwhile, the police are seizing Tariq Ramadanâs telephones, computers, hard discs and Ipads. This must be unnerving his supporters in France, too. Oxford University long ago suspended him from work. Qatar has dropped him. Now his support committee is in a fix.</p><br /><p>Â But, his supporters in Mauritius, if they rely on the Mauritian media, are probably still denouncing the five women who reported rape and four who reported abuse as schoolgirls for allowing themselves to be drawn into telling lies as part of an obscure conspiracy against Tariq Ramadan. He is still being made out to be the victim.</p><br /><p>Â It is not fair to leave people in ignorance. Worse. It is not fair to expose more women to danger, by the shroud of silence stays over the precise accusations. Â </p><br /><p>Â We each have to do our bit to <em>remove power </em>from the male predators. Our silence is what gives them power over vulnerable women. The predatorâs power is not <em>generalized power</em>. Patriarchal power is power <em>differential</em> that operates in a sphere:</p><br /><p>Â The power of a teacher over a pupil.</p><br /><p>The power of a boss over an employee who relies on contracts.</p><br /><p>The power of a religious man over a person disoriented by an event in life.</p><br /><p>The power of a politician over a young woman seeking employment.</p><br /><p>The power of a sports official over a woman athlete.</p><br /><p>Â And so on.</p><br /><p>Â This means we should aim, in our political struggles, at <em>reducing power differentials</em>. And, in the meantime, we should aim also at exposing the <em>abuse</em> of power differentials.</p><br /><p>Â And in specific cases, report cases to your fellow workers! Inform your immediate superior! If he does nothing, take a witness and again report the case to him. If he still does nothing, propose that you and your witness accompany him to the next higher boss, to report the case. Keep a diary of your demarche. Small actions help keep male predators in check.</p><br /><p>Â The 5,000 year old problem in our 200,000 history as humans is both an old problem (5,000 years can ingrain power differentials) and a new problem (for our first 195,000 years, recent research proves, we did not have this problem). What is clear is that there is no single action that will resolve the issue once and for all. It needs constant thought-out actions, humble actions, but actions that are principled. It needs everyone around the perpetrators to put their foot down against the man, to expose his predatory behavior, to criticize it, to report it to friends and colleagues. And to prevent it.</p><br /><p>Â While some of the Press in the USA, during the womenâs revolution against Weinstein, took their responsibility and have contributed enormously to progress against patriarchy, the Press in Mauritius has, so far, been reluctant, in general, to break the omerta concerning predatory males, who are powerful in their domain. The old patriarchal violence remains: protecting a powerful manâs âreputationâ trumps womenâs physical safety â any number of women. But we are at the beginning of the end of this collective violence inflicted upon women.</p><br /><p>Â Lindsey Collen</p><br /><p>25 April, 2018</p><br /><p>Â </p><br /><p>Â </p><br /><p>Â </p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

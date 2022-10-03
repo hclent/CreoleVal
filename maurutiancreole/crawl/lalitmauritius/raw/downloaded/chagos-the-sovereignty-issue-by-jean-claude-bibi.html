@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100852" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100852" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100852" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100852" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100852" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100852" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100852" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100852" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100852" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Chagos: The Sovereignty Issue by Jean-Claude Bibi</h1><p class="subtitle">04.10.2016</p></h1>
+	<p class="newsarticle"><p>Here are the notes that Jean-Claude Bibi spoke to, translated into English, at the LALIT Second International Conference on Diego Garcia on 1 October, 2016.</p><br /><p>Â This paper is concerned with the issue of the sovereignty of the Republic of Mauritius in respect of the Chagos Archipelago of which Diego Garcia forms part. It is also the largest island and one that was most populated by the âZilwaâ people, as the Islanders were then referred to, prior to their eviction by the British.</p><br /><p>Â A brief survey of some facts and events will provide us with useful information when discussing Mauritiusâs sovereignty.</p><br /><p>Â 1. The Chagos Archipelago was part and parcel of the French Colony known then as Ile de France when the British took possession and control of the island in 1810 and renamed it as Mauritius. Four years later, on 30 May 1814, by the Treaty of Paris France formally ceded Ile de France and all itsÂ <a title="Outer islands of Mauritius" href="https://en.wikipedia.org/wiki/Outer_islands_of_Mauritius">dependencies</a> (including the Chagos Archipelago), to the United Kingdom. Up till 1965 Chagos Archipelago was administered from Mauritius.</p><br /><p>Â 2. On 8 November 1965, by Order in Council the excision of Chagos Archipelago was carried out and the BIOT was established. Subsequently, a BIOT Commissioner and a BIOT administrator were appointed by the Queen for its governance.</p><br /><p>Â 3. The detachment of Chagos Archipelago occurred in the context of pre-independence discussions between leaders of Mauritian political parties and the Labour government of Harold Wilson. At the same time, the US had requested its British allies to look for some isolated real estate in the Indian Ocean to implant a major military base that was initially disguised as a communications facility. The UK would be rewarded by a discount on the purchase of missiles from the US.</p><br /><p>Â 4. The US was insisting on an unpopulated island. Diego Garcia was populated and the UK was perfectly aware of this. Its colonial administration of Mauritius involved also administering the Chagos Archipelago and Diego Garcia in particular. There were some 2,000 Islanders there working in coconut plantations and fishing. Coconut oil from Diego Garcia was exported to Mauritius. Magistrates and Special Commissioners from Mauritius visited Diego Garcia. There was never any interruption of British rule over Mauritius and the Chagos Archipelago as well as over the other Outer islands that now form part of the Republic of Mauritius and they all, except Diego Garcia since its excision, still nowÂ  share close economic, social, cultural and political links.</p><br /><p>Â 5. The unchallengeable truth is that generations of islanders were since more than a century living, working and dying in Diego Garcia. Yet this truth was initially denied by the UK. The reality that real human beings lived there and considered it as their home was brutally dismissed with a huge dose of overtly racist contempt.Â  One D. A. Greenhill, a British diplomat, reported in 1966, that, â<em>Unfortunately, along with the birds go some few Tarzans orÂ </em><a title="Friday (Robinson Crusoe)" href="https://en.wikipedia.org/wiki/Friday_(Robinson_Crusoe)"><em>Men Fridays</em></a><em>." </em>Such an attitude was an early signal that the British would proceed to forcibly expel the Islanders. And they eventually did. By hook and by crook.Â  A combination of tricks and threats were used to exile them to Mauritius.</p><br /><p>Â 6. TheÂ Â  so-called âlegalâ basis for the US military occupation of Diego Garcia seems to rest on 3 documents. First, The 1966,Â  Anglo - American Exchange of Notes that decreed that the entire Chagos Archipelago would be available to meet the defence needs of both UK and USA. Then in 1970, after some 2, 000 Islanders had all been expelled, a second US-UK treaty was signed to provide for <em>âlimited naval communications facility.â</em> In 1976, a third treaty was signed to allow the construction and development of an <em>âanchorage, airfield, support and supply elements and ancillary services.â </em>In other words, the US could have its fully fledged military base where today some 3,000 US military and civilian personnel are deployed.</p><br /><p>Â 7. On 1 April 2010 the British government made another unlawful manoeuvre to consolidate its position as a landlord who wishes its tenant to be undisturbed in its enjoyment of the Chagos Archipelago. It created a <a title="Marine protected area" href="https://en.wikipedia.org/wiki/Marine_protected_area">marine protected area</a>Â (MPA) twice the size of Great Britain around the Chagos Islands known as theÂ <em>Chagos Marine Protected Area</em>.</p><br /><p>Â 8. On 18 March 2015, theÂ <a title="Permanent Court of Arbitration" href="https://en.wikipedia.org/wiki/Permanent_Court_of_Arbitration">Permanent Court of Arbitration</a>Â unanimously held that theÂ M<a title="Chagos Marine Protected Area" href="https://en.wikipedia.org/wiki/Chagos_Marine_Protected_Area">arine Protected Area</a>Â (MPA) which the United Kingdom declared around the Chagos Archipelago in April 2010 was created in violation of international law.Â  Earlier in December 2010, a leakedÂ <a title="US Embassy London" href="https://en.wikipedia.org/wiki/US_Embassy_London">US Embassy London</a>Â diplomatic cable had exposed the MPA as a fraudulent ploy meant to depriveÂ  the Islanders of any chance or hope to return to their homeland.</p><br /><p><strong><span style="text-decoration: underline;">Â Part 2</span></strong></p><br /><p>1. The historical facts enunciated above do not simply provide us with some background information pertinent to the ongoing dispute over Chagos Archipelago and Diego Garcia.Â  They are central to the claim of Mauritius that its sovereignty cannot be challenged and should be recognized by one and all in the international community of States. In fact the vast majority of States do recognize the sovereign rights of Mauritius. The real problem is that the military occupation by the US effectively prevents Mauritius to have any control over what is going on there. Without control sovereignty remains totally abstract and practically unreal.</p><br /><p>Â The US and the UK have no sovereign rights, but they have control. It is therefore not so much a question that Mauritius should vindicate its sovereignty but rather and much more a question how and when Mauritius will be able to exercise its sovereignty over the Chagos Archipelago.</p><br /><p>Â 2. These facts and events also reveal the oppressive and unlawful conduct of the British state, its conspiracy with the US, its blatant violation of the territorial integrity of Mauritius just before its accession to independence and its cynical disregard for the human rights of the islanders who were completely dispossessed. These facts, indeed these crimes make it impossible for the UK to contend seriously that it has any legitimate grounds to declare itself the sovereign ruler or administrator of Chagos Archipelago and Diego Garcia.Â </p><br /><p>Â 3. The British are in fact quite discreet about their claim. Their line has always been the least said the better. And when they do open their mouth, they keep reiterating that the islands would be returned to Mauritius once it is ascertained that Diego Garcia is no longer required for defence purposes âof the Westâ. Â Â This can be translated to mean that the interests of western imperialism have precedence over the fundamental principle in international law that the sovereignty and territorial integrity of nation states have to be respected.Â  Allied to a superpower like the USA, the UK behaves as if it is fine to violate international law and to trample over the rights of the Islanders with impunity whilst at the same time posturing as a state that upholds and adheres to the principles of international law. It went to war over the Falkland Islands under the banner of sovereignty.</p><br /><p>Â 4. What does it mean for a state to be sovereign, to exercise sovereignty? I do not propose to put forwardÂ  here a mere academic or legal definition of the notion of sovereigntyÂ  and its several dimensions but I will emphasise its political content and ground it in the context ofÂ  a real struggle againstÂ  the remnants ofÂ  British colonialism andÂ  the declining but still nefariousÂ  mightÂ  of US imperialism.</p><br /><p>Â 5.<strong> </strong>Sovereignty is the most fundamental attribute of an independent state. It is the supreme, the absolute power by which an independent state governs itself. It is not controlled and is not controllable by any other power external to itself. It is the source from which all other specific powers are derived such as the power to do everything necessary to govern itself, the power to make and execute laws including laws to preserve its independence and its territorial integrity, to impose and collect taxes, to make peace or war, to form treaties with others, to engage or disengage in trade or other relations with other states and to regulate its own affairs without any foreign interference or intervention.</p><br /><p>Â 6. Sovereignty is therefore freedom. It is both its guarantee and its concrete manifestation. It ensures that freedom does not remain an abstract ideal or a complex concept that attracts only academic attention. Sovereignty ensures that freedom has a concrete political content.Â  In a democratic state, sovereignty derives its power and legitimacy from the free expression of the political will and choices of its citizens. In turn, a sovereign democratic state guarantees the political and human rights of all its citizens including the right to live in the existing boundaries of their territory.</p><br /><p>Â 7. TheÂ <a title="Constitution of Mauritius" href="https://en.wikipedia.org/wiki/Constitution_of_Mauritius">Constitution of Mauritius</a>Â states that theÂ <a title="Outer islands of Mauritius" href="https://en.wikipedia.org/wiki/Outer_islands_of_Mauritius">Outer islands of Mauritius</a>Â includes the islands ofÂ <a title="Mauritius" href="https://en.wikipedia.org/wiki/Mauritius">Mauritius</a>,Â <a title="Rodrigues" href="https://en.wikipedia.org/wiki/Rodrigues">Rodrigues</a>,Â <a title="AgalÃ©ga" href="https://en.wikipedia.org/wiki/Agal%C3%A9ga">AgalÃ©ga</a>, Saint BrandonÂ and theÂ <a title="Chagos Archipelago" href="https://en.wikipedia.org/wiki/Chagos_Archipelago">Chagos Archipelago</a>, includingÂ <a title="Diego Garcia" href="https://en.wikipedia.org/wiki/Diego_Garcia">Diego Garcia</a>Â and any other island comprised in the State of Mauritius. The Government of the Republic of Mauritius has stated that it does not recognise theÂ <a title="British Indian Ocean Territory" href="https://en.wikipedia.org/wiki/British_Indian_Ocean_Territory"><em>British Indian Ocean Territory</em></a>Â which the United Kingdom created by excising the Chagos Archipelago from the territory of Mauritius prior to its independence. The Republic of Mauritius claims that the Chagos Archipelago including Diego Garcia forms an integral part of the territory of Mauritius under both Mauritian law and international law.</p><br /><p>Â 8. The inhabitants of Chagos Archipelago just like the inhabitants of any region in Mauritius or Rodrigues have the inalienable right to live in the country they belong to. International law forbids any dismemberment or excision of any inhabited territory at and/or prior to independence.Â  Â These provisions of the Mauritian Constitution are in line with international law. The Charter of the United Nations Â - The âUniversal Declaration of Human Rightsâ (United Nations General Assembly, resolution 217 A (III), Dec. 10, 1948) provides in its Â Article 2 as follows:</p><br /><p><em>No distinction shall be made on the basis of the political, jurisdictional or international status of the country or territory to which a person belongs, whether it be independent, trust, non-self-governing or under any other limitation of sovereignty.</em></p><br /><p>Â Therefore, the rights of the population of Islanders in Chagos Archipelago were fully covered and protected under this international agreement, regardless of sovereign status. Â Article 9 of the same document claims that â<em>No one shall be subjected to arbitrary arrest, detention or <strong><span style="text-decoration: underline;">exile</span></strong></em>,â (my emphasis).<em>â </em>It was clearly the case that the British State did exactly what is not allowed. They forced the Islanders into exile and split the Chagos Archipelago from the territory of Mauritius in utter disregards for the latterâs sovereignty and, simultaneously, in utter disregard for the rights of the Islanders. There is an immense amount of violence involved when a whole group of people are exiled from their territory and from their homes.</p><br /><p>Â 9. Yet, there is more and worse. Â When it comes to assess the conduct of the UK, we have to be clear that we are not dealing withÂ  a state, an erstwhile colonial powerÂ Â  that , having fallen on hard times, desperately committedÂ  an act of grand larceny by grabbing a few acres of land and millions of square miles of ocean. Under US law grand larceny is a felony. There is no doubt that the UK acted feloniously but these is also no doubt that the US too acted criminally by taking possession and effective control of what it knows to beÂ  stolen property,Â  a territory that was acquired by means of a crime.</p><br /><p>Â 10. Â Indeed it was the US that gave the UK the not so bright idea of stealing Chagos Archipelago and Diego Garcia. We need to be clear and we need to be blunt: we are dealing with criminal States when we deal with the UK and the US. Both are partners in international crime and not for the first time. They behaved like Mafiosi and they still do.Â  Identifying them as criminals is not a pretext to insult them. It flows from the necessity to provide a forensic description of their conduct as colonial and imperialist states.</p><br /><p>Â 11. The gravity of their crime is to be found in Section 1 of Article 7 of the Rome Statute International Criminal Court.Â  We have there a description and the legal definition of the offence of â<em>crimes against humanityâ.</em> Section 1 of Article 7 consolidates the internationally accepted norms that have been in existence since the foundation of the UN in 1948. These norms have been legally valid before, during, and after the British expelled the Islanders.Â  <em>âCrimes against humanityâ</em> means and includes â<strong><em>Deportation or forcible transfer of population</em></strong>â.</p><br /><p>Â 12. This is exactly what UK and the US did. They perpetrated a heinous crime against the humanity, against the lives of the people of Chagos Archipelago and Diego Garcia.Â  Recently, the Mauritian Prime denounced the UK government as hypocrites who, like the UK, never tire to convince themselves but nobody else that they are champions of democracy, freedom, liberty and that they are willing to die in defence of their âWestern valuesâ. The truth is more sinister: they have always been willing to kill in their greedy quest for wealth and military supremacy to protect their loot.Â  It is true that they are hypocrites with no credibility and unworthy of any respect.</p><br /><p>Â 13. What is equally true is that they behave like lawless and arrogant gangsters that rely on violence and the threat of violence. Their military resources permit them to commit crimes against humanity time after time. The crime against the people of Chagos Archipelago and Diego Garcia is no novelty. Slavery, oppression of military weak native populations, exploitation, forced exile, deportation and massacres are intrinsic to the political conduct of colonial powers and of US imperialism. Their crimes are not singular.Â  They are capable and guilty of mass destruction.Â  We have the responsibility and the task to expose them to the peoples of the world for what they are: serial criminals with no respect for international law and for the sovereignty of free people across the world. The UK and the USA represent a dangerous threat to the dignity and security of humanity.</p><br /><p>Â </p><br /><p><em>JC Bibi</em></p><br /><p>Port Louis</p><br /><p>September 2016</p><br /><p>Â </p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

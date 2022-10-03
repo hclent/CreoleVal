@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612110651" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612110651" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612110651" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612110651" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612110651" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612110651" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612110651" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612110651" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612110651" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Rape & The Sexual Offenses Bill: a View from the Women's Movement</h1><p class="subtitle">25.04.2007</p></h1>
+	<p class="newsarticle">LALIT has received this analysis of "Rape" written by three members of the Muvman Liberasyon Fam, and who are also in Lalit, Lindsey Collen, Kisna Kistnasamy and Rajni Lallah. It was written in the context of the Government setting up a Select Committee over the Sexual Offenses Bill. The article has also been submitted to L'Express.<br /><br />RAPE & THE SEXUAL OFFENSES BILL : A VIEW from the WOMEN'S MOVEMENT<br /><br />PART I<br /><br />Our society for centuries denied that rape was a problem for women. This is a fact. When noticed at all, it was firmly assumed to be the victim's shame. And hidden. Or, alternatively, if men could blame an âenemy' for touching one of âtheir' women, this might ignite a lynch mob. So, there was a pattern of denial, shame, secrecy, and exceptionally, male gang-revenge.<br /><br />Whether the rape took place on the work site, in the home, or in public space, until very recently, the pattern was to hide it. This way society could go on denying its existence. But all along, slave women suffered it. The wives of planters suffered it, often within marriage. Indentured women suffered it. Modern workingwomen suffer it. No woman was exempt. No woman in patriarchal society is exempt. And we are all very angry. But anger alone will not change the world. Nor will excessive punishments.<br /><br />For years, the fear of patriarchy - the rape, itself, and the threat of retribution - kept women quiet.<br /><br /><br />LABOURERS' STRIKE AGAINST RAPE<br /><br />That was until the rolling strike organized by all Medine labourers in the early 1970s against the common practice of koloms and sirdars using their positions of power to organize the systematic rape of women labourers. Every day the strike was planned to move to another Annex. Just to prove how organized it was. And to avoid anyone being absent more than a day at a time, thus risking their job. Women and men labourers went on strike against rape. Showing society it existed, showing society that they did not agree. There was open debate then, but it was localized, not national. <br /><br />A few years later, the issue was taken up by the women's movement, when we had tout la peine du monde even to get the issue on the political agenda or in the media. The only political force that has ever responded as a party, to the women's movements call for thorough political debate was Lalit. Governments have sometimes responded through changing bureaucratic practices or laws, but in general with reluctance, and only as governments, not as parties.<br /><br /><br />WHAT THE WOMEN'S MOVEMENT WANTS<br /><br />We should remember what it is that the women's movement actually wants.<br /><br />We need to get beyond the narrowly legalistic notions being debated every day on the question of the Sexual Offenses Act, and debate the actual issues around rape and forced sodomy. And even more importantly, let us try to get beyond the illogical, punitive attitudes expressed in the Social Alliance Government's Bill, on the one hand, and the neo-fundamentalism expressed by the MMM and MSM, who block the Bill on the grounds that the law must continue to set the police on people who do not follow religious proscriptions. <br /><br />Let us remember that rape is unfortunately very common in our society, and that we must understand the entire phenomenon, which we cannot do by looking only at the small percentage of victims and perpetrators who will end up before the judiciary. It is, of course, not in the aims of the women's movement to make life easier for lawyers or policemen. It is our aim to make life better for the totality of women, and in so doing, for the whole of society. But let us be more specific.<br /><br /><br />RAPE AS AGGRESSION<br /><br />Our aim in the women's movement since 1976 was, and still is, to have society recognize first and foremost, both in its discourse and then in its dealing with the issue, that rape is a serious form of aggression. Not a big demand. This does not mean we want lynch-gangs roaming around looking for a whipping boy. That would remind us all too much of the days we were just the chattels of fathers and husbands, who avenged our loss of chastity. Nor do we want very long sentences handed down to offenders. Nor do we want to do away with the general presumption of innocence of an accused. We do not want revenge to be exalted by the State. Nor do we want to perpetuate any vicious cycles of violence in society. At the time of rape and afterwards, the woman often feels profound anger, and often a sincere desire to strangle the rapist. This is a normal emotional reaction. The women's movement recognizes any woman's need to burst out in anger. But we do not make the mistake of making this into our program for social change for women. It is not our program to strangle rapists, or to get the Judiciary to impose draconian punishments on them. Likewise, when we say we are sick of impunity, we specifically do not mean we want more punishment for rapists. What we want is for men to be held responsible for their acts of aggression, to have to rann kont to society, to have to face up to their own destructive act.<br /><br />What we want is for society to recognize soberly that macho men's domineering tendencies must be curbed socially, instead of being praised.<br /><br />All these things are what we aim at. We work towards them, by means of specific, rationally prepared demands for changes: for children not to be married off young, for rape to be outlawed within marriage, for incest laws to be voted, for Sexual Assault Units to be opened in hospitals so that women don't need to go to the Police Station. By debating and rallying around agreed demands, we have, in fact, changed the balance of social forces somewhat. <br /><br /><br />THE RAPIST IS THE OFFENDER<br /><br />Secondly, we want something else very simple. We want society to identify the rapist, not the victim, as the offender. And treat him as such. We object to male lawyers, for example, sniggering during rape trials. We object to the tone and content of many news articles on rape. We want this changed. And it has changed.<br /><br /><br />RAPE IN THE FAMILY AND SOCIAL CIRCLE<br /><br />Thirdly, we oppose rape being condoned, socially or legally, when it is perpetrated by a family member or by a husband. We campaigned for incest laws, and also, for instance, exposed and opposed the pro-incest proverb, âMo ti plant sa pye ziromon, alor premye leker bred pu mwa.' We criticize the old fundamentalist concept of âmarital duty to have sexual intercourse' because, amongst other things, it implicitly condones marital rape.  <br /><br /><br />MAKING IT EASIER TO SPEAK OUT<br /><br />Fourthly, we work to make it easier for women to speak about rape. It is as recently as 1995 that, for the first time, a serious, nation-wide debate took place in organizations outside the women's movement and even in the press. That is how recently the issue was put on the largely male-dominated public agenda. Through the years, the Muvman Liberasyon Fam has always put emphasis on avoiding hysteria when addressing this societal problem. And then when Sandra O'Reilly spoke out so courageously on radio even more recently, the issue of rape was again thoroughly dealt with in public. <br /><br />More recently still, the Arc-en-Ciel collective spoke out against the violence of homophobia. For the first time, society is now also facing the issue of the need to distinguish, both in life and in the law, between forced sodomy, imposed by macho males, that is to say a form of rape, and consensual relationships between adults. Ms Pramila Patten pertinently raised the issue of how the State cannot "s'immiscer dans la chambre a coucher de la nation".<br /><br /><br />REPORTING RAPE AT THE HOSPITAL<br /><br />Fifthly, we have developed particular demands, closely argued, so as to change the social conditions under which women report rape to the authorities. <br /><br /><br />RISK OF MURDER, IF SENTENCE HIGH<br /><br />Sixthly, we have repeatedly warned of the dangers of too high sentences increasing the risk of a murder after a rape. Ms. Rada Gungaloo and Sandra O'Reilly have, too. While most studies show that punishment is not a deterrent to crime, we also know that, after a rapist has committed his offense, during the course of covering his traces, he will soon realize that his victim is the only witness, and an excessive sentence may contribute directly to a decision to murder her.  <br /><br /><br />POLITICAL DEMANDS & A CHANGE IN THE BALANCE OF SOCIAL FORCES <br /><br />Seventhly, and this is perhaps the key issue and the one most neglected outside the women's movement, we also work to change the balance of social forces into women's favour, so as to make it easier for women to protect themselves from rape in the first place. This we do through demands for affordable housing, jobs for all women and a decent wage. Once women consciously make coherent demands and stand up for them, as we know, it already changes the balance of forces even before any other part of reality gets changed.<br /><br /><br />PROGRESS<br /><br />We have had some progress. <br /><br />Sexual Assault Units have been set up in most big hospitals, so victims of rape can go to the caring atmosphere of a hospital. It is there that a woman police officer will come and take the statement, if the woman wants to give one, but only after she has been cared for medically. <br /><br />Marital rape is now considered immoral as well as being illegal. <br /><br />Incest is universally condemned now in private discourse, as well as in the public domain. And is illegal too. Laws against incest were finally introduced in 1990.  <br /><br />Sniggering in Court during rape trials has decreased drastically. The tenor of press articles on rape cases has improved. <br /><br />The NHDC puts houses in women's names. Equal pay has been introduced in some sectors. <br /><br />Very important in changing the balance of forces is that the women's movement, in its alliance with the Chagossian women, during a series of street demonstrations and then arrests and court hearings in the 1980's, learnt an immense lesson from the women from Diego Garcia on how to know the power of women, relative not only to men, but to male bureaucratic hierarchies like the police. <br /><br /><br /><br />PART II<br /><br />Society, having denied rape first, now over-reacts <br /><br />Ever so recently society admitted that rape even exists. <br /><br />Now, no sooner does it recognize that rape actually exists, than it goes berserk and threatens, without so much as a mea culpa for its recent past treatment of women, to bring in barbarian punishments for the very acts that went on for so long with its blithe blessing. The heavy sentences in the Government's Sexual Offenses Bill, which is now going to a Select Committee, is part of an hysterical reaction. Further hysterical reactions, often homophobic, from the parliamentary Opposition and religious fundamentalists of all ilk, have also begun against the more enlightened aspects of the Bill, like its criminalizing sodomy when it is forced, thus correctly making caduque the old fundamentalist law against sodomy. Pravind Jugnauth and Paul Berenger seem blind to the fact that their position means they are in favour of police officers standing on their jeeps, like in Apartheid South Africa they did, in order to see who is committing a sexual âoffense' in their own beds, after their neighbours reported them.<br /><br />In this article we are looking principally at the roots of the hysteria around the present debate on rape laws. <br /><br /><br />MARRYING OFF 9-YEAR-OLDS IN RECENT PAST<br /><br />Until 1981, our polite Mauritian society allowed parents to marry off their daughters at the age of 15, and under special circumstances with the agreement of a Judge, at the age of 9 (nine) years old. Before this, not only did society acquiesce in this archaic practice, but also the law permitted it. All those marriages were, of course, so much socially consecrated rape. We need to remember that the only political movement that took position at the time was the Lalit current. We also need to admit that editorialists never bemoaned the situation. Priests of all denominations remained silent, at best. We need to let the truth sink in. Instead of brushing it under the carpet. <br /><br />Then, in the women's movement, we got organizing. We ran petitions, forums, public outdoor meetings, programs of demands, and street demonstrations. There was Muvman Liberasyon Fam, La Ligue Feministe, Mauritius Alliance of Women, Association des Femmes Mauriciennes plus literally scores of local secular Women's Associations, and we were all together in the Solidarite Fam. Even the conservative Ecole Menagere of France Boyer de la Giroday was part of the movement. We set up big common fronts of women's organizations to confront âsociety' on this kind of practice and this kind of law that was abusive of girls. And, in our struggle for a new legal framework, we succeeded in changing society's prejudices enough to get the major legislative amendments of 1981 through Parliament. This was a mere 25 years ago. And yet practices such as marrying 9-year-olds, and the laws that allowed them, got forgotten on the spot by male-dominated society. As did the struggle that had been necessary to get them changed. As if they had all never existed. But all this past lives on, if not in our conscious minds, in the collective unconscious. Because today's consciousness grows out of yesterdays. And, when we think we are just âforgetting about' the past, without re-working it into the present, it tends to surface as hysteria.<br /><br /><br />DENIAL<br /><br />Polite society was also in denial about the existence of any form of rape at all until some 12 years ago. We, in the women's movement, were derided for being extremists for mentioning it. Rape was âthe woman's fault' because she wore âprovocative clothes', said the great majority of opinion leaders in society. A priest once said exactly that. It was at a public forum, and he and MLF were speaking on the subject on the same platform. âWomen,' it was regularly said in the press âlike' being raped because, as is still being said in the press until last week, they supposedly âlike strong men'. What is stronger than a rapist, you may ask. Women, people said, should not go to lonely places, or out at night, etc. A tourist who was raped inside her hotel room, was criticized in the press for sleeping on her own bed without clothes on. Her fault again. Many newspapers used the words âallegedly' about 20 times in the course of an article in which the text informed you that a woman had clearly actually been raped. Marital rape was considered a contradiction in terms. A man, all polite society assumed, had the right and even the duty to have sex with his wife, like it or not.<br /><br /><br />SHOTGUN MARRIAGE TO THE RAPIST<br /><br />The families of young girls who had been raped would not unusually organize shotgun marriages with the rapist. Sometimes they threatened to castrate the man, other times to report the rape to the police.<br /><br /><br />WHAT THE WOMEN'S MOVEMENT WANTS<br /><br />What the women's movement wants from society is a recognition that rape is assault. We want society to criticize macho men, in general, when they impose themselves on women, on other men, or on children. We want clear laws, not punitive sentences. We want women to be strong enough to refuse unwanted sex. We demand that women be financially independent, so that we can leave partners that rape us. We demand housing for single women at prices we can afford. We want men, in those cases where it can be proved in Court beyond a reasonable doubt, to be found guilty. We would also like them never to rape us or anyone else again. We want society to organize for them to re-habilitate themselves, or, as Ombudsperson for Children, Ms Shirin Aumeeruddy-Cziffra, correctly states, "aussi de faire de la prevention". We do not want rapists sent to the kinds of prisons where they will themselves be raped and mentally damaged so that, when they come out again, they are so messed up that they abuse women even more than they did before.<br /><br /><br />WHO ARE THE RAPISTS?<br /><br />We want people, including lawmakers, police, the press and lawyers to recognize, and to remember day-in and day-out, that most rapes are within the family, or within a close circle of one's friends. It's not mainly to do with a load of âcriminals out there', that if we can just round them all up, lock them up with a padlock, then society will be forever free of rape. No, it's not like that. It's often our most ordinary friend or cousin or colleague who is the rapist. The person sitting next to us in the office or the boss or a neighbour. That's what is so terrible about rape. Patriarchy allows ordinary, nice men to get away with hideously domineering behavior. Rape being just among the worst examples of this abusive behavior. In the women's movement, we estimate that only a small minority of men can honestly say they never have and never will rape a woman, given the kind of patriarchal society we still live in. It's ordinary groups of ordinary men that perpetrate the worst of rapes, gang rapes, after all.<br /><br /><br />WHAT DO RAPISTS DO WITH THEIR PASTS?<br /><br />What proportion of men now over 18 years old have had sex with a girl under 16? Maybe a third? They would face 45-year sentences soon. Imagine the psychological pressure when, just at the very time that they, together with the rest of society, are consciously accepting that rape exists and is reprehensible, they simultaneously realize that they, themselves, are amongst the rapists? What are these men doing with their own pasts now?<br /><br />They panic. They want to hide it, naturally. They deny it, even to themselves. They want to forget it. Lock the very thought of it away for 45 years, or even 60.  <br /><br />That's how bad things are. And how ordinary, at the same time. Those who have on occasion raped young girls under 16, just like those who have on occasion raped their wives, are all around us.<br /><br />In the women's movement, we are in the privileged position of even knowing many, many of the rapists by name. Women tell us their true stories. We don't go hysterical. The men concerned, it might surprise people to know, are most often in respectable jobs. They are sitting behind executive desks, making speeches in public and writing in the columns of the press. Many seem quite re-habilitated, we are pleased to say. What we would wish is that they, and the whole of society, acknowledge their own recent pasts, so that they can admit, at least to themselves, that the attitudes that permitted them to abuse women, were unacceptable. And that what they did was harmful. This realization would be progress. It's not a question of going and telling the police about these men.<br /><br /><br />NOT JUST THE CASES THE POLICE HEAR OF<br /><br />In reality, many victims of rape do not go to the police. Just as for any other criminal case one is victim to, whether burglary or a âthreat in writing', before actually reporting a case to the police, you typically discuss with friends whether it is worth the emotional energy, the days off work, the potential reprisals, the social upheaval, the police brutality you might provoke, the money you might need to pay a lawyer to do a watching brief, the risk of not being able to prove rape, as well as the risk you naturally run of being liable for making a false and malicious denunciation. These issues are all in addition to what are generally accepted now as the particular torments, some eminently avoidable were procedures different, that women have to go through: having to go into a police station, having to tell police officers, lawyers, prosecutors, judges, the press, the public about a traumatic experience, having to use sexual terms used little in public discourse, having to refer to the private areas of one's body and having reference made in Court to one's past sexual experience or having to get the family's breadwinner jailed.<br /><br />Fortunately, women no longer have to go to the police station, but can report directly to the Sexual Assault Unit at Jeetoo, Victoria, J. Nehru, Flacq or SSR Hospitals. Rodrigues still does not have these Units. In the five hospitals, according to a government âProtocol', a woman police officer will come to the Unit in due course, should you wish to give a statement. The police medical officer will consult you, as a patient in a medical environment, and not as a specimen in a criminal case in a police environment.<br /><br /><br />WITHIN MARRIAGE<br /><br />A woman who suffers marital rape or forced sodomy within marriage urgently needs to be able to act so as to prevent it happening a second time. She needs to be able to leave her husband immediately, or get a protection and eviction order to get him out immediately, she needs to get a place to stay temporarily and then permanently, to get a divorce cheaply and easily, and to be able to support herself, through a job or unemployment benefit. Fortunately, the Domestic Violence Act gives some protection, and its existence protects many women who never actually use it. But, society right now seems to care little about the social needs of a raped wife, and instead, in its state of hysteria, wants her to get her husband locked up in a jail - even if for 45 years. What the women's movement wants recognized is that women's position in society must be such that they can prevent marital rape, or, when it happens, they have the power to at least avoid it recurring.<br /><br />In the women's movement, we do not want the law to sanction 45 years of sequestration. 45 years in a prison is simply draconian. Let alone 60 years. In the women's movement we have not given up on the power of human beings to regenerate themselves, to change, to recover from what may have been their own past trauma. But the jails, as they are, won't help that at all. In the women's movement we have not given up on taking some risks either, risks taken in the interests of remaining civilized in our sentencing. Nor do we want the State to take revenge on our behalf. And we certainly do not want, as VAT taxpayers, to send prison guards to work in the conditions that prevail in prisons where men are locked up without any hope in their futures.<br /><br /><br />UNEQUAL BALANCE OF FORCES MUST CHANGE<br /><br />One thing is for sure. The unequal balance of social forces between men and women and the patriarchal hierarchy by which some men have power over women âunder them', which are the root causes of rape including marital rape, won't be changed in women's favour by a few men, or even many men for that matter, being locked up cruelly for 45 years. On the contrary, the balance of social forces will tip further against women. This kind of draconian punishment will just be so much more sadistic, macho, violent, anti-social behavior in society - sanctified by the State, to boot - which will come round to being inflicted on women again in one big vicious cycle. <br /><br /><br />EXCESSIVE SENTENCING HARMFUL <br /><br />It is not only us in the Muvman Liberasyon Fam or us in Lalit who oppose excessive sentencing. Here are some quotations taken from the conservative newspaper, the Daily Mail, from a conservative pillar of society, the Lord Chief Justice, in a fairly conservative society, England. In the context of the Criminal Justice Act of 2003 when the sentence for a typical murder was being raised by the Blair Government back up to its 15-year level, Lord Chief Justice Phillips said he thought that a five-year prison sentence was a âvery weighty punishment indeed', and the Daily Mail says he compared the advocates of long sentences with the bloodthirsty mobs of the 1700s. He criticized the press for baying for long sentences, saying âsuch publications were an incitement to the public to exact vengeance from offenders' and that this desire for vengeance was ânot dissimilar from the emotions of those who thronged to witness public executions in the 18th century'.  He referred to âutterly barbaric' practices like flogging, saying, âI sometimes wonder whether, in 100 years' time, people will be as shocked by the length of the sentences we are imposing as we are by some of the punishments of the 18th Century.' A Google search on his name will bring up more details of his speeches.<br /><br /><br />WHERE DOES THE HYSTERIA COME FROM?<br /><br />The question we have to ask is where did this âincitement to the public to exact vengeance from offenders' come from in our own recent history. The answer is clear. When political parties are in Opposition, especially when they are too weak to attack the Prime Minister of the governing party on political issues, they fall back on attacking him as Minister of the Interior. In France, we can see this kind of politics from the extreme right Le Pen who mobilizes people for more âlaw and order' i.e. more repression. It is essentially a kind of politics that gains its social force from mass hysteria. Genuine, very serious social problems, whether drug taking or hold-ups, prostitution or rape, are pointed to, feelings are whipped up, and the Government is goaded into becoming more repressive. This started in 1983, when Paul Berenger was in Opposition, and he has maintained the line unabashedly ever since. He has been joined by everyone else, in turn, in the mainstream Opposition ever since. This includes the present Government. He has often even been over-taken on his right by first Aneerood Jugnauth and then Pravind Jugnauth, both when they are in Opposition and in Government. The Press has often unfortunately given a hand, especially when it is the MMM that is raising the hysteria. The only program that is implied in this âincitement to the public to exact vengeance from offenders' is simple-minded: The party's demand (i.e. its Program) is for more repression. <br /><br /><br />SOCIAL ILLS NEED TO BE ADDRESSED<br /><br />The assumption of this totally erroneous political line is that the police and the prison services can cure social ills, which, in reality, have very specific social causes which need to be addressed, which of course every thinking person knows. The knowledge that there are other social issues that need tackling is sidestepped through creating hysteria. The generally acknowledged fact that long sentences are not a deterrent is ignored. Rehabilitation is rarely even mentioned. Even keeping someone out of society, for society's good, as is sometimes needed, is not argued. People are roused to wanting bloodthirsty revenge. Their immediate reaction of anger against the offender is thus converted into the most harmful of social strategies, one that is counter-productive.<br /><br />Today even women's oppression is suffering this fate. How could the strengthening of the patriarchal structures of the police and prison services ever contribute to the emancipation of women, let alone of society? Repression can never contribute to resolving socially caused ills. It only adds further ills, some even more intractable. Police brutality, to name one. And it runs the risk of inexorably bringing us nearer to engendering a police state, the ultimate enemy of women.<br /><br /><br />EMANCIPATION<br /><br />Social ills have other causes, and other ways of being resolved. Women's oppression is no exception. These ills must be addressed by collective political actions around clear, shared programs. Such programs are conscious analyses and demands, which come out of the development of a common understanding of the present history of society, which, in turn, happens during the process of organizations seeking real change. Programs also involve a shared comprehension of which particular forces in society are more likely to bring change for the better. Likewise, our program informs us that a police State and prisons full of lifers are totally negative forces for women's emancipation. They are negative forces full stop. <br /><br />Lindsey Collen, Kisna Kistnasamy, Rajni Lallah<br />for the Muvman Liberasyon Fam<br /><br />23 April 2007<br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

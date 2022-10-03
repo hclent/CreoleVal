@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095809" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095809" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095809" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095809" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095809" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095809" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095809" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095809" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095809" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>LALIT Open Symposium: Alain Ah Vee on the Importance of Written Kreol in Decolonization (in Kreol)</h1><p class="subtitle">06.09.2018</p></h1>
+	<p class="newsarticle"><p align="center">Â <strong>LINPORTANS KREOL EKRIT DAN PROSESIS DEKOLONIZASYON</strong><strong></strong></p><br /><p>Â Mo papye pu an kat parti. Mo pu kumanse par enn sirvol politik langaz dan Moris. Apre mo pu getÂ  Â Kreol ekrit ek koabitasyon langaz Angle-Franse. Mo pu explik answit lor sa travay konstan ki finn fer pu devlop Kreol ekrit, e pu termine mo pu get lavenir lalit pu akseler prosesis dekolonizasyon.</p><br /><p><strong>Â 1. POLITIK LANGAZ DAN MORIS</strong></p><br /><p>Depi lindepandans Leta Moris finn adopte enn politik langaz ki exklir langaz Kreol, sirtu so form ekrit, depi tu linstitisyon ofisyel. Itilizasyon langaz Kreol finn swa redwir zis pu sertin kominike, ubyin alokazyon sertin evennman kuma Festival Kreol ubyin dan fason limite kuma lang opsyonel dan lekol. Anmemtan Leta finn swazir pu mintenir sipremasi Angle ek Franse parey kuma pandan lepok kolonyal. Me Kreol ekrit finn res invizib dan bann minister e dan preske tu linstitisyon Leta.</p><br /><p>Ziska zordi ki li Parlman, Minister, diferan departman, zot tu itiliz prinsipalman Angle pu zot fonksyonnman, pu zot dokimantasyon, pu zot regleman intern ek pu tu zot korespondans ekrit. Mem si Moris nepli enn koloni depi 50-an politik langaz ofisyel finn kontiyne favoriz Angle ek Franse. Sa predominans Angle, uswa Angle ek Franse, li kodifye dan plizir lalwa, regleman. Parmi, ena ki dat depi lepok kolonyal kuma lalwa lor langaz ki servi lakur lazistis ek lalwa lor ledikasyon kot definir medyom ki servi dan lekol primer.</p><br /><p>Ala seki sa bann lalwa ek regleman dir:</p><br /><p>- <strong>Courts Act (1945):</strong> Angle lang ofisyel dan Lakur Siprem me kapav servi Kreol oral. Me tu text-delwa, tu zizman, tu kominike bizin an Angle. Dan Lakur Intermedyer ek Distrik, Angle ek Franse zot lang travay me temwin kapav servi langaz de so swa. [Ena enn ka dan Lakur Siprem ki finn reysi fer enn felir dan miray institisyonel se Ka Kramutally (1989). Akize dan sa ka la pa ti konpran ni Angle, ni Franse. Alor so avoka ti dimande ki prose la derul an Kreol. Dan so Zizman, Ziz Ahnee ti konklir ki derulman Lakur an zeneral bizin swa dan langaz ki akize konpran (dan ka divan li, li ti M. Kramutally, alor an Kreol) ubyin bizin ena enn interpret pu tradir tu seki pe arive dan Lakur pu li.</p><br /><p>- <strong>Education Act (1957):</strong> Dan Standar 1 ziska 3, medyom li pu dan langaz ki Minis konsidere konvenir zelev. Pu Standar 4 ziska 6: Medyom Angle. Dan sa Ak la li osi dir ki Minis pu veye ki Angle anseyne avek efikasite e propaze partu dan Moris.</p><br /><p><strong>- Registration of Association Act (1978)</strong>: Tu lasosyasyon bizin gard zot liv kont, dokiman uswa rikord an Angle uswa Franse (si li dan enn lot langaz, bizin tradir an Angle u Franse). Anplis seksyon 25 (2) (b) dir ki pu kalifye pu fer Prezidan, Trezorye, Sekreter fode konn lir ekrir Angle uswa Franse.</p><br /><p>- <strong>Konstitisyon,</strong> <strong>Seksyon 49</strong>: Angle langaz ofisyel Lasanble Nasyonal (Parlman), me kapav adres Spiker an Franse. Kalifikasyon pu fer depite [Seksyon 33(d)] Enn dimunn pu kalifye selman si li â¦ kapav koze e osi lir Angle sifizaman byin pu li kapav partisip aktivman dann travay Lasanble.</p><br /><p>Â Sa bann lalwa ek Regleman konstitye ankadreman legal ki garanti sipremasi Angle ek Franse e asire ki Kreol pratikman exkli dan bann linstitisyon Leta. Purtan Angle ek Franse, zot pa 2 langaz ki dimunn Moris servi tulezur, alor ki Kreol finn vinn premye langaz dimunn pli koze. Dernye sif Resansman 2011 montre sa klerman kot 84% dimunn finn deklare zot normalman koz Kreol lakaz, setadir 14% plis ki dan mem resansiman an 2000. Seki vedir ki langaz Kreol finn vinn langaz nasyonal, langaz lepep Moris. Kifer lerla tu lekritir ki servi dan bann linstitisyon Leta ankor tuzur dan 2 langaz etranzer? Li enn sityasyon absird.</p><br /><p>Anfet, sa sityasyon langaz la finn perpetye depi dernye 50 an par diferan parti opuvwar ki li Travayis, MMM, MSM, PMSD. Zot tu finn swazir pu mintenir sa represyon kont langaz Kreol. Mem si, su presyon depi lorganizasyon ki milit anfaver langaz Kreol, finn ena sertin avanse pu Kreol ekrit, bann sanzman res byin timid e ase limite. Sa politik langaz la alafin finn benefisye sirtu klas tit burzwazi ki ena enn metriz relatif Franse ek Angle. Paran lib pu explik liv lekol an Kreol ar zot zanfan. Sa politik la osi benefisye burzwazi deta pu so demars vizavi bann linstitisyon Leta pu li katapilte limem dan burzwazi. Me li enn politik ki finn odetriman zanfan tu klas. Me, li dubleman odetriman zanfan klas travayer ki an gran mazorite pa ena sifizaman konesans Angle-Franse pu ed zot zanfan dan zot ledikasyon formel uswa pu kapav benefisye depi enn lanvironnman ekrit domine par sa 2 langaz la.</p><br /><p><strong>Â 2. KREOL EKRIT EK KOABITASYON ANGLE-FRANSE</strong></p><br /><p>Depi tultan bann latak kont langaz Kreol finn sirtu konsantre kont so lekritir.</p><br /><p>Mem si nepli ena otan sa bann mem latak feros iltra-rasist kont langaz Kreol kuma ti ena dan lagazet <em>Le Mauricien</em> dan lane 1960-70, zordi ankor ena rezistans kont Kreol ekrit. Li vinn sirtu depi kuran pro langaz Franse. Dan enn lartik <em>LâExpress</em> 25 Me 2018 Raymond DâUnienville atak Lortograf Kreol Morisyin ki <em>La Vie Catholique</em> servi e ki zanfan lekol pe aprann. Ala ennde extre so lartik: â<em>le crÃ©ole, que Charles Baissac accepte avec difficultÃ© comme patois, est fille du franÃ§ais â¦ <em>Lekritir Kreol</em></em>, <em>dont lâabÃ©cÃ©daire se rÃ©vÃ¨le tout de suite mortel pour toute appartenance du crÃ©ole au franÃ§ais</em>â. Alor pu R. DâUnienville, Kreol nek enn derive Franse, alor so lekritir bizin swiv lortograf franse; li pa dakor par exanp ki servi <em>k</em> ek <em>w</em> ki li kalifye kuma âAnglo Slavâ. DâUnienville, parey buku defanser langaz Franse, tultan pe dekrir langaz Kreol kuma enn langaz ki finn pran so vokabiler depi Franse, kumadir li depandan lor Franse, inpe kumadir enn sibaltern langaz Franse. Pu zot, Kreol pa kapav existe par li tusel, fode so lortograf res pli pros ki posib ar Franse. Li asime ki enn zanfan ki aprann Kreol deza konn Franse! Alor ki Kreol ek Franse zot anfet 2 langaz diferan, ki pena mem sistem gramer. E, ki vokabiler Kreol byin diferan depi Franse. Mem si li vre ki ena buku mo Kreol sorti depi Franse laplipar sa bann mo finn sibir enn transformasyon kan finn ena sa pasaz depi Franse ver Kreol la. Nu kapav mem dir ki finn ena enn fraktir, enn kasir. Par exanp, an Kreol pa servi verb âÃªtreâ, â la tableâ finn vinn âlatab laâ, bann mo kuma âmatloâ, âlakrasâ, âpers linzâ, uswa âalertâ pena mem sinifikasyon ditu an Kreol ki an Franse. Latak dâUnienville kont lortograf Kreol repoz alafin zis lor prezize kolonyal.</p><br /><p>Li bon note ki Gerard Ahnee finn ekrir enn lartik briyan dan <em>LâExpress</em> 3 Zin 2018, pu reponn DâUnienville so bann latak kont Lortograf Kreol Morisyin.Â </p><br /><p><strong>Â Kimanyer langaz Franse finn mintenir so pozisyon for dan bann linstitisyon?</strong></p><br /><p>Li pa vremem etonan ki tusa deba lor Kreol pe derule an Franse dan enn lagazet preske antyerman an Franse. Langaz Franse finn okip enn plas privilezye dan lapres depi lepok kolonyal. Anfet li finn tultan enn politik Lafrans pu inpoz langaz Franse dan tu so koloni. Dan koloni Franse langaz esklav zame pa ti ena so plas dan linstitisyon Leta. Diferan langaz Kreol ti trete swa kuma dyalek, swa kuma patwa, swa ti kraz langaz la net. Langaz esklav pa ti ena okenn stati, pa ti servi preske ditu onivo ofisyel, sirtu an form ekrit, apar parfwa pu evanzelizasyon.</p><br /><p>Â Dan Moris parey, Franse finn res langaz dominan pandan kolonizasyon Franse e finn reysi mintenir so pozisyon privilezye mem su kolonizasyon Britanik â ki li ti dan linstitisyon Leta uswa dan lapres. Sa li angranparti rezilta presyon politik, atraver plizir âbatay petisyonâ, etc par diferan kus dan burzwazi ek tit burzwazi. Kolonizater Britanik finn mintenir sipremasi Angle me li ti bizin fer enn plas pu Franse osi, dan sertin linstitisyon pu kalme lakoler regrupman pro-Franse. Listorik otur lezislasyon lor langaz pandan kolonizasyon Angle donn enn lekleraz lor sa sityasyon ki Moris finn erite la.</p><br /><p>Â <strong>1810: Ak Kapitilasyon </strong></p><br /><p>Pu mintenir prezans langaz Franse akote Angle dan linstitisyon Leta so bann defanser finn suvan baz zot revandikasyon lor enn interpretasyon erone enn lartik Ak Kapitilasyon ki reprezantan Britanik ek Lafrans ti sinye swit a batay Vye Gran Por an 1810.</p><br /><p>Lartik 8 dan sa Ak la suvan finn site pu zistifye itilizasyon Franse dan linstitisyon Leta.<strong> </strong>Enn lartik ki finn osi sulev kontrovers. Anfet dan sa lartik 8 Â la pena okenn mansyon langaz Franse. Ala seki lartik 8 dir: <em>Que les habitants conservent leur religion, lois et coutumes</em>. Li ofet wityem lor enn lalis dis lartik; li lartik pli kurt ek pli vag. Li anfet vinn apre plizir lartik lor bann konsiderasyon militer konsernan bann prizonye ek bato deger Franse. Bann pro-langaz-Franse finn apiy zot buku lor sa lartik 8 pu fer presyon lor Britanik, e pu gard sa garanti itilizasyon Franse, akote Angle, dan Parlman, dan zidisyer ek dan lezot linstitisyon ziska zordi, 200 an plitar.</p><br /><p>Â Ant 1810 ek 1860 finn ena plizir <em>batay petisyon</em> ki ti reperkite dan lapres kan lagazet kotidyin ti met dibut Moris â enn-de bann pli vye lapres dan lemond. Ti ena konfli ant regrupman pro Franse (burzwazi sikriye atraver <em>Le Cerneen</em> fonde 1832 ek <em>Le Mauricien</em> fonde 1834 dan so premye inkarnasyon) pro Angle (otur grup <em>La Sentinelle</em> dan so premye inkarnasyon fonde a lepok 1843).</p><br /><p>Ena ennde letap inportan ki vo lapenn mansyone pandan sa lepok la.</p><br /><p><strong>1831</strong>, Lord Goderich, Minis bann koloni, adres enn kominike a guverner Moris dan lekel li dimande ki tu dokiman lakur ki an Franse bizin ena so tradiksyon Angle. Li osi exize ki tu korespondans ofisyel ar Moris bizin an Angle; li anmemtan invit popilasyon ek fonksyoner Moris pu aprann Angle. Sa muv la ti kwinsid avek tansyon ki ti leve ant kolon Franko-Morisyin ek ladministrasyon Britanik apre abolisyon lesklavaz.</p><br /><p><strong>1839</strong>: <em>Rules of Court</em> exize ki okenn avoka/avwe otorize plede dan Lakur amwin li ena ase konesans Angle.</p><br /><p><strong>1841</strong>: Enn <em>Order in Council</em> Britanik statye ki tu lalwa Moris bizin an Angle. Tu kominike ofisyel bizin ekrir zis an Angle e zot versyon Franse pu konsidere zis kuma enn tradiksyon e pa enn dokiman orizinal. Zis seki an Angle ki pu ena fors delwa.</p><br /><p><strong>1845</strong>: Enn<em> </em>nuvo <em>Orders in Council</em> statye ki li obligatwar servi Angle dan Lakur Siprem (ki pu vinn efektif apartir 1847). Sa desizyon la pu antrenn reaksyon vyolan dan lapres <em>Le Cerneen</em> ek <em>Le Mauricien</em> ki kalifye desizyon Britanik la kuma arbitrer. Ti ena 2 petisyon pu defann langaz Franse adrese a Larenn depi kolon Franko-Morisyin. Lerla ena kont petisyon pro-langaz Angle depi grup ki ti apel zotmem â<em>dekuler</em>â (parmi ena Celicourt Antelme, Emile Vaudagne (redakter <em>La Sentinelle</em>), ek ennde Angle. Ti ena mem manifestasyon divan loz Franmason, afrontman avek lapolis, arestasyon.</p><br /><p><strong>1856</strong>: Guverner Higginson transmet Larenn enn petisyon pro-Franse depi kolon kot zot reklam itilizasyon Franse parey Angle dan Lakur e pu tu lalwa piblik ek pu ladministrasyon. Sa petisyon la ti mem repran dan lapres an Frans. Pu ena nuvo kont petisyon depi grup <em>La Sentinelle</em> ki apiy zot revandikasyon lor baz ki zot regrup plis dimunn e ki zot swadizan ena sutyin esklav libere ek travayer angaze. Su presyon Guverner Higginson rekomand Minis Koloni pu fer 2 konsesyon:</p><br /><p>1. Tu dokiman an Franse ki sumet kuma prev dan lakur Siprem pa bizin so tradiksyon Angle.</p><br /><p>2. Abitan Moris otorize servi langaz de zot swa pu sumet zot pwin devi, doleans ekrit ar lotorite.</p><br /><p><strong>1858</strong>: Alafin Minis Koloni deside ki tu reket/doleans adrese a lotorite kapav an Angle swa Franse.</p><br /><p>Bann pro Franse byin akeyir sa konsesyon la e zot santi bizin sezi sa moman pu fer enn forsing e zot avoy enn memwar Minis Koloni pu ki etann sa konsesyon la dan zidisyer. Me pu ena enn kont memwar depi ziz Lakur Siprem e alafin Minis Koloni desid pu risponns anfaver bann ziz.</p><br /><p><strong>1860</strong>: Nuvo petisyon pro Franse pu dimann revokasyon <em>Orders in Council</em> 1845 kot zot konteste antrot, sa argiman grup <em>La Sentinelle</em> ti servi kumkwa zot kan reprezant pli buku dimunn. Dapre bann pro-Franse, imigran depi Lenn pa konn Angle, parey kuma lezot grup popilasyon Moris. Pa ti ena okenn kont petisyon. Me Guverner Stevenson pa prese pu remet petisyon pro-Franse a Minis Koloni. Li pu etidye zot demand e rod konsey legal depi bann ziz ek Parke. Li desid pu servi diplomasi, adres li direk a popilasyon. Li fer enn deklarasyon pu dir ki <em>Orders in Council</em> 1845 pa viz pu priv abitan Moris de zot drwa natirel, ki li pa finn ena dezir pu al alankont Ak Kapitilasyon, ki depi 1810 plizir lalwa Angle finn vinn grefe ar korpis ziridik Franse ki ti existe e donk li dan lintere tu dimunn ki bizin pas lakur, ki prosedir Lakur Siprem ekrir dan enn sel lang. E li presize ki sa restriksyon la pu aplikab zis pu avoka ek lezot profesyonel ki exerse dan Lakur Siprem e pa pu dimunn ki bizin pas divan lakur, ki pu ena drwa koz dan langaz de so swa. Apre sa lepok konfontasyon ant pro-Angle ek pro-Franse la, tu pu kalme.</p><br /><p><strong>Â </strong>Seki nu remarke dan sa peryod kolonizasyon Britanik la se enn mank koezyon ek koerans kote Angle lor aksyon bann guverner, lor direktiv Colonial Office ek ant aksyon diferan guverner konsernan politik langaz ki bizin aplike dan Moris. So konsekans seki sa finn permet ki dan plizir linstitisyon Leta langaz Franse finn gard so plas akote Angle.</p><br /><p>Â Depi Lindepandans diferan rezim finn mintenir samem bilingwis Angle-Franse dan linstitisyon Leta e kot Angle ena rol santral ki li onivo Minister, Zidisyer, departman piblik ek para-etatik, Rezistrar Lasosyasyon. Enn so lefe sa politik langaz la seki liânn reprodir dan diferan sfer puvwar enn elit intelektyel ki anfaver gard statiko onivo langaz, setadir mintenir sipremasi langaz dominan lepok kolonyal, setadir Angle ek Franse. Samem elit la ki pe tultan frenn uswa kareman blok devlopman langaz Kreol.</p><br /><p><strong>Â 3. DEVLOPMAN KREOL EKRIT</strong></p><br /><p>Devlopman Kreol ekrit finn intiman lye ar lalit pu emansipasyon, ar lalit pu sosyalism. Si dan lepok kolonyal finn ena itilizasyon Kreol ekrit, li ti plito limite zis pu ennde evennman spesifik kuma Proklamasyon pu anons abolisyon lesklavaz par Guverner Nicolay le 17 Zanvye 1835. Lezot text an Kreol ti sirtu pu propaz larelizyon. Kan nu get lalis piblikasyon an Kreol par exanp ant 1810-1869 ena 10 liv Katesis, 39 poem (10 ladan tradiksyon).</p><br /><p>Â Anfet se dan bann lane 1970 ki pu kumans ena revandikasyon anfaver langaz Kreol e anfaver devlopman enn pli gran varyete liv an Kreol. MMM, MMMSP, LâOF ek <em>Lalit deklas</em> (ki pu vinn parti LALIT an 1982) finn bann prinsipal lorganizasyon ki ti revandik itilizasyon Kreol. Li vre osi pu dir ki kote resers, literatir, teat ek lamizik finn ena kontribisyon plizir lingwis, ekrivin, poet, artis, grup teat ek grup kiltirel pu devlopman Kreol ekrit, osi byin ki lorganizasyon sosyal kuma LPT, Playgroup, Muvman Liberasyon Fam. Plis preske tu lorganizasyon ti servi Kreol oral.</p><br /><p>Mem si buku lorganizasyon sa lepok la ti servi Kreol oral dan zot aksyon, me laplipar pa ti inplike dan enn veritab travay pu devlop enn sistem ekrir Kreol e pu pibliye regilyerman bann text an Kreol. Li sirtu LALIT ki dan enn fason sistematik depi 1976 finn pibliye tut enn koleksyon text an Kreol e finn rann langaz Kreol ekrit pli vizib. Ant Desam 1976 ek Zin 1981 Grup <em>Lalit deklas </em>pibliye 48 nimero Revi <em>Lalit deklas</em>, enn Revi analiz politik antyerman an Kreol. Revi la pu kontiyn sorti dan enn seri nimero Spesyal ek ziska zordi ankor pe sorti kuma enn revi bimansyel. So nimero 133 finn sorti an Zin. Parmi lezot piblikasyon regilye finn ena osi 111 nimero lagazet LALITÂ  ek enn seri ti liv lor diferan size dan Program Lalit san kont par santenn diferan trak, dokiman, lafis, poster an Kreol.Â </p><br /><p>Seki interesan pu konstate seki sa devlopman Kreol ekrit la finn fer par nesesite politik, par nesesite pratik. Parski politik LALIT repoz lor rol lavangard ki klas travayer bizin ena dan lalit pu sosyalism, ti ena nesesite prodir literatir politik adrese sirtu a klas travayer. Sa kalite text la pa kapav dan lot langaz apar Kreol. Anmemtan LALIT ti ule travayer ekrir dan so piblikasyon. La osi, pa ti kapav dan lot langaz apar Kreol. Alor kumsa ki LALIT finn regilyerman pibliye text politik an Kreol ki li dan so aksyon politik lor terin uswa dan kanpayn elektoral. Akoz sa osi ki militan LALIT finn tultan aktif dan travay LPT anfaver literesi adilt ek promosyon Kreol ekrit parski metriz zuti lir-ekrir li indispansab dan kad lalit pu emansipasyon e pu sosyalism.</p><br /><p>Li osi pu mem rezon pratik ki LPT finn prodir literatir an Kreol parski ti bizin liv pu servi dan kur literesi ek pu devlopman enn lanvironnman ekrit pu zelev kur. Li parey pu Playgroup ki finn kree ek pibliye enn panopli liv pu zanfan. MLF osi prodir regilyerman literatir an Kreol lor diferan size konsernan so lalit pu liberasyon fam. Buku sindika, lasosyayon, korperativ finn pibliye diferan text an Kreol dan kad zot travay ledikasyon ek mobilizasyon parmi zot prop manb.</p><br /><p><strong>Â Rol bann muvman demas pu akseler devlopman ek akseptasyon Kreol ekrit</strong></p><br /><p>Devlopman Kreol ekrit finn parfwa byin lant e parfwa finn akselere kan ena mobilizasyon demas.</p><br /><p>Kuma an Me 1975 pandan lagrev etidyan, ti ena revandikasyon anfaver servi langaz Kreol dan sistem ledikasyon. Pli gran kontribisyon anterm propaz Kreol ekrit li pandan lagrev Ut 79 ek mobilizasyon popiler Septam 1980. An Ut 1979 tulezur pandan trwa semenn lagrev ti ena 10,000 biltin an Kreol ki ti pe sirkile antye Moris. Travayer ti pe swaf sa biltin la pu kone kuma muvman lagrev pe derule lor lezot tablisman, dan lezot sekter travay. Isi li inportan mansyonn linfliyans mazer ki bann dazibao, lafis inprime ek pankart finn zwe dan promosyon kreol ekrit.</p><br /><p>Sa devlopman lekritir Kreol la finn anplifye atraver kreasyon nuvo lasosyasyon radikal kuma LPT, MLF, sindika UPSEE, Playgroup. Plitar lezot Fron ek grup kuma SOMAAP, Muvman Solidarite Anti Represyon, Fron Komin Anti Inperyalis, Komime Anti Lager, Fron Travayer Zonn Frans, Muvman Anti Kominalis, All Workers Conference, Muvman Lakaz, ABAIM ek lezot grup kiltirel finn azut zot kontribisyon dan sa travay la. Atraver so kur literesi tule lane pandan 40 an, so 6 konkur literer ek so linprimri LPT finn anmemtan pibliye enn varyete piblikasyon an Kreol e kree enn lektora pu sa literatir la.</p><br /><p>Tusa prodiksyon literatir la finn konstitye enn baz materyel ki finn e pe kontiyn amenn sertin avanseÂ  pu Kreol ekrit. Kumsa ki dan so Rapor Komisyon Danket osi boner ki an 1983 ki Komisyon Glover rekonet ki Kreol ekrit deza byin repandi e ena mem enn sistem ki dimunn pli itilize (li ti pe koz sistem n/nn ki LALIT, LPT e bulu lezot servi). Onivo Leta bizin atann 2004 pu ki guvernmann MMM-MSM adopte enn sistem ekrir Kreol, Grafi Larmoni. Lerla an 2011, guvernman Travayis met dibut Akademi Kreol Morisyin (AKM) ki pu prodir Lortograf Kreol Morisyin, enn liv gramer Kreol e permet introdiksyon Kreol dan lekol kuma lang opsyonel enn an apre.</p><br /><p>Â <strong>Langaz ek dekolonizasyon lespri</strong></p><br /><p>Sa travay pu met langaz Kreol an ekri li inseparab depi lalit pu dekolonizasyon.</p><br /><p>Anfet langaz li pa zis enn mwayin kominikasyon me li nu zuti pu reflesi. Li mwayin par lekel nu konpran realite andeor nu ek seki andan nu (nu lemosyon, nu panse) â nu reprezant lemond otur nu dan nu servo atraver langaz. Sa li natirel. Atraver lekritir â enn zuti kiltirel, ki nu oblize aprann formelman â nu al pli lwin, nu kapav exprim sa realite sa lemond otur nu, dan lekel nu form parti, e donn li enn form konkre e kumsa prezant divan nu posibilite pu transform sa realite la.</p><br /><p>Kolonizater finn tultan atraver so langaz, atraver so lekritir sey kontrol nu lespri. Parski langaz e mem lekritir, zot sit, zot anplasman li truv dan nu memwar, parey kuma nu rev truve laba, nu konsep lor lavi ki nu finn devlope, sakenn, li osi li truve laba.</p><br /><p>Atraver so langaz ki kolonizater sey kontrol nu memwar, li sey fer nu memwar sumet su so dominasyon. So bi se pu fer desort ki seki kolonize truv limem atraver memwar ezemonik puvwar kolonyal. Par exanp nu truve kimanyer kolonizater inpoz so lanpriz lor nu atraver nom (ubyin re-nom) dan so langaz tu kontinan, tu pei, tu lavil, tu larivyer, montayn, batiman e mem nom dimunn! Kumsa li mark so prezans, li fer nu rapel ki li finn reyne e ki li tuzur pwisan.</p><br /><p>Li vre ki kolonizasyon li enn sistem ekonomik ki finn pran diferan form kuma lesklavaz, kuma langazman e ki pe kontiyne zordi, mem apre Lindepandans, su reyn travay salarye. Setadir enn sistem kot pe prodir pu enn lot klas, pu profi klas burzwa â e anfindkont, pu enn burzwazi kolonyal. Kolonizater finn gard kontrol lor enn sosyete antye atraver so sistem politik me osi anparti atraver kiltir ek ledikasyon. Dominasyon politik ek ekonomik li flagran me dominasyon kiltirel li surnwa, li danzere. U pa kapav fer kikenn kiânn perdi so later bliye so pert, uswa seki gayn fin bliye so lafin, me dominasyon nu lespri kapav fer nu get lapert nu later, duler lafin diferaman. Kolonizater atraver inpoz so langaz sey plant so memwar dan nu peizaz. Kumsa ki li fer nu vinn prizonye sikolozik lepase sipremasi kolonyal.</p><br /><p>Isi ki devlopman ek promosyon Kreol ekrit pran tu so linportans kuma enn mwayin pu repran kontrol lor nu prop memwar ek lor nu memwar kolektif antan ki klas explwate ek oprime par sistem lesklavaz, langazman ek zordi su sistem travay pu enn saler.</p><br /><p><strong>Â 4. LAVENIR</strong></p><br /><p>Ena plizir konsta ki nu kapav fer zordi:</p><br /><p>(a) Leta, su presyon, finn oblize amenn enn-de sanzman anfaver Kreol ekrit, sirtu dan ledikasyon. Zordi ena enn lortograf ofisyel ki pe servi dan lekol depi set an. Ena formater Yunit Kreol MIE, profeser Kreol, plizir milye zelev ki pe aprann lir-ekrir Kreol. Ena kur Kreol liniversite, Open University. Ena osi kur literesi LPT regilye, tule lane, depi 40 an. Seki vedir ena buku plis dimunn ki ankontak ar Kreol ekrit.</p><br /><p>(b) Si finn ena progre pu Kreol ekrit, liânn rezilta konbine <em>prodiksyon literatir an Kreol ek mobilizasyon demas</em>. Me diferan guvernman opuvwar apre lindepandans pa finn ena ase volonte ek kuraz politik pu anplifye ek akseler devlopman langaz kreol. Listwar anfet pe montre ki sel fason pu amenn vre dekolonizasyon linstisyon Leta, epanwisman ek abutisman lalit pu ki langaz lepep gayn so ful dinite se par lalit politik pu ki klas travayer ek tu oprime pran puvwar. Lezot klas sosyal finn plito servi langaz Angle ek Franse pu kontiyn gard privilez ek ti lavantaz ki sistem ekonomik domine par burzwazi ofer zot. E buku finn truv devlopman langaz Kreol plito kuma enn travay teknik, akademik. Ziska ler Premye Minis Pravind Jugnauth ankor pe servi pretex amenazman teknik pu ranvway introdiksyon langaz Kreol dan Parlman.</p><br /><p>Â Pena okenn dut ki dekolonizasyon politik langaz pu ede pu akseler prosesis dekolonizasyon intelektyel, e dekolonizasyon fizik bann linstitisyon Repiblik Moris.</p><br /><p>Â Langaz Kreol bizin pran so plas dan tu linstitisyon Leta. Bizin servi li kumaÂ  medyom pu size konteni dan Lekol, pu deba dan Parlman, pu bann rapor, panfle, kominike, notis, lafis tu minister, pu minits lasosyasyonKumsa ki alafin memwar kolektif lepep Moris pu aret stoke dan langaz kolonyal, kumsa nu pu debaras teritwar nu memwar depi dominasyon sa lokipasyon langaz kolonyal. Kan langaz Kreol ekrit finn pran so plas dan tu linstitisyon Leta lerla ki nu pu kapav dibute dan nu dinite, dan nu integrite imin ek nu memwar suverin.</p><br /><p>Â <em>AA</em></p><br /><p><em>Ziyet 2018</em></p><br /><p><em>Â </em><em></em><strong>Books and articles used</strong></p><br /><p>Many articles in <a href="../../../">www.lalitmauritius.org</a></p><br /><p>Many references from Revi LALIT, 1976-2018.</p><br /><p>âLa langue franÃ§aise Ã  l'Ile Mauriceâ, Outre-mers. Revue dâHistoire. Auguste Toussaint, 1969.</p><br /><p><em>Ile Maurice, des langues et des lois, </em>Arnaud Carpooran, <em>lâHarmattan,</em> 2003</p><br /><p>âSteve Biko Memorial Lecture 2003â delivered by Ngugi Wa Thiongo, University Cape Town, 2003.</p><br /><p><em>The Development of Education in Mauritius</em>, Ramesh Ramdoyal, 1977.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101231" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101231" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101231" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101231" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101231" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101231" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101231" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101231" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101231" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>The Dangerous Bhadain Laws: Creeping Fascism and Growing Corruption</h1><p class="subtitle">13.12.2015</p></h1>
+	<p class="newsarticle"><p>The three laws accurately called &ldquo;Bhadain Laws&rdquo;, including a Constitutional amendment, will make the Government even more authoritarian, on the one hand, and even in fact provoke<em> more</em> of the very corruption that they purport to be cutting down on. Unfortunately, the Bills all got passed, and passed by a three-quarters majority &ndash; the Government having won three-quarters of seats only a year ago, so furious was the electorate with the previous Ramgoolam regime.</p><br /><p>&nbsp;What is particularly shocking is that the idea of the Bills was not even mentioned in the President&rsquo;s Speech delivered by President Purryag. It was not hinted at, even, in Lutchmeenaraidoo&rsquo;s Budget Speech. And even Jugnauth&rsquo;s 2030 &ldquo;Vision&rdquo; speech breathed not a word of what was coming literally a few weeks later. The Bhadain Bills just popped up out of the blue. And they were so unprepared for that they provoked massive disarray in the Government&rsquo;s own ranks, and even in the MSM party, itself. One MP even resigned.</p><br /><p>&nbsp;And, curiously, the Press has hardly murmured a word of analysis about the <em>real</em> motivation for the Bills. Although, many in the intelligentsia, in private conversations, think, as LALIT says publicly, that it is to &ldquo;cover&rdquo; the Government for having confiscated Dawood Rawat&rsquo;s companies without any criminal charges being laid against him. In particular, the Bills coincided exactly with the time of Rawat&rsquo;s resorting to a UN binding treaty protecting investors from such confiscation, and using his French citizenship for the Case claiming the immense sum of Rs35 billion. But, let&rsquo;s come back to this subject of possible motivations at the end of the article, and deal with the effect the laws will have on society.</p><br /><p>&nbsp;<strong>1. Laws that Facilitate Harassment of Political Adversaries: </strong>The Bhadain laws clearly open the gates &nbsp;up wide for the executive Branch of Government to harass the official Opposition, or any opposition party. This will be done by just calling in someone to &ldquo;explain where he got his wealth from&rdquo;. Over time, we can expect the civil servants and the Ministers to use these extra-ordinary powers to harass, in order to extort bribes from the very rich. Just the very thought of such a &ldquo;calling in&rdquo; will produce offers of money. So, instead of decreasing corruption and malpractice, the law runs the risk of doing the exact opposite, increasing it.</p><br /><p>&nbsp;<strong>2. The Laws Set up an Undemocratic &ldquo;Fund&rdquo;:</strong> The Bhadain laws will allow the Minister of Good Governance (sic) to create and control a &ldquo;fund&rdquo; that is outside the <em>Consolidated Fund</em> altogether. So Minister Bhadain will have his own Budget, one that is not under direct Parliamentary Control like the Annual Budget, which is the main power of the National Assembly. In fact, this new Fund is even worse than the now defunct <em>Privatization Fund</em>. The income for this Fund comes from money simply &ldquo;confiscated&rdquo; by the Agencies set up under the fund. Equally appalling, Minister Bhadain and his nominees can spend the money, inter alia, on giving &ldquo;head-hunter&rdquo; prizes to State informers and self-appointed spies, and also by awarding money &ldquo;prizes&rdquo; to people who they choose for supposed &ldquo;good governance&rdquo;, whatever that might be in their opinion. This, too, without Parliament having a say. It is truly like an old feudal regime, back again. Despotism.</p><br /><p class="Default">&nbsp;<strong>3. Degrading Supreme Court Judges.</strong> The laws convert Judges of the Supreme Court into people who can operate by just putting a rubber stamp on decisions made by a Committee under the Minister&rsquo;s control. This feat managed by the new legislation explicitly confusing and confounding civil and criminal law. It is not part of the work of the judiciary to just confiscate goods without due process under criminal law. [For an analysis of the issues surrounding punishments without criminal proceedings, see &ldquo;The Compatibility of Unexplained Wealth Provisions and &lsquo;Civil&rsquo; Forfeiture Regimes with <em>Kable&rdquo; <strong>by Professor </strong></em>Anthony Gray (<em>QUT Law &amp; Justice Journal</em> Volume 12, Number 2, 2012.)]</p><br /><p>&nbsp;<strong>4. Remove powers of confiscation from the Director of Public Prosecutions</strong>: The new laws have removed the power of confiscation from the DPP, a constitutional post, and put it in the hands of a Minister and his nominees. The door is obviously open to all kinds of abuse of power and political vendetta. Curiously, it is no secret that the present Government is running a political vendetta against the present DPP, Satyajit Boolell. So, the law is part of a vendetta against him (and the post, by the by), and, in turn, specifically allows future vendettas much wider scope.</p><br /><p>&nbsp;Ministers went to all sorts of lengths to get the Bills passed. The minute anyone criticized them (as the Bar Council and all the Opposition Parties did, except for Rezistans which flattered them no end), Ministers Bhadain, Collendavelloo and Jugnauth himself, immediately resorted to the lowest of &ldquo;arguments&rdquo;: <em>Si u koz kont sa bann lalwa la, sa vedir u kupab!</em> or alternatively &ldquo;<em>Parti Travayis pu kone ar sa lalwa la!</em>&rdquo; So, their own words came to expose what they were denying elsewhere, i.e. that the laws were supposedly <em>not</em> designed for partisan use.</p><br /><p>&nbsp;In fact, people in favour of the laws seem to be truly oblivious to their deleterious effects on society. Or maybe they, themselves, have ulterior motives that they project on to others (see below). Or some are probably in<em> donan-donan </em>deals with Minister Bhadain. This latter kind of deal would certainly not be new for Government Ministers to engender.</p><br /><p><strong>&nbsp;Some Lalyans Lepep people seem never to have supported the Bills</strong></p><br /><p>For a start, the Government introduced the Bills for First Reading, and Ministers Bhadain and Jugnauth announced that they would not be amended. Then, when there was a massive outcry in their own ranks and from their allies of all ilk, they amended the Bills left right and centre. The PMSD seems still to be against, fielding two juniors to speak in favour, so as to make the point. Thus speaking in favour, but letting everyone know they are against. Talk about ridiculous!</p><br /><p>&nbsp;<strong>The MMM&rsquo;s Position</strong></p><br /><p>The MMM is also ridiculous, voting in favour of the Constitutional Amendment (which enables the <em>Good Governance Reporting Bill)</em> and then against the GGRB itself. In fact, B&eacute;renger was hoodwinked at one point, over the precise formula to be used for nominations. He was assured it would be in consultation with the President and Opposition Leader, but this was, curiously declared &ldquo;unconstitutional&rdquo; by the Parquet!</p><br /><p>&nbsp;<strong>Position of Trade unionist-Politicians</strong></p><br /><p>Ashok Subron and his RA, are not only in favour of the autocratic legislation, but they actually called on all MPs to vote for the Bills. They were in favour even before the slightly better final versions. Their only initial criticism was that the laws were not wide enough, because they did not include foreigners.</p><br /><p>&nbsp;Jack Bizlall and his MPM, he announced, believe that any Constitutional Amendment must be part of a Second Republic or nothing. He has in the past, once before, laid down the red carpet for the Ramgoolam-B&eacute;renger&rsquo;s dratted Second Republic, and now he is at it again.</p><br /><p>&nbsp;<strong>Real dangers</strong></p><br /><p>If the Government Parties and all those Opposition parties really believe that corruption and malpractice can be eliminated just by laws that give Minister Bhadain &amp; Co. draconian powers to threaten to confiscate money from people they want to harass, they are really dreaming. These new laws will also clearly increase the scope for corruption &ndash; especially at the level of the Ministry of Good Governance, itself &ndash; as well as bringing in a more authoritarian form of capitalism.</p><br /><p>&nbsp;And if there are people who believe that you can weaken the grip of &ldquo;private property&rdquo; by granting the executive of the capitalist State more autocratic powers, this is what nightmares are made of. We must bear in mind that the Nazi Government in Germany under Adolf Hitler was very strong on confiscating capitalists&rsquo; property, and passed any number of laws in order to do so. In fact, this is what fascism is: autocratic control over everyone including capitalists, but maintaining the capitalist State. Under Jugnauth, as ever, the kind of fascism is the &ldquo;Bonapartist&rdquo; or &ldquo;Peronist&rdquo; kind, that is to say, relying on a &ldquo;domineering State&rdquo;, not on popular support, in order to exercise control over all social classes, including, to some extent, the bourgeoisie, without putting forward any political project to change the nature of society and its class rule, nor to replace the capitalist State with a democratic one.</p><br /><p>&nbsp;Bhadain is furious that people call the laws &ldquo;<em>Lalwa</em> <em>Bhadain</em>&rdquo;, but the appellation is accurate. Firstly, because the laws give <em>him</em> all the autocratic powers. Secondly, because even in his own party, the MSM, clearly MPs had no idea what was coming. Danielle Selvon actually resigned. Three of rour other MPs spoke out publicly. Newspapers say even Minister Nando Bodha was angry, at one point. The PMSD and ML which are part of the Cabinet, only began studying the Bhadain Bills after the First Reading was done with! But in the end, rather like for the IRA and the POA, repressive legislation gets voted in rather easily. Unfortunately.</p><br /><p>&nbsp;<strong>Bhadain can Open Enquiries himself</strong></p><br /><p>Bhadain and his nominees (<em>Integrity Reporting Services Agency</em>) will be able to open enquiries, and then go and get a judge to sign (without the victim being heard by him) a Confiscation Order. &ldquo;It&rsquo;s only against property, not against a person,&rdquo; Bhadain explains, as if he were some kind of genuine socialist. But, the excessive power to harass, he ignores, and he does not seem to think people can see through that.&nbsp; And then, he is in favour of the ultra-capitalist State, for which private ownership of the social means of survival is the very essence.</p><br /><p>&nbsp;And of course, Bhadain and his men will be in charge of paying off informers that report people to the State. This will become, no doubt, a way for fortune hunters to make a bit of money on the cheap. And a way for the Minister to get control over them.</p><br /><p>&nbsp;And the money confiscated after the Bhadain Boys&rsquo; enquiry, becomes a 100% tax. It is not a criminal offense, true, but it is a drastic tax.</p><br /><p><strong>&nbsp;Degradation of society to be expected</strong></p><br /><p>Societies that rely on denunciations to the State, are already the sign of a tendency towards fascism. Coupled with this, the excessive powers to harass one&rsquo;s political adversaries add to this tendency.</p><br /><p>&nbsp;<strong>Intra-Capitalist Rivalry</strong></p><br /><p>The diabolical dynamics will unfortunately continue into the very weave of society. What with &ldquo;rewards&rdquo;, what with the change in the&nbsp;<em>onus of proof&nbsp;</em>, soon one set of capitalists, when a competitor is rising, will use the Bhadain institutions in order to put their adversary on the defensive, especially if he is a&nbsp;<em>nouveau riche.</em>&nbsp;This will happen just when tenders are being prepared, of course.</p><br /><p>&nbsp;<strong>Family and Clan Feuds will have new opportunities for revenge</strong></p><br /><p>Naturally, in a society where family feuds are endemic, and one branch of a family detests another and when homicides are frequent, where fights between neighbours lead all too often to murders, when men in a clan often scare off a suitor from a young girl in the family, we can expect all kinds of denunciations and harassment of the most petty kind. The effect of just opening a Bhadain Enquiry will be devastating on the victims. Naturally, the victim will have 21 days to &ldquo;explain&rdquo;, but they will already be thoroughly traumatized. Their reputation may also be ruined.</p><br /><p>&nbsp;<strong>Onus of Proof</strong></p><br /><p>Just so that readers can understand the draconian nature of the legislation, we quote on the onus of proof issue:&nbsp;&ldquo;<em>Any application made under this Act shall constitute civil proceedings and the onus shall lie on the respondent to establish, on a balance of probabilities, that any property is not unexplained wealth.</em>&rdquo;</p><br /><p>&nbsp;<strong>A Minister or his Nominee will become a kind of &ldquo;Papa Doc&rdquo; </strong></p><br /><p>An absurd aspect of the Laws is that the &ldquo;Bhadain Fund&rdquo;, a fund right outside of the annual budget, can be used, in addition to paying spies and giving awards, in order to &ldquo;alleviate poverty&rdquo;. No lie. It is in the law. So the Minister and his nominees have set themselves up as &ldquo;philanthropists&rdquo;, but &ldquo;philanthropists&rdquo; right outside of political or even social control. This kind of discretionary power will cause rampant corruption, as it always does, and will turn Ministers into people who throw money at the poor like Papa Doc was so notorious for doing in Haiti, where he literally threw sweets to famished children. This kind of power brings impunity of the worst kind.</p><br /><p>&nbsp;<strong>Government Motivation?</strong></p><br /><p>From the outset, in LALIT we have publicly opposed the lack of any clear and truthful justification of these sudden &ldquo;Bhadain laws&rdquo;. There is neither logic nor any explanation for this hurried bringing in of autocratic measures like this. As Sheila Bunwaree first pointed out, these laws were not referred to at all in any of the Government&rsquo;s statement of its intentions, even up to a month or two earlier. But, for some reason, in undignified haste, Bhadain had to think them up, bring them, amend them and force them through.</p><br /><p>&nbsp;But, <em>why</em>? That&rsquo;s the question.</p><br /><p>&nbsp;We do not know.</p><br /><p>&nbsp;<strong>Rawat?</strong></p><br /><p>We have from the outset, however, warned that it may be to cover the Government&rsquo;s having already confiscated Dawood Rawat&rsquo;s ill-gotten gains, without him being charged with any criminal offense. If this is the aim, come and say so, Mr Bhadain. For some reason the Government does not want to admit that the law is <em>ad hominem. </em>&nbsp;Maybe this would be too shameful when Rawat&rsquo;s international case under the UN Tribunal comes up. But the Government will have ensured that it does not lose the Rs35 billion that Rawat is claiming.</p><br /><p>&nbsp;But at what cost in terms of repression and domination?</p><br /><p>&nbsp;<strong>Mauritian Businessmen&rsquo;s Reputation for &ldquo;Stings&rdquo; against Foreign Investors?</strong></p><br /><p>We think it may also be possible that Bhadain, in his trips around the world looking for investors, may have bumped into the bad reputation Mauritius has amongst millionaire investors. During the process of a foreign investor setting up shop here, there are a number of &ldquo;chicken-and-egg&rdquo; problems that demand resorting to a Mauritian partner. We know, from newspaper reports, of dozens of small &ldquo;stings&rdquo;. It is clearly a well-known con-trick. The investor puts property into a Mauritian&rsquo;s name, &ldquo;just for the meantime&rdquo;, and then that&rsquo;s it, the investor never gets it back. He may even find himself deported. These laws will not stop this. But they may <em>seem</em> to address it. So, that is another possible reason for the draconian laws. Maybe they are some kind of a condition for one of the big new projects Bhadain is talking about?</p><br /><p>&nbsp;This, too, is not a reason the Government will admit to.</p><br /><p>&nbsp;So, we have to assume that it is nothing other than autocratic, dictatorial legislation. Which it is. We have to assume that the aim is for the Government to use the laws for harassing its adversaries. To begin with, the Parti Travayist. And maybe their first attack will be on Mrs. Soornack, the mistress of the former Prime Minister.</p><br /><p>&nbsp;Whatever its aim, this kind of legal framework is a bad sign for the future. It is a sign of the exact kind of capitalist dictatorship being set up: authoritarianism.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

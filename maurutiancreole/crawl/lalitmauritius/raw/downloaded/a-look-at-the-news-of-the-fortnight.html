@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095526" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095526" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>A Look at the news of the Fortnight</h1><p class="subtitle">28.03.2019</p></h1>
+	<p class="newsarticle"><p>With the Pope announcing a visit to Mauritius for 9 September for <em>Per Laval</em> Day, as part of his round-trip including Mozambique and Madagascar, Pravind Jugnauth already has pre-electoral manna. If Modi is re-elected in the Indian elections, Jugnauth is hoping for a visit from him, too, in the run-up to the elections. And with the historic win of the Mauritius State at the UN General Assembly and then at the ICJ on the Chagos and Diego Garcia issue, which he will use to electoral ends, Pravind Jugnauth would seem to be in a fine place to prepare for an election campaign.</p><br /><p>Â But, he is not. At home, he is destabilized as ever, in a Government that LALIT has ever since it came in described as incoherent. Here is the situation this last fortnight.</p><br /><p>Â <strong>Lutchmeenaraidoo Resignation as Minister and MP </strong></p><br /><p>First, there is the unexpected resignation of Foreign Affairs Minister Vishnu Lutchmeenaraidoo, announcing in the English original that, âEnough is enough,â and not just slamming the door on the Cabinet, but resigning as MP, too. This means a bye-election forces the Prime Ministerâs hand in his prerogative to choose a date for general elections. He may claim to be going ahead with the bye-election but everyone knows that this is far too risky an enterprise, and that the general elections are much more likely to be in December, thus annulling the bye-election he has to hold. So, he no longer has an easy option to pretend he might hold elections in May 2020.</p><br /><p>Â And he wants the Metro Express ready to launch soon, with Modi preferably re-elected and cutting the ribbon since he gave and lent the money for it, before the election is under way. Such a ribbon-cutting cannot be within the campaign period without risking Jugnauth being accused of an electoral bribe. His own uncle, Ashok Jugnauth, had the Privy Council take away his seat in Parliament for this kind of electoral bribe.</p><br /><p>Â <strong>Water riots</strong></p><br /><p>Second, for a regime that was elected on a promise of water 24-hours-a-day for all â and on a promise to use the money the previous regime was to âwasteâ on a similar project to the Metro Express for a water supply for all â there is a disastrous situation. With absolutely 0-hours-a-day in some areas, there has been localized rioting in three or four different areas near Curepipe last week-end, with rocks on roads and burning tyres. And the Central Water Authority has also announced that it has just found out, <em>surprise surprise</em>, that there is too much tourism and other so-called development in the West for the existing water supply.Â </p><br /><p>Â <strong>MBC caught overdoing manipulation of news</strong></p><br /><p>The Mauritius Broadcasting Corporation has become absurd in its grooming of people to lick boots over the air, that it has become a laughing stock. Pravind Jugnauth resembles Donald Trump in this obsessive craving for people to say âthank youâ to him. Wasnât Trump even angry that a dead Senator McCain did not thank him for the funeral he gave him? Pravind Jugnauth, too, must be thanked for everything. People have no rights. We only have âgiftsâ from Pravind Jugnauth, for which he must be lavishly thanked on TV. So, MBC arranges the show every night: âGras-a Pravind Jugnauth, mo ena enn lakaz,â âGras-a Pravind Jugnauth ena sa nuvo simeâ, âGras-a Premye Minis Pravind Jugnauth mo zanfan pu al liniversite,â âGras-a Pravind Jugnauth nu ena sa Sant pu fer exersisâ. He does not have a Cabinet, a civil service even, but does it all himself. He is the all-powerful. And people do not have a house over their heads as of right, or even if they are doing repayments out of their own wages. No, it is âThanks to Pravind Jugnauth.â One journalist even interviewed people to flatter Pravind Jugnauth while they were at Pere Lavalâs tomb for prayers. The outcry was so damning that the MBC apologised. No doubt this, too, was thanks to Pravind Jugnauth.</p><br /><p>Â <strong>Economy in Crisis </strong></p><br /><p>In our last magazine, Revi LALIT number 136, Ragini Kistnasamy outlined the nature of the crisis in three main sectors of the economy from the employment point of view i.e. sugar, textiles and tourism. And we in LALIT have noted how it is no longer just us that is denouncing the use of selling off of arable land to pump up statistics on FDI, but the near-totality of bourgeois economists, who are now rightly at long last calling it âcatastrophiquesâ. (See the articles in the Revi, in the Documents Section.)</p><br /><p>Â <strong>Parastatals in crisis</strong></p><br /><p>And in addition, there are serious problems on the horizon for a whole series of para-statals:</p><br /><p>1. <em>Mega Funds at risk:</em> The Government has announced its intention to set up a new Mauritius National Investment Authority, into which the two mega-funds, the NPF and the NSF will be merged under new rules. This means some Rs130 billion. The new rules are to invest this public money on purely commercial lines, i.e. to take more risks with it, so as to get more income. So, scary is this that it involves a clause in the Bill to give both civil and even criminal immunity to those involved in potentially causing this money to be lost. In addition, the funds will no longer be run by the Social Security Ministry, which has its ethos, butÂ  by the Finance Ministry, which has become a sub-department of the IMF-World Bank capitalist ethos. Also scary is when, in a downturn in working class struggles, the Bill offers 3 representatives of the working class unions. This means the State intends to trick the unions, by making their leaders at most scrap over who is to get nominated on the prestigious Board.Â </p><br /><p>2. <em>State Bank in Debt:</em> The State Bank has the Rs 5 billion debt to Betamax hovering ahead at the end of arbitration after the cancellation of the shipping contract for fuel to Mauritius, a debt which has interest building up. There is another billion out on bad debts of various avoidable kinds.</p><br /><p>3. <em>National Insurance Corporation</em>: This organism has borne the brunt of the mismanagement of the BAI closure, and has a hole of some Rs 7 billion. (Remember incidentally how, before he was side-lined, and when he was Finance Minister, Vishnu Lutchmeenaraidoo, publicly in a fight with then Minister Bhadain, predicted this danger.)</p><br /><p>4. <em>Air Mauritius losses</em>: The national carrier Air Mauritius has also had a bad year, with a billion rupee loss.</p><br /><p>Â <strong>Mirages</strong></p><br /><p>And over the same period, Mauritius has seen possible investments disappear as you get nearer them. Just like mirages. The whole Quantum Global fiasco has ended in them removing their billions of investments. And the medical cannabis enterprise Dr. Potter has taken its three billion rupee investment to Antigua instead, as the Prime Minister maintains his petty, moralistic, prejudiced anachronistic stance on drugs. And remember the $6 billion dollars the former President, Aminah Gurrib-Fakim was to have distributed over Africa for the Bill Gates Foundation? Another mirage.</p><br /><p>Â So, it is in the context of all this that we head for general elections at the end of the year. It is also in the context of all this and of the general elections that we head for a Labour Day, which is always D-Day for bourgeois parties to rake in working class support â by their rhetoric. All parties in Mauritius are in favour of the working class, in words; are against capitalism, in words; are in favour of socialism, in words; and appeal to everyone as comrades, or comrade workers. No party can get elected if it is not. But then the working class is not strong enough (yet) to force the parties to really represent it, as a class. The working class is strong enough, or has been so far, to demand lip-service to the working class and to socialism.</p><br /><p>Â <strong>Labour Day soon</strong></p><br /><p>LALIT is preparing for its annual gathering on Labour Day at Grand River â this year our theme is: â40 Years of the Changing Nature of Work, since the August 79 Strikeâ. Members, supporters and their families will come together to celebrate and to analyse what the epoch demands.</p><br /><p>Â Meanwhile, for the other parties, the race to get the biggest crowd is on. Each bourgeois party is choosing its place and working out its tactics to attract people â popular bands, free buses, food-and-drink for picnics. It has become a shameful show.</p><br /><p><strong>MSM-ML</strong></p><br /><p>The MSM-ML have announced Vacoas Bus Station. And it has the money and the means to fill free buses up, and to organize bribe-picnics afterwards.</p><br /><p><strong>PMSD</strong></p><br /><p>The Opposition Leaderâs party, the PMSD, will be meeting in a Hall, they have announced. Xavier Duval has correctly announced that the country is in a âetat dâurgence economiqueâ. And this, together with the Electoral Reform Bill still labouring along because of the time bomb of the âauto-classificationâ imbroglio the State is in, will be the basis for the bourgeois parties to seek alliances. The PMSD has openly said it will be in an alliance.</p><br /><p><strong>MMM</strong></p><br /><p>The MMM will be holding its meeting at Edward VII in Rose-Hill, the place it goes to hide the smallness of its crowd. The MMM says defiantly that it will go it alone for elections. But everyone knows this is just not really feasible. Since the unification of the Ganoo and Obeegadoo splits (from the MMM), and their probable alliance with the Labour Party, the MMM seems doomed to ally with the MSM. (Unless Navin Ramgoolam steps down and Arvin Boolell takes over Labour, when the MMM can then consider an alliance with it, too.) The MMM will also be able to claim that all the âbaddiesâ in the MSM are now side-lined: Soodhun, Dayal, Bhadain and now Lutchmeenaraidoo. Even Tarolah is side-lined. But, the MMM has to say it is going it alone. Like any dare-devil game, there is a risk it might end up having to go it alone.</p><br /><p><strong>Labour Party</strong></p><br /><p>The Labour Party has not yet recovered from its electoral fiasco with the MMM in 2014. Nor from the two criminal cases awaiting Navin Ramgoolam. Yet, it has the capacity, traditionally, to benefit from MSMâs genuine weaknesses. There is the communicating chamber that links many MSM electors to Labour. In other words, there are people who have two parties: Labour and MSM, whichever is more likely to win. Such is the degeneration of bourgeois forms of democracy. So, Labour will be holding its Labour Day meeting in Port Louis.</p><br /><p><strong>Mouvement Patriotique and the Platforme Militante</strong></p><br /><p>The Mouvement Patriotique and the Platforme Militante are managing to set up a joint team. They celebrated International Womenâs Day together, for example.</p><br /><p><strong>Bhadain</strong></p><br /><p>Roshi Bhadainâs Reform Party will be holding a meeting at Dr. Reid in Beau Bassin, where he intends to stand for election. The rest of his party is an unknown entity â except that it has some form of backing.</p><br /><p><strong>Bizlall</strong></p><br /><p>Jack Bizlall has announced that he will hold a meeting in Rose-Hill. He recently withdrew from his party, the MPM, so as to be able to rally some coalition he has in mind, and, as ever, he announces regularly that he has withdrawn from unions.</p><br /><p><strong>Trade unions</strong></p><br /><p>There are unions that also participate each year in Labour Day celebrations in different ways. Most have not yet announced their plans.</p><br /><p>Â <strong>Elections approach</strong></p><br /><p>As general elections approach, LALIT will be preparing its Electoral Platform. What is interesting is that big issues have remained centre-stage for a change:</p><br /><p><em>Â Economic Crisis remains in the news:</em> Almost every day there are reports about the crisis in all main economic sectors and crisis resulting from not enough production.</p><br /><p><em>Chagos and Diego Garcia</em> remains in the news. Pravind Jugnauth committed a terrible error by going, behind the backs of the African union and the UN General Assembly, to meet Theresa May, before the ICJ has even reported back to the General Assembly. And Paul BÃ©renger, MMM leader, commended him for this diplomatic boob.</p><br /><p><em>20 years since Kayaâs death</em> was marked in many ways. The need for a Commission of Enquiry into the truth as to how he was killed has become clear. There is also a need to continue to explain how the uprising was against the police and that it was only later that murky elements of society and the State went and changed the nature of the event into something communal by the torching peoplesâ houses in two hamlets â offences still not prosecuted. And the same kind of police violence by enquiring officers that led to Kayaâs death continues until today.</p><br /><p><em>The main-streaming of Mauritian Kreol</em> â in the National Assembly and in schools as formal medium â has continued to be reported on with the ECOSOC report.</p><br /><p><em>Drug Decriminalization</em> has continued on the agenda in many different ways.</p><br /><p>Â A fortnight is a long time in politics every fortnight these days.</p><br /><p><em>Every fortnight, a LALIT central committee member, in turn, gives a summary of political events â Mauritian and international. This article is based on an update of Lindsey Collenâs summary of Mauritian politics for the past fortnight for the web-site.</em></p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

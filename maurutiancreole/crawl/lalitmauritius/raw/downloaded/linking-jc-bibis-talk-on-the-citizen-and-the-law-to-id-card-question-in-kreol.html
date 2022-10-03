@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612102146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612102146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612102146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612102146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612102146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612102146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612102146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612102146" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612102146" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Linking J.C. Bibiâs Talk on the Citizen and the Law to ID Card question (in Kreol)</h1><p class="subtitle">31.10.2013</p></h1>
+	<p class="newsarticle"><br /><b>Dekonstriksion sitwayen e lalwa dan kozri Jean Claude Bibi e so pertinans konsernan nouvo kart idantite</b> par T. R. (Port Louis LALIT Branch)<br /><br />Lapros Jean Claude Bibi lor topic âSitwayen e Lalwaâ pandan Lekol de Kad organize par Lalit (1), kapav dir, li enn dekonstriksion. Sa diskision la tom aproprie dan kontex aktiel Moris kot leta pe rod introdir enn  kart idantite biometrik e par la swit definir e manipil nou idantite deryer nou ledo sou enn degizman transparans. Manipilasion leta gradielman pe mont a-la-sirfas a lankont de so lintansion e sa mouvman la mo pe apel enn prosesis dekonstriksion kot enn intansionalite demaske kan li fer fas listwar. <br /><br />Deryer lidantite bann sitwayen ena enn lour pase konfli dintere au detriman mazorite dimoun. Bibi ramenn nou dan enn pase pa tro lwin diran Revolision Franse kot nou trouv bann lanze konfliktiel otour definision lidantite sitwayen ki paânn ariv natirelman ditou. Si nou swiv Bibi ek enn lespri dekonstriksion nou desel enn konba pou pouvwar deryer bann gran valer kouma liberte, egalite e fraternite. <br /><br />Konsernan lalwa, Lakour Letazini, a enn pwin, inn sey evit bann teori Jacques Derrida, sirtou dekonstriksion, pou et aplike a lalwa (2). So rezon se ti ena enn laper ki sa tip teori la riske amenn otodestriksion lalwa. Sa montre nou ki lalwa li pena okenn verasite dan limem si enn sinp teori destabiliz li. Me erer sa bann Lakour la se anpes enn tranplin diskision dan interpretasion tradisionel lalwa de par so interaksion ek dekonstriksion. Bibi fer resortir ki lalwa dan so integralite li evazif dan li pe klerman montre enn lintansion deryer bann drwa ki ti sipoze et enn garanti. Gradielman Bibi fer nou apros listwar nou lidantite politik par enn dekonstriksion ki revel enn lintansion dan plas enn drwa. E li lezitim ki nou okouran natir lintansion ki pe opere deryer lalwa.<br /><br />Bibi koumans definir  âsitwayenâ par ramen li dan diferan kontex istorik, setadir li fer zenealozi term la. Derrida dir : <br /> <br />âDekonstriksion filozofi se travay a traver zenealozi bann konsep dan enn fason bien rigoure e an profonder,  an mem tan determinn depi enn perspektiv extern ki se pa posib nome ou dekrir seki  listwar la in exklir ou kasiet, me ki li [dekonstriksion] konstitie liâem kouma listwar atraver sa reprezantasion dan ki li ena enn anser.â (3)<br /><br />Bibi ofet rekonstie brievman sinifikasion le mo âsitwayenâ depi sivilisation Romin kot li ti vedir  sitwayen Romin versis tou leres ki ti apel âbarbaâr ou âbann sovazâ, ouâ non-sivilizeâ. Donk li kler ki sa klasifikasion la so lintansion se demark letranze de sosiete Romin. Term âbarbarâ li ti servi avan sa dan sosiete Lagres kot idiom, âpas me hellen barbarosâ (seki pa Grek li barbar),  a la baz konsep sitwayen, ki ti exklir (4). Pou ban Grek, se bann Tirk ki ti bann âbarbarâ e pou bann Romin se bann Alman, Selt ou Grek ki ti bann âbarbarâ. Me plitar bann Romin zot in etann konsep sitwayen a tou lanpir Romin, ki ti nepli donn dimoun enn stati politik me kiânn redwir a enn sovgard zidisier pu lalwa e lord (5). Nou trouve kouma mem konsep âsitwayenâ li sorti depi enn reprezantasion siperyorite e vinn enn zouti kontrol lor bann pep inferyer. Dan mem fason lor nouvo kart identite nou trouv bann piblisite ki pe dire âNou identite nou fierteâ, e lot kote zot pe rod gard enn labank informasion personel ki a-lankont de nou drwa konstitisionel a lavi prive. <br /><br />Saâem Derrida dir âna pena andeor enn textâ (6), kot ena pe panse li pe koz enn liv. Se plito ki li imposib sorti depi kontex, e enn text se so kontex ki definir li e donn li sinifikasion. Donk kan nou get diferan kontex listwar Romin nou trouve ki term âsitwayenâ li pran diferan sinifikasion kot li pa zis exklir serten pep ou inklir bann pep sou lanpir, me donn zot enn stati inferyer e reglemante. Dan mem manier nouvo ID pe fer nou santi ki nou apartenir a lepep Moris avek nou idantite sekirize me lerla pe pran tou nou lanprint, foto biometrik e kapav aret nou nerport kot sa e dimann nou prezant enn zar pas.<br /><br />Bibi rapros pli pre, 200 an an-aryer, avek peryod Revolision Franse, kot li explike ki âsitwayenâ ti definir kom tou dimoun me exklian bann nob. Etranzman, ti  ena enn kosmopolitanis pandan  Revolision ki ti pe ofet swiv ansien rezim kot Lafrans ti ouver a bann etranze (7). Ver 1793-4 la sitiasion sanze e transform dan enn zenofobi, mem si enan avan konstitision lor sitwayente Franse ti ouver a dimoun andeor Lafrans. Si nou servi lide Derrida nou kapav dir ki touzur ena koneksion ant diferan sitiasion ou peryod parski nou zame andeor kontex. Saâem li interesan pou observe ki  Revolision ti mintenir laspe kosmopolitin ki ti sou ansien rezim, me ki mefians ti koumans prevalwar kan lamas dimoun ofet tom a lekar avek nesans  âlanasionâ ki definitiveman blok linflians bann etranze e leres lemond. Donk Revolision pa vreman liber Lafrans de so kontex inisial kan nou trouv demars enn lot lafors ki pa laristokrasi servi formasion lanasion kom baraz a bann vag liberater interyer e exteryer. Bibi montre ki expresion âsitwayen egalâ ti ofet maske enn nouvo yerarsi : bourzwa e leres. Enn zenofili  kouma avan ti pou menas bann lintere sa nouvo group pwisan kiânn aproprie term sitwayen e  koumans ankadre li par enn nasionalism. Pwin sayan Revolision, Bibi met lanfaz, se banisman privilez par eliminasion fizik de laristokrasi, me tousala pou reinstal bourzwazi a-la-tet aktivite ekonomik dan enn kad politik nasionalis de sanblan liberasion, ki fasilman tom sou lanpriz diktater Napoleon Bonaparte. Dan mem manier, nou pe sipoze ki Leta Moris pe kolekte data pou bon fonksionman sosiete sivil, me nou zame kone dan enn fitir prosen ki sort Leta pou opouvwar e desid amenn enn kanpagn zenofobi dapre so prop definision. Leta aktiel pe deza deklans enn zenofobi zeneral kan li pe rod aproprie data personel sak dimoun ki fer sakenn vinn sispe.<br /><br />Bibi kontiyn explik sa repli idantiter otour term sitwayen de manier ilarant kan li pran exanp bann Angle ki  soutenir enn parfe  kontradiksion dan zot konkokte bann definision sitwayen pou meble âsizeâ dan enn lamonarsi. Donk kouma li ete dan lalwa Angle, le size ki ena alezians pou fami rwayal li usi enn sitwayen lib, egal a tou dimoun - exsepte lafami  rwayal limem e tou yerarsi ki desan deryer li. Isi dekonstriksion permet nou konpran lor ki lalwa repoz limem pou kapav  vinn an avan ek enn absoli kontradiksion : size=sitwayen. Ofet se lalwa ki pe fer sa kalite zimnastik la! Pou kapav konpran, li inportan examin tou sa bann lezot tip diskour ki soutenir  diskour lalwa, kouma lafilozofi, ki fer nou vwal enn kontradiksion. Koumsamem a traver enn nouvo ID pe servi tou kalite diskour media e administratif pou fer nou aval enn total kontradiksion: ki nou sekirite vedir sirveyans.<br /> <br />Derrida dir ki listwar de tou filozofi depi Sokrat se listwar metafizik de presans (8).  Enn lot non li donn sa se logosantris.  âLogosâ se enn system dan langaz ki fer lemond aparet enn manier, enn  realite ki prezan parski so lezot manier existe inn et kamoufle kouma enn labsans. Enn laspe sa sistem kamouflaz prezansapsans la, se dialite dan ki filozofi ranferm tou zafer, e se sa âlogosantrisâ.  Se koumsa ki sizesitwayen vinn sa mekanis dialite kot size vinn le term prezan parski sitwayen pe efase dan enn labsans an form fasad. Size donk li vinn enn term dominan ki kapav akapar sitwayen e aspire tou so konteni ziska ki li vinn enn koki vid de paravan. E se lalwa ki permet e soutenir sa sistem dialite la ziska dernie limit. Ziska ki sitwayen li vinn zis enn epouvantay ki fonksionn kouma enn size de leta. Zordi nou pe trouv mem mekanis kot enn nouvo ID pe gayn enn prezans sirdimansione, de sort ki lindividi pe et efase e devide dan enn labsans paravan fasad. <br /><br />Si lalwa bizin zwe enn rol represif  pou mintenir mekanis dialite prezansabsans, se akoz dan la realite  lopozision sizesitwayen  pe et konstaman destabilize. Size li toultan akonpanie par sitwayen, ki so viris. Inn bizin boukou represion pou touf sa kontaminasion de sitwayen ki deza inkorpore dan term size. Istorikman si nou al koumansman listwar sivilization nou trouve ki bann sosiete ti egaliter kot tou dimoun ti kontribie pou la sirvi enn tribi (9). Se avek revolision agrikiltirel, 10-15 mil an desela, kâinn koumans gayn sirplis, e alor bann elit ki rod kontrol sa exse ki prodwir. Bann elit inn evolie an Leta e monarsi ki dan pwint enn sosiete pyramidal. Li ase evidan ki dan formasion enn size de la monarsi ki kontrint e organization represif inn exerse lor dimoun a koumanse par kree enn piramid  e fors lamas dimoun ki prodikter dan enn rol size anba a-la-baz piramid la. Apre, sa lamas la pa kapav siport privasion, zot revolte me zis pou politikman rekolte âlanasionâ e âliberte sitwayenâ me res servil onivo ekonomik. Prezans lanasion e sitwayen li pou touzour akonpanie par so viris size ki rann servilite absan me kontaminan, ki ofet enn servilite an revolt ki dimann enn represion konstan. Se mem represion ki  inplike dan donn nou enn nouvo ID ki an mem tan touf nou rezistans dan enn laper konstan de bann menas lotorite.<br /><br />Pou Derrida seki deranz âpresansâ, kom enn konsep inpoze, se lekritir.  Lekritir paret neseser pou reprezant enn kiksoz ou konsep ki esansielman absan, me seki arive, lekritir li pa exakteman amenn prezans konsep la, me li toultan fer konsep la dekale ar limem. Pli nou ekrir lor konsep la e repet seki lezot inn dir lor konsep la, li koumans sanze e dekal ar so sinifikasion inisial. Se laspe inkontournab dan lekritir pou dekal ar limem desort ki zame sinifikasion enn konsep kapav vinn prezan ou rod mintenir li kouma orizinal ou sakre. Toultan pe gayn deviasion. Se sa kiânn arive dan lekritir bann lalwa kot zot inn sey stabiliz sinifikasion enn term kouma âsizeâ ki res telman instab, kiânn obliz bann tex lalwa res definir li ziska ki âsizeâ vedir ousi so lekontrer, âsitwayenâ. Nou trouve kouma lalwa li la pou stabiliz bann kontradiksion, parski enn souvrennte li atoupri pe rod definir lindividi kouma demokratikman lib me anmemtan soumi.  Lalwa pe dir ki kan ou soumet lerla ki ou lib demokratikman. Bann loter lalwa pe sey tou moyen pou eliminn kontradiksion me lekritir kree ankor plis e amenn enn sitiasion explosif parski li nek pe konfirme ki le siyn lingwistik li arbitrer, ki pa atas li a okenn sinifikasion partikilier, e pli ou fors enn sinifikasion, pou bizin anplway bann mwayenn inposib pou stabiliz instabilite inposib ki sa kree, kouma evolision lalwa lor term âsizeâ.  Isi Gouvernman pe rod fixe âsitwayenteâ par enn sistem markaz fizik kouma lanprint e foto biometrik. E sa pe deklans bann lespas destabilizasion tou markaz ki pe gradielman bouz ver enn sitiasion explosif. Dernie nouvel, Parke pe refiz soutenir Data Protection Office kont  konpayni prive Alteo kiânn ilegalman pran lanprint anplwaye pou chek prezans me lot kote mem Parke pu vinn exiz informasion prive tou dimoun pou kestion nouvo ID. (10)<br /><br />Kan Derrida dir ki âkondision-mem de enn dekonstriksion kapav deza an aksion dan enn tex, ou sistem ki pe et dekonstrirâ(11), savedir  bann kategori kouma sizesitwayen ki soutenir sistem dialis dan enn tex, zot deza an-riptir e deplasman. Donk enn stratezi dekonstriksion li desel, e li prezerv mouvans riptir de striktir dialite ki dominn tex lalwa kontinielman. Dan examinasion dialite la, Derrida dir enn tras vinn ala sirfas kouma enn mekanis komplex ki dekal tou lasenn bann opozision ki rant an-friksion dan zot prop dekonstriksion. Dekonstriksion li pa konsantre osant enn sistem me li dan enn sant eksantrik ki paret marzinal me ki rant an-friksion ek seki santral. Prosesis la prodir enn tras nwizib, akoz sak fwa definir âsitwayenâ la, sa pe reprim ek difikilte divers reaksion a sa term la ki kontex istorik deklanse. Dan kontex nouvo ID, exizans lalwa lor so prezantasion kouma enn pas  ramenn imediatman a-la-sirfas tras nou listwar esklavaz e langazman ki provok enn lespas konfliktiel de dekonstriksion âsize-sitwayenâ.  <br /><br />Lalwa donk li rod efas tou bann tras serten laspe ki li marzinalize. Bibi montre kouma lalwa anrasine dan enn lorizinn swadizan pir kouma linnie enn monarsi ki sipoze desann depi bondie limem. Se mem zafer pou bann leta relizie avek enn konsey siprem. Me Derrida dir ki ninport ki orizin pa kapav defer limem de enn tras ou kontaminasion ki li apel le âsiplemanâ. Enn zafer âorizinalâ ou ânatirelâ pa kapav defer li de âsiplemanâ lespas konfliktiel ki deklanse. Le sipleman li zwe ant prezans e labsans. Se labsans bondie ki rod enn reprezantasion kouma monarsi ou klerze pou azir kom so prezans. Me aster prezans enn reprezantasion li touzour pourswivi par labsans orizinal la, e donk sa fors prezans vinn enn prezans anfatik ki pran bann dimansion iniversel kouma katastrof ou mirak kouma dan zistwar Lars Noe ou Sodom e Gomor, ki finalman amenn sa labsans vid apre enn kataklis. Donk pou orizinal rann li prezan, li pa kapav anpes so anrasinman dan labsans - bann lafors konplike kouma katastrof natirel, lapest ou lager ki pran boukou lavi e les enn vid. Vedir prezans lorizinal li inplike dan enn siplemantarite ar ki li pa kapav defer limem. Ofet pou ki ena prezans se sa siplemantarite la ki presed prezans la, ki montre prezans la deza inn fini defer kan li sey ekart tou siplemantarite pou  vinn prezan. Dan Labib bondie ousi ekart tou seki dezobeir li ou destabiliz so ren. E dan mem fason monarsi, lalwa ou relizion ekart zot sipleman ki definir e menas zot baz de prezans. Pou fer sa lalwa sey rampli term âsizeâ, answit prozet li kouma enn prezans de âsitwayenâ. Me term âsitwayenâ  inn ofet deza fini koumans defer par so sipleman dan ki li anrasine - setadir listwar konfli ant klas dimoun, ki tex lalwa rod efase e toufe par degiz âsizeâ pou prozet âsitwayenâ. Dan mem fason, Gouvernman pe prozet enn nouvo ID dernie kri, me pe rekil lindividi 200 tan an aryer dan enn demokrasi preistorik e li difisil predir ki lespas siplemantarite sa pou kre.<br /><br />Pou fer konsep âsitwayenâ vinn prezan li inplik reprim zwe siplemantarite ki montre tou kalite deviasion ki ariv konsep la atraver listwar. Se apartir Revolision Franse ki definision sitwayen sanze e distans li depi privilez par bann lalwa komin pou tou dan plas donn privilez e donk tir term privilez pou instal sitwayen. (7) Li pa ti sivik pou ena privilez. Tiers Eta demann definir term âsitwayenâ kom liberte sivil e reprezantasion politik exklir privilez. Egalite sivil e partisipasion politik ti ofet de laspe sitwayente avek de kontex sosioistorik diferan mem si Revolision inn integre zot ansam. Enn kote âsitwayenâ ti enn definision abstre e formel ki donn enn drwa e obligasion komin, me pa drwa e obligasion spesifik. Lot kote âsitwayenâ reprezant enn sougroup privilezie lasite ki pa ti zis exklir bann etranze me exklir dimoun lavil, setadir monarsi teritoryal. Dimoun lavil gayn enn pouvwar zis administratif de teritwar san vinn enn organizasion dirizan. Dimoun lasite exers bann drwa politik pou dirize, e pa interse ek drwa komin. Leta modern e konsep sitwayente inn konstrir kont lotonomi e sitwayente lavil ki lamonarsi teritoryal ti ena. Bann dirizan teritoryal zot ti pe rod destabilize e marzinalize pou konstrir enn leta sitwayen zeneral. Me finalman Revolision la inn kree enn kad sosiolegal pou emerzans bann lasite ou sosiete bourzwa. Parey zordi li krisial realize ki se dan enn rapor de fors presi ki pe impoz enn nouvo ID lor nou, kot se nou lot lafors ki pe rod reprime, dimoun san pouvwar. <br />Geoff Boucher(12) explike ki Derrida dan De La Grammatologie dir ki enn lektir dekonstriksion li rezilta enn lapros interpretasion de enn kontex istorik ki azir kouma enn intervension kont inzistis, seki Bibi ousi rod fer. Li remet lalwa an perspektiv kan li ramenn kontex istorik, seki ofet lalwa rod marzinalize. Me lalwa pa reysi so represion parski enn laspe listwar ki souzantandi dan lalwa koumans fer sirfas e kree kontradiksion ladan. E kan nou koumans swiv de pre sa bann kontradiksion, marzinalizasion ou bann gran retorik, se enn sousilans bien lour ki remonte, nou trouve ki ena deza enn mouvans inkontrolab dann tex lalwa ki li pe rod sirtou reprim sa dan limem. Saâem mouvans ki Derrida apel âdifferAnceâ, enn mouvans andeor nou kontrol ou kontrol enn  polarite kouma sizesitwayen kot sak term pe rant dan enn lespas de perpetiel deformasion spasiotanporel kot zot dekal avek definision de zot sistem polarite. (3) Nou trouv sa ek nouvo ID kot li kler kouma lotorite pe dekontrole kan pe introdir li an katimini par bann manier evazif. Pas bann amandman kwivide, ki preske paânn debat. Pli ale kontradiksion vinn deplizanpli flagran a enn pwin ki data biometrik ki sipoze protez sitwayen pe met li direkteman an danze kot pe redwir li a enn size sibaltern sou sirveyans.  Sa ramenn nou a Bibi so pwin kle ki liânn souleve lor <i>Human Rights Bill </i>kot le term âsizeâ trouv li kontinielman ramboure e anpaye pou li egal term âsitwayenâ. Dan konstitision Angle, (13) sitwayen li plito enn size de lakouronn kot so liberte vinn apre Leta e so bann azan. Le sitwayen li kapav fer seki li âle pourvi ki li res dan perimet lalwa. Bazan lor listwar Revolision, Bibi kontinie par konklir seki evidan, ki lalwa li la pou garanti kontinite e stabilite de enn group e dan okenn manier li pa ânertâ. Lalwa li nek garanti diktatir enn klas pwisan kont leres. Tousa akoz menas mouvans inevitab differAnce ki kontinielman dekal ar tou sistem kontrol.<br /><br />Kan nou remont dan le pase, nou apran ki Revolision Franse ti enn revolision bourzwa ki donn nesans leta nasion(7). Karl Marx explike ki sa ti arive avek labolision bann relik sistem senyer, so rezo privilez, enn tonn zirisdiksion initil,  lamas konfizion korporasion, tou inn balye sekiânn fer obstak a aksion leta kiânn vinn enn siperstritir lemond modern. E kan tou bann pouvwar separatis, keseswa lokal, teritoryal, irben, provensial inn kase pou kree linite sivil âlanasionâ, Revolision inn oblize devlop seki la monarsi ti koumanse: santralizasion, ek so bann atribi, e so bann azan pouvwar gouvernmantal. Konklision William Brubaker:  Revolision inn les lindividi an fas de leta, san proteksion divan bann korporasion intermedier. Zordi dan Moris seki nou pe trouve se leta modern ki pe vinn deplizanpli pwisan kot kouma pandan Revolision Indistriel ti soumet travayer a devlopman teknolozik, me zordi seki reste de so lespas prive pou et anvayir par biometri de tou lespas piblik.<br /><br />Neanmwin, lapros dekonstriksion Bibi les lodians dan enn lepes vid pezan ki res dan latmosfer. E sa  deklans bann kestion ripost kot Bibi bizin reponn si li enn anarsis kan li konsider so expoze plito destabilizater ki liânn fer ar labaz lalwa? Bibi repran e montre ki lalwa li pa ofet protez sitwayen me plito leta kont sitwayen. A sa pwin la nou koumans santi enn pwa ki pez lor nou, kouma  kiksoz ki manke ou pe kasiet deryer dekonstriksion de lalwa e sitwayen. Devet ena kiksoz ki paânn pran an kont pandan Revolizion Franse ou se enn kit mankman dan listwar. Sa mankman la li persistan e boulvers nou e res fatig nou. Se sa inpe simptomatik dekonstriksion:  enn tansion ki akimile e fraziliz realite, ki fer realite vinn inkonsistan akoz bann pasaz inn et ouver dan miray etans lalwa e ideolozi sitwayen. Koumadir realite vinn ante ou fantomatik kan pers baryer ideolozik lalwa.<br /><br />Lefe fantomatik ki impreyn latmosfer apre papie Bibi, li relasion lodians ek konplexite dekonstriksion lalwa ki rant an kolision ek nou  listwar e sa interpel nou direkteman. Ena kiksoz ki pase pandan Revolision Franse e 19em siek ki fer Marx ekrir dan Manisfesto Kominist an 1850, âEnn spekt pe ant Lerop,  le spekt kominism,â ki Jacques Derrida site pou demar so antolozi (14) dekonstriksion dan <i>Bann Spekt de Marx</i> (15). Si nou port atension a Marx  so analiz lor Revolision nou trouve ki kreasion leta inn vinn reprim enn diverzans komplex de bann idantite teritoryal, lavil, lasite e etranze. E ki represion vinn de plizanpli extrem avek diktater Napoleon zis pou gard sistem ekonomik bourzwa, ki fek vinn opouvwar. Pandan 19em siek Revolision Indistriel avek so mekanizasion amenn boukou explwatasion dan travay e lamizer ki deklans enn deryer lot protestation an mas. Dan <i>Kondision Travay</i>(16) par Friedrich Engels, li dir Revolision Indistriel inn kokin metie travayer, amenn bann  kondision lavi degradan e kot dimoun inn redwir a masinn kot zot perdi zot dernie tras aktivite lib, kouma kiltivasion. Zordi nou aktivite lib pou rant sou sirveyans ek nouvo ID si lapolis pou ena drwa egziz sa nerport kot sa, e par tir enn foto kapav konfirm nou lidentite dan nerport ki manifestasion nou ete. Avek sistem sirveyans nou pe vinn enn variasion sofistike de bann fantom ki nou deza ete.<br /><br />Derrida dir ki lefitir apartenir a bann fantom (17). Enn fitir kot ena devlopman teknolozik ki demann nou kit seki nou ete pou pran enn rol fantomatik ki sistem teknolozik pous nou pou pran. Si nou pran enn telefon e koumans koze nou nepli nou mem me formate par laparey la e kontex lapel la ki fer nou kit nou rol dabitid e pran bann rol pa defini, flou ou interspasial. Lepok 1848 kan Manifesto Kominis sorti, se enn peryod kot indistrializasion dekal dimounn de seki li ete e lemond li ti kone par fer li pran bann pozision ki  ti inexistan avan ou ki pe sey pran form. Enn nouvo travayer pe rod pran nesans, me li pe pas enn faz fantomatik san ki sa abouti  - li pena ase pou manze, li pe malad, so zanfan pe malad pe mor e sa fer li res enn fantom e li kontiyn debat ant lizinn, lindistri e sosiete. Sosiete vinn insertin e preker parski nou pa kone ki nouvo tip fantom pe kre e miltiplie. Kan bann pwisans ekonomik pe pli ogmante e santralize dan serten rezion lemond, lezot pep e group dimoun lot kote pe sibir explwatasion, dominasion, apovrisman, lamiser e konket militer, ki premie aksion kolonizasion. Se dan sa kontex la ki pou dekoul lemond 20em siek ki Marx refer a sa kouma enn âspekt kominisâ ki pe propaze lor Lerop. E pou anpes sa spekt la noun trouv prodiksion lezot spekt ki fer sirfas kouma de lager mondial, fasism ek olokos. <br /> <br />Me Nchamah Miller (18) trouve ki pa kapav analiz <i>Manifesto </i>kouma zis enn âantoloziâ e li pa dakor ki Derrida inn dekonstrir Marx so perspektive onto-eskatolozik, ki sipoze paramet so analiz dan <i>Manifesto. </i> Derrida trouv diskision Marx baze lor konsep destine e langaz fantomatik pou explik bann tanporalite dekale diran bann revolision. Ousi bann klas dirizan dan Lerop ti touzour ante par posibilite rezim kominis fitir. Li dir ki âantoloziâ fasilit separasion enn lapros ontolozik de materyalism istorik,  par ouver bann fay dan enn ontolozi renferme kouma antagonism ant klas. Kom prev Derrida donn examp <i>Dizwitiem Brimer de Lwi Bonapart</i>kot Marx an 1851 kritik bann revolision 1789 e 1848 kouma bann apropriasion trazik de bann simbol revolision lepase pou komet ranversman, dekapitasion etc, me apre se spekt nouvo oligarsi ki pe atann pou pran kontrol, kouma bann revenan. Dapre Miller, Marx pa pe zis dekod seki absan par dekalaz  tanporalite dan bann revolision par so lapros spektralite, me li pe koz seki veritableman âprezanâ. Se pa enn prezans ki inpoz limen par rann absan seki menas li, me enn prezans ki pe absorb tou seki pe rod reprim li. Seki bel e bien prezan e ki pe konstaman negosie ek seki pe riprim li pandan milener se pa lespri fantomatik de tou bann panser listwar filozofi ki ant Marx e dikte seki li ekrir, me larealite konfliktiel, kombat perpetiel  proleter.    <br /><br />Sitiation nouvo ID dan Moris inn vinn anblematik de lamars tiranik ki Leta pe adopte e danze se kan tou pe fer an douser. Nou an fas enn sistem pwisan ki pe predefinir nou lavi avan mem ki nou realize ki pe arive. Mem ki Leta pe zwe enn rol rasiran, dimoun pe viv dan apreansion e isertitid. La sitiasion pe otomatikman deklans enn lespas dekonstriksion ki pe vinn de plizanpli intans kan bann reprezantant Leta pe koumans kontradir zot mem de manier bien serye. Pouvwar leta dan li promouvwar sitwayen lib e modern li pa kapav anpes li ramenn a la sirfas enn size sibaltern ki li esey kasiet e kamoufle. Listwar dominasion dimoun pa kapav toufe, sa remonte kouma enn mouvman dekonstriksion ki fer pouvwar mars lor enn terin deplizanpli mine kan sakenn so aksion rant an kontradiksion ziska ki sistem opresif la bloke net, avan li koumans desintergre e disperse.<br />TR (Brans Porlwi LALIT)<br />Referans<br />1 Bibi , Jean Claude. Lekol de kad. Lalit 2013 (http://lalitmauritius.org/viewnews.php?id=1528) <br />2 Plasencia ,Madeleine. âIs deconstruction anathema to judicial law making ?â in <i>Whoâs Afraid of Humpty Dumpty: Deconstructionist References in Judicial Opinions. </i>http://heinonline.org/HOL/LandingPage?collection=&handle=hein.journals/sealr21&div=16&id=&page=<br />3 Culler, Jonathan. <i>On Deconstruction</i>.Routledge. London. 1982.<br />4 http://en.wikipedia.org/wiki/Barbarian<br />5 http://en.wikipedia.org/wiki/History_of_citizenship#Roman_conceptions_of_citizenship<br />6 http://www.iep.utm.edu/con-meta/<br />7 Brubaker, William Rogers. <i> French politics and society. </i> âThe French Revolution and the invention of citizenshipâ. Vol 7, no3. 1989.<br />8 http://www.iep.utm.edu/derrida/<br />9 Mandel, Ernest. Introdiksion a Marxis. Pu Enn Sosiete  San Klas. Ledikasyon pu travayer. Moris.1980.<br />10 http://www.lemauricien.com/article/empreintes-digitales-recueillies-au-travail-gm-ne-soutient-plus-la-decision-data-protection-<br />11 http://www.derridathemovie.com/readings.html<br />12 http://www.marxists.org/reference/archive/hegel/txt/gb2000_3.htm<br />13 http://en.wikipedia.org/wiki/Human_rights_in_the_United_Kingdom#Human_Rights_Act_1998<br />14 hantologie (an franse) <br />15 Bedggood, David. âSaint Jacques: Derrida and the Ghost of Marxismâ http://clogic.eserver.org/2-2/bedggood.html<br />16 Engels, Friedrich. <i> The Conditions of the working in England. </i>http://www.marxists.org/archive/marx/works/1845/condition-working-class/<br />17 Derrida, Jacques. âThe science of ghostsâ. http://www.youtube.com/watch?v=0nmu3uwqzbI<br />18 Miller, Anchama. âHauntology and history in Jacques Derridaâs <i>Spekters of Marxâ. http://www.nodo50.org/cubasigloXXI/taller/miller_100304.pdf</i><br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

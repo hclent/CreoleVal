@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612093107" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612093107" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612093107" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612093107" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612093107" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612093107" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612093107" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612093107" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612093107" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Diaspora Virtual General Elections â Devaluing Democratic Traditions</h1><p class="subtitle">15.06.2021</p></h1>
+	<p class="newsarticle"><p>Last month there were so-called âMauritian virtual general electionsâ organized by an NGO in the UK called Mauritian Global Diaspora (MGD). The âelectionsâ were on 8 May. They were bizarre. Private radios and all the traditional newspapers, however, pumped these âgeneral electionsâ to bursting point, while flattering them with blatant incontinence. That is what is strange. It is more strange than the âelections thingâ, itself, was. The main organizer went to lengths to thank the press for helping âmarketâ their product, saying, âMo remersye tu bann kamarad de lapres, LâExpress, Top FM, Radio Plus, Radio One, e lapres ekrit osi, Defi ek tu bann lezot zurnal ki finn donn nu enn kudme pu market sa eleksyon la ...âÂ </p><br /><p>Not only the press were taken in, but even big political parties, including the mainstream opposition parties, âdinosaursâ and all, one after the other, as if it were the most normal thing in the world, participated in this mockery of democracy. That is even stranger than the press falling for it.Â </p><br /><p>Even those amongst the countryâs most well-known âintellectualsâ in the domain of political ideas like Milan Meetarbhan, Roukaya Kasenally, Nad Sivaramen and Rama Sithanen sullied themselves by taking the whole farce seriously.</p><br /><p>âThe virtual general elections were fake; the survey was real but questionableâ was the fine title of former LâExpress editor Rabin Bhujun on his Linked-in page article, referring to the on 8 May. His title says it all.</p><br /><p>Anyway, in LALIT, we have decided to analyse the âvirtual general electionsâ, not so much because they, themselves, deserve attention but because the press, big political parties and influencial opinion leaders have gone so very far in supporting the exercise. The organizers of the âelectionsâ did something way too ambitious to the point of its being ridiculous, it is true. How much can we blame them for that? But how can all those well-heeled people in the press, in politics and in the intelligentsia pretend that the exercise was worth taking seriously? This is what makes it important for us to expose the true nature of these diaspora-organized âvirtual general electionsâ run for both the diaspora and everyone in the Republic of Mauritius last month.Â </p><br /><p>We can congratulate the organizers of the âvirtual general electionsâ for managing the technical skills involved in attempting this kind of survey, even though it was clearly only a bluff-bluff survey; it was missing the essential feature of a survey: random selection. And we congratulate the organizers for the collective working together, the MGD having worked with two other diaspora organizations. Thirdly, they really did impress the press, traditional political parties and many well-known intellectuals. For that, well done!</p><br /><p>In LALIT, we have prepared three articles to evaluate the said âvirtual general electionsâ. The first of our three articles, this one, is on the lack of democratic procedures in the diaspora âvirtual general electionsâ, and we go on to outline in brief what is actually wrong, democratically-speaking, with the existing system and how to remedy this.* The second will set the diaspora elections in context. The third will take a look at the history and philosophy of the right to vote. We hope the three articles are judged to be appropriate, and that they are useful, as part of the long, on-going struggle for changes in both the legal framework of general elections towards more democracy and the intangible political traditions ofÂ Mauritius in our deep culture.Â </p><br /><p>Evaluation of the âdiaspora electionsâÂ </p><br /><p>Who exactly organize the on-line âvirtual general electionsâ? The Mauritius Global Diaspora is registered as a non-profit NGO in the United Kingdom. So, should you have any complaint like, say, about how the data you gave them while registering to âvoteâ, you have to settle the matter in the UKâs Courts. They tell you that on their site. Not a good start for an independent country. We are still trying to replace the Queenâs Privy Council for judicial appeals, and now we hurl ourselves back into the British courts.Â </p><br /><p>Was the diaspora âvirtual general electionâ democratic? That is the question. To be fair to the MGD, it is not its aim to bring about more democracy. On their site, they say they have âa common goal, that of contributing to the prosperity of our Motherland.â But, since they claim the thing they did is an election, the only measuring stick we can use is that of how democratic it was.Â </p><br /><p>Twenty Undemocratic Aspects to the âvirtual general electionsâÂ </p><br /><p>1. There were no constituencies. Constituencies are not a technicality. They are an important gain in democratizing politics, a gain that generations of Mauritians struggled hard for. They open the door to the right of recall in the future.</p><br /><p>2. Parties could not register in this âelectionâ. Party registration is a minimum necessary for democracy.</p><br /><p>3. Party agents were not allowed to monitor either polling or counting, both forms of monitoring being an integral part of democratic tradition in Mauritius.Â </p><br /><p>4. There was no encouragement for voting to be on the basis of pre-published political programs.Â </p><br /><p>5. Individuals did not stand. It is progress that one gets to vote for both individuals and the party they are in.</p><br /><p>6. No final list of parties that were in the election was ever published beforehand to enable an individual to consult the list, think about it, compare different parties, discuss with others, and then campaign for one party; you did not know who else was in the election for sure, so there was no campaign.Â </p><br /><p>7. You had to go on-line on polling day to vote, on 8 May, and only then, at that late moment, did you find out who was standing.</p><br /><p>8. There was no fixed period for an electoral campaign i.e. the key part of an election: between the date you know who is on the ballot (plus a time period for withdrawals) and the polling day. It is this period that makes democracy: you have meetings, debates, leaflet distribution, posters, and it is in this period that ideas become clear, and progress is made. If not, an election is no more than a football match.Â </p><br /><p>9. There was no attempt at an independent âelectoral commissionâ or equivalent.Â </p><br /><p>10.The main organizers did not hesitate to expose their own political bias; they are centre-stage in the political current around conspiracy theories about âstolen electionsâ in 2019, together with Ramgoolam & Co, in the style of the American right-wingers behind Trump.Â </p><br /><p>11. The âelectionâ turned out, itself to be, in fact, just one part of the more general attack, mainly far-fetched, against the credibility of the last general elections; the MGD even went to the extremes of using the same racist and xenophobic arguments of the rest of the âeleksyon kokinâ movement, blaming âBangladeshi workersâ for the MSM-ML winning the election.</p><br /><p>12. Debates before the election were held only amongst parties chosen by the organizers.Â </p><br /><p>13. The organizers, who one would hope were independent, accepted an invitation to be on a program organized by one of the parties, i.e. 100% Citoyens, oblivious to how unacceptable it was.</p><br /><p>14. There was no electoral roll, and not even an attempt to define what they meant by âdiasporaâ. This means that, in reality, the electorate was the four billion voting-age adults on the earth.</p><br /><p>15. In truth, minors and children could, we guess, have voted in this election with the greatest of ease.Â </p><br /><p>16. Any wily elector could vote as often as he or she chose, using different e-mail addresses and pseudonyms.Â </p><br /><p>17. The elections were announced for 8 May. But all of a sudden on the 8 May, when the organizers realized only 7,000 votes were cast, they just extended the date for a week. Whoops!</p><br /><p>18. When MGD read out the results in the order they were already in (âtel quelâ to use their words) you realise that on the ballot, the parties were not in alphabetical order. It seems they were in an order that gave an advantage to those on the top of the list. What kind of democracy is this?Â </p><br /><p>19. Organizers often refer to the country in an undemocratic or even anti-democratic way as âLil Morisâ, or even âRepiblik de Lil Morisâ. This is unacceptable. One cannot, while organizing a democratic exercise, wipe out sections of the people of a country.Â </p><br /><p>20. To be able to vote in these âvirtual general electionsâ, you had to be able to use various electronic gadgets, have a mobile phone with 3G, 4G or LTE, have an internet package and not just Wi-Fi, and have an e-mail address. So, the âelectionsâ threw us back to the days when only the well-off and well-educated could vote â without shedding a tear for lost democracy.</p><br /><p>Â </p><br /><p>It is, under the circumstances, not surprising that âblank votesâ very nearly won a victory. They could then have had the traditional rallies and âmiting remersimanâ.</p><br /><p>All this to say that Labour Party leader Navin Ramgoolam makes a fool of himself by crying âvictoryâ, and Rama Sithanen also does so in saying how his party (Labour) showed its implantation.</p><br /><p>LALIT, we must mention, steered well clear of this far-fetched âelectionâ. And yet we found ourselves in the results. There were 39 votes for LALIT. Even when LALIT does not participate!Â </p><br /><p>Oblivious to an âelectionâ just Brushing Aside Democratic Traditions?</p><br /><p>Mauritius has a long history of struggle for more democracy. It is sad that this âelectionâ just brushes all this away with the back of its hand, as it were â all the acquired democratic rights actually upheld in the laws and all the intangible cultural traditions that exist and live on are totally ignored. This is serious because the power of money already eats away at them, as indeed it always has. And we know that democratic gains were only ever made in the face of objections from the powers that be, and as a direct result of the pressure of mobilization of broad masses of oppressed people in the working classes for more democracy.Â </p><br /><p>Hereâs the question: Who exactly do these âdiasporaâ organizations think they are to hold this âelectionâ?</p><br /><p>The answer is they think they are the âdiasporaâ. And the diaspora, we are supposed to understand, are Mauritians who have gone to live abroad, more specifically abroad in âmore civilizedâ countries than Mauritius. This way, they have, themselves, become more civilized. Then, they can appoint themselves to come and show Mauritians in Mauritius how to hold an election and how to vote.Â </p><br /><p>Granted. We have got it.</p><br /><p>But, the press and private radios? The political parties? All those experts in matters political? They also think that? This is what is so important. They do. It is very serious, even dangerous. And yet, it has happened.Â </p><br /><p>Do the organizers of the diaspora âvirtual general electionsâ believe that we Mauritians are so silly-headed we will vote for any banana tree? That we let our vote be âboughtâ for money? That amongst us, old-age pensioners will just allow themselves to be hoodwinked by parties that increase their pensions? That we, the working classes, are fool enough to be tricked into voting for parties that bring in a minimum wage? That we, as a people, are so stupid that we allow thousands of âBangladeshisâ (their xenophobia) to affect the outcome of elections? That we are such fools as to believe the Electoral Commission and Commissionersâ Office are honest and independent? We are not fools for refusing to fall for the low-down, nation-wide, Trump-style campaign they were all in against these institutions?Â </p><br /><p>Anyway, we are not so colonized as to be in the thrall of two-or-three diaspora trying to colonize us. Lordy!</p><br /><p>Let us look at who it is that is, just maybe, uninformed. Or who it is that is, just maybe, so superior that they do not need to be informed â neither on the democratic history of Mauritius nor on the true nature of Mauritian society taken as a whole, Moris profon. And who it is that sees this whole âdiaspora general electionâ thing as something normal.</p><br /><p>From before universal suffrage in 1958 (we must mention here that universal suffrage provoked the first wave of diaspora that fled the country because they said, and this is an exact quote, that giving everyone the right to vote is âputting a razor-blade in the hands of a monkeyâ) there were already generations of struggles by the oppressed classes for the right to vote. These struggles were closely linked to other struggles: the right to form associations, to set up trade unions to defend workers, to elect Village Councils and even, at one point, for these Village Councils to be able to levy taxes, the right to universal old-age pensions and free and universal health care; free education for all, a labour inspectorate and better wages and conditions, even for the right to get hold of land for agriculture and animal feed.Â </p><br /><p>And long before getting Independence and the throwing-off of most of the colonial yoke, in 1968 (we must mention here that Independence provoked the second wave of diaspora that fled the country once again because, they said and this is again an exact quote, that Independence was âputting a razor-blade in the hands of a monkeyâ, there were already all manner of struggles for democracy.</p><br /><p>Throughout colonial history, and since Independence until today, the oppressed classes have constantly struggled for, and progressively won, two kinds of democratic reality in Mauritius: first, a series of real rights protected by a legal framework â like the right to vote for all adults, men and women, without having to show you own any wealth or earn a regular income, or hold a literacy qualification; second, a series of democratic traditions that are also real, though intangible, that exist in every neighbourhood â traditions as to who is a party agent, men and women who work for their party free because they believe in the partyâs program, who do canvassing before elections, organize for people to come out in groups and walk to the polls together (to diminish the pressures of those with power âdescendingâ into their neighbourhood), sit at tables at the 200 metre mark, act as Yard Agents in the schools where there is polling to check that no other party does any canvassing within 200 metres, sit inside class rooms checking on who is voting and ticking off their name from the Register, watch over ballot boxes (at night, even going in the lorries that carry them into counting rooms). Long ago, all this work was done for free by members and agents, and was part of Mauritian culture. Today it is still done free for some parties that remain honest. This kind of tradition exists alongside the more tangible constitutional gains and legal framework changes.</p><br /><p>From long ago, the system was always being corrupted. The corruption process is not new. Especially the PMSD had the well-earned reputation of âdonn bwarâ (providing drink), and buying off the person with influence in a big clan â giving money even if for their silence only. And all this has become the mainstream. The big jump to massive corruption happened at a moment that is precise in the memory of everyone who was alive then. It was when Guy Ollivry, with money from a notorious member of the diaspora named Teeren Appasamy, came in and ruined all the traditions of voluntary agents. It was during the bye-election in Stanley-Rose-Hill in 1995 â with money for âbazâ where people were paid to hang out all day and all night long, with buses to the seaside with a Kentucky thrown in and presents like rice-cookers for influential housewives. This was the first time we saw wholesale, industrial scale, corruption of the electorate. It was first done with diaspora money.</p><br /><p>So, all along â from before Independence till today â there have been the waves of new democratic rights and traditions and the back-undertow, too, when the powerful corrupt and attempt to corrupt the electorate. The main tradition remains in the slogan: âNever take anything from a candidate or his agent! What he takes from you when you take anything is your reputation and your voice.â</p><br /><p>Let us look at the developments in the legal framework over time: Labour fought for and won the right to vote on the basis of universal suffrage in each constituency in Mauritius Island, 1958; PMSD struggled and Labour agreed and the vote was extended to everyone in Rodrigues, 1967; Labour, IFB and CAM fought for Independence, won in 1968, but the UK stole Chagos, France stole Tromelin; Labour brought the voting age down to 18 in 1976; the MMM-PSM in 1982 made it well-nigh impossible to postpone general elections; the MSM in 1983, with Jean-Claude Bibi as Attorney General, amended the Constitution to remove the colonial ban on nationalization, a ban that infringes on the exercise of sovereignty; the MSM-MMM brought Mauritius to the status of a Republic in 1992; at the same time, Chagos and Tromlin were included amongst the islands constituting the Republic, in the Constitution; Agaleans got the right to vote in a constituency under labour in 1998; Rodrigues won its Island Council under the MMM-MSM Government in 2001; in 2005, Labour re-instated village elections and village councils that the MSM-MMM-PMSD had abolished; Chagos was brought back into the Republic of Mauritius (by the UNCLOS case that Labour brought and won, judgement 2015; then the MSMâs case at the ICJ i 2018, judgement in February 2019; and the MSM won the UN General Assembly resolution in May 2019; and the MSM made it become binding via the ITLOS judgement in January 2021) â none of this happened all by itself, but was brought about by long political battles at the grassroots, in neighbourhoods. LALIT has been in many of these. The right to be able to nationalize, the struggle for a Republic, the mobilization for Village Elections and Village Councils to be re-instated, and for the re-unification with Chagos in the Republic, all of which involved a grassroots political culture.Â </p><br /><p>Throughout this period of history, there have been all sorts of debates on the question of how to increase democracy: LALIT has, for example, been involved in a long battle against the communalism entrenched in the Best Loser System. By 2004, we had won almost everyone over to the need to replace it. Rezistans has tried to take this struggle further â despite the legalism of their efforts leading to unintended dangerous consequences that risk prolonging the very communalism they are trying to get rid of. LALIT continues this struggle today. We are also involved in all the debates that brought the Albie Sachs and Carcassone Reports, and then in the debates that followed their publication. And there are our own proposals that have been widely debated for years. Rama Sithanen has put forward proposals. The MMM-PT alliance lost the general elections of 2014 (instead of winning all the seats, as they set out to do) because the broad masses of the people did not agree with their specific and clumsy proposals for constitutional amendments. Can you imagine the amount of debate that was needed?</p><br /><p>Generally, constitutional changes for the better only come about in times when the oppressed classes are both mobilized and organized around a program in favour of their class â a program which can only become a reality if there are constitutional changes to allow it. When the oppressed classes are demobilized, constitutional changes are often anti-democratic, if they are brought. The kind of revolutionary change that LALIT is aiming for will depend upon a highly mobilized and organized working class. However, within the capitalist systemâs own logic, there are many changes, as we have shown, that can be achieved and that move towards more democracy.</p><br /><p>So, what is wrong with the present system of democracy? And what changes should we aim for that could remedy these short-comings in democracy?</p><br /><p>1. The executive Branch of Government Dominates the elected National Assembly.</p><br /><p>* The size of the National Assembly needs to be increased relative to the Cabinet â 4 candidates in each of 21 Constituencies, plus a new Constituency for Chagossians, who will have the right to return, and for Alagaens.</p><br /><p>* Decrease the number of Ministers and PPSs, thus cutting the size of the executive.</p><br /><p>* The Speaker and Prime Minister must both be elected by the National Assembly, and they must themselves, both, have been elected in a Constituency.</p><br /><p>* Permanent Parliamentary Committees (of all parties) must be set up to oversee Nominations and questions of policy, giving our elected representatives power over the executive run by Ministers.Â </p><br /><p>* The executive must publish the lists of all applicants for all jobs and their qualifications, and the lists of those appointed and their qualifications, for all jobs in government and para-statals. This gives the people more power over the executive.</p><br /><p>2. There is communalism in the electoral system.</p><br /><p>* The communalism in the Constitution comes and exacerbates the communalism in society, when the original aim of the Best Loser System was to decrease it.Â </p><br /><p>* Communalism should be removed from the Best Loser System â each party can submit a list of 20 amongst its candidates, for appointment, in order, as Best Loser without any reference to community; this means each elector will have two ballots, one for 4 candidates in their Constituency and the other for their party. After the counting of the candidates, then the Electoral Commission proceeds to the naming of the 20 best losers, by party only (not community) on the basis of the same kind of mathematics as the existing BLS, but without the communalist element. This will introduce a dose of proportional representation, without weakening the constituency system.Â </p><br /><p>3. Electors have no control over their elected MPs once they are elected, and MPs, in turn, donât have control over the Prime Minister and Cabinet.Â </p><br /><p>* A system for revoking, or recalling, any MP, including any Minister, by electoral petition in his or her constituency must be introduced.Â </p><br /><p>* A system must be introduced to enable MPs to elect (and therefore have the possibility of revoking) the Prime Minister and Speaker, and the cabinet or any one minister.Â </p><br /><p>4. Parties Over-Spend in Electoral Campaigns, and this brings Corruption.</p><br /><p>* The legal maximum has stayed too low, and needs to be raised while simultaneously closing the loop-hole that allows âsupportersâ to spend any amount of money on behalf of candidates, and the candidates get away with overspending this way. This is easily done by changing the âonus of proofâ in the existing law on electoral fraud. So, instead of falling for a change in subject from âover-spendingâ in campaigns to âfunding of political partiesâ, let us close that loophole and keep all excessive money out of campaigns.Â </p><br /><p>So, this is the way, we believe to approach the subject of electoral reform: first diagnose the problem with the existing system, then propose ways of fixing it â all with the aim of more democracy. All this can be done within the inequality that the logic of capitalism still imposes, even as we struggle to overthrow this monopoly control over land and capital â land and capital being our collective means of survival, developed and created collectively by us all by our past labour.</p><br /><p>Diaspora meanwhileÂ </p><br /><p>Any Mauritian living abroad, when they return to Mauritius, just has to go to the Electoral Commission and put their name on the roll, like everyone else. In fact, the Electoral Commissionerâs office in Mauritius does us the service of door-to-door recruiting of voters, and each year constitutes a new register. As electors, we only have to go and check. Thatâs all.</p><br /><p>But, in more general terms, we should not be too innocent for our own good. It is clear that there will be, and already is, a massive offensive by the US-UK imperialist alliance against the Mauritian State because of the victories at UNCLOS, the ICJ, the General Assembly of the UN over Chagos. The big beasts are sore. Again, generally speaking, the US and UK tend to work with diaspora when they want to do their dirty work outside their countries and inside a country they want to daunt. We are not implying that this is the case for the diaspora virtual general elections that we are criticizing. We must just be aware of the dangers there can, in the future, be.</p><br /><p>On principle, we should support only those âmovesâ that respect the long struggle for democracy for a hundred years or more in Mauritius, and that have brought us to where we are today, and promise progress: progress in terms of the continuing increase in democracy in the constitutional and legal framework since colonial domination, and in terms of deepening the good democratic traditions at the grassroots in each neighbourhood, as well as in unions, associations and co-operatives where there is already not just the right to vote, but the right of recall, too.Â </p><br /><p>It is a shame that the press, big political parties, and intellectuals of all ilk did not keep their distance from this âvirtual general electionâ of the diaspora which has run a most undemocratic âelectionâ. It was both pretentious in that it was not really an election at all, and anti-democratic, in its flaunting all existing ideas of democracy in Mauritius.Â </p><br /><p>Conclusion</p><br /><p>All those in the âeleksyon kokinâ (stolen election) current, like the MGD, constantly confuse the âregimeâ that they do not agree with (we donât either, as it turns out, and for longer than them) and institutions like the Electoral Commission and Electoral Commissionerâs Office, which have relative independence and, which have proven, over the years, a high level of integrity. In the USA, by contrast, there is neither an electoral commission or a commissionerâs office, and their elections are much less transparent than in Mauritius, and more open to attack for being âstolenâ. Yet, even there, the âstolen electionâ movement is far-fetched, in bad faith, and positively destructive.</p><br /><p>Given that the MGD is part of the movement calling the last real general elections âtrickedâ and âstolenâ on that whole series of mainly feeble, if not fake points, this does mean that they have gone and set the bar very high for themselves when they come and declare they will organize âgeneral electionsâ. Their âelectionsâ had to be better organized and more democratic. Not less. Instead they have fallen way below the bar they set. And strange as ever, it is the press as a whole, other political parties and well-known intellectuals, who have failed to distance themselves from this miserably failed exercise of âvirtual electionsâ. Instead they chose to be paternalistic or complicit, pretending it was a valuable exercise.</p><br /><p>LALIT, 15 June 2021</p><br /><p>*The original Kreol version of this article, dated 9 June, 2021, was published earlier on our site and Facebook page.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

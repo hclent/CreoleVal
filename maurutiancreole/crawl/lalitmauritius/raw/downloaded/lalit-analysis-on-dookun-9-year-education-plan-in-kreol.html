@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101318" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101318" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101318" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101318" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101318" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101318" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101318" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101318" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101318" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>LALIT analysis on Dookun 9-Year-Education Plan (in Kreol)</h1><p class="subtitle">27.09.2015</p></h1>
+	<p class="newsarticle"><p>Plan reform ledikasyon ki Minis Leela Devi Dookun finn prezante an Ut, 2015 pa adres ditu veritab problem profon, ni vre defi, ki sistem ledikasyon dan Moris pe fer fas. Li zis adres sertin problem &ldquo;an-silkan&rdquo;. So reform al dan direksyon diminye konpetisyon ki pe fer ravaz onivo CPE ek alafin segonder, me li tro timid. So plan pa pu nonpli amelyor nivo ledikasyon anzeneral, dan sans ankuraz refleksyon, kreativite, inovasyon kuma bizin. Ni li pena okenn mezir ki pu aret ditor ki zanfan lekol pe kontiyn sibir tulezur akoz polisi langaz ki pe aplike. Tusala vedir pena enn veritab epanwisman zanfan, kuma Minis tultan pe promet. Konteni&nbsp; plan la pa ankuraz <em>miltilingwism ot nivo</em>, ki anfet lakle pu devlopman lespri inovater, refleksyon ot-nivo kuma bizin. E sirtu li pa prekoniz nanye pu anlev restan kolonyal ki ankor pe anpwazonn sistem ledikasyon Moris.</p><br /><p>&nbsp;Plan reform Minis Dookun pa vremem diferan depi Plan lezot Minis avan finn propoze, apar Gokhool ki ti ogmant konpetisyon kareman. Anfet depi Jagatsingh, travers par Parsooramen, travers par Pillay, Obeegadoo ek Bunwaree, zot tu finn atak konpetisyon malsin, me selman dan sa mem fason an-silkan. Setadir mank enn sertin lodas. Me, sa lodas la exziz enn gran mobilizasyon e sansibilizasyon paran ek profeser, ki sirman zot pa ule fer.</p><br /><p>&nbsp;Anfet li pa etonan ki Minis Dookun pa finn vinn ar okenn sanzman mazer dan so Plan Reform parski li truv sistem ledikasyon pe mars byin. Ala seki li dir dan <em>Le Defi</em>, 13 Ut 2015 &ldquo;<em>Je dois dire que nous avons un syst&egrave;me qui a &eacute;t&eacute; performant, parceque nos jeunes font tr&eacute;s tr&eacute;s bien lorsqu&rsquo;ils sont dans des universit&eacute;s &agrave; l&rsquo;etranger</em>.&rdquo;. Ki performans Minis Dookun pe koze? Eski li pa kone buku etidyan liniversite gayn gran difikilte adapte a vites refleksyon zot koleg depi lezot pei? Eski Minis Dookun pa okuran difikilte ki buku konpayni patron dan Cybercity gayne pu rekrit dimunn Moris, mem gradye, ki reysi metriz Angle ek Franse ase ot-nivo pu fer fas lexizans travay dan sa sekter la? Eski li pankor kone ki metriz Angle ek Franse ot-nivo li travers par devlopman ot-nivo dan lang maternel?</p><br /><p>&nbsp;E kifer Minis pa get pu primer. Eski li pa kone ki tule lane par milye zanfan apre zot CPE pa reysi konn ni lir ni ekrir dan okenn langaz? Eski li konsyan to desek onivo CPE? To desek pu lexame CPE ti an mwayenn 35% ant 2005 a 2011. Mem si sif la finn vinn 19% an 2013, li pa ekivo a enn vre amelyorasyon nivo, parski zot finn sey &ldquo;fors&rdquo; bann sif, plito ki edik zanfan pli byin. Ansyin Guvernman ti introdir sistem &lsquo;re-sitting&rsquo;, ki permet enn zelev rekonpoz enn size ki li pa&rsquo;nn pase, e kot lotorite fer maximum pu zanfan la pase, atraver leson spesyal, alor li reysi pase lor borderlaynn, e sa grosi sif &ldquo;sikse&rdquo;. Sa ki finn maske vre to desek, anterm degre veritab literesi.</p><br /><p>&nbsp;Reform Minis Ledikasyon li plito viz pu furni tu zanfan mem konteni pandan premye 9 an dan lekol. E sa, li bon. Tit reform la mem dir tu, li &ldquo;<em>Nine Year Continuous Basic Education</em>&rdquo;. Anfet, li pa sitan &ldquo;continuous&rdquo; dan sans ki apre Grad 6 pu sanze, al dan Lekol Segonder. Me, Minis limem spesifye so bi dan samem interview <em>Le Defi </em>la: &ldquo;Avec la &lsquo;Nine-year continuous basic education&rsquo;, nous devons nous assurer qu&rsquo;avant ces 13 ann&eacute;es, l&rsquo;el&egrave;ve est en mesure de rester a l&rsquo;ecole pour au moins neuf ans consecutifs,&rdquo; li deklare. Wi, li bon zanfan kapav res pli lontan dan sistem lekol, me li depann ki konteni pe montre, kimanyer pe montre (ki pedagozi) ek dan ki lang pe montre(medyom).</p><br /><p><strong>&nbsp;Konpetisyon amorti</strong></p><br /><p>Ena plizir mezir dan Plan Minis Dookun ki pu amorti konpetisyon, ubyin o-mwin diminye stres lor zanfan 11 an.</p><br /><p>&nbsp;Premye, kan CPE ranplase par PSAC (Primary School Achievement Certificate), li nepli enn fason departaz zanfan dan &ldquo;star school&rdquo;, etc. Zanfan pu monte atraver enn sistem <em>rezyonal</em>. Dan sa sans la li &ldquo;continuous&rdquo;. Me, evidaman, enn sertin konpetisyon pu tuzur reste, parski pena ase SSS ziska ler. Ena ankor tuzur inpe fay kolez prive.</p><br /><p>&nbsp;Dezyeman, pu ena 40% pwin dan sa nuvo lexame 6yem ki pu totalize atraver &ldquo;<em>assessmennt kontinye</em>&rdquo;. Setadir lexame li-mem, li kont zis 60%, anplas 100% avan.</p><br /><p>&nbsp;Trwazyeman, sa 40% la, li pu baze lor performans dan size ki Minis apel &lsquo;non-CORE&rsquo;, setadir Kompyuter, PE, Civic and Values, Arts (lar, lamizik, drama, ladans), &ldquo;communication skills&rdquo;. Sa osi, diminye sa &lsquo;rat-race&rsquo; anterm size ki &ldquo;konte&rdquo;.</p><br /><p>&nbsp;Katriyeman, pu tir presyon dan nuvo lexame 6yem; u pu inn fini, lafin 5yem ek pandan 6yem, deza konpoz 2 size, setadir Syans ek Listwar-Zeografi, e pwin ki u fini tire pu kontabilize. Sa osi tir presyon.</p><br /><p>&nbsp;Sinkyeman, si ena konpetisyon feros, li pu ranvwaye ziska zanfan ena 14-15 an par la, kan pu ena lexame Form III apel National Certificate of Education (NCE). Zanfan la pu inn ariv enn laz kot li kapav kop avek konpetisyon, e avoy promne si li ule.</p><br /><p>&nbsp;Sizyeman, mem si rezilta NCE (Form III) li pu ena enn sertin linportans, setadir li pu departaz zanfan ant Lakademi spesyalize swa kontiyn dan Kolez Rezyonal, anfet kot ena tro demand, se proximite ar kolez ki pu desid ki zanfan aksepte. La, osi petet konpetisyon dan NCE pu amorti par lefet ki fini alwe 4 nuvo laburs liniversite par rezyon. Alor, ena paran pu prefer res dan Kolez Rezyonal.</p><br /><p>&nbsp;Setyeman, zanfan ki pu al dan Politeknik, pu pran sa sime la, zis pu dernye 2 an (setadir Form VI ek VII).</p><br /><p><strong>&nbsp;Amelyor nivo?</strong></p><br /><p>Reform Dookun pu ena tandans amelyor nivo ledikasyon anzeneral e diminye inegalite ant diferan lekol ek ant kolez, mem si sa 11 Akademi la pu riske plito ranforsi tandans elitist ki dominn sistem aktyel.</p><br /><p>&nbsp;Anfet, kan ekut Minis Dookun, problem performans dan lekol li lafot zanfan la pa lekol e sistem la. Anfet ena 2 problem prinsipal: ena zanfan ki fel, ek ena zanfan ki gayn bon rezilta par aprann par ker (rote-learning). Samem 2 problem grav dan sistem ki antrav progre tu zanfan.</p><br /><p>&nbsp;Mem si Minis Dookun rekonet ena zanfan ki gayn difikilte aprann, me seki li propoze setadir &ldquo;Remedial education&rdquo; pa pu vremem rezud sa problem aprantisaz ki zanfan fer fas dan lekol. Ala seki li dir dan <em>Le Defi</em>, 13 Ut: &ldquo;<em>Ceux qui ont des problemes d&rsquo;apprentissage iront avec un &lsquo;Remedial teacher&rsquo; qui utilisera une methodologie adaptee pour ces enfants. Cela va se faire pendant les six annees du primaire et nous pensons diminuer le nombre d&rsquo;&eacute;coliers qui n&rsquo;arrivent pas a atteindre le niveau voulu au bout de la 6e annee.</em>&rdquo; Si enn gran nomb zanfan pa pe reysi atenn nivo neseser li sirtu akoz pe obliz zot aprann dan enn lang etranzer.</p><br /><p>&nbsp;E, Minis Dookun pa paret admet ki ena sa 2yem problem la, setadir seki fer &ldquo;byin&rdquo; dan lexame, li pa pe konpran seki li pe lir. (Get nu lartik lor sa size &ldquo;lektir avek konpreansyon&rdquo; dan sa Revi la.)</p><br /><p>&nbsp;Alor ki tu pedagog ki reflesi dakor ki leker problem dan sistem ledikasyon Moris, ki li to esek, ki li lektir san veritab konpreansyon, se lefet ki pa pe servi langaz maternel zanfan pu anseyne.</p><br /><p>&nbsp;Preske tu zanfan Moris zot Kreolofonn, setadir zot konpran ek metriz lang Kreol natirelman dan sosyete Moris. Me lekol obliz zot pran zot prop langaz, met li dan enn kwin, anplas devlop li a ot-nivo kuma enn esafodaz intelektyel robist. E, kan fini siprim lang maternel, lerla sistem aktyel fer zanfan pa zis al aprann enn-de lang etranzer depi kumansman kuma enn korve (akoz li pa natirel dan Moris), me fors zot aprann <em>dan</em> sa lang etranzer la. Zanfan bizin aprann syans, par exanp atraver Angle swa dan sertin lekol prive atraver Franse. Li enn krim. Li tuf zeni tu zanfan Moris.</p><br /><p>&nbsp;E li sa move politik langaz medyom ki explik lefet ki nivo syans dan 6yem li ba, akoz nivo lingwistik oblize inpe ba pu ki zanfan kapav mem aprann par ker dan enn langaz ki pa natirel pu li.</p><br /><p>&nbsp;UNESCO depi 1953 prekoniz itilizasyon lang maternel pu montre dan lekol. Li finn mintenir mem pozisyon ziska zordi. Plizir resers internasyonal finn demontre ki zanfan aprann pli byin dan tu size, inkli dan lang etranzer, kan lekol gard so lang maternel kuma medyom. Pu servi enn lang kuma Angle ubyin Franse kuma medyom, bizin fini anseyn li kuma enn size dan lekol pandan 6 a 8 an. Zis size kuma lamizik ek PE ki kapav anseyne atraver Angle Franse apre ki zanfan finn aprann sa langaz la pandan 4-6 an.</p><br /><p>&nbsp;Dan Moris lexperyans Playgroup, BEC, Terre de Paix, LPT finn montre ki lang maternel kuma medyom li marse. Me, Minis pa ule kone.</p><br /><p><strong>&nbsp;Ditor zanfan lekol sibir</strong></p><br /><p>Reform Minis Dookun pa prekoniz okenn mezir ki pu diminye ditor ki zanfan pe sufer akoz finn siprim so lang maternel dan lekol.</p><br /><p>&nbsp;Dan plan Minis Dookun pena okenn mansyon itilizasyon lang maternel kuma medyom. Alor ki Rapor Hearing LPT an 2009 finn dir ki &ldquo;<em>osant sistem ledikasyon ena enn polisi langaz ki enn esek total kote devlopman ful potansyel nu zanfan, ki li kote kognitif, emosyonel, sikolozik ubyin sosyal</em>&rdquo;. Sa ditor la, li fer kont zanfan ki pe gayn difikilte dan lekol, e osi pu bann ki pe fer &ldquo;byin&rdquo; parski zot fer byin atraver aprann par ker, kuma peroke, e sanki zot devlop zot lespri kritik.</p><br /><p>&nbsp;Dayer LPT finn depoz enn kopi sa Rapor la ar Minis Dookun tutswit kuma li pran so post an Desam 2014. &nbsp;Klerman li pa finn mem lir li. Me, linyorans napa enn eskiz, kan pe kontiyn fer ditor zanfan.</p><br /><p><strong>&nbsp;Dekoloniz ledikasyon</strong></p><br /><p>Zordi an 2015, polisi langaz ki pe servi dan primer ankor dikte par enn regleman anfaver langaz Angle e ki date depi lepok kolonyal, <em>Education Regulation 1957</em>. Plan Reform Dookun swazir pu innyor realite langaz dan lekel gran mazorite zanfan Moris viv, setadir Kreol ek dan sertin rezyon Bhojpuri. Li swazir pu mepriz langaz ki zanfan servi tulezur natirelman, ki li dan lakaz, kan zot zwe, ki li langaz dan lekel zot reve, langaz ki zot konpran, langaz ki zot manye avek presizyon.</p><br /><p>&nbsp;Langaz Kreol, kanmem, depi lepok Bunwaree, li finn rantre kuma enn size opsyonel. Li pu tuzur opsyonel, mem li anfet enn Core Subject.</p><br /><p>&nbsp;Me seki osi grav dan sa Plan Dookun la, se lefet ki pe vinn inpoz enn dezyem lang etranzer dan lekol. Franse pe vinn obligatwar parey kuma Angle ek Matematik onivo Grade 9. Sa li retrograd. Franse ti bizin opsyonel, kuma Kreol ek Lang Oryantal.</p><br /><p>&nbsp;Alafin reform Minis Dookun viz pu mintenir <em>stati ko</em> onivo ledikasyon par gard prestiz ki langaz Angle ek Franse finn benefisye depi lepok kolonyal. Li viz perpetye reyn sa elit ki kontrol bann linstitisyon Leta depi Lindepandans. Tusala odetriman vre epanwisman intelektyel, kognitif ek emosyonel zanfan Repiblik Moris. Tusala mem odetriman sa &ldquo;inovativite&rdquo; ki Guvernman Lepep dir li ule promuvwar. Kreasyon ek inovasyon travers obligatwarman par lang maternel ot-nivo. Lang maternel ot-nivo enn sine-qua-non pu Angle-Franse ot nivo.</p><br /><p>AA</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

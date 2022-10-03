@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612100356" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612100356" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612100356" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612100356" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612100356" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612100356" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612100356" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612100356" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612100356" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Lindsey Collen on Women and Literature</h1><p class="subtitle">05.10.2017</p></h1>
+	<p class="newsarticle"><p>Lindsey Collen has given us her notes for the panel she participated in at the Jozi Book Fair in 2017 in Johannesburg, on âWomen and Literatureâ.</p><br /><p>Â We often think of this topic from the point of view of women as writers, in particular of womenâs lack of a decent representation in the statistics. But, literature is not just writers; it is also <em>readers</em>. And women are probably in a majority when it comes to reading literature. Women are literature students, again probably a majority, and women are literature teachers. Here, too, it is increasingly women. Librarians, the custodians and sharers of books, too, are often women, as are people who serve the public in bookstores. So, it is worth bearing this in mind.</p><br /><p>Â <strong>Breadth of involvement of women in literature</strong></p><br /><p>And though writers and teachers seem the âactiveâ ones in the list, we should remember that readers, students and librarians, though they might appear to have more passive roles, actually have very important and also very active roles. In fact, to quote Kurt Vonnegut, even reading, which seems the most passive, is a <em>performing art</em>. It is a solo performance, and conducted for a private audience of one, but we have, as readers, to actively re-create from our memory banks, a whole story from the black squiggles on white paper.</p><br /><p>Â So, women are very involved in literature in a breadth of ways. But what about historical depth? I was quite surprised when I began to look into it.</p><br /><p>Â <strong>Historical depth </strong></p><br /><p>While pottering around the internet to prepare for this panel, I found that the very earliest writer identified (so far) was a woman from Sumeria (Southern Iraq). The texts attributed to her date from 4300 years ago, about 2300 BCE. She was the daughter of King Sargon, known as En-Hedu-Ana and was a high priestess. She wrote hymns to the goddess Inanna which survive until today. She is the earliest author and poet in the whole world that history knows by name.Â Here is one of her texts, that I have reworked very slightly:</p><br /><p>Â âAt your battle-cry, my lady goddess, all faraway lands bow down low. Humanity, as a whole, when it stands before you, stands thus in awed silence. It is the terrifying radiance you have, and it is the way you grasp the most awsome of all divine powers, the tempest, in the hollow of your hand. Because of you, the floodgates that keep tears in, are opened. Because of you, people walk the road of great lamentations. In the heat of battle, all is struck down before you. With your strength, my lady goddess, teeth crush flint. You charge forward like a raging storm. You roar with the roar of the storm, you thunder without ceasing, you thunder with the thunder of the paralell underworld. You cast exhaustion over others with the stormwinds you control, while your own feet keep their energy intact. With the lamentingÂ drum, you strike up the beat of their lament.</p><br /><p>âMy lady goddess, the great AnunaÂ gods flee from you, rush to the old ruins of mounds, scudding bats. They dare not stand before your blazing gaze. They dare not confront your terrible countenance. Who can cool your raging heart? Your anger, being malevalent, is too great to cool. Lady goddess, can your mood improve? Lady goddess, can your heart be made joyful? Eldest daughter ofÂ Suen, your rage is so hot, it canât be soothed!â</p><br /><p>Â (Excerpt. Translated in 1995, and adapted by me for you in 2017. Sumerian, City of Ur 2300 BCE. Text I amended is of: Â Copyright 2003, 2004, 2005, 2006 The ETCSL project, Faculty of Oriental Studies, University of Oxford, updated 2006-12-19 by JE.)</p><br /><p>Â So, women have quite a historic depth in literatureâs history! And it is generalized:</p><br /><p>Â In India, a number of women writers contributed to the Vedic verses. They date from 3,500 years ago. Â (BCE 1500 to BCE 500).</p><br /><p>Â In Africa, we have the love poems in hieroglyphics â many seem to be by women â which date from 3,300 years ago, around 1300 BCE.</p><br /><p>Â In Greece, there was Sapho, the Greek woman writer, who 2,300 years ago, in 300 BCE, wrote ten books of verse, which were published by the third and second centuries BCE. And there were many Greek and Roman women writers.</p><br /><p>Â In Japan during the literary golden age 1,000 years ago in 1000 CE â it was also the age of women writers â esecially poetry and autobiograhical works.</p><br /><p>Â In China â there is a collection of womenâs poetry from the Tang Dynasty, in the year 900.</p><br /><p>Â In Africa again, seven hundred years ago, in 1300, the empire of Mali became the richest in the world.Â And the SankorÃ© University mosque was built in about 1300 with funding from a woman of the Aghlal, a religious Tuareg ethnic group. In recent years some one million (expected 20 million) lost manuscripts have been found in West Africa. Again, we can expect women writers if there were women funding University mosques.</p><br /><p>Â And in the mainstream literary âcanonsâ, there are women writers, of course, that many of us read, and/or have even studied. To give an eclectic short list there are Jane Austen, George Eliot, Mary Shelley, Virginia Woolf, Emily Dickenson, Alice Walker, Sylvia Plath, Phyllis Wheatley, Doris Lessing, Toni Morrison, Bessie Head, Anita Desai, Ama Ata Aidoo, Alice Munroe, Tsitsi Dangarembga, Nawal El Saadawi, Yvonne Vera, Toni Morrison, Joan Didion, Arundhati Roy, Virginia Wolf, Charlotte Bronte, Jean Rhys, Agatha Christie, Rebecca West, and literally dozens of good contemporary women fiction writers.</p><br /><p>Â <strong>The undervalued writer-activists of history</strong></p><br /><p>But since this is the <em>Jozi</em> Book Fair, and since it is not like other book fairs, I wanted to draw attention to two writers, women writers, who are known as activists and not at all as writers, but who deserve to be known as writers. This is important because there are men activist writers, too, who are not given their due as writers. First who comes to mind is Victor Serge, with an incredible oeuvre. And there is Leon Trotsky, who is one of the best-ever writers. Then there is CLR James, the Trinidadian writer on the Haiti revolution, the revolution in which for the first time the lowest class came to power, when slaves came to power during the time of and after the French Revolution. I start with the men writers who are activists, and because of this, undervalued by those who decide on the canon; this is because, as we women seek our place in the history of writing, we need also to change the canon, itself, by at the same time demanding a place for both men and women activists denied this memory in the mainstream.</p><br /><p>Â The second time the lowest class came to power was in the Paris Commune of 1871, when the working class came to power for 100 days. This moment in history saw the activist and writer Louise Michel come into her own. She was a brave member of the commune, afterwards exiled to New Caledonia. And she continued to show bravery even after being offered pardon. But, today Iâd like to give you a poem of hers that Iâve translated for this panel:</p><br /><p>Â </p><br /><h3>The Red Carnations</h3><br /><p>by Louise Michel</p><br /><p><strong>Â </strong>If I end up in the black cloak of the cemetery,<br /> Brother, cast on to me your sister<br /> With one last wish <br /> A flowering red carnation.</p><br /><p>In the final hours of the Empire,<br /> What with all the people rising up,<br /> It is your smile, my red carnation,<br /> That cries out how all gets reborn.<br /> <br /> Today, go flower in the shadow<br /> of the sad black cloak of the prison,<br /> Go flower right by that poor detainee,<br /> Whisper our love in his ear. <br /> <br /> Say how in tumultuous times</p><br /><p>All belongs to the future,<br /> Say how the victor with his pallid frown<br /> Dies sooner than the vanquished.</p><br /><p class="information"><strong>Â </strong>[Louise Michel wrote this poem in the memory of the Communard ThÃ©ophile FerrÃ©, who refused to recognize a military courtâs right to judge him after the defeat of the Commune.Â  Sentenced to death, he was executed.]</p><br /><p class="information">Â And to round off,</p><br /><p class="information">Â Iâd like to give you Rosa Luxembourgâs literary contribution, made during the build-up to what would become the third time the lowest classes came to power, the Russian Revolution which celebrates its centenary this year. The text was written earlier, on âMartiniqueâ at the time of the volcano:</p><br /><p>Â MARTINIQUE</p><br /><p>by Rosa Luxemburg (1902)</p><br /><p><em>Written a</em><em>fter the volanic eruption in May 1902 at the port of St. Pierre.Â <br /> </em>Mountains of smoking ruins, heaps of mangled corpses, a steaming, smoking sea of fire wherever you turn, mud and ashes â that is all that remains of the flourishing little city which perched on the rocky slope of the volcano like a fluttering swallow. For some time the angry giant had been heard to rumble and rage against this human presumption, the blind self-conceit of the two-legged dwarfs. Great-hearted even in his wrath, a true giant, he warned the reckless creatures that crawled at his feet. He smoked, spewed out fiery clouds, in his bosom there was seething and boiling and explosions like rifle volleys and cannon thunder. But the lords of the earth, those who ordain human destiny, remained with faith unshaken â in their own wisdom.</p><br /><p>Â On the 7th, the commission dispatched by the government announced to the anxious people of St. Pierre that all was in order in heaven and on earth. All is in order, no cause for alarm! â as they said on the eve of the Oath of the Tennis Court in the dance-intoxicated halls of Louis XVI, while in the crater of the revolutionary volcano fiery lava was gathering for the fearful eruption. All is in order, peace and quiet everywhere! - as they said in Vienna and Berlin on the eve of the March eruption 50 years ago. The old, long-suffering titan of Martinique paid no heed to the reports of the honorable commission: after the people had been reassured by the governor on the 7th, he erupted in the early hours of the 8th and buried in a few minutes the governor, the commission, the people, houses, streets and ships under the fiery exhalation of his indignant heart.</p><br /><p>Â The work was radically thorough. Forty thousand human lives mowed down, a handful of trembling refugees rescued â the old giant can rumble and bubble in peace, he has shown his might, he has fearfully avenged the slight to his primordial power.</p><br /><p>Â And now in the ruins of the annihilated city on Martinique a new guest arrives, unknown, never seen before â the human being. Not lords and bondsmen, not Blacks and whites, not rich and poor, not plantation owners and wage slaves â human beings have appeared on the tiny shattered island, human beings who feel only the pain and see only the disaster, who only want to help and succor. Old Mt. Pelee has worked a miracle! Forgotten are the days of Fashoda, forgotten the conflict over Cuba, forgotten âla Revancheâ â the French and the English, the tsar and the Senate of Washington, Germany and Holland donate money, send telegrams, extend the helping hand. A brotherhood of peoples against natureâs burning hatred, a resurrection of humanism on the ruins of human culture. The price of recalling their humanity was high, but thundering Mt. Pelee had a voice to catch their ear.</p><br /><p>Â France weeps over the tiny islandâs 40,000 corpses, and the whole world hastens to dry the tears of the Mother Republic. But how was it then, centuries ago, when France spilled blood in torrents for the Lesser and Greater Antilles? In the sea off the east coast of Africa lies a volcanic island â Madagascar: 50 years ago there we saw the disconsolate Republic who weeps for her lost children today, how she bowed the obstinate native people to her yoke with chains and the sword. No volcano opened its crater there: the mouths of French cannons spewed out death and annihilation; French artillery fire swept thousands of flowering human lives from the face of the earth until a free people lay prostrate on the ground, until the brown queen of the âsavagesâ was dragged off as a trophy to the âCity of Light.â</p><br /><p>Â On the Asiatic coast, washed by the waves of the ocean, lie the smiling Philippines. Six years ago we saw the benevolent Yankees, we saw the Washington Senate at work there. Not fire-spewing mountains â there, American rifles mowed down human lives in heaps; the sugar cartel Senate which today sends golden dollars to Martinique, thousands upon thousands, to coax life back from the ruins, sent cannon upon cannon, warship upon warship, golden dollars millions upon millions to Cuba, to sow death and devastation.</p><br /><p>Â Yesterday, today â far off in the African south, where only a few years ago a tranquil little people lived by their labor and in peace, there we saw how the English wreak havoc, these same Englishmen who in Martinique save the mother her children and the children their parents: there we saw them stamp on human bodies, on childrenâs corpses with brutal soldiersâ boots, wading in pools of blood, death and misery before them and behind.</p><br /><p>Ah, and the Russians, the rescuing, helping, weeping Tsar of All the Russians â an old acquaintance! We have seen you on the camparts of Praga, where warm Polish blood flowed in streams and turned the sky red with its steam. But those were the old days. No! Now, only a few weeks ago, we have seen you benevolent Russians on your dusty highways, in ruined Russian villages eye to eye with the ragged, wildly agitated, grumbling mob; gunfire rattled, gasping muzhiks fell to the earth, red peasant blood mingled with the dust of the highway. They must die, they must fall because their bodies doubled up with hunger, because they cried out for bread, for bread!</p><br /><p>Â And we have seen you too, oh Mother Republic, you tear-distiller. It was on May 23 of 1871: the glorious spring sun shone down on Paris; thousands of pale human beings in working clothes stood packed together in the streets, in prison courtyards, body to body and head to head; through loopholes in the walls, mitrailleuses thrust their bloodthirsty muzzles. No volcano erupted, no lava stream poured down. Your cannons, Mother Republic, were turned on the tight-packed crowd, screams of pain rent the air â over 20,000 corpses covered the pavements of Paris!</p><br /><p>Â And all of you â whether French and English, Russians and Germans, Italians and Americans â we have seen you all together once before in brotherly accord, united in a great league of nations, helping and guiding each other: it was in China. There too you forgot all quarrels among yourselves, there too you made a peace of peoples â for mutual murder and the torch. Ha, how the pigtails fell in rows before your bullets, like a ripe grainfield lashed by the hail! Ha, how the wailing women plunged into the water, their dead in their cold arms, fleeing the tortures of your ardent embraces!</p><br /><p>Â And now they have all turned to Martinique, all one heart and one mind again; they help, rescue, dry the tears and curse the havoc-wreaking volcano. Mt. Pelee, great-hearted giant, you can laugh; you can look down in loathing at these benevolent murderers, at these weeping carnivores, at these beasts in Samaritanâs clothing. But a day will come when another volcano lifts its voice of thunder: a volcano that is seething and boiling, whether you need it or not, and will sweep the whole sanctimonious, blood-splattered culture from the face of the earth. And only on its ruins will the nations come together in true humanity, which will know but one deadly foe â blind, dead nature.</p><br /><p><strong>Â </strong>[First Published:Â Leipziger Volkszeitung, May 15, 1902.Â Translated:Â David Wolff,Â News & Letters, Jan.-Feb. 1983.Â Online Version:Â mea 1996; marxists.org 1999.Â Transcribed:Â Dave Hollis/Brian Baggins.]</p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

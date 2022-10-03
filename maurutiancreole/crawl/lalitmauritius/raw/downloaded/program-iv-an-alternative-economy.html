@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101724" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101724" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101724" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101724" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101724" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101724" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101724" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101724" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101724" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Program IV: An Alternative Economy</h1><p class="subtitle">18.10.2014</p></h1>
+	<p class="newsarticle">For over 10 years the central theme of LALITâs political work has been a campaign for an alternative economy.<br /><br />After the <i>World Trade Organization</i> eliminated the âprotectionâ accorded by Europe to Mauritian sugar and textiles, Mauritius went into structural crisis: employment in both sectors shrank drastically. In the sugar industry the plan that the Government and bosses came up with destroyed over 40,000 jobs, by centralizing the mills and mechanizing plantation. Hundreds of Free Zone textile factories closed and 50,000 jobs were destroyed. The tourist industry that was supposed to attract 2,000,000 tourists a years, does not yet attract a million, meaning total stagnation. The number of hotels has meanwhile gone up, so there are now hotels going bankrupt.<br /><br />When economic crisis and recession then hit Europe from 2009, all three sectors where there are jobs got into further trouble. <br /><br />The price of sugar has fallen on two occasions, and many planters have had to stop planting cane because it is no longer viable: the measures taken to ârestructureâ the industry were only beneficial to the big sugar plantations, and this was by making employment seasonal. However, now even the big mills are in difficulty because they no longer get enough cane for the 4 mega-mills that remain. The Independent Power Producers, attached to the mills, are also moaning because they are not getting enough bagasse to burn, and they are having to use more and more imported coal.<br /><br />For textiles, the European market has collapsed with the recession persisting there; AGOA which was supposed to have opened the US market may not be renewed under the same conditions as before.<br /><br />So, the central theme of our campaign was to expose the fact that the three main job-providing sectors are in difficulty, so much so that their very existence is in question. This was the reason why we described, and continue to describe, the crisis as âstructuralâ. This is why we propose <i > an alternative economy, </i> one that can create stable employment. <br /><br />We propose that the backbone of an alternative economy should be diversified agriculture, which will create large-scale employment, while also creating food security. We propose the development of a sector for preserving and transforming food products, too, so that we plant not just for local consumption, but also for export to parts of the region that need food. Instead of so much as even considering agricultural diversification, the Government has chosen, and still chooses, instead, to subsidize cane planters (to the tune of over Rs200,000,000 a year) to go on producing cane for the hungry mills to crush, even while sugar becomes non-viable. <br /><br />In LALIT, we have popularized our campaign with posters, leaflets, meetings and debates, on radio programs and even with a film just on this subject. We have used our website, too and have spoken at conferences and congresses in countries like South Africa and Australia.<br /><br />Our campaign has had some effect: more food is produced now, there are rice plantations, there is more animal rearing, and aquaculture has produced some fish. But the Government has not got the political will to oppose the historical might of sugar oligarchy in the countryâs agricultural strategy, even as food imports produce a record balance of payments problem.<br /><br />Our campaign for an alternative economy has developed transitional demands:<br />- For land reform that brings into question land-ownership and control, <br />- That Government should reign in the sugar companies which decide to go on producing sugar when it is not in the interests of the broad masses of the people,<br />- That Government should not go on investing in an industry that has so little real future, <br />- Challenging the dominance of finance capital.<br /><br />Our demands in this campaign aim not only to overcome immediate problems, but at the same time they put into question capitalism, itself. Our campaign allows us to develop analyses and to articulate together in our analysis all the different crises that are impinging on Mauritius and have been for over 10 years now: the end of protected markets since the WTO, the world financial crisis, world recession, food and fuel crises.<br /><br />In the Electoral Campaign we are continuing this work towards an alternative economy. The present situation makes our campaign all the more relevant. Our campaign keeps in mind the demands we agreed on, together with other organizations in a Charter on Food Security: <br /><br /><b>Charter on food security</b><br /><br />This Charter was developed in 2005 at the time of the first world-wide food security crisis. It was debated over a series of meetings that LALIT organized with 10 other organizations and a few individual academics who together formed a Common Front on Food Security. The full title of the Charter is: âIn times of globalization & food shortages, the Charter of the Common Front on Food Security.â<br /><br />Given that:<br /><br />* The world food crisis is characterized by both food shortages and price rises;<br />* Food ought not ever to be hostage to capitalist profits;<br />* Speculation and the grip that cartels have on production & distribution aggravate the food crisis;<br />* There is a danger that some producers or distributors hoard food, and provoke a black market that then further aggravates the crisis;<br />* An increasing share of food production is being steered into bio-fuels, for reasons of profit;<br />* GMOs push food production further into the grip of private multinationals like Monsanto & Novartis;<br />* Many countries that produce rice and wheat are controlling or even halting their food exports altogether, in a bid to reduce price rises and shortages on their own national markets;<br />* Experts predict that the shortages will persist for a long time to come, and will get worse;<br />* Geographically speaking, Mauritius is far from the sources of its staples, its milk and many other foodstuffs, in times when freight costs are rising, due to fuel price rises which, in turn, add to the price of food;<br />* Food security is essential to the very survival of a people;<br /><br />Given that,<br />* For the very first time in the history of our country, there is an opportunity for the broad masses of the people to put into question land ownership and use in the Republic of Mauritius,<br /><br />Given that:<br />* Almost all good agricultural land in the Island of Mauritius is under cane;<br />* All Government facilities, until today, benefit cane planters to the detriment of food planters (through whole institutions like the MSIRI, as well as others that ensure loans, seeds, insurance);<br />* Just like all non-sugar agriculture in the Island of Mauritius, the whole of agriculture in the Island of Rodrigues is neglected by the State, relative to the support it has given and continues to give to cane planters; there is no support for planters who produce food, whether in Mauritius or Rodrigues;<br />* There is a lack of irrigation in the Islands of Rodrigues and in certain parts of the Island of Mauritius;<br />* The price of sugar is going to fall, and will be unstable and unpredictable, because the guaranteed market and price is now over;<br />* The sugar estates are the owners of a huge proportion of good agricultural land, and they are converting much of it into buildings or into IRS with their golf courses;<br />* The agricultural policies of successive Governments have brought about the wholesale destruction of jobs, in times when unemployment is already around 10% (if properly calculated);<br />* âAccompanying Measuresâ assured by the European Union, were designed as compensation to be used for the development of the entire economy, but have been used, till now (under the Multi-Annual Adaptation Strategy) almost entirely in order to develop the cane sector; this means the European money designed to compensate for the lowering of sugar prices, is being blown in perpetuating the cane sector to the detriment of both job creation and food security;<br /><br />Given that,<br />* The lagoons in Mauritius & Rodrigues are no longer renewing themselves with enough fish for food needs, but have become poorer and poorer;<br />* The Republic of Mauritius is a large country, with its 2,000,000 square kilometres of sea;<br /><br />Given that, <br />* The broad masses have no access to land for planting or animal husbandry;<br />* There is already a rich knowledge of food production, fishing, and a high degree of commitment to the soil and the sea, in the masses of people in the whole country, and in particular in Rodrigues,<br />* Given that we are still living under patriarchy, women who are responsible for feeding the family are often not given the means to be able to carry out this responsibility, <br /><br />Our demands:<br />1 That the Government, with food security in mind, undertakes a general review of all land use and all land ownership and control;<br /><br />2 That the Government, in particular, undertakes a study of the four âclustersâ (Medine, FUEL, Bel Vue ek SUDS), with a view, inter alia, to encouraging diversification and food security;<br /><br />3 To kick off, Government must introduce laws so that all land is at once re-organized so that, for 4 months of each year, food crops can be grown interline, in all of the 100,000 arpents that sugar estates and in all the 90,000 arpents that small planters, now have under cane; any land owner who does not plant food crops on his land, must lease it to a planter who will do so; this concerns crops like potatoes, tomatoes, beans, onions, sweet potatoes, arwi-violets, wheat, maize, etc; This way cane will be affected less in the early stages of converting to food security;<br /><br />4 Government must force sugar estates to give labourers and artisans made redundant an arpent of land on lease so that, grouped together in co-operatives, they can grow food crops;<br /><br />5 Government must ensure that everyone who want to plant food crops, in towns and in villages, or living in high-rise flats, or without any land, gets access to allotments; that Government help people plant in greenhouses and on a hydroponic basis;<br /><br />6 Government must introduce measures, and if necessary subsidies, for planters producing food and for animal raisers:<br /><br />* Provide seeds.<br />* Provide irrigation at a reasonable price, build dams, specially in Rodrigues.<br />* Provide pre-crop loans<br />* Organize insurance, as in a Welfare Fund<br />* Guarantee a market and a good price through the Marketing Board and Meat Authority, which will stabilize all food products, milk, fish, eggs, meat; organize storage for planters, animal raisers and fishers;<br />* Create agro-industries, which will preserve and transform the food produced (canning, making oil, etc.)<br />* Re-launch the Palmar animal rearing farm, as well as the production of animal feed, and seedlings.<br />* Ensure marketing for agricultural produce, whether in Mauritius or abroad.<br /><br />7 Government must ensure the traditional knowledge gets transmitted to the new generation, and that scientific knowledge is brought in to join hands with the traditional knowledge in Moris, Rodrig, Agalega, and Chagos, so that agriculture, animal rearing and fishing develop well.<br /><br />8 Government must prevent the middle-men (milk, fish and vegetables merchants) extorting too big a share of âplus-valueâ; this means producers need access to co-operative credit and marketing;<br /><br />9 Government must provide the money necessary for building boats that can go to the outer islands and banks, so that fishermen can get there to fish.<br /><br />10 Marine resources must be controlled, pirating prevented, and the fish stocks kept up.<br />11 Food prices need to be fixed for producers and for people who buy the food; where necessary, the Government must create a âstabilizing fundâ.<br />12 Government must speak out at international forums against the WTO when it blocks food production in the Third World countries, notably when the EU & USA subsidize their agriculture;<br />13 Government must assure a âGMO-FREEâ Republic; a good side-effect of this is that it attracts âbioâ-friendly tourists to the country.<br />14 Government must use all the above means to ensure security for the following 5 food categories:<br /><br />* Staples: a variety of these: rice, maize, manioc, potato, wheat, arwi, arrow root, sweet potatoes, bread fruit (Today there is a heavy shortage of locally produced staples.)<br />* Milk. (Today we fall very short.)<br />* Eggs, chicken, meat. (Most meat is imported.)<br />* Fish. (Mauritius can easily be self-sufficient â Government must organize investment.)<br />* Vegetables, fruit, tomatoes, spices. (Some degree of self reliance; preservation needs to be developed.)<br /><br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

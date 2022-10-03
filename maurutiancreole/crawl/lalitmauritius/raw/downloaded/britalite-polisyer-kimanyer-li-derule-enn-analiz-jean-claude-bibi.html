@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612105815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612105815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612105815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612105815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612105815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612105815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612105815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612105815" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612105815" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>"Britalite polisyer: Kimanyer li derule": Enn analiz Jean-Claude Bibi</h1><p class="subtitle">28.07.2008</p></h1>
+	<p class="newsarticle"><i>Sa papye la li baze lor enn diskur ki Jean Claude Bibi ti fer pu lasosyasyon JUSTICE kumansman mwa Ziyet. Telman so bann obzervasyon lor manyer ki britalite polisyer opere zot pertinan, ki, avek so permisyon, nu pe pibliye li kuma enn lartik.</i><br><br>Mo finn pran kom pwendedepar pratik zeneral lapolis anseki konsern britalite polisyer ek vyolans polisyer. Mo pu get li istorikman, e lerla swiv evolisyon ziska asterla. Sa pu ed nu konpran sa fenomenn la.<br><br>Anu get fason anzeneral ki lapolis azir dan zot travay. Ena 2 pwen inportan ladan. Nu kapav dir ki relasyon lapolis ek sitwayen li karakterize par abi depuvwar delapar lapolis. Sa abi-la, li pran plizir form. Me, seki konsern nu dan JUSTICE se enn form abi partikilye, setadir itilizasyon vyolans kont sitwayen. <br><br>Sa pratik lapolis la (ek ena rezon istorik, filozofik, sosyal, politik, pu sa) li sirtu kont dimunn ki truv dan klas ek kus sosyal pli pov. Febles ekonomik sa bann klas la li amenn enn febles sosyal, ki fer ki zot pli buku parmi viktim. Preske tu sorti dan bann klas pov. E parmi sa grup-la, se zenn pli suvan ki sibir sa pratik-la plis. Sa li explike parsyelman par lefet ki seki pli aze krwar li ena drwa bat zenn, kuma enn papa pu dir u sanse li ena drwa lor so zanfan, ziska bate, akoz li paran. Sanse sa normal sa. Bat dimunn pli zenn, alor, li paret normal dan nu sosyete. Ziska zordi sa vre. Pa zis pu papa, me pu enn dimunn ki pli aze ki enn lot, plis li ena lotorite, li ena liniform alor sanse li normal pu li bat enn zenn. Alor, li inportan nu retenir ki se dimunn ki ple feb ekonomikman (natirelman avek enn-de exepsyon byen inportan) ki sibir, e parmi zot, li dimunn pli zenn ki sibir vyolans polisyer.<br><br>Li inportan osi presize ki se partikilyerman enn seksyon lapolis ki inplike dan vyolans kont sitwayten: seksyon lapolis ansarz rezud bann deli, bann ofans, bann krim. Li brans 'investigatif' kuma CID ki plis inplike. Sa li vre istorikman, e li vre ziska zordi.<br><br>Aktyelman, si ekut Premye Minis ki fek koz lor televizyon e dan lapres apre so vizit Lafrans, Moris pu gayn led depi Lafrans, li pu gayn exper ek laparey, kudme pu ki lapolis rezud krim (ek lezot deli) dan enn fason syantifik. Premye Minis pa azute, ondire seki li manke dir me seki tu dimunn ki tann li koze, mazine li pe azute, "... dan plas zot bat dimunn". E an verite, seki dan JUSTICE nu pe realize, se tank pa gayn sa bann metod syatifik la (ADN, rod indis, portre robo, lanprent, etc) sityasyon pu grav. CID, dimunn bizin realize, pena lot manyer travay apar bate, dan enn serten sans, mem li sonn bizar. Pu zot, li pa enn "way of life" kuma Angle dir, me enn "way of work". Zot ena zis 2 fason travay, bann CID Moris, dan labsans sa bann metod syantifik modern-la. Zot ena informater, setadir zot al anba labutik koz ar dimunn, ubyen zot pey informater, zot gayn linformasyon. Setadir, informater se 50% travay CID. Lerla, ki lot metod zot ena pu amenn zot ka? Zot ena "konfesyon". Sa li lot 50% zot metod. Sel metod travay ki zot finn ena. Sel exepsyon a sa, se kan zot may enn kikenn an flagran deli, ubyen kan zot ena enn temwen okiler. Sinon, bate, gayn konfesyon. Kumsa, zot travay.<br><br>Ladan, dan sa zafer bate-la, ena enn lot problem. Tu dernyerman, Moulou Gujadhur finn atir latansyon lor la. Tultan partu dan lemond, bann ofisye ki fer investigasyon, zot fer lanket lerla zot fer arestasyon. Dan Moris, li lekontrer. Zot arete, lerla zot fer lanket. Me, zot pena rezon pu aret dimunn, kan zot aret li. Alor, u bizin mazine ki zot kumanse par fer enn deli, zotmem, enn ofans zotmem. Zot aret kikenn zis pu ki zot kapav bat li. E zot bat li. Kumsa ki zot gayn enn konfesyon, zot rezud zot ka, zot fer zot travay sanse "marse". Alor, li pa zis dan ka Bernard Maigrot, ka lor lekel JUSTICE semenn dernyer finn fer enn long analiz, me li enn pratik kuran. U pena okenn rezon pu aret kikenn, u aret li, u bat li. Kumadir li enn pratik. E sa depi lontan. Depi avan lindepandans, vini-mem.<br><br>Mem kan ena sa pratik-la, e depi lontan ena li, depi tultan finn osi ena rezistans kont sa pratik la. <br><br>Me rezistans-la ti byen limite dan lepase, avan lexistans JUSTICE. Li ti limite dan lesans ki byen suvan li pa ti depas faz "indinyasyon". Rezistans ti zis indinyasyon. Viktim, so fami, so kamarad, so vwazen, dimunn dan so lanturaz, zot indiyne. Sirtu si enn lame, lipye, lizye inn kase, lerla zot indinye. Sa amenn enn drol sityasyon: Si bate-la sanse li "proporsyonel" sa li OK, me zot indiyne si li "tro buku bate". Alor, fami, piblik, mem lapres, li finn tultan, ziska ase resaman, ena enn rezonnman, ki "Fode pa bate tro buku!" "Un gifle" pa enn zafer grav. Dimunn, dan zot rezistans, ti sirtu indiyne, e zot ti indiyne kan ena "tro buku" bate, me zot pa ti kont bate anprinsip. Li tutafe resan ki nu pe tann dimunn opoz bate, anprinsip. Sa, sirtu depi JUSTICE. E seki inportan remarke, se pu bann individi, lafami, apar indinyasyon pa finn ena gran soz ki zot ti kapav fer. Tusel, ki u pu fer?<br><br>Sel lot rekur, se avoka kapav met enn ka "voir dire". Avoka dimande dan Lakur ki pa pran konfesyon la an konsiderasyon. Bizin fer enn prose alinteryer enn lot prose pu fer sa. Li byen difisil fer enn konfesyon tonbe kumsa. Pu bann avoka ki okip bann ka kriminel, dan u lavi profesyonel an antye, u kapav gayn enn 10-12 ka kumsa. Ladan 2-3 pu reysi. Suvan pena evidenns medikal kont bann gard. Byenantandi gard pa amenn u kot enn dokter pu konsilte, kan li fini bate. Mazistra servi sa kuma pretex pu dir pena prev. Suvan ena 3-4 lezot lapolis ki finn niye bate dan Lakur. Alor, gayn plizir temwen kont u kliyan. Zis, kan ena 4-5 ubyen plis polisye ki ti prezan, lerla parski sakenn invant enn versyon diferan kan pe niye enn bate ki ti ena, lerla avoka kapav expoz diferan versyon ase pu ki so kliyan gayne dan sa prosedir ki apel "voir dire"-la. Ondire, avoka reysi expoze ki mansonz diferan polisye pa pe korbore.<br><br>Me, sa "voir dire", li enn teknik legal ki rar servi, e kan servi li, li osi rar gayne. Kifer rar servi? Li enn sa bann stratezi legal ki met profesyon legal an konfli direk avek lapolis. Li amenn enn konfrontasyon direk. Anzeneral, u bizin gard antet, lapolis ek avoka ena relasyon profesyonel kotidyen. Zot travay ansam, e zot oblize travay ansam. Ek suvan enn dimansyon "personel" devlope dan sa bann relasyon-la, natirelman, dan enn plas grander Moris. Ondire avoka pa rod gat zot relasyon personel ar polisye ar lekel zot ena relasyon profesyonel kotidyen. E mem si zot pa konn sa gard konserne la personelman, sa gard ki pe chalennj, ki pe akiz de bate ek osi de fos so lanket, lerla enn lot gard pu al get avoka, pu dir li, "Les tonbe". E bizin konpran ki li enn "Benk-o!" si u gayne dan enn "voir dire". Pa zis u gayn u ka, me promosyon pu so polisye la kapav afekte kan sa rant dan so dosye, zizman mazistra kapav mem dir DPP bizin cheke sipa ena matyer purswiv. Tusala pu dir ki li enn konfrontasyon direk ek serye ant avoka ek gard. U bizin osi realize ki lapolis kapav byen pini enn avoka ki servi enn "voir dire". Par exanp, li kapav refiz larg kikenn (enn lot kliyan sa avoka-la) pu pini li. Ubyen tarde pu larg kikenn. E sa "voir dire" li prodir konfli kont sa avoka la a tu nivo dan lapolis, ziska bann ase gran sef.<br><br>Alor, dan lapratik sa vedir pena gran rekur pu viktim britalite polisyer, vyolans polisyer, tortir. <br><br>E lerla dan sa bann dernyer lane, nu finn gayn enn fenomenn kot finn gayn enn pratik zeneral lavyolans, nu finn gayn vyolans sistematize, e plis ki sistematize, mem vyolans glorifye, par lekip MCIT, su fe Prem Raddhoa. Sa ti tutafe nuvo. Zame avan li pa ti kumsa. E ti gayn enn eleman irasyonel ladan. Irasyonel net. Li vinn dir ki li "prodir rezilta", ki dayer pa vre. Lor la li dir li "pa bate", li dir li servi metod sikolozik ek metod syantifik. Me, so bann siporter, zot felisit li pu lefet ki li bate, e dir ki li "Bizin bate!" e tu lapolis bizin bate! Raddhoa ena tupe dir lor radyo, "Mo met o-defi kikenn vinn pruve ki enn inosan inn deza gayn bate ar mwa". Get sa manipilasyon la. Li dir ki alegasyon ki li bate, sa li zis invante par avoka, parfwa li dir par avoka an zeneral, parfwa li nom 5-6 par zot non, e li mem menas pu purswiv zot ubyen pu raport zot.<br><br>Su Raddhoa, nu finn truv enn reyn terer. Politisyen ek enn seksyon lapres ti vinn an konivans pu fer enn travay propagann pro-Raddhoa ek enn glorifikasyon Raddhoa. Zot felisit li pu so bate. Li, li niye ki li bate. Enn sityasyon ki ti absird, e sa absirdite-la ti rann li ankor pli difisil pu amenn rezistans kont li.<br><br>Raddhoa ti dekore Reduit, li ti osi dekore dan enn fason postim, alor li ti reprezant enn fenomenn extrem (sistematizasyon ek glorifikasyon) alinteryer enn pratik ki ti deza la, ki ti deza enn modus operandi dan lapolis.<br><br>Nu osi kapav dir ki letan Guvernman met dibut National Human Rights Committee (an 2001, set an desela), bann aktivite prinsipal pandan NHRC so premye 2-3 an ti presizeman dan enn fason ekrazant pu get sa bann ka vyolans polisyer. Merit ki ti ena ladan, vi ki li ti bizin tret telman buku ka, li ti anfet truv plizir ka Raddhoa, parski NHRC ti met dibut an plen lepok Raddhoa. Me, apar ka Martine Desmarais (liye a enn ka notwar, alor ase "high profile"), NHRC pa ti ditu kapav met fren a aktivite MCIT. Alor, merit ki ti ena ladan, se nu ti truv natir NHRC pli kler. Raddhoa ek so MCIT ti defye NHRC. Raddhoa ti mem maltret Ziz Seetulsingh ek NHRC lor Radyo an 2005.<br><br>Alor, nu finn truve ki NHRC so impak lor britalite polisyer ti mitize. Enn kote li ti kontribiye pu ranforsi prinsip ki bate pa bon, me li pa finn kapav aret li.<br><br>Suvan NHRC mem retir li depi bann ka. Li plede ki sanse si li pran enn ka britalite polisyer sa pu interfere ar travay DPP. Me, li enn pretex. E li kit enn sityasyon absird. Lapolis bate pu gayn enn konfesyon, lerla NHRC dir li pa pu interfere pangar "main case" afekte. Alor, sa finn prodir enn sityasyon totalman absird, kot enn konfesyon trete kuma enn konfesyon mem si li ti rezilta tortir. <br><br>Alor, fonksyon obzektiv NHRC finn drol. Li finn donn Leta Moris enn pli gran respektabilite internasyonal, kote drwa imen, e sa respektabilite finn "konte" pu led ki Leta gayne, pu serten asistans finansye ki liye ar kestyon "droit de l'homme". Sa vedir ki NHRC finn ena enn rol plito kosmetik. Li pa reysi kal vyolans polisyer, me li donn Moris enn bon repitasyon akoz li pe sanse ankete lor kestyon britalite polisyer.<br><br>E seki tris, se li ti kapav depas sa rol kosmetik la. NHRC, dapre lalwa ki ti met li dibut, li ena drwa propoz sanzman lalwa, li ena drwa kritik lalwa. Me, li pa finn fer li. Li finn refiz fer li. Alor, so kontribisyon dan Law Reform Commission, par exanp, li zero.<br><br>Ladan, dan tu sa realite Moris, sa pratik lapolis, sa lamonte Raddhoa, sa relativman nuvo NHRC, nu finn gayn JUSTICE. E JUSTICE finn reprezant enn fakter sibzektiv ki finn vinn bulvers sa sistem an konfizyon la. JUSTICE finn vinn met fen a sa tolerans britalite polisyer. JUSTICE finn amenn enn sanzman kote filozofik ek kote pedagozik, e li finn osi pran aksyon. Li finn dabor tret britalite polisyer, e fer sosyete tret li, kuma enn deli kriminel. Nu bizin konpran ki sa ti tutafe nef, dan lasosyete an zeneral.<br><br>JUSTICE, alor, finn ogmant larezistans ki ti deza la, e kuma nu finn dir, ti suvan res onivo "indinyasyon". JUSTICE finn fer sa par organiz viktim ek fami viktim. Sa osi ti enn gran premyer. Nu finn mobiliz bann viktim, e amenn, atraver lapres ek lezot mwayen, enn sanzman konportman dan sosyete Moris an zeneral. Li pa enn ti zafer sa. Nu finn inplik Komite Drwa Imen Nasyon Zini, New York, nu finn inplik lambasad. Nu bizin pa suzestim lefe sa but COBS (Committee's Observations) ki nu fek site dan nu lartik lor ka tortir kont Bernard Maigrot. "le comite note avec preoccupation les informations non-gouvernementale concordante ..." lor kestyon vyolans polisyer. Rapel ki JUSTICE ti reyni enn 30-enn lorganizasyon ki finn so-siyn nu kont-rapor a Nasyon Zini. Sa reprezant enn sanzman dan balans defors dan pei. Omwen kote filozofik, finn deza truv pei kumans sanze.<br>   <br>Kan ariv sa, kan ena plizir organizasyon, plizir zurnalist, piblik an zeneral ki pran pozisyon kont britalite polisyer, li vedir nepli ena zis "indinyasyon". Rezistans nepli limite a indinyasyon. E rezistans finn ariv enn staz opoz vyolans polisyer la, pa zis regret so exse.<br><br>Trazikman, omilye tu sa sanzman la, lamor Misye Rajesh Ramlogun finn ena lye. Me, kan ariv ka so lamor kan li su sarz MCIT, tu finn derul diferaman, depi manyer ki li ti derule tuto-long listwar Moris ziska sa moman la. Preske deswit ti ena arestasyon polisye. Plizir polisye finn arete. Tu zafer otur diferan lanket ti derule ase vit, e zot osi ti konkordant: zot tu finn dir "foul play". Me, malgre sa, sef MCIT, Raddhoa li-mem li finn travers sa, kuma dir an Angle "unscathed". Sa vedir, li pa ti gayn naryen li. NHRC refiz get so rol ladan. Refize. Kan nu dir NHRC pa "indepandan", nu pa pe koz zis kote bidzeter. Nu pe koz lor so mank lindepandans kote ideolozik. Seetulsing ena enn minmiz lor NHRC ki pa difisil konpran. Li enn ex-Ziz. Li tusel ki a-plentan ladan. Naryen pa fer, san Seetulsingh. E li enn institisyon ki zwenn, omwen ena kit zafer rar-rar, zis Zedi apartir 1:00 pm. Alor so fonksyon kosmetik, dekoratif, prime lor so fonksyon pu expoz ek kondann vyolans polisyer.<br><br>NHRC finn kontiyn refiz rann so "prosedir" piblik, kuma dayer tu lorganism similer fer. Ziz Domah ki pe fer enn Komisyon Danket finn kumanse par konsakre letan a so prosedir, par exanp. Dan ka Bayaram, Ziz Seetulsing ti al vizit selil kot Josian ti truv lamor, e anmemtan Seetulsing finn donn lord lapolis pu pa les mwa (JC Bibi) rantre. Anfet mo ti persiste, e Ziz Seetulsingh ti ankoler. Klerman Ziz Seetulsing pa'le pertirb Leta. Li pa'le pirtirb Premye Minis. E, nu bizin realize ki ena buku pei kot zot ekivalan nu NHRC li parey kumsa. Malerezman, li kumsa. Ena mem pei kot zot NHRC li ena monopol lor drwa imen, dan lesans ki enn lorganizasyon kuma JUSTICE pena mem drwa pu existe. <br><br>Me, pu return a ka lamor Rajesh Ramlogun, mem si ti ena sa sanzman kot Leta finn azir vit e dan enn fason zeneralize kont polisye konserne, apar Raddhoa, ase vit Leta finn repran ledesi. Sarz finn reye kont 3 gard, e 4 lezot finn truv zot pe purswiv su enn sarz mwen grav. <br><br>Seki nu pe konpran dan JUSTICE, se ki State Law Office (SLO), li enn kreatir ki napa finn fer pu purswiv lapolis. Li pa so bi. Li pa so expertiz. Li pa kapav fer li. Li pena ni mwayen ni filozofi, ni volonte purswiv lapolis. Kan nu pe koz SLO dan sa kontex la, nu pe koz DPP. Li pa existe pu sa, li pa "geared to" sa kalite purswit. Li fer li, zis kan li OBLIZE. Fode balans defors tel ki li pa kapav evit purswit, lerla li purswiv, kuma finn arive dan ka Ramlogun. Okontrer SLO li furni avoka a Raddhoa kan Martine Desmarais purswiv.<br><br>Akoz sa difikilte la, enn difikilte obzektiv, finn ena enn deba lor posibilite introdir sistem (ubyen enn laspe sistem) Ziz Dinstriksyon. Kumsa, kan lapolis anvi aret dimunn, li bizin pas par sa ziz la, ki gete si ena enn baz legal pu aret li. Ziz instriksyon li kontrol aksyon bann anketer.<br><br>Tusala pu dir ki nu ena enn problem striktirel. SLO pa kapav ni prevenir ni reprim vyolans polisyer. Li pa ti fer pu fer li, e li pa reysi fer li. <br><br>Pa zis DPP ki pa kapav fer sa but dan so travay la. Sa Police Complaints Bureau la, li osi, pa kapav. Ena lapolis ansarz PCB, e zot la pu swadizan ankete kont zot koleg. E li prodir enn lefe bizar. Dan buku kordegard, kan u rod met enn depozisyon kont enn polisye pu vyolans, zot refiz pran li asterla. Pretex se ena enn Police Complaints Bureau pu sa. Alor, kan bann ofisye siperyer dir kapav fer lanket, li zis retorik. Zot pa kapav. Zot pa futi fer lanket. Ena tut enn pratik, tut enn polisi, kot lapolis dir li pu order enn ennkwayeri, me li pa fer, li pa interese fer, e li pa interese kisannla pu fer. Sa li enn lot absirdite. Parfwa mazistra "go along' avek sa, lapres li osi "go along", piblik li osi "go along". Sa finn perdire.<br><br>Lerla lane dernyer, Minis Lazistis Rama Valayden finn vinn anonse ki ena enn nuvo polisi. E li ti met li anpratik dan ka Ramlogun. Li ek so SLO pa pu defann lapolis ki akize britalite polisyer. Pa pu servi avoka Guvernman pu defann zot. E zot Police Welfare Association finn pran pozisyon kont sa nuvo polisi la. Rama Valayden finn osi anonse ki apartir asterla, pa zis sispansyon ki lapolis pu gayne pu britalite, me expilsyon depi lafors polisyer.<br><br>Alor, zordi rezilta sa lepase la, rezilta sa bann kontradiksyon intern la: kot lapolis sipoze ankete lor lapolis, kot SLO ena monopol purswit, kot Institisyon aktyel pa kapav donn garanti kont vyolans polisyer, kan JUSTICE inn lev lavwa, li finn sanz kiksoz, ubyen kumans so prosesis sanz kiksoz. Zordi sa rezistans kont vyolans polisyer, li pa zis depi viktim, e li nepli zis indinyasyon. Zordi li enn rezistans politik. Zordi ena rezistans mem dan lapres, mem o-nivo Parlmanter.<br><br>Zordi seki reste pu fer se pu institisyonaliz lopozisyon kont vyolans polisyer. Apre serten viktwar kont sa inpinite la, nu truve ki sa batay kont britalite polisyer pankor repran par SLO, par Parlman, par Bar Council. Zot ankor zwe mor.<br><br>Me rezilta JUSTICE se zordi li finn an realite vinn deplizanpli difisil pu lapolis fer vyolans e evit gayn lamerdman apre. Gard liniform pa'le riske zot karyer ar malpropte CID, kan CID bate. Alor, gayn konfli alinteryer lapolis lor kestyon bate. Li nepli ezemonik asterla. <br>Flic-en-Flak resaman CID, ki lao, kan fini interoz enn dimunn, dimunn gard ordiner okip li, e avan fer sa, fer gard liniform siyne kumkwa "All correct" - formil CID sa. Me, lapolis pe refize.<br><br>Enn lot fakter ki finn rant dan derulman listwar ki pe pase zordi: ka sivil. Kan dimunn purswiv ek guvernman peye, li sorti dan larzan piblik. Sa pe afekte manyer dimunn truv CID vyolan. Zot pe devid lakes guvernman. Dayer dan dernye 2-3 ka, pe dir "Bizin atann nuvo bidze, kas inn fini." Sa vedir ka sivil pe pran letan, malgre ki Valayden an 2006 ti dir zot pu "fast-track", malgre ki Komite Drwa Imen Nasyon Zini finn dir bizin rezolisyon "rapid" pu ka e pu konpansasyon.<br><br>Anzeneral, finn ena enn net amelyorasyon. Me, li pu dire zis tan ki ena posibilite viktim denonse. Li ti pu pli bon, si nu ti kapav institsyonaliz bann sanzman. E sa se travay divan JUSTICE asterla.<br /></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

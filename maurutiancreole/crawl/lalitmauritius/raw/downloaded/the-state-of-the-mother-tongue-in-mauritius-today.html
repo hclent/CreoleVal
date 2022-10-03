@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095701" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095701" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095701" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095701" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095701" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095701" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095701" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095701" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095701" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>The State of the Mother Tongue in Mauritius today</h1><p class="subtitle">28.11.2018</p></h1>
+	<p class="newsarticle"><p>Letâs look at recent developments for Kreol.</p><br /><p>Â The Attorney General, Maneesh Gobin, apparently said at the United Nations Human Rights Universal Periodic Review of Mauritius that Kreol is already a medium. (<em>LâExpress</em>, 8 November 2018). If accurately reported, it means he is<em> not against</em>. And he is speaking in the name of the State. But, to be frank, we must bear in mind, that his definition of âmediumâ is clearly not accurate: Kreol is <em>not</em> used in textbooks for content subjects, <em>nor</em> in examinations â and this would, if so, mean it was the medium; Kreol is merely âresorted toâ in cases of studentsâ incomprehension i.e. it is no longer totally banned from class in oral form. So, it is not the medium. But, if he did say something like this, it means he, as the State, is no longer defending the fact that English is, in fact, the medium (or even French) but is preferring this more recent, and abjectly weak, way of opposing the introduction of Kreol as medium, i.e. pretending it already <em>is</em> medium. This kind of evasion is typical of the spineless intelligentsia. If they pretend it is already won, they donât have to argue against Kreol anymore. So, they buy a few months or years of the <em>status quo</em>. It is an admission that their arguments no longer hold.</p><br /><p>Â At the very same time, the Office of the <em>Ombudsperson for Children</em> is perhaps the first State institution to take a clear, formal stand in favour of Kreol as a medium in schools. The Office knows it is not medium, and thinks it ought to become medium. This is important. In her Annual Report for 2017-18, the Ombudsperson gave a long, argued analysis and her recommendations.</p><br /><p>Â At the Round Table organized by the <em>Creole Speaking union</em> and <em>University of Mauritius</em>, in which <em>Ledikasyon pu Travayer</em> participated in the run-up to World Kreol Language Day, one of the panels saw everyone present speaking in favour of Kreol as medium, everyone even assuming everyone else to be in favour! The panel included representatives of many State institutions. But, even more remarkable, it was assumed that everyone in the audience was in favour, and they did indeed seem to be. From the audience, there was even a formal proposal that we all support that Kreol be introduced as medium, in the first instance, for <em>Mathematics</em>. Â (We should mention here that when in LPT, a team tried to set about translating the Maths Grade I text book, they found it was as much about teaching English as about teaching Maths â so it was a silly exercise. It did show however that the level of Maths that can be taught in Kreol will be much higher than in English. Naturally.) Â Â </p><br /><p>Â And Guillem Florigny said that in the PSAC examinations, pupils seem to have difficulty with writing â and this, in all subjects. Their work is peppered with errors. This is something that the Mauritius Examinations Syndicate has long deplored.</p><br /><p>Â In <em>Le Mauricien</em> of 1 November 2018 there was a two-page spread with interviews of Arnaud Carpooran of the University of Mauritius, Menon Munien representing the Ministry and Jimmy Harmon of SeDEC. The main focus of the spread was the introduction of Kreol as a subject for School Certificate and Higher School Certificate. What is important about this is that Kreol is seen <em>as a subject</em> in schools, and no more. The spread does not open up a wider vision of where the Kreol language is going and how it can really expand its scope. The aim of all those interviewed seems to be to consolidate where we are, and avoid demanding further change. They see it as <em>âWe have made progress; Kreol is a subject; letâs just consolidate that.â</em> So Arnaud Carpooran says that as a subject it is a success, there are 3,000 children per year taking the subject in primary school all the way up. At secondary level, however, he is not satisfied because the State is not acting optimally. For example, he says, why does the state say âthere must be a demandâ for Kreol before a school will offer it. He then suggests a relaunch of the Akademi Kreol. In other words, he has bureaucratic proposals. For a long time now, he has said that the days of mobilizing and protest are over. Now, we must make sure that the people who get promoted in bureaucratic institutions are in favour of Kreol.</p><br /><p>Â Menon Munien, a senior civil servant representing the Minister, said that it is positive that 20 state colleges offer Kreol at secondary level, as well as 15 private colleges. Some 1,000 students are studying Kreol at secondary level. He says the State has to be âcautiousâ, and he calls (wisely) for âmobilization of parentsâ in favour of Kreol. He says there is, in fact, already a Committee looking into Kreol as medium. It needs to be enlarged, he said. On the last question about whether studying Kreol has a negative impact on studentsâ French and English, he replied that it does not. Those who do well in Kreol, also seem to do well in French and English. He says the introduction of Kreol is historic, and must go further. But that it is âcomplicatedâ.</p><br /><p>Â Jimmy Harmon, representing SeDEC which is the new <em>Bureau Education Catholique</em>, said only 8 of their colleges offered it in Grade VII (Form I). They lack teachers, he said. He criticized Government for lack of communication with them, and about the B.A. (French and Creole studies) being necessary, as it is for other subjects, Kreol being different, he said, precisely because it is the mother tongue. He opposes the limit that you only get the subject if you have 12 students; it is a new subject, and the âdemandâ will grow.</p><br /><p>Â So, to summarise, in the intelligentsia there is no longer any argued resistance to Kreol as medium. (There are only one or two rear-guard lone wolves like dâUnienville who canât stand Kreol being written in any way except a kind of failed French.) And yet, they somehow act to block its becoming medium.</p><br /><p>Â So, why do they do this? Why do they avoid arguing in favour of its introduction? When they are fully aware of all the research in that direction? When they know it is good for children? Even when they know it harms children when the mother tongue is suppressed this way? Even when they know this harm is cognitive, emotional, cultural and a human rights violation?</p><br /><p>Â Perhaps it is something devious. Once it is medium for, say, mathematics and science â even with English as duel medium (i.e. text books and examinations in both languages) â it would then be logical for Kreol to be a subject that all students study. It would not be logical for Kreol to remain in the little box as an optional subject. And they have not got the guts to argue for this.</p><br /><p>Â <strong>In Parliament</strong></p><br /><p>Kreol is still banned in the National Assembly. English is the official language, and you can also speak French. There is still not the political will to introduce Kreol. In an answer to a Parliamentary Question by Alan Ganoo, the Prime Minister invoked some âtechnicalâ issues that needed addressing first. He re-iterated this pretext at the launch of the Francois Chretien re-edition. But, if he were in good faith, he would set a date, set up a Parliamentary Committee, and get going with it. LPT has, in any case, meanwhile, made public a Kreol version of the Standing Orders, that solving one of the âtechnicalâ issues.</p><br /><p>Â Because of the live-and-direct retransmission of Parliament on TV, however, the demand for Kreol to be allowed in Parliament only increases with every passing session. So, why does the Government, or even the main Opposition, not call for its introduction formally? Why not campaign on its introduction? What is their irrational fear on this count? It is obviously the fact that, once it becomes optional to use English, French or Kreol, what nearly all MPs will speak in nearly all the time is Kreol. This is what they fear. Their exclusive use of foreign languages is something that has given, and still gives, them a status that is perhaps very dear to them. They will lose the play-acting of putting on suit and tie and fighting in English, to quote a child quoted by the Ombudsperson for Children at the launch of her annual report. More importantly, people will know if MPâs arguments are fatuous, illogical, unsubstantiated, or outright childish.</p><br /><p>Â Why Vice Prime Minister Ivan Collendavelloo should say that it is âplaying with fireâ to propose Kreol in Parliament is a bit of a mystery. Like all the other intellectuals, he begins his speech with a lot of flattery to the academics and others who have done so much to promote Kreol, and then concludes that it is supposedly dangerous to so much as suggest that Kreol become an optional language in Parliament. But it does show last ditch argumentation: flattery coupled with threats. That is what those blocking Kreol are reduced to.</p><br /><p>Â <strong>Good signs</strong></p><br /><p>One of the things that is, today, working in favour of the advancement of Kreol is its increasing visibility in written form. This is coupled with the relative standardization of the written language as we read it every day. The taboo against written Kreol is gone. The French-ified version of written Kreol is so on the wane that it has well nigh disappeared. Everywhere there is fairly well written Kreol: in the newspapers, in ads, on the MBC and in official posters and leaflets. As well as within mass organizations. This year, the 5th bi-monthly publication of REVI LALIT, a 32-page magazine in Kreol, is coming out right now. LPT has this year published <em>Lamur an Ekri</em> by Thiruvalluvar, almost sold out, while Francois Chretienâs book has come out re-edited, and a play written by M. Assad Bhuglah on Idriss Goomany has been published. The anthology recently published <em>Voices from the Attic</em> by Kavi Vadamootoo, like the Immedia anthology due out in a week, includes work in Kreol. In the production of Operetta <em>La Veuve Joieuse</em>, there are a couple of songs in Kreol, too. Porgy and Bess in Kreol will be performed. And literally dozens of banners and posters in Kreol in the two LALIT demonstrations of people from 50 villages about replacing asbestos housing.</p><br /><p>Â So, that is an update.</p><br /><p>Â And it is important to realize that real gains will get made as the oppressed classes, specially the working class mobilize. We just have to look at Reunion, where the Gillets Jaunes movement has taken root in ways it has not in France, to know that Kreol literally overnight becomes hegemonic, when French was â when there are barricades. Anyone speaking in the language of the so-called metropole quite suddenly sounds, quite rightly, like a right nana.</p><br /><p>Â </p><br /><p>Prepared by Alain Ah-Vee, and debated in LALITâs Language and Education Committee in two meetings in November, 2018. Translated into English for the web.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

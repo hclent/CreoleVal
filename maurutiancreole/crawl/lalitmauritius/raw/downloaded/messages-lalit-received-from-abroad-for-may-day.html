@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612095457" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612095457" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612095457" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612095457" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612095457" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612095457" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612095457" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612095457" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612095457" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Messages LALIT received from Abroad for May Day</h1><p class="subtitle">02.05.2019</p></h1>
+	<p class="newsarticle"><p>We have pleasure reproducing the nine messages that we received for our Annual LALIT get-together to celebrate Labour Day. Excerpts were read out by Ram Seegobin on 1 May at the gathering at GRNW in Port Louis, with introductions to each party. We are also appending four of our messages from individuals living abroad. Together all these messages give a wonderful spirit of the kindling of internationalism, important in these somewhat dark times.</p><br /><p>Â Here are all the messages:</p><br /><p>Â <strong>Mesaz depi Lutte OuvriÃ¨re dan Lafrans â 1<sup>er</sup> mai 2019</strong></p><br /><p><em>LALIT has had close contacts with Lutte OuvriÃ¨re for decades, often every year â either their members coming here, ours going to their big Festival and through exchange of publications and ideas. LALIT admires their âbiltin saytâ tradition, and their resolute working class spirit.</em></p><br /><p>Â Dear Lalit comrades,</p><br /><p>Please receive our comradely greetings for your gathering on 1 May, the International Workersâ day.</p><br /><p>The theme of your gathering today is work. In Europe, over the past decades, on the one hand there has been a rise of unemployment. Today, all countries must cope with mass unemployment.</p><br /><p>Â On the other hand, thereâs been rising casualization. In Germany: mini-jobs; in Britain: zero-hour contracts; in France: in many factories, for instance in the car industry, many workers are employed on temporary contracts, for a few months, sometimes just for a few days. Everywhere, there is a rise in self-employment: workers donât even have a wage-earning job, but they âsellâ their services, e.g. driving a taxi (Uber) or riding a bicycle to deliver food (Deliveroo, etc.). They must work very long hours, sometimes 60 or 70 a week, to make ends meet. They have to pay for their own social security. If they have accidents, their employers are not responsible, as they are legally just âcustomersâ or âintermediariesâ between the customers and the workers. This deregulation of the labour market has benefited from the support of all governments. In France, Sarkozy, Hollande and Macron have contributed this, e.g. ending restrictions on Sunday and night work. In all countries, retirement age is also being postponed. This is part of a global offensive of the capitalist class against workers.</p><br /><p>In the campaign for the European elections (due late in May) weâre currently running, weâre saying that work should be distributed among all, without any decrease in wages, rather than have part of the working class that is unemployed and another part that is casualised. Weâre saying that everyone should have a permanent job with decent wages. This is not communism, but a transitional demand.</p><br /><p>So today, a global counter-offensive of the working class is needed. The objectives of the International Working Menâs Association, 150 years ago, are still valid today.</p><br /><p>Long live the international struggle of the working class!</p><br /><p>Â Michel Bondelet, for Lutte OuvriÃ¨re</p><br /><p>(Michel also copied us, in the spirit of LALIT theme for the year: âChanges in the Nature of Work over the past 40 Yearsâ) an article from <em>Le Monde</em> about how some people now work in Paris as âchargeurs de trottinetteâ, as self-employed. The article is worth a read. <a href="https://www.lemonde.fr/economie/article/2019/03/09/profession-chargeur-de-trottinettes-dernier-ne-des-petits-boulots-de-l-uberisation_5433667_3234.html">https://www.lemonde.fr/economie/article/2019/03/09/profession-chargeur-de-trottinettes-dernier-ne-des-petits-boulots-de-l-uberisation_5433667_3234.html</a></p><br /><p>Â <strong>May Day Solidarity message from the Marxist Group of Namibia</strong><strong></strong></p><br /><p>LALIT has had close exchanges with this Group from when it began as a reading group, through its participation in the big teachersâ strike, and now as it acts as a political group. One of our members, Jean-Yves Dick, visited them two years ago in Windhoek, thus closening ties.</p><br /><p>Â Comrades of Lalit,</p><br /><p>We bring you revolutionary greetings from the Marxist Group of Namibia on the occasion of this important May Day of 2019. May Day is a time to affirm once again the struggle of the working classes against capitalism, a mode of production which is undoubtedly in severe crisis at this historical juncture.</p><br /><p>Â The Marxist Group of Namibia stands in solidarity with the working class of Mauritius and working classes everywhere.Â  Namibia would be holding national elections in November 2019, but it seems obvious that with the use of unverifiable electronic voting machines, the Swapo elite will once again rig the elections in their favor. Not that we have any illusions about the ability of voting to get rid of the capitalist state and to bring about a socialist Namibia. Nevertheless, the Namibian political elite have resorted to all kinds of confabulations about the lamentable socio-economic conditions of the Namibian working class in order to try and hide the extent of the severe social crisis that the country finds itself in. Namibia has been in an economic depression for several years and the working class there is suffering tremendously. However, the Swapo leadership has a long history of eliminating left-wing activists and collaborating with the old apartheid regime, and is increasingly resorting to militarism as a warning to the Namibian working class.</p><br /><p>Despite all the claims of the Swapo elite about having liberated the country, the real turning point in contemporary Namibian history was the 1971 general strike, led by a brave working class leader, Johannes Nangutuwala, who was beaten to death in exile by Swapo members.Â But the struggle of the Namibian working class continues.Â </p><br /><p>Â In the midst of massive unemployment, the most crucial social right for the working class today is the right to work. And the right to work includes job sharing, a living wage and a living income grant for the unemployed. We fully support job sharing in a 20 hour work week, which could be made possible through a tax on luxury goods. It is also called for a living wage for those who work, and a living income grant of 12,500 Rand per month for those who are unemployed.</p><br /><p>Â It is necessary to decrease the number of capitalist politicians and to rather create more jobs in the social services sector as well as climate jobs in the context of the ecological crisis.</p><br /><p>Â The Marxist Group of Namibia wishes you all the best with your May Day event. The struggle against capitalism continues!</p><br /><p>Â Shaun Whittaker</p><br /><p>Marxist Group of Namibia</p><br /><p>Â <strong>Message From Organizing Committee for a Democratic Revolutionary Left, USA </strong></p><br /><p><em>LALIT knows about this new organization through Steve Bloom, who Rajni Lallah and Lindsey Collen met when he and they were observers at the Fourth International Conference in Belgium in 2008. LALIT translated Steve Bloomâs epic poem on the Russian Revolution and produced it at our 2017 centenary celebration of the workersâ revolution in Russia.</em></p><br /><p>Â Warmest May Day greetings to LALIT from the Organizing Committee for a Democratic Revolutionary Left in the USA. We are a new formation which has come together to defend the principles of revolutionary democracy, the need for all voices to be heard and respected. One of the founding principles of our collective is the need for international solidarity, because hearing all voices means, in particular, that those of us who live in the imperialist heartland must pay attention to the needs/struggles/demands of people from smaller nations such as Mauritius.</p><br /><p>Â In that context we think itâs particularly appropriate this May Day to celebrate the important decision earlier this year by the International Court of Justice on the Chagos, including declaring the U.S. military base on Diego Garcia to be illegal. We would like to congratulate you for your decades of struggle that helped make this possible.</p><br /><p>Â In the last 40 years the nature of work, and the relationship of smaller nations to larger nations, has changed dramatically. But the underlying foundations of class and imperial exploitationâthe continued transfer of wealth produced by working people into the pockets of those who already own far too muchâremains the same. We need a different kind of transformation, where the things we produce belong to us and help to create a greater sense of local community, something that has increasingly been lost in a homogenized global marketplace, a world where the maintenance of the planet and its ability to provide a living for human beings become the driving motive for our choices in how to work and what to produce, rather than the need for corporate profit.</p><br /><p>Â We salute LALIT as a sister organization to OC/DRL in the struggle for that kind of world.</p><br /><p>Â Steve Bloom,</p><br /><p>for OC/DRL</p><br /><p>for the coordinating committee of the OC/DRL, 2019</p><br /><p class="ydp2dfdc603msonormal">Â <strong>SWL in Nigeria: MAY DAY SOLIDARITY MESSAGE TO LALIT</strong></p><br /><p class="ydp2dfdc603msonormal">LALIT has been in touch with this group through the contacts we have nurtured over the years with the socialist Andy Wynn.</p><br /><p class="ydp2dfdc603msonormal">Â Dear comrades,</p><br /><p class="ydp2dfdc603msonormal">The Socialist Workers & Youth League (SWL) here in Nigeria salutes you in the finest traditions of international working-class solidarity, which defines May Day. Our organisation, like yours, stands and fights to deepen working-peopleâs class consciousness and organisation, contributing to building workersâ power, with the realisation that socialism is, and can be built only as the self-emancipation of the working-class.</p><br /><p class="ydp2dfdc603msonormal">We have closely studied the rich history of Lalit â how you have built Lalit which has served as a genuine beacon of struggle for the working-class in Mauritius for almost half a century. We hold your party in high esteem for your ceaseless efforts and unalloyed commitment to struggle for revolution from below.</p><br /><p class="ydp2dfdc603msonormal">SWL is a relatively younger organisation. We were formed on 29 January 2011 with the merger of two revolutionary organisations; the Socialist League of Nigeria, which has roots that go back to the early 1980s and the old Socialist Workers Movement which emerged from the May 1989 anti-SAP revolts.</p><br /><p class="ydp2dfdc603msonormal">We have built the League into, probably the largest far left group in Nigeria and definitely the most influential within the working-class. And our newspaper, the <em>Socialist Worker </em>has a wide circulation in the working-class and radical youth movements. In recent times, this has also b</p><br /><p class="ydp2dfdc603msonormal">We play leading roles in the three broad coalitions that the left is splintered into; the United Action for Democracy (UAD), the Joint Action Front (JAF), and more recently the Coalition for Revolution (CORE). And several years back we rallied the left together under the short-lived banner of the All-Nigeria Socialist Alliance (ANSA). These efforts have been borne out of our realisation of the severe weaknesses of the left, numerically and in terms of material resources.</p><br /><p class="ydp2dfdc603msonormal">More importantly, we do not see ourselves as being a body apart from the working-class. On the left, we have been central to attempts at building a mass labour party. The trade union bureaucracy has however truncated these. Our orientation is to the rank and file worker â and we continue to build on this. We are also rooted in communities with youths fighting against; police brutality, gentrification with attendant demolition of poor peopleâs housing, epileptic power supply and crazy electricity bills as well as sundry other issues of concern to working-class communities.</p><br /><p class="ydp2dfdc603msonormal">Today, for example, <a href="https://socialistworkersleague.org/2019/04/30/join-the-may-day-demonstration-of-core-coalition-for-revolution/" target="_blank">we are mobilising hundreds from working-class communities to the official May Day celebrations of the trade unions, to demonstrate</a>, as part of the Coalition for Revolution (CORE).</p><br /><p class="ydp2dfdc603msonormal">With our shared values and goal, as revolutionary socialists committed to enthroning the fullest of democracy from below, closer collaboration between Lalit and SWL would be beneficial for the struggles of working-class people in Africa and globally. Exchanging ideas and lessons from our experiences would be invaluable for developing our theories and strategies, in the spirit of solidarity which is at the heart of May Day to workers of all lands.</p><br /><p class="ydp2dfdc603msonormal">In this light, we will very much appreciate a solidarity message from Lalit to the 7<sup>th</sup> SWL Convention which is scheduled to take place on 25-26 May.</p><br /><p class="ydp2dfdc603msonormal">For now, we once again express our revolutionary felicitations to your as Lalit and SWL join workers across the world to commemorate May Day 2019.</p><br /><p class="ydp2dfdc603msonormal">In solidarity,</p><br /><p class="ydp2dfdc603msonormal">Â Kunle Wizeman Ajayi</p><br /><p class="ydp2dfdc603msonormal">National SecretaryÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â </p><br /><p class="ydp2dfdc603msonormal">For & on behalf of the SWL, Nigeria, Central Committee</p><br /><p class="ydp2dfdc603msonormal">Â and Baba Aye</p><br /><p class="ydp2dfdc603msonormal">Chair, Editorial Board</p><br /><p><em>In solidarity and with warm regards,</em></p><br /><p>Â <strong>From the Japan Revolutionary Communist League</strong></p><br /><p><em>Our member Rada Kistnasamy met this partyâs representatives at the 2018 Lutte Ouvriere festival near Paris, and have shared support on campaigns against US bases.</em></p><br /><p>Â We are sending from Japan our warmest message of solidarity to Mauritian comrades for May Day.</p><br /><p>You are resolutely against the UK-US military base on theÂ Diego Garcia.</p><br /><p>We are also fighting to stop the construction of a new US base in Okinawa under the banner 'No to the US-Japan military alliance', as well as to stop the revision of the Constitution of Japan by the neo-fascist government of Shinzo Abe, while overcoming the degenerate leadership of the opposition movement.</p><br /><p>Let us fight in solidarity across borders!</p><br /><p>Akira Kato</p><br /><p><strong>From Socialist Alternative in Australia</strong></p><br /><p><em>LALIT has maintained ties with this party, via our closeness to the DSP, which became the RSP, and then joined up with Socialist Alternative. Our members have attended their excellent Marxism Conferences. We read their magazine, Red Flag.</em></p><br /><p>Â Comradely greetings for this May Day commemorating workers' struggle around the world from Socialist Alternative in Australia.</p><br /><p>Internationalism is at the heart of May Day. We live in a global system in which the working class must do battle with rapacious ruling classes who would rather destroy the world through global warming than accept the loss of control over their businesses which are responsible for the climate apocalypse. Around the world, tens of millions of refugees and asylum seekers are on the move looking for security but find the doors of the wealthy nations slammed shut in their faces. And for the hundreds of millions of workers who migrate to find work, second class status in their new homelands is the lot of many â the bosses restrict their rights so as to drive down wages and conditions for the whole working class.</p><br /><p>But for the bosses, the whole world is their playground. They have the opportunity to move their fortunes around to find the best returns on their investments. Far from finding the doors shut on them, the billionaires are welcomed with open arms by governments: for the right amount of money, any passport can be bought. As they move their money from country to country, the capitalists can hire workers and then cast them aside like so much rubbish: the rights of workers count for nothing,Â  And in their bid to control more resources and more markets, each big capitalist enterprise calls on their national government to intervene on their behalf. This might mean diplomatic representation to engineer a favourable trade deal or to secure their investments. But, more and more, states intervene with military force, or the threat of it, to safeguard existing spheres of influence or to extend territory and markets. Today, the world is entering a new era of imperialist competition between the United States and China, as the old hegemon confronts a new rival. Across the Asia-Pacific and the Indian Ocean, military budgets are rising in preparation for a clash between the two sides. LALITâs efforts to shut down the US military base in Diego Garcia are an important part of the struggle to halt this drive to war.</p><br /><p>We note the theme of your May Day celebration this year. In Australia, the bosses have for four decades tried to force down workersâ rights and conditions of employment. This is the era of neoliberalism. Australia is supposedly the âLucky Countryâ. We have now experienced more than 25 years without a recession and Australia is now the second wealthiest country in the world, per head of population.</p><br /><p>But workers have seen none of the benefits of this capitalist expansion. In whole industries, weak or non existent unions have allowed the bosses to rob workers of their wages and entitlements. The dole has fallen further and further behind wages, impoverishing the unemployed and rendering them easy pickings for bosses, who can offer them shoddy jobs on low wages in the knowledge that they will take the job rather than suffer more hardship on the dole. Permanent jobs have been replaced by temporary jobs. Direct employment, with entitlements, has been replaced by outsourcing on much inferior conditions. And there are hundreds of thousands of foreign workers and international students without full residency rights who can be, and are, robbed blind by employers.</p><br /><p>But the history of the labour movement in Australia is that we can organise and fight back. Time and again, workers have banded together collectively to demand their rights at work. More often than not, socialists and other left-wing activists have been at the heart of these efforts. This is no accident â our politics drives us to fight for workersâ rights and allows us to see through all the arguments that are used by the bosses and governments to divide workers, to make them feel vulnerable and to encourage them just to abandon their struggle.</p><br /><p>Members of Socialist Alternative are active trade unionists wherever we work. And our student members also throw our support behind every picket line and workersâ rally, to demonstrate our solidarity and our commitment to the workersâ struggle. Ultimately, it is the workersâ struggle that will change the world.</p><br /><p>In all our struggles we must never forget that whatever rights we win are only temporary so long as capitalism rules the world. So our struggle is for socialism, a world run by the working class.</p><br /><p>Long live international workers' solidarity! Long live the fight for socialism!</p><br /><p>Â Tom Bramble</p><br /><p>On behalf of the National executive, Socialist Alternative, Australia.</p><br /><p>1 May 2019,Â  www.redflag.org.au</p><br /><p>Â <strong>From the Nouveau Parti Anti-Capitaliste, NPA, France</strong></p><br /><p><em>LALITâs links with the NPA began as it was being formed out of the old Ligue Communiste Revolutionaire with which we had links, like sharing publications, from 1977 onwards. Leon Cremieux attended LALITâs first International Action Conference on Diego Garcia in 2010.</em></p><br /><p class="ydp42b0e1e5yiv9847056254msonormal">Â âCamarades,</p><br /><p class="ydp42b0e1e5yiv9847056254msonormal">Le NPA tient Ã  saluer les militantes et militants de Lalit, rÃ©uniEs pour ce 1<sup>er</sup> Mai.</p><br /><p class="ydp42b0e1e5yiv9847056254msonormal">Vous commÃ©morez le 40<sup>Ã¨me</sup> anniversaire des grÃ¨ves de 79 et notamment de la grÃ¨ve gÃ©nÃ©rale autour des travailleurs de lâindustrie sucriÃ¨re.</p><br /><p class="ydp42b0e1e5yiv9847056254msonormal">Comme vous le savez , aujourdâhui en France, depuis six mois a lieu le mouvement des gilets jaunes qui met en avant la lutte notammentÂ  pour une autre rÃ©partition des richesses, pour les salaires, contre lâinjustice fiscale .</p><br /><p class="ydp42b0e1e5yiv9847056254msonormal">Comme dans beaucoup de pays, nous sommes confrontÃ©s Ã  une offensive des capitalistes et du gouvernement de Macron qui poursuit et aggrave la politique dâaustÃ©ritÃ© menÃ©e dans lâintÃ©rÃªt du patronat.</p><br /><p class="ydp42b0e1e5yiv9847056254msonormal">Pas loin de nous, en AlgÃ©rie,Â nous assistons Ã  un immense mouvement populaire pour chasser lâoligarchie corrompue et imposer la justice sociale.</p><br /><p class="ydp42b0e1e5yiv9847056254msonormal">La solidaritÃ© internationale est une arme indispensable face au pouvoir international des capitalistes qui sÃ¨ment la guerre ka misÃ¨re et le rÃ©chauffement climatique.</p><br /><p class="ydp42b0e1e5yiv9847056254msonormal">Recevez notre message de solidaritÃ©,</p><br /><p>In solidarity,</p><br /><p>LÃ©on CrÃ©mieux, [pour le NPA].â</p><br /><p>Â <strong>Some of our Informal Messages from Individuals Abroad</strong></p><br /><p><strong>Â From Elsa Wiehe </strong><em>(LALIT supporter, lives and works as lecturer in USA)<strong> </strong></em></p><br /><p>Dear all,</p><br /><p>I wish I could be there with you all, in solidarity and in protest against the continued exploitation and oftentimes dehumanizing conditions of work in Mauritius and globally. May celebration galvanize our struggles.Â </p><br /><p>Â <strong>From Mimose Therese (Bendaou), </strong><em>(Founder member of </em><em>LALIT and Domestic Employees union, now lives in Paris, working as domestic employee. Mimose was a LALIT candidate in the 1982 Municipals, when famously all 5 out of 5 candidates were women in one Ward in Port Louis for LALIT.)</em></p><br /><p>Bonzur!</p><br /><p>Buku sikse pu sa zur la enn gros ba a tu bann kamarad.</p><br /><p>Â <strong>From Helen Jarvis, Cambodia </strong><em>(member of Socialist Alternative, Australia, now Cambodian living in Cambodia)</em><strong>.</strong></p><br /><p>Ever Onwards, Dear Comrades in Mauritius -- glad to join in solidarity on your May Day!</p><br /><p>Please do keep us informed of Chagossian developments</p><br /><p>Â <strong>From Eva To </strong><em>(one of the leading members of the DSP now integrated into Socialist Alternative, also widow of the late John Percy; she and John attended the LALIT first International Action Conference on Diego Garcia in 2010.)</em></p><br /><p>Â All the best with Lalitâs May Day event.</p><br /><p>John and I will be there in spirit.</p><br /><p>Â </p><br /><p><strong>Â </strong></p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

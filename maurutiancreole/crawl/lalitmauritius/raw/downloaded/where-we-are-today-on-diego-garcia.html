@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612093746" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612093746" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612093746" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612093746" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612093746" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612093746" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612093746" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612093746" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612093746" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Where We Are Today on Diego Garcia</h1><p class="subtitle">21.12.2020</p></h1>
+	<p class="newsarticle"><p style="text-align: left;" align="center">Where are we today, in historical terms, on the Diego Garcia and Chagos issue?</p><br /><p>We know that in victory, there are always elements of defeat. So when the oppressed classes in Mauritius, over decades of struggle in trade unions and political parties, won Independence in 1968, within this Independence victory, there were elements of defeat. There were notably the dismantlement of the territory of the new state of Mauritius and the forced displacement of Mauritian working people from Chagos to Mauritius main Island to make way for the USAâs military base on Diego Garcia.</p><br /><p>But<strong>,Â </strong>even in these elements of defeat, there were already the seeds planted for future victories.Â </p><br /><p>And last year there were two big victories: at the ICJ and at the UN General Assembly.</p><br /><p>They were the direct result of 50 years of near-constant struggle. This struggle was mainly by ordinary Chagossian and Mauritian working people. There were actions of all kinds â from demonstrations in the streets of Port Louis by Chagossian and LALIT women to hunger strikes and marches; from fighting court cases put by the State against activist Chagossian and LALIT women to garnering international support by all sorts of means including two international LALIT conferences; from political parties and social groups in Mauritius taking position to theÂ <em>Chagos Refugees Group</em>fighting international court cases; from the Mauritian stateâs victory at the Tribunal of theÂ <em>UN Convention on Law of the Sea</em>Â to any number of mass petitions â national and international â by poster campaigns, leaflet distribution, the publishing of press articles and books, and throughout all this time, passing Resolutions in the UN and the African union at a diplomatic level.</p><br /><p>All this struggle put enough political weight behind the Mauritian state, including the weight of the African union, to make Mauritius go before the International Court of Justice at The Hague.Â </p><br /><p>And by January 2019, the ICJ had handed down an extremely strong Advisory Opinion that Britain should get out of Chagos, including Diego Garcia.Â <em>Kumsa.Â </em>The UN General Assembly then, in May 2019, clouted Britain and the US with its historic vote of 116-6 for Britain to get outÂ <em>in six months</em>Â from Chagos, including Diego Garcia.Â </p><br /><p>And it is these victories that we are still struggling to give living shape to today as 2020 draws to a close. Because in these victories, if we do not maintain the struggle, there reside, remember, elements of future defeats.</p><br /><p>The year 2020 has been the year when Britain and the USA have done their level best to ignore, if not flout, the ICJ findings and the humiliating General Assembly Resolution against them. But our victories will not go away. Indeed they cannot go away. They are victories too precise and too powerful to ignore or flout.</p><br /><p>2020 has been the year in which the ICJ Findings and UNGA Resolution should have been on the Mauritius Governmentâs agenda. And we are not just saying this with hindsight.</p><br /><p>LALIT exactly a year ago sent a petition signed jointly with four trade union federations, a former President of the Republic and a former Attorney General, calling on Prime Minister Jugnauth to pivot from his abject position of begging a bit of blood-money for the lease of Diego Garcia to the USA to instead taking the principled stand for a complete end to the military occupation of Diego Garcia.</p><br /><p>But, no, the Prime Minister, has instead, renewed this â<em>losersâ stand</em>â, this time, kneeling before the President-Elect of the USA, Joe Biden, and now even offering a 99 yearsâ lease. Why we, in LALIT, call this a â<em>losersâ stand</em>â is three-fold: first, the only power of a weaker state like Mauritius relative to the giant alliance of the USA-UK is the power of a clear, principled stand i.e. taking the high moral ground. Otherwise, Mauritius will lose, snatching defeat from the jaws of victory, as it were. Secondly, the only way to rally allies is on the basis of a stand for peace, and in particular for a stand against nuclear weapons on African soil, which since 2019 includes Diego Garcia, and the double blades of the ICJ and the UNGA make this unquestionable. Thirdly, even from the stand-point of negotiating tactics, the Governmentâs abject offer of a lease is ludicrous. The Government should be expecting the USA and UK to try to force such a lease down Mauritiusâ throat. What Jugnauth and his UN representative, Jugdish Koonjal, are doing is humiliating. Selling out always is.Â </p><br /><p>We again today, as 2020 draws to a close, call for Pravind Jugnauth to change his position and to oppose the base. Give a time-frame for its closure! This political stand must be coupled by, as we once again argue, other stands:</p><br /><p>a)Â With the ICJ findings and the UN General Assembly resolution firmly including Chagos (expressly including Diego Garcia) into the definition of Mauritius, and while Mauritius is in Africa, theÂ <em>Pelindaba Treaty for a Nuclear Arms Free Africa</em>Â comes into play, the US military base becomesÂ <em>illegal</em>. The recently published UN map consolidates this victory. And Mauritius must comply with the Treaty. The notorious dotted lines placed around Chagos in the original Treaty, when the sovereignty of the Archipelago was in dispute, get automatically erased. We also call on Government to demandÂ IAEA inspections of Chagos for nuclear materials under the Pelindaba Treaty, now that the Secretariat of AFCONE (under Pelindaba) is set up in Pretoria, and has Mauritius as a member.Â </p><br /><p>b) Mauritius must join the world-wide environmental movement, and the international young peoplesâ actions, against nuclear arms pollution, and call for the base to be closed. With the coming into force of theÂ <em>Treaty for the Abolition of all Nuclear Arms</em>Â in January 2021, the violation of theÂ <em>Pelindaba TreatyÂ </em>becomes flagrant. Mauritius must sign up to this Treaty (TANA) and ratify it. We do not know why Pravind Jugnauth has not yet done so.</p><br /><p>The very day after the UNGA resolution victory, 23 May 2019, LALIT also called for two other actions: We wrote on our website, â<em>Taken together, the binding judgment under the UNCLOS Tribunal (Law of the Sea) and the ICJ opinion (coupled with yesterdayâs UN Resolution), constitute a sound basis from which to proceed to the next stage of the struggle. It is time now, for the Mauritian State to affreight a ship, âA boat to Chagosâ, with on-board for a fishing expedition, representatives of the Mauritian Government and delegations of opposition parties, Chagossian representatives, a delegation from the African union, and the Mauritian and international Press. It is also time to create a Constituency for Chagosâ¦Now, international mobilization is much easier â because not only do more people know about the issue but the balance of forces is mightily changed.</em>â The Government has been too cowardly to go ahead with a ship to Chagos. It has used lame excuses for its failure. And even a separate Constituency has not been set up for Chagos, which is now part of Constituency Number One.</p><br /><p>This year was the year in which Mauritius should have made geopolitical gains in passing a resolution to get Britain expelled from theÂ <em>Indian Ocean Tuna Fishing Commission</em>Â on the basis of the UNCLOS and ICJ findings as well as the UNGA resolution. This move was thrwarted by, first, the pandemic causing the postponement of the resolution to the face-to-face commission next year, and by, second, the re-renegging by Maldives in the disagreement it has with Mauritius over EEZ limits.Â </p><br /><p>Ideally, the Jugnauth Government should now prepare three additional moves.Â </p><br /><p>The first should be a joint Government-Opposition move to take a ship to Chagos and to call together for base closure and clean-up.Â </p><br /><p>Second, the Government should be mobilizing the broad masses of the people in Mauritius, Chagossians and all working people, against the military occupation of part of the country. This mobilization is necessary because the UK-USA will otherwise make the Mauritian State pay a price.</p><br /><p>Third, the Government will not succeed alone, but needs international help. The African unionâs support was what made the earlier victories (ICJ and UNGA) possible. Now, again the African union can bring to bear its weight in getting this nuclear base closed down â precisely because it is now illegal under Pelindaba, following the victories.Â </p><br /><p>It is important that pressure continues to mount.Â </p><br /><p>The UK is weakened and now isolated, with an unfavourable Brexit looming for 31 December. The USA is in a state of extreme political and economic crisis, with the refusal of the Trump coalition to accept electoral defeat, and with Trumpâs coagulating a dangerous fascist white supremacist social base. The consequences of the impending fall of the US empire are difficult to imagine beforehand, and difficult to put an exact time-frame upon. In the meantime, the USA has brought Modiâs India into military treaties, and Biden is unlikely to undo them; but, in India there is a popular movement against this militarism. At the same time, society in the USA has been made fragile by Trumpâs catastrophic handling of the Covid epidemic, so that right now, even basic health services in the USA are under extreme pressure as the death and hospitalization rates soar. Neither UK nor USA are the forces that they used to be. Their state apparatuses have been shaken to the roots.</p><br /><p>We live in times of all manner of change. Nothing stays stable, except perhaps for J.C. de LâEstrac maintaining his obsequious position that Diego Garcia will never be re-united with Mauritius! For him, the US empire is eternal. For him, the UK mini-rump of an Empire is still a powerful colonizer you have to bow down to!</p><br /><p>But some people do have courage. This year two Chagossians living in Seychelles, Bernard Nourrice and Solomon Prosper, have further attacked the UK-USA alliance. They have taken Britain to theÂ <em>International Criminal Court</em>Â for the crime against humanity of Apartheid. They have also filed damages claims against the British Defence Ministry and the US Pentagon. Their cases are based, importantly, on the gains of the ICJ and General Assembly. This is how to make progress.</p><br /><p>The Jugnauth Government has difficulty in doing what needs to be done. It will have to shake off its lethargy and abandon its cowardice. And take a lesson from the action of these two individual Chagossians.</p><br /><p>First, it is not easy for the MSM to get Opposition support since the Opposition parties have embarked on the silly strategy of challenging the legitimacy of the elections that produced the Jugnauth Government. But, this is where Jugnauth could take a lead. The Opposition party leaders, too, are weak. They might be keen to unite on the Chagos and Diego Garcia issue, should the Mauritian Government prepare to pivot to a more principled position.</p><br /><p>Second, it is not easy for the MSM to get support from the masses having won the election with only 37% support of the electorate, and passive support at that, thus leaving some two-thirds against it. The Governmentâs position has been further compromised by the revocation of the Vice Prime Minister over the St. Louis scandal, the mishandling of the Wakashio shipwreck which provoked a mass uprising, and now the enquiry into the circumstances leading to the murder of an MSM agent will bring further weakness to the Government.Â Â </p><br /><p>All this makes the MSM Government very weak, and the UK and USA dirty-tricks brigades may well already be at work making it weaker still. After UNCLOS, the UK and USA dirty-tricks men already helped get rid of Navin Ramgoolam. Now, they will be working at getting rid of Pravind Jugnauth.</p><br /><p>Which means that when a Government confronts the powerful, like the UK-USA, it has to maintain high standards, itself, which the MSM is far from doing. The clear stand against all and any warships docking in any Mauritian ports, including Diego Garcia, is the only reasonable stand that the Government should take.</p><br /><p><strong>Conclusion</strong></p><br /><p>The Mauritian State must act urgently under Pelindaba, and this with the support of the Opposition Parties, the African union, and a mobilized people of Mauritius, including Chagossians.</p><br /><p>Here is what the binding Treaty says:</p><br /><p><em>Article 1. Each State Party undertakes never under any circumstances to: [...] (g) Allow any stationing, installation or deployment of any nuclear weapons or other nuclear explosive devices in its territory or at any place under its jurisdiction or control.</em></p><br /><p><em>Article 4: Prevention of stationing of nuclear explosive devices: (1). Each Party undertakes to prohibit, in its territory, the stationing of any nuclear explosive device.</em></p><br /><p><em>Article 10: Each Party undertakes to maintain the highest standards of security and effective physical protection of nuclear materials.</em></p><br /><p>Â In order to push for this, the Government must affreight a ship, and go to Chagos, jointly with all its allies, and including in its delegation members of the Chagossian communities, in CRG and from abroad.Â </p><br /><p>LALIT 16 December, 2020</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

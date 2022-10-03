@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612092817" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612092817" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612092817" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612092817" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612092817" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612092817" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612092817" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612092817" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612092817" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Parliament Opens, in What Context?</h1><p class="subtitle">28.10.2021</p></h1>
+	<p class="newsarticle"><p>As Parliament started a new session Tuesday, it is worth looking at the political situation. The MSM, as if to deny climate change as a result of fossil fuel use, has introduced a Offshore Petrolium Bill just before the Prime Minister Jugnauth leaves for COP 26. This bodes ill as a way for the National Assembly to begin a new session.Â </p><br /><p>The MSM-led government has a new recruit sitting on its side of the House in the form of Abbas Mamode, who left the PMSD â not the first party he has left â to join Government ranks. And, like others who cross the floor, there is no longer, at this moment in history, even an attempt on his part to put even a programmatic spin on his defection from the ranks of the Opposition. He is just looking for some favour or other from Government. Former Minister Madun Dulloo, defeated at the last elections, has just defected from the MMM â he, too, has been in many parties â and everyone is waiting to see if he might pop up some time as replacement Speaker or Attorney General or something. Gaytree Dayal, who we did not know was still in the MMM, has also resigned from it. So, the MSM government is either tending to get stronger, or more likely, seeming to tend to get stronger. And this,Â <em>despite</em>Â the massive, sustained Opposition campaign, fuelled by the Press, for nearly two years to the effect that the elections were âstolenâ or âtrickedâ. Or maybe the Opposition is weakening preciselyÂ <em>because</em>Â of this campaign, when all the legal challenges finally begin to collapse, and the doomed and dangerous campaign, not unlike Trumpâs, begins now to backfire on the Opposition.</p><br /><p>There is an atmosphere of approaching elections in the air. At times, it seems that the Government might suddenly seize the moment of disarray in the Opposition, with the Labour Party putting conditions that are unacceptable to the MMM and PMSD for an alliance, and, instead of announcing Municipals, announce general elections.Â </p><br /><p>But, whatever is up, let us look at the new class reality first, post Avengers demonstrations. As always, it is important in defining the balance of political forces:</p><br /><p><strong>Bosses heap praise on Jugnauth regime</strong></p><br /><p>The bosses, if the hotel boss spokesman Jean Michel Pitot is anything to go by, are prepared to pay homage to the Jugnauth Government for a while to come yet. Such is the power of the Stateâs access, during an epidemic, to capital, even to creating the stuff, in these times when the capitalist class, itself, has fallen into its own accumulated debt, aggravated by the two prolonged lockdowns. What it means is that the bourgeoisie itself is not funding the opposition parties, nor any other anti-government agitation, even from the right, as it often does. At least, it is not doing so openly. The capitalist classâs short-term interests are too tied up with the Jugnauth regimeâs expanded powers during an epidemic.</p><br /><p><strong>Working class recognizes that a little is better than nothing at all</strong></p><br /><p>At the same time, the working class â at least its poorer sections â has been kept fairly quiet by the MSMâs bringing in a minimum wage, increasing universal pensions (old age, disabilities and widowsâ), upgraded work conditions in 34 sectors, as well as the MSM Governmentâs assurance of wage support (via the bosses, for some reason) during the lockdowns, and now PRB improvements for lower paid civil servants. Paternalism, in times of crisis, is better, the working class thinks, than nothing at all. In addition, the Mauritian working class has a culture, a tradition, of handling epidemics, and knows that it demands a certain collective maturity. So, though the working class is objectively suffering more than the petty bourgeoisie, its maturity as a class gives it an advantage, in that it does not flock so easily into dead-ends, rush to follow blind populists, or get behind other passing fascistic caudillos.Â </p><br /><p><strong>Petty bourgeoisie up in arms</strong></p><br /><p>The rage in the country against the MSM Government has been led by sections of the petty-bourgeoisie. This is a class that can see no further, in this kind of crisis, than the tip of its own nose. And it has indeed felt the effects of the epidemic and its lockdowns. Its cushion of stored money in the bank is just not big enough for what the epidemic has made it go through. Its members have often felt they are in existential crisis. Letâs look at the political agitation in this class, the petty bourgeoisie, in crisis.</p><br /><p>Look, first, at the group around the former MSM political agent Bruneau Laurette, now leader of a political party he has set up. He himself is a security company boss, trained incidentally by the Israeli dirty-tricks brigade, and suffering economically from the lockdown and not being repaid in terms of contracts by the politicians he worked to elect. Together with him was the booze importer Trishna Balgobin, furious that the Duty-Free Paradise had got a permit to sell off its wares in unfair competition at the Centre Vivekananda. With them restaurant owner and IT man Sebastien Lenette, and a human resources consultant Corinne Lallamn-Sit Yee. Together these four made up the panel of dissatisfied petty-bourgeois entrepreneurs that led the big 29 August demonstration last year. They claim 100,000 people attended the rally behind the cry âBLDâ. Kick the government out, never mind what comes to replace it. This movement fizzled out by February this year, and it now openly hankers for an alliance with the Labour Party.</p><br /><p>Look, secondly, at the social class of barristers. This is another anti-MSM group. And barristers are the epicenter of the petty-bourgeoisie: often self-employed, well-educated in formal terms, and furious at their income drop because of Covid. The law courts, after all, were all but closed over the two lock-downs, so where could they make their money? Businesses were forced to postpone or completely suppress their conflicts â conflicts that produce money for lawyers. Meanwhile these private sector barristersâ colleagues in the civil service, who may habitually earn less than the experienced private sector lawyers, got their full pay. Anyway, the class of barristers, as a professional group, has somehow produced a red-hot anti-government force, self-baptized with the name, of all things, âThe Avengersâ and led by former Labour Party Attorney General Rama Valayden. They take up cases that may have ramifications that put the MSM-led Governmentâs back up against the wall. So, they are a politicized legal challenge to the MSM, or maybe a legal-ified political challenge to the MSM. But, from the heart of the petty-bourgeoisie. Here are some examples of their politically-motivated cases. There is the case of a bit of land that Pravind Jugnauth bought from sugar bosses and put in his daughtersâ names 20 years or so ago and how payments were or were not made. There is a case of a car accident, also many years ago, involving the now Prime Minister. There are cases of deaths that may not have been suicides (Pravin Kanakiah, Faheza Mooniaruth) or accidents (Marcelin Humbert) but, it is insinuated, murders that implicate, somehow, the MSM-led regime. And most high profile of all, there is the murder of MSM agent, Soopramanien Kistnen, which The Avengers have turned into an Agatha Christie novel that has captured the interest of the public via the Press.Â <em>Who dunnit?</em>Â The queue of potential suspects with a motive to get rid of the poor man gets longer every day. What the Avengers and others in the Opposition hope for is to tie the murder of Kistnen to those MSM leaders who were elected in that Constituency. The motive attributed to the MSM MPs is either that Kistnen had âproofâ of their spending over the legal amount set for election expenses, or conflicts over Government agentsâ tenders during the first lockdown. In fact, the Kistnen case is now becoming perhaps the final act of the âeleksyon trikeâ and âeleksyon kokinâ strategy. And Labour Party defeated candidate, Suren Dayal, has now joined the âeleksyon trikeâ cases up together with the Avengersâ cases. He has launched a Private Prosecution against the Prime Minister for perjury in his oath on electoral returns based on the notebook of an election agent Hansley Jules that the late MSM agent Kistnen had somehow got hold of, then handed over to Bruneau Laurette. The Prime Minister has lodged a Supreme Court Case to try to get the private prosecution annulled by the Chief Justice by way of powers he, the Chief Justice, has under the Constitution to oversee the Courts. The Constitution, in the section on the DPP, gives the DPP clear and exclusive prosecuting powers. So, this will be an important case. Though it may end up just causing enough delay for the CID to try to come to grips â a tall order â with âwho dunnit?â in the Kistnen murder.</p><br /><p>Â The CID section of the police that does enquiries into deaths like this one is so both inefficient and bureaucratic, as well as so susceptible to political pressure and the power of money, that it is difficult for the public ever, at the best of times, to know what is going on in any of these cases. In addition, the public suffers from the absence of any real fact-checking system in the press, even the mainstream press. There is no real investigative journalist in the country either. Basic logic is often absent from articles, science ignored. We are referring to the totality of the media including the three big press groups: Le Mauricien-Week-End, Le Defi-Radio Plus, and LâExpress-Sentinel. They all suffer the influence of the low-end âjournalismâ of social media, a domain where misinformation, lies, distortions, and irrationality often walk, as equals, with truth, elementary logic and science. Thorough analysis and informed opinion are rare in the press today, just when most needed so as to confront the MSM-led Government. With this situation, the Mauritian diaspora, not being here to see, hear, and feel what is actually going on in reality on the ground, relies on social media and this weakened Press, and has thus become very agitated, and begins to send money, mobilize outside Mauritius, and generally try to act like an absentee landlord to the struggle at the grassroots â while being totally misinformed and painfully ignorant. They supported both Bruneau Laurette and The Avengers.</p><br /><p>So, while the National Assembly was in recess, politics was reduced to what goes on in the courts of criminal law, the CID offices, and the scandals dug up by petty bourgeois groups, pumped up in the press and media and supported by the diaspora.Â </p><br /><p>No wonder this kind of activity produces no proper political program to challenge the MSM-led government. No wonder there is no proper proposal on how to change society. No wonder there is no counter-program to the MSMâs government. No wonder it is only LALIT that presents a program on which to challenge the Jugnauth regime.</p><br /><p>From the petty-bourgeois parties and agitations, we get, instead of rational ideas, mere feelings expressed of disenchantment, even of genuine anguish. Previously privileged sections of the petty bourgeoisie fall from grace while others get hurled into the proletariat and this produces a kind of self-righteous indignation in this self-proclaimed âeliteâ which expresses its pent-up resentment that these MSM rural upstarts with no proper âcultureâ are in power while they, those âentitledâ and who âmeritâ it, are not.Â </p><br /><p><strong>Parliament Session OpensÂ </strong></p><br /><p>So the National Assembly is beginning a session in this new political reality.Â </p><br /><p>The Opposition Leader Xavier Duvalâs first PNQ was addressed to the Minister of Health on Covid. What couldÂ Â be more reasonable? We in LALIT deplore the lack of clear Government statistics, some daily, some weekly. We call, for example, for regular updates at this point in the epidemic, on, say, THREE topics:Â </p><br /><p>1. VACCINATION</p><br /><p>Â Â Â Â Number of people fully vaccinated, to be published weekly, with a clear cut-off point.</p><br /><p>Â Â Â Â Â - % of whole population</p><br /><p>Â Â Â Â Â - % of eligible populationÂ </p><br /><p>Â Â Â Â Number of people partially vaccinated, to be published weekly, with clear cut-off point.</p><br /><p>Â Â Â Â Â - % of whole population</p><br /><p>Â Â Â Â Â - % of eligible populationÂ </p><br /><p>2. HOSPITALIZATION</p><br /><p>Â Â Â Â Â - Number in hospitals and clinics for Covid care at a particular time each day.</p><br /><p>Â Â Â Â Â - New admissions to hospitals and clinics for Covid care.Â </p><br /><p>Â Â Â Â Â - Number in hospitals and clinics for other reasons, but Covid positive at a particular time each day.</p><br /><p>Â Â Â Â Â - New admissions to hospitals and clinics for other reasons, but Covid positive.Â </p><br /><p>3. DEATHS</p><br /><p>Â Â Â Â Â Number of deaths caused by Covid, daily, at the same time every day.</p><br /><p>Â Â Â Â Â Â - number of deaths caused by Covid amongst unvaccinated adults, weekly.</p><br /><p>Â Â Â Â Â Â - deaths caused by Covid amongst the unvaccinated adults as % of adult population that is unvaccinated, weekly.</p><br /><p>Â Â Â Â Â Â - number of deaths caused by Covid amongst vaccinated adults, weekly</p><br /><p>Â Â Â Â Â Â - deaths caused by Covid amongst vaccinated adults as % of adult population vaccinated, weekly</p><br /><p>Â Â Â Â Â Number of deaths from other causes where the deceased were Covid positive, daily.Â </p><br /><p>Â Â Â Â Â - Number of childrenâs deaths.</p><br /><p>Â Â Â Â Â - When the numbers of vaccinations become higher for children, figures can be disaggregated for vaccinated/unvaccinated.</p><br /><p>That is the kind of information we expect a Leader of the Opposition to call on Health Minister Jagutpal to provide, daily or weekly in a regular way and in tabular form under these four headings with their subheadings, starting with answer from the Minister on-the-spot for vaccinations till now, hospitalizations right now, deaths for October, as well as total deaths.</p><br /><p>But, then, when we hear the content of Xavier Duvalâs question, it is disappointing. And he had months to prepare it. He asks how many people have been tested this month, how many vaccinated people died of Covid or were admitted in October and which vaccine they had, and how many people died Covid- positive when some other co-morbidity was on the death certificate as âcause of deathâ.Â </p><br /><p>What on earth is the point of these questions of the Opposition Leader?Â </p><br /><p>The details on rates of testing that Xavier Duval was insisting upon are no longer as relevant as they were when Mauritius was managing to contain the epidemic. The PCR tests are only performed on people with symptoms, so the figures are of marginal importance to the public. The strategy now is to âlive withâ Covid, and rely upon the following:</p><br /><p>- Vaccinating the quasi totality of the population â everyone has a role in persuading people on the collective nature of this part of the strategy, to which all political parties need to contribute, as LALIT does.</p><br /><p>- Wearing masks properly in public spaces â we all need to encourage this.</p><br /><p>- Social distancing</p><br /><p>- Self-isolation when positive on any rapid test.</p><br /><p>- Domestic Medical Unit supervising those isolating, and slightly ill.</p><br /><p>- All the hospitals having isolation wards, plus ENT taking the serious Covid cases.</p><br /><p>But, for this strategy to work, the people of Mauritius need reliable, truthful statistics under headings like those we propose. Everyone can have a table at home, and fill it in. This will help us to help in the things we have to participate in so as to minimize the epidemic â actively encourage vaccination and be stricter on preventive measures. We need to be sensitive to the change in the spread of the epidemic. At the moment Minister Jagutpalâs statistics are not helping.</p><br /><p>As for the question on the number of Covid deaths that were of vaccinated people. The answer the Minister gave was 16. With nearly 90% of adults vaccinated already, as this figure approaches 100%, deaths of adults in Mauritius will also approach 100% vaccinated people, by definition â deaths from Covid and from everything else! So, the public was left wondering what Xavier Duval was up to. It soon spilled out. He is running a campaign against the vaccine from China. He is also encouraging the spurious idea that vaccination is either 100% effective in preventing illness or death, or 0%. It is a positively dim-witted approach. If a vaccine is 80% effective as Sinopharm is, or 90% as Pfizer is, what exactly does Xavier Duval think that means? It means that usually some 15-20% of Covid positive people have symptoms of Covid if they are not vaccinated, whereas only 15-20% of this 15-20% will have symptoms if they are, in fact, vaccinated. But, some will. And the more people are vaccinated in a country, the less people are going to get sick and die.</p><br /><p>The third part of his question also led nowhere, but to small numbers of people who had died of cancer, skull fracture, diabetes-related complications, renal failure and so on, while they were Covid positive but presumably without Covid symptoms. Does the Leader of the Opposition not know that most cases of Covid are asymptomatic? So that even patients who are dying of a disease and become Covid positive, may or may not get Covid symptoms? It is reasonable to demand both statistics â deaths as a result of Covid and deaths, while a patient is Covid positive but which result from something else â another illness or an accident. LALIT demands this.</p><br /><p>In these times, the importance of the truth, of rationality, of reasoned thinking, and of commitment to a program is paramount. The Opposition Parties in Parliament, after tail-ending first Bruneau Laurette and then Rama Valayden, are instead just desperately trying to take power.</p><br /><p>LALIT, by contrast, calls for the MSM to be challenged politically, on the basis of a sound program for change for the better.</p><br /><p>Â </p><br /><p>Â </p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

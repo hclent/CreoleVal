@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612101303" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612101303" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612101303" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612101303" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612101303" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612101303" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612101303" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612101303" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612101303" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Kisna Kistnasamy Speech on Robotization and Commodity Value</h1><p class="subtitle">20.10.2015</p></h1>
+	<p class="newsarticle"><p>Â In a 45-minute talk, LALIT leading member, Kisna Kistnasamy gave an overview on the question of robotization and automation, with reference in particular to their effect on the value of commodities. It was on Wednesday 14 October at GRNW. This paper is a report based on her speech and on the debate following it.</p><br /><p>She began by saying how robots at work are a source or preoccupation to many, especially to those working people who are directly concerned by them. This present process of robotization and automation at the level of production changes basic realities at work, including pay and the existence of jobs. But today, after an overview of where this automation came from, she said she would be looking at the effect of robotization on the value of commodities.</p><br /><p>Â She said that the subject is a vast one. And she added that the fact that she works in the IT sector, which is par excellence driven by these changes, does not make it any easier to understand. She said that sources, other than Marxist ones, were not very helpful in coming to grips with the study she did while preparing her talk.</p><br /><p>Â <strong>Pre-history: manual tools</strong></p><br /><p>In the days of hunting and gathering or early agriculture, people made tools, using stones or choosing bits of bone, or tying sturdy creepers, and these tools gave them an advantage relative to their natural physical capabilities and strength. Humans still had to add their minds and their physical power in order to use the tools.</p><br /><p>Â <strong>Mechanized tools</strong></p><br /><p>Over time in various societies, kinds of mechanization were added on to tools: these add-ons not only added capabilities but they <em>magnified</em>, even <em>multiplied</em> the power of human muscles. These inventions included things like the wheel, the lever, pulleys. But you still had to use your mind and add your own strength, in order to make use of this generation of tools.</p><br /><p>Â <strong>Power tools</strong></p><br /><p>A major development came, when machines were invented that could operate without much <em>added</em> human effort: windmills for pumping water, watermills for running saws, steam-driven engines for transportation or milling. These are more sophisticated tools that <em>run by themselves</em>. They typically, but not always, need an operator, but he or she does not add any additional strength or much additional thinking. He minds the machine. A steam-driven motor needs people to start it, let the steam build up enough to run the machine, then sit and watch it, until it is time to let the steam out, which they then do.</p><br /><p>Â <strong>Further development: feedback systems</strong></p><br /><p>When a valve can be fitted, and can turn off automatically at a certain point, this is a further form of automation, referred to programmed commands combined with âautomatic feedback controlsâ. The air conditioning in this room runs until a certain temperature is reached, then a thermostat automatically turns it off. It later automatically turns it on. So, a machine minder is no longer necessary.</p><br /><p>Â At this point, both physical effort and even thinking are no longer required for this kind of machinery.</p><br /><p>Â <strong>Computerization</strong></p><br /><p>The 20th Century saw the development of computers which, by their way of operating, store and manipulate immense amounts of data. The integrated circuit, or computer chip, was first developed in the 1960âs, and this led to vast changes. Now, humans write a program giving this machine instructions as to what to do, and how it should respond should other instructions be given to it. With sensorial technology, now, the computer can be instructed to respond to sounds, to movements of someoneâs hand: it responds without any other humanâs intervention at all. The computer permits kinds of automation never dreamed of before, replacing workers by the dozen.</p><br /><p>Â This means it is not just a kind of mechanization that performs tasks performed by humans, but it is able to perform these tasks without humans being involved in them. A coffee machine for example responds to instructions as to how you want your coffee, with milk, sugar, whatever, at the touch of a few buttons. It is a simple robot.</p><br /><p>Â Others robots developed alongside the development of integrated circuits: for example, you had the invention of a hand-held sledge hammer for breaking rocks open, then a power-driven hammer, and then a machine (a kind of robot) that operates a bit like a human with arms for moving the rocks into position, then hands for picking up the bits after splitting it, and a body that swings around to put the rocks into a truck. Car factories have ended up with a row of robots that do the work that used to be done by workers in a production line, as in the beautiful Charlie Chaplin film, Modern Times. This process is what we call automation: so we have robots that computers are programmed to run, and they do the work that many, many humans did.</p><br /><p>Â This has been integrated into all economic and work sectors: instructions given by computer, executed with feedback systems, and controlled by feedback systems that are built in. Not just the IT sector itself, but sectors as varied as agriculture and medicine, industry and teaching. All the benefits from this type of change have been denied to the working people who made it all possible: it has been creamed off, we could say âexpropriatedâ by capitalists, and amongst the capitalists, as the capital input became bigger and bigger, by those in <em>finance</em> capital.</p><br /><p>Â And today, there is the generation of automation that is moving towards artificial forms of intelligence.Â  These are machines that contain enough information, sufficient levels of instruction, in order to be able to do complex things like communicate, and take decisions about best plans of action.</p><br /><p>Â So, robots are computerized machines that need an energy source and detailed instructions and feedback instructions. And they go a step further. Remember that in 2012, after lying 100 years in a deep part of the Ocean, the Titanic was investigated by a robot called Nereus. Well, this robot was now doing not just human work, but work that humans cannot do. It was built to resist pressure that humans cannot resist. So, it is a robot controlled from a distance by a computer. Drones are another type of robot, used in deadly ways by the military.</p><br /><p>Â Now, communication with robots is done via satellite information, making the control from a distance standard in operations like postal deliveries, for example.</p><br /><p>Â In aviation, there are automatic pilot systems. In fact, everything from your booking, seating, ticketing, then flying, is arranged through automatic processes, too.</p><br /><p>Â And increasingly, there are service sectors that offer services without human involvement: banks, commerce, and even health services. Increasingly, there are forms of artificial intelligence involved: cognitive functions, like recognition or linking up disparate things or choosing a course of action. For example, the secret services use devices in order to read millions of letters and draw attention to one or two letters that might interest the State security men!</p><br /><p>Â So, that is a very broad picture of the history of tools, machines, automation and robotization.</p><br /><p>Â <strong>Value</strong></p><br /><p>And now we come to the question of the value of the commodities produced under the capitalist system of production that is now hegemonic, having finally replaced peasant production and having replaced state-run enterprises of the Stalinist-type, and even destroying the more co-operative type of production that existed in Yugoslavia before it was broken up violently.Â </p><br /><p>Â The only theory of value that has stood the test of time is what Marx came up with. The value of any commodity, under capitalism, is determined by the new value that is added to something by human labour power. Marx showed how you need a building, machinery and raw materials, but they add no new value (they already exist with a value); only when labour is added does value become added. Under capitalism, the worker has to work to cover not just his own wages, but in order to produce a âsurplus valueâ, that is then expropriated by the owner of the capital. But, the point here is that value is added by the new labour applied.</p><br /><p>Â Here Kisna Kistnasamy gave the classic example of a shoe factory. To make shoes, one needs to buy machinery, buy leather and other raw materials, pay workers that run the machines. If the workers need to produce 10 pairs of shoes a day to cover their wages as well as the capital input, then the capitalist will organize work so that the workers makes more than 10. What is extra is called âsurplus valueâ, and it is profit, and it is this that has added value to the goods. So, the worker creates this extra value that covers all the production and more. Then the capitalist expropriates this surplus value. In symbolic form, it is expressed as C (capital that is invested) and V (variable capital invested in paying workersâ wages) and S (the surplus or new value that workers produce that covers more than all the other inputs including workersâ wages). And this is how the value of commodities is determined (as opposed to the price, which can be affected by supply and demand).</p><br /><p>Â But, consider a factory that is tending towards being 100% robotized. Its C for capital (machinery and raw materials) is its investment, and then the V (for variable capital, spent on labour) is tending towards nil, so the level of surplus value, itself will tend towards nil. This is how the prediction made by Marx that the levels of profit would tend to fall, within any one country (or one geographical area) where the economic environment holds.</p><br /><p>Â And it is then that capital moves, always seeking alternative investment: either in a country where there is less automation and more variable capital (labour) at lower rates, thus levels of profit are higher, so we see Mauritian capital flowing into Madagascar, Africa and parts of Asia. Alternatively, capital flees production and moves towards finance capital, which has a stranglehold and extorts profit levels that are higher. Note how each of the main capitalist groups of Mauritius now has its own bank. Or the capitalists just go into real estate, where capital gains, from speculation against the increase in value of the land, cover the low profit level from investment in production. Alternatively, investors in the more developed countries invest in war machinery, which always by definition needs replacement if used, and then after the destruction of war, there is new space opened for capital to move into.</p><br /><p>Â So, the working class that produces the new value and all new surplus sees that the developments in the means of production, like automation and robotization, make it, as a class, weaker â in any one country. Workers are threatened by being replaced by machines, and are actually replaced by machines, and have to face levels of redundancy, semi-employment and unemployment, work in informal jobs, and domestic service, instead of reaping the benefits of the immense increase in productivity, in terms of more leisure, and less hours of work for all.</p><br /><p>Â <strong>What demands, what program for working people today?</strong></p><br /><p>So, the situation being like it is, what are the demands that workers, trade unions, a party like LALIT, should be rallying behind? The challenges are huge. It is not surprising that we see the trade union leaderships world-wide in a state of incapacity to lead workers out of this apparent impasse. Certainly there is no way out within the logic of capitalism, in its drawn-out death throes.</p><br /><p>Â First, the nature of work, in production, has also changed. The level of alienation is worse than even Marx could have imagined. Workers find themselves working on circuits that they have no idea what they will be used for. They might just sit and watch for a red light to start flashing. Without an inkling of an idea of what they are doing in reality, nor of the purpose behind the operation.</p><br /><p>Second, kinds of work that were common under feudalism have returned. Working hourly rates in what is one kind of domestic work or another. Either as domestic labour or upkeep (plumber, electrician, computer technician) in someoneâs private house, or as gardener in some gated housing complex, or as musician in a hotel, as a driver, cook, child-minder, child-educator for the rich, or in old-age homes for the well-off.</p><br /><p>Third, the levels of unemployment and semi-employment are phenomenal. Immense capital investment produces a tiny number of jobs. Huge firms like Google, Apple, Facebook and so on, for example, invest trillions of dollars to create 150,000 jobs. A group of researchers at Oxford studied in 2013, and published in 2014, 700 jobs to estimate the future of the jobs, and they estimate that nearly half, 47%, will have been automated and will disappear in the next two decades. So, the masses of the people have to work to survive, having been hounded off the land, and dispossessed, but where will we get jobs?</p><br /><p>Â And it is in this context that we have to develop demands and a political program. Demands that start from where we find ourselves and that open into a program for full democratic control over all the potential that technology has opened up.</p><br /><p>Â Oxfam, for example, has put its mind to the question, as an NGO. It demands minimum wages. unions in Mauritius have taken this up. Of course, the bosses only agree if existing legislation that protects workers sector by sector is dismantled.</p><br /><p>Â But, the demand should be for full employment accompanied by a re-calibration of pay, so that hours of work decrease without a decrease in pay, and that more people are employed for these lower numbers of hours, with the share of the benefits being moved to the working class, and away from the capitalists. In other words, working people will be claiming the share of the riches created by the work of their predecessors, the generations of workers gone by. This implies unifying working people who are employed with working people who are either unemployed or heavily under-employed or in small enterprises doomed to failure.</p><br /><p>Â And this will only be possible by, in fact, developing a political program to rein in finance capital, land speculation, and capital flight, doing away with offshores, and democratizing the whole of the economy. This implies moving towards a revolutionary change. And it will need to be on an international level. It will not go far if it is within the national boundaries that it is obliged to begin in.</p><br /><p>Â Debate after Kisna Kistnasamyâs talk was very interesting, and will continue in LALIT branches, and in our coming union and Working Class Commission.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

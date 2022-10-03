@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612093511" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612093511" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612093511" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612093511" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612093511" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612093511" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612093511" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612093511" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612093511" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>2nd Lockdown â Day TWENTY â What Dr. Gujadhur might call the French and Americans</h1><p class="subtitle">29.03.2021</p></h1>
+	<p class="newsarticle"><p>There are so many in the USA and France who refuse public health guidelines and vaccines, that Dr. Gujadhur would sure call them âKokovidâ. For non-Mauritians, this means empty-skulled, with a pun on âCovidâ, making it mean empty-skulled about how to contain Covid. He would be quite right. But they would not be as much to blame as we, Mauritians, are. Why? Because, for historical reasons, they donât know any better. We do.</p><br /><p>It is easier to explain rocket science than epidemiology to people who do not have a culture of public health. Their lives, and what they experience, have taught them too little about the very existence of the categories needed in order to understand epidemiology. The dominant ideology around health care in the USA and France is as follows: If you fall sick, you go see a doctor, you pay him, and, in turn, he prescribes drugs, which you then go out and buy and either take, or alternatively store in a locked cupboard or, for French tourists visiting Mauritius, leave them with friends here when you leave. (In France, you can claim most of the money back but the damage to your mind is already done by your having had to pay in the first place.) The point is that health has become a mere commodity in these cultures. In fact, the cultural set-up there has created what is essentially âsickness careâ, as it turns out, not âhealth careâ. âWhat,â a fair proportion of people there might reasonably ask, is âhealth careâ? Some kind of a private gym? Or a diet in a fashion magazine?Â </p><br /><p>If you live immersed in commodity-medicine, you canât easily comprehend that the generous gift-relationship of us all wearing masks to protect us all, nor that these actions actually constitute âhealth careâ. We all avoid gatherings to shield us all. We all get vaccinated to protect us all.</p><br /><p>âWhy,â they might reasonably ask over there, âshould I have a vaccine, if I am healthy and strong?â or âWho does the government think it is, telling me what to do?â or âWhy should I wear a mask when Iâm carefree, enjoying my youth?â âMe, me, me!â âGo, mind your own business!â âI, I, Iâ, âI donât agree with Macron or Trump or Biden, anyway!â From their past experience, they can see epidemiology as nothing but the government forcing something upon them. They canât comprehend that they are part of collective health care.</p><br /><p>But, in Mauritius, from malaria control, we learnt about public health. From a free, universal health care system, that we live in every day, we know that health is a collective concern. It is our reality.Â </p><br /><p>So, Dr. Gujadhur would be right to call us âKokovidâ, because our culture, via our historic reality, means we should know better. But, people in America or France can be excused for not knowing any better.Â </p><br /><p>So, let us see what an epidemiologist does.</p><br /><p>Minister of Health Jagutpal, who is a doctor specialized in a different domain, clearly does not really know. When he got a gem of a question from a journalist after a press briefing asking whether enough âcontact tracersâ had been recruited, he replied peremptorily to the effect that they had all been trained in putting nasal swabs up peoplesâ noses. This is not the primary role, during an epidemic, of a contact-tracer. Lordy!</p><br /><p>In general, an epidemiologist is a creature of probability. That too, in Mauritius where many of us are gamblers, is a well-known science. An epidemiologist is a specialist, who can run the statistics to see how fast the virus spreads, for how long it spreads invisibly, how sick it makes what proportion of people, and which precise kinds of people in society fall ill, and from all this, to propose the best public health regime, in terms of lockdown and other barrier methods, that is most likely to flatten the rising curve of infection sufficiently, and then to be able to contain the epidemic, and to do this at the lowest cost to society, including the economy. During the first wave, in Mauritius, this worked, we can say, well-nigh perfectly. The trio Dr. Gujadhur when he was in the Ministry, Dr. Gaud and the WHOâs Dr. Musango did it. And Mauritians know about public health, as a concept, and managed to do the necessary, quite consciously. Our wisdom to do so came from part of our shared recent history.Â </p><br /><p>The epidemiologists work out, on the basis of statistical models, when the hospitals will be overwhelmed, when the tipping point will make too many hospital staff off sick, too few left on the job, and when there will not be enough time left to train up new staff, and when the dead bodies will begin to overflow out of the cold-storage facilities at the morgue. And so on. This tipping point is where the whole of society is threatened. It came to this in New York City at one moment, in the North of Italy at the outset, and in Brazil is has come to that right now.Â </p><br /><p>And epidemiologists have a hard time being appreciated for one simple reason: to the extent that they, together with the broad masses of people, are âsuccessfulâ and the epidemic comes under control, people say behind their backs, âOh, you see, I was right, the epidemiologists were wrong. The epidemic wasnât so bad after all. The lockdown was a waste of time.â As epidemiologists fine-tune their proposals with the unfurling epidemic and new science, they get accused of âchanging their adviceâ, âbeing incoherentâ or of âputting out mixed messagesâ.</p><br /><p>The key work in the Coronavirus epidemic for epidemiologists is this: via contact-tracing-and-immediate-testing, they find out really fast, with your help as âthe peopleâ, who you could possibly have got it from, then they go and see all these possible candidates that you have had statistically-relevant contact with, and test them, and interview them in detail, too, and quarantine those who are statistically relevant. The person you got it from may be asymptomatic and continuing to spread the illness. At the same time, the contact-tracers go see all the people you have seen since you picked up the virus, and test them, too and interview them, and if necessary isolate them. They constantly calculate who to put in isolation wards, who to get to self-isolate, and who to send to hospital. These decisions are based, in the final analysis, on statistical probability. But, the key work is theÂ <em>interviews</em>. And this is what makes public health so different. It is about telling the truth. Imagine that. The health authorities have to tell the truth. We all have to tell them the truth. They have to believe us. We have to believe them.Â </p><br /><p>Public health works in a country inasmuch as we have aÂ <em>culture</em>Â of public health in it. In Mauritius, we have enough of this culture to have weathered the first wave. But, it is a culture that takes nurture. It gets destroyed. For example, in France, when theÂ <em>Centre National de Transfusion Sanguine</em>Â was, in 1991, exposed as having knowingly distributed blood products to people with haemophilia when it was contaminated with HIV, public health culture took a heavy blow. In Britain, even with the health care culture that 70 years of National Health Service has nurtured, when Boris Johnson should have relied on the General Practitioner component of the NHS for emergency Covid contact-tracing, he did not. He turned to some centralized private IT company that tried, and failed, to do contact-tracing with Apps, as if public health were a technological issue. When contract-tracing is all about telling the truth. So, in the UK, too, the public health culture has taken a knock.</p><br /><p>Why we need to nurture this culture is that, without it, if we let it die, or if we kill it off, then the only way to handle a more severe epidemic in the future, lord forbid, will be repression. To prevent repression and to force the state to lift repression, we have to nurture our own national public health culture, as well as demand that health services, including epidemiology, be independent of the regime in power. We demand that the epidemiologist in the Ministry, who replaced Dr. Gujadhur when he retired, for example be in the press briefing every day.Â </p><br /><p>A lot of harm has been done to the public health culture that was so rich in Mauritius, rich as I say, because of our history. This harm was done after the first outbreak of Covid by the Governmentâs gross mishandling, to put it mildly, of emergency procurement. While people were locked up, robbers got to work on nabbing contracts, some of which were supplied in ruinous ways. LALIT called for direct buying of all emergency supplies.</p><br /><p>But, harm had already been done to the public health culture before that. There was an irrational, if small, mass movement to de-legitimize the general elections of November 2019, just three months before the Coronavirus epidemic. Too many powerful influencers had believed their own propaganda that the MSM-ML would lose. The elites failed to see that working people, though not enthusiastic about the MSM-ML alliance, recognized its bringing in a minimum wage and decent pensions. The Parliamentary Opposition parties tail-ended this Trump-like movement, aiming to blindly discredit the entire state apparatus, even the Electoral Commission, known for its integrity, and thus also threatening even health authorities. And this movement was what morphed into the petty-bourgeoisie rallying behind ex-MSM agent Bruneau Laurette, trained by the Israeli special forces men, who became a national leader against Jugnauth after the wreck of the Wakashio.</p><br /><p>So, for the second wave, Dr. Gujadhur may unfortunately have been right, and there will be just too many âkokovidâ. Just because the Jugnauth regime is irresponsible in not having, during a whole year, set up a proper food security industry, employing thousands of new workers in good jobs, for example, and just because the Jugnauth regime puts Ministers and âkandida batiâ, who own private clinics, as their spokespersons for controlling the epidemic, does not mean we should, as a society, not implement the health measures that public health requires. We can do it without much help from the State, if we organize. So, letâs get on our cell phones. And letâs start with all those we know in the front-lines, like many nursing staff, who had fallen for the daft anti-vaccine campaigns, mainly out of France, and encourage anyone we know to get out there and get vaccinated, and then use their daily influence to encourage everyone else to do the same. Encourage work colleagues. And, of course, people in our families. I am in a family that is 100% vaccinated, for example.</p><br /><p>Remind people that the vaccine prevents Covid making you sick, and when you are sick, you spread the virus like wild fire, in your family, for a start. You carry a heavy âviral loadâ when you get a bad case of Covid, and that is how you spread the illness. For nurses and other hospital staff, because you have patients close to you, this is part of professional ethics:Â Â go and get vaccinated.</p><br /><p>Â  Lindsey Collen</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

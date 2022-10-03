@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612103645" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612103645" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612103645" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612103645" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612103645" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612103645" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612103645" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612103645" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612103645" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Diskur Ansyen Prezidan Repiblik M. Cassam Uteem lor Diego & Chagos</h1><p class="subtitle">12.11.2010</p></h1>
+	<p class="newsarticle"><b>Nu ena plezir reprodir bann parol byen presi, byen kuraze, byen for ki Ansyen Prezidan Repiblik, M. Cassam Uteem, ti fer alokazyon so "diskur luvertir" Konferans Internasyonal LALIT lor kestyon Diego Garcia ek Chagos, 30 Oktob a 10:00 am dan Lasal Mama Bul Later, GRNW, Port Louis:</b><br><br>Mersi buku. Apre sa diskur prezantasyon Lindsey Collen, ki pe prezid sa sesyon la, mo panse tu seki mo pu dir u, u finn deza tande! Me, pwiske zot finn fer mwa loner invit mwa fer luvertir sa Konferans Internasyonal, e zot finn fer mwa egalman loner pu dir u kelke mo, mo pu repran donk enn bon parti seki Lindsey limem finn dir. <br><br>Permet mwa avan mo kumanse, tutan akeyan zot tu isi zordi, akey an partikilye bann invite ki finn sorti deor, finn vini. Zot prezans aport enn gran sutyen a lalit bann Chagosyen. <br><br>Mo ti pu kontan felisit LALIT  ki finn organiz sa Konferans la, ki finn organiz enn tel Konferans pu seport lalit bann Sagosyen. LALIT finn enn konstans, li finn konstaman seport bann Sagosyen dan zot lalit, san fay. E sa Konferans la, kuma Lindsey finn dir u, li vinn dan enn moman krisyal. <br><br>Par exanp, li vinn dan enn moman, kot ena enn nuvo Guvernman an Angleter. E malgre tu seki zot pe dir asterla, nu bizin rapel zot ki zot finn tenir bann promes, bann promes presi, pandan kanpayn, kan zot ti dan Lopozisyon pu ki rann lazistis a bann Sagosyen. <br><br>Ena osi Grup Refizye Chagos so kes dan Lakur Drwa de Lom a Strassburg. <br><br>Ena egalman determinasyon Guvernman Morisyen, determinasyon afise Guvernman Morisyen, atraver Minis Zafer Etranzer, ki finn fer enn diskur miskle Nasyon Zini.<br><br>E zordi granmatin mo tande ki yer desizyon ki Guvernman finn pran pu dekret le 3 Novam "Zurne Komemorasyon Deportasyon Bann Sagosyen", e a sa lokazyon la, pu ena lapriyer nasyonal. <br><br>Alor tusa, anplis enn mobilizasyon ki nu konstate buku plis aktiv an Angleter.<br><br>Tusa fer nu dir ki lemoman lorganizasyon sa Konferans Internasyonal la li enn moman krisyal, enn moman krisyal dan lalit bann Sagosyen. <br><br>Alor, se larezon pu lekel mo pu exprim enn lopinyon metnan. Anu met nu bann diferan apropo responsabilite dirizan Morisyen a lepok lor lakestyon exsizyon Arsipel Sagos. Anu met sa diferan lor veyez. Anu met li lor veyez pur lemoman. E anu prezant enn fron komen, enn fron inanim, enn fron politik, enn fron popiler, dan nu lalit pu rekiperasyon nu later, dan nu lalit pu ki Sagosyen gayn drwa return dan zot lil, pu ki Sagosyen gayn enn konpansasyon ki zot plis ki merite. <br><br>E Lalit ena rezon, nu bizin dir li for, ki li finn swazir tem sa Konferans la, an evokan, similtaneman, anmemtan, okipasyon ilegal arsipel Chagos, existans enn baz militer lor Diego Garcia, drwa de retur Sagosyen, enn drwa fondamantal, e drwa a konpansasyon Sagosyen. Sa 4 laspe la zot indisosyab. Zot 4 laspe fondamantal. E si nu rod tret zot separeman, dan mo lopinyon, li pu enn fot grav. Li pu enn fot politik grav si separ baz avek suvrennte, separ suvrennte avek sor bann Sagosyen, si separ sor Sagosyen avek drwa a konpansasyon, drwa a retur, si nu separ sa, nu dir "Abe, anu diyl avek sann la la, pa avek sann la la, ala pur linstan, nu separ li", mo krwar se enn fot politik grav. E nu pa pu reysi atenn nu lobzektif. <br><br>Dan sa saga, seki mo apel sa "saga" Sagosyen la, ena bann kupab, ena bann konplis, ena bann viktim. Ena kupab, konplis, viktim. Ena 2 kupab. Sa 2 kupab la se Ladministrasyon Amerikenn, ek Guvernman Britanik. Bann izipater, ladministrasyon Amerikenn, ek Guvernman Britanik. Le 2 kupab. Ena enn konplis. Kapav apel li enn viktim konsantant. Se laklas politik politisyen, bann lane 1960, me kuma mo inn dir u taler la, anu met sa an veyez. Taler kitfwa mo va dir 2 mo selman. Me, anu met sa an veyez pu linstan. Ena 2 viktim: ena lepep Sagosyen, ena lepep Morisyen. Lepep Sagosyen an partikilye, ek lepep Morisyen an zeneral. <br><br>Anu koz bann viktim.<br><br>Lakominote Sagosyen, lepep Sagosyen, derasine. U kone ki apel "derasine"? Derasine, expilse, expilse depi zot lil, exile, zot inn sibir bann afron, imilyasyon, linzistis, zot inn res dan pei kot zot pa finn abitye viv - enn parti dan Sesel,  enn parti dan Moris - dan bann kondisyon lepli abzekt. Zot finn viktim. Viktim ladrog. Zot finn vinn viktim lalkolism. E kan zot ti gayn enn konpansasyon, ki ti enn konpansasyon tutafe inadekwat, zot deza finn andete ziska latet, e finn bizin servi sa kas la, pu pey zot det. E bann seki finn gayn terin pu konstrir lakaz, enn bon parti ladan inn vann lakaz pu dipin-diber, pu de kas, parski ti bizin pran sa kas la pu pey bann det, kuma mo inn dir u, ki zot finn deza akimile. Zot inn viktim bann abi, viktim akoz zot drwa imen finn bafwe. E zordi, ziska prezan, drwa de retur, drwa fondamantal pu dimunn return dan so pei, set enn drwa fondamantal, sa finn refiz zot. Nu pe reklam, e mo dimann Konferans dan so Rezolisyon, si ena bann Rezolisyon ki pu vote, mo dimann ki Sagosyen gayn zot drwa return dan zot lil natal, ikonpri Diego Garcia. <br><br>Nu pa pu "agree to disagree". Sa koze ki nu "agree to disagree" sipa nu pran 3 lil, 4 lil, 6 li, 20 lil, e nu les Diego Garcia, pa kumsa ki nu pu lite. Pa kumsa ki nu pu lit pu lazistis. Pa kumsa ki nu pu lit pu nu gayn nu patrimwann, pu nu gayn nu teritwar, an return. Pa kumsa ki nu pu lite. Bizin lite pu nu dimann ferm baz la, saki nu bizin dimande. Se sa ki nu bizin dimande. E nu reklam enn konpansasyon adekwat. Nu bizin dimann sa depi Leta Zini, depi Lamerik, e si neseser nu bizin al Lakur Lazistsis Internasyonal La Haye. <br><br>Dezyem viktim, lapopilasyon Morisyen. Teritwar demambre. Teritwar demanbre. Pa existe sa. Omoman, Lindepandans enn pei, u dir, "Ale rayt pran trwa-kar, mo gard enn kar!" Pa existe sa. "Alor, mo donn u nef-dizyem, mo gard enn dizyem", pa existe sa. "Pran lamwatye nu teritwar, mo gard lamwatye," pa existe sa. Se kont tu Konvansyon Internasyonal. Li kont tu Rezolisyon Nasyon Zini. Li kont Trete Nasyon Zini. Alor nu teritwar demambre, enn parti selman vinn Indepandan, enn parti bann Angle garde. Larises marinn otur Arsipel konfiske. Personn dan Moris pa gayn drwa al lapes laba. Fode misye la deside. Fode li desid pu li e pu so bann dimunn. Alor, li tuzur inposib pu Morisyen al dan enn parti so prop teritwar. Nu pa gayn drwa. Nu pa kapav al dan enn parti nu prop teritwar parski li okipe par lafors etranzer. Li pa okipe selman par "enn pei etranze".  Li okipe par bann lafors etranzer. E anmemtan, nu Morisyen, gayn enn santiman kilpabilite, vizavi bann Sagosyen. Ena enn pake dimunn vinn dir ki u finn gayn Lindepandans odetriman bann Sagosyen, u finn vann bann Sagosyen pu u gayn Lindepandans. Fer nu Morisyen gayn sa santiman kilpabilite, anprezantan Sagosyen kuma bann gran sakrifye.  E evidaman zot bann gran sakrifye. Me, vre kupab se bann Angle, se bann Ameriken. <br><br>Nu Lindepandans donk, li enn Lindepandans inkonplet. Nu pa kapav dir zordi 2010 ki Moris enn pei konpletman Indepandan. Nu Lindepandans li inkonplet parski ena enn bon parti nu teritwar, nu later ek nu lamer, enn bon parti ladan, ankor su kolonizasyon Anglez. Nu reklam donk avek fors retur Arsipel Sagos, nu patrimwann, kum teritwar Morisyen. Nu reklam suvrennte Moris lor sa teritwar la. <br><br>Taler mo inn dir u ena enn viktim konsantant. Mo inn dir mo pu dir 2 mo selman. Se laklas politik ki ti pe negosye nu Lindepandans ki ti viktim konsantan. Ena dir u ki ti met kuto anba lagorz. Kapav. Ena dir u ti met kuto anba lagorz, pa ti ena swa, nu pa ti Indepandan. Alor, zot dir u, sa bann dirizan la pa ti kapav fer naryen, ti bizin aksepte. Ena dir u "Abe, u kone enn parti ti tro prese pu gayn Lindepandans parski enn lot Parti ti pe vinn for dan pei la." Enn Parti ti tro prese pu pran Lindepandans parski PMSD ti pe vinn tro for e kapav-et nu pa ti pu gayn Lindepandans ditu. Enn lot parti dimunn dir u, "Sa bann dirizan la ti insansib vizavi bann Sagosyen." Sa bann parti politik la ankor la. Parti Travayis ankor la. PMSD ankor la. Me, bann dimunn la pa la. Sa bann dimunn la, zot pa la. <br><br>Ena enn sel dimunn ki reste. Ena enn mwa apenn ena enn ansyen depite apel Rahul Abdool ki inn desede, sete lavan-dernye temwen ki ti asiste a Konferans Konstitisyonel 1965. Zordi res zis enn temwen. Sa temwen la ki ti prezan an 1964, Lancaster House, sa temwen okiler ek orikiler la, se nu Prezidan. Se Prezidan Repiblik, Sir Aneerood Jugnauth. Li ti prezan. E li sel zordi ki ankor an-vi. E li nu temwen. Li nu temwen prinsipal dan sa zafer la. Se purkwa sa Konferans la pu lans enn lapel a Sir Aneerood Jugnauth pu ki li koze. Pu li dir tu seki li finn tande, tu seki li kone. Pu li koze. Pu li vinn donn nu enn kudme, pu li vinn donn Sagosyen enn kudme pu ki zot regayn zot drwa, retruv zot drwa, pu ki Moris koz avek lafors, avek so lafors parski li ti enn temwen. Avan ki tro tar, nu fer enn apel, donk, a Sir Aneerood jugnauth pu li koze. E pu li reklam nu suvrennte parski, kuma mo dir u, li finn asiste a sa vol ki finn fer par bann Angle, vol de nu teritwar, enn parti inportant nu teritwar. <br><br>Donk, ubliyan sa, "nous sommes tous, nous, les Mauriciens" pu reklam nu suvrennte lor Arsipel Sagos, e nu tu Sagosyen pu dimann drwa de retur bann Sagosyen dan zot bann lil. <br><br>E anmemtan, nu bizin dir, nu bizin dimann Guvernman zordi, dimann Guvernman, ki li bizin dir Sagosyen ki rol zot pu ete dime, kan Guvernman pu gayn suvrennte, ki rol Sagosyen pu ena dan zerans Sagos, dan Arsipel Sagos. Guvernman bizin uver diskisyon. Atansyon ki li vinn tro tar. Parski u kone, bann Angle, nu pu dir li taler, zot ena tut sort kalite sibterfiz. E fer atansyon ki nu bann frer Sagosyen ek Sagosyenn pa rant dan enn lot pyez ankor. Se purkwa li inportan ki Guvernman Morisyen uver enn dyalog avek Chagosyen pu dir zor klerman ki rol Sagosyen zot mem zot pu zwe dan zerans zafer dan Arsipel Sagos demin su suvrennte Morisyen.<br><br>Anu get metnan bann kupab. Nu finn get viktim, viktim konsantant, anu get kupab. <br><br>Bann kupab. Kupab Angle ek kupab Ameriken. E pa krwar ki Angle ki premye kupab, eh? Angle 2yem kupab, de mon pwendevi. Zot inn sertennman fer infraksyon konvansyon Nasyon Zini, zot finn exsiz enn parti nu teritwar omoman kot zot pu donn Moris so Lindepandans. Set enn akt ilegal, enn akt ilegal. E anmemtan, zot inn expilse, enn akt imoral, zot inn expilse Sagosyen de zot lil, de Diego Garcia, de Peros Banos, de  Saloman, e zot inn exil sa bann Sagosyen la a Moris, e o Sesel. Zot inn manti a lopinyon internasyonal. Zot inn manti. Kan, pandan 30 banane, 35 banane, zot inn mentenir ki sa bann lil la sete bann lil ki pa ti enan dimunn lor la, ki sete bann lil desert sa, sa bann lil la, sa bann lil ki zot inn garde la, e ki zot inn donn Ammeriken par laswit pu fer baz, sa bann lil la pa ti ena dimunn lor la. Zot inn koz manti. E se apre sa, ki lopinyon piblik internasyonal anpartikilye Ameriken ek Angle finn aprann realite. Se byen apre ki zot inn aprann ki sa bann dimunn ti la de zenerasyon a zenerasyon. Si enn Sagosyen azordi, u vinn dir li ki li pa Sagosyen, abe  u pu bizin vinn dir Morisyen li pa Morisyen. Parski ena 4 zenerasyon, 5 zenerasyon desela, pa ti ena Morisyen isi. Me akoz sa, nu pa Morisyen zordi nu? Parski ena 5 zenerasyon ki nu pa ti la, sa vedir nu pa Morisyen? De la mem manyer, ti ena bann aryer granper, bann granper, ti ena papa bann Sagosyen, ki ankor zot lezo antere laba. Dan Sagos. Me, finn fer enn mansonz parkurir lemond. E zot inn lwe sa li pu fer baz la. Bann dimunn ki dir pa kone sipa pe lwe sa pu fer enn baz, pa ti kone sipa ti pu fer enn baz, pa ti kone ti pe dir pu fer enn stasyon de kominikasyon? U kone ki sa vedir montre zako fer grimas? Nu pa bann inbesil. Pa montre zako fer grimas. Pa vinn dir ki kan u pe fer sa, kan u pe detas sa bann lil la, u pa ti kone ki pu fer enn baz laba. Negosyasyon ti'inn fini enan. Negosyasyon sekret inn fini enan. Negosyasyon pu ena enn baz, enn baz militer dan Losean Indyen, lor nu teritwwar. Zot swazir nu teritwar. Zot met nu deor. Zot fer baz lor la, e zot dir nu res trankil, nu pa gayn drwa dir naryen ditu. <br>Se purkwa, ki mo ti dir u taler ki zot bann spesyalis, sa bann Angle la, dan sibterfiz. Zot bann spesyalis. Kan Lakur pronons enn zizman, zot vinn avek enn Order in Council. Pa kone kot sa sorti, enn Order in Council, pu kontre-kare bann desizyon ki lakur finn pran, pu ranvers desizyon ki Lakur, la Ot Kur de Lond, Kur Dapel de Lond, zot vinn avek bann sibterfiz, avek sa Order in Council pu ranvers desizyon, ranvers sa desizyon ki Lakur ti rande anfaver Sagosyen, kumkwa zot gayn returne, le drwa de retur, zot gayn drwa return zot lil. Enn sibterfiz. <br><br>Sibterfiz ankor, enn moman done zot donn paspor Britanik. Pran! Fer atansyon, mo fek dir enn moman desela, fer atansyon Guvernman Moris. Kumans ena dyalog avek Sagosyen ek zot lidership. Napa fer erer. Parski sa bann la zot kapav al ziska bu, e ansemoman la, li pu tro tar. Aste avek Paspor Britanik. E li normal, enn zenes zordi, u dir li kumsa, "Abe, alalila, mo donn twa enn paspor Britanik, to kapav al laba," mem si to pa gayn mem kondisyon avek bann Angle, kisann la pu refize ale?  Bann bon Morisyen pu ale. Bann bon Sagosyen mem pu ale. <br><br>E la dernye ki zot inn truve pu fer la, zot inn dekret losean otur lamer otur Chagos, zot inn dekret sa Marine Protected Area. Marine Protected Area. Sa bann gran dimunn ki kontan protez bebet dan lamer, lanvironnman, Greenpeace mem inn rant dan sa kales la, Greenpeace osi inn dakor, inn dir, "We, setenn bon zafer!" Malgre lefet ki pa finn ena konsiltasyon, ni avek Moris, ni avek Sagos. Sa set enn sibterfiz. Alor, enn fwa ki u deklar sa rezyon la, tu sa rezyon la, enn Marine Protected Area, seki li ule dir se dimunn pa pu kapav vinn reste la. U pa pu gayn drwa vinn lapes la. U pa pu gayn drwa viv la. U pa pu gayn drwa fer polisyon dan lamer. Alor, u pa gayn drwa existe. Sa, setenn lot sibterfiz ankor.<br><br>E anfen, e anfen, nu, tutan demandan, tutan reklaman kondanasyon, de Langleter ki finn kree enn fos antite, pa ti existe. BIOT British Indian ocean Territory pa ti existe. Kan bann dimunn kuma mwa ti lekol, u krwar nu finn tann parl de BIOT? BIOT pa ti existe. Zame pa ti aprann sa, dan zeografi pa ti existe sa. Inn kree. E samem dernye koloni sa. Mo panse dan lemond samem dernye koloni ki finn kree. Inn kree par bann Britanik. Alor, nu bizin dimande ki sa BIOT la, bizin rey li. Rey li depi lor kart. Li pa bizin existe. Bizin return a Moris so teritwar.<br><br>E anfen nu vinn lor, lepli gran kupab. Le premye pli gran kupab: Ladministrasyon Ameriken. <br><br>Tu finn kumans la. Bann stratez militer Ameriken zot inn zet zot regar, zot devolu kumdi Franse, lor Diego Garcia, zot inn truve ki samem meyer plas pu zot fer zot baz, pu zot mark zot prezans dan Losean Indyen. Ti ena lezot lil ankor ki zot ti finn vizite. U rapel? Enn ladan apel Aldabra. Me, pa pu pran Aldabra. Kifer pa pu pran Aldabra? Pa pran Aldabra, parski ena bann torti zean laba. "Ah, ena torti, si nu pran sa, bann environmentalist, bann la pu fer tapaz, bann Greenpeace e ot, pu fer tapaz, e nu pu gayn problem. Anu al pran, anu al pran Diego mem. Parski laba, nu kapav dekanp sa 2, 3, 4 dimunn ki ena la, nu avoy zot ayer." Dan lizye Ameriken, torti zean ena plis valer ki enn et imen. Ala avek ki kalite dimunn u ena zafer la. Ala, avek ki kalite dimunn u ena zafer la. Nu pa pe dir sa bann dimunn azordi, me Ladministrasyon. Nu pe koz "Ladministrasyon". Ladministrasyon Amerken. Ala kimanyer li san-ker. Zom, fam, zanfan, pena valer. Torti zean ena valer. Pwason ena valer. E vwala kimanyer zot inn fer bann Angle expilse bann Sagosyen. E zot inn exzize ki sa bann lil la zot vide de zot abitan. <br><br>E zordi zot pe refiz, refiz le retur. Ena dimunn pe sipliye, pe dir kumsa, "Gard Diego la, les nu return dan lezot?" Mo pa dakor avek sa. Me ena ki pans kumsa. "Les nu return Peros Banor, les nu return Salomon. Gard Diego!" Pa kestyon. Dernye nyuz, inn gayn 2 zan desela, bann la pe dir, "Ki pu met larzan ladan? Sa bann lil la pu kule byento." Abe Diego Garcia pa pu kule? Si sa bann lil la pu kule, Diego Garcia pa pu kule? Dan Diego Garcia ena de milyar e de milyar de dolar investisman, li pa pu kule? Ki sa kalite argiman ki u vinn servi avek Sagosyen pu dir, "Pa pu kapav fer zot return dan zot lil parski zot lil pu kule byento. Zot lil pu kule byento." An atandan zot pe met lamone dan Diego Garcia. B-52 bombers, kuma Lindsey inn dir u dekol depi laba. Nu pa inn gayn lager ek Irak nu. Depi kan nu an-ger ek Irak? Depi kan nu an-ger ek Afganistan? Nu an-ger ek Afganistan? U an-ger avek Irak? Nu pa an-ger ek sa bann pei la, nu. Dayer, nu kont seki zot pe fer laba, bann Amerken. Ki zot fer, zot servi nu teritwar, pu zot lans bann B-52 bombers, e sa bann la ale, al bombarde, al tuye. Tuy kisannla? Al tuy kisannla? Al tuy bann solda? Kitfwa insidaman tuy bann solda. Seki zot tuye, zot tuye bann inosan. Tuye par milye, pu pa dir par dizenn de milye, inosan. Lapres pa koz sa sifizaman. Pa koze sifizaman. De santenn de milye fam, zanfan, inosan ki inn mor par bombardman. Kot sorti? Depi lor nu teritwar, sorti kot nu, al bombard zot. Abe, dime, si bann la deside pu vinn bombard nu, kisannla pu protez nu? Ameriken ki pu protez nu. Sa senefe pa. Enn baz kumsa napa gayn drwa existe. <br><br>E la, dernye zafer nu finn tande, ti pe servi sa baz la pu tortir bann dimunn. Rendition. "It has been proved." Guvernman Britanik, si mo pa tronpe le Premye Minis limem, ti Premye Minis Brown limem, divan Sanb de Kominn, swa li swa David Milliband, sa Guvernman sortan la, "that it has been proved" ki finn ena rendition. Finn ena tortir. E avek zot gran labus zot al dir partu-kote, zot dir ki zot kont tortir, ki zot inn bann tortir.  Sa bann pei ki fer tortir la, zot dir, sa bann pei Lafrik, Lazi la. Sa bann la, bann Ameriken, nu bizin kondann zot. Zot mem, zot premye kupab. Nu bizin kone si li vre, ki kantite? Vre, si li ete, si ankor pe itiliz Diego Garcia kuma prizon kuma lor Guantanamo, eski ankor ena prizonye? Sa, nu bizin dimande. <br><br>Nu bizin exziz fer enn lanket, e la osi, kuma Lindsey inn dir u, ena Trete. Trete Pelindaba, ki fer ki, dorenavan, pa gayn drwa stokpayl, pa gayn drwa garde, pa gayn drwa stok, pa gayn drwa itiliz, materyel nikleer dan okenn bann pei Lafrik, ikonpri donk Diego Garcia, ikonpri, donk, Arsipel Sagos, ki truve an Afrik, ki apartenir a Moris. Alor nu bizin kone. Nu bizin fer fer lanket, nu bizin apros Lorganizasyon Linite Afriken (Linyon Afriken), nu bizin apros Nasyon Zini, nu bizin apros lazistis Ameriken, pu kone sipa sa baz pe itiliz kuma enn baz nikleyer, eski pe itilize kuma enn prizon, pu fer tortir lor dimunn.<br><br>Anfen, nu bizin reklam demantelman de la baz. Se sa lesansyel. <br><br>Dapre mwa, sa premye zafer. Reklam demantelman de la baz. <br><br>U interese ek baz zordi, me zordi u kapav sorti enn pei, pran avyon, al enn lot pei dan lespas kelke minit, alor, nu bizin dir Ameriken "Pran u baz, met dan u rezyon." Baz la pe servi pu protez Loksidan, me pran li met li dan loksidan. Personn Moris pa pu ena lobzeksyon, mem ena lobzeksyon de prinsip, nu pa dakor avek li, me u tir li depi isi, u ale. Kifer u bizin vinn dan nu landrwa? Dan nu Rezyon? Kifer u bizin pran nu pei? Kifer u bizin pran nu lil? Pu u fer sa. Al fer li dan u landrwa! Al fer li dan u rezyon. <br><br>Alor, mo bizin osi dimann, anfen, apar bann lobi Ameriken, etc. bizin dimann osi Prezidan Obama, ki nu tu respekte, kuma mo ami dir, bizin dimann li "if he can, can".  Li finn dir, "Yes, we can,", e nu bizin dimann li, si li can, can? Lerla nu pu kone sipa reyelman li anfaver dimunn ki pe rod lazistis e li pu met fen a linzistis. <br><br>Mo byen sagren mo finn pran enn pake u letan. Mo byen sagren mo finn depas limit ler ki finn alwe a mwa, me mo krwar li enn size sifizaman inportan pu mo donn u seki mo panse lor sa tem Konferans, tem extrememan inportan dan enn moman krisyal. <br><br>Alor, li avek buku plezir ki mo deklar sa Konferans la uver e mo swet u deliberasyon interesan, inportan, vital pu lalit bann Sagosyen. Mersi.<br><br></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>

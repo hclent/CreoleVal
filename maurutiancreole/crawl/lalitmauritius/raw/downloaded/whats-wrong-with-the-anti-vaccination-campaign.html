@@ -1,0 +1,284 @@
+<!DOCTYPE> 
+<html lang="en">
+<head>
+<title>News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="" />
+<link rel="icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.lalitmauritius.org/display/images/common/favicon.png" type="image/x-icon" />
+<link href="https://www.lalitmauritius.org/display/css/site.css?1506041350" rel="stylesheet" type="text/css" />
+<link href="https://www.lalitmauritius.org/display/css/responsive.css?1504232140" rel="stylesheet" type="text/css" />
+<style type="text/css">
+*** MODULE STYLES ***/
+/* GALLERY FRONTEND STYLES */
+ul#gallerypreviewpane{ display: block; margin: 20px 0; overflow: hidden; }
+	ul#gallerypreviewpane li{ float: left; width: 48%; margin: 1%; }
+		ul#gallerypreviewpane li a{ display: block; }
+			ul#gallerypreviewpane li a img{ display: block; width: 100%; }
+			
+ul#gallery{ display: block; margin: 20px 15px; list-bullet: none; overflow: hidden; }
+	ul#gallery li{ float: left; width: 200px; height: 180px; margin: 5px; background-color: #eeeeee; border: solid 1px #cccccc; border-radius: 2px; }
+		ul#gallery li a{ display: block; width: 100%; text-decoration: none; }
+			ul#gallery li a span.image{ display: block; height: 120px; overflow: hidden; }
+				ul#gallery li a span.image img{ display: block; width: 100%; }
+			ul#gallery li a div.content{ display: block; }
+				ul#gallery li a div.content span{ display: none; visibility: hidden; }
+					ul#gallery li a div.content span.title{ display: block; visibility: visible; height: 60px; padding: 10px; background-color: #e91212; color: #ffffff; font-size: 12px; text-align: center; }
+			ul#gallery li a:hover{ text-decoration: none; }
+				ul#gallery li a:hover span.image{ opacity: 0.5; }
+				
+				
+div#gallerydisplay{ /*position: relative;*/ display: block; min-height: 600px; padding: 5px 15px; }
+	div#gallerydisplay p.content{ display: block; margin: 0 0 20px; }
+		div#gallerydisplay p.content.title{ margin: 0 0 5px; font-size: 22px; line-height: 24px; }
+		div#gallerydisplay p.content.description{ font-size: 12px; }
+	ul.images{ display: block; margin: 20px 0; list-bullet: none; overflow: hidden; }
+		ul.images li{ float: left; margin: 5px; }
+			ul.images li a{ display: block; width: 200px; height: 150px; background-color: #eeeeee; border: solid 1px #cccccc; borde-radius: 2px; overflow: hidden; }
+				ul.images li a>img{ display: block; width: 100%; }
+				ul.images li a span.imagecontent{ display: none; visibility: hidden; }
+	div#imagepane{ position: fixed; left: 0; top: 0; z-index: 10000; display: block; width: 100%; height: 100%; padding: 30px 100px; background-color: rgba(0,0,0,0.95); border-radius: 2px; cursor: pointer; }
+		div#imagepane span.imagecontent{ display: block; margin: 0 0 20px; color: #ffffff; font-size: 14px; text-align: center; }
+		div#imagepane>img{ display: block; max-height: 90%; margin: 0 auto; border-radius: 3px; }
+		/* VIDEO STYLES */
+ul#videolist{ display: block; padding: 0 15px; overflow: hidden; }
+	ul#videolist li{ float: left; margin: 1.45%; width: 30%; background-color: #f4f4f4; border: solid 1px #eeeeee; border-radius: 2px; overflow: hidden; }
+		ul#videolist li a{ display: block; color: #111111; text-decoration: none; }
+			ul#videolist li a span.thumb{ display: block; height: 121px; overflow: hidden; }
+				ul#videolist li a span.thumb>img{ display: block; width: 100%; opacity: 0.8; transition: all 0.3s; }
+			ul#videolist li a span.title{ display: block; height: 38px; padding: 5px; background-color: #eeeeee; color: #111111; transition: all 0.3s; }
+			ul#videolist li a span.date{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.duration{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a span.languages{ display: block; padding: 3px 5px; font-size: 11px; }
+			ul#videolist li a:hover span.thumb>img{ opacity: 1; }
+			ul#videolist li a:hover span.title{ background-color: #e91212; color: #ffffff; }
+#videopane{ display: block; }
+	#videopane>iframe{ display: block; width: 100%; height: 400px; }
+	#videopane span.title{ display: block; padding: 5px 15px; background-color: #eeeeee; color: #111111; font-size: 16px; }
+	#videopane span.description{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.date{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.duration{ display: block; padding: 5px 15px; font-size: 12px; }
+	#videopane span.languages{ display: block; padding: 5px 15px; font-size: 12px; }
+</style>
+<link href="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="news lang-en">
+<div id="parent">
+	<div id="header">
+	<a id="logo" href="https://www.lalitmauritius.org/"><img src="https://www.lalitmauritius.org/display/images/common/logo.png" alt="Lalit" /></a>
+	<div class="social">
+		<a class="home" href="https://www.lalitmauritius.org/" title="Lalit">s</a>
+		<a class="pixons" href="https://www.youtube.com/channel/UCU11zg59PlTQCpM_rT1Gbvw" target="_blank" title="Videos">T</a>
+		<a class="pixons" href="https://soundcloud.com/lalitmauritius" target="_blank" title="SoundCloud">&</a>
+	</div>
+	<script>
+  (function() {
+    var cx = '007385208807348531116:qqbts1vnjc4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+	<div id="mobilenav">
+		<a id="menu">K</a>
+		<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+	</div><!--#mobilenav-->
+	<ul id="mainnav">
+	
+												<li>
+													<a href="https://www.lalitmauritius.org/en/news.html" class="selected">News</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/events.html" >Events</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/documents.html" >Documents</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/publications.html" >Publications</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/gallery.html" >Gallery</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/videos.html" >Videos</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/audio.html" >Audio</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/arts-and-literature.html" >Arts & Literature</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/dictionary.html" >Dictionary</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/about.html" >about</a>
+													
+												</li>
+											
+												<li>
+													<a href="https://www.lalitmauritius.org/en/contact.html" >contact</a>
+													
+												</li>
+											
+</ul><!--#mainnav-->
+</div><!--#header-->
+	<div id="lcoltri">
+	
+<div class="panel">
+	<h2>Galleries <a href="https://www.lalitmauritius.org/en/gallery.html">more</a></h2>
+	<div class="thumbs">
+		<a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/105-small.jpg?20220612093056" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/104-small.jpg?20220612093056" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/103-small.jpg?20220612093056" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=17"><img src="https://www.lalitmauritius.org/modules/gallery/images/102-small.jpg?20220612093056" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/72-small.jpg?20220612093056" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/71-small.jpg?20220612093056" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/70-small.jpg?20220612093056" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/69-small.jpg?20220612093056" /></a><a href="https://www.lalitmauritius.org/en/gallery.html?galleryid=13"><img src="https://www.lalitmauritius.org/modules/gallery/images/68-small.jpg?20220612093056" /></a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Videos <a href="https://www.lalitmauritius.org/en/videos.html">more</a></h2>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XfsbSGN35tQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="panel">
+	<h2>Audio <a href="https://www.lalitmauritius.org/en/audio.html">more</a></h2>
+	<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/870392986&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/lalitmauritius" title="Lalitmauritius" target="_blank" style="color: #cccccc; text-decoration: none;">Lalitmauritius</a> Â· <a href="https://soundcloud.com/lalitmauritius/stop-vyolans-polisyer" title="Stop vyolans polisyer" target="_blank" style="color: #cccccc; text-decoration: none;">Stop vyolans polisyer</a></div>
+</div>
+<div class="panel">
+	<h2>Dictionary <a href="https://www.lalitmauritius.org/en/dictionary.html">more</a></h2>
+	<div class="content">
+		<form id="frmSearchDictionary" name="frmSearchDictionary" method="get" action="https://www.lalitmauritius.org/en/dictionary.html" class="simpleform">
+			<input name="q" type="text" placeholder="Search dictionary" />
+			<input name="b" type="submit" value="F" />
+		</form>
+		<div id="dictionarypane"></div>
+	</div>
+</div>
+</div>
+<div id="mcoltri" class="inner">
+	<h1><h1>Whatâs Wrong with the Anti-Vaccination campaign?</h1><p class="subtitle">19.06.2021</p></h1>
+	<p class="newsarticle"><p>Everything was already in place,<em>Â fait et fourni</em>, for the instigators of the national anti-vaccination campaign to spring into action from the very minute the Regulation appeared on 1 June. They made it an offense under the Quarantine Act for any adult to go into a health-care or educational institution withoutÂ <em>either</em>Â Covid vaccinationÂ <em>or</em>Â negative PCR test or medical exemption. The propaganda campaign had already been primed from before.Â </p><br /><p>Within hours, there were skillfully crafted advertisementsÂ <em>tout-fait</em>Â everywhere. No amateurs at work here.Â </p><br /><p>The same âart-workâ was already in the on-line petition and on huge, expensive bill-boards all over the place. Seeing it, you might think it was an ad for a new product.Â </p><br /><p>Meanwhile, with lawyers being hard up for work, some were already on stand-by to grab a litigant and run.Â </p><br /><p>So, this is how it works: anyone scared of needles can latch on to the campaign. Anyone against the Government for any reason at all can jump on the bandwagon. A few do. Others picked up the bill-board slogans that had been lifted, as if in parody, from feminist campaigns for abortion rights, saying, âmy body, my voice, my choiceâ. University students claim vaccination will disturb their revision. Others fear a micro-chip being inserted into their arm, allowing âsomeoneâ to follow them forever after, as they walk around with a cell-phone stuck to their arm.Â </p><br /><p>The content of the campaign against vaccination adds up to what in Kreol is called â<em>nerportekwa</em>â.</p><br /><p>Two of the main instigators of the recent campaign in Mauritius against Covid vaccination are French people settled in Mauritius. The third is the French embassyâs doctor. We mention this national connection because it is no coincidence that France is the epicentre of anti-vaccine campaigns. Dr. Alexandra Henrion-Caude, known world-wide as âthe muse of the Covid conspiratorsâ, actually sat on theÂ <em>Economic Development Board</em>Â (EDB), which just about runs the country now that the Ministry of the Plan is âprivatizedâ. Luckily she is no longer on it; EDB runs the vaccine bookings! Ms. Henrion-Caudeâs husband is a Sun Resorts hotel boss and, together with her, has opened a private lab here. She also gives lectures at the Institut Cardinal Jean Margeot. In France, she used to be a respected researcher who, instead of remaining in the logic of science, followed her political ideas as a right-wing Catholic. It is important to put on record that the Pope, by contrast, encourages vaccination. He calls it an âethical obligationâ. Strong language. He makes the point of opposing the line of high-profile Catholics like Ms. Henrion- Caude who say, in order to manipulate believers, that human foetuses are supposedly used in vaccine manufacture. She is a slippery character to make that suggestion.Â <em>Le Parisien</em>Â thinks so too: âPendant 1 h 20, ce vendredi ... [Dr. Alexandra Henrion-Caude] expose auÂ <em>Parisien</em>Â son parcours et ses convictions, brÃ»lant de convaincre de sa lÃ©gitimitÃ©. Le lendemain, elle refusera par mail (avec copie Ã  son avocat) que ses citations soient publiÃ©es.â (<em>Le Parisien</em>Â 30 Mai 2021).Â <em>Le Monde</em>Â says of her, âM<sup>me</sup>Â Henrion-Caude est installÃ©e depuis plusieurs annÃ©es Ã  l'Ã®leÂ <em>Maurice</em>, oÃ¹ elle a lancÃ©, en 2017 avec son Ã©poux, un mystÃ©rieuxÂ <em>laboratoire</em>Â de recherches ..âÂ <em>Yahoo Style</em>France, says on 15 June, âEn effet, elle vit depuis 2017 Ã  l'Ã®le Maurice oÃ¹ elle a fondÃ©, avec son mari, un laboratoire dont le but est âd'Ã©tablir le lien, qui fait actuellement dÃ©faut entre la mÃ©decine traditionnelle et la science innovanteââ. She was also in contact here with disgraced former President of the Republic, Ms. Ameenah Gurib-Fakim, also a scientist with a traditional medicine bent, and who resigned after the Platinum Card scandal in the Alvaro Sobrinho affair; she and Sobrinho, ironically, had announced jointly that Bill Gates, who finances vaccines and who is the anti-vaccination campaignâs scapegoat, was to finance them â by the billion in dollars!Â </p><br /><p>The second French woman in the campaign is Ms. Julie Granckx-Lepert, who threatens defying health regulations to run her private crÃ¨che and private school without staff being vaccinated. She is, meanwhile, taking the Government to Court. She is running the petition. Imagine wanting the ârightâ for crÃ¨che workers to be able to spread a disease, when that disease can be controlled by vaccination, even hopefully eradicated by it.</p><br /><p>Thirdly, there is Dr. Marie-Christine Piat, the French Embassyâs doctor, expert in getting rid of wrinkles and fat. Her view of Covid is that it is not serious because only old, fat and sick people die (see our web-site article, News section on 28 May 2021). Imagine someone saying that, and a newspaper likeÂ <em>LâExpress</em>Â printing it.</p><br /><p>What is it that is so very wrong about the anti-vaccination position? Basically, it is selfish, anti-scientific and it moves goalposts the whole time.</p><br /><p><strong>Selfishness</strong></p><br /><p>It is ego-centric to encourage people to just ârefuseâ vaccination. It is ego-centric to the point of being positively evil. Imagine if, by us all acting together and following a scientifically valuable method, we can eliminate an illness that threatens society as a whole, you then go and encourage people to just refuse to co-operate and to claim, âI have the right not to.â It isÂ <em>my</em>Â body,Â <em>my</em>voice,<em>Â my</em>Â right? It is not someoneâs right to ruin the common good. This is the opposite of all human morality. Ethics is seeking the common good.Â Â </p><br /><p>The anti-vaccine individuals are all about âmeâ, âmeâ, âmeâ âÂ <em>my</em>Â body,Â <em>my</em>Â voice,Â <em>my</em>Â choice<em>.</em>Â <em>Mo lekor, mo drwa, mo swa.Â </em>In the face of an infectious viral illness that threatens suffering and death on the whole of society, that threatens collapsing the health care system that cares for us all, the anti-vax leaders ask people just to think about their own, individual selves. In Kreol we say:Â <em>Bef dan disab, sakenn get so lizye.</em>Â Our bodies are not each âmy ownâ to do with as I please â as if it were an object. I cannot, for example, sell my body into slavery. You canât just walk naked anywhere you want to either. In fact, even with clothes on, you canât just barge into an ICU ward, for example. No individual has the right to use their body to trample someone elseâs vegetable garden. Nor, as the saying goes, do they have the right to pee in the pool. How come we have been reduced to having to argue this? Why do we have to reply to the child-like plea of âI will do what I want to!â Surely adults know life is not all about âIâ, âmeâ, âmyâ, âmyselfâ, but rather about us all. Â </p><br /><p>Under capitalism, we can unfortunately expect some support, here and there, for a campaign like this â cruel as its proponents might seem. Its base-line philosophy, when you look closely, is individualistic and ego-centric, telling you to âget out there and make moneyâ, âgo exploit your neighbourâs workâ, and bad luck for the rest of us. The anti-vaccination people then take this to new depths of immorality.Â </p><br /><p>So, the first thing that is wrong with this campaign is its lack of a moral compass.Â </p><br /><p>Look, for a minute, at the contrast of the bravery of some people in society compared with what these nincompoops are encouraging. There are people who offer â so as to help society â people who volunteer â so as to protect those weaker than they are â for the clinical trials for each vaccine. Individual caring people, people with a vision beyond self-aggrandizement, make this sacrifice. They do it, so that we can all benefit. Then some selfish people come and encourage others to say âI will not be aÂ <em>kobay.</em>â Brave people actually do offer to beÂ <em>kobay</em>. For the common good. We must praise them. And expose the selfish cowards of the world.Â </p><br /><p>In fact, the main problem right now is that poorer countries are short of vaccines. The problem is real. Whole countries literally beg for help. The rate of vaccination in Africa today is still very low, 3 people per 100. Mauritius, at 35 per 100 people, is third after Seychelles and Morocco. So, the main problem is getting vaccinations shared with poorer countries. That is what we should all be working on, starting with protection for the health workers of all countries. We must work to get monopoly patent rules revoked in the interests of the common good.</p><br /><p><strong>Anti-Science</strong></p><br /><p>The campaign against vaccination is basically anti-scientific. Its tenets, at their worst, take the form of pure conspiracy theory and/or made-up rubbish. These ideas are spread mainly by far-right groups in the USA â but also in countries like France, often translated from American right-wing sources â where there are a handful of odd-ball scientists and doctors at the heart of the movement. The conspiracies include ridiculous things like about âmicro-chipsâ being introduced with the vaccine into our arms. This presumably catches on because people know that when we take our dogs to register at the vets, they get both vaccines and a chip. The propaganda, in general, seems to grab people in a pincer: one claw causes fear and the other claw offers the reward of a âfeeling of powerâ for saying âI refuse.â They want people to become a child who, learning about power over parents at meal times, clamps lips closed and refuses food.</p><br /><p>Then there is the pure rubbish, rubbish in shifting sands. Sometimes, without hesitation, someone will claim that, âThere is no real epidemic!â Do they not have a single friend or acquaintance that works in a hospital? One wonders. Others say âCovid is not serious!â How come 600,000 Americans â supposedly very strong people in supposedly the most advanced country in the world â died of it? And that despite powerful lockdowns and other public health precautions? These people do not need, it seems, to be concerned by mere facts. They never admit that Covid-19, being very contagious (specially some of the new variants), makes proposing âtreatmentâ instead of vaccination positively dangerous: the contagion means that health services can collapse. They cover-up the fact we all knew: âflatten the curveâ to save the health services. We notice that people who do not use the government health services believe, wrongly, that they can buy their way out of the crisis that Covid-19, if left alone, would provoke.</p><br /><p>There are three distinct levels in the anti-vax camp, which makes it hard to take them on.Â </p><br /><p>a) The perpetrators: misguided right-wing conspiracy theorists and oddball scientists who invent the stuff.Â </p><br /><p>b) Hard-working converts, who spread the propaganda.Â </p><br /><p>c) The victims. Those who feel the fear. Those who are gullible â a bit like the thousands who sign petitions to ban â<em>dihydrogen monoxide</em>â (âthat dangerous chemical substance that causes suffocation and under certain conditions bad burns on the skin, which accelerates corrosion, and which is being allowed into our tapsâ by institutions like the CWA) not noticing that it is 1 April when they sign, and not knowing thatÂ <em>dihydrogen monoxide</em>Â is the chemical name forÂ Â ...Â Â water. This happens every April Foolsâ Day since 1983.Â Â </p><br /><p>Almost all the arguments rely, however, on endless anecdotes. These are put on the social media, and then find their way, often, into the press. What is interesting is the propaganda is careful toÂ <em>target</em>Â different groups with different anti-science propaganda: the gullible people get fed conspiracy theories; right -wing Catholic groups get lies about foetal material; right-wing Protestant groups about the state watching you through chips; ânaturalâ and herbal remedy groups are fed tirades against Big Pharma; left-wing groups are fed the propaganda hidden amongst articles on Che Guevara, a link to a Ken Loach film and a Palestine support petition; journalists get offered âscoopsâ and âdramaticâ stories that might sell a newspaper or boost âratingsâ.</p><br /><p>In the midst of pure lies, there are strands of apparent science culled from the writings and talks of a handful of doctors and researchers â usually specialists in fields other than public health. They are often âguerisseursâ or âhealersâ, thus recommending âtreatmentâ once you are sick, not preventive health measures like vaccines. Many have right-wing views all-round. If you read them carefully, you find factual blunders and gaping logical holes.</p><br /><p>One argument seems valuable at a glance â that big pharma makes profits from vaccines. But, then again, thatâs a reason to call, not for a boycott, but for nationalization of the companies under democratic control.</p><br /><p><strong>Moving the Goal Posts</strong></p><br /><p>The anti-vaccination campaign is very good at moving the goal-posts. When they see you are about to score a goal, they remove the goal posts and set them up somewhere else. The queues are too long, it is dangerous to stand in them. Then, when the queues are in order, they donât agree with the consent form. Then they argue Covid does not exist, is just flu. When you say it kills, they say, never mind, it only kills the old, the sick and the over-weight (sic). They are, they say, not against vaccines, just against Government making them obligatory. Or they agree with all vaccines except those with RNA technology. When you say we havenât got those here, they say, the ones from India, thenÂ Â China, then Russia are not up to the scientific standards they require. Now they say, oh, but the EU does not accept the vaccines we have here. When losing, they say they prefer treatment. As if it were an either/or issue.</p><br /><p>Their arguments are all, to different degrees, fallacious.Â </p><br /><p>We need, as well as encouraging everyone we know to get vaccinated, and support public health measures, also work towards more general political aims:</p><br /><p>- For all political campaigns and programs to show that they seek the common good.</p><br /><p>- Against ego-centric and selfish philosophies that are bad for society and its individuals.</p><br /><p>- For the politics of us all developing a scientific mind.</p><br /><p>- For us all to learn to spot fallacious arguments, and goal-post moving maneuvers, and other logical flaws.</p><br /><p>- For us all to recognize and de-code the hidden forms of advertisement manipulation by sponsors and so on.</p><br /><p><strong>Conclusion</strong></p><br /><p>Mauritius is a country with a long history of popular understanding of and mass support for public health. Collectively we eradicated malaria. Collectively we brought down the birth rate. Collectively we eliminated most of the childrenâs illnesses â and even polio. Collectively old-age pensioners have cut flu down. All of this we have done by our actions taken for the common good and based on our understanding of the science. Letâs keep this tradition up. It is part of our deep culture to care for each other this way.</p><br /><p>To help keep up this tradition of collective care for other humans, based on logic and respect for science, LALIT at its last central committee meeting set up a sub-committee that met by Zoom. Following discussion in the sub-committee on vaccinations, LALIT will propose a series of six articles by six members, which will cover the three sub-headings in this introduction and three other topics:</p><br /><p>1. The history of vaccination, and the understanding of infectious diseases.</p><br /><p>2. The context: How 40 years of neo-liberalism nurtures the anti-vaccination campaign.Â Â </p><br /><p>3. Political parties in Mauritius and their role in vaccination and anti-vaccination campaigns in practice.</p><br /><p>4. The importance of the common good, and of collective action on public health; against selfishness.</p><br /><p>5. The anti-scientific nature of the campaign against vaccination.</p><br /><p>6. The ever-changing content of the anti-vaccination campaign (âmil-feyâ arguments).</p><br /><p>So this article can be read as an introduction.</p></p>
+</div>
+<div id="rcoltri">
+	<div class="panel">
+	<h2>Programs and Manifestos <a href="https://www.lalitmauritius.org/en/documents.html?k=programs_and_manifestos">more</a></h2>
+	<div class="content">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-f2fc990265c712c49d51a18a32b39f0c.pdf" target="_blank">Eleksyon Zeneral 2019 - Program LALIT ek Bilan LALIT 2014-2019</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-5878a7ab84fb43402106c575658472fa.pdf" target="_blank">Alternative Politics of the Economy</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-705f2172834666788607efbfca35afb3.pdf" target="_blank">Mother Tongues: Kreol & Bhojpuri</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-57aeee35c98205091e18d1140e9f38cf.pdf" target="_blank">Election 2014 Program (Revi LALIT No 116)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-be83ab3ecd0db773eb2dc1b0a17836a1.pdf" target="_blank">Lalit Candidates in December 2014 Elections</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-045117b0e0a11a242b9765e79cbf113f.pdf" target="_blank">5-year Report and Election Program 2010</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f85517967795eeef66c225f7883bdcb.pdf" target="_blank">Freedom</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8f53295a73878494e9bc8dd6c3c7104f.pdf" target="_blank">Against Police Brutality</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-96da2f590cd7246bbde0051047b0d6f7.pdf" target="_blank">Education</a>
+	</div>
+</div>
+<div class="panel">
+	<h2>Documents <a href="https://www.lalitmauritius.org/en/documents.html">more</a></h2>
+	<div class="content doclinks">
+		<a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-c058f544c737782deacefa532d9add4c.pdf" target="_blank">Magazine REVI LALIT No. 147 - May-Jun 2022 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-fb7b9ffa5462084c5f4e7e85a093e6d7.pdf" target="_blank">Call for explanation about Embassy of Israel banner behind Health Minister at Official Event</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-6c524f9d5d7027454a783c841250ba71.pdf" target="_blank">Magazine REVI LALIT No. 146 - Nov-Dec 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-82cec96096d4281b7c95cd7e74623496.pdf" target="_blank">Program against MSM-led Government in 14 points - August 2021 (English-Kreol)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-8dd48d6a2e2cad213179a3992c0be53c.pdf" target="_blank">Magazine REVI LALIT No. 145 - Sep-Oct 2021 (Creole)</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-138bb0696595b338afbab333c555292a.pdf" target="_blank">LALIT - Kur Ledikasyon Politik 1997 - Seri lor Personaz Byin Koni dan Listwar Lalit pu  Sosyalism</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-371bce7dc83817b7893bcdeed13799b5.pdf" target="_blank">Mesaz Internasyonal pu Fet Travay 2021</a><a href="https://www.lalitmauritius.org/modules/documents/files/LalitMauritius-efe937780e95574250dabe07151bdc23.pdf" target="_blank">Magazine REVI LALIT No. 144 - Mar-Apr 2021 (Creole)</a>
+		<form id="frmSearchDocuments" name="frmSearchDocuments" method="get" action="https://www.lalitmauritius.org/en/documents.html" class="simpleform">
+			<input name="s" type="text" placeholder="Search documents" />
+			<input name="b" type="submit" value="F" />
+		</form>
+	</div>
+</div>
+<div class="panel">
+	<h2>Publications <a href="https://www.lalitmauritius.org/en/publications.html">more</a></h2>
+	<div class="content doclinks">
+		<a>Palestine Bulletin - Gaza Freedom March (2009)</a><a>Klas (2009)</a><a>Leta (2008)</a><a>Akimilasyon Kapital par Rosa Luxemburg (2008)</a><a>Nyuzleter LALIT No. 1 - 3 (2007)</a>
+	</div>
+</div>
+</div>
+</div><!--#parent-->
+<div id="footercntr">
+	<div id="footer">
+		<p class="copyright">Copyright &copy; 2015 Lalit. All rights reserved.</p>
+		<p class="credit">Site by <a href="http://www.nadeemh.com/" target="_blank" title="Nadeem Hosenbokus"><img src="https://www.lalitmauritius.org/display/images//common/nhicon.png" alt="Nadeem Hosenbokus" /></a></p>
+	</div><!--#footer-->
+</div><!--#footercntr-->
+<script type="text/javascript">
+	var basepath	=	"https://www.lalitmauritius.org/";
+	var page		=	"news";
+	var lang		=	"en";
+</script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/jquery.cycle2.carousel.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/extensions/jqueryui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/modules/gallery/resources/front.js"></script>
+
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/osprey.js"></script>
+<script type="text/javascript" src="https://www.lalitmauritius.org/display/js/site.js?1504192235"></script>
+</body>
+</html>
