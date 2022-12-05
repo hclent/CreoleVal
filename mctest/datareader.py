@@ -215,7 +215,6 @@ class DataCollatorForMultipleChoice:
         return batch 
 
 
-
 def main():
     args = parse_args()
 
@@ -280,18 +279,19 @@ def main():
         
         if device == "cuda":
             model.cuda()
-
+        
         train_result = trainer.train()
         
         writer.close()
 
     elif args.action == "evaluate":
+
+        #load trained model
         model = AutoModelForMultipleChoice.from_pretrained(args.from_checkpoint).to(device)
-
-
+        
         experiment_sub_dir = f"lr{args.learning_rate}_wd{args.weight_decay}"
-        writer = SummaryWriter(os.path.join(args.tb_dir, experiment_sub_dir))
-        callback = TensorBoardCallback(writer)
+        #writer = SummaryWriter(os.path.join(args.tb_dir, experiment_sub_dir))
+        #callback = TensorBoardCallback(writer)
 
         training_args = TrainingArguments(
             output_dir=f"./results_mctest_eng/{experiment_sub_dir}", #TODO:also make output dir configurable.  
@@ -311,29 +311,22 @@ def main():
             eval_dataset=tokenized_mct["validation"],
             tokenizer=tokenizer,
             data_collator=DataCollatorForMultipleChoice(tokenizer=tokenizer),
-            callbacks=[callback]
+            #callbacks=[callback]
         )
 
         if device == "cuda":
             model.cuda()
 
-        eval_result = trainer.eval()
-        print(eval_result)
-
         # Eval!
+        model.eval()
 
-        """
         eval_loss, eval_accuracy = 0, 0
         nb_eval_steps, nb_eval_examples = 0, 0
 
-        
-        #TODO: tokenized mct data through Data collator
-        set_trace()
-        dev_data = data_collator(tokenized_mct["validation"])
-
-        for batch in tqdm(dev_data, desc="Evaluating"):
-            model.eval()
-            batch = tuple(t.to(args.device) for t in batch)
+        dev_dataloader = trainer.get_eval_dataloader() #use the trainer to get the collated dev data
+        #dev_dataloader = trainer.get_train_dataloader()
+        for batch in tqdm(dev_dataloader, desc="Evaluating"):
+            batch = tuple(i.to(args.device) for t,i in batch.items())#put on device
             with torch.no_grad():
                 inputs = {
                     "input_ids": batch[0],
@@ -351,8 +344,14 @@ def main():
                 eval_loss += tmp_eval_loss.mean().item()
 
             logits = logits.detach().cpu().numpy()
+            #print(logits)
+            preds = np.argmax(logits, axis=1)
+            #print(preds)
             label_ids = inputs["labels"].to("cpu").numpy()
-            tmp_eval_accuracy = accuracy(logits, label_ids)
+            #print(label_ids)
+            tmp_eval_accuracy = (preds == label_ids).astype(np.float32).mean().item()
+            #print(tmp_eval_accuracy)
+            #tmp_eval_accuracy = accuracy(logits, label_ids)
             eval_accuracy += tmp_eval_accuracy
 
             nb_eval_steps += 1
@@ -361,15 +360,15 @@ def main():
         eval_loss = eval_loss / nb_eval_steps
         eval_accuracy = eval_accuracy / nb_eval_examples
         result = {"eval_loss": eval_loss, "eval_accuracy": eval_accuracy}
-
-        output_eval_file = os.path.join(args.output_dir, "eval_results.txt")
+        print(result)
+        
+        output_eval_file = os.path.join(f"./results_mctest_eng/{experiment_sub_dir}", "eval_results.txt")
         with open(output_eval_file, "w") as writer:
-            logger.info("***** Eval results *****")
-            for key in sorted(result.keys()):
-                #logger.info("%s = %s", key, str(result[key]))
-                writer.write("%s = %s\n" % (key, str(result[key])))
-        """
-
+           writer.write(f"***** Eval results *****\n")
+           for key in sorted(result.keys()):
+               writer.write("%s = %s\n" % (key, str(result[key])))
+        
+    
     else:
         print("* Supported actions are `train` or `evaluate` ")
 
