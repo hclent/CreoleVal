@@ -38,8 +38,6 @@ def extract_scores(input_folder):
     return experiment_name, accuracy, avg_cosine_similarity
     
 
-
-
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Arguments for collecting experimental outputs in a single output file.")
