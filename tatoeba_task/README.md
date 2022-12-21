@@ -2,6 +2,8 @@
 
 Created for the Creole Suite by Marcell Fekete.
 
+Accuracy scores are out of a 100.
+
 ## Instructions
 
 * Create a virtual environment and install necessary dependencies (see [Section Dependencies](#dependencies)).
