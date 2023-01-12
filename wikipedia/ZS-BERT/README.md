@@ -54,23 +54,3 @@ If you use the code, we appreciate it if you cite the following paper:
   year={2021}
 }
 ```
-
-
-
-## Additions
-split data/wiki_all.json with 5 unseen relations
-Loaded data size: 93483
-train 84634, val 4552, test 4297
-
-
-split data/wiki_all.json with 10 unseen relations
-Loaded data size: 93483
-train 77675, val 6213, test 9595
-
-
-split data/wiki_all.json with 15 unseen relations
-Loaded data size: 93483
-train 73075, val 9240, test 11168
-
-
-
