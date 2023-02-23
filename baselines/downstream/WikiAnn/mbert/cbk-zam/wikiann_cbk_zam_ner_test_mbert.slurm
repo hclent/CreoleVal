@@ -13,8 +13,8 @@
 
 source activate creole
 
-codebase=/data/leuven/351/vsc35188/machamp
-loggingdir=/scratch/leuven/351/vsc35188/CreoleNLP-Baselines/creole-dro
+codebase=<path_to_machamp_folder>
+loggingdir=<path_to_baselines_folder>
 
 cd $loggingdir
 
