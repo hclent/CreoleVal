@@ -6,7 +6,7 @@
 #SBATCH --gpus-per-node=1
 #SBATCH --partition=gpu
 #SBATCH --mem-per-cpu=5G
-#SBATCH --time=48:00:00
+#SBATCH --time=8:00:00
 #SBATCH --mail-type=FAIL,BEGIN,END
 #SBATCH --mail-user=kushaljayesh.tatariya@kuleuven.be
 #SBATCH --job-name=jam_mnli_mbert
