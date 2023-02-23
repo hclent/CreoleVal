@@ -1,6 +1,6 @@
 ## Pipeline for running the Nigerian Pidgin Sentiment (Oyewusi) experiments:
 
-Data is in the `baselines/data/Oyewusi` folder. Ensure that the data filepaths in `configs/senti_oyewusi.json` and `oyewusi_senti_test_$bert.slurm` match the data filepaths on your system. 
+Data is in the `data/Oyewusi` folder. Ensure that the data filepaths in `configs/senti_oyewusi.json` and `oyewusi_senti_test_$bert.slurm` match the data filepaths on your system. 
 
 Train the model:
 
