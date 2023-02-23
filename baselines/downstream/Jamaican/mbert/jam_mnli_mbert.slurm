@@ -20,7 +20,6 @@ downstreamdir=$loggingdir/downstream
 cd $loggingdir
 
 bert="mbert"
-algo="baseline"  
 trainlang="glue"
 finetune="jamaican"
 task="nli"  
