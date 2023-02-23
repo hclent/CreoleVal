@@ -9,12 +9,12 @@
 #SBATCH --time=8:00:00
 #SBATCH --mail-type=FAIL,BEGIN,END
 #SBATCH --mail-user=kushaljayesh.tatariya@kuleuven.be
-#SBATCH --job-name=jam_mnli_mt5_10ep_lr0.0001_dp0.4
+#SBATCH --job-name=jam_mnli_mt5
 
 source activate creole
 
-codebase=/data/leuven/351/vsc35188/machamp
-loggingdir=/scratch/leuven/351/vsc35188/CreoleNLP-Baselines/creole-dro
+codebase=<path_to_machamp_folder>
+loggingdir=<path_to_baselines_folder>
 downstreamdir=$loggingdir/downstream
 
 cd $loggingdir
