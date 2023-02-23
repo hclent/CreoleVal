@@ -1,0 +1,27 @@
+#!/bin/bash
+#PBS -l partition=gpu
+#PBS -l nodes=1:ppn=9:gpus=1:skylake
+#PBS -l walltime=12:00:00
+#PBS -N jam_mnli_mbert_10epochs2
+#PBS -l pmem=5gb
+#PBS -m ae
+#PBS -M kushaljayesh.tatariya@kuleuven.be
+#PBS -A default_project
+
+source activate creole
+
+codebase=/data/leuven/351/vsc35188/machamp
+loggingdir=/scratch/leuven/351/vsc35188/CreoleNLP-Baselines/creole-dro
+downstreamdir=$loggingdir/downstream
+
+cd $loggingdir
+
+bert="mbert"
+algo="baseline"  
+trainlang="glue"
+finetune="jamaican"
+task="nli"  
+
+parameters_config=$downstreamdir/configs/params_nli_mbert.json
+
+python $codebase/train.py --parameters_config $parameters_config --dataset_config $downstreamdir/configs/$task\_$trainlang.json --name $finetune-$task-$bert-training

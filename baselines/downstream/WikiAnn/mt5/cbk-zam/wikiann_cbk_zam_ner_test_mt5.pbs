@@ -1,0 +1,29 @@
+#!/bin/bash
+#PBS -l partition=gpu
+#PBS -l nodes=1:ppn=9:gpus=1:skylake
+#PBS -l walltime=1:00:00
+#PBS -N wikiann_cbk_zam_ner_test_mt5
+#PBS -l pmem=5gb
+#PBS -m ae
+#PBS -M kushaljayesh.tatariya@kuleuven.be
+#PBS -A default_project
+
+source activate creole
+
+codebase=/data/leuven/351/vsc35188/machamp
+loggingdir=/data/leuven/351/vsc35188/creole-nlp/CreoleNLP-Baselines/creole-dro
+
+cd $loggingdir
+
+bert='mt5'
+algo='baseline'
+lang='wikiann_cbk_zam'
+task='ner'
+
+#assumes only one
+serialized_dir_a=$loggingdir/logs/$lang-$task-$bert-$algo/
+
+input_file='data/WikiAnn_data/cbk-zam/cbk-zam-test.txt'
+output_file=$serialized_dir_a/test.pred.tsv
+
+python $codebase/predict.py $serialized_dir_a/2022.12.16_20.50.42/model.pt $input_file $output_file --device 0 
