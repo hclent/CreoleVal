@@ -9,7 +9,7 @@
 #SBATCH --time=3:00:00
 #SBATCH --mail-type=FAIL,BEGIN,END
 #SBATCH --mail-user=kushaljayesh.tatariya@kuleuven.be
-#SBATCH --job-name=wikiann_bi_ner_test_mbert
+#SBATCH --job-name=wikiann_bi_ner_train_mbert
 
 source activate creole
 
