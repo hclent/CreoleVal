@@ -1,4 +1,4 @@
-## Download and install machamp
+## Download and install machamp:
 
 ```
 git clone https://github.com/machamp-nlp/machamp.git
@@ -6,7 +6,7 @@ pip install -r requirements.txt #do this in a conda env called 'creole'
 ```
 PS. There might be issues with the jsonnet installation - in which case just run the command `conda install -c conda-forge jsonnet` in the creole env.
 
-## Steps for running individual experiments are in the respective folders.
+## Steps for running individual experiments are in the respective folders
 
 ## Points to remember while running the experiments:
 - The `downstream/configs` folder contains all the configuration files for the model hyperparameters and datasets. 
