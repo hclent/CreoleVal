@@ -1,17 +1,20 @@
 #!/bin/bash
-#PBS -l partition=gpu
-#PBS -l nodes=1:ppn=9:gpus=1:skylake
-#PBS -l walltime=3:00:00
-#PBS -N jam_nli_mbert_finetune
-#PBS -l pmem=5gb
-#PBS -m ae
-#PBS -M kushaljayesh.tatariya@kuleuven.be
-#PBS -A default_project
+#SBATCH --cluster=wice
+#SBATCH -A lp_wice_pilot
+#SBATCH -N 1
+#SBATCH --ntasks=18
+#SBATCH --gpus-per-node=1
+#SBATCH --partition=gpu
+#SBATCH --mem-per-cpu=5G
+#SBATCH --time=3:00:00
+#SBATCH --mail-type=FAIL,BEGIN,END
+#SBATCH --mail-user=kushaljayesh.tatariya@kuleuven.be
+#SBATCH --job-name=jam_mnli_mbert_finetune
 
 source activate creole
 
-codebase=/data/leuven/351/vsc35188/machamp
-loggingdir=/scratch/leuven/351/vsc35188/CreoleNLP-Baselines/creole-dro
+codebase=<path_to_machamp_folder>
+loggingdir=<path_to_baselines_folder>
 downstreamdir=$loggingdir/downstream
 
 cd $loggingdir
