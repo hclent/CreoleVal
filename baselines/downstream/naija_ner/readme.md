@@ -9,7 +9,7 @@ Ensure that the data filepaths in `configs/ner_naija.json` and `naija_ner_test_$
 Clean the data files:
 
 ```
-sed -i 's/\s/\t/g' data/eval/naija/masakhane-ner-pcm/*.txt
+sed -i 's/\s/\t/g' data/naija/masakhane-ner-pcm/*.txt
 ```
 
 Train the model:
