@@ -14,6 +14,7 @@ sbatch singlish_upos_train_mt5.slurm
 sbatch singlish_upos_train_xlmr.slurm
 ```
 The model.pt file will be stored in: 
+
 `baselines/logs/singlish-upos-$bert-baseline/<date/time when you ran the experiment>`
 
 Update the path to the respective model.pt files in the respective slurm test files on this line:
