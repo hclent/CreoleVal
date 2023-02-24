@@ -6,6 +6,12 @@ https://github.com/masakhane-io/masakhane-ner/tree/main/MasakhaNER2.0/data/pcm
 
 Ensure that the data filepaths in `configs/ner_naija.json` and `naija_ner_test_$bert.slurm` match the data filepaths on your system.
 
+Clean the data files:
+
+```
+sed -i 's/\s/\t/g' data/eval/naija/masakhane-ner-pcm/*.txt
+```
+
 Train the model:
 
 ```
