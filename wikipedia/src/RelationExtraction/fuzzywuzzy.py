@@ -1,15 +1,5 @@
-import json
-import string
-
 import pandas as pd
-import numpy as np
-import regex
-from tqdm import tqdm
-from nltk.tokenize import word_tokenize, sent_tokenize
 from sklearn.cluster import KMeans
-from sklearn.feature_extraction.text import CountVectorizer
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 from thefuzz import fuzz, process
 
