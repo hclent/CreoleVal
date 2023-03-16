@@ -95,11 +95,12 @@ def clustering_kmeans(df, col_name, n_clusters, outputfile):
 
     kmeans = KMeans(n_clusters=n_clusters)
     kmeans.fit(X_data)
-    df_ = pd.DataFrame(X_data.toarray(), columns=vectorizer_cv.get_feature_names_out())
-    df_result = pd.concat([df, df_], axis=1)
-    df_result[f"{col_name}_cluster"] = kmeans.predict(X_data)
-    print(df_result[f"{col_name}_cluster"].value_counts())
-    df_result.to_csv(outputfile, index=False)
+    # df_ = pd.DataFrame(X_data.toarray(), columns=vectorizer_cv.get_feature_names_out())
+    # df_result = pd.concat([df, df_], axis=1)
+
+    df[f"{col_name}_cluster"] = kmeans.predict(X_data)
+    print(df[f"{col_name}_cluster"].value_counts())
+    df.to_csv(outputfile, index=False)
     # return df_result
 
 
@@ -109,16 +110,16 @@ def save_clustering():
         filepath = f"data/clustering/dfs/{lang}.csv"
         df = pd.read_csv(filepath).dropna().reset_index(drop=True)
         print(f"language {lang} clean k5")
-        clustering_kmeans(df, "text_clean", 5, f"data/clustering/results/{lang}_text_clean_k5.csv")
+        clustering_kmeans(df, "text_clean", 5, f"data/clustering/results/{lang}_text_clean_k5_2.csv")
 
         print(f"language {lang} clean k10")
-        clustering_kmeans(df, "text_clean", 10, f"data/clustering/results/{lang}_text_clean_k10.csv")
+        clustering_kmeans(df, "text_clean", 10, f"data/clustering/results/{lang}_text_clean_k10_2.csv")
 
         print(f"language {lang} ents k5")
-        clustering_kmeans(df, "text_ents", 5, f"data/clustering/results/{lang}_text_ents_k5.csv")
+        clustering_kmeans(df, "text_ents", 5, f"data/clustering/results/{lang}_text_ents_k5_2.csv")
 
         print(f"language {lang} ents k10")
-        clustering_kmeans(df, "text_ents", 10, f"data/clustering/results/{lang}_text_ents_k10.csv")
+        clustering_kmeans(df, "text_ents", 10, f"data/clustering/results/{lang}_text_ents_k10_2.csv")
 
         del df
 

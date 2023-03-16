@@ -3,7 +3,7 @@
 #SBATCH --partition=prioritized
 #SBATCH --job-name=clustering_ht
 #SBATCH --output=%j-ht.out
-#SBATCH --time=20:00:00
+#SBATCH --time=30:00:00
 #SBATCH --mem=256GB
 
 source $HOME/.bashrc
