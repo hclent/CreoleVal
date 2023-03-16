@@ -11,7 +11,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from fuzz import fuzz, process
+from thefuzz import fuzz, process
 
 
 def run_fuzzy_wuzzy_clustering(lang, k=10):
