@@ -2,7 +2,7 @@
 #
 #SBATCH --partition=prioritized
 #SBATCH --job-name=clustering_ht
-#SBATCH --output=%j-ht.out
+#SBATCH --output=%j-ht_ent5k.out
 #SBATCH --time=20:00:00
 #SBATCH --mem=256GB
 
