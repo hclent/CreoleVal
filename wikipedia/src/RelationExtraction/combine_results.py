@@ -19,7 +19,7 @@ def combine_dfs(lang, folder="data/fuzzywuzzy/results/", outputfolder="data/fuzz
 
             assert len(df) == len(df_)
 
-            df[k] = df_["fuzzy_cluster"]
+            df[f"k{k}"] = df_["fuzzy_cluster"]
             del df_
     df.to_csv(os.path.join(outputfolder, f"{lang}.csv"), index=False)
 
