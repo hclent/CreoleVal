@@ -10,8 +10,8 @@ def combine_dfs(lang, folder="data/fuzzywuzzy/results/", outputfolder="data/fuzz
             lang_, k = file.replace(".csv", "").split("_")
             assert lang_ == lang
 
-            print(f"loading file {filepath}")
             filepath = os.path.join(folder, file)
+            print(f"loading file {filepath}")
 
             df_ = pd.read_csv(filepath, index_col=0)
             if df.empty:

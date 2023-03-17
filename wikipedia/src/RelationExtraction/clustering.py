@@ -89,7 +89,7 @@ def visualize_elbow(df, col_name, outputfile, k_low=1, k_high=40, interval=2):
 
 def clustering_kmeans(df, col_name, n_clusters, outputfile):
     # count vectorization
-    vectorizer_cv = CountVectorizer(analyzer="word", ngram_range=(2, 2))
+    vectorizer_cv = CountVectorizer(analyzer="word", ngram_range=(1, 2))
     X_data = df[col_name].tolist()
     X_data = vectorizer_cv.fit_transform(X_data)
 
@@ -105,21 +105,21 @@ def clustering_kmeans(df, col_name, n_clusters, outputfile):
 
 
 def save_clustering():
-    langs = [ "ht"]
+    langs = ["cbk-zam", "sg", "pih",  "tpi", "jam", "pap", "gcr","bi", "ht"]
     for lang in tqdm(langs):
         filepath = f"data/clustering/dfs/{lang}.csv"
         df = pd.read_csv(filepath).dropna().reset_index(drop=True)
         print(f"language {lang} clean k5")
-        clustering_kmeans(df, "text_clean", 5, f"data/clustering/results/{lang}_text_clean_k5_2.csv")
+        clustering_kmeans(df, "text_clean", 5, f"data/clustering/results_1/{lang}_text_clean_k5.csv")
 
         print(f"language {lang} clean k10")
-        clustering_kmeans(df, "text_clean", 10, f"data/clustering/results/{lang}_text_clean_k10_2.csv")
+        clustering_kmeans(df, "text_clean", 10, f"data/clustering/results_1/{lang}_text_clean_k10.csv")
 
         print(f"language {lang} ents k5")
-        clustering_kmeans(df, "text_ents", 5, f"data/clustering/results/{lang}_text_ents_k5_2.csv")
+        clustering_kmeans(df, "text_ents", 5, f"data/clustering/results_1/{lang}_text_ents_k5.csv")
 
         print(f"language {lang} ents k10")
-        clustering_kmeans(df, "text_ents", 10, f"data/clustering/results/{lang}_text_ents_k10_2.csv")
+        clustering_kmeans(df, "text_ents", 10, f"data/clustering/results_1/{lang}_text_ents_k10.csv")
 
         del df
 
