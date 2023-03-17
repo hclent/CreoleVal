@@ -1,12 +1,44 @@
+import os
+import multiprocessing
+
+from joblib import Parallel, delayed
 import pandas as pd
 from suffix_trees import STree
 from sklearn.cluster import AffinityPropagation
 import numpy as np
 from tqdm import tqdm
-
 from pandarallel import pandarallel
 
 pandarallel.initialize(progress_bar=True)
+
+
+def get_lcs(group):
+    if len(group) > 1:
+        lcs = STree.STree(group.text.tolist()).lcs()
+        lcs_l = [lcs for _ in range(len(group))]
+        group["LCS"] = lcs_l
+
+
+def applyParallel(dfGrouped, func):
+    retLst = Parallel(n_jobs=multiprocessing.cpu_count())(delayed(func)(group) for name, group in dfGrouped)
+    return pd.concat(retLst)
+
+
+def write_lcs_df(inputfile):
+    basename = os.path.basename(inputfile)
+    dirname = os.path.dirname(inputfile)
+    lang, k = basename.replace(".csv", "").split("_")
+
+    df = pd.read_csv(inputfile)
+    # get the longest common substring
+    df["LCS"] = [np.nan for _ in range(len(df))]
+    # for idx, group in df.groupby(by=[f"k{k}_label"]):
+    applyParallel(df.groupby(df[f"k{k}_label"]), get_lcs)
+
+    df[f"k{k}_LCS"] = df["LCS"]
+
+    df = df[["text", f"k{k}_label", f"k{k}_LCS"]]
+    df.to_csv(os.path.join(dirname, "results", basename))
 
 
 def affinity_propagation(lang, k):
@@ -36,22 +68,8 @@ def affinity_propagation(lang, k):
         df_i[f"k{k}_{k_idx}"] = clusteing.predict(X_data)
         df_i[f"k{k}_label"] = df_i[f"k{k}"].astype(str)+'_'+df_i[f"k{k}_{k_idx}"].astype(str)
 
-        # get the longest common substring
-        # l_group_ls = []
-        # for idx, group in df_i.groupby(by=[f"k{k}_label"]):
-        #     if len(group) > 1:
-        #         lcs = STree.STree(group.text_preprocessed.tolist()).lcs()
-        #         lcs_l = [lcs for _ in range(len(group))]
-        #         l_group_ls += lcs_l
-        #     else:
-        #         l_group_ls += [np.nan]
-        #
-        # assert len(df_i) == len(l_group_ls)
-        #
-        # df_i[f"k{k}_LCS"] = l_group_ls
 
-        # df_i = df_i[["text", "text", f"k{k}_label", f"k{k}_LCS"]]
-        df_i = df_i[["text", "text", f"k{k}_label"]]
+        df_i = df_i[["text", "text_preprocessed", f"k{k}_label"]]
 
         df_k_ls.append(df_i)
 
