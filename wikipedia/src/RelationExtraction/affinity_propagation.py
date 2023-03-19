@@ -8,10 +8,12 @@ pandarallel.initialize(progress_bar=True)
 
 
 def affinity_propagation_stree(lang):
-    inputfile = f"data/fuzzywuzzy/df_results/{lang}.csv"
+    inputfile = f"data/fuzzywuzzy/dfs/{lang}.csv"
     df = pd.read_csv(inputfile)
     # filter by the k value
-    df = df[["text", "text_preprocessed"]]
+    df = df[["text", "text_preprocessed"]].drop_duplicates(subset=["text_preprocessed"]).reset_index(
+        drop=True)
+    print(f"loading {lang}, len {len(df)}")
 
     X_data = pd.crosstab([df.index, df.text_preprocessed], df.text_preprocessed).parallel_apply(
         lambda col: [len(STree.STree([col.name, x]).lcs()) for x in col.index.get_level_values(1)])
