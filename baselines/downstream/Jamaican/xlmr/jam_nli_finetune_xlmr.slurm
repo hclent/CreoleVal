@@ -25,6 +25,6 @@ trainlang="glue"
 finetune="jamaican"
 task="nli"  
 
-parameters_config=$downstreamdir/configs/params_nli_xlmr.json
+parameters_config=$downstreamdir/configs/params_jamnli_xlmr.json
 
 python $codebase/train.py --parameters_config $parameters_config --dataset_config $downstreamdir/configs/$task\_$finetune.json --retrain $loggingdir/logs/$finetune-$task-$bert-training/2023.01.03_14.13.44/model.pt --name nli_jamaican_xlmr_finetuned
