@@ -36,15 +36,23 @@ def main(input_folder, output_dir, random_seed, threshold):
     source_set = []
     target_set = []
 
-    for source_file in glob.glob(source_files):
+    for source_file in sorted(glob.glob(source_files)):
         with open(source_file, "r") as infile:
             source_sents = infile.read().split("\n")
             source_set.extend(source_sents)
 
-    for target_file in glob.glob(target_files):
+    for target_file in sorted(glob.glob(target_files)):
         with open(target_file, "r") as infile:
             target_sents = infile.read().split("\n")
             target_set.extend(target_sents)
+
+    # with open("cbk_test.tsv", "w") as outfile:
+    #     csv_writer = csv.writer(outfile, delimiter="\t", quotechar="|")
+    #     for s, t in zip(source_set, target_set):
+    #         row = [s, t]
+    #         csv_writer.writerow(row)
+    #
+    # exit(1)
 
     # make sure that the source set is non-English or non-French and the target set is English or French
     if lang1 in ("eng", "fra"):
