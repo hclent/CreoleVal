@@ -47,8 +47,8 @@ def get_scores_predictions(x, y, dim, k=1):
     idx = faiss.IndexFlatL2(dim)
     faiss.normalize_L2(x)
     faiss.normalize_L2(y)
-    idx.add(x)
-    scores, predictions = idx.search(y, k)
+    idx.add(y)
+    scores, predictions = idx.search(x, k)
     return scores, predictions
 
 
