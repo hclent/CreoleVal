@@ -51,20 +51,17 @@ def calculate_factors(df_path, bin_count=4, outpath=None):
     df["subw_intersect_count"] = intersects
     df["subw_intersect_ratio"] = round(df["subw_intersect_count"] / df["src_subw_len"], 3)
 
-    # unk tokens
-    unks = []
-    for src_sw in src_subwords:
-        unk = len([sw for sw in src_sw if sw in {"[UNK]", "<unk>"}])
-        unks.append(unk)
-
-    df["src_unks"] = unks
+    # # unk tokens
+    # unks = []
+    # for src_sw in src_subwords:
+    #     unk = len([sw for sw in src_sw if sw in {"[UNK]", "<unk>"}])
+    #     unks.append(unk)
+    #
+    # df["src_unks"] = unks
 
     # arrange factors into bins
-    for factor_name in {"src_fertility", "subw_intersect_ratio", "src_unks"}:
-        if factor_name in {"src_unks"}:
-            df[f"binned_{factor_name}"] = pd.qcut(df[factor_name], q=bin_count, duplicates="drop", precision=0)
-        else:
-            df[f"binned_{factor_name}"] = pd.qcut(df[factor_name], q=bin_count, duplicates="drop")
+    for factor_name in {"src_fertility", "subw_intersect_ratio"}:
+        df[f"binned_{factor_name}"] = pd.qcut(df[factor_name], q=bin_count, duplicates="drop")
 
     if outpath:
         df.to_csv(outpath, sep="\t")
@@ -96,15 +93,17 @@ def plot_binned_table(df, factor, output_path, **kwargs):
     """
     Provided an input dataframe, the function plots the bins on a bar chart.
     """
-    bin_names = BINS[len(df)]
-    index_dict = {k: i for k, i in zip(df.index, bin_names)}
-    df.rename(index=index_dict, inplace=True)
+    if factor != "src_unks":
+        bin_names = BINS[len(df)]
+        index_dict = {k: i for k, i in zip(df.index, bin_names)}
+        df.rename(index=index_dict, inplace=True)
+    # else:
+
     ax = df.plot.bar(y="accuracy", rot=0, legend=False, **kwargs)
 
     # annotate bar chart for the size of the bins
     for p, s in zip(ax.patches, df["size"]):
         percentage = round(s / df["size"].sum() * 100)
-        # print(percentage)
         ax.annotate(f"{percentage}%",
                     (p.get_x() + p.get_width() / 2,  # x coordinate
                      p.get_height()),  # y coordinate
@@ -172,7 +171,7 @@ if __name__ == "__main__":
 
         lg, eng = lang_pair.split("-")
 
-        for factor in {"src_fertility", "subw_intersect_ratio", "src_unks"}:
+        for factor in {"src_fertility", "subw_intersect_ratio"}:
 
             if factor == "subw_intersect_ratio":
                 xlabel = f"Ratio of token overlap ({lg})"
@@ -180,9 +179,9 @@ if __name__ == "__main__":
             elif factor == "src_fertility":
                 xlabel = f"Tokenizer fertility ({lg})"
                 factor_name = "sentence fertility"
-            elif factor == "src_unks":
-                xlabel = f"Unknown token count ({lg})"
-                factor_name = "unknown tokens"
+            # elif factor == "src_unks":
+            #     xlabel = f"Unknown token count ({lg})"
+            #     factor_name = "unknown tokens"
 
             kwargs = {"xlabel": xlabel,
                       "ylabel": "Accuracy scores"
@@ -192,7 +191,7 @@ if __name__ == "__main__":
 
             if len(bin_df) > 0:
 
-                output_dir = os.path.join(args.output_folder, "analysis", factor)
+                output_dir = os.path.join(args.output_folder, "analysis", model_name, factor)
 
                 os.makedirs(output_dir, exist_ok=True)
 
