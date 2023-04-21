@@ -100,17 +100,20 @@ def plot_binned_table(df, factor, output_path, **kwargs):
     index_dict = {k: i for k, i in zip(df.index, bin_names)}
     df.rename(index=index_dict, inplace=True)
     ax = df.plot.bar(y="accuracy", rot=0, legend=False, **kwargs)
+
     # annotate bar chart for the size of the bins
     for p, s in zip(ax.patches, df["size"]):
-        ax.annotate(str(int(s)),
+        percentage = round(s / df["size"].sum() * 100)
+        # print(percentage)
+        ax.annotate(f"{percentage}%",
                     (p.get_x() + p.get_width() / 2,  # x coordinate
                      p.get_height()),  # y coordinate
                     xytext=(0, 0),
                     textcoords="offset points",
                     ha="center",
                     va="bottom")
+
     if output_path:
-        # output_path = os.path.join(output_path, f"{factor}.pdf")
         plt.savefig(output_path)
     # plt.show()
 
@@ -131,8 +134,6 @@ if __name__ == "__main__":
     for tsv in sorted(glob.glob(all_samples)):
 
         dir_name = os.path.dirname(tsv)
-
-        # print(tsv)
 
         if dir_name.endswith("sample1"):
             dfs = []
@@ -191,7 +192,7 @@ if __name__ == "__main__":
 
             if len(bin_df) > 0:
 
-                output_dir = os.path.join(args.output_folder, factor)
+                output_dir = os.path.join(args.output_folder, "analysis", factor)
 
                 os.makedirs(output_dir, exist_ok=True)
 
