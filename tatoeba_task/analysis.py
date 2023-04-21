@@ -191,11 +191,11 @@ if __name__ == "__main__":
 
             if len(bin_df) > 0:
 
-                output_dir = os.path.join(args.output_folder, "analysis", model_name, factor)
+                output_dir = os.path.join(args.output_folder, "analysis", factor, model_name)
 
                 os.makedirs(output_dir, exist_ok=True)
 
-                output_path = os.path.join(output_dir, f"{lg}.pdf")
+                output_path = os.path.join(output_dir, f"{lang_pair}.pdf")
 
                 plot_binned_table(bin_df, factor, output_path=output_path, **kwargs)
 
