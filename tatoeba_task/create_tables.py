@@ -42,7 +42,9 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Arguments for collecting experimental outputs in a single output file.")
     parser.add_argument("path_to_experiments", help="path to the folder containing the experimental outputs")
-    parser.add_argument("-o", "--output_path", help="path where the resulting table should be output, default is ./tables/results.tsv", default="./tables/results.tsv")
+    parser.add_argument("-o", "--output_path",
+                        help="path where the resulting table should be output, default is ./tables/results.tsv",
+                        default="./tables/results.tsv")
 
     args = parser.parse_args()
 

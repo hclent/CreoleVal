@@ -119,7 +119,8 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Arguments to plot fertility values.")
     parser.add_argument("input_folder", help="path to the folder containing all samples")
-    parser.add_argument("-o", "--output_folder", help="path to the folder where the plots should be output")
+    parser.add_argument("-o", "--output_folder", help="path to the folder where the plots should be output",
+                        default="./plots/analysis/")
     parser.add_argument("-b", "--bin_count", help="count of bins to assign data into")
 
     args = parser.parse_args()

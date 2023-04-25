@@ -27,13 +27,17 @@ It is recommended to use the `requirements.txt` file in the `./tatoeba_task/` fo
 
 `./experiments/` folder: contains experiment outputs per language model (and random baseline)
 
-`./plots/` folder: contains barplots plotting the length distribution of the test samples
+`./plots/length/` folder: contains barplots plotting the length distribution of the test samples
+
+`./plots/analysis` folder: contains plots of _tokenizer fertility_ and _token overlap between source and target sentences_ per language pair per language model  
 
 `./tables/` folder: contains the aggregated results of the experiments with accuracy and average cosine similarity scores per language
 
 `./tatoeba/` folder: if the `download_tatoeba.sh` or `run_experiments.sh` script is run, it contains the data from the [Tatoeba Challenge](https://github.com/Helsinki-NLP/Tatoeba-Challenge/blob/master/data/README.md) repository arranged in folders per language
 
 ### Scripts
+
+`analysis.py`: calculates _tokenizer fertility_ and _token overlap between source and target sentences_ and plots them with a default output in `./plots/analysis/`
 
 `create_tables.py`: aggregates experimental results with a default output in `./tables/`
 
