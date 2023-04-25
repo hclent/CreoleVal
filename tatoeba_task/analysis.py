@@ -99,7 +99,7 @@ def plot_binned_table(df, factor, output_path, **kwargs):
         df.rename(index=index_dict, inplace=True)
     # else:
 
-    ax = df.plot.bar(y="accuracy", rot=0, legend=False, **kwargs)
+    ax = df.plot.bar(y="accuracy", rot=0, legend=False, **kwargs, ylim=(0, 80))
 
     # annotate bar chart for the size of the bins
     for p, s in zip(ax.patches, df["size"]):
@@ -114,8 +114,6 @@ def plot_binned_table(df, factor, output_path, **kwargs):
 
     if output_path:
         plt.savefig(output_path)
-    # plt.show()
-
 
 if __name__ == "__main__":
 
@@ -191,11 +189,11 @@ if __name__ == "__main__":
 
             if len(bin_df) > 0:
 
-                output_dir = os.path.join(args.output_folder, "analysis", factor, model_name)
+                output_dir = os.path.join(args.output_folder, "analysis", lang_pair, model_name)
 
                 os.makedirs(output_dir, exist_ok=True)
 
-                output_path = os.path.join(output_dir, f"{lang_pair}.pdf")
+                output_path = os.path.join(output_dir, f"{factor}.pdf")
 
                 plot_binned_table(bin_df, factor, output_path=output_path, **kwargs)
 
