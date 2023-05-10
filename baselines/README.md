@@ -75,7 +75,15 @@ TODO
   - `params_mt5.json`
   - `params_xlmr.json`
 
+### WikiAnn NER
 
+- **Data**: `data/WikiAnn_data/<lang>`
+  - `<lang>` can be one of: bi, cbk_zam, ht, pap, pih, sg, tpi
+- **Dataset Config**: `downstream/configs/ner_wikiann_<lang>.json`
+- **Model Config**:
+  - `params_mbert.json`
+  - `params_mt5.json`
+  - `params_xlmr.json`
 
 
 ## Points to remember while running the experiments:
