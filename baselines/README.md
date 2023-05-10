@@ -18,7 +18,7 @@ Experiments run with commit `c1bde68e` of machamp.
 
 - **Data**: [AfriSenti-SemEval Shared Task 12](https://github.com/afrisenti-semeval/afrisent-semeval-2023)
   - Download script: `download_afrisenti.sh`
-- **Dataset Config**: `downstream/configs/senti_afri.json`
+- **Dataset Config**: `configs/senti_afri.json`
 - **Model Config**:
   - `params_mbert.json`
   - `params_mt5.json`
@@ -32,14 +32,14 @@ Experiments run with commit `c1bde68e` of machamp.
     $ wget https://github.com/nyu-mll/GLUE-baselines/raw/master/download_glue_data.py
     $ python download_glue_data.py --data_dir data/glue --tasks MNLI
     ```
-- **Dataset Config**: `downstream/configs/nli_glue.json`
+- **Dataset Config**: `configs/nli_glue.json`
 
 TODO
 
 ### Oyewusi
 
 - **Data**: `data/Oyewusi` (in this repo)
-- **Dataset Config**: `downstream/configs/senti_oyewusi.json`
+- **Dataset Config**: `configs/senti_oyewusi.json`
 - **Model Config**:
   - `params_mbert.json`
   - `params_mt5.json`
@@ -49,7 +49,7 @@ TODO
 
 - **Data**: [MasakhaNER 2.0](https://github.com/masakhane-io/masakhane-ner/tree/main/MasakhaNER2.0/data/pcm/)
   - Download script: `download_masakhaner.sh`
-- **Dataset Config**: `downstream/configs/ner_naija.json`
+- **Dataset Config**: `configs/ner_naija.json`
 - **Model Config**:
   - `params_mbert.json`
   - `params_mt5.json`
@@ -59,7 +59,7 @@ TODO
 
 - **Data**: [UD Naija-NSC](https://github.com/UniversalDependencies/UD_Naija-NSC)
   - Download script: `download_ud_naija.sh`
-- **Dataset Config**: `downstream/configs/upos_naija.json`
+- **Dataset Config**: `configs/upos_naija.json`
 - **Model Config**:
   - `params_mbert.json`
   - `params_mt5.json`
@@ -69,7 +69,7 @@ TODO
 
 - **Data**: [Singlish STB-ACL](https://github.com/wanghm92/Sing_Par/tree/master/ACL17_dataset/treebank/gold_pos)
   - Download script: `download_singlish_upos.sh`
-- **Dataset Config**: `downstream/configs/upos_naija.json`
+- **Dataset Config**: `configs/upos_naija.json`
 - **Model Config**:
   - `params_mbert.json`
   - `params_mt5.json`
@@ -79,7 +79,7 @@ TODO
 
 - **Data**: `data/WikiAnn_data/<lang>`
   - `<lang>` can be one of: bi, cbk_zam, ht, pap, pih, sg, tpi
-- **Dataset Config**: `downstream/configs/ner_wikiann_<lang>.json`
+- **Dataset Config**: `configs/ner_wikiann_<lang>.json`
 - **Model Config**:
   - `params_mbert.json`
   - `params_mt5.json`
@@ -87,7 +87,7 @@ TODO
 
 
 ## Points to remember while running the experiments:
-- The `downstream/configs` folder contains all the configuration files for the model hyperparameters and datasets.
+- The `configs` folder contains all the configuration files for the model hyperparameters and datasets.
 - Filenames beginning with `params_` contain model hyperparameters where the pretrained transformer models can be changed by changing the following line to any huggingface transformer model:
 ```
 {
