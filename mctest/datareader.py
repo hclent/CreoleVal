@@ -3,6 +3,7 @@ from pudb import set_trace
 import os, csv, json
 import random
 import numpy as np
+from models import MyBertForMultipleChoice
 from transformers import AutoTokenizer
 from datasets import Dataset, DatasetDict, load_dataset
 from dataclasses import dataclass
@@ -33,8 +34,9 @@ def parse_args():
     parser.add_argument("--split", type=str, default="mc500.train", help="path to specific dataset") #TODO: maybe by default dont need this, so it always loads training data, idk
     parser.add_argument("--parse_data_to_json", type=bool, default=False) #TODO: change the code to check for json, and if it doesnt exist, create it. 
 
-    #Logging
+    #Output & Logging
     parser.add_argument("--tb_dir",type=str, default="/home/cs.aau.dk/az01dn/mcdata/tensorboard")
+    parser.add_argument("--output_dir", type=str, default="/home/cs.aau.dk/az01dn/mcdata/results_mctest_eng")
 
     #Model
     parser.add_argument("--tokenizer", type=str, default="bert-base-multilingual-cased")
@@ -159,12 +161,20 @@ def write_to_json(path, split):
 
 
 def preprocess_function(examples):
-    story = [[context] * 4 for context in examples["story"]]
+    #story = [[context] * 4 for context in examples["story"]] #real!
+    story = [['']*4 for context in examples["story"]] #This is for debugging only. Ignoring the stories, to train on only Q+A.
     story = sum(story, [])
     choices = []
+
+    q2a_lut = {}
+    for q, a in zip(examples["question"], examples["text_answer"]):
+        q2a_lut[q] = a
+
     for q, candidates in zip(examples["question"], examples["choices"]):
+        answer = q2a_lut[q]
         for option in candidates:
-             choices.append(f"{q} {option}")
+            #choices.append(f"{q} {option}") #real!
+            choices.append(f"{q} {answer} {option}") #This is for debugging only. We should get 100% Acc if we add the answer
 
     tokenized_examples = tokenizer(story, choices, truncation=False)
 
@@ -212,6 +222,7 @@ class DataCollatorForMultipleChoice:
         labels_as_ints = [int(l) for l in labels] #make sure these are numbers
         batch["labels"] = torch.tensor(labels_as_ints, dtype=torch.int64)
         input_ids = batch["input_ids"]
+        #set_trace()
         return batch 
 
 
@@ -249,16 +260,16 @@ def main():
     data_collator = DataCollatorForMultipleChoice(tokenizer) #
 
     if args.action == "train":
-        model = AutoModelForMultipleChoice.from_pretrained(args.from_pretrained).to(device)
-
+        #model = AutoModelForMultipleChoice.from_pretrained(args.from_pretrained).to(device)
+        model = MyBertForMultipleChoice.from_pretrained(args.from_pretrained).to(device)
         #init tensorboard for tracking
         experiment_sub_dir = f"lr{args.learning_rate}_wd{args.weight_decay}"
         writer = SummaryWriter(os.path.join(args.tb_dir, experiment_sub_dir))
         callback = TensorBoardCallback(writer)
 
         training_args = TrainingArguments(
-            output_dir=f"./results_mctest_eng/{experiment_sub_dir}", #TODO:also make output dir configurable.  
-            save_steps=5000,
+            output_dir=os.path.join(args.output_dir, experiment_sub_dir), #f"./results_mctest_eng/no_story_with_answers_{experiment_sub_dir}", #TODO:also make output dir configurable.  
+            save_steps=2500,
             evaluation_strategy="epoch",
             learning_rate=args.learning_rate,
             per_device_train_batch_size=args.batch_size,
@@ -279,7 +290,7 @@ def main():
         
         if device == "cuda":
             model.cuda()
-        
+        set_trace() 
         train_result = trainer.train()
         
         writer.close()
@@ -287,14 +298,15 @@ def main():
     elif args.action == "evaluate":
 
         #load trained model
-        model = AutoModelForMultipleChoice.from_pretrained(args.from_checkpoint).to(device)
-        
+        #model = AutoModelForMultipleChoice.from_pretrained(args.from_checkpoint).to(device) #TODO: lets make our own copy of this ...
+        model = MyBertForMultipleChoice.from_pretrained(args.from_checkpoint).to(device)
+
         experiment_sub_dir = f"lr{args.learning_rate}_wd{args.weight_decay}"
         #writer = SummaryWriter(os.path.join(args.tb_dir, experiment_sub_dir))
         #callback = TensorBoardCallback(writer)
 
         training_args = TrainingArguments(
-            output_dir=f"./results_mctest_eng/{experiment_sub_dir}", #TODO:also make output dir configurable.  
+            output_dir=os.path.join(args.output_dir, experiment_sub_dir), #f"./results_mctest_eng/no_story_with_answers_{experiment_sub_dir}", #TODO:also make output dir configurable.  
             save_steps=5000,
             evaluation_strategy="epoch",
             learning_rate=args.learning_rate,
@@ -362,7 +374,7 @@ def main():
         result = {"eval_loss": eval_loss, "eval_accuracy": eval_accuracy}
         print(result)
         
-        output_eval_file = os.path.join(f"./results_mctest_eng/{experiment_sub_dir}", "eval_results.txt")
+        output_eval_file = os.path.join(f"./results_mctest_eng/no_story_with_answers_{experiment_sub_dir}", "eval_results.txt")
         with open(output_eval_file, "w") as writer:
            writer.write(f"***** Eval results *****\n")
            for key in sorted(result.keys()):
