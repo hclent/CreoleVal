@@ -1,3 +1,7 @@
+# Baselines
+
+
+
 ## Download and install machamp:
 
 ```
@@ -6,10 +10,76 @@ pip install -r requirements.txt #do this in a conda env called 'creole'
 ```
 PS. There might be issues with the jsonnet installation - in which case just run the command `conda install -c conda-forge jsonnet` in the creole env.
 
-## Steps for running individual experiments are in the respective folders
+Experiments run with commit `c1bde68e` of machamp.
+
+## Steps for running individual experiments
+
+### AfriSenti
+
+- **Data**: [AfriSenti-SemEval Shared Task 12](https://github.com/afrisenti-semeval/afrisent-semeval-2023)
+  - Download script: `download_afrisenti.sh`
+- **Dataset Config**: `downstream/configs/senti_afri.json`
+- **Model Config**:
+  - `params_mbert.json`
+  - `params_mt5.json`
+  - `params_xlmr.json`
+
+### Jamaican
+
+- **Data**: [GLUE MNLI](https://github.com/nyu-mll/GLUE-baselines) + fine-tuning data in `data/jam-nli-data`
+  - Download: From `/baselines` folder, run:
+    ```bash
+    $ wget https://github.com/nyu-mll/GLUE-baselines/raw/master/download_glue_data.py
+    $ python download_glue_data.py --data_dir data/glue --tasks MNLI
+    ```
+- **Dataset Config**: `downstream/configs/nli_glue.json`
+
+TODO
+
+### Oyewusi
+
+- **Data**: `data/Oyewusi` (in this repo)
+- **Dataset Config**: `downstream/configs/senti_oyewusi.json`
+- **Model Config**:
+  - `params_mbert.json`
+  - `params_mt5.json`
+  - `params_xlmr.json`
+
+### Naija NER
+
+- **Data**: [MasakhaNER 2.0](https://github.com/masakhane-io/masakhane-ner/tree/main/MasakhaNER2.0/data/pcm/)
+  - Download script: `download_masakhaner.sh`
+- **Dataset Config**: `downstream/configs/ner_naija.json`
+- **Model Config**:
+  - `params_mbert.json`
+  - `params_mt5.json`
+  - `params_xlmr.json`
+
+### Naija UPOS
+
+- **Data**: [UD Naija-NSC](https://github.com/UniversalDependencies/UD_Naija-NSC)
+  - Download script: `download_ud_naija.sh`
+- **Dataset Config**: `downstream/configs/upos_naija.json`
+- **Model Config**:
+  - `params_mbert.json`
+  - `params_mt5.json`
+  - `params_xlmr.json`
+
+### Singlish UPOS
+
+- **Data**: [Singlish STB-ACL](https://github.com/wanghm92/Sing_Par/tree/master/ACL17_dataset/treebank/gold_pos)
+  - Download script: `download_singlish_upos.sh`
+- **Dataset Config**: `downstream/configs/upos_naija.json`
+- **Model Config**:
+  - `params_mbert.json`
+  - `params_mt5.json`
+  - `params_xlmr.json`
+
+
+
 
 ## Points to remember while running the experiments:
-- The `downstream/configs` folder contains all the configuration files for the model hyperparameters and datasets. 
+- The `downstream/configs` folder contains all the configuration files for the model hyperparameters and datasets.
 - Filenames beginning with `params_` contain model hyperparameters where the pretrained transformer models can be changed by changing the following line to any huggingface transformer model:
 ```
 {
