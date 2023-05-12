@@ -56,7 +56,7 @@ testfile='data/jam-nli-data/jamnli-test.tsv'
 wget -nc https://github.com/nyu-mll/GLUE-baselines/raw/master/download_glue_data.py
 python download_glue_data.py --data_dir data/glue --tasks MNLI
 for model in ${models[@]}; do
-    ./train_and_finetune.sh $model
+    ./train_and_finetune_jamnli.sh $model
     model_checkpoint=$(ls -td1 ./logs/nli_jamaican_${model}_finetune/*/ | head -1)
     ./predict.sh $model_checkpoint $testfile
 done
