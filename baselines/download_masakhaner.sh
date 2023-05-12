@@ -12,4 +12,4 @@ for file in ${FILELIST[@]}; do
 done
 
 # Format conversion (change spaces to tabs)
-set -i 's/\s/\t/g' "$DATADIR"/*.txt
+sed -i 's/\s/\t/g' "$DATADIR"/*.txt
