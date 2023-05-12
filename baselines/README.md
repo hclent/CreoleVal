@@ -8,7 +8,7 @@ To get MaChAmp and install its requirements, you can run:
 
 ```
 git clone --branch v0.4.2 https://github.com/machamp-nlp/machamp.git
-cd machamp/ && pip install -r requirements.txt
+pip install -r machamp/requirements.txt
 ```
 
 It's recommended to do this in a virtual environment.  (PS. If there are issues with the jsonnet installation, try installing it via conda-forge, i.e. `conda install -c conda-forge jsonnet`).
@@ -26,12 +26,12 @@ It's recommended to do this in a virtual environment.  (PS. If there are issues 
 - The scripts in this directory can be used to train and evaluate all the models.
   - `train.sh <TASK> <MODEL>` trains a model. Example usage:
     ```bash
-    $ ./train.sh senti_afri xlmr
+    ./train.sh senti_afri xlmr
     ```
   - `train_and_finetune_jamnli.sh <MODEL>` is used for Jamaican NLI; see below.
   - `predict.sh <MODELDIR> <TESTFILE>` predicts with and evaluates a model. Example usage:
     ```bash
-    $ ./predict.sh logs/senti_afri_xlmr_baseline/<date>/ data/afrisenti/pcm_test.tsv
+    ./predict.sh logs/senti_afri_xlmr_baseline/<date>/ data/afrisenti/pcm_test.tsv
     ```
   - `run_all_experiments.sh` shows how to run everything at once.
 
@@ -50,8 +50,8 @@ It's recommended to do this in a virtual environment.  (PS. If there are issues 
 - **Data**: [GLUE MNLI](https://github.com/nyu-mll/GLUE-baselines) _(pretraining)_ + data in `data/jam-nli-data` _(finetuning)_
   - To download, run the following inside this folder:
     ```bash
-    $ wget https://github.com/nyu-mll/GLUE-baselines/raw/master/download_glue_data.py
-    $ python download_glue_data.py --data_dir data/glue --tasks MNLI
+    wget https://github.com/nyu-mll/GLUE-baselines/raw/master/download_glue_data.py
+    python download_glue_data.py --data_dir data/glue --tasks MNLI
     ```
 - **Config**: `configs/nli_glue.json` _(pretraining)_ and `configs/nli_jamaican.json` _(finetuning)_
 - **Train**: `./train_and_finetune_jamnli.sh {mbert,mt5,xlmr}`
