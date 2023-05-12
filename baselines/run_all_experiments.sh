@@ -17,16 +17,19 @@ train_and_predict_all_models() {
 # AfriSenti
 task=senti_afri
 testfile='data/afrisenti/pcm_test.tsv'
+./download_afrisenti.sh
 train_and_predict_all_models
 
 # Naija NER
 task=ner_naija
 testfile='data/naija/masakhane-ner-pcm/test.txt'
+./download_masakhaner.sh
 train_and_predict_all_models
 
 # Naija UPOS
 task=upos_naija
 testfile='data/naija/naija-sud/pcm_nsc-ud-test.conllu'
+./download_ud_naija.sh
 train_and_predict_all_models
 
 # Oyewusi
@@ -37,6 +40,7 @@ train_and_predict_all_models
 # Singlish UPOS
 task=upos_singlish
 testfile='data/singlish/test.conll'
+./download_singlish_upos.sh
 train_and_predict_all_models
 
 # WikiAnn NER
@@ -49,6 +53,8 @@ done
 
 # Jamaican NLI
 testfile='data/jam-nli-data/jamnli-test.tsv'
+wget -nc https://github.com/nyu-mll/GLUE-baselines/raw/master/download_glue_data.py
+python download_glue_data.py --data_dir data/glue --tasks MNLI
 for model in ${models[@]}; do
     ./train_and_finetune.sh $model
     model_checkpoint=$(ls -td1 ./logs/nli_jamaican_${model}_finetune/*/ | head -1)
