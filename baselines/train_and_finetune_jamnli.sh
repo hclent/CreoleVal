@@ -75,4 +75,4 @@ python "$MACHAMP_DIR"/train.py \
        --dataset_config "$task_finetune_config" \
        --retrain "$model_pretrained/model.pt" \
        --name "nli_jamaican_${model}_finetune" \
-       --seed $SEED
+       --seed $seed
