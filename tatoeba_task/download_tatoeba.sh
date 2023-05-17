@@ -1,6 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -o errexit
+
+SCRIPTDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+DATADIR="$SCRIPTDIR/tatoeba"
 
 # urls to download from
 URLS=(
@@ -18,13 +21,6 @@ https://github.com/Helsinki-NLP/Tatoeba-Challenge/raw/master/data/devtest/eng-fr
 https://github.com/Helsinki-NLP/Tatoeba-Challenge/raw/master/data/devtest/eng-nor/test-v2020-05-31.txt
 )
 
-# variables for extracting src and trg files
-SOURCE="data/release/*/*/*.src"
-TARGET="data/release/*/*/*.trg"
-ARCHIVED="data/release/*/*/*.gz"
-
-mkdir tatoeba
-
 for URL in "${URLS[@]}"
 do
         if [[ $URL == *.tar  ]]
@@ -37,14 +33,13 @@ do
                         echo "$LG already exists"
                 else
                         echo "downloading $LG"
-                        wget "$URL"
+                        wget -O "$LANGTAR" "$URL"
                         tar -xvf "$LANGTAR"
-                        gzip -dv "$ARCHIVED"
-                        mkdir "tatoeba/$LG"
-                        mv "$TARGET" "tatoeba/$LG/"
-                        mv "$SOURCE" "tatoeba/$LG/"
-                        rm -r data/release
-                        rm -r "$LANGTAR"
+                        find data/release/ -name '*.gz' -exec gzip -dv {} \;
+                        mkdir -p "$DATADIR/$LG"
+                        find data/release/ -name '*.src' -o -name '*.trg' -exec mv {} "$DATADIR/$LG/" +
+                        rm -rf data/release
+                        rm -f "$LANGTAR"
                 fi
         else
                 IFS="/" read -ra ARRAY <<< "$URL"
@@ -56,11 +51,11 @@ do
                         echo "$LG already exists"
                 else
                         echo "downloading $LG"
-                        wget "$URL"
-                        mkdir "tatoeba/$LG"
-                        cut -f 3 "$FILENAME" > "tatoeba/$LG/test.src"
-                        cut -f 4 "$FILENAME" > "tatoeba/$LG/test.trg"
-                        rm "$FILENAME"
+                        wget -O "$FILENAME" "$URL"
+                        mkdir -p "$DATADIR/$LG"
+                        cut -f 3 "$FILENAME" > "$DATADIR/$LG/test.src"
+                        cut -f 4 "$FILENAME" > "$DATADIR/$LG/test.trg"
+                        rm -f "$FILENAME"
                 fi
         fi
 done
