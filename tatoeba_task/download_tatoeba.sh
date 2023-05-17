@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o errexit
+
 # urls to download from
 URLS=(
 https://object.pouta.csc.fi/Tatoeba-Challenge-v2021-08-07/eng-hat.tar
@@ -38,10 +40,10 @@ do
                         wget "$URL"
                         tar -xvf "$LANGTAR"
                         gzip -dv "$ARCHIVED"
-                        mdkir "tatoeba/$LG"
+                        mkdir "tatoeba/$LG"
                         mv "$TARGET" "tatoeba/$LG/"
                         mv "$SOURCE" "tatoeba/$LG/"
-                        rm -r data
+                        rm -r data/release
                         rm -r "$LANGTAR"
                 fi
         else
