@@ -30,11 +30,10 @@ for MODEL in ${MODELS[@]}
 do
 	echo "$MODEL"
 	echo ""
-	for FILE in data/*
+	for FILE in tatoeba/*
 	do
 		python run_tatoeba.py $FILE experiments/ $MODEL
 		echo "$FILE processed"
 		echo ""
 	done
 done
-
