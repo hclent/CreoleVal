@@ -37,7 +37,7 @@ do
                         tar -xvf "$LANGTAR"
                         find data/release/ -name '*.gz' -exec gzip -dv {} \;
                         mkdir -p "$DATADIR/$LG"
-                        find data/release/ -name '*.src' -o -name '*.trg' -exec mv {} "$DATADIR/$LG/" +
+                        find data/release/ \( -name '*.src' -o -name '*.trg' \) -exec mv {} "$DATADIR/$LG/" \;
                         rm -rf data/release
                         rm -f "$LANGTAR"
                 fi
