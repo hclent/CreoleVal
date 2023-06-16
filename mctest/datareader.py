@@ -14,9 +14,10 @@ from torch.utils.tensorboard import SummaryWriter
 from transformers.integrations import TensorBoardCallback
 from transformers import AutoModelForMultipleChoice, TrainingArguments, Trainer
 from tqdm import tqdm, trange
-
+import evaluate
 
 tokenizer = AutoTokenizer.from_pretrained("bert-base-multilingual-uncased")
+accuracy = evaluate.load("accuracy")
 
 """
 Working from this/these tutorials
@@ -47,7 +48,7 @@ def parse_args():
     #Training
     parser.add_argument("--action", type=str, default="train", choices=["train", "evaluate"])
     parser.add_argument("--seed", type=int, default=12)
-    parser.add_argument("--batch_size", type=int, default=4)
+    parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--num_epochs", type=int, default=100)
     parser.add_argument("--learning_rate", type=float, default=2e-5,
                         help="Former default was 5e-5")
@@ -160,25 +161,70 @@ def write_to_json(path, split):
             out.write('\n')
 
 
+def preprocess_function_no_map(datadict):
+    """
+    THIS DOES NOT WORK. 
+    I can't figure out how to get this fucking DatasetDictionary to update with the Batch Encoding from the tokenizer
+    because the stupid .map(preprocess) bullshit doesn't work like its suppsed to. 
+    Fuck off. 
+
+    Input: DatasetDict 
+    Output: DatasetDict with tokenization (so 'input_ids', 'token_type_ids', and "attention_ids")
+    """
+    for key in datadict.keys(): #"train", "evaluation"
+        stories = []
+        choices = []
+        for h, example in enumerate(datadict[key]):
+            #stories = []
+            #choices = []
+
+            story = [[example["story"]] * 4]
+            [stories.append(s) for s in story[0]]
+
+            sep_tok = tokenizer.sep_token
+
+            for candidate in example["choices"]:
+                q = example["question"]
+                answer = example["text_answer"]
+                choices.append(f"{q} {sep_tok} {candidate} {sep_tok} {answer}") #giving the answer for now 
+
+            assert len(stories) == len(choices)
+        tokenized_examples = tokenizer(stories, choices, truncation=False)
+        bb = {k: [v[i : i + 4] for i in range(0, len(v), 4)] for k, v in tokenized_examples.items()}
+        #for k, v in tokenized_examples.items():
+        #    bb = {k: [v[i: i + 4] for i in range(0, len(v), 4)]}
+        #    input_ids.append(bb['input_ids'])
+        #    token_input_ids.append(bb['token_type_id'])
+        #    attention_mask.append(bb['attention_mask'])
+        #THIS DOESNT WORK 
+        datadict[key].add_column(name='input_ids', column=bb['input_ids'])
+        #datadict[key].add_column(name=)
+    set_trace()
+    return datadict  # this should be correct ...
+
+
 def preprocess_function(examples):
-    #story = [[context] * 4 for context in examples["story"]] #real!
-    story = [['']*4 for context in examples["story"]] #This is for debugging only. Ignoring the stories, to train on only Q+A.
+    story = [[context] * 4 for context in examples["story"]] #real!
     story = sum(story, [])
     choices = []
 
     q2a_lut = {}
     for q, a in zip(examples["question"], examples["text_answer"]):
         q2a_lut[q] = a
+    
+    sep_tok = tokenizer.sep_token
 
     for q, candidates in zip(examples["question"], examples["choices"]):
         answer = q2a_lut[q]
         for option in candidates:
-            #choices.append(f"{q} {option}") #real!
-            choices.append(f"{q} {answer} {option}") #This is for debugging only. We should get 100% Acc if we add the answer
-
+            #choices.append(f"{q} {sep_tok} {option}") #real!
+            choices.append(f"{q} {sep_tok} {answer} {sep_tok} {option}") #This is for debugging only. We should get 100% Acc if we add the answer
     tokenized_examples = tokenizer(story, choices, truncation=False)
-
-    return {k: [v[i : i + 4] for i in range(0, len(v), 4)] for k, v in tokenized_examples.items()}
+    print(f"****** [preprocess_function] {tokenizer}")
+    print(id(tokenizer))
+    print(tokenizer.vocab)
+    bb = {k: [v[i : i + 4] for i in range(0, len(v), 4)] for k, v in tokenized_examples.items()}
+    return bb
 
 @dataclass
 class DataCollatorForMultipleChoice:
@@ -193,7 +239,9 @@ class DataCollatorForMultipleChoice:
         flattened_features = [
             [{k: v[i] for k, v in feature.items()} for i in range(num_choices)] for feature in features]
         flattened_features = sum(flattened_features, []) #`encoded_inputs` for the batch [{'input_ids': [], 'token_type_ids': [], 'attention_mask': []}]
-
+        print(f"****** [collator]: {tokenizer}")
+        print(id(tokenizer))
+        print(tokenizer.vocab)
 
         # Truncate + Pad 
 
@@ -222,9 +270,10 @@ class DataCollatorForMultipleChoice:
         labels_as_ints = [int(l) for l in labels] #make sure these are numbers
         batch["labels"] = torch.tensor(labels_as_ints, dtype=torch.int64)
         input_ids = batch["input_ids"]
-        #set_trace()
         return batch 
 
+#def compute_metrics(output):
+#    predictions, labels = 
 
 def main():
     args = parse_args()
@@ -236,13 +285,14 @@ def main():
     torch.manual_seed(seed)
 
     device = torch.device(args.device)
-    if device == "cuda":
+    if args.device == "cuda":
         torch.cuda.manual_seed_all(seed)
         print('There are %d GPU(s) available.' % torch.cuda.device_count())
         print('We will use the GPU:', torch.cuda.get_device_name(0))
     else:
         print('Running on cpu.')
-
+        print('Killing this job then!')
+        exit(333)
 
     data_path = args.data_dir
     split = args.split
@@ -254,9 +304,17 @@ def main():
     print(f"****** EXAMPLES ******")
     print(examples)
 
-
     tokenizer = AutoTokenizer.from_pretrained(args.tokenizer)
+    print(f"****** [main body] {tokenizer}")
+    print(id(tokenizer))
+    print(tokenizer.vocab)
+
     tokenized_mct = examples.map(preprocess_function, batched=True)
+   
+    print(f"****** [tokenized_mct] {tokenizer}")
+    print(id(tokenizer))
+    print(tokenizer.vocab)
+
     data_collator = DataCollatorForMultipleChoice(tokenizer) #
 
     if args.action == "train":
@@ -287,10 +345,9 @@ def main():
             data_collator=DataCollatorForMultipleChoice(tokenizer=tokenizer),
             callbacks=[callback]
         )
-        
+        print(f"DEVICE: {device}") 
         if device == "cuda":
             model.cuda()
-        set_trace() 
         train_result = trainer.train()
         
         writer.close()
@@ -335,8 +392,8 @@ def main():
         eval_loss, eval_accuracy = 0, 0
         nb_eval_steps, nb_eval_examples = 0, 0
 
-        dev_dataloader = trainer.get_eval_dataloader() #use the trainer to get the collated dev data
-        #dev_dataloader = trainer.get_train_dataloader()
+        #dev_dataloader = trainer.get_eval_dataloader() #use the trainer to get the collated dev data
+        dev_dataloader = trainer.get_train_dataloader()
         for batch in tqdm(dev_dataloader, desc="Evaluating"):
             batch = tuple(i.to(args.device) for t,i in batch.items())#put on device
             with torch.no_grad():
@@ -362,10 +419,22 @@ def main():
             label_ids = inputs["labels"].to("cpu").numpy()
             #print(label_ids)
             tmp_eval_accuracy = (preds == label_ids).astype(np.float32).mean().item()
+            if tmp_eval_accuracy != 1.0:
+                #set_trace()
+                print(f"****** WRONG ********")
+                print(f"tmp_acc: {tmp_eval_accuracy}")
+                print(f"true: {label_ids}")
+                #print(tokenizer.convert_ids_to_tokens(batch[0][0][int(label_ids)][:-10]))
+                print(f"predicted: {preds}")
+                #print(tokenizer.convert_ids_to_tokens(batch[0][0][int(preds)][:-10]))
+            #else:
+                #print(f"****** CORRECT ********")
+                #print(tokenizer.convert_ids_to_tokens(batch[0][0][int(label_ids)][:-10]))
+                #print()
+            #print(f"-----"*10)
             #print(tmp_eval_accuracy)
             #tmp_eval_accuracy = accuracy(logits, label_ids)
             eval_accuracy += tmp_eval_accuracy
-
             nb_eval_steps += 1
             nb_eval_examples += inputs["input_ids"].size(0)
 
@@ -373,13 +442,13 @@ def main():
         eval_accuracy = eval_accuracy / nb_eval_examples
         result = {"eval_loss": eval_loss, "eval_accuracy": eval_accuracy}
         print(result)
-        
-        output_eval_file = os.path.join(f"./results_mctest_eng/no_story_with_answers_{experiment_sub_dir}", "eval_results.txt")
+        """
+        output_eval_file = os.path.join(f"./results_mctest_eng/story_with_answers_{experiment_sub_dir}", "eval_results_ON_TRAIN_DATA.txt")
         with open(output_eval_file, "w") as writer:
            writer.write(f"***** Eval results *****\n")
            for key in sorted(result.keys()):
                writer.write("%s = %s\n" % (key, str(result[key])))
-        
+        """
     
     else:
         print("* Supported actions are `train` or `evaluate` ")

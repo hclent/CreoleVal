@@ -20,6 +20,9 @@ from transformers.models.bert import BertModel
 
 from pudb import set_trace
 
+#import evaluate
+#accuracy = evluate.load("accuracy")
+
 class MyBertForMultipleChoice(BertPreTrainedModel):
     def __init__(self, config):
         super().__init__(config)
@@ -92,7 +95,7 @@ class MyBertForMultipleChoice(BertPreTrainedModel):
         if not return_dict:
             output = (reshaped_logits,) + outputs[2:]
             return ((loss,) + output) if loss is not None else output
-        set_trace()
+        #set_trace()
         return MultipleChoiceModelOutput(
             loss=loss,
             logits=reshaped_logits,
