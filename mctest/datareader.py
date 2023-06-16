@@ -17,7 +17,6 @@ from tqdm import tqdm, trange
 import evaluate
 
 tokenizer = AutoTokenizer.from_pretrained("bert-base-multilingual-uncased")
-accuracy = evaluate.load("accuracy")
 
 """
 Working from this/these tutorials
@@ -161,46 +160,6 @@ def write_to_json(path, split):
             out.write('\n')
 
 
-def preprocess_function_no_map(datadict):
-    """
-    THIS DOES NOT WORK. 
-    I can't figure out how to get this fucking DatasetDictionary to update with the Batch Encoding from the tokenizer
-    because the stupid .map(preprocess) bullshit doesn't work like its suppsed to. 
-    Fuck off. 
-
-    Input: DatasetDict 
-    Output: DatasetDict with tokenization (so 'input_ids', 'token_type_ids', and "attention_ids")
-    """
-    for key in datadict.keys(): #"train", "evaluation"
-        stories = []
-        choices = []
-        for h, example in enumerate(datadict[key]):
-            #stories = []
-            #choices = []
-
-            story = [[example["story"]] * 4]
-            [stories.append(s) for s in story[0]]
-
-            sep_tok = tokenizer.sep_token
-
-            for candidate in example["choices"]:
-                q = example["question"]
-                answer = example["text_answer"]
-                choices.append(f"{q} {sep_tok} {candidate} {sep_tok} {answer}") #giving the answer for now 
-
-            assert len(stories) == len(choices)
-        tokenized_examples = tokenizer(stories, choices, truncation=False)
-        bb = {k: [v[i : i + 4] for i in range(0, len(v), 4)] for k, v in tokenized_examples.items()}
-        #for k, v in tokenized_examples.items():
-        #    bb = {k: [v[i: i + 4] for i in range(0, len(v), 4)]}
-        #    input_ids.append(bb['input_ids'])
-        #    token_input_ids.append(bb['token_type_id'])
-        #    attention_mask.append(bb['attention_mask'])
-        #THIS DOESNT WORK 
-        datadict[key].add_column(name='input_ids', column=bb['input_ids'])
-        #datadict[key].add_column(name=)
-    set_trace()
-    return datadict  # this should be correct ...
 
 
 def preprocess_function(examples):
@@ -217,12 +176,9 @@ def preprocess_function(examples):
     for q, candidates in zip(examples["question"], examples["choices"]):
         answer = q2a_lut[q]
         for option in candidates:
-            #choices.append(f"{q} {sep_tok} {option}") #real!
-            choices.append(f"{q} {sep_tok} {answer} {sep_tok} {option}") #This is for debugging only. We should get 100% Acc if we add the answer
+            choices.append(f"{q} {sep_tok} {option}") #real!
+            #choices.append(f"{q} {sep_tok} {answer} {sep_tok} {option}") #This is for debugging only. We should get 100% Acc if we add the answer
     tokenized_examples = tokenizer(story, choices, truncation=False)
-    print(f"****** [preprocess_function] {tokenizer}")
-    print(id(tokenizer))
-    print(tokenizer.vocab)
     bb = {k: [v[i : i + 4] for i in range(0, len(v), 4)] for k, v in tokenized_examples.items()}
     return bb
 
@@ -239,9 +195,6 @@ class DataCollatorForMultipleChoice:
         flattened_features = [
             [{k: v[i] for k, v in feature.items()} for i in range(num_choices)] for feature in features]
         flattened_features = sum(flattened_features, []) #`encoded_inputs` for the batch [{'input_ids': [], 'token_type_ids': [], 'attention_mask': []}]
-        print(f"****** [collator]: {tokenizer}")
-        print(id(tokenizer))
-        print(tokenizer.vocab)
 
         # Truncate + Pad 
 
@@ -272,8 +225,6 @@ class DataCollatorForMultipleChoice:
         input_ids = batch["input_ids"]
         return batch 
 
-#def compute_metrics(output):
-#    predictions, labels = 
 
 def main():
     args = parse_args()
@@ -304,17 +255,8 @@ def main():
     print(f"****** EXAMPLES ******")
     print(examples)
 
-    tokenizer = AutoTokenizer.from_pretrained(args.tokenizer)
-    print(f"****** [main body] {tokenizer}")
-    print(id(tokenizer))
-    print(tokenizer.vocab)
-
     tokenized_mct = examples.map(preprocess_function, batched=True)
    
-    print(f"****** [tokenized_mct] {tokenizer}")
-    print(id(tokenizer))
-    print(tokenizer.vocab)
-
     data_collator = DataCollatorForMultipleChoice(tokenizer) #
 
     if args.action == "train":
@@ -421,11 +363,11 @@ def main():
             tmp_eval_accuracy = (preds == label_ids).astype(np.float32).mean().item()
             if tmp_eval_accuracy != 1.0:
                 #set_trace()
-                print(f"****** WRONG ********")
-                print(f"tmp_acc: {tmp_eval_accuracy}")
-                print(f"true: {label_ids}")
+                #print(f"****** WRONG ********")
+                #print(f"tmp_acc: {tmp_eval_accuracy}")
+                #print(f"true: {label_ids}")
                 #print(tokenizer.convert_ids_to_tokens(batch[0][0][int(label_ids)][:-10]))
-                print(f"predicted: {preds}")
+                #print(f"predicted: {preds}")
                 #print(tokenizer.convert_ids_to_tokens(batch[0][0][int(preds)][:-10]))
             #else:
                 #print(f"****** CORRECT ********")
