@@ -140,13 +140,17 @@ def predictions(filepath, property_file, outputfolder, batch_size=16,
     for idx, line in enumerate(data):
         tokens = line["tokens"]
         edgeSet = line["edgeSet"][0]
+        triple = line["triple"]
+        prop = triple[-1]
         if preds_property[idx] != None:
             new_data.append({
                 "tokens": tokens,
                 "edgeSet": {
                     "left": edgeSet["left"],
                     "right": edgeSet["right"],
-                    "property": preds_property[idx]
+                    "property": preds_property[idx],
+                    "triple": triple,
+                    "prediction": prop == preds_property[idx]
                 }
             })
 
