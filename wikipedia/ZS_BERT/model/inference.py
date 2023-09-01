@@ -44,7 +44,7 @@ class WikiDataset(Dataset):
         tokens_tensor = torch.tensor(tokens_ids)
         segments_tensor = torch.tensor([0] * len(tokens_ids),
                                        dtype=torch.long)
-        edge = g["edgeSet"][0]
+        edge = g["edgeSet"]
         marked_e1, marked_e2 = mark_wiki_entity(edge, len(tokens_ids))
 
         return (tokens_tensor, segments_tensor, marked_e1, marked_e2)
@@ -139,9 +139,10 @@ def predictions(filepath, property_file, outputfolder, batch_size=16,
     new_data = []
     for idx, line in enumerate(data):
         tokens = line["tokens"]
-        edgeSet = line["edgeSet"][0]
-        triple = line["triple"]
+        edgeSet = line["edgeSet"]
+        triple = line["edgeSet"]["triple"]
         prop = triple[-1]
+        prediction0 = line["edgeSet"]["prediction"]
         if preds_property[idx] != None:
             new_data.append({
                 "tokens": tokens,
@@ -150,12 +151,14 @@ def predictions(filepath, property_file, outputfolder, batch_size=16,
                     "right": edgeSet["right"],
                     "property": preds_property[idx],
                     "triple": triple,
-                    "prediction": prop == preds_property[idx]
+                    "prediction00": prediction0,
+                    "prediction01": prop == preds_property[idx]
                 }
             })
 
     outputfile = os.path.join(outputfolder, filename)
 
+    # record the results.
     with open(outputfile, "w") as f:
         json.dump(new_data, f)
 
