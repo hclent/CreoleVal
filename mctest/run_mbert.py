@@ -48,7 +48,7 @@ def parse_args():
     parser.add_argument("--device", type=str, default="cuda", choices=["cuda", "cpu"])
 
     #Training
-    parser.add_argument("--action", type=str, default="train", choices=["train", "evaluate"])
+    parser.add_argument("--action", type=str, default="train", choices=["train", "evaluate", "test"])
     parser.add_argument("--seed", type=int, default=12)
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--num_epochs", type=int, default=100)
@@ -308,8 +308,83 @@ def main():
         result = {"eval_loss": eval_loss, "eval_accuracy": eval_accuracy}
         print(result)
     
+    elif args.action == "test":
+
+        model = AutoModelForMultipleChoice.from_pretrained(args.from_checkpoint).to(device) 
+        experiment_sub_dir = f"mbert_lr{args.learning_rate}_wd{args.weight_decay}"
+
+        training_args = TrainingArguments(
+            output_dir=os.path.join(args.output_dir, experiment_sub_dir),   
+            save_strategy="epoch",
+            evaluation_strategy="epoch",
+            learning_rate=args.learning_rate,
+            per_device_train_batch_size=args.batch_size,
+            per_device_eval_batch_size=args.batch_size,
+            num_train_epochs=args.num_epochs,
+            weight_decay=args.weight_decay,
+        )
+
+        trainer = Trainer(
+            model=model,
+            args=training_args,
+            train_dataset=tokenized_mct["train"],
+            eval_dataset=tokenized_mct["test"],
+            #test_dataset=tokenized_mct["test"],
+            tokenizer=tokenizer,
+            data_collator=DataCollatorForMultipleChoice(tokenizer=tokenizer),
+        )
+
+        if device == "cuda":
+            model.cuda()
+
+        # Eval!
+        model.eval()
+
+        test_loss, test_accuracy = 0, 0
+        nb_test_steps, nb_test_examples = 0, 0
+        nb_test_batches = 0 
+
+        preds_list = []
+        true_list = []
+
+        test_dataloader = trainer.get_eval_dataloader() 
+        for batch in tqdm(test_dataloader, desc="Evaluating TEST data"):
+            with torch.no_grad():
+
+                inputs = {
+                    "input_ids": batch["input_ids"].to(args.device),
+                    "attention_mask": batch["attention_mask"].to(args.device),
+                    "token_type_ids": batch["token_type_ids"].to(args.device),
+                    "labels": batch["labels"].to(args.device),
+                }
+
+                outputs = model(**inputs)
+                tmp_test_loss, logits = outputs[:2]
+                test_loss += tmp_test_loss.mean().item()
+
+            logits = logits.detach().cpu().numpy()
+            preds = np.argmax(logits, axis=1)
+            print(f"[test] predictions: {preds}")
+            [preds_list.append(p) for p in preds]
+            label_ids = inputs["labels"].to("cpu").numpy()
+            print(f"[test] labels: {label_ids}")
+            [true_list.append(l) for l in label_ids]
+
+            
+            tmp_test_accuracy = (preds == label_ids).astype(np.float32).mean().item() #BATCH-wise accuracy
+            test_accuracy += tmp_test_accuracy
+            nb_test_steps += 1
+            nb_test_examples += inputs["input_ids"].size(0)
+            nb_test_batches += 1 
+        test_loss = test_loss / nb_test_steps
+        test_accuracy = test_accuracy / nb_test_batches 
+        result = {"test_loss": test_loss, "test_accuracy": test_accuracy}
+        print(result)
+    
+
+
     else:
-        print("* Supported actions are `train` or `evaluate` ")
+        print("* Supported actions are `train` or `evaluate` or `test` ")
 
 
 
