@@ -66,8 +66,6 @@ def parse_args():
 def compute_metrics(eval_pred):
     predictions, labels = eval_pred
     predictions = np.argmax(predictions, axis=1)
-    print(f"[train] predictions: {predictions}")
-    print(f"[train] labels: {labels}")
     return accuracy.compute(predictions=predictions, references=labels)
 
 
@@ -131,7 +129,7 @@ class DataCollatorForMultipleChoice:
         batch = {k: v.view(batch_size, num_choices, -1) for k, v in batch.items()}
         labels_as_ints = [int(l) for l in labels] #make sure these are numbers
         batch["labels"] = torch.tensor(labels_as_ints, dtype=torch.int64)
-        input_ids = batch["input_ids"]
+        input_ids = batch["input_ids"] 
         return batch 
 
 
@@ -207,7 +205,6 @@ def main():
         if device == "cuda":
             model.cuda()
         
-        #set_trace()
         train_result = trainer.train()
         
         writer.close()
@@ -256,16 +253,15 @@ def main():
         preds_list = []
         true_list = []
 
-
         dev_dataloader = trainer.get_eval_dataloader() #use the trainer to get the collated dev data
         for batch in tqdm(dev_dataloader, desc="Evaluating"):
-            batch = tuple(i.to(args.device) for t,i in batch.items())#put on device
             with torch.no_grad():
+
                 inputs = {
-                    "input_ids": batch[0],
-                    "attention_mask": batch[1],
-                    "token_type_ids": batch[2],
-                    "labels": batch[3],
+                    "input_ids": batch["input_ids"].to(args.device),
+                    "attention_mask": batch["attention_mask"].to(args.device),
+                    "token_type_ids": batch["token_type_ids"].to(args.device),
+                    "labels": batch["labels"].to(args.device),
                 }
 
                 outputs = model(**inputs)
@@ -280,7 +276,6 @@ def main():
             print(f"[eval] labels: {label_ids}")
             [true_list.append(l) for l in label_ids]
 
-            #set_trace()
             
             tmp_eval_accuracy = (preds == label_ids).astype(np.float32).mean().item() #BATCH-wise accuracy
             """
