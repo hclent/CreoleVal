@@ -14,8 +14,8 @@ nlp.add_pipe('opentapioca')
 
 
 def main(lang):
+    # TODO : make this operable.
     output_dir = "output"
-    # pattern = f"/Users/yiyichen/Documents/experiments/datasets/wikidumps/text/AA/wiki_{lang}*"
     pattern = f"/Users/yiyichen/Documents/experiments/datasets/wikidumps/{lang}/AA/wiki_*"
     finished = [0, 1, 2, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15, 22, 23, 24, 25, 30, 31]
     # finished = [0, 1, 2, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15, 22, 23, 24, 25, 30, 31, 11, 16, 29, 20, 27]
