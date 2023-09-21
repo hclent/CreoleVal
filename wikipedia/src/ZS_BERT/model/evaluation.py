@@ -2,10 +2,6 @@ import torch
 import numpy as np
 from sklearn.neighbors import NearestNeighbors
 
-
-# from sklearn.metrics import f1_score, precision_recall_fscore_support
-# from sklearn.metrics import precision_score, recall_score, f1_score
-
 def compute_macro_PRF(predicted_idx, gold_idx, i=-1, empty_label=None):
     '''
     This evaluation function follows work from Sorokin and Gurevych(https://www.aclweb.org/anthology/D17-1188.pdf)

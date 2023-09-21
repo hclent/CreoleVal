@@ -2,17 +2,14 @@ import json
 import random
 import data_helper
 import numpy as np
-import pandas as pd
 import os
 
 from model import ZSBert
 from tqdm import tqdm
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from evaluation import extract_relation_emb, evaluate
-from transformers import BertModel, BertConfig, BertPreTrainedModel, BertTokenizer
+from transformers import BertConfig
 from termcolor import cprint
 
 from argparse import ArgumentParser
@@ -26,15 +23,16 @@ parser.add_argument("-b", "--batch_size", type=int, default=4, dest="batch_size"
 parser.add_argument("-e", "--epochs", type=int, default=10, dest="epochs")
 parser.add_argument("-t", "--transformer", type=str, default="bert-base-multilingual-cased", dest="transformer")
 parser.add_argument("-se", "--sentence_embedder", type=str, default="bert-base-nli-mean-tokens", dest="se")
-parser.add_argument("-re", "--relation_emb", type=int, default=1024, dest="relation_emb")
+parser.add_argument("-re", "--relation_emb", type=int, default=768, dest="relation_emb")
 
 args = parser.parse_args()
 # set randam seed, this affects the data spliting.
 random.seed(args.seed) 
+print(os.getcwd())
+train_set = '../../../data/ukp/wiki_all.json'
 
-train_set = '../data/wiki_1k.json'
-
-m_data_folder = os.path.join("../data", f"m{args.m}")
+# data file path. data/ukp
+m_data_folder = os.path.join("../../../data/ukp", f"m{args.m}")
 train_data_file = os.path.join(m_data_folder, "train.json")
 test_data_file = os.path.join(m_data_folder, "test.json")
 idx2property_file = os.path.join(m_data_folder, "idx2property.json")
@@ -64,7 +62,7 @@ else:
     train_label = list(i['edgeSet'][0]['kbID'] for i in training_data)
     test_label = list(i['edgeSet'][0]['kbID'] for i in test_data)
 
-    property2idx, idx2property, pid2vec = data_helper.get_pid2vec(args.se,idx2property_file)
+    property2idx, idx2property, pid2vec = data_helper.get_pid2vec(args.se, idx2property_file)
 
 
 print('there are {} kinds of relation in train.'.format(len(set(train_label))))
@@ -115,7 +113,7 @@ testloader = DataLoader(testset, batch_size=256,
                         collate_fn=data_helper.create_mini_batch)
 
 
-data_folder = f"../data/m{args.m}"
+data_folder = f"../../../data/ukp/m{args.m}"
 if not os.path.exists(data_folder):
     os.mkdir(data_folder)
 with open(os.path.join(data_folder, "train.json"), "w") as f:
@@ -174,5 +172,5 @@ for epoch in range(args.epochs):
         best_p = pt
         best_r = rt
         best_f1 = f1t
-        torch.save(model, f'best_f1_{best_f1}_wiki_epoch_{epoch}_m_{args.m}_alpha_{args.alpha}_gamma_{args.gamma}')
+        torch.save(model, f'../../../model/best_f1_{best_f1}_wiki_epoch_{epoch}_m_{args.m}_alpha_{args.alpha}_gamma_{args.gamma}')
     print(f'[best val] precision: {best_p:.4f}, recall: {best_r:.4f}, f1 score: {best_f1:.4f}')

@@ -14,10 +14,12 @@ from transformers import BertTokenizer
 from sentence_transformers import SentenceTransformer
 
 from sklearn.neighbors import NearestNeighbors
+from sklearn.metrics import classification_report
 
 sentence_embedder = 'bert-base-nli-mean-tokens'
 prop_list_path = '../resources/property_list.html'
 
+torch.manual_seed(42)
 
 def mark_wiki_entity(edge, sent_len):
     e1 = edge['left']
@@ -75,8 +77,9 @@ def create_mini_batch(samples):
     return tokens_tensors, segments_tensors, marked_e1, marked_e2, masks_tensors
 
 
-def predictions(filepath, property_file, outputfolder, batch_size=16,
-                model_path="best_f1_0.7081677743338072_wiki_epoch_4_m_5_alpha_0.4_gamma_7.5"):
+def predictions(filepath, property_file, model_path="../../../model/best_f1_0.7081677743338072_wiki_epoch_4_m_5_alpha_0.4_gamma_7.5",
+                outputfolder="../../../output", batch_size=16,
+                ):
     # from json file ../data/ent_extraction/..json
     with open(filepath) as f:
         data = json.load(f)
@@ -137,12 +140,13 @@ def predictions(filepath, property_file, outputfolder, batch_size=16,
     filename = os.path.basename(filepath)
     assert len(data) == len(preds_property)
     new_data = []
+    golds = []
+    preds = []
     for idx, line in enumerate(data):
         tokens = line["tokens"]
         edgeSet = line["edgeSet"]
         triple = line["edgeSet"]["triple"]
         prop = triple[-1]
-        prediction0 = line["edgeSet"]["prediction"]
         if preds_property[idx] != None:
             new_data.append({
                 "tokens": tokens,
@@ -151,17 +155,21 @@ def predictions(filepath, property_file, outputfolder, batch_size=16,
                     "right": edgeSet["right"],
                     "property": preds_property[idx],
                     "triple": triple,
-                    "prediction00": prediction0,
-                    "prediction01": prop == preds_property[idx]
+                    "prediction": prop == preds_property[idx]
                 }
             })
+            golds.append(prop)
+            preds.append(preds_property[idx])
 
     outputfile = os.path.join(outputfolder, filename)
-
+    print(f"writing the predictions to file {outputfile}")
     # record the results.
     with open(outputfile, "w") as f:
         json.dump(new_data, f)
 
+    # show the evaluation.
+    results = classification_report(golds, preds)
+    print(results)
 
 if __name__ == '__main__':
     plac.call(predictions)
