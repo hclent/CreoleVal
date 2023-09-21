@@ -3,8 +3,9 @@ http://research.microsoft.com/mct
 
 --------------------------------------
 NOTE BY CREOLEVAL AUTHORS:
-This folder is the original MCTest data, as obtained from the authors. 
-We have added our "CreoleTranslations" folder, which contains our translations of the mc160.dev.txt files.
+This folder is the original MCTest data, as obtained from the original MCTest authors. 
+We have added our "CreoleTranslations" folder, which contains our translations of the mc160.dev.txt files, before we convert them into json files with `../preproc.py`.
+We had Mc160.dev.txt translated into Mauritian Creole and  Haitian Creole; for Haitian Creole, we have both a direct and localized translation. 
 IMPORTANTLY!!! Our translators identified an error in the original MC160.dev.17 story:  
 In this story, question 3, the correct answer is B, but the text incorrectly says "pink" flowers, instead of "yellow" flowers. 
 Our Creole translations have been fixed to say "yellow" flowers, and in this directory, we fix the English, as well. 
