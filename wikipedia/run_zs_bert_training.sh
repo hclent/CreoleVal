@@ -9,6 +9,18 @@ conda activate re
 
 #pip install -r requirements.txt
 
+if [! -d data/ukp]; then
+  mkdir -p data/ukp;
+fi
+
+if [! -d output]; then
+  mkdir -p output;
+if
+
+
+if [! -d model]; then
+  mkdir -p model;
+fi
 
 # download ukp data
 UKP="data/ukp/wiki_all.json"
