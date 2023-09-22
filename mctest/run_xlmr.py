@@ -44,7 +44,7 @@ def parse_args():
     parser.add_argument("--device", type=str, default="cuda", choices=["cuda", "cpu"])
 
     #Training
-    parser.add_argument("--action", type=str, default="train", choices=["train", "evaluate"])
+    parser.add_argument("--action", type=str, default="train", choices=["train", "evaluate", "test"])
     parser.add_argument("--seed", type=int, default=12)
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--num_epochs", type=int, default=100)
@@ -206,8 +206,6 @@ def main():
         model = AutoModelForMultipleChoice.from_pretrained(args.from_checkpoint).to(device) 
 
         experiment_sub_dir = f"xlmr_lr{args.learning_rate}_wd{args.weight_decay}"
-        #writer = SummaryWriter(os.path.join(args.tb_dir, experiment_sub_dir))
-        #callback = TensorBoardCallback(writer)
 
         training_args = TrainingArguments(
             output_dir=os.path.join(args.output_dir, experiment_sub_dir),   
@@ -294,7 +292,75 @@ def main():
         eval_accuracy = eval_accuracy / nb_eval_steps
         result = {"eval_loss": eval_loss, "eval_accuracy": eval_accuracy}
         print(result)
-    
+   
+    elif args.action == "test":
+        model = AutoModelForMultipleChoice.from_pretrained(args.from_checkpoint).to(device)
+
+        experiment_sub_dir = f"xlmr_lr{args.learning_rate}_wd{args.weight_decay}"
+
+        training_args = TrainingArguments(
+            output_dir=os.path.join(args.output_dir, experiment_sub_dir),   
+            save_strategy="epoch",
+            evaluation_strategy="epoch",
+            learning_rate=args.learning_rate,
+            per_device_train_batch_size=args.batch_size,
+            per_device_eval_batch_size=args.batch_size,
+            num_train_epochs=args.num_epochs,
+            weight_decay=args.weight_decay,
+        )
+
+        trainer = Trainer(
+            model=model,
+            args=training_args,
+            train_dataset=tokenized_mct["train"],
+            eval_dataset=tokenized_mct["test"],
+            tokenizer=tokenizer,
+            data_collator=DataCollatorForMultipleChoice(tokenizer=tokenizer),
+            #callbacks=[callback]
+        )
+
+        if device == "cuda":
+            model.cuda()
+
+        # Eval!
+        model.eval()
+
+        eval_loss, eval_accuracy = 0, 0
+        nb_eval_steps, nb_eval_examples = 0, 0
+
+        dev_dataloader = trainer.get_eval_dataloader() #use the trainer to get the collated dev data
+        for batch in tqdm(dev_dataloader, desc="Evaluating"):
+            #set_trace()
+            #batch = tuple(i.to(args.device) for t,i in batch.items())#put on device
+            with torch.no_grad():
+                inputs = {
+                        "input_ids": batch["input_ids"].to(args.device),
+                        "attention_mask": batch["attention_mask"].to(args.device),
+                        "labels": batch["labels"].to(args.device),
+                        }
+                
+                outputs = model(**inputs)
+                tmp_eval_loss, logits = outputs[:2]
+                eval_loss += tmp_eval_loss.mean().item()
+
+            logits = logits.detach().cpu().numpy()
+            #print(logits)
+            preds = np.argmax(logits, axis=1)
+            print(f"[test] predictions: {preds}")
+            #print(preds)
+            label_ids = inputs["labels"].to("cpu").numpy()
+            print(f"[test] labels: {label_ids}")
+            #print(label_ids)
+            tmp_eval_accuracy = (preds == label_ids).astype(np.float32).mean().item()
+
+            eval_accuracy += tmp_eval_accuracy
+            nb_eval_steps += 1 #number of batches
+            nb_eval_examples += inputs["input_ids"].size(0)
+
+        eval_loss = eval_loss / nb_eval_steps
+        eval_accuracy = eval_accuracy / nb_eval_steps
+        result = {"test data loss": eval_loss, "test data accuracy": eval_accuracy}
+        print(result)
     else:
         print("* Supported actions are `train` or `evaluate` ")
 
