@@ -2,7 +2,8 @@
 
 LANG=$1
 
-MODEL_PATH=../../../model/best_f1_0.7081677743338072_wiki_epoch_4_m_5_alpha_0.4_gamma_7.5
+MODEL_PATH=$2
+# "../../../model/best_f1_0.7081677743338072_wiki_epoch_4_m_5_alpha_0.4_gamma_7.5"
 
 conda activate re
 
