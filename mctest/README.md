@@ -1,23 +1,41 @@
-## MCTest for Mauritian Creole & Haitian Kreyòl
+# MCTest for Mauritian Creole & Haitian Kreyòl
 
-#### Original dataset
+This folder contains our new **machine comprehension dataset** as well as
+**scripts** to run experiments on it.
 
-Take a look at `./MCTest` for the original dataset, information from the original authors, and Creole translations.
+## Dataset
 
-#### Translation
+The dataset is based on [MCTest](https://aclanthology.org/D13-1020/). The
+[`MCTest`](MCTest) folder has the original dataset and information from the
+original authors.
 
-MC160 **.dev** set has been translated into Marutian Creole and Haitian Creole, by professional translators.
-This consists of 30 stores pertaining to a total of 120 questions (4 multiple choice questions per story).
-Notably, we have **2** distinct translations for Haitian:
-The `MCTestHat1/mc160.dev.json` is a direct translation, matching the English. 
-The `MCTestHat2/mc160.dev.json` is a localized translation, with names, places, and activities adjusted to be more relevant to Haitian people.
+_Important note:_ Our translators identified an error with the original English
+`mc160.dev.17` story: namely, in question 3, the correct answer (B) incorrectly
+says "pink" flowers rather than "yellow" flowers.  We have fixed the English
+version, included in this repo, and our translations have also been corrected to
+reflect the text of the original story.
 
-See `./MCTest/CreoleTranslations` for the original `.txt` translations and the `.tsv` file formats as well. 
+### Translations
 
-An **important note**: our translators identified an error with the original English mc160.dev.17 story: namely, in question 3, the correct answer (B) incorrectly says "pink" flowers rather than "yellow" flowers.
-We have fixed the English version, included in this repo, and our translations have also been correct to reflect the text of the original story.
+**`MC160.dev`** set has been translated into Marutian Creole and Haitian Creole
+by professional translators.  This consists of 30 stories pertaining to a total
+of 120 questions (4 multiple choice questions per story).
 
-**NB: Once this data has been uploaded to the MIT-Ayiti website, we will remove it from the Github, and instead provide a download script to fetch it from the MIT-Ayiti platform**
+Notably, we have **two** distinct translations for Haitian:
+- `MCTestHat1/mc160.dev.json` is a direct translation, matching the English.
+- `MCTestHat2/mc160.dev.json` is a localized translation, with names, places,
+  and activities adjusted to be more relevant to Haitian people.
+
+See [`MCTest/CreoleTranslations`](MCTest/CreoleTranslations) for the original
+`.txt` translations and the `.tsv` file formats as well.
+
+**NB: Once this data has been uploaded to the MIT-Ayiti website, we will remove
+it from the Github, and instead provide a download script to fetch it from the
+MIT-Ayiti platform**
+
+
+
+- - -
 
 #### Data Preprocessing
 First, we convert the translated `.txt` files into `.tsv` to match the original English `.tsv` files (see `./MCTest/CreoleTranslations`). 
