@@ -3,7 +3,6 @@ from pudb import set_trace
 import os, csv, json
 import random
 import numpy as np
-from models import MyBertForMultipleChoice
 import transformers
 from transformers import AutoTokenizer, EarlyStoppingCallback
 from datasets import Dataset, DatasetDict, load_dataset
