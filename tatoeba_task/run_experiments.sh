@@ -26,7 +26,7 @@ done
 echo ""
 
 # carry out experiments
-for MODEL in ${MODELS[@]}
+for MODEL in "${MODELS[@]}"
 do
 	echo "$MODEL"
 	echo ""
