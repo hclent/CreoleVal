@@ -16,6 +16,7 @@ https://object.pouta.csc.fi/Tatoeba-Challenge-v2021-08-07/eng-sag.tar
 https://object.pouta.csc.fi/Tatoeba-Challenge-v2021-08-07/eng-tpi.tar
 https://object.pouta.csc.fi/Tatoeba-Challenge-v2021-08-07/fra-hat.tar
 https://object.pouta.csc.fi/Tatoeba-Challenge-v2021-08-07/fra-gcf.tar
+https://object.pouta.csc.fi/Tatoeba-Challenge-v2023-09-26/cbk-spa.tar
 https://github.com/Helsinki-NLP/Tatoeba-Challenge/raw/master/data/devtest/deu-eng/test-v2021-03-10.txt
 https://github.com/Helsinki-NLP/Tatoeba-Challenge/raw/master/data/devtest/eng-fra/test-v2021-07-22.txt
 https://github.com/Helsinki-NLP/Tatoeba-Challenge/raw/master/data/devtest/eng-nor/test-v2020-05-31.txt

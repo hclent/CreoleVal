@@ -8,7 +8,7 @@ Accuracy scores are out of a 100.
 
 * Create a virtual environment and install necessary dependencies (see [Section Dependencies](#dependencies)).
 * Run the `run_experiments.sh` bash script, which downloads and processes all the necessary Creole datasets from the [Tatoeba Challenge](https://github.com/Helsinki-NLP/Tatoeba-Challenge/blob/master/data/README.md) repository, and carries out the sentence pair retrieval task for 3 default models: `bert-base-multilingual-cased`, `xlm-roberta-base`, `google/mt5-base`, and `random` (for random baseline).
-* Run the `plot_distributions.py` script with the input folder `./data/` and output folder `./plots/` as arguments.
+* Run the `plot_distributions.py` script with the input folder `./data/` and output folder `./plots/length` as arguments.
 * Run the `create_tables.py` script with the input folder `./experiments/` as an argument.
 
 ## Dependencies
