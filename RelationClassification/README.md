@@ -157,7 +157,9 @@ ID: _LABEL_, Description
 * __P2936__ : _language used_,	language widely used (spoken or written) in this place or at this event
 * __P361__ : _part of_,	object of which the subject is a part (if this subject is already part of object A which is a part of object B, then please only make the subject part of object A). Inverse property of "has part" (P527, see also "has parts of the class" (P2670)).
 
+Note that of these 13 Properties, 4 have no samples in the English Wiki-SZL train dataset: P1376, P2341, P2936, and P361. 
 
+For further details on the distribution of these Properties across the Creole datasets, please see the [relation classification analysis]() 
 
 [//]: # ()
 [//]: # (- selected `data/relation_extraction/selected`)
@@ -170,5 +172,4 @@ ID: _LABEL_, Description
 [//]: # (` python inference.py ../../data/relation_extraction/selected/tpi.json ../../data/relation_extraction/selected/properties/tpi.json ../output/01`)
 
 [//]: # ()
-
 
