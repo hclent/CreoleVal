@@ -34,3 +34,21 @@ We give the number of lines, and number of words on the source (Creole) and targ
 | **bis-eng** | Bislama                        | English             | 488,393   |      10,751,097 |       7,903,431 |
 | **srn-eng** | Sranan Tongo                   | English             | 583,746   |      13,450,377 |       9,911,997 |
 | **Total**   | -                              | -                   | 3,410,975 |      71,329,629 |      56,314,322 | 
+
+#### Results
+
+BLEU results for Creole to English translation. 
+
+![bleu-c2e-xxen](images/xxenbleu.png)
+
+chrF results for Creole to English translation.
+
+![chrF-c2e-xxen](images/xxenchrf.png)
+
+BLEU results for Creole to English translation. 
+
+![bleu-c2e-enxx](images/enxxbleu.png)
+
+chrF results for Creole to English translation.
+
+![chrF-c2e-enxx](images/enxxchrf.png)
