@@ -11,14 +11,14 @@ Here is the distribution of the Properties present within our data:
 
 Notably, P1376, P2341, P2936, and P361 have no training samples in the English UKP dataset, and thus are "Unseen".
 
-| Language | #Properties | #Unseen | #Train  | #Eval Samples | 
-|:---------|:------------|:--------|:-------:|--------------:|
-| bi       | 7           | 1       |    -    |            97 | 
-| cbk-zam  | 6           | 2       |    -    |            97 | 
-| jam      | 12          | 3       |    -    |            97 | 
-| phi      | 8           | 3       | -       |            97 | 
-| tpi      | 7           | 2       |    -    |            97 |
-| en (UKP) | 108         | -       |  89007  |          4476 | 
+| Language      | #Properties | #Unseen | #Train  | #Eval Samples | 
+|:--------------|:------------|:--------|:-------:|--------------:|
+| bi            | 7           | 1       |    -    |            97 | 
+| cbk-zam       | 6           | 2       |    -    |            97 | 
+| jam           | 12          | 3       |    -    |            97 | 
+| phi           | 8           | 3       | -       |            97 | 
+| tpi           | 7           | 2       |    -    |            97 |
+| en (UKP, m=5) | 108         | -       |  89007  |          4476 | 
 
 
 #### Performance across Properties
