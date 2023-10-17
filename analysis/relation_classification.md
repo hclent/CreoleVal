@@ -1,6 +1,6 @@
 ## Relation Classification
 
-Here, we present statistics on our introduced datasets, additional details about our training setup, 
+Here, we document our methodology for dataset creation, provide statistics on these datasets, and discuss additional details about our training setup, 
 and analysis of our results over the Creoles.
 
 #### Dataset creation 
@@ -52,6 +52,7 @@ Properties, which the model has already seen. Thus the unseen Properties (P1376,
 of the lowest F1 scores.
 
 ![properties](images/macro_f1_property.png)
+
 (**NOTE**: These results were taken from just *one* of our trained models.)
 
 #### Baseline Performance on English
