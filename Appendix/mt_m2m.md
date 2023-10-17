@@ -35,6 +35,24 @@ We give the number of lines, and number of words on the source (Creole) and targ
 | **srn-eng** | Sranan Tongo                   | English             | 583,746   |      13,450,377 |       9,911,997 |
 | **Total**   | -                              | -                   | 3,410,975 |      71,329,629 |      56,314,322 | 
 
+
+#### Experiment Hyperparameters
+
+Hyperparameter settings for the models trained from scratch and fine-tuning (mBART-50-MT).
+
+| Hyperparameter  | Scratch | mBART-50-MT   | 
+|:----------------|:--------|:--------------|
+| # of layers     | 6       | 12            |
+| Hidden Size     | 512     | 1024          |
+| FFN Hidden Size | 2048    | 4096          |
+| Attention Heads | 8       | 16            |
+| Dropout         | 0.1     | 0.3           |
+| Label Smoothing | 0.1     | 0.1           |
+| Learning Rate   | 1e-3    | 3e-5          |
+| Warmup Steps    | 16,000  | 2,500         |
+| Weight Decay    | 1e-5    | 1e-5          |
+| Batch Size      | 8192    | 2048          |
+
 #### Results
 
 BLEU results for Creole to English translation. 
