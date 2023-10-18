@@ -67,39 +67,6 @@ def get_pid2vec(sentence_embedder, idx2property_file, prop_list_path):
     return property2idx, idx2property, pid2vec
 
 
-# def generate_attribute(train_label, test_label, sentence_embedder='bert-large-nli-mean-tokens', att_dim=1024,
-#                        prop_list_path='/home/nlp/ZL/TEST/Creole-NLU-NLG-Suite-wiki/wikipedia/ZS_BERT/resources/property_list.html'):
-#     from sentence_transformers import SentenceTransformer
-#     property2idx = {}
-#     idx2property = {}
-#     idx = 0
-#     for i in set(train_label):
-#         property2idx[i] = idx
-#         idx2property[idx] = i
-#         idx += 1
-#     for i in set(test_label):
-#         property2idx[i] = idx
-#         idx2property[idx] = i
-#         idx += 1
-
-#     prop_list = pd.read_html(prop_list_path, flavor="html5lib")[0]
-#     prop_list = prop_list.loc[prop_list.ID.isin(property2idx.keys())]
-#     encoder = SentenceTransformer(sentence_embedder)
-#     sentence_embeddings = encoder.encode(prop_list.description.to_list())
-
-#     # if att_dim < 768:
-#     #     from sklearn.decomposition import TruncatedSVD
-#     #     print(f'att_dim={att_dim}')
-#     #     svd = TruncatedSVD(n_components=att_dim, n_iter=10, random_state=42)
-#     #     sentence_embeddings = svd.fit_transform(sentence_embeddings)
-#     #     print(f'size of sentence_embeddings: {sentence_embeddings.shape}')
-
-#     print(f'size of sentence_embeddings: {sentence_embeddings.shape}')
-#     pid2vec = {}
-#     for pid, embedding in zip(prop_list.ID, sentence_embeddings):
-#         pid2vec[pid] = embedding.astype('float32')
-#     return property2idx, idx2property, pid2vec
-
 
 def generate_attribute(train_label, test_label, Creole_label,
                        sentence_embedder='bert-large-nli-mean-tokens', att_dim=1024,
