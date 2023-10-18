@@ -17,8 +17,8 @@ from transformers import AutoModel, AutoTokenizer
 from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics import f1_score, precision_score, recall_score
 
-# sentence_embedder = 'bert-base-nli-mean-tokens'
-prop_list_path = '/ceph/hpc/home/euliz/LiZhou/CreoleRE/ZS_BERT/resources/property_list.html'
+
+prop_list_path = './relation_classification/ZS_BERT/resources/property_list.html'
 
 
 def mark_wiki_entity(edge, sent_len):
@@ -97,7 +97,7 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
 
     # load property list
     prop_list = pd.read_html(prop_list_path, flavor="html5lib")[0]
-    prop_list = prop_list[prop_list["ID"].isin(properties)]# 关系ID，关系label，关系描述，关系别名
+    prop_list = prop_list[prop_list["ID"].isin(properties)]
     print(len(prop_list))
     print(prop_list.head(2))
 
@@ -109,22 +109,17 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
     id2property = {idx: prop for idx, prop in enumerate(prop_list["ID"].tolist())}
     property2id = {prop: idx for idx, prop in id2property.items()}
     
-    # input_description = prop_list.description.to_list()
-    # encoded_input = tokenizer(input_description, padding=True, truncation=True, return_tensors='pt')
-    # with torch.no_grad():
-    #     model_output = encoder(**encoded_input)
-    # sentence_embeddings = mean_pooling(model_output, encoded_input['attention_mask'])
 
     golden_rel = [property2id[d["edgeSet"]["triple"][-1]] for d in data]
-    sentence_embeddings = encoder.encode(prop_list.description.to_list()) # 获取每个关系的描述表征
+    sentence_embeddings = encoder.encode(prop_list.description.to_list()) 
 
     pid2vec = {}
     for pid, embedding in zip(prop_list.ID, sentence_embeddings):
-        pid2vec[pid] = embedding.astype('float32')# 获取每个关系的表征
-        # pid2vec[pid] = embedding.numpy().astype('float32')# 获取每个关系的表征
+        pid2vec[pid] = embedding.astype('float32')
+        # pid2vec[pid] = embedding.numpy().astype('float32')
 
     print(f"loading wikidataset...")
-    dataset = WikiDataset(data,tokenizer=tokenizer)# 定义了mbert
+    dataset = WikiDataset(data,tokenizer=tokenizer)
     dataloader = DataLoader(dataset, batch_size=batch_size, collate_fn=create_mini_batch)
 
     print(f"loading model from {model_path}")
@@ -166,7 +161,7 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
         edgeSet = line["edgeSet"]
         triple = line["edgeSet"]["triple"]
         prop = triple[-1]
-        prediction0 = line["edgeSet"]["prediction"]# 这是啥？
+        prediction0 = line["edgeSet"]["prediction"]
         if preds_property[idx] != None:
             new_data.append({
                 "tokens": tokens,
