@@ -63,10 +63,10 @@ chrF results for Creole to English translation.
 
 ![chrF-c2e-xxen](images/xxenchrf.png)
 
-BLEU results for Creole to English translation. 
+BLEU results for English to Creole translation. 
 
 ![bleu-c2e-enxx](images/enxxbleu.png)
 
-chrF results for Creole to English translation.
+chrF results for English to Creole translation.
 
 ![chrF-c2e-enxx](images/enxxchrf.png)
