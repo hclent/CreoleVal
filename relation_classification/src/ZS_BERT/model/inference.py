@@ -12,14 +12,14 @@ from torch.utils.data import DataLoader
 from torch.nn.utils.rnn import pad_sequence
 from transformers import BertTokenizer
 from sentence_transformers import SentenceTransformer
+from transformers import AutoModel, AutoTokenizer
 
 from sklearn.neighbors import NearestNeighbors
-from sklearn.metrics import classification_report
+from sklearn.metrics import f1_score, precision_score, recall_score
 
-sentence_embedder = 'bert-base-nli-mean-tokens'
-prop_list_path = '../resources/property_list.html'
 
-torch.manual_seed(42)
+prop_list_path = './relation_classification/ZS_BERT/resources/property_list.html'
+
 
 def mark_wiki_entity(edge, sent_len):
     e1 = edge['left']
@@ -30,13 +30,20 @@ def mark_wiki_entity(edge, sent_len):
     marked_e2[e2] += 1
     return torch.tensor(marked_e1, dtype=torch.long), torch.tensor(marked_e2, dtype=torch.long)
 
+def mean_pooling(model_output, attention_mask):
+    token_embeddings = model_output[0] #First element of model_output contains all token embeddings
+    input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+    return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+
+
 
 class WikiDataset(Dataset):
-    def __init__(self, data, tokenizer="bert-base-multilingual-cased"):
+    def __init__(self, data, tokenizer):
         self.data = data
         self.len = len(self.data)
-        self.tokenizer = BertTokenizer.from_pretrained(
-            tokenizer, do_lower_case=False)
+        # self.tokenizer = BertTokenizer.from_pretrained(
+        #     tokenizer, do_lower_case=False)
+        self.tokenizer = AutoTokenizer.from_pretrained(tokenizer, do_lower_case=False)
 
     def __getitem__(self, idx):
         g = self.data[idx]
@@ -77,15 +84,16 @@ def create_mini_batch(samples):
     return tokens_tensors, segments_tensors, marked_e1, marked_e2, masks_tensors
 
 
-def predictions(filepath, property_file, model_path="../../../model/best_f1_0.7081677743338072_wiki_epoch_4_m_5_alpha_0.4_gamma_7.5",
-                outputfolder="../../../output", batch_size=16,
+def predictions(filepath, property_file, outputfolder, sentence_embedder, tokenizer, model_path, batch_size=16,
                 ):
     # from json file ../data/ent_extraction/..json
     with open(filepath) as f:
-        data = json.load(f)
+        data = json.load(f)#
 
     with open(property_file) as f:
         properties = json.load(f)
+    # encoder = AutoModel.from_pretrained(sentence_embedder)
+    # tokenizer = AutoTokenizer.from_pretrained(sentence_embedder)
 
     # load property list
     prop_list = pd.read_html(prop_list_path, flavor="html5lib")[0]
@@ -93,20 +101,25 @@ def predictions(filepath, property_file, model_path="../../../model/best_f1_0.70
     print(len(prop_list))
     print(prop_list.head(2))
 
-    prop_list.dropna(subset="description", inplace=True)
+    prop_list.dropna(subset=["description"], inplace=True)
     print("length of property list :", len(prop_list))
 
     encoder = SentenceTransformer(sentence_embedder)
+    
     id2property = {idx: prop for idx, prop in enumerate(prop_list["ID"].tolist())}
+    property2id = {prop: idx for idx, prop in id2property.items()}
+    
 
-    sentence_embeddings = encoder.encode(prop_list.description.to_list())
+    golden_rel = [property2id[d["edgeSet"]["triple"][-1]] for d in data]
+    sentence_embeddings = encoder.encode(prop_list.description.to_list()) 
 
     pid2vec = {}
     for pid, embedding in zip(prop_list.ID, sentence_embeddings):
         pid2vec[pid] = embedding.astype('float32')
+        # pid2vec[pid] = embedding.numpy().astype('float32')
 
     print(f"loading wikidataset...")
-    dataset = WikiDataset(data)
+    dataset = WikiDataset(data,tokenizer=tokenizer)
     dataloader = DataLoader(dataset, batch_size=batch_size, collate_fn=create_mini_batch)
 
     print(f"loading model from {model_path}")
@@ -116,6 +129,8 @@ def predictions(filepath, property_file, model_path="../../../model/best_f1_0.70
 
     attr = list(pid2vec.values())
     attr = np.array(attr)
+    # golden_rel =[]
+    pred_rel = []
 
     preds_property = []
     for sample in dataloader:
@@ -134,19 +149,19 @@ def predictions(filepath, property_file, model_path="../../../model/best_f1_0.70
                 predictions = tree.kneighbors(out_relation_emb, 1, return_distance=False).flatten()
                 print(predictions)
                 preds_property += [id2property[i] for i in predictions]
+                pred_rel.extend(predictions)
         except Exception:
             preds_property += [None for _ in range(batch_size)]
 
     filename = os.path.basename(filepath)
     assert len(data) == len(preds_property)
     new_data = []
-    golds = []
-    preds = []
     for idx, line in enumerate(data):
         tokens = line["tokens"]
         edgeSet = line["edgeSet"]
         triple = line["edgeSet"]["triple"]
         prop = triple[-1]
+        prediction0 = line["edgeSet"]["prediction"]
         if preds_property[idx] != None:
             new_data.append({
                 "tokens": tokens,
@@ -155,21 +170,23 @@ def predictions(filepath, property_file, model_path="../../../model/best_f1_0.70
                     "right": edgeSet["right"],
                     "property": preds_property[idx],
                     "triple": triple,
-                    "prediction": prop == preds_property[idx]
+                    "prediction00": prediction0,
+                    "prediction01": prop == preds_property[idx]
                 }
             })
-            golds.append(prop)
-            preds.append(preds_property[idx])
 
     outputfile = os.path.join(outputfolder, filename)
-    print(f"writing the predictions to file {outputfile}")
+    print("pre:{}".format(precision_score(golden_rel, pred_rel, average='macro')))
+    print("recall:{}".format(recall_score(golden_rel, pred_rel, average='macro')))
+    print("f1:{}".format(f1_score(golden_rel, pred_rel, average='macro')))
+
+
+
+
     # record the results.
     with open(outputfile, "w") as f:
         json.dump(new_data, f)
 
-    # show the evaluation.
-    results = classification_report(golds, preds)
-    print(results)
 
 if __name__ == '__main__':
     plac.call(predictions)

@@ -2,67 +2,62 @@ import json
 import random
 import data_helper
 import numpy as np
+import pandas as pd
 import os
 
 from model import ZSBert
 from tqdm import tqdm
 import torch
+import torch.nn as nn
+import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from evaluation import extract_relation_emb, evaluate
-from transformers import BertConfig
+from transformers import BertModel, BertConfig, BertPreTrainedModel, BertTokenizer
 from termcolor import cprint
+from tqdm import tqdm
+from sklearn.metrics import precision_recall_fscore_support
+from transformers import AutoTokenizer, AutoModelForMaskedLM, AutoConfig
 
 from argparse import ArgumentParser
 parser = ArgumentParser()
 parser.add_argument("-s", "--seed", help="random seed", type=int, default=300, dest="seed")
-parser.add_argument("-m", "--n_unseen", help="number of unseen classes", type=int, default=10, dest="m")
+# parser.add_argument("-m", "--n_unseen", help="number of unseen classes", type=int, default=10, dest="m")
 parser.add_argument("-g", "--gamma", help="margin factor gamma", type=float, default=7.5, dest="gamma")
 parser.add_argument("-a", "--alpha", help="balance coefficient alpha", type=float, default=0.4, dest="alpha")
 parser.add_argument("-d", "--dist_func", help="distance computing function", type=str, default='inner', dest="dist_func")
 parser.add_argument("-b", "--batch_size", type=int, default=4, dest="batch_size")
 parser.add_argument("-e", "--epochs", type=int, default=10, dest="epochs")
-parser.add_argument("-t", "--transformer", type=str, default="bert-base-multilingual-cased", dest="transformer")
+parser.add_argument("-t", "--transformer", type=str, default="bert-base-multilingual-cased", dest="t")
 parser.add_argument("-se", "--sentence_embedder", type=str, default="bert-base-nli-mean-tokens", dest="se")
-parser.add_argument("-re", "--relation_emb", type=int, default=768, dest="relation_emb")
+parser.add_argument("-re", "--relation_emb", type=int, default=1024, dest="relation_emb")
+parser.add_argument("-cr", "--Creole", nargs="*", default=None, help="Creole list",dest="cr")
+parser.add_argument("--Wiki_ZSL_data", type=str, default=None, help="Wiki-ZSL data file")
+parser.add_argument("--Creole_data", type=str, default=None, help="Creole RE data file")
+parser.add_argument("--model_saves", type=str, default=None, help="model save dir")
+parser.add_argument("--prop_list_path", type=str, default=None, help="model save dir")
 
 args = parser.parse_args()
 # set randam seed, this affects the data spliting.
-random.seed(args.seed) 
-print(os.getcwd())
-train_set = '../../../data/ukp/wiki_all.json'
+random.seed(args.seed)
+np.random.seed(args.seed)
+torch.manual_seed(args.seed)
 
-# data file path. data/ukp
-m_data_folder = os.path.join("../../../data/ukp", f"m{args.m}")
-train_data_file = os.path.join(m_data_folder, "train.json")
-test_data_file = os.path.join(m_data_folder, "test.json")
-idx2property_file = os.path.join(m_data_folder, "idx2property.json")
 
-if not os.path.exists(train_data_file):
-    cprint(f"creating data from {train_set}", "red")
-    training_data, _ = data_helper.load_data(train_set, load_vertices=True)
-    train_label = list(i['edgeSet'][0]['kbID'] for i in training_data)
 
-    pid, count = np.unique(train_label, return_counts=True)
-    pid2cnt = dict(zip(pid, count))
+train_data_file = os.path.join(args.Wiki_ZSL_data, "train.json")
+test_data_file = os.path.join(args.Wiki_ZSL_data, "test.json")
+idx2property_file = os.path.join(args.Wiki_ZSL_data, "idx2property.json")
 
-    test_relation = random.sample(list(pid2cnt), k=args.m)
-    training_data, test_data = data_helper.split_wiki_data(training_data, test_relation)
-    print('train size: {}, test size: {}'.format(len(training_data), len(test_data)))
 
-    train_label = list(i['edgeSet'][0]['kbID'] for i in training_data)
-    test_label = list(i['edgeSet'][0]['kbID'] for i in test_data)
-    property2idx, idx2property, pid2vec = data_helper.generate_attribute(train_label, test_label, args.se, args.relation_emb)
+with open(train_data_file) as f:
+    training_data = json.load(f)
+    # training_data = training_data[:2000]
+with open(test_data_file) as f:
+    test_data = json.load(f)
+train_label = list(i['edgeSet'][0]['kbID'] for i in training_data)
+test_label = list(i['edgeSet'][0]['kbID'] for i in test_data)
 
-else:
-    cprint(f"loading from folder {m_data_folder}", "red")
-    with open(train_data_file) as f:
-        training_data = json.load(f)
-    with open(test_data_file) as f:
-        test_data = json.load(f)
-    train_label = list(i['edgeSet'][0]['kbID'] for i in training_data)
-    test_label = list(i['edgeSet'][0]['kbID'] for i in test_data)
-
-    property2idx, idx2property, pid2vec = data_helper.get_pid2vec(args.se, idx2property_file)
+property2idx, idx2property, pid2vec = data_helper.get_pid2vec(args.se,idx2property_file,prop_list_path=args.prop_list_path)
 
 
 print('there are {} kinds of relation in train.'.format(len(set(train_label))))
@@ -73,23 +68,59 @@ print('number of union of train and test: {}'.format(len(set(train_label) & set(
 print(len(training_data))
 print(len(test_data))
 
-bertconfig = BertConfig.from_pretrained(args.transformer,
+
+
+
+# Creole data 
+Creole_data = {}
+Creole_label = {}
+root_dir = args.Creole_data
+for c in args.cr:
+    filepath = root_dir + '/' + c + '.json'
+    with open(filepath) as f:
+        data = json.load(f)#
+    for d in data:
+        d['edgeSet']['kbID'] = d['edgeSet']['triple'][-1]
+    Creole_data[c]=data
+    Creole_data_label = list(i['edgeSet']['kbID'] for i in data)
+    Creole_label[c] = Creole_data_label
+    output_info = 'There are {} kinds of relation in Creole '.format(len(set(Creole_data_label))) + c
+    print(output_info)
+    output_info = 'number of union of train and Creole' + c + ': {}'.format(len(set(train_label) & set(Creole_data_label)))
+    print(output_info)
+
+print('\n')
+
+property2idx, idx2property, pid2vec = data_helper.generate_attribute(train_label=train_label, 
+                                                                     test_label=test_label, 
+                                                                     Creole_label=Creole_label, 
+                                                                     sentence_embedder=args.se, 
+                                                                     att_dim=args.relation_emb, 
+                                                                     prop_list_path=args.prop_list_path)
+
+
+
+
+bertconfig = BertConfig.from_pretrained(args.t,
                                         num_labels=len(set(train_label)),
                                         finetuning_task='wiki-zero-shot')
 bertconfig.relation_emb_dim = args.relation_emb
 bertconfig.margin = args.gamma
 bertconfig.alpha = args.alpha
 bertconfig.dist_func = args.dist_func
-
-model = ZSBert.from_pretrained(args.transformer, config=bertconfig)
+bertconfig.relation_emb_dim = list(pid2vec.values())[0].shape[0]
+model = ZSBert.from_pretrained(args.t, config=bertconfig)
 
 device = torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu")
+if device == "cuda":
+    torch.cuda.manual_seed_all(args.seed)
+
 
 # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("device:", device)
 model = model.to(device)
 
-trainset = data_helper.WikiDataset('train', training_data, pid2vec, property2idx, args.transformer)
+trainset = data_helper.WikiDataset('train', training_data, pid2vec, property2idx, args.t)
 trainloader = DataLoader(trainset, batch_size=args.batch_size, collate_fn=data_helper.create_mini_batch, shuffle=True)
 
 test_y_attr, test_y = [], []
@@ -108,22 +139,42 @@ test_y = np.array(test_y)
 print(test_y_attr.shape)
 print(test_y.shape)
 
-testset = data_helper.WikiDataset('test', test_data, pid2vec, property2idx, args.transformer)
+testset = data_helper.WikiDataset('test', test_data, pid2vec, property2idx, args.t)
 testloader = DataLoader(testset, batch_size=256,
                         collate_fn=data_helper.create_mini_batch)
 
 
-data_folder = f"../../../data/ukp/m{args.m}"
-if not os.path.exists(data_folder):
-    os.mkdir(data_folder)
-with open(os.path.join(data_folder, "train.json"), "w") as f:
-    json.dump(training_data, f)
 
-with open(os.path.join(data_folder, "test.json"), "w") as f:
-    json.dump(test_data, f)
+Creole_y_attr, Creole_y = {}, {}# 获取test_y,以及test中label的相关attribute
+Creole_idxmap = {}
 
-with open(os.path.join(data_folder, "idx2property.json"), "w") as f:
-    json.dump(idx2property, f)
+for c, c_data in Creole_data.items():
+    c_y_attr, c_y = [], []# 获取test_y,以及test中label的相关attribute
+    c_idxmap = {}
+    for i, cc_data in enumerate(c_data):
+        property_kbid = cc_data['edgeSet']['kbID']
+        label = int(property2idx[property_kbid])
+        c_y.append(label)
+        c_idxmap[i] = label
+    c_y_attr = list(pid2vec[i] for i in set(Creole_label[c]))
+    c_y_attr = np.array(c_y_attr)#10，,1024
+    c_y = np.array(c_y)
+    Creole_y_attr[c] = c_y_attr
+    Creole_y[c] = c_y
+    Creole_idxmap[c] = c_idxmap
+    print(c)
+    print("Creole_y_attr.shape {}. ".format(c_y_attr.shape))
+    print("Creole_y.shape {}.".format(c_y.shape))
+
+Creole_set = {}
+Creole_loader = {}
+for c in args.cr:
+    Creole_set[c] = data_helper.WikiDataset('dev', Creole_data[c], pid2vec, property2idx, args.t)
+    Creole_loader[c] = DataLoader(Creole_set[c], batch_size=256, 
+                        collate_fn=data_helper.create_mini_batch)
+
+
+
 
 model.train()
 optimizer = torch.optim.Adam(model.parameters(), lr=5e-6)
@@ -136,7 +187,7 @@ for epoch in range(args.epochs):
     running_loss = 0.0
     correct = 0
     total = 0
-    for step, data in tqdm(enumerate(trainloader)):
+    for step, data in enumerate(tqdm(trainloader)):
 
         tokens_tensors, segments_tensors, marked_e1, marked_e2, \
         masks_tensors, relation_emb, labels = [t.to(device) for t in data]
@@ -168,9 +219,30 @@ for epoch in range(args.epochs):
     pt, rt, f1t = evaluate(preds, test_y_attr, test_y, test_idxmap, len(set(train_label)), args.dist_func)
     print(f'[test] precision: {pt:.4f}, recall: {rt:.4f}, f1 score: {f1t:.4f}')
 
+    Creole_predictions = {}
+    Creole_pre = []
+    Creole_re = []
+    Creole_F1 = []
+    for c in args.cr:
+        c_preds = extract_relation_emb(model, Creole_loader[c]).cpu().numpy()
+        # c_pt, c_rt, c_f1t, predictions = evaluate(c_preds, Creole_y_attr[c], Creole_y[c], Creole_idxmap[c], len(set(Creole_label[c])), args.dist_func)
+        c_pt, c_rt, c_f1t = evaluate(c_preds, Creole_y_attr[c], Creole_y[c], Creole_idxmap[c], len(set(Creole_label[c])), args.dist_func)
+        # Creole_predictions[c] = predictions
+        print(f'{c} precision: {c_pt:.4f}, recall: {c_rt:.4f}, f1 score: {c_f1t:.4f}')
+        Creole_F1.append(c_f1t)
+        Creole_pre.append(c_pt)
+        Creole_re.append(c_rt)
+
     if f1t > best_f1:
         best_p = pt
         best_r = rt
         best_f1 = f1t
-        torch.save(model, f'../../../model/best_f1_{best_f1}_wiki_epoch_{epoch}_m_{args.m}_alpha_{args.alpha}_gamma_{args.gamma}')
+        print('best Creole')
+        for i, c in enumerate(args.cr):
+            print(c)
+            print("pre:{}".format(Creole_pre[i]))
+            print("recall:{}".format(Creole_re[i]))
+            print("f1:{}".format(Creole_F1[i]))
+        nn = args.t.split('/')[-1]
+        torch.save(model, f'{args.model_saves}/{nn}/{args.se}/best_f1_{best_f1}_wiki_epoch_{epoch}_alpha_{args.alpha}_gamma_{args.gamma}')
     print(f'[best val] precision: {best_p:.4f}, recall: {best_r:.4f}, f1 score: {best_f1:.4f}')

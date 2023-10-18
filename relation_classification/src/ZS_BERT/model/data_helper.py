@@ -6,7 +6,8 @@ from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 from torch.nn.utils.rnn import pad_sequence
 from transformers import BertTokenizer
-
+from sentence_transformers import SentenceTransformer
+from transformers import AutoTokenizer, AutoModelForMaskedLM
 
 def load_datas(json_files, val_portion=0.0, load_vertices=True):
     """
@@ -50,8 +51,8 @@ def split_wiki_data(data, test_relation):
     return train_data, test_data
 
 
-def get_pid2vec(sentence_embedder, idx2property_file, prop_list_path='../resources/property_list.html'):
-    from sentence_transformers import SentenceTransformer
+def get_pid2vec(sentence_embedder, idx2property_file, prop_list_path):
+    
     with open(idx2property_file) as f:
         idx2property = json.load(f)
     property2idx = {prop: idx for idx, prop in idx2property.items()}
@@ -66,9 +67,11 @@ def get_pid2vec(sentence_embedder, idx2property_file, prop_list_path='../resourc
     return property2idx, idx2property, pid2vec
 
 
-def generate_attribute(train_label, test_label, sentence_embedder='bert-large-nli-mean-tokens', att_dim=1024,
-                       prop_list_path='../resources/property_list.html'):
-    from sentence_transformers import SentenceTransformer
+
+def generate_attribute(train_label, test_label, Creole_label,
+                       sentence_embedder='bert-large-nli-mean-tokens', att_dim=1024,
+                       prop_list_path='/home/nlp/ZL/TEST/Creole-NLU-NLG-Suite-wiki/wikipedia/ZS_BERT/resources/property_list.html'):
+    # from sentence_transformers import SentenceTransformer
     property2idx = {}
     idx2property = {}
     idx = 0
@@ -80,6 +83,13 @@ def generate_attribute(train_label, test_label, sentence_embedder='bert-large-nl
         property2idx[i] = idx
         idx2property[idx] = i
         idx += 1
+    for cl in Creole_label.values():
+        cl = set(cl)
+        for l in cl:
+            if l not in property2idx.keys():
+                property2idx[l] = idx
+                idx2property[idx] = l
+                idx += 1
 
     prop_list = pd.read_html(prop_list_path, flavor="html5lib")[0]
     prop_list = prop_list.loc[prop_list.ID.isin(property2idx.keys())]
@@ -147,42 +157,86 @@ def create_mini_batch(samples):
     return tokens_tensors, segments_tensors, marked_e1, marked_e2, masks_tensors, relation_emb, label_ids
 
 
+
 class WikiDataset(Dataset):
-    def __init__(self, mode, data, pid2vec, property2idx, tokenizer):
+    def __init__(self, mode, data, pid2vec, property2idx, model):
         assert mode in ['train', 'dev', 'test']
         self.mode = mode
         self.data = data
         self.pid2vec = pid2vec
         self.property2idx = property2idx
         self.len = len(self.data)
-        self.tokenizer = BertTokenizer.from_pretrained(
-            tokenizer, do_lower_case=False)
-
+        self.tokenizer = AutoTokenizer.from_pretrained(model, do_lower_case=False)
+        # print('a')
+    #     self.tokenizer = BertTokenizer.from_pretrained(
+    # model, do_lower_case=False)
+    
     def __getitem__(self, idx):
         g = self.data[idx]
-        sentence = " ".join(g["tokens"])
-        tokens = self.tokenizer.tokenize(sentence)
-        tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"])
+        if self.mode == 'dev':
+            edge = g["edgeSet"]
+        else:
+            edge = g["edgeSet"][0]
+
+        tokens_final = ["[CLS]"]
+        edge_new = {}
+        for i, t in enumerate(g["tokens"]):
+            new_token = self.tokenizer.tokenize(t)
+            if len(edge['left']) > 0:
+                if i == edge['left'][0]: # left_start
+                    left_start = len(tokens_final)
+                if i == edge['left'][-1]: # left_end
+                    left_end = len(tokens_final) + len(new_token)
+            if len(edge['right']) > 0:
+                if i == edge['right'][0]: # right_start
+                    right_start = len(tokens_final)
+                if i == edge['right'][-1]: # right_end
+                    right_end = len(tokens_final) + len(new_token)
+            tokens_final.extend(new_token)
+        if len(edge['left']) > 0:
+            edge_new['left'] = list(range(left_start, left_end))
+        else:
+            edge_new['left'] = edge['left']
+        if len(edge['right']) > 0:
+            edge_new['right'] = list(range(right_start, right_end))
+        else:
+            edge_new['right'] = edge['right']
+        # print('a')
+        tokens_final = tokens_final + ['[SEP]']
+        tokens_ids = self.tokenizer.convert_tokens_to_ids(tokens_final)
+
+        # sentence = " ".join(g["tokens"]) #old
+        # tokens = self.tokenizer.tokenize(sentence) #old
+        tokens_ids = self.tokenizer.convert_tokens_to_ids(tokens_final)
+        # tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"]) #old
+        
         tokens_tensor = torch.tensor(tokens_ids)
-        segments_tensor = torch.tensor([0] * len(tokens_ids),
-                                       dtype=torch.long)
-        edge = g["edgeSet"][0]
-        marked_e1, marked_e2 = mark_wiki_entity(edge, len(tokens_ids))
+        segments_tensor = torch.tensor([0] * len(tokens_ids), 
+                                        dtype=torch.long)
+        
+        # edge = g["edgeSet"][0]
+        marked_e1, marked_e2 = mark_wiki_entity(edge_new, len(tokens_ids))  # mark有错误
 
-        property_kbid = g['edgeSet'][0]['kbID']
+        # marked_e1, marked_e2 = mark_wiki_entity(edge, len(tokens_ids))  # mark有错误
+
+
+        if self.mode == 'dev':
+            property_kbid = g['edgeSet']['kbID']
+        else:
+            property_kbid = g['edgeSet'][0]['kbID']
+        
         relation_emb = self.pid2vec[property_kbid]
-
+        
         if self.mode == 'train':
             label = int(self.property2idx[property_kbid])
             label_tensor = torch.tensor(label)
         elif self.mode == 'test' or self.mode == 'dev':
             label_tensor = None
-
+            
         return (tokens_tensor, segments_tensor, marked_e1, marked_e2, relation_emb, label_tensor)
-
+    
     def __len__(self):
         return self.len
-
 
 class FewRelDataset(Dataset):
     def __init__(self, mode, data, pid2vec, property2idx):
