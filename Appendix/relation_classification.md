@@ -57,9 +57,18 @@ of the lowest F1 scores.
 
 #### Baseline Performance on English
 
-| Baseline                                                           | Transformer | Sentence Transformer | Recall | Precision | F1 | 
-|:-------------------------------------------------------------------|:------------|:---------------------|:-------|:---------:|---:|
-| [Chen and Li, 2021](https://aclanthology.org/2021.naacl-main.272/) |             |                      |        |           |    | 
-| Ours                                                               | mBERT       | Bb-nli               |        |           |    | 
-| Ours                                                               | XLM-R       | Xr-b                 |        |           |    | 
+| Baseline                                                           | Sentence Encoder | Relation Encoder |  F1   | 
+|:-------------------------------------------------------------------|:-----------------|:-----------------|:-----:|
+| [Chen and Li, 2021](https://aclanthology.org/2021.naacl-main.272/) | BERT-large       | Bb-nli-large     | 71.96 | 
+| Ours                                                               | mBERT            | Bb-nli           | 66.70 | 
+| Ours                                                               | XLM-R            | Xr-100           | 52.42 | 
 
+#### English BERT Analysis
+
+To explore whether a *multilingual* language model is more helpful for Creole RC, we conduct a comparative experiment, where we use the English BERT (`bert-base-uncased`), with the same architecture as mBERT.
+The table below shows the experimental results. 
+Our findings indicate that the English BERT underperforms mBERT, but still generally outperforms XLM-R.
+As might be expected, for the Creole language whose parent language is Spanish (cbk-zam), there is a noticeable decline in performance compared to Creole languages whose parent language is English. 
+However, this performance decline is somewhat alleviated when using a multilingual relation encoder (Xr-100, Xr-b).
+
+![English BERT](images/rel_class_eng_bert.png)
