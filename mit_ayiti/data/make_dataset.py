@@ -45,8 +45,8 @@ print(stats_dict)
 verify_dict = defaultdict(lambda:0)
 
 for lang in ["fr", "en", "es"]:
-	src_file = f"{lang}-ht.src"
-	trg_file = f"{lang}-ht.trg"
+	src_file = f"ht-{lang}.src"
+	trg_file = f"ht-{lang}.trg"
 	#init the files 
 	src_out = open(src_file, 'a')
 	trg_out = open(trg_file, 'a')
