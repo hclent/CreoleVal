@@ -11,11 +11,12 @@ Statistics about the coverage of `CreoleVal` can be found [here](https://github.
 
 This repository is actively undergoing construction, on a weekly or even daily basis. Our outstanding TODO items include:
 
-* Adding more scripts, for ease of use
-* Adding more documentation, with analysis of experiments
+* Adding more scripts, so others can easily run `CreoleVal` experiments
 * [`nlg/creolem2m`] Add details for train-dev-test creation
 * [`nlg/`] Add links and experiments for KriolMorisiyen MT
 * [`Appendix/relation_classification`] Add examples of the latent templates
+* [`Appendix/`] Finish table with language codes
+* [`Appendix/`] Adding more documentation, with analysis of experiments
 * much more ... 
 
 #### Natural Language Understanding (`/nlu`)
