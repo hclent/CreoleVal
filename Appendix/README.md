@@ -2,18 +2,20 @@
 
 This directory contains documentation for additional analysis pertaining to `CreoleVal`, which did not fit in the manuscript
 
-* Dataset statistics
-* Relation Classification analysis
-* 
-
+* General `CreoleVal` coverage statistics
+* Documentation, data statistics, and analysis for MCTest, Relation Classification, MIT-Haiti Corpus, etc. 
+* Statistics and analysis for pre-existing tasks 
+* extra charts and graphs
 
 ### CreoleVal Specific Statistics
 
 Read here for more statistics on CreoleVal.
 
-TODO: Creole x Num Tasks (Before, After)
+**Creole x Number of Tasks, before and after `CreoleVal`:**
+![Number of tasks for Creoles](images/languages_by_task_num.png)
 
-TODO: Tasks x Count (Before, After)
+**Unique Tasks x ,before and after `CreoleVal`:**
+![Different tasks](images/task_coverage.png)
 
 TODO: Creole x Tokens (Before, After)
 
