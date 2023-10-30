@@ -11,11 +11,11 @@ Statistics about the coverage of `CreoleVal` can be found [here](https://github.
 
 This repository is actively undergoing construction, on a weekly or even daily basis. Our outstanding TODO items include:
 
-* [documentation] finish the "License Overview"
+* Adding more scripts, for ease of use
+* Adding more documentation, with analysis of experiments
 * [`nlg/creolem2m`] Add details for train-dev-test creation
 * [`nlg/`] Add links and experiments for KriolMorisiyen MT
 * [`Appendix/relation_classification`] Add examples of the latent templates
-* [`Appendix`] add pictures of data stats
 * much more ... 
 
 #### Natural Language Understanding (`/nlu`)
@@ -26,23 +26,22 @@ Machine comprehension, relation classification, UDPoS, NER, NLI, sentiment analy
 
 Machine translation with bibles, the MIT-Haiti Corpus, and KriolMorisiyenMT
 
-## License Overview
+#### License Overview
 
-Because `CreoleVal` is a compossit of new benchmarks and pre-existing ones, there are several different licesnes at play.
-We summarize them here, for your convenience. A `*` indicates a dataset that we have newly introduced in `CreoleVal`:
+Because `CreoleVal` is a compossit of new benchmarks and pre-existing ones, there are several different software licesnes at play.
+For the datasets packed within `CreoleVal` (i.e., the data is actually in the repo, rather than fetched with a download script), we summarize them here, for your convenience. 
+Note: an `*` indicates a dataset that we have newly introduced in `CreoleVal`:
 
-| Dataset           | Task                    | Languages                       |                                         Source                                          | Domain                 |                            License | 
-|:------------------|:------------------------|:--------------------------------|:---------------------------------------------------------------------------------------:|:-----------------------|-----------------------------------:|
-| MCTest            | machine comprehension   | eng, hat*, mfe*                 |           [original](https://github.com/mcobzarenco/mctest/tree/master/data)            | short stories for kids | MSR-LA: Microsoft Research License | 
-| CreoleRC          | relation classification | bi*, cbk-zam*, jam*, phi*, tpi* |                                        Wikipedia                                        | Wikipedia              |                       CC-BY-SA 4.0 |
-| MIT-Haiti Corpus  | machine translation     | hat*, eng*, es*, fr*            |                       [Platform MIT-Haiti](https://mit-ayiti.net/)                      | education              |                       CC-BY-SA 4.0 |
-| Singlish Treebank | universal dependencies  | singlish                        |                                                                                         |                        |                       CC-BY-SA 4.0 |
-| UD_Naija-NSC      | universal dependencies  | pcm                             |                                                                                         |                        |                       CC-BY-SA 4.0 |
-|                   |                         |                                 |                                                                                         |                        |                       CC-BY-SA 4.0 |
-|                   |                         |                                 |                                                                                         |                        |                       CC-BY-SA 4.0 |
-|                   |                         |                                 |                                                                                         |                        |                       CC-BY-SA 4.0 | 
-|                   |                         |                                 |                                                                                         |                        |                       CC-BY-SA 4.0 |
+| Dataset          | Task                     | Languages                                 |                               Source                               | Domain                 |                            License | 
+|:-----------------|:-------------------------|:------------------------------------------|:------------------------------------------------------------------:|:-----------------------|-----------------------------------:|
+| MCTest           | machine comprehension    | eng, hat*, mfe*                           | [original](https://github.com/mcobzarenco/mctest/tree/master/data) | short stories for kids | MSR-LA: Microsoft Research License | 
+| CreoleRC         | relation classification  | bi*, cbk-zam*, jam*, phi*, tpi*           |                             Wikipedia                              | Wikipedia              |                       CC-BY-SA 4.0 |
+| MIT-Haiti Corpus | machine translation      | hat*, eng*, es*, fr*                      |            [Platform MIT-Haiti](https://mit-ayiti.net/)            | education              |                       CC-BY-SA 4.0 |
+| WikiAnn          | named entity recognition | bi*, cbk-zam*, ht*, pih*, sg*, tpi*, pap* |     [WikiAnn](https://huggingface.co/datasets/wikiann)             | Wikipedia              |                       CC-BY-SA 4.0 |
 
+
+
+#### Citation
 
 Paper can be found here
 
