@@ -7,13 +7,9 @@ This repository includes data (or otherwise download scripts), scripts for train
 
 Statistics about the coverage of `CreoleVal` can be found [here](https://github.com/hclent/CreoleVal/tree/main/Appendix), as well as additional analysis of the performance and behaviour over the included tasks. 
 
-#### Natural Language Understanding
+#### This repo is under construction! 
 
-#### Natural Language Generation 
-
-#### Under construction 
-
-This repository is actively undergoing construction, on a weekly basis. Our outstanding TODO items include:
+This repository is actively undergoing construction, on a weekly or even daily basis. Our outstanding TODO items include:
 
 * [documentation] finish the "License Overview"
 * [`nlg/creolem2m`] Add details for train-dev-test creation
@@ -22,6 +18,13 @@ This repository is actively undergoing construction, on a weekly basis. Our outs
 * [`Appendix`] add pictures of data stats
 * much more ... 
 
+#### Natural Language Understanding (`/nlu`)
+
+Machine comprehension, relation classification, UDPoS, NER, NLI, sentiment analysis, and tatoeba challenge.
+
+#### Natural Language Generation (`/nlg`)
+
+Machine translation with bibles, the MIT-Haiti Corpus, and KriolMorisiyenMT
 
 ## License Overview
 
