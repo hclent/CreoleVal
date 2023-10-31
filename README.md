@@ -44,6 +44,17 @@ Note: an `*` indicates a dataset that we have newly introduced in `CreoleVal`:
 
 #### Citation
 
-Paper can be found here
+Paper can be found [here](https://arxiv.org/abs/2310.19567).
 
-Please cite us: `{...}`
+Please cite us: 
+
+```
+@misc{lent2023creoleval,
+      title={CreoleVal: Multilingual Multitask Benchmarks for Creoles}, 
+      author={Heather Lent and Kushal Tatariya and Raj Dabre and Yiyi Chen and Marcell Fekete and Esther Ploeger and Li Zhou and Hans Erik Heje and Diptesh Kanojia and Paul Belony and Marcel Bollmann and Loïc Grobol and Miryam de Lhoneux and Daniel Hershcovich and Michel DeGraff and Anders Søgaard and Johannes Bjerva},
+      year={2023},
+      eprint={2310.19567},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
