@@ -2,7 +2,13 @@
 
 ### Pre-requisites 
 
-**Bible Data**: Because Bible data is copy-righted, we unfortunately cannot share it. Please reach out to [the authors of "Creating a massively parallel Bible corpus](https://aclanthology.org/L14-1215/).
+
+**We will update this section with a Google Form where you can request the data from us.**
+
+**We do not own this data, and it his highly confidential due to copy-right, and must not be shared publically.**
+
+Otherwise if you are looking for **Bible Data** in general, please reach out to [the authors of "Creating a massively parallel Bible corpus](https://aclanthology.org/L14-1215/). Again, because Bible data is copy-righted, we unfortunately cannot share it publically. 
+
 
 **YANMTT**: You will need `YANMTT` to decode models we have trained.
 
@@ -12,9 +18,8 @@ If you dont use YANMTT, you can always use huggingface transformers to fine-tune
 
 The Creole language codes are present in `creoles_list.txt`.
 
-**We will update this section with a Google Form where you can request the data from us.**
+**GOOGLE FORM COMING SOON.**
 
-**We do not own this data, and it his highly confidential, and must not be shared.**
 
 Our data is in the following format: 
 
