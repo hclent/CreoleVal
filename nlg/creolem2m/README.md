@@ -12,7 +12,9 @@ If you dont use YANMTT, you can always use huggingface transformers to fine-tune
 
 The Creole language codes are present in `creoles_list.txt`.
 
-**We will update this section with further details on how to reproduce our train-dev-test sets.**
+**We will update this section with a Google Form where you can request the data from us.**
+
+**We do not own this data, and it his highly confidential, and must not be shared.**
 
 Our data is in the following format: 
 
