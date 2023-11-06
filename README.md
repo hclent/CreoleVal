@@ -14,10 +14,15 @@ This repository is actively undergoing construction, on a weekly or even daily b
 * Adding more scripts, so others can easily run `CreoleVal` experiments
 * [`nlg/creolem2m`] Add details for train-dev-test creation
 * [`nlg/`] Add links and experiments for KriolMorisiyen MT
-* [`Appendix/relation_classification`] Add examples of the latent templates
-* [`Appendix/`] Finish table with language codes
+* [`Appendix/mctest`] Create appendix document, to report full scores
 * [`Appendix/`] Adding more documentation, with analysis of experiments
+* Generally, add the scripts to make it clear what data is left over to train CreoleLM's with, without cross-contaminating
 * much more ... 
+
+**RECENTLY UPDATED**
+* [`Appendix/`] Finished table with language codes for all Creoles in `CreoleVal`
+* [`Appendix/relation_classification`] Added examples and exmplation of the latent templates
+
 
 #### Natural Language Understanding (`/nlu`)
 
