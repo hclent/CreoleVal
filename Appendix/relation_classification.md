@@ -27,6 +27,72 @@ In the end, this resulted in high-quality relation classification evaluation dat
 A major limitation of this method is the reliance on the latent templates within the Creole Wikipedias, meaning that higher quality Wikipedias that didn't rely heavily on templates to generate the Wikipedia, cannot be processed this way.
 Still, this annotation process results in the first manually verified relation classification dataset for 5 Creoles.
 
+#### Latent templates
+
+In the paper, we mention the **latent templates** that the sentences belong to, and how these templates enable more confident manual annotation. 
+To clarify this, we will show some examples of latent templates, how we map this to Wikidata Properties (i.e. relations) and entities. 
+
+Consider the following entity-tagged sentences in Bislama: 
+
+* [[Mongolia]] i kaontri long [[Esia]].
+* [[Fiji]] hem i wan kaontri long [[Pasifik]].
+* [[Jemani]] i kaontri long [[Yurop]].
+* [[Kanada]] i wan kaontri blong [[Not Amerika]].
+* [[Bukina Faso]] i kaontri long [[Afrika]].
+
+When we look at these sentences as a group (i.e. a cluster), we can see there is a latent template of `[[ABC]] i kaontri long [[XYZ]]`. All sentences in the cluster belong to this latent template.
+
+For the **entities** themselves, we can identify the Wikidata Qcode in 2 ways:
+1) The entities (e.g. `Mongolia`, `Pasifik`) were alreaady hyperlinked in the Wikipedia article, which means we have a URL, from which we can get the gold entity Q-code.
+2) The entities are ostensibly translationese, or are otherwise Named Entities with spelling clearly influenced by English, and we can make an educated guess about the meaning.  
+
+Thus from the template and entities, we can now consider the **relation** between the entities:
+
+(`Mongolia` is to `Asia`) as (`Fiji` is to `Pacific`) as (`Germany` is to `Europe`) as (`Canada` is to `North America`) and (`Burkina Faso` is to `Africa`).   
+
+For all of these entity pairs, to a human annotator, it is clear that the relationship is `[[COUNTRY]] is in [[CONTINENT]]`. 
+
+Thus we can annotate the **Property** as `P30`: "continent of which the subject is a part". 
+
+Finally, we can verify our triples (entity1, Property, entity2) in the Wikidata knowledge graph. 
+We remove any sentences where the tripple was NOT in the knowledge graph. 
+This unforunately removes correct datapoints, where there is simply a gap in the knoweldge graph. But importantly, it also is a sanity measure of our annotation method, which can require educated guesswork about the meaning of an entity. 
+Presumably, if we incorrectly annotated an entity, the tripple will not exist in the knowledge graph, and thus be removed.
+Imagine that we had incorrectly annotated `[[Kanada]]` (from the sentence `[[Kanada]] i wan kaontri blong [[Not Amerika]].`) to be the language Kannada (Q33673)), rather than Canada (Q16). 
+The triple (Kannada_language, "continent of which the subject is a part", North America) would certainly not exist in Wikidata, and thus the entire annotated example would be removed. 
+Yet (Canada, "continent of which the subject is a part", North America) is indeed in the knowledge base, so we can be confident in our annotation. 
+
+Here are some more examples of latent templates in the data, and the relations that the express:
+
+**Chavacano**
+
+Latent template: `[[PERSON]] is a [[SINGER]]`
+
+Examples:
+
+* [[Billie Eilish]] es un [[cantante]]
+* [[Sopho Khalvashi]] es un [[cantante]]
+* [[Juanes Juanes]] es un [[cantante]] de Colombia de pop.
+* [[Nina Sublatti]] (Sulaberidze) es un [[cantante]]
+* [[Nini Shermadini]] es un [[cantante]]
+
+Property: `P106`: "occupation of a person"
+
+**Jamaican Patois**
+
+Latent template: `[[CITY]] is the capital of [[COUNTRY]]`
+
+Examples:
+
+* [[Sofiya]] a di kiapital fi [[Bulgieria]].
+* [[Broslz]] a di kiapital fi [[Beljiom]].
+* [[Ruom]] a di kyapital fi [[Itali]].
+* [[Masko]] a di kyapital fi [[Rosha]].
+* [[Atenz]] a di kyapital fi [[Griis]].
+
+Property: `P1376`: "capital of" 
+
+
 #### Dataset statistics
 
 Here is the distribution of the Properties present within our data:
