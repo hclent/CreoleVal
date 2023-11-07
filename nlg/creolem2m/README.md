@@ -1,25 +1,17 @@
 # CreoleM2M 
 
-### Pre-requisites 
+### Pre-requisite Bible data
+
+We do not own this data, and it his highly confidential due to copy-right, and must not be shared publically.
+
+If you are looking for **Bible Data** in general, please reach out to [the authors of "Creating a massively parallel Bible corpus](https://aclanthology.org/L14-1215/). Again, because Bible data is copy-righted, we unfortunately cannot share it publically. 
+
+**If you have specific questions about the CreoleM2M data, please reach out to the authors.**
 
 
-**We will update this section with a Google Form where you can request the data from us.**
+### Data preperation 
 
-**We do not own this data, and it his highly confidential due to copy-right, and must not be shared publically.**
-
-Otherwise if you are looking for **Bible Data** in general, please reach out to [the authors of "Creating a massively parallel Bible corpus](https://aclanthology.org/L14-1215/). Again, because Bible data is copy-righted, we unfortunately cannot share it publically. 
-
-
-**YANMTT**: You will need `YANMTT` to decode models we have trained.
-
-If you dont use YANMTT, you can always use huggingface transformers to fine-tune and decode models yourself.
-
-### Data preperation (UNDER CONSTRUCTION)
-
-The Creole language codes are present in `creoles_list.txt`.
-
-**GOOGLE FORM COMING SOON.**
-
+The Creole language codes are present in `creoles_list.txt`, and the dataset sizes are in `corpora_stats.txt`.
 
 Our data is in the following format: 
 
@@ -35,9 +27,11 @@ All results in the paper are calculated on the test set mentioned above.
 
 ### Experiments
 
-#### Step 0: Acquire data and split into train-dev-test (more details coming soon!)
+#### Step 0: Acquire Bible data and create train-dev-test splits. 
 
 #### Step 1: Install [YANMTT](https://github.com/prajdabre/yanmtt)
+
+You will need `YANMTT` to decode models we have trained. If you dont use `YANMTT`, you can always use huggingface transformers to fine-tune and decode models yourself.
 
 #### Step 2: Train tokenizer 
 (see `creole_mt_train_tokenizer.sh`)
