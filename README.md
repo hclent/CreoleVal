@@ -11,17 +11,12 @@ Statistics about the coverage of `CreoleVal` can be found [here](https://github.
 
 This repository is actively undergoing construction, on a weekly or even daily basis. Our outstanding TODO items include:
 
+* A "Getting Started" guide, to walk you through the data and experiments in this repo. 
 * Adding more scripts, so others can easily run `CreoleVal` experiments
-* [`nlg/creolem2m`] Add details for train-dev-test creation
 * [`nlg/`] Add links and experiments for KriolMorisiyen MT
-* [`Appendix/mctest`] Create appendix document, to report full scores
 * [`Appendix/`] Adding more documentation, with analysis of experiments
 * Generally, add the scripts to make it clear what data is left over to train CreoleLM's with, without cross-contaminating
-* much more ... 
-
-**RECENTLY UPDATED**
-* [`Appendix/`] Finished table with language codes for all Creoles in `CreoleVal`
-* [`Appendix/relation_classification`] Added examples and exmplation of the latent templates
+* Make sure there are no hard-coded paths
 
 
 #### Natural Language Understanding (`/nlu`)
