@@ -4,7 +4,13 @@
 
 export MACHAMP_DIR=./machamp  # replace with path to MaChAmp repo folder if necessary
 
-models=(mbert mt5 xlmr)
+models=(
+    xlm-r+CreoleEval_all
+    mbert
+    mt5
+    xlmr
+    xlm-r+CreoleEval_eng
+)
 
 train_and_predict_all_models() {
     for model in ${models[@]}; do
@@ -55,6 +61,7 @@ done
 testfile='data/jam-nli-data/jamnli-test.tsv'
 wget -nc https://github.com/nyu-mll/GLUE-baselines/raw/master/download_glue_data.py
 python download_glue_data.py --data_dir data/glue --tasks MNLI
+bash recut_mnli.sh
 for model in ${models[@]}; do
     ./train_and_finetune_jamnli.sh $model
     model_checkpoint=$(ls -td1 ./logs/nli_jamaican_${model}_finetune/*/ | head -1)
