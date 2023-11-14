@@ -49,14 +49,6 @@ testfile='data/singlish/test.conll'
 ./download_singlish_upos.sh
 train_and_predict_all_models
 
-# WikiAnn NER
-languages=(bi ht pih tpi cbk_zam pap sg)
-for lang in $languages; do
-    task=ner_wikiann_${lang}
-    testfile="data/WikiAnn_data/${lang}/$(echo $lang | sed 's/_/-/')-test.txt"
-    train_and_predict_all_models
-done
-
 # Jamaican NLI
 testfile='data/jam-nli-data/jamnli-test.tsv'
 wget -nc https://github.com/nyu-mll/GLUE-baselines/raw/master/download_glue_data.py
@@ -66,4 +58,33 @@ for model in ${models[@]}; do
     ./train_and_finetune_jamnli.sh $model
     model_checkpoint=$(ls -td1 ./logs/nli_jamaican_${model}_finetune/*/ | head -1)
     ./predict.sh $model_checkpoint $testfile
+done
+
+# WikiAnn NER
+languages=(bi ht pih tpi cbk_zam pap sg)
+for lang in ${languages[@]}; do
+    task=ner_wikiann_${lang}
+    testfile="data/WikiAnn_data/${lang}/$(echo $lang | sed 's/_/-/')-test.txt"
+    case $lang in
+		"bi") ANCESTOR="eng";;
+		"cbk-zam") ANCESTOR="spa";;
+		"ht") ANCESTOR="fra";;
+		"pap") ANCESTOR="por";;
+		"pih") ANCESTOR="eng";;
+		"sg") ANCESTOR="ngb";;
+		"tpi") ANCESTOR="eng";;
+		*)
+			echo "Unknown language $lang"
+			exit
+		;;
+	esac
+	models=(
+        xlm-r+CreoleEval_all
+        mbert
+        mt5
+        xlmr
+        xlm-r+CreoleEval_$ANCESTOR
+    )
+    echo "Using models ${models[@]}"
+    train_and_predict_all_models
 done
