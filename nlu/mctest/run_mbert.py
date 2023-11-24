@@ -185,7 +185,9 @@ def main():
             load_best_model_at_end = True,
             logging_steps=100,
             #logging_dir=f"dummy/{experiment_sub_dir}",
-            logging_first_step = True
+            logging_first_step = True,
+            bf16=True,
+            report_to="none",
         )
 
         trainer = Trainer(
