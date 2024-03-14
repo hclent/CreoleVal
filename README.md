@@ -36,7 +36,7 @@ Note: an `*` indicates a dataset that we have newly introduced in `CreoleVal`:
 | Dataset          | Task                     | Languages                                 |                               Source                               | Domain                 |                            License | 
 |:-----------------|:-------------------------|:------------------------------------------|:------------------------------------------------------------------:|:-----------------------|-----------------------------------:|
 | MCTest           | machine comprehension    | eng, hat*, mfe*                           | [original](https://github.com/mcobzarenco/mctest/tree/master/data) | short stories for kids | MSR-LA: Microsoft Research License | 
-| CreoleRC         | relation classification  | bi*, cbk-zam*, jam*, phi*, tpi*           |                             Wikipedia                              | Wikipedia              |                       CC-BY-SA 4.0 |
+| CreoleRC         | relation classification  | bi*, cbk-zam*, jam*, pih*, tpi*           |                             Wikipedia                              | Wikipedia              |                       CC-BY-SA 4.0 |
 | MIT-Haiti Corpus | machine translation      | hat*, eng*, es*, fr*                      |            [Platform MIT-Haiti](https://mit-ayiti.net/)            | education              |                       CC-BY-SA 4.0 |
 | WikiAnn          | named entity recognition | bi*, cbk-zam*, ht*, pih*, sg*, tpi*, pap* |     [WikiAnn](https://huggingface.co/datasets/wikiann)             | Wikipedia              |                       CC-BY-SA 4.0 |
 
