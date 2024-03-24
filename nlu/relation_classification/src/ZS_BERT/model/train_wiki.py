@@ -34,10 +34,10 @@ parser.add_argument("-t", "--transformer", type=str, default="bert-base-multilin
 parser.add_argument("-se", "--sentence_embedder", type=str, default="bert-base-nli-mean-tokens", dest="se")
 # parser.add_argument("-re", "--relation_emb", type=int, default=1024, dest="relation_emb")
 # parser.add_argument("-cr", "--Creole", nargs="*", default=None, help="Creole list", dest="cr")
-parser.add_argument("-w", "--wiki_zsl_data", type=str, default="Wiki-ZSL", help="Wiki-ZSL data file")
+parser.add_argument("-w", "--wiki_zsl_data", type=str, default="ZS_BERT/Wiki-ZSL", help="Wiki-ZSL data file")
 # parser.add_argument("--Creole_data", type=str, default=None, help="Creole RE data file")
 parser.add_argument("-ms", "--model_saves", type=str, default="saved_models", help="model save dir")
-parser.add_argument("-p", "--prop_list_path", type=str, default="resources/property_list.html", help="path to the property list")
+parser.add_argument("-p", "--prop_list_path", type=str, default="ZS_BERT/resources/property_list.html", help="path to the property list")
 
 args = parser.parse_args()
 # set randam seed, this affects the data spliting.
