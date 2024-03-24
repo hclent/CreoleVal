@@ -9,6 +9,7 @@ from transformers import BertTokenizer
 from sentence_transformers import SentenceTransformer
 from transformers import AutoTokenizer, AutoModelForMaskedLM
 
+
 def load_datas(json_files, val_portion=0.0, load_vertices=True):
     """
     Load semantic graphs from multiple json files and if specified reserve a portion of the data for validation.
@@ -52,7 +53,6 @@ def split_wiki_data(data, test_relation):
 
 
 def get_pid2vec(sentence_embedder, idx2property_file, prop_list_path):
-    
     with open(idx2property_file) as f:
         idx2property = json.load(f)
     property2idx = {prop: idx for idx, prop in idx2property.items()}
@@ -65,7 +65,6 @@ def get_pid2vec(sentence_embedder, idx2property_file, prop_list_path):
     for pid, embedding in zip(prop_list.ID, sentence_embeddings):
         pid2vec[pid] = embedding.astype('float32')
     return property2idx, idx2property, pid2vec
-
 
 
 def generate_attribute(train_label, test_label, Creole_label,
@@ -157,7 +156,6 @@ def create_mini_batch(samples):
     return tokens_tensors, segments_tensors, marked_e1, marked_e2, masks_tensors, relation_emb, label_ids
 
 
-
 class WikiDataset(Dataset):
     def __init__(self, mode, data, pid2vec, property2idx, model):
         assert mode in ['train', 'dev', 'test']
@@ -168,9 +166,10 @@ class WikiDataset(Dataset):
         self.len = len(self.data)
         self.tokenizer = AutoTokenizer.from_pretrained(model, do_lower_case=False)
         # print('a')
+
     #     self.tokenizer = BertTokenizer.from_pretrained(
     # model, do_lower_case=False)
-    
+
     def __getitem__(self, idx):
         g = self.data[idx]
         if self.mode == 'dev':
@@ -183,14 +182,14 @@ class WikiDataset(Dataset):
         for i, t in enumerate(g["tokens"]):
             new_token = self.tokenizer.tokenize(t)
             if len(edge['left']) > 0:
-                if i == edge['left'][0]: # left_start
+                if i == edge['left'][0]:  # left_start
                     left_start = len(tokens_final)
-                if i == edge['left'][-1]: # left_end
+                if i == edge['left'][-1]:  # left_end
                     left_end = len(tokens_final) + len(new_token)
             if len(edge['right']) > 0:
-                if i == edge['right'][0]: # right_start
+                if i == edge['right'][0]:  # right_start
                     right_start = len(tokens_final)
-                if i == edge['right'][-1]: # right_end
+                if i == edge['right'][-1]:  # right_end
                     right_end = len(tokens_final) + len(new_token)
             tokens_final.extend(new_token)
         if len(edge['left']) > 0:
@@ -209,34 +208,34 @@ class WikiDataset(Dataset):
         # tokens = self.tokenizer.tokenize(sentence) #old
         tokens_ids = self.tokenizer.convert_tokens_to_ids(tokens_final)
         # tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"]) #old
-        
+
         tokens_tensor = torch.tensor(tokens_ids)
-        segments_tensor = torch.tensor([0] * len(tokens_ids), 
-                                        dtype=torch.long)
-        
+        segments_tensor = torch.tensor([0] * len(tokens_ids),
+                                       dtype=torch.long)
+
         # edge = g["edgeSet"][0]
         marked_e1, marked_e2 = mark_wiki_entity(edge_new, len(tokens_ids))  # mark有错误
 
         # marked_e1, marked_e2 = mark_wiki_entity(edge, len(tokens_ids))  # mark有错误
 
-
         if self.mode == 'dev':
             property_kbid = g['edgeSet']['kbID']
         else:
             property_kbid = g['edgeSet'][0]['kbID']
-        
+
         relation_emb = self.pid2vec[property_kbid]
-        
+
         if self.mode == 'train':
             label = int(self.property2idx[property_kbid])
             label_tensor = torch.tensor(label)
         elif self.mode == 'test' or self.mode == 'dev':
             label_tensor = None
-            
+
         return (tokens_tensor, segments_tensor, marked_e1, marked_e2, relation_emb, label_tensor)
-    
+
     def __len__(self):
         return self.len
+
 
 class FewRelDataset(Dataset):
     def __init__(self, mode, data, pid2vec, property2idx):
