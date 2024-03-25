@@ -70,13 +70,19 @@ class ZSBert(BertPreTrainedModel):
 
             gamma = self.margin.to(device)
             ce_loss = nn.CrossEntropyLoss()
+            # print("logits:", logits.view(-1, self.num_labels).shape)
+            # print("labels:", labels.view(-1).shape)
             loss = (ce_loss(logits.view(-1, self.num_labels), labels.view(-1))) * self.alpha
             zeros = torch.tensor(0.).to(device)
             for a, b in enumerate(relation_embeddings):
+                # print(a.shape)
+                # print("b", b.shape)
                 max_val = torch.tensor(0.).to(device)
                 for i, j in enumerate(input_relation_emb):
+                    # print("j", j.shape)
                     if a==i:
                         if self.dist_func == 'inner':
+                            # print(b.shape, j.shape)
                             pos = torch.dot(b, j).to(device)
                         elif self.dist_func == 'euclidian':
                             pos = torch.dist(b, j, 2).to(device)
