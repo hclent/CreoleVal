@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
 # activate creole
-source /home/cs.aau.dk/ng78zb/miniconda3/etc/profile.d/conda.sh
-conda activate creole
+#source /home/cs.aau.dk/ng78zb/miniconda3/etc/profile.d/conda.sh
+#conda activate creole
 
 TRANSFORMER=$1
 SENTENCE_TRANSFORMER=$2
