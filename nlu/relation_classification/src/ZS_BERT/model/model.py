@@ -66,7 +66,7 @@ class ZSBert(BertPreTrainedModel):
 
         if labels is not None:
             # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-            device = torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu")
+            device = torch.device("mps" if torch.backends.mps.is_available() else "cuda:0" if torch.cuda.is_available() else "cpu")
 
             gamma = self.margin.to(device)
             ce_loss = nn.CrossEntropyLoss()

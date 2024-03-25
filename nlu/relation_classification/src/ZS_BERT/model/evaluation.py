@@ -39,7 +39,7 @@ def compute_macro_PRF(predicted_idx, gold_idx, i=-1, empty_label=None):
 def extract_relation_emb(model, testloader):
     out_relation_embs = None
     model.eval()
-    device = torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("mps" if torch.backends.mps.is_available() else "cuda:0" if torch.cuda.is_available() else "cpu")
     # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     for data in tqdm(testloader):
         tokens_tensors, segments_tensors, marked_e1, marked_e2, \

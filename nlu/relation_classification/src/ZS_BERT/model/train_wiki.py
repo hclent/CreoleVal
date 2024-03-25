@@ -1,23 +1,17 @@
 import json
 import random
 import numpy as np
-import pandas as pd
 import os
 
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
-
 import data_helper
 from model import ZSBert
-from tqdm import tqdm
 import torch
 from torch.utils.data import DataLoader
 from evaluation import extract_relation_emb, evaluate
-from transformers import BertModel, BertConfig, BertPreTrainedModel, BertTokenizer
-from termcolor import cprint
+from transformers import BertConfig
 from tqdm import tqdm
-from sklearn.metrics import precision_recall_fscore_support
-from transformers import AutoTokenizer, AutoModelForMaskedLM, AutoConfig
 
 from argparse import ArgumentParser
 
@@ -52,7 +46,6 @@ idx2property_file = os.path.join(args.wiki_zsl_data, "idx2property.json")
 
 with open(train_data_file) as f:
     training_data = json.load(f)
-    training_data = training_data
 with open(test_data_file) as f:
     test_data = json.load(f)
 train_label = list(i['edgeSet'][0]['kbID'] for i in training_data)
@@ -81,8 +74,8 @@ bertconfig.dist_func = args.dist_func
 bertconfig.relation_emb_dim = list(pid2vec.values())[0].shape[0]
 model = ZSBert.from_pretrained(args.t, config=bertconfig)
 
-device = torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu")
-if device == "cuda":
+device = torch.device("mps" if torch.backends.mps.is_available() else "cuda:0" if torch.cuda.is_available() else "cpu")
+if device == "cuda:0":
     torch.cuda.manual_seed_all(args.seed)
 
 # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

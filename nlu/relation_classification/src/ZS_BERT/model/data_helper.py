@@ -152,6 +152,7 @@ def create_mini_batch(samples):
                                 dtype=torch.long)
     masks_tensors = masks_tensors.masked_fill(
         tokens_tensors != 0, 1)
+    relation_emb = np.array(relation_emb)  # make the list into an array first before converting to tensor
     relation_emb = torch.tensor(relation_emb)
     return tokens_tensors, segments_tensors, marked_e1, marked_e2, masks_tensors, relation_emb, label_ids
 
