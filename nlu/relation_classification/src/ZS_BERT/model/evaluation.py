@@ -69,11 +69,11 @@ def evaluate(preds, y_attr, y_label, idxmap, num_train_y, dist_func='inner'):
         tree = NearestNeighbors(n_neighbors=1, algorithm='ball_tree', metric=lambda a, b: -((a@b) / (( (a@a) **.5) * ( (b@b) ** .5) )))
     tree.fit(y_attr)
     predictions = tree.kneighbors(preds, 1, return_distance=False).flatten() + num_train_y
-    if y_label.shape[0] == 97:
-        p_macro = precision_score(predictions, y_label, average='macro')
-        r_macro = recall_score(predictions, y_label, average='macro')
-        f_macro = f1_score(predictions, y_label, average='macro')
-    else:
-        p_macro, r_macro, f_macro = compute_macro_PRF(predictions, y_label)
+    # if y_label.shape[0] == 97:
+    #     p_macro = precision_score(predictions, y_label, average='macro')
+    #     r_macro = recall_score(predictions, y_label, average='macro')
+    #     f_macro = f1_score(predictions, y_label, average='macro')
+    # else:
+    p_macro, r_macro, f_macro = compute_macro_PRF(predictions, y_label)
     return p_macro, r_macro, f_macro
 
