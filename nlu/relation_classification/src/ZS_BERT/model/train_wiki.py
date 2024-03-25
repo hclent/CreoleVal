@@ -44,7 +44,7 @@ torch.manual_seed(args.seed)
 
 # add the directory to the ukp data
 train_data_file = os.path.join(args.wiki_zsl_data, "train.json")
-test_data_file = os.path.join(args.wiki_zsl_data, "dev.json")
+test_data_file = os.path.join(args.wiki_zsl_data, "test.json")
 idx2property_file = os.path.join(args.wiki_zsl_data, "idx2property.json")
 
 with open(train_data_file) as f:
