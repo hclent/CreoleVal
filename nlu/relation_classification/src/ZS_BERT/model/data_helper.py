@@ -68,8 +68,8 @@ def get_pid2vec(sentence_embedder, idx2property_file, prop_list_path):
 
 
 def generate_attribute(train_label, test_label, Creole_label,
-                       sentence_embedder='bert-large-nli-mean-tokens', att_dim=1024,
-                       prop_list_path='/home/nlp/ZL/TEST/Creole-NLU-NLG-Suite-wiki/wikipedia/ZS_BERT/resources/property_list.html'):
+    sentence_embedder='bert-large-nli-mean-tokens', att_dim=1024,
+    prop_list_path='/home/nlp/ZL/TEST/Creole-NLU-NLG-Suite-wiki/wikipedia/ZS_BERT/resources/property_list.html'):
     # from sentence_transformers import SentenceTransformer
     property2idx = {}
     idx2property = {}
@@ -141,15 +141,15 @@ def create_mini_batch(samples):
         label_ids = None
 
     tokens_tensors = pad_sequence(tokens_tensors,
-                                  batch_first=True)
+        batch_first=True)
     segments_tensors = pad_sequence(segments_tensors,
-                                    batch_first=True)
+        batch_first=True)
     marked_e1 = pad_sequence(marked_e1,
-                             batch_first=True)
+        batch_first=True)
     marked_e2 = pad_sequence(marked_e2,
-                             batch_first=True)
+        batch_first=True)
     masks_tensors = torch.zeros(tokens_tensors.shape,
-                                dtype=torch.long)
+        dtype=torch.long)
     masks_tensors = masks_tensors.masked_fill(
         tokens_tensors != 0, 1)
     relation_emb = torch.tensor(relation_emb)
@@ -172,51 +172,52 @@ class WikiDataset(Dataset):
 
     def __getitem__(self, idx):
         g = self.data[idx]
+
+        # tokens_final = ["[CLS]"]
+        #
+        # edge_new = {}
+        # for i, t in enumerate(g["tokens"]):
+        #     new_token = self.tokenizer.tokenize(t)
+        #     if len(edge['left']) > 0:
+        #         if i == edge['left'][0]:  # left_start
+        #             left_start = len(tokens_final)
+        #         if i == edge['left'][-1]:  # left_end
+        #             left_end = len(tokens_final) + len(new_token)
+        #     if len(edge['right']) > 0:
+        #         if i == edge['right'][0]:  # right_start
+        #             right_start = len(tokens_final)
+        #         if i == edge['right'][-1]:  # right_end
+        #             right_end = len(tokens_final) + len(new_token)
+        #     tokens_final.extend(new_token)
+        # if len(edge['left']) > 0:
+        #     edge_new['left'] = list(range(left_start, left_end))
+        # else:
+        #     edge_new['left'] = edge['left']
+        # if len(edge['right']) > 0:
+        #     edge_new['right'] = list(range(right_start, right_end))
+        # else:
+        #     edge_new['right'] = edge['right']
+        # # print('a')
+        # tokens_final = tokens_final + ['[SEP]']
+
+        sentence = " ".join(g["tokens"])  # old
+        tokens = self.tokenizer.tokenize(sentence)  # old
+        # tokens_ids = self.tokenizer.convert_tokens_to_ids(tokens_final)
+        tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"])  # old
+
+        tokens_tensor = torch.tensor(tokens_ids)
+        segments_tensor = torch.tensor([0] * len(tokens_ids),
+            dtype=torch.long)
+
         if self.mode == 'dev':
             edge = g["edgeSet"]
         else:
             edge = g["edgeSet"][0]
 
-        tokens_final = ["[CLS]"]
-        edge_new = {}
-        for i, t in enumerate(g["tokens"]):
-            new_token = self.tokenizer.tokenize(t)
-            if len(edge['left']) > 0:
-                if i == edge['left'][0]:  # left_start
-                    left_start = len(tokens_final)
-                if i == edge['left'][-1]:  # left_end
-                    left_end = len(tokens_final) + len(new_token)
-            if len(edge['right']) > 0:
-                if i == edge['right'][0]:  # right_start
-                    right_start = len(tokens_final)
-                if i == edge['right'][-1]:  # right_end
-                    right_end = len(tokens_final) + len(new_token)
-            tokens_final.extend(new_token)
-        if len(edge['left']) > 0:
-            edge_new['left'] = list(range(left_start, left_end))
-        else:
-            edge_new['left'] = edge['left']
-        if len(edge['right']) > 0:
-            edge_new['right'] = list(range(right_start, right_end))
-        else:
-            edge_new['right'] = edge['right']
-        # print('a')
-        tokens_final = tokens_final + ['[SEP]']
-        tokens_ids = self.tokenizer.convert_tokens_to_ids(tokens_final)
-
-        # sentence = " ".join(g["tokens"]) #old
-        # tokens = self.tokenizer.tokenize(sentence) #old
-        tokens_ids = self.tokenizer.convert_tokens_to_ids(tokens_final)
-        # tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"]) #old
-
-        tokens_tensor = torch.tensor(tokens_ids)
-        segments_tensor = torch.tensor([0] * len(tokens_ids),
-                                       dtype=torch.long)
-
         # edge = g["edgeSet"][0]
-        marked_e1, marked_e2 = mark_wiki_entity(edge_new, len(tokens_ids))  # mark有错误
+        # marked_e1, marked_e2 = mark_wiki_entity(edge_new, len(tokens_ids))  # mark有错误
 
-        # marked_e1, marked_e2 = mark_wiki_entity(edge, len(tokens_ids))  # mark有错误
+        marked_e1, marked_e2 = mark_wiki_entity(edge, len(tokens_ids))  # mark有错误
 
         if self.mode == 'dev':
             property_kbid = g['edgeSet']['kbID']
@@ -255,7 +256,7 @@ class FewRelDataset(Dataset):
         tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"])
         tokens_tensor = torch.tensor(tokens_ids)
         segments_tensor = torch.tensor([0] * len(tokens_ids),
-                                       dtype=torch.long)
+            dtype=torch.long)
         marked_e1, marked_e2 = mark_fewrel_entity(g, len(tokens_ids))
         relation_emb = self.pid2vec[g['relation']]
 
