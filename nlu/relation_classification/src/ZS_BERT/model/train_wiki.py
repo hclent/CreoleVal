@@ -49,7 +49,6 @@ idx2property_file = os.path.join(args.wiki_zsl_data, "idx2property.json")
 
 with open(train_data_file) as f:
     training_data = json.load(f)
-    training_data=training_data[:200]
 with open(test_data_file) as f:
     test_data = json.load(f)
 train_label = list(i['edgeSet'][0]['kbID'] for i in training_data)
