@@ -1,10 +1,8 @@
 import torch
 
+import numpy as np
 from sklearn.neighbors import NearestNeighbors
-# from sklearn.metrics import f1_score, precision_recall_fscore_support
-# from sklearn.metrics import precision_score, recall_score, f1_score
 from tqdm import tqdm
-from sklearn.metrics import f1_score, precision_score, recall_score
 
 
 def compute_macro_PRF(predicted_idx, gold_idx, i=-1, empty_label=None):
@@ -55,11 +53,16 @@ def extract_relation_emb(model, testloader):
                                               e2_mask=marked_e2,
                                               attention_mask=masks_tensors,
                                               input_relation_emb=relation_emb)
-            logits = outputs[0]
+            # logits = outputs[0]
         if out_relation_embs is None:
             out_relation_embs = out_relation_emb
         else:
             out_relation_embs = torch.cat((out_relation_embs, out_relation_emb))
+        if np.any(out_relation_embs):
+            print(f"na found")
+            print(tokens_tensors)
+            print(relation_emb)
+
     return out_relation_embs
 
 

@@ -49,7 +49,7 @@ idx2property_file = os.path.join(args.wiki_zsl_data, "idx2property.json")
 
 with open(train_data_file) as f:
     training_data = json.load(f)
-    training_data = training_data[:2000]
+    # training_data = training_data[:2000]
 with open(test_data_file) as f:
     test_data = json.load(f)
 train_label = list(i['edgeSet'][0]['kbID'] for i in training_data)
@@ -143,9 +143,10 @@ for epoch in range(args.epochs):
         total += labels.size(0)
         _, pred = torch.max(logits, 1)
         correct += (pred == labels).sum().item()
+
         loss.backward()
         optimizer.step()
-
+        print(f"loss: {loss.item}")
         running_loss += loss.item()
         if step % 1000 == 0:
             print(f'[step {step}]' + '=' * (step // 1000))
