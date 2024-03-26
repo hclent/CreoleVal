@@ -146,7 +146,7 @@ for epoch in range(args.epochs):
 
         loss.backward()
         optimizer.step()
-        print(f"loss: {loss.item}")
+        # print(f"loss: {loss.item()}")
         running_loss += loss.item()
         if step % 1000 == 0:
             print(f'[step {step}]' + '=' * (step // 1000))
@@ -155,6 +155,7 @@ for epoch in range(args.epochs):
 
     print('============== EVALUATION ON DEV DATA ==============')
     preds = extract_relation_emb(model, testloader).cpu().numpy()
+    print(preds)
     print(f"check nan: {np.any(np.isnan(preds))}")
 
     pt, rt, f1t = evaluate(preds, test_y_attr, test_y, len(set(train_label)), args.dist_func)
