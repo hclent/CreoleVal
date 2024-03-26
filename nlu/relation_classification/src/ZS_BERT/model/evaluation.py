@@ -1,8 +1,8 @@
 import torch
-
 import numpy as np
 from sklearn.neighbors import NearestNeighbors
 from tqdm import tqdm
+
 
 
 def compute_macro_PRF(predicted_idx, gold_idx, i=-1, empty_label=None):
@@ -58,10 +58,14 @@ def extract_relation_emb(model, testloader):
             out_relation_embs = out_relation_emb
         else:
             out_relation_embs = torch.cat((out_relation_embs, out_relation_emb))
+
         if np.any(np.isnan(out_relation_embs)):
-            print(f"na found")
-            print(tokens_tensors)
-            print(relation_emb)
+            print(f"na found, normalizing out_relation_embs")
+            print(out_relation_embs)
+            dim = out_relation_embs.shape[-1]
+            norm_layer = torch.nn.LayerNorm(dim)
+            out_relation_embs= norm_layer(out_relation_embs)
+            print(out_relation_embs)
 
     return out_relation_embs
 
