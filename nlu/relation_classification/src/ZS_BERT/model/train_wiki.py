@@ -49,6 +49,7 @@ idx2property_file = os.path.join(args.wiki_zsl_data, "idx2property.json")
 
 with open(train_data_file) as f:
     training_data = json.load(f)
+    training_data=training_data[:200]
 with open(test_data_file) as f:
     test_data = json.load(f)
 train_label = list(i['edgeSet'][0]['kbID'] for i in training_data)
@@ -152,7 +153,9 @@ for epoch in range(args.epochs):
 
     print('============== EVALUATION ON DEV DATA ==============')
     preds = extract_relation_emb(model, testloader).cpu().numpy()
-    pt, rt, f1t = evaluate(preds, test_y_attr, test_y, test_idxmap, len(set(train_label)), args.dist_func)
+    print(f"check nan: {np.any(np.isnan(preds))}")
+
+    pt, rt, f1t = evaluate(preds, test_y_attr, test_y, len(set(train_label)), args.dist_func)
     print(f'[test] precision: {pt:.4f}, recall: {rt:.4f}, f1 score: {f1t:.4f}')
 
     if f1t > best_f1:
