@@ -3,9 +3,6 @@ import random
 import numpy as np
 import os
 
-os.environ['KMP_DUPLICATE_LIB_OK']='True'
-
-
 import data_helper
 from model import ZSBert
 import torch
@@ -42,6 +39,9 @@ random.seed(args.seed)
 np.random.seed(args.seed)
 torch.manual_seed(args.seed)
 
+# mps.
+# os.environ['KMP_DUPLICATE_LIB_OK']='True'
+
 # add the directory to the ukp data
 train_data_file = os.path.join(args.wiki_zsl_data, "train.json")
 test_data_file = os.path.join(args.wiki_zsl_data, "test.json")
@@ -49,10 +49,12 @@ idx2property_file = os.path.join(args.wiki_zsl_data, "idx2property.json")
 
 with open(train_data_file) as f:
     training_data = json.load(f)
+    training_data = training_data[:2000]
 with open(test_data_file) as f:
     test_data = json.load(f)
 train_label = list(i['edgeSet'][0]['kbID'] for i in training_data)
 test_label = list(i['edgeSet'][0]['kbID'] for i in test_data)
+
 
 # set up sentence embedder
 # prop_list_path = "../resources/property_list.html"
