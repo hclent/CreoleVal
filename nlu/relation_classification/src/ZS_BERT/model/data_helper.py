@@ -213,12 +213,11 @@ class WikiDataset(Dataset):
         if "bert" in self.model:
             tokens_final = tokens_final + ["[CLS]"]
         if "xlm" in self.model:
-            tokens_final = tokens_final + ["<s>"]
+            tokens_final = tokens_final + ["</s>"]
 
         # sentence = " ".join(g["tokens"])  # old
         # tokens = self.tokenizer.tokenize(sentence)  # old
         tokens_ids = self.tokenizer.convert_tokens_to_ids(tokens_final)
-        print(f"tokens ids: {tokens_ids}")
 
         # if "bert" in model:
         #     tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"])  # old
@@ -226,8 +225,7 @@ class WikiDataset(Dataset):
         #     tokens_ids = self.tokenizer.convert_tokens_to_ids(["<s>"] + tokens + ["</s>"])
 
         tokens_tensor = torch.tensor(tokens_ids)
-        segments_tensor = torch.tensor([0] * len(tokens_ids),
-            dtype=torch.long)
+        segments_tensor = torch.tensor([0] * len(tokens_ids), dtype=torch.long)
 
         # edge = g["edgeSet"][0]
         marked_e1, marked_e2 = mark_wiki_entity(edge_new, len(tokens_ids))  # mark有错误

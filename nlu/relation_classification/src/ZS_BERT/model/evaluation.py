@@ -66,7 +66,7 @@ def extract_relation_emb(model, testloader):
             norm_layer = torch.nn.LayerNorm(dim)
             out_relation_embs= norm_layer(out_relation_embs)
             print(out_relation_embs)
-
+    print(out_relation_embs)
     return out_relation_embs
 
 
