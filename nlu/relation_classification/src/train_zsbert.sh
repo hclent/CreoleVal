@@ -3,6 +3,8 @@
 # activate creole
 #source /home/cs.aau.dk/ng78zb/miniconda3/etc/profile.d/conda.sh
 #conda activate creole
+$WITH_CONDA
+conda activate v2t
 
 TRANSFORMER=$1
 SENTENCE_TRANSFORMER=$2
