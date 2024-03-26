@@ -67,32 +67,32 @@ print(len(training_data))
 print(len(test_data))
 
 # Creole data
-Creole_data = {}
-Creole_label = {}
-root_dir = args.Creole_data
-for c in args.cr:
-    filepath = root_dir + '/' + c + '.json'
-    with open(filepath) as f:
-        data = json.load(f)  #
-    for d in data:
-        d['edgeSet']['kbID'] = d['edgeSet']['triple'][-1]
-    Creole_data[c] = data
-    Creole_data_label = list(i['edgeSet']['kbID'] for i in data)
-    Creole_label[c] = Creole_data_label
-    output_info = 'There are {} kinds of relation in Creole '.format(len(set(Creole_data_label))) + c
-    print(output_info)
-    output_info = 'number of union of train and Creole' + c + ': {}'.format(
-        len(set(train_label) & set(Creole_data_label)))
-    print(output_info)
+# Creole_data = {}
+# Creole_label = {}
+# root_dir = args.Creole_data
+# for c in args.cr:
+#     filepath = root_dir + '/' + c + '.json'
+#     with open(filepath) as f:
+#         data = json.load(f)  #
+#     for d in data:
+#         d['edgeSet']['kbID'] = d['edgeSet']['triple'][-1]
+#     Creole_data[c] = data
+#     Creole_data_label = list(i['edgeSet']['kbID'] for i in data)
+#     Creole_label[c] = Creole_data_label
+#     output_info = 'There are {} kinds of relation in Creole '.format(len(set(Creole_data_label))) + c
+#     print(output_info)
+#     output_info = 'number of union of train and Creole' + c + ': {}'.format(
+#         len(set(train_label) & set(Creole_data_label)))
+#     print(output_info)
+#
+# print('\n')
 
-print('\n')
-
-property2idx, idx2property, pid2vec = data_helper.generate_attribute(train_label=train_label,
-    test_label=test_label,
-    Creole_label=Creole_label,
-    sentence_embedder=args.se,
-    att_dim=args.relation_emb,
-    prop_list_path=args.prop_list_path)
+# property2idx, idx2property, pid2vec = data_helper.generate_attribute(train_label=train_label,
+#     test_label=test_label,
+#     # Creole_label=Creole_label,
+#     sentence_embedder=args.se,
+#     att_dim=args.relation_emb,
+#     prop_list_path=args.prop_list_path)
 
 bertconfig = BertConfig.from_pretrained(args.t,
     num_labels=len(set(train_label)),
