@@ -58,7 +58,7 @@ def extract_relation_emb(model, testloader):
             out_relation_embs = out_relation_emb
         else:
             out_relation_embs = torch.cat((out_relation_embs, out_relation_emb))
-        if np.any(out_relation_embs):
+        if np.any(np.isnan(out_relation_embs)):
             print(f"na found")
             print(tokens_tensors)
             print(relation_emb)
