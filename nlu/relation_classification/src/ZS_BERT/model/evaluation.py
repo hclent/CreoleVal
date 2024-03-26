@@ -59,7 +59,7 @@ def extract_relation_emb(model, testloader):
         else:
             out_relation_embs = torch.cat((out_relation_embs, out_relation_emb))
 
-        if np.any(np.isnan(out_relation_embs)):
+        if np.any(np.isnan(out_relation_embs.cpu().numpy())):
             print(f"na found, normalizing out_relation_embs")
             print(out_relation_embs)
             dim = out_relation_embs.shape[-1]
