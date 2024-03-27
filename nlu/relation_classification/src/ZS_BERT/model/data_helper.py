@@ -178,10 +178,10 @@ class WikiDataset(Dataset):
             edge = g["edgeSet"][0]
 
         if "bert" in self.model:
-            print("bert in model name")
+            # print("bert in model name")
             tokens_final = ["[CLS]"]
         if "xlr" in self.model:
-            print("bert in model name")
+            # print("bert in model name")
             tokens_final = ["<s>"]
 
         edge_new = {}
