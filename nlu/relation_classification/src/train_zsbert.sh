@@ -16,7 +16,7 @@ BATCH_SIZE=$3
 #
 #model=('bert-base-multilingual-cased' 'xlm-roberta-base' )
 #sentence=('bert-base-nli-mean-tokens' 'bert-large-nli-mean-tokens' 'xlm-r-bert-base-nli-mean-tokens' 'xlm-r-100langs-bert-base-nli-mean-tokens')
-seeds=(127 211 563 757 991) # prime numbers
+seeds=(563 757 991) # prime numbers
 
 echo "TRAINING SBERT"
 
