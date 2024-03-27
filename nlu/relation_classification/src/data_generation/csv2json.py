@@ -61,6 +61,7 @@ def processing_one_row(sentence, ent1, ent2, ent1_qcode, ent2_qcode, p):
     else:
         print(f"alert: {sentence}, {ent1}, {ent2} ")
         print(ent1_ids,ent2_ids)
+        edgesets["triple"] = (ent2_qcode, ent1_qcode, p)
 
     edgesets["property"] = p
     instance["edgeSet"] = edgesets
