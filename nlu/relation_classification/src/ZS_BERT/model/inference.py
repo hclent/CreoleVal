@@ -1,6 +1,4 @@
 import json
-
-import json
 import os.path
 
 import plac
@@ -10,7 +8,6 @@ import pandas as pd
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 from torch.nn.utils.rnn import pad_sequence
-from transformers import BertTokenizer
 from sentence_transformers import SentenceTransformer
 from transformers import AutoModel, AutoTokenizer
 
@@ -18,7 +15,7 @@ from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics import f1_score, precision_score, recall_score
 
 
-prop_list_path = './relation_classification/ZS_BERT/resources/property_list.html'
+prop_list_path = './ZS_BERT/resources/property_list.html'
 
 
 def mark_wiki_entity(edge, sent_len):
@@ -49,7 +46,11 @@ class WikiDataset(Dataset):
         g = self.data[idx]
         sentence = " ".join(g["tokens"])
         tokens = self.tokenizer.tokenize(sentence)
-        tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"])
+        if "bert" in self.tokenizer:
+            tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"])
+        if "xlm" in self.tokenizer:
+            tokens_ids = self.tokenizer.convert_tokens_to_ids(["<s>"] + tokens + ["</s>"])
+
         tokens_tensor = torch.tensor(tokens_ids)
         segments_tensor = torch.tensor([0] * len(tokens_ids),
                                        dtype=torch.long)
@@ -118,7 +119,7 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
         pid2vec[pid] = embedding.astype('float32')
         # pid2vec[pid] = embedding.numpy().astype('float32')
 
-    print(f"loading wikidataset...")
+    print(f"loading wiki dataset...")
     dataset = WikiDataset(data,tokenizer=tokenizer)
     dataloader = DataLoader(dataset, batch_size=batch_size, collate_fn=create_mini_batch)
 
@@ -179,8 +180,6 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
     print("pre:{}".format(precision_score(golden_rel, pred_rel, average='macro')))
     print("recall:{}".format(recall_score(golden_rel, pred_rel, average='macro')))
     print("f1:{}".format(f1_score(golden_rel, pred_rel, average='macro')))
-
-
 
 
     # record the results.
