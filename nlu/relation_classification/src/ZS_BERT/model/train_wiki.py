@@ -247,5 +247,9 @@ for epoch in range(args.epochs):
         if not os.path.exists(model_dir):
             os.makedirs(model_dir)
 
-        torch.save(model, f'{args.model_saves}/{nn}/{args.se}/best_f1_{best_f1}_wiki_epoch_{epoch}_alpha_{args.alpha}_gamma_{args.gamma}')
+        torch.save(model, f'{args.model_saves}/{nn}/{args.se}/best_f1_{best_f1}_wiki_epoch_{epoch}_alpha_{args.alpha}_gamma_{args.gamma}_{args.seed}')
+        with open(os.path.join(args.model_saves, f"results_seed_{args.seed}.json"), "w") as f:
+            result = {"precision": pt, "recall": rt, "f1": f1t}
+            json.dump(result, f)
+
     print(f'[best val] precision: {best_p:.4f}, recall: {best_r:.4f}, f1 score: {best_f1:.4f}')
