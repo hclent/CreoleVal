@@ -168,7 +168,7 @@ for epoch in range(args.epochs):
 
         nn = args.t.split('/')[-1]
 
-        model_save_dir = f"{args.model_saves}/{nn}/{args.se}"
+        model_save_dir = f"{args.model_saves}/old/{nn}/{args.se}"
         if not os.path.exists(model_save_dir):
             os.makedirs(model_save_dir)
 
@@ -177,7 +177,7 @@ for epoch in range(args.epochs):
             json.dump(result, f)
 
         torch.save(model,
-            f'{args.model_saves}/{nn}/{args.se}/best_f1_{best_f1}_wiki_epoch_{epoch}_alpha_{args.alpha}_gamma_{args.gamma}_seed_{args.seed}')
+            f'{args.model_saves}/old/{nn}/{args.se}/best_f1_{best_f1}_wiki_epoch_{epoch}_alpha_{args.alpha}_gamma_{args.gamma}_seed_{args.seed}')
 
 
     print(f'[best val] precision: {best_p:.4f}, recall: {best_r:.4f}, f1 score: {best_f1:.4f}')

@@ -175,62 +175,62 @@ class WikiDataset(Dataset):
 
     def __getitem__(self, idx):
         g = self.data[idx]
-        if self.mode == 'dev':
-            edge = g["edgeSet"]
-        else:
-            edge = g["edgeSet"][0]
+        # if self.mode == 'dev':
+        #     edge = g["edgeSet"]
+        # else:
+        #     edge = g["edgeSet"][0]
+
+        # if "bert" in self.model:
+        #     tokens_final = ["[CLS]"]
+        # if "xlm" in self.model:
+        #     tokens_final = ["<s>"]
+        #
+        # edge_new = {}
+        # for i, t in enumerate(g["tokens"]):
+        #     new_token = self.tokenizer.tokenize(t)
+        #     if len(edge['left']) > 0:
+        #         if i == edge['left'][0]:  # left_start
+        #             left_start = len(tokens_final)
+        #         if i == edge['left'][-1]:  # left_end
+        #             left_end = len(tokens_final) + len(new_token)
+        #     if len(edge['right']) > 0:
+        #         if i == edge['right'][0]:  # right_start
+        #             right_start = len(tokens_final)
+        #         if i == edge['right'][-1]:  # right_end
+        #             right_end = len(tokens_final) + len(new_token)
+        #     tokens_final.extend(new_token)
+        #
+        # if len(edge['left']) > 0:
+        #     edge_new['left'] = list(range(left_start, left_end))
+        # else:
+        #     edge_new['left'] = edge['left']
+        # if len(edge['right']) > 0:
+        #     edge_new['right'] = list(range(right_start, right_end))
+        # else:
+        #     edge_new['right'] = edge['right']
+        # # print('a')
+        #
+        # if "bert" in self.model:
+        #     tokens_final = tokens_final + ["[CLS]"]
+        # if "xlm" in self.model:
+        #     tokens_final = tokens_final + ["</s>"]
+        #
+        sentence = " ".join(g["tokens"])  # old
+        tokens = self.tokenizer.tokenize(sentence)  # old
+        # tokens_ids = self.tokenizer.convert_tokens_to_ids(tokens_final)
 
         if "bert" in self.model:
-            tokens_final = ["[CLS]"]
+            tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"])  # old
         if "xlm" in self.model:
-            tokens_final = ["<s>"]
-
-        edge_new = {}
-        for i, t in enumerate(g["tokens"]):
-            new_token = self.tokenizer.tokenize(t)
-            if len(edge['left']) > 0:
-                if i == edge['left'][0]:  # left_start
-                    left_start = len(tokens_final)
-                if i == edge['left'][-1]:  # left_end
-                    left_end = len(tokens_final) + len(new_token)
-            if len(edge['right']) > 0:
-                if i == edge['right'][0]:  # right_start
-                    right_start = len(tokens_final)
-                if i == edge['right'][-1]:  # right_end
-                    right_end = len(tokens_final) + len(new_token)
-            tokens_final.extend(new_token)
-
-        if len(edge['left']) > 0:
-            edge_new['left'] = list(range(left_start, left_end))
-        else:
-            edge_new['left'] = edge['left']
-        if len(edge['right']) > 0:
-            edge_new['right'] = list(range(right_start, right_end))
-        else:
-            edge_new['right'] = edge['right']
-        # print('a')
-
-        if "bert" in self.model:
-            tokens_final = tokens_final + ["[CLS]"]
-        if "xlm" in self.model:
-            tokens_final = tokens_final + ["</s>"]
-
-        # sentence = " ".join(g["tokens"])  # old
-        # tokens = self.tokenizer.tokenize(sentence)  # old
-        tokens_ids = self.tokenizer.convert_tokens_to_ids(tokens_final)
-
-        # if "bert" in model:
-        #     tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"])  # old
-        # if "xlm" in model:
-        #     tokens_ids = self.tokenizer.convert_tokens_to_ids(["<s>"] + tokens + ["</s>"])
+            tokens_ids = self.tokenizer.convert_tokens_to_ids(["<s>"] + tokens + ["</s>"])
 
         tokens_tensor = torch.tensor(tokens_ids)
         segments_tensor = torch.tensor([0] * len(tokens_ids), dtype=torch.long)
 
-        # edge = g["edgeSet"][0]
-        marked_e1, marked_e2 = mark_wiki_entity(edge_new, len(tokens_ids))  # mark有错误
 
-        # marked_e1, marked_e2 = mark_wiki_entity(edge, len(tokens_ids))  # mark有错误
+        # marked_e1, marked_e2 = mark_wiki_entity(edge_new, len(tokens_ids))  # mark有错误
+        edge = g["edgeSet"][0]
+        marked_e1, marked_e2 = mark_wiki_entity(edge, len(tokens_ids))  # mark有错误
 
         if self.mode == 'dev':
             property_kbid = g['edgeSet']['kbID']
