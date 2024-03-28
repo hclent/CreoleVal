@@ -8,9 +8,10 @@ encoders = ['bert-base-nli-mean-tokens',
     'xlm-r-100langs-bert-base-nli-mean-tokens',
     'xlm-r-bert-base-nli-mean-tokens']
 
-record_dict = defaultdict(dict)
 for m in transformers:
     for encoder in encoders:
+        print(f"model-encoder: {transformers}_{encoder}")
+        record_dict = defaultdict(dict)
         for seed in [563, 757, 991]:
             filepath = f"output/{m}_{encoder}_{seed}.json"
             print(f"loading {filepath}")
@@ -22,5 +23,5 @@ for m in transformers:
             for creole in ["bi", "cbk-zam", "jam", "tpi"]:
                 record_dict[creole][seed] = data["creoles"][creole]
 
-df = pd.DataFrame.from_dict(record_dict, orient="index")
-print(df)
+        df = pd.DataFrame.from_dict(record_dict, orient="index")
+        print(df)
