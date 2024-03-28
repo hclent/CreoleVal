@@ -107,7 +107,7 @@ def get_model_dict(model_folder):
 
 def prediction_per_model(sentence_embedder, tokenizer, seed, batch_size=16):
     # {seed: f1: model_path}
-    model_folder = f"saved_models/{tokenizer}/sentence_embedder"
+    model_folder = f"saved_models/{tokenizer}/{sentence_embedder}"
     seed2model = get_model_dict(model_folder)
     # load sentence embedder
     print(f"the best models... {seed2model}")
