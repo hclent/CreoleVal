@@ -12,10 +12,10 @@ for m in transformers:
     for encoder in encoders:
         print(f"model-encoder: {m}_{encoder}")
         record_dict = defaultdict(dict)
-        if "bert" in m:
-            seeds = [300, 563, 757, 991 ]
+        if "xlm" in m:
+            seeds = [563, 757, 991 ]
         else:
-            seeds = [563, 757, 991]
+            seeds = [300, 563, 757, 991]
 
         for seed in seeds:
             filepath = f"output/{m}_{encoder}_{seed}.json"
