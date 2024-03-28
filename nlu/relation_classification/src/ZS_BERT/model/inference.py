@@ -163,7 +163,7 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
         edgeSet = line["edgeSet"]
         triple = line["edgeSet"]["triple"]
         prop = triple[-1]
-        prediction0 = line["edgeSet"]["prediction"]
+        # prediction0 = line["edgeSet"]["prediction"]
         if preds_property[idx] != None:
             new_data.append({
                 "tokens": tokens,
@@ -172,8 +172,8 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
                     "right": edgeSet["right"],
                     "property": preds_property[idx],
                     "triple": triple,
-                    "prediction00": prediction0,
-                    "prediction01": prop == preds_property[idx]
+                    "prediction": prop == preds_property[idx],
+                    # "prediction01": prop == preds_property[idx]
                 }
             })
 
