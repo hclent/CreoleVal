@@ -34,7 +34,7 @@ echo "setting transformer to ${TRANSFORMER} and sentence embedding to ${SENTENCE
 
 seeds=(563 757 991)
 # aicloud
-for s in "${seeds[@]}]}"; do
+for s in "${seeds[@]}"; do
   srun singularity exec --nv --cleanenv --bind ${wd}:${wd} \
     ${SIF} ${wd}/infer_zsbert.sh ${TRANSFORMER} ${SENTENCE_TRANSFORMER}  ${s} ${BATCH_SIZE}
 
