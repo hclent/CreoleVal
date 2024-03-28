@@ -41,14 +41,15 @@ class WikiDataset(Dataset):
         # self.tokenizer = BertTokenizer.from_pretrained(
         #     tokenizer, do_lower_case=False)
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer, do_lower_case=False)
+        self.tokenizer_name = tokenizer
 
     def __getitem__(self, idx):
         g = self.data[idx]
         sentence = " ".join(g["tokens"])
         tokens = self.tokenizer.tokenize(sentence)
-        if "bert" in self.tokenizer:
+        if "bert" in self.tokenizer_name:
             tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"])
-        if "xlm" in self.tokenizer:
+        if "xlm" in self.tokenizer_name:
             tokens_ids = self.tokenizer.convert_tokens_to_ids(["<s>"] + tokens + ["</s>"])
 
         tokens_tensor = torch.tensor(tokens_ids)
@@ -120,7 +121,7 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
         # pid2vec[pid] = embedding.numpy().astype('float32')
 
     print(f"loading wiki dataset...")
-    dataset = WikiDataset(data,tokenizer=tokenizer)
+    dataset = WikiDataset(data, tokenizer=tokenizer)
     dataloader = DataLoader(dataset, batch_size=batch_size, collate_fn=create_mini_batch)
 
     print(f"loading model from {model_path}")
