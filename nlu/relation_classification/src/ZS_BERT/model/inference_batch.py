@@ -129,6 +129,7 @@ def prediction_per_model(tokenizer, sentence_embedder, seed, batch_size=16):
     if seed in seed2model:
         f1TOmodel = seed2model[seed]
         for f1, model_path in f1TOmodel.items():
+            model_path = os.path.join(model_folder, model_path)
             print(f"loading model from {model_path}")
             results_dict["model"]["dev"] = f1
             results_dict["model"]["seed"] = seed
