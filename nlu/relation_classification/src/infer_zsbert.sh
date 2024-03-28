@@ -20,6 +20,7 @@ SEED=$4
 #seeds=(563 757 991) # prime numbers
 
 echo "Running inference on Creoles"
+echo "seed ${SEED}"
 
 #for s in "${seeds[@]}"; do
 #  echo "seed $s"

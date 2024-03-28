@@ -3,8 +3,8 @@
 #SBATCH --job-name=infer
 #SBATCH --mem=50GB
 #SBATCH --time=2-00:00:00
-#SBATCH --output=zs_finetune_%j.out
-#SBATCH --error=zs_finetune_%j.err
+#SBATCH --output=zs_infer_%j.out
+#SBATCH --error=zs_infer_%j.err
 
 set -x
 
@@ -12,7 +12,7 @@ set -x
 TRANSFORMER=$1
 SENTENCE_TRANSFORMER=$2
 BATCH_SIZE=$3
-SEED=$4
+
 
 
 wd=$(pwd)
@@ -29,8 +29,11 @@ chmod +x ${wd}
 chmod +x ${wd}/infer_zsbert.sh
 
 echo "setting transformer to ${TRANSFORMER} and sentence embedding to ${SENTENCE_TRANSFORMER}"
-echo "BATCH_SIZE ${BATCH_SIZE}; seed ${SEED}"
 
+seeds=(563 757 991)
 # aicloud
-srun singularity exec --nv --cleanenv --bind ${wd}:${wd} \
-    ${SIF} ${wd}/infer_zsbert.sh ${SENTENCE_TRANSFORMER} ${TRANSFORMER} ${SEED} ${BATCH_SIZE}
+for s in "${seeds[@]}]}"; do
+  srun singularity exec --nv --cleanenv --bind ${wd}:${wd} \
+    ${SIF} ${wd}/infer_zsbert.sh ${SENTENCE_TRANSFORMER} ${TRANSFORMER} ${s} ${BATCH_SIZE}
+
+done
