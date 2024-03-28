@@ -16,11 +16,13 @@ BATCH_SIZE=$3
 #
 #model=('bert-base-multilingual-cased' 'xlm-roberta-base' )
 #sentence=('bert-base-nli-mean-tokens' 'bert-large-nli-mean-tokens' 'xlm-r-bert-base-nli-mean-tokens' 'xlm-r-100langs-bert-base-nli-mean-tokens')
-seeds=(563 757 991) # prime numbers
+#seeds=(563 757 991) # prime numbers
 
 echo "TRAINING SBERT"
 
-for s in "${seeds[@]}"; do
-  echo "seed $s"
-  CUDA_VISIBLE_DEVICES=0 python ZS_BERT/model/train_wiki.py -s ${s} -b ${BATCH_SIZE} -t ${TRANSFORMER} -se ${SENTENCE_TRANSFORMER} -cr bi
-done
+#for s in "${seeds[@]}"; do
+#  echo "seed $s"
+#  CUDA_VISIBLE_DEVICES=0 python ZS_BERT/model/train_wiki.py -s ${s} -b ${BATCH_SIZE} -t ${TRANSFORMER} -se ${SENTENCE_TRANSFORMER} -cr bi
+#done
+
+CUDA_VISIBLE_DEVICES=0 python ZS_BERT/model/train_wiki.py -b ${BATCH_SIZE} -t ${TRANSFORMER} -se ${SENTENCE_TRANSFORMER} -cr bi
