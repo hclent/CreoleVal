@@ -96,7 +96,7 @@ def get_model_dict(model_folder):
     seed2file = defaultdict(dict)
     for filepath in file_list:
         seed = filepath.split("_")[-1]
-        f1_score = round(float(filepath.split("_")[2]), 2)
+        f1_score = round(float(filepath.split("_")[2]), 4)*100
         seed2file[seed][f1_score] = filepath
 
     sorted_seed2file = {seed: dict(islice(dict(sorted(d.items(), reverse=True)).items(), 1)) for seed, d in
@@ -144,9 +144,9 @@ def prediction_per_model(tokenizer, sentence_embedder, seed, batch_size=16):
 
                 creole_result = predictions(filepath, property_file, encoder, tokenizer, model, outputfolder,
                     batch_size)
-                results_dict["creoles"][creole] = creole_result
+                results_dict["creoles"][creole] = round(creole_result,4)*100
 
-    result_filename = os.path.join(outputfolder, f"{tokenizer}_{sentence_embedder}_{seed}.json")
+    result_filename = os.path.join("output", f"{tokenizer}_{sentence_embedder}_{seed}.json")
 
     print(f"writing result to {result_filename}")
     with open(result_filename, "w") as f:
