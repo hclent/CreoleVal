@@ -32,7 +32,7 @@ chmod +x ${wd}/infer_zsbert.sh
 
 echo "setting transformer to ${TRANSFORMER} and sentence embedding to ${SENTENCE_TRANSFORMER}"
 
-seeds=(563 757 991)
+seeds=(300)
 # aicloud
 for s in "${seeds[@]}"; do
   srun singularity exec --nv --cleanenv --bind ${wd}:${wd} \
