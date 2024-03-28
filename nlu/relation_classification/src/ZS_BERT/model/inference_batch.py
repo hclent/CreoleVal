@@ -105,7 +105,7 @@ def get_model_dict(model_folder):
     return sorted_seed2file
 
 
-def prediction_per_model(sentence_embedder, tokenizer, seed, batch_size=16):
+def prediction_per_model(tokenizer, sentence_embedder, seed, batch_size=16):
     # {seed: f1: model_path}
     model_folder = f"saved_models/{tokenizer}/{sentence_embedder}"
     seed2model = get_model_dict(model_folder)
@@ -253,5 +253,5 @@ def predictions(filepath, property_file, encoder, tokenizer, model, outputfolder
 
 
 if __name__ == '__main__':
-    # sentence_embedder, tokenizer, seed, batch_size
+    # tokenizer, sentence_transformer, seed, batch_size
     plac.call(prediction_per_model)

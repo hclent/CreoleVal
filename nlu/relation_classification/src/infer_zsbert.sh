@@ -28,4 +28,4 @@ echo "seed ${SEED}"
 #done
 
 # sentence_embedder, tokenizer, seed, batch_size
-python ZS_BERT/model/inference_batch.py ${SENTENCE_TRANSFORMER} ${TRANSFORMER} ${SEED} ${BATCH_SIZE}
+python ZS_BERT/model/inference_batch.py ${TRANSFORMER} ${SENTENCE_TRANSFORMER}  ${SEED} ${BATCH_SIZE}
