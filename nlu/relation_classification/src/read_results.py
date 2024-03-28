@@ -11,7 +11,7 @@ encoders = ['bert-base-nli-mean-tokens',
 record_dict = defaultdict(dict)
 for m in transformers:
     for encoder in encoders:
-        for seed in [564, 757, 991]:
+        for seed in [563, 757, 991]:
             filepath = f"output/{m}_{encoder}_{seed}.json"
             print(f"loading {filepath}")
             with open(filepath) as f:
