@@ -48,11 +48,7 @@ It's recommended to do this in a virtual environment.  (PS. If there are issues 
 ### Jamaican NLI
 
 - **Data**: [GLUE MNLI](https://github.com/nyu-mll/GLUE-baselines) _(pretraining)_ + [`jampatoisnli`](https://github.com/ruth-ann/jampatoisnli) _(finetuning)_
-  - To download, run the following inside this folder:
-    ```bash
-    wget https://github.com/nyu-mll/GLUE-baselines/raw/master/download_glue_data.py
-    python download_glue_data.py --data_dir data/glue --tasks MNLI
-    ```
+  - Download script: [`download_jampatois_nli.sh`](download_jampatois_nli.sh)
 - **Config**: [`configs/nli_glue.json`](configs/nli_glue.json) _(pretraining)_ and [`configs/nli_jamaican.json`](configs/nli_jamaican.json) _(finetuning)_
 - **Train**: `./train_and_finetune_jamnli.sh {mbert,mt5,xlmr}`
 
