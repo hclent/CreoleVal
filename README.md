@@ -1,7 +1,5 @@
 # Welcome to `CreoleVal`
-
-![CreoleVal Logo](Appendix/images/landing_page_logo.png)
-
+<img src="Appendix/images/landing_page_logo.png" alt="CreoleVal Logo" width="50%"/>
 
 
 ## Overview
