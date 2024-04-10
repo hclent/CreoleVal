@@ -27,20 +27,34 @@ Machine comprehension, relation classification, UDPoS, NER, NLI, sentiment analy
 
 Machine translation with bibles, the MIT-Haiti Corpus, and KriolMorisiyenMT
 
-#### License Overview
+#### Benchmark Overview
 
-Because `CreoleVal` is a compossit of new benchmarks and pre-existing ones, there are several different software licesnes at play.
-For the datasets packed within `CreoleVal` (i.e., the data is actually in the repo, rather than fetched with a download script), we summarize them here, for your convenience. 
+Because `CreoleVal` is a composite of new benchmarks and pre-existing ones, there are several different software licenses at play.
+For the datasets packed within `CreoleVal` (i.e., the data is actually in the repo, rather than fetched with a download script), we summarize them here, for your convenience.
+
+Please contact Heather Lent at `hcle@cs.aau.dk` if you have questions regarding the `CreoleVal Religious MT` dataset.
+
 Note: an `*` indicates a dataset that we have newly introduced in `CreoleVal`:
 
-| Dataset          | Task                     | Languages                                 |                               Source                               | Domain                 |                            License | 
-|:-----------------|:-------------------------|:------------------------------------------|:------------------------------------------------------------------:|:-----------------------|-----------------------------------:|
-| MCTest           | machine comprehension    | eng, hat*, mfe*                           | [original](https://github.com/mcobzarenco/mctest/tree/master/data) | short stories for kids | MSR-LA: Microsoft Research License | 
-| CreoleRC         | relation classification  | bi*, cbk-zam*, jam*, pih*, tpi*           |                             Wikipedia                              | Wikipedia              |                       CC-BY-SA 4.0 |
-| MIT-Haiti Corpus | machine translation      | hat*, eng*, es*, fr*                      |            [Platform MIT-Haiti](https://mit-ayiti.net/)            | education              |                       CC-BY-SA 4.0 |
-| WikiAnn          | named entity recognition | bi*, cbk-zam*, ht*, pih*, sg*, tpi*, pap* |     [WikiAnn](https://huggingface.co/datasets/wikiann)             | Wikipedia              |                       CC-BY-SA 4.0 |
-
-
+| **Task** | **Dataset** | **Language (ISO-638-3)** | **License** | **Domain** | **Total Sent.** | **Total words** |
+|---|---|---|---|---|---:|---:|
+| MC | [CreoleVal MC*](nlu/mctest) | hat-dir, hat-loc, mfe | Microsoft License | Education | 3894 | 32068 |
+| RC | CreoleVal RC* | bis, cbk, jam, tpi | CC0 | WikiDump | 785 | 4106 |
+| MT | CreoleVal Religious MT* | bzj, bis, cbk, gul,hat, hwc, jam, ktu,kri, mkn, mbf,mfe, djk, pcm,pap, pis, acf, icr,sag, srm, crs, srn,tdt, tpi, tcs | Copyrighted | Religion | 64394 | 811741 |
+| MT | [CreoleVal MIT-Haiti*](nlg/mit_haiti/data) | hat | CC 4.0 | Education | 3164 | 36281 |
+| Pretraining data | [CreoleVal MIT-Haiti*](nlg/mit_haiti/data/ht_monolingual.txt) | hat | CC 4.0 | Education | 8281 | 116444 |
+|||||||
+| UDPoS | [Singlish Treebank](nlu/baselines/download_singlish_upos.sh) | singlish | MIT | Web Scrape | 1200 | 10989 |
+| UDPoS | [UD_Naija-NSC](nlu/baselines/download_ud_naija.sh) | pcm | CC 4.0 | Dialog | 9621 | 150000 |
+| NER | [MasakhaNER](nlu/baselines/download_masakhaner.sh) | pcm | Apache 2.0 | BBC News | 3000 | 76063 |
+| NER | [WikiAnn](nlu/baselines/data/WikiAnn_data) | bis cbk hat, pih, sgg, tpi, pap | Unspecified | WikiDump | 5877 | 74867 |
+| SA | [AfriSenti](nlu/baselines/download_afrisenti.sh) | pcm | CC BY 4.0 | Twitter | 10559 | 235679 |
+| SA | Naija VADER | pcm | Unspecified | Twitter | 9576 | 101057 |
+| NLI | JamPatoisNLI | jam | Unspecified | Twitter, web | 650 | 2612 |
+| SM | [Tatoeba](nlu/tatoeba_task) | cbk, gcf, hat, jam, pap, sag, tpi | CC-BY 2.0 | General web | 49192 | 319719 |
+| MT | KreolMorisienMT | mfe | MIT License | Varied | 6628 | 23554 |
+|  |  |  |  | New: | 80518 | 1000640 |
+|  |  |  |  | Total: | 176821 | 1995180 |
 
 #### Citation
 
