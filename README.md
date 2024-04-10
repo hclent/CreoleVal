@@ -32,8 +32,6 @@ Machine translation with bibles, the MIT-Haiti Corpus, and KriolMorisiyenMT
 Because `CreoleVal` is a composite of new benchmarks and pre-existing ones, there are several different software licenses at play.
 For the datasets packed within `CreoleVal` (i.e., the data is actually in the repo, rather than fetched with a download script), we summarize them here, for your convenience.
 
-Please contact Heather Lent at `hcle@cs.aau.dk` if you have questions regarding the `CreoleVal Religious MT` dataset.
-
 Note: an `*` indicates a dataset that we have newly introduced in `CreoleVal`:
 
 | **Task** | **Dataset** | **Language (ISO-638-3)** | **License** | **Domain** | **Total Sent.** | **Total words** |
