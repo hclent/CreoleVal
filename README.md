@@ -47,10 +47,10 @@ Note: an `*` indicates a dataset that we have newly introduced in `CreoleVal`:
 | NER | [MasakhaNER](nlu/baselines/download_masakhaner.sh) | pcm | Apache 2.0 | BBC News | 3000 | 76063 |
 | NER | [WikiAnn](nlu/baselines/data/WikiAnn_data) | bis cbk hat, pih, sgg, tpi, pap | Unspecified | WikiDump | 5877 | 74867 |
 | SA | [AfriSenti](nlu/baselines/download_afrisenti.sh) | pcm | CC BY 4.0 | Twitter | 10559 | 235679 |
-| SA | Naija VADER | pcm | Unspecified | Twitter | 9576 | 101057 |
+| SA | [Naija VADER](nlu/baselines/data/Oyewusi) | pcm | Unspecified | Twitter | 9576 | 101057 |
 | NLI | [JamPatoisNLI](nlu/baselines/download_jampatois_nli.sh) | jam | Unspecified | Twitter, web | 650 | 2612 |
 | SM | [Tatoeba](nlu/tatoeba_task) | cbk, gcf, hat, jam, pap, sag, tpi | CC-BY 2.0 | General web | 49192 | 319719 |
-| MT | KreolMorisienMT | mfe | MIT License | Varied | 6628 | 23554 |
+| MT | [KreolMorisienMT](nlg/download_kreolmorisien_mt.sh) | mfe | MIT License | Varied | 6628 | 23554 |
 |  |  |  |  | New: | 80518 | 1000640 |
 |  |  |  |  | Total: | 176821 | 1995180 |
 
