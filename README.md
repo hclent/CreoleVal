@@ -8,6 +8,18 @@ This repository includes data (or otherwise download scripts), scripts for train
 
 Statistics about the coverage of `CreoleVal` can be found [here](https://github.com/hclent/CreoleVal/tree/main/Appendix), as well as additional analysis of the performance and behaviour over the included tasks. 
 
+If you wish to clone this repository to replicate the results, please remember to initialize the added submodule by using the following command:
+
+```bash
+git clone git@github.com:ernlavr/CreoleVal.git --recursive 
+```
+
+or if already cloned
+
+```bash
+git submodule update --init --recursive
+```
+
 ### This repo is under construction! 
 
 This repository is actively undergoing construction, on a weekly or even daily basis. Our outstanding TODO items include:
@@ -52,6 +64,7 @@ Note: an `*` indicates a dataset that we have newly introduced in `CreoleVal`:
 | NLI | [JamPatoisNLI](nlu/baselines/download_jampatois_nli.sh) | jam | Unspecified | Twitter, web | 650 | 2612 |
 | SM | [Tatoeba](nlu/tatoeba_task) | cbk, gcf, hat, jam, pap, sag, tpi | CC-BY 2.0 | General web | 49192 | 319719 |
 | MT | [KreolMorisienMT](nlg/download_kreolmorisien_mt.sh) | mfe | MIT License | Varied | 6628 | 23554 |
+|||||||
 |  |  |  |  | New: | 80518 | 1000640 |
 |  |  |  |  | Total: | 176821 | 1995180 |
 
