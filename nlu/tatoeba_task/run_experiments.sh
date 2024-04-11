@@ -1,5 +1,10 @@
 #!/bin/bash
 
+: '
+This script is used to run experiments on different models with the Tatoeba dataset.
+Ensure to have an environment called tatoeba with dependencies installed as per requirements.txt
+'
+
 # models to use
 MODELS=(
 "bert-base-multilingual-cased"
@@ -19,7 +24,7 @@ echo ""
 # preprocess files
 for FOLDER in tatoeba/*
 do
-	python prepare_data.py $FOLDER
+	python3 prepare_data.py $FOLDER
 	echo "$FOLDER processed"
 done
 
@@ -32,7 +37,7 @@ do
 	echo ""
 	for FILE in data/*
 	do
-		python run_tatoeba.py $FILE experiments/ $MODEL
+		python3 run_tatoeba.py $FILE experiments/ $MODEL
 		echo "$FILE processed"
 		echo ""
 	done
