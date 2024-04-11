@@ -59,7 +59,7 @@ fi
 # Important for relative path names in the config files
 cd "$SCRIPTDIR"
 
-python "$MACHAMP_DIR"/train.py \
+python3 "$MACHAMP_DIR"/train.py \
        --parameters_config "$model_config" \
        --dataset_config "$task_config" \
        --name "${task}_${model}_baseline" \

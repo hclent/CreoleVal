@@ -53,7 +53,7 @@ fi
 cd "$SCRIPTDIR"
 
 # Pre-training
-python "$MACHAMP_DIR"/train.py \
+python3 "$MACHAMP_DIR"/train.py \
        --parameters_config "$model_pretrain_config" \
        --dataset_config "$task_pretrain_config" \
        --name "nli_jamaican_${model}_pretrain" \
@@ -70,7 +70,7 @@ if [[ ! -f "$model_pretrained/model.pt" ]]; then
     return 1
 fi
 
-python "$MACHAMP_DIR"/train.py \
+python3 "$MACHAMP_DIR"/train.py \
        --parameters_config "$model_finetune_config" \
        --dataset_config "$task_finetune_config" \
        --retrain "$model_pretrained/model.pt" \

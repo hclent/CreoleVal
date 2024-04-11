@@ -50,7 +50,7 @@ fi
 # Important for relative path names in the config files
 cd "$SCRIPTDIR"
 
-python "$MACHAMP_DIR"/predict.py \
+python3 "$MACHAMP_DIR"/predict.py \
        "$modeldir/model.pt" \
        "$inputfile" \
        "$modeldir"/output.$(basename "$inputfile")
