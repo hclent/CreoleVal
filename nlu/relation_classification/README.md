@@ -12,6 +12,10 @@ wikipedia
 |- model
 ```
 
+## To-Do
+1. `fetch_data.sh` script, that downloads the UKP data and places in the `src/ZS/BERT/Wiki-ZSL` folder, rename target folder in https://github.com/ernlavr/CreoleVal/tree/main/nlu/relation_classification/src/ZS_BERT
+2. 
+
 
 ## Relation Classification Experiment
 
@@ -19,10 +23,10 @@ The codes for `ZS-BERT` are adapted from the repository https://github.com/dinob
 
 
 ### 1. Setup the environment.
-requirement: `python3.10` and `conda`
+Tested with: `Python 3.10` and `conda`, Ubuntu 22 with Nvidia GPU
 - `conda create -n re python=3.10`
-- `pip install -r requirements.txt` 
-  - `nvidia` packages are for LINUX machine with GPUs.
+- `python3 -m pip install -r requirements.txt`
+  - `nvidia` packages are for Linux machine with GPUs.
   
 
 ### 2. Run `ZS-BERT` model training with UKP data.
