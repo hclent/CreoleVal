@@ -4,6 +4,10 @@ Created for the Creole Suite by Marcell Fekete.
 
 Accuracy scores are out of a 100.
 
+## To-Do
+1. Move Python code to `src/` dir
+2. Move `Scripts` section as doc-strings into `.py` files themselves, outline here that there's documentation available in the scripts
+
 ## Instructions
 
 * Create a virtual environment and install necessary dependencies (see [Section Dependencies](#dependencies)).
