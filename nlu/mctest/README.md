@@ -3,6 +3,12 @@
 This folder contains our new **machine comprehension dataset** as well as
 scripts to **run experiments** on it.
 
+
+## To-Do
+- Move all Python code to a folder `src`
+- Cleanup `src/preproc.py` code
+- Remove `requirements.pip-freeze.txt` they contain full paths for the laptop that was used to generate them, so its useless?
+
 ## Dataset
 
 The dataset is based on [MCTest](https://aclanthology.org/D13-1020/). The
