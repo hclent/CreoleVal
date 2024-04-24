@@ -100,4 +100,9 @@ Stuff missing:
   - Running evaluation
   - Running training
   - Cite
+- Unify all sub-README.md structures.
+  - Prerequisites (python, conda, requirements)
+  - Script to run training
+  - Script to run evaluation
+  - Script to fetch data if necessary  
    
