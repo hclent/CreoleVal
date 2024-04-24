@@ -104,5 +104,6 @@ Stuff missing:
   - Prerequisites (python, conda, requirements)
   - Script to run training
   - Script to run evaluation
-  - Script to fetch data if necessary  
+  - Script to fetch data if necessary
+- Remove `nlu/baselines` and split it into corresponding directories per task
    
