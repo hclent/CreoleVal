@@ -14,7 +14,7 @@ wikipedia
 
 ## To-Do
 1. `fetch_data.sh` script, that downloads the UKP data and places in the `src/ZS/BERT/Wiki-ZSL` folder, rename target folder in https://github.com/ernlavr/CreoleVal/tree/main/nlu/relation_classification/src/ZS_BERT
-2. 
+2. Add example command in Section 3
 
 
 ## Relation Classification Experiment
