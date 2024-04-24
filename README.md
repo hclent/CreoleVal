@@ -84,3 +84,20 @@ Please cite us:
       primaryClass={cs.CL}
 }
 ```
+
+#### ToDo List:
+Nice repos:
+- https://github.com/sp-uhh/sgmse
+- https://github.com/iriscxy/FES
+- https://github.com/RManLuo/reasoning-on-graphs
+- https://github.com/ernlavr/FEVEROUS
+
+Stuff missing:
+- Overall structure:
+  - Overview (description of repo);
+  - Python environment setup (requirements);
+  - Data overview and fetch, fetching pretrained weights;
+  - Running evaluation
+  - Running training
+  - Cite
+   
