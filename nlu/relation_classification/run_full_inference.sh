@@ -1,3 +1,14 @@
+#!/usr/bin/bash
+
+: '
+This script is used to run the full inference process for a set of models and 
+sentence embedders on Creoles: bi, cbk-zam, jam, pih, tpi.
+
+The script first creates the necessary directories if they do not exist.
+Then it loops over each model and sentence embedder, and for each combination, it runs the inference process for each Creole language.
+The results are logged in a log file specific to the model and sentence embedder combination.
+'
+
 mkdirs() {
     local dir="$1"
     if [ ! -d "$dir" ]; then
@@ -31,7 +42,7 @@ for mm in "${model[@]}"; do
         for dd in "${Creole[@]}"; do
             data_file="${data_dir}/${dd}.json"
             proper_file="${proper_dir}/${dd}.json"
-            CUDA_VISIBLE_DEVICES=0 python ./relation_classification/ZS_BERT/model/inference.py "$data_file" "$proper_file" "$output_dir" "$ss" "$mm" "$best_model" | tee -a "$log_file"
+            CUDA_VISIBLE_DEVICES=0 python3 ./relation_classification/ZS_BERT/model/inference.py "$data_file" "$proper_file" "$output_dir" "$ss" "$mm" "$best_model" | tee -a "$log_file"
         done
     done
 done

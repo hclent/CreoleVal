@@ -1,5 +1,3 @@
-
-
 cd ./CreoleRE
 source activate RE
 
@@ -25,6 +23,6 @@ for mm in "${model[@]}"; do
         > "$log_file"
         echo "$mm" | tee -a "$log_file"
         echo "$ss" | tee -a "$log_file"
-        python ./relation_classification/ZS_BERT/model/train_wiki.py -se "$ss" -t "$mm" -cr bi cbk-zam jam pih tpi --model_saves ./relation_classification/save_models --Wiki_ZSL_data ./relation_classification/data/Wiki-ZSL --Creole_data ./relation_classification/data/relation_extraction --prop_list_path ./relation_classification/ZS_BERT/resources/property_list.html  | tee -a "$log_file"
+        python3 ./relation_classification/ZS_BERT/model/train_wiki.py -se "$ss" -t "$mm" -cr bi cbk-zam jam pih tpi --model_saves ./relation_classification/save_models --Wiki_ZSL_data ./relation_classification/data/Wiki-ZSL --Creole_data ./relation_classification/data/relation_extraction --prop_list_path ./relation_classification/ZS_BERT/resources/property_list.html  | tee -a "$log_file"
     done
 done
