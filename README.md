@@ -29,16 +29,25 @@ This repository is actively undergoing construction, on a weekly or even daily b
 * [`nlg/`] Add links and experiments for KriolMorisiyen MT
 * [`Appendix/`] Adding more documentation, with analysis of experiments
 * Generally, add the scripts to make it clear what data is left over to train CreoleLM's with, without cross-contaminating
-* Make sure there are no hard-coded paths
+
+### Getting Started
+#### Natural Language Understanding (`./nlu`)
+Datasets, training and inference scripts for NLU tasks such as: 
+- Machine Comprehension (`./nlu/mctest/`)
+- Relation Classification(`./nlu/relation_classification/`), 
+- UDPoS, 
+- NER, 
+- NLI 
+- Sentiment Analysis
+- Tatoeba challenge (`./nlu/tatoeba_task/`).
+
+Each of the corresponding directories have their own README.md files which give further specific instructions on how to run the experiments.
 
 
-#### Natural Language Understanding (`/nlu`)
+#### Natural Language Generation (`./nlg`)
 
-Machine comprehension, relation classification, UDPoS, NER, NLI, sentiment analysis, and tatoeba challenge.
+Training an inference scripts for Machine Translation task with the MIT-Haiti corpus, KriolMorisiyenMT and bibles. Please note that there is no download script for the set of bibles as the material is copyrighted.
 
-#### Natural Language Generation (`/nlg`)
-
-Machine translation with bibles, the MIT-Haiti Corpus, and KriolMorisiyenMT
 
 #### Benchmark Overview
 
@@ -50,18 +59,18 @@ Note: an `*` indicates a dataset that we have newly introduced in `CreoleVal`:
 | **Task** | **Dataset** | **Language (ISO-638-3)** | **License** | **Domain** | **Total Sent.** | **Total words** |
 |---|---|---|---|---|---:|---:|
 | MC | [CreoleVal MC*](nlu/mctest) | hat-dir, hat-loc, mfe | Microsoft License | Education | 3894 | 32068 |
-| RC | [CreoleVal RC*](nlu/relation_classification/data/relation_extraction) | bis, cbk, jam, tpi | CC0 | WikiDump | 785 | 4106 |
+| RC | [CreoleVal RC*](nlu/relation_classification) | bis, cbk, jam, tpi | CC0 | WikiDump | 785 | 4106 |
 | MT | CreoleVal Religious MT* | bzj, bis, cbk, gul,hat, hwc, jam, ktu,kri, mkn, mbf,mfe, djk, pcm,pap, pis, acf, icr,sag, srm, crs, srn,tdt, tpi, tcs | Copyrighted | Religion | 64394 | 811741 |
-| MT | [CreoleVal MIT-Haiti*](nlg/mit_haiti/data) | hat | CC 4.0 | Education | 3164 | 36281 |
-| Pretraining data | [CreoleVal MIT-Haiti*](nlg/mit_haiti/data/ht_monolingual.txt) | hat | CC 4.0 | Education | 8281 | 116444 |
+| MT | [CreoleVal MIT-Haiti*](nlg/mit_haiti) | hat | CC 4.0 | Education | 3164 | 36281 |
+| Pretraining data | [CreoleVal MIT-Haiti*](nlg/mit_haiti) | hat | CC 4.0 | Education | 8281 | 116444 |
 |||||||
-| UDPoS | [Singlish Treebank](nlu/baselines/download_singlish_upos.sh) | singlish | MIT | Web Scrape | 1200 | 10989 |
-| UDPoS | [UD_Naija-NSC](nlu/baselines/download_ud_naija.sh) | pcm | CC 4.0 | Dialog | 9621 | 150000 |
-| NER | [MasakhaNER](nlu/baselines/download_masakhaner.sh) | pcm | Apache 2.0 | BBC News | 3000 | 76063 |
-| NER | [WikiAnn](nlu/baselines/data/WikiAnn_data) | bis cbk hat, pih, sgg, tpi, pap | Unspecified | WikiDump | 5877 | 74867 |
-| SA | [AfriSenti](nlu/baselines/download_afrisenti.sh) | pcm | CC BY 4.0 | Twitter | 10559 | 235679 |
-| SA | [Naija VADER](nlu/baselines/data/Oyewusi) | pcm | Unspecified | Twitter | 9576 | 101057 |
-| NLI | [JamPatoisNLI](nlu/baselines/download_jampatois_nli.sh) | jam | Unspecified | Twitter, web | 650 | 2612 |
+| UDPoS | [Singlish Treebank](nlu/baselines) | singlish | MIT | Web Scrape | 1200 | 10989 |
+| UDPoS | [UD_Naija-NSC](nlu/baselines) | pcm | CC 4.0 | Dialog | 9621 | 150000 |
+| NER | [MasakhaNER](nlu/baselines) | pcm | Apache 2.0 | BBC News | 3000 | 76063 |
+| NER | [WikiAnn](nlu/baselines) | bis cbk hat, pih, sgg, tpi, pap | Unspecified | WikiDump | 5877 | 74867 |
+| SA | [AfriSenti](nlu/baselines) | pcm | CC BY 4.0 | Twitter | 10559 | 235679 |
+| SA | [Naija VADER](nlu/baselines) | pcm | Unspecified | Twitter | 9576 | 101057 |
+| NLI | [JamPatoisNLI](nlu/baselines) | jam | Unspecified | Twitter, web | 650 | 2612 |
 | SM | [Tatoeba](nlu/tatoeba_task) | cbk, gcf, hat, jam, pap, sag, tpi | CC-BY 2.0 | General web | 49192 | 319719 |
 | MT | [KreolMorisienMT](nlg/download_kreolmorisien_mt.sh) | mfe | MIT License | Varied | 6628 | 23554 |
 |||||||
