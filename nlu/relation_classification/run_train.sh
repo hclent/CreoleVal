@@ -1,7 +1,38 @@
-cd ./CreoleRE
-source activate RE
+#!/bin/bash
 
+echo "Remember:
+  - Create and activate your corresponding Conda environment before running this script;
+  - This script calls Python3 by default;
+"
 
+# Download data
+UKP="data/ukp/wiki_all.json"
+FILE_ID="1ELFGUIYDClmh9GrEHjFYoE_VI1t2a5nK"
+if test -f $UKP;
+  then
+    echo "UKP file exists ..."
+  else
+    echo "downloading UKP English data... to data/ukp/wiki_all.json"
+    wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ELFGUIYDClmh9GrEHjFYoE_VI1t2a5nK' -O $UKP
+fi
+
+# test if relation_classification/src/ZS_BERT/Wiki-ZSL/train.json exists
+if [ ! -f src/ZS_BERT/Wiki-ZSL/train.json ]; 
+  then
+    wget https://huggingface.co/datasets/yiyic/ukp_m5/resolve/main/train.json -O src/ZS_BERT/Wiki-ZSL/train.json
+  else
+    echo "Found src/ZS_BERT/Wiki-ZSL/test.json ..."
+fi
+
+if [ ! -f src/ZS_BERT/Wiki-ZSL/test.json ]; 
+  then
+    wget https://huggingface.co/datasets/yiyic/ukp_m5/resolve/main/test.json -O src/ZS_BERT/Wiki-ZSL/test.json
+  else
+    echo "Found src/ZS_BERT/Wiki-ZSL/test.json ..."
+fi
+
+# For ZS_BERT framework to work correctly, we need to switch the CWD
+cd src/ZS_BERT
 
 mkdirs() {
     local dir="$1"
@@ -23,6 +54,6 @@ for mm in "${model[@]}"; do
         > "$log_file"
         echo "$mm" | tee -a "$log_file"
         echo "$ss" | tee -a "$log_file"
-        python3 ./relation_classification/ZS_BERT/model/train_wiki.py -se "$ss" -t "$mm" -cr bi cbk-zam jam pih tpi --model_saves ./relation_classification/save_models --Wiki_ZSL_data ./relation_classification/data/Wiki-ZSL --Creole_data ./relation_classification/data/relation_extraction --prop_list_path ./relation_classification/ZS_BERT/resources/property_list.html  | tee -a "$log_file"
+        python3 model/train_wiki.py -se "$ss" -t "$mm" -cr bi cbk-zam jam tpi --model_saves ../../save_models --Wiki_ZSL_data Wiki-ZSL --Creole_data ../../data/relation_extraction --prop_list_path resources/property_list.html  | tee -a "$log_file"
     done
 done
