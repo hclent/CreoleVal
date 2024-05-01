@@ -83,7 +83,7 @@ def preprocess_function(examples):
         answer = q2a_lut[q]
         for option in candidates:
             choices.append(f"{q} {sep_tok} {option}") #real!
-            #choices.append(f"{q} {sep_tok} {answer} {sep_tok} {option}") #This is for debugging only. We should get 100% Acc if we add the answer
+            
     tokenized_examples = tokenizer(story, choices, truncation=False)
     bb = {k: [v[i : i + 4] for i in range(0, len(v), 4)] for k, v in tokenized_examples.items()}
     return bb
@@ -100,11 +100,7 @@ class DataCollatorForMultipleChoice:
         num_choices = 4
         flattened_features = [
             [{k: v[i] for k, v in feature.items()} for i in range(num_choices)] for feature in features]
-        flattened_features = sum(flattened_features, []) #`encoded_inputs` for the batch [{'input_ids': [], 'token_type_ids': [], 'attention_mask': []}]
-
-        # Truncate + Pad 
-
-        #my own hacky truncation here 
+        flattened_features = sum(flattened_features, []) #`encoded_inputs` for the batch 
         truncated_features = []
 
         for encoded_input in flattened_features:
@@ -159,8 +155,6 @@ def main():
     print(examples)
 
     tokenized_mct = examples.map(preprocess_function, batched=True)
-   
-    data_collator = DataCollatorForMultipleChoice(tokenizer) #
 
     if args.action == "train":
         model = AutoModelForMultipleChoice.from_pretrained(args.from_pretrained).to(device)
@@ -204,8 +198,7 @@ def main():
         if device == "cuda":
             model.cuda()
         
-        train_result = trainer.train()
-        
+        trainer.train()
         writer.close()
 
     elif args.action == "evaluate":
@@ -215,9 +208,6 @@ def main():
         #####model = MyBertForMultipleChoice.from_pretrained(args.from_checkpoint).to(device)
 
         experiment_sub_dir = f"mbert_lr{args.learning_rate}_wd{args.weight_decay}"
-        #writer = SummaryWriter(os.path.join(args.tb_dir, experiment_sub_dir))
-        #callback = TensorBoardCallback(writer)
-
         training_args = TrainingArguments(
             output_dir=os.path.join(args.output_dir, experiment_sub_dir),   
             save_strategy="epoch",
@@ -302,8 +292,7 @@ def main():
             nb_eval_examples += inputs["input_ids"].size(0)
             nb_eval_batches += 1 
         eval_loss = eval_loss / nb_eval_steps
-        eval_accuracy = eval_accuracy / nb_eval_batches 
-        #over_all = accuracy.compute(predictions=preds_list, references=true_list) #compute_metrics((preds_list, true_list))
+        eval_accuracy = eval_accuracy / nb_eval_batches
         result = {"eval_loss": eval_loss, "eval_accuracy": eval_accuracy}
         print(result)
     
@@ -379,13 +368,11 @@ def main():
         test_accuracy = test_accuracy / nb_test_batches 
         result = {"test_loss": test_loss, "test_accuracy": test_accuracy}
         print(result)
-    
 
 
     else:
         print("* Supported actions are `train` or `evaluate` or `test` ")
 
 
-
-
-main()
+if __name__ == "__main__":
+    main()
