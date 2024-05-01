@@ -8,7 +8,7 @@ This repository includes data (or otherwise download scripts), scripts for train
 
 Statistics about the coverage of `CreoleVal` can be found [here](https://github.com/hclent/CreoleVal/tree/main/Appendix), as well as additional analysis of the performance and behaviour over the included tasks. 
 
-If you wish to clone this repository to replicate the results, please remember to initialize the added submodule by using the following command:
+If you wish to clone this repository to replicate the results, please remember to initialize the added submodules by using the following command:
 
 ```bash
 git clone git@github.com:ernlavr/CreoleVal.git --recursive 
@@ -20,17 +20,9 @@ or if already cloned
 git submodule update --init --recursive
 ```
 
-### This repo is under construction! 
-
-This repository is actively undergoing construction, on a weekly or even daily basis. Our outstanding TODO items include:
-
-* A "Getting Started" guide, to walk you through the data and experiments in this repo. 
-* Adding more scripts, so others can easily run `CreoleVal` experiments
-* [`nlg/`] Add links and experiments for KriolMorisiyen MT
-* [`Appendix/`] Adding more documentation, with analysis of experiments
-* Generally, add the scripts to make it clear what data is left over to train CreoleLM's with, without cross-contaminating
-
 ### Getting Started
+Each of the tasks is contained in a sub-directory where further technical instructions are provided with how to get started in a dedicated `README.md` file.
+
 #### Natural Language Understanding (`./nlu`)
 Datasets, training and inference scripts for NLU tasks such as: 
 - Machine Comprehension (`./nlu/mctest/`)
@@ -41,12 +33,14 @@ Datasets, training and inference scripts for NLU tasks such as:
 - Sentiment Analysis
 - Tatoeba challenge (`./nlu/tatoeba_task/`).
 
-Each of the corresponding directories have their own README.md files which give further specific instructions on how to run the experiments.
-
 
 #### Natural Language Generation (`./nlg`)
-
 Training an inference scripts for Machine Translation task with the MIT-Haiti corpus, KriolMorisiyenMT and bibles. Please note that there is no download script for the set of bibles as the material is copyrighted.
+
+- Creole-Bible MT (`./nlg/creolem2m/`)
+- KreolMorisien MT (`./nlg/kreolmorisien_mt`)
+- MIT-Ayiti MT (`./nlg/mit_haiti`)
+  - Contains monolingual and parallel data for Haitian Creole (hat)
 
 
 #### Benchmark Overview
@@ -78,9 +72,7 @@ Note: an `*` indicates a dataset that we have newly introduced in `CreoleVal`:
 |  |  |  |  | Total: | 176821 | 1995180 |
 
 #### Citation
-
 Paper can be found [here](https://arxiv.org/abs/2310.19567).
-
 Please cite us: 
 
 ```
@@ -94,6 +86,16 @@ Please cite us:
 }
 ```
 
+### This repo is under construction! 
+
+This repository is actively undergoing construction, on a weekly or even daily basis. Our outstanding TODO items include:
+
+* A "Getting Started" guide, to walk you through the data and experiments in this repo. 
+* Adding more scripts, so others can easily run `CreoleVal` experiments
+* [`nlg/`] Add links and experiments for KriolMorisiyen MT
+* [`Appendix/`] Adding more documentation, with analysis of experiments
+* Generally, add the scripts to make it clear what data is left over to train CreoleLM's with, without cross-contaminating
+
 #### ToDo List:
 Nice repos:
 - https://github.com/sp-uhh/sgmse
@@ -104,15 +106,18 @@ Nice repos:
 Stuff missing:
 - Overall structure:
   - Overview (description of repo);
-  - Python environment setup (requirements);
+  - Python environment setup (requirements); (Maybe not)
   - Data overview and fetch, fetching pretrained weights;
   - Running evaluation
   - Running training
   - Cite
+
 - Unify all sub-README.md structures.
-  - Prerequisites (python, conda, requirements)
+  - Cross-check prerequisites (python, conda, requirements, launch scripts)
+  - Add documentation to launch scripts + func usage()
   - Script to run training
   - Script to run evaluation
+  - Pretrained weights?
   - Script to fetch data if necessary
 - Remove `nlu/baselines` and split it into corresponding directories per task
    
