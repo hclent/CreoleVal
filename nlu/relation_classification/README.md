@@ -4,14 +4,10 @@
 wikipedia
 |- data
   |- relation_extraction
-  |- ukp
-    wiki_all.json (after run_zs_bert_training.sh)
-    |- m5
-    |- m10
-    |- m15
 |- src
   |- data_generation
   |- ZS_BERT
+    |- Wiki-ZSL
 |- output
 |- model
 ```
@@ -30,6 +26,16 @@ requirement: `python3.10` and `conda`
   
 
 ### 2. Run `ZS-BERT` model training with UKP data.
+
+The split UKP data can be downloaded from HuggingFace [yiyic/ukp_m5](https://huggingface.co/datasets/yiyic/ukp_m5).
+And store the data in the directory `src/ZS_BERT/Wiki-ZSL`.
+
+The trained ZS-Bert models, fine-tuned on `bert-base-multilingual-cased` and `xlm-roberta-base`, combined with 
+4 different sentence transformers, `bert-base-nli-mean-tokens`, `bert-large-nli-mean-tokens`, `xlm-r-bert-base-nli-mean-tokens`
+and `xlm-r-100langs-bert-base-nli-mean-tokens` are uploaded to HuggingFace, [`yiyic/ZSBert_mBERT-finetuned`](https://huggingface.co/yiyic/ZSBert_mBERT-finetuned) 
+and [`yiyic/ZSBert_xlmr-finetuned`](https://huggingface.co/yiyic/ZSBert_xlmr-finetuned).
+
+
 `bash run_zs_bert_training.sh`
 
 

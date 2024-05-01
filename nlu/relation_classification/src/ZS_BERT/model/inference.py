@@ -1,6 +1,4 @@
 import json
-
-import json
 import os.path
 
 import plac
@@ -10,7 +8,6 @@ import pandas as pd
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 from torch.nn.utils.rnn import pad_sequence
-from transformers import BertTokenizer
 from sentence_transformers import SentenceTransformer
 from transformers import AutoModel, AutoTokenizer
 
@@ -18,7 +15,7 @@ from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics import f1_score, precision_score, recall_score
 
 
-prop_list_path = './relation_classification/ZS_BERT/resources/property_list.html'
+prop_list_path = './ZS_BERT/resources/property_list.html'
 
 
 def mark_wiki_entity(edge, sent_len):
@@ -44,12 +41,17 @@ class WikiDataset(Dataset):
         # self.tokenizer = BertTokenizer.from_pretrained(
         #     tokenizer, do_lower_case=False)
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer, do_lower_case=False)
+        self.tokenizer_name = tokenizer
 
     def __getitem__(self, idx):
         g = self.data[idx]
         sentence = " ".join(g["tokens"])
         tokens = self.tokenizer.tokenize(sentence)
-        tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"])
+        if "bert" in self.tokenizer_name:
+            tokens_ids = self.tokenizer.convert_tokens_to_ids(["[CLS]"] + tokens + ["[SEP]"])
+        if "xlm" in self.tokenizer_name:
+            tokens_ids = self.tokenizer.convert_tokens_to_ids(["<s>"] + tokens + ["</s>"])
+
         tokens_tensor = torch.tensor(tokens_ids)
         segments_tensor = torch.tensor([0] * len(tokens_ids),
                                        dtype=torch.long)
@@ -118,8 +120,8 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
         pid2vec[pid] = embedding.astype('float32')
         # pid2vec[pid] = embedding.numpy().astype('float32')
 
-    print(f"loading wikidataset...")
-    dataset = WikiDataset(data,tokenizer=tokenizer)
+    print(f"loading wiki dataset...")
+    dataset = WikiDataset(data, tokenizer=tokenizer)
     dataloader = DataLoader(dataset, batch_size=batch_size, collate_fn=create_mini_batch)
 
     print(f"loading model from {model_path}")
@@ -161,7 +163,7 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
         edgeSet = line["edgeSet"]
         triple = line["edgeSet"]["triple"]
         prop = triple[-1]
-        prediction0 = line["edgeSet"]["prediction"]
+        # prediction0 = line["edgeSet"]["prediction"]
         if preds_property[idx] != None:
             new_data.append({
                 "tokens": tokens,
@@ -170,8 +172,8 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
                     "right": edgeSet["right"],
                     "property": preds_property[idx],
                     "triple": triple,
-                    "prediction00": prediction0,
-                    "prediction01": prop == preds_property[idx]
+                    "prediction": prop == preds_property[idx],
+                    # "prediction01": prop == preds_property[idx]
                 }
             })
 
@@ -179,8 +181,6 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
     print("pre:{}".format(precision_score(golden_rel, pred_rel, average='macro')))
     print("recall:{}".format(recall_score(golden_rel, pred_rel, average='macro')))
     print("f1:{}".format(f1_score(golden_rel, pred_rel, average='macro')))
-
-
 
 
     # record the results.

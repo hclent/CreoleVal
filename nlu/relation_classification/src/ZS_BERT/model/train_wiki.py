@@ -25,16 +25,16 @@ parser.add_argument("-s", "--seed", help="random seed", type=int, default=300, d
 parser.add_argument("-g", "--gamma", help="margin factor gamma", type=float, default=7.5, dest="gamma")
 parser.add_argument("-a", "--alpha", help="balance coefficient alpha", type=float, default=0.4, dest="alpha")
 parser.add_argument("-d", "--dist_func", help="distance computing function", type=str, default='inner', dest="dist_func")
-parser.add_argument("-b", "--batch_size", type=int, default=4, dest="batch_size")
+parser.add_argument("-b", "--batch_size", type=int, default=64, dest="batch_size")
 parser.add_argument("-e", "--epochs", type=int, default=10, dest="epochs")
 parser.add_argument("-t", "--transformer", type=str, default="bert-base-multilingual-cased", dest="t")
 parser.add_argument("-se", "--sentence_embedder", type=str, default="bert-base-nli-mean-tokens", dest="se")
 parser.add_argument("-re", "--relation_emb", type=int, default=1024, dest="relation_emb")
 parser.add_argument("-cr", "--Creole", nargs="*", default=None, help="Creole list",dest="cr")
-parser.add_argument("--Wiki_ZSL_data", type=str, default=None, help="Wiki-ZSL data file")
-parser.add_argument("--Creole_data", type=str, default=None, help="Creole RE data file")
-parser.add_argument("--model_saves", type=str, default=None, help="model save dir")
-parser.add_argument("--prop_list_path", type=str, default=None, help="model save dir")
+parser.add_argument("--Wiki_ZSL_data", type=str, default="ZS_BERT/Wiki-ZSL", help="Wiki-ZSL data file")
+parser.add_argument("--Creole_data", type=str, default="../data/relation_extraction", help="Creole RE data file")
+parser.add_argument("--model_saves", type=str, default="saved_models", help="model save dir")
+parser.add_argument("--prop_list_path", type=str, default="ZS_BERT/resources/property_list.html", help="model save dir")
 
 args = parser.parse_args()
 # set randam seed, this affects the data spliting.
@@ -67,8 +67,6 @@ print('number of union of train and test: {}'.format(len(set(train_label) & set(
 
 print(len(training_data))
 print(len(test_data))
-
-
 
 
 # Creole data 
@@ -244,5 +242,14 @@ for epoch in range(args.epochs):
             print("recall:{}".format(Creole_re[i]))
             print("f1:{}".format(Creole_F1[i]))
         nn = args.t.split('/')[-1]
-        torch.save(model, f'{args.model_saves}/{nn}/{args.se}/best_f1_{best_f1}_wiki_epoch_{epoch}_alpha_{args.alpha}_gamma_{args.gamma}')
+
+        model_dir = os.path.join(args.model_saves, nn, args.se)
+        if not os.path.exists(model_dir):
+            os.makedirs(model_dir)
+
+        torch.save(model, f'{args.model_saves}/{nn}/{args.se}/best_f1_{best_f1}_wiki_epoch_{epoch}_alpha_{args.alpha}_gamma_{args.gamma}_{args.seed}')
+        with open(os.path.join(args.model_saves, f"results_seed_{args.seed}.json"), "w") as f:
+            result = {"precision": pt, "recall": rt, "f1": f1t}
+            json.dump(result, f)
+
     print(f'[best val] precision: {best_p:.4f}, recall: {best_r:.4f}, f1 score: {best_f1:.4f}')

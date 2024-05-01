@@ -153,7 +153,7 @@ def create_mini_batch(samples):
                                 dtype=torch.long)
     masks_tensors = masks_tensors.masked_fill(
         tokens_tensors != 0, 1)
-    relation_emb = torch.tensor(relation_emb)
+    relation_emb = torch.tensor(np.array(relation_emb))
     return tokens_tensors, segments_tensors, marked_e1, marked_e2, masks_tensors, relation_emb, label_ids
 
 
@@ -162,14 +162,13 @@ class WikiDataset(Dataset):
     def __init__(self, mode, data, pid2vec, property2idx, model):
         assert mode in ['train', 'dev', 'test']
         self.mode = mode
+        self.model = model
         self.data = data
         self.pid2vec = pid2vec
         self.property2idx = property2idx
         self.len = len(self.data)
         self.tokenizer = AutoTokenizer.from_pretrained(model, do_lower_case=False)
-        # print('a')
-    #     self.tokenizer = BertTokenizer.from_pretrained(
-    # model, do_lower_case=False)
+
     
     def __getitem__(self, idx):
         g = self.data[idx]
@@ -178,7 +177,13 @@ class WikiDataset(Dataset):
         else:
             edge = g["edgeSet"][0]
 
-        tokens_final = ["[CLS]"]
+        if "bert" in self.model:
+            # print("bert in model name")
+            tokens_final = ["[CLS]"]
+        if "xlr" in self.model:
+            # print("bert in model name")
+            tokens_final = ["<s>"]
+
         edge_new = {}
         for i, t in enumerate(g["tokens"]):
             new_token = self.tokenizer.tokenize(t)
@@ -202,7 +207,13 @@ class WikiDataset(Dataset):
         else:
             edge_new['right'] = edge['right']
         # print('a')
-        tokens_final = tokens_final + ['[SEP]']
+        if "bert" in self.model:
+            tokens_final = tokens_final + ['[SEP]']
+        if "xlr" in self.model:
+            tokens_final = tokens_final +["</s>"]
+
+
+        # tokens_final = tokens_final + ['[SEP]']
         tokens_ids = self.tokenizer.convert_tokens_to_ids(tokens_final)
 
         # sentence = " ".join(g["tokens"]) #old
