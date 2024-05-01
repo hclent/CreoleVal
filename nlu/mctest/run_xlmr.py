@@ -6,13 +6,12 @@ import numpy as np
 from transformers import AutoTokenizer, EarlyStoppingCallback, XLMRobertaForMultipleChoice
 from datasets import Dataset, DatasetDict, load_dataset
 from dataclasses import dataclass
-from transformers.tokenization_utils_base import PreTrainedTokenizerBase, PaddingStrategy
-from typing import Optional, Union
+from transformers.tokenization_utils_base import PreTrainedTokenizerBase
 import torch
 from torch.utils.tensorboard import SummaryWriter
 from transformers.integrations import TensorBoardCallback
 from transformers import AutoModelForMultipleChoice, TrainingArguments, Trainer
-from tqdm import tqdm, trange
+from tqdm import tqdm
 import evaluate
 
 accuracy = evaluate.load("accuracy")
@@ -158,8 +157,6 @@ def main():
 
     tokenized_mct = examples.map(preprocess_function, batched=True)
    
-    data_collator = DataCollatorForMultipleChoice(tokenizer) #
-
     if args.action == "train":
         #model = XLMRobertaForMultipleChoice.from_pretrained(args.from_pretrained).to(device)
         model = AutoModelForMultipleChoice.from_pretrained(args.from_pretrained).to(device)
@@ -225,7 +222,6 @@ def main():
             eval_dataset=tokenized_mct["validation"],
             tokenizer=tokenizer,
             data_collator=DataCollatorForMultipleChoice(tokenizer=tokenizer),
-            #callbacks=[callback]
         )
 
         if device == "cuda":
@@ -366,5 +362,5 @@ def main():
 
 
 
-
-main()
+if __name__ == '__main__':
+    main()
