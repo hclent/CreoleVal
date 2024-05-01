@@ -1,19 +1,20 @@
 # Tatoeba task
 
-Created for the Creole Suite by Marcell Fekete.
-
-Accuracy scores are out of a 100.
+Created for the Creole Suite by Marcell Fekete. Accuracy scores are out of a 100. Tested with `Ubuntu 22` and `Python 3.10`.
 
 ## To-Do
 1. Move Python code to `src/` dir
 2. Move `Scripts` section as doc-strings into `.py` files themselves, outline here that there's documentation available in the scripts
 
-## Instructions
+## Getting Started
 
 * Create a virtual environment and install necessary dependencies (see [Section Dependencies](#dependencies)).
 * Run the `run_experiments.sh` bash script, which downloads and processes all the necessary Creole datasets from the [Tatoeba Challenge](https://github.com/Helsinki-NLP/Tatoeba-Challenge/blob/master/data/README.md) repository, and carries out the sentence pair retrieval task for 3 default models: `bert-base-multilingual-cased`, `xlm-roberta-base`, `google/mt5-base`, and `random` (for random baseline).
 * Run the `plot_distributions.py` script with the input folder `./data/` and output folder `./plots/length` as arguments.
 * Run the `create_tables.py` script with the input folder `./experiments/` as an argument.
+
+
+## Environment Setup
 
 ## Dependencies
 
