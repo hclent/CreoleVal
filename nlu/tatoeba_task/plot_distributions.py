@@ -24,14 +24,13 @@ def plot_distribution(sentences, lang, output_folder):
 
 
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(description="Arguments to plot word count distribution of the sentences in samples")
     parser.add_argument("input_folder", help="path to the folder that contains all samples")
     parser.add_argument("output_folder", help="path to the folder where plots should be output")
 
     args = parser.parse_args() 
 
-    all_samples = os.path.join(args.input_folder, "**")
+    all_samples = os.path.join(args.input_folder, "**.tsv")
 
     for tsv in glob.glob(all_samples):
        

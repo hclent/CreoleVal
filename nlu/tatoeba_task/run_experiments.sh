@@ -15,10 +15,6 @@ MODELS=(
 
 # download tatoeba datasets
 bash download_tatoeba.sh
-
-# activate python environment
-source activate tatoeba
-
 echo ""
 
 # preprocess files
