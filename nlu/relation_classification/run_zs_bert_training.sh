@@ -48,7 +48,6 @@ fi
 
 ######### TRAIN ZS_BERT
 echo "Redirect to the ZS_BERT directory ..."
-cd src # necessary for correct ZS_BERT execution ...
 
 # echo "training zs_bert with" $m  "unseen classes, multilingual bert transformer, and bert base sentence embedder..."
-python3 ZS_BERT/model/train_wiki.py -re 768 -t bert-base-multilingual-cased -se bert-base-nli-mean-tokens --Wiki_ZSL_data ZS_BERT/Wiki-ZSL/ -cr bi cbk-zam jam tpi --Creole_data ../data/relation_extraction
+python3 src/ZS_BERT/model/train_wiki.py -re 768 -t bert-base-multilingual-cased -se bert-base-nli-mean-tokens --Wiki_ZSL_data src/ZS_BERT/Wiki-ZSL/ -cr bi cbk-zam jam tpi --Creole_data data/relation_extraction

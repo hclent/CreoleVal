@@ -34,7 +34,7 @@ parser.add_argument("-cr", "--Creole", nargs="*", default=None, help="Creole lis
 parser.add_argument("--Wiki_ZSL_data", type=str, default="ZS_BERT/Wiki-ZSL", help="Wiki-ZSL data file")
 parser.add_argument("--Creole_data", type=str, default="../data/relation_extraction", help="Creole RE data file")
 parser.add_argument("--model_saves", type=str, default="saved_models", help="model save dir")
-parser.add_argument("--prop_list_path", type=str, default="ZS_BERT/resources/property_list.html", help="model save dir")
+parser.add_argument("--prop_list_path", type=str, default="src/ZS_BERT/resources/property_list.html", help="model save dir")
 
 args = parser.parse_args()
 # set randam seed, this affects the data spliting.
@@ -48,7 +48,8 @@ train_data_file = os.path.join(args.Wiki_ZSL_data, "train.json")
 test_data_file = os.path.join(args.Wiki_ZSL_data, "test.json")
 idx2property_file = os.path.join(args.Wiki_ZSL_data, "idx2property.json")
 
-
+# print pwd
+print(os.getcwd())
 with open(train_data_file) as f:
     training_data = json.load(f)
     # training_data = training_data[:2000]

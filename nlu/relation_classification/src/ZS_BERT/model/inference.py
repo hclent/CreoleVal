@@ -15,7 +15,7 @@ from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics import f1_score, precision_score, recall_score
 
 
-prop_list_path = './ZS_BERT/resources/property_list.html'
+prop_list_path = 'src/ZS_BERT/resources/property_list.html'
 
 
 def mark_wiki_entity(edge, sent_len):
@@ -98,6 +98,8 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
     # tokenizer = AutoTokenizer.from_pretrained(sentence_embedder)
 
     # load property list
+    import os
+    print(os.path.abspath(prop_list_path))
     prop_list = pd.read_html(prop_list_path, flavor="html5lib")[0]
     prop_list = prop_list[prop_list["ID"].isin(properties)]
     print(len(prop_list))
@@ -125,7 +127,6 @@ def predictions(filepath, property_file, outputfolder, sentence_embedder, tokeni
     dataloader = DataLoader(dataset, batch_size=batch_size, collate_fn=create_mini_batch)
 
     print(f"loading model from {model_path}")
-
     model = torch.load(model_path, map_location=torch.device('cpu'))
     model.eval()
 

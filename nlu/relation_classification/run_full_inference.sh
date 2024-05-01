@@ -23,12 +23,15 @@ model=('bert-base-multilingual-cased' 'xlm-roberta-base' 'xlm-roberta-large' 'be
 sentence=('bert-base-nli-mean-tokens' 'bert-large-nli-mean-tokens' 'xlm-r-bert-base-nli-mean-tokens' 'xlm-r-100langs-bert-base-nli-mean-tokens')
 Creole=('bi' 'cbk-zam' 'jam' 'pih' 'tpi')
 
-log_dir="./relation_classification/log_infer"
-data_dir="./relation_classification/data/relation_extraction"
-proper_dir="./relation_classification//data/relation_extraction/properties/"
-model_dir="./relation_classification/save_models/"
-output_dir="./relation_classification/output"
-model_name="best_f1_0.7094704724243616_wiki_epoch_1_alpha_0.4_gamma_7.5"
+# Necessary for relative paths
+cd src/
+
+log_dir="../log_infer"
+data_dir="../data/relation_extraction"
+proper_dir="../data/relation_extraction/properties"
+model_dir="../save_models"
+output_dir="../output"
+model_name="../best_f1_0.7094704724243616_wiki_epoch_1_alpha_0.4_gamma_7.5"
 
 mkdirs "$output_dir"
 for mm in "${model[@]}"; do
@@ -42,7 +45,7 @@ for mm in "${model[@]}"; do
         for dd in "${Creole[@]}"; do
             data_file="${data_dir}/${dd}.json"
             proper_file="${proper_dir}/${dd}.json"
-            CUDA_VISIBLE_DEVICES=0 python3 ./relation_classification/ZS_BERT/model/inference.py "$data_file" "$proper_file" "$output_dir" "$ss" "$mm" "$best_model" | tee -a "$log_file"
+            CUDA_VISIBLE_DEVICES=0 python3 ZS_BERT/model/inference.py "$data_file" "$proper_file" "$output_dir" "$ss" "$mm" "$best_model" | tee -a "$log_file"
         done
     done
 done
