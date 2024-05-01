@@ -9,7 +9,7 @@ from transformers import AutoTokenizer, MT5Tokenizer
 
 
 nltk.download("punkt")
-plt.style.use("seaborn")
+plt.style.use("seaborn-v0_8")
 
 BINS = {1: [""],
         2: ["low", "high"],
@@ -118,7 +118,7 @@ def plot_binned_table(df, factor, output_path, **kwargs):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Arguments to plot fertility values.")
-    parser.add_argument("input_folder", help="path to the folder containing all samples")
+    parser.add_argument("-i", "--input_folder", help="path to the folder containing all results", default="./experiments/")
     parser.add_argument("-o", "--output_folder", help="path to the folder where the plots should be output",
                         default="./plots/analysis/")
     parser.add_argument("-b", "--bin_count", help="count of bins to assign data into")
@@ -190,7 +190,7 @@ if __name__ == "__main__":
 
             if len(bin_df) > 0:
 
-                output_dir = os.path.join(args.output_folder, "analysis", lang_pair, model_name)
+                output_dir = os.path.join(args.output_folder, lang_pair, model_name)
 
                 os.makedirs(output_dir, exist_ok=True)
 
