@@ -12,12 +12,12 @@ relation_classification/
 ├─ model/
 ```
 
-## Relation Classification Experiment
+## Getting Started
 
 The codes for `ZS-BERT` are adapted from the repository https://github.com/dinobby/ZS-BERT, paper https://aclanthology.org/2021.naacl-main.272/.
 
 
-### Setup the environment.
+### Environment Setup
 Tested with: `Python 3.10` and `conda`, Ubuntu 22 with Nvidia GPU
 - `conda create -n re python=3.10`
 - `python3 -m pip install -r requirements.txt`
@@ -36,7 +36,6 @@ sentence embedder `bert-base-nli-mean-tokens`. Output is stored in `model/` dire
 
 The `run_train.sh` and `run_zs_bert_training.sh` scripts will automatically pull and store the data in the directory `src/ZS_BERT/Wiki-ZSL`.
 Data is fetched from HuggingFace [yiyic/ukp_m5](https://huggingface.co/datasets/yiyic/ukp_m5).
-
 
 
 ### Pretrained Weights
