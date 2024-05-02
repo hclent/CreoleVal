@@ -38,18 +38,17 @@ Filenames beginning with `params_` contain model hyperparameters where the pretr
 
 **Output** of a train file will create a `logs` dir where all your models, metrics, scores and test files will be stored.
 
+### Naija NER
 
-### AfriSenti
+- **Data**: [MasakhaNER 2.0](https://github.com/masakhane-io/masakhane-ner/tree/main/MasakhaNER2.0/data/pcm/)
+  - Download script: [`download_masakhaner.sh`](download_masakhaner.sh)
+- **Config**: [`configs/ner_naija.json`](configs/ner_naija.json)
+- **Train**: `./train.sh ner_naija {mbert,mt5,xlmr}`
 
-- **Data**: [AfriSenti-SemEval Shared Task 12](https://github.com/afrisenti-semeval/afrisent-semeval-2023)
-  - Download script: [`download_afrisenti.sh`](download_afrisenti.sh)
-- **Config**: [`configs/senti_afri.json`](configs/senti_afri.json)
-- **Train**: `./train.sh senti_afri {mbert,mt5,xlmr}`
-- **Predict**: `./predict.sh logs/senti_afri_<model>_<date> data/afrisenti/pcm_test.tsv`
 
-### Oyewusi Sentiment
+### WikiAnn NER
 
-- **Data**: The data is originally from [Data Science Nigeria](https://github.com/DataScienceNigeria/Research-Papers-by-Data-Science-Nigeria/tree/master/Semantic%20Enrichment%20of%20Nigerian%20Pidgin%20English%20for%20Contextual%20Sentiment%20Classification) but we include our train/dev/test splits in [`data/Oyewusi`](data/Oyewusi) in this repo for reproducibility. 
-- **Config**: [`configs/senti_oyewusi.json`](configs/senti_oyewusi.json)
-- **Train**: `./train.sh senti_oyewusi {mbert,mt5,xlmr}`
-- **Predict**: `./predict.sh logs/senti_oyewusi_xlmr_baseline/<date>/ data/oyewusi/test.tsv`
+- **Data**: As we could not find the official splits, the data can be found in: `data/WikiAnn_data/<lang>`
+  - `<lang>` can be one of: bi, cbk_zam, ht, pap, pih, sg, tpi
+- **Config**: `configs/ner_wikiann_<lang>.json`
+- **Train**: `./train.sh ner_wikiann_<lang> {mbert,mt5,xlmr}`
