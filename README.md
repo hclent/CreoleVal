@@ -25,13 +25,13 @@ Each of the tasks is contained in a sub-directory where further technical instru
 
 #### Natural Language Understanding (`./nlu`)
 Datasets, training and inference scripts for NLU tasks such as: 
-- Machine Comprehension (`./nlu/mctest/`)
-- Relation Classification(`./nlu/relation_classification/`), 
-- UDPoS (`./nlu/pos/`), 
-- NER (`./nlu/ner/`), 
-- NLI (`./nlu/nli/`), 
-- Sentiment Analysis (`./nlu/sa/`),
-- Tatoeba challenge (`./nlu/tatoeba_task/`).
+- [Machine Comprehension](nlu/mctest/)
+- [Relation Classification](nlu/relation_classification/), 
+- [UDPoS](nlu/pos/), 
+- [NER](nlu/ner/), 
+- [NLI](nlu/nli/), 
+- [Sentiment Analysis](nlu/sa/),
+- [Tatoeba challenge](nlu/tatoeba_task/).
 
 
 #### Natural Language Generation (`./nlg`)
