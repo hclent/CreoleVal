@@ -8,7 +8,7 @@ Tested with `Ubuntu 22` and `Python 3.10` and `Nvidia A10` GPU.
   git submodule update --init --recursive
   ```
 - Setup a working Python environment and install the `requirements.txt` from the [MaChAmp](..) directory.
-- Download the datasets with `./download_singlish_upos.sh` and `./download_ud_naija.sh`
+- Download the datasets with `./download_afrisenti.sh`.
 
 All experiments here run with [MaChAmp](https://github.com/machamp-nlp/machamp.git). Configuration files were updated to work with **v0.4.2** of the software.
 
