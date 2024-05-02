@@ -243,8 +243,6 @@ def main():
         model = AutoModelForMultipleChoice.from_pretrained(args.from_checkpoint).to(
             device
         )
-        #####model = MyBertForMultipleChoice.from_pretrained(args.from_checkpoint).to(device)
-
         experiment_sub_dir = f"mbert_lr{args.learning_rate}_wd{args.weight_decay}"
         training_args = TrainingArguments(
             output_dir=os.path.join(args.output_dir, experiment_sub_dir),
