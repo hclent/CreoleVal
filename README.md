@@ -58,13 +58,13 @@ Note: an `*` indicates a dataset that we have newly introduced in `CreoleVal`:
 | MT | [CreoleVal MIT-Haiti*](nlg/mit_haiti) | hat | CC 4.0 | Education | 3164 | 36281 |
 | Pretraining data | [CreoleVal MIT-Haiti*](nlg/mit_haiti) | hat | CC 4.0 | Education | 8281 | 116444 |
 |||||||
-| UDPoS | [Singlish Treebank](nlu/baselines) | singlish | MIT | Web Scrape | 1200 | 10989 |
-| UDPoS | [UD_Naija-NSC](nlu/baselines) | pcm | CC 4.0 | Dialog | 9621 | 150000 |
-| NER | [MasakhaNER](nlu/baselines) | pcm | Apache 2.0 | BBC News | 3000 | 76063 |
-| NER | [WikiAnn](nlu/baselines) | bis cbk hat, pih, sgg, tpi, pap | Unspecified | WikiDump | 5877 | 74867 |
-| SA | [AfriSenti](nlu/baselines) | pcm | CC BY 4.0 | Twitter | 10559 | 235679 |
-| SA | [Naija VADER](nlu/baselines) | pcm | Unspecified | Twitter | 9576 | 101057 |
-| NLI | [JamPatoisNLI](nlu/baselines) | jam | Unspecified | Twitter, web | 650 | 2612 |
+| UDPoS | [Singlish Treebank](nlu/pos) | singlish | MIT | Web Scrape | 1200 | 10989 |
+| UDPoS | [UD_Naija-NSC](nlu/pos) | pcm | CC 4.0 | Dialog | 9621 | 150000 |
+| NER | [MasakhaNER](nlu/ner) | pcm | Apache 2.0 | BBC News | 3000 | 76063 |
+| NER | [WikiAnn](nlu/ner) | bis cbk hat, pih, sgg, tpi, pap | Unspecified | WikiDump | 5877 | 74867 |
+| SA | [AfriSenti](nlu/sa) | pcm | CC BY 4.0 | Twitter | 10559 | 235679 |
+| SA | [Naija VADER](nlu/sa) | pcm | Unspecified | Twitter | 9576 | 101057 |
+| NLI | [JamPatoisNLI](nlu/nli) | jam | Unspecified | Twitter, web | 650 | 2612 |
 | SM | [Tatoeba](nlu/tatoeba_task) | cbk, gcf, hat, jam, pap, sag, tpi | CC-BY 2.0 | General web | 49192 | 319719 |
 | MT | [KreolMorisienMT](nlg/download_kreolmorisien_mt.sh) | mfe | MIT License | Varied | 6628 | 23554 |
 |||||||
