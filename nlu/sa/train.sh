@@ -12,14 +12,9 @@ Usage: train.sh <TASK> <MODEL> <[SEED]>
 Arguments:
     TASK                Task to train on; should be the name of a config file
                         (without the extension) in the configs/ folder, e.g.
-                        'ner_naija' or 'senti_afri'.
+                        'senti_oyewusi' or 'senti_afri'.
     MODEL               Model type to use; one of: mbert, mt5, xlmr
     SEED                (optional) Random seed to pass to MaChAmp.
-
-To point the script to the MaChAmp folder, either:
-    - Set the environment variable MACHAMP_DIR
-    - Create a symlink to the folder under
-        $SCRIPTDIR/machamp
 EOF
 }
 

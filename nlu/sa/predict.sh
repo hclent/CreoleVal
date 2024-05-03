@@ -12,14 +12,10 @@ Usage: predict.sh MODELDIR INPUTFILE
 Arguments:
     MODELDIR            Path to the trained model; usually of the form
                           ./logs/{task}-{model}-baseline/{date}/
-    INPUTFILE           Input file for the model.
+    INPUTFILE           Input file for the model from the corresponding data directory (e.g. data/oyewusi/oyewusi_dev.tsv)
 
 Predictions will be stored in MODELDIR/output.INPUTFILE
 
-To point the script to the MaChAmp folder, either:
-    - Set the environment variable MACHAMP_DIR
-    - Create a symlink to the folder under
-        $SCRIPTDIR/machamp
 EOF
 }
 
