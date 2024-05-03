@@ -281,7 +281,7 @@ def main():
         dev_dataloader = (
             trainer.get_eval_dataloader()
         )  # use the trainer to get the collated dev data
-        for batch in tqdm(dev_dataloader, desc="Evaluating"):
+        for batch in tqdm(dev_dataloader, desc=f"Evaluating: {data_path}"):
             with torch.no_grad():
                 inputs = {
                     "input_ids": batch["input_ids"].to(args.device),
@@ -375,7 +375,7 @@ def main():
         true_list = []
 
         test_dataloader = trainer.get_eval_dataloader()
-        for batch in tqdm(test_dataloader, desc="Evaluating TEST data"):
+        for batch in tqdm(test_dataloader, desc=f"Evaluating TEST data: {data_path}"):
             with torch.no_grad():
                 inputs = {
                     "input_ids": batch["input_ids"].to(args.device),
