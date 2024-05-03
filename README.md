@@ -1,4 +1,6 @@
 # Welcome to `CreoleVal`
+CreoleVal is accepted to TACL 2024!
+
 <img src="Appendix/images/landing_page_logo.png" alt="CreoleVal Logo" width="50%"/>
 
 
