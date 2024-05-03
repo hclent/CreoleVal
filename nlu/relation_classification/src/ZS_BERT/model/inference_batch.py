@@ -147,6 +147,8 @@ def prediction_per_model(tokenizer, sentence_embedder, seed, batch_size=16):
                 results_dict["creoles"][creole] = round(creole_result,4)*100
 
     result_filename = os.path.join("output", f"{tokenizer}_{sentence_embedder}_{seed}.json")
+    if not os.path.exists("output"):
+        os.makedirs("output")
 
     print(f"writing result to {result_filename}")
     with open(result_filename, "w") as f:
