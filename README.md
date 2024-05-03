@@ -25,7 +25,7 @@ Each of the tasks is contained in a sub-directory where further technical instru
 
 #### Natural Language Understanding (`./nlu`)
 Datasets, training and inference scripts for NLU tasks such as: 
-- [Machine Comprehension](nlu/mctest/)
+- [Machine Comprehension](nlu/mctest/),
 - [Relation Classification](nlu/relation_classification/), 
 - [UDPoS](nlu/pos/), 
 - [NER](nlu/ner/), 
@@ -76,48 +76,13 @@ Paper can be found [here](https://arxiv.org/abs/2310.19567).
 Please cite us: 
 
 ```
-@misc{lent2023creoleval,
+@misc{lent2024creoleval,
       title={CreoleVal: Multilingual Multitask Benchmarks for Creoles}, 
-      author={Heather Lent and Kushal Tatariya and Raj Dabre and Yiyi Chen and Marcell Fekete and Esther Ploeger and Li Zhou and Hans Erik Heje and Diptesh Kanojia and Paul Belony and Marcel Bollmann and Loïc Grobol and Miryam de Lhoneux and Daniel Hershcovich and Michel DeGraff and Anders Søgaard and Johannes Bjerva},
-      year={2023},
+      author={Heather Lent and Kushal Tatariya and Raj Dabre and Yiyi Chen and Marcell Fekete and Esther Ploeger and Li Zhou and Ruth-Ann Armstrong and Abee Eijansantos and Catriona Malau and Hans Erik Heje and Ernests Lavrinovics and Diptesh Kanojia and Paul Belony and Marcel Bollmann and Loïc Grobol and Miryam de Lhoneux and Daniel Hershcovich and Michel DeGraff and Anders Søgaard and Johannes Bjerva},
+      year={2024},
       eprint={2310.19567},
       archivePrefix={arXiv},
       primaryClass={cs.CL}
 }
 ```
-
-### This repo is under construction! 
-
-This repository is actively undergoing construction, on a weekly or even daily basis. Our outstanding TODO items include:
-
-* A "Getting Started" guide, to walk you through the data and experiments in this repo. 
-* Adding more scripts, so others can easily run `CreoleVal` experiments
-* [`nlg/`] Add links and experiments for KriolMorisiyen MT
-* [`Appendix/`] Adding more documentation, with analysis of experiments
-* Generally, add the scripts to make it clear what data is left over to train CreoleLM's with, without cross-contaminating
-
-#### ToDo List:
-Nice repos:
-- https://github.com/sp-uhh/sgmse
-- https://github.com/iriscxy/FES
-- https://github.com/RManLuo/reasoning-on-graphs
-- https://github.com/ernlavr/FEVEROUS
-
-Stuff missing:
-- Overall structure:
-  - Overview (description of repo);
-  - Python environment setup (requirements); (Maybe not)
-  - Data overview and fetch, fetching pretrained weights;
-  - Running evaluation
-  - Running training
-  - Cite
-
-- Unify all sub-README.md structures.
-  - Cross-check prerequisites (python, conda, requirements, launch scripts)
-  - Add documentation to launch scripts + func usage()
-  - Script to run training
-  - Script to run evaluation
-  - Pretrained weights?
-  - Script to fetch data if necessary
-- Remove `nlu/baselines` and split it into corresponding directories per task
    
