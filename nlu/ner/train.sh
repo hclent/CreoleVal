@@ -9,17 +9,13 @@ function script_usage() {
     cat << EOF
 Usage: train.sh <TASK> <MODEL> <[SEED]>
 
-Arguments:
+Positional Args:
     TASK                Task to train on; should be the name of a config file
-                        (without the extension) in the configs/ folder, e.g.
-                        'ner_naija' or 'senti_afri'.
+                        (without the extension) in the configs/ folder (e.g.
+                        'ner_naija' or 'ner_wikiann_ht')
     MODEL               Model type to use; one of: mbert, mt5, xlmr
     SEED                (optional) Random seed to pass to MaChAmp.
 
-To point the script to the MaChAmp folder, either:
-    - Set the environment variable MACHAMP_DIR
-    - Create a symlink to the folder under
-        $SCRIPTDIR/machamp
 EOF
 }
 
@@ -34,7 +30,7 @@ if [[ $# -lt 2 || $# -gt 3 ]]; then
 fi
 
 # TEST IF MACHAMP_DIR exists, if not then give message to pull submodules
-if [ ! -d "$MACHAMP_DIR" ]; then
+if [ ! -f "$MACHAMP_DIR/train.py" ]; then
     msg "Error: MaChAmp not found, did you pull submodules? <git submodule update --init --recursive>"
     exit 1
 fi

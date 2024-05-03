@@ -7,9 +7,9 @@ MACHAMP_DIR="$SCRIPTDIR/../../submodules/machamp"
 
 function script_usage() {
     cat << EOF
-Usage: train_and_finetune_jamnli.sh MODEL [SEED]
+Usage: train_and_finetune_jamnli.sh <MODEL> [SEED]
 
-Arguments:
+Positional Args:
     MODEL               Model type to use; one of: mbert, mt5, xlmr
     SEED                (optional) Random seed to pass to MaChAmp.
 EOF

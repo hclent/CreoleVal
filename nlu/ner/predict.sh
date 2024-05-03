@@ -7,19 +7,14 @@ MACHAMP_DIR="$SCRIPTDIR/../../submodules/machamp"
 
 function script_usage() {
     cat << EOF
-Usage: predict.sh MODELDIR INPUTFILE
+Usage: predict.sh <MODELDIR> <INPUTFILE>
 
-Arguments:
+Positional Args:
     MODELDIR            Path to the trained model; usually of the form
                           ./logs/{task}-{model}-baseline/{date}/
     INPUTFILE           Input file for the model.
 
 Predictions will be stored in MODELDIR/output.INPUTFILE
-
-To point the script to the MaChAmp folder, either:
-    - Set the environment variable MACHAMP_DIR
-    - Create a symlink to the folder under
-        $SCRIPTDIR/machamp
 EOF
 }
 
