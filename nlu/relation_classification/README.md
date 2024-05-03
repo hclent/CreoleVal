@@ -1,51 +1,56 @@
 # CreoleVal - Relation Classification
 
 ```
-wikipedia
-|- data
-  |- relation_extraction
-|- src
-  |- data_generation
-  |- ZS_BERT
-    |- Wiki-ZSL
-|- output
-|- model
+relation_classification/
+├─ data/
+│  ├─ relation_extraction/
+├─ src/
+│  ├─ data_generation/
+│  ├─ ZS_BERT/
+│  │  ├─ Wiki-ZSL/
+├─ output/
+├─ model/
 ```
 
-
-## Relation Classification Experiment
+## Getting Started
 
 The codes for `ZS-BERT` are adapted from the repository https://github.com/dinobby/ZS-BERT, paper https://aclanthology.org/2021.naacl-main.272/.
 
 
-### 1. Setup the environment.
-requirement: `python3.10` and `conda`
+### Environment Setup
+Tested with: `Python 3.10` and `conda`, Ubuntu 22 with Nvidia GPU
 - `conda create -n re python=3.10`
-- `pip install -r requirements.txt` 
-  - `nvidia` packages are for LINUX machine with GPUs.
+- `python3 -m pip install -r requirements.txt`
+  - `nvidia` packages are for Linux machine with GPUs.
   
 
-### 2. Run `ZS-BERT` model training with UKP data.
+### Training
 
-The split UKP data can be downloaded from HuggingFace [yiyic/ukp_m5](https://huggingface.co/datasets/yiyic/ukp_m5).
-And store the data in the directory `src/ZS_BERT/Wiki-ZSL`.
+<!-- ### 2. Run `ZS-BERT` model training with UKP data. -->
+1. Enable your Python environment;
+2. Run the `run_train.sh` and `run_zs_bert_training.sh` with `relation_classification/` as your working directory;
+
+This will train the zero-shot relatione extraction model 
+with the transformer  `bert-base-multilingual-cased` and 
+sentence embedder `bert-base-nli-mean-tokens`. Output is stored in `model/` directory.
+
+The `run_train.sh` and `run_zs_bert_training.sh` scripts will automatically pull and store the data in the directory `src/ZS_BERT/Wiki-ZSL`.
+Data is fetched from HuggingFace [yiyic/ukp_m5](https://huggingface.co/datasets/yiyic/ukp_m5).
+
+
+### Pretrained Weights
 
 The trained ZS-Bert models, fine-tuned on `bert-base-multilingual-cased` and `xlm-roberta-base`, combined with 
 4 different sentence transformers, `bert-base-nli-mean-tokens`, `bert-large-nli-mean-tokens`, `xlm-r-bert-base-nli-mean-tokens`
-and `xlm-r-100langs-bert-base-nli-mean-tokens` are uploaded to HuggingFace, [`yiyic/ZSBert_mBERT-finetuned`](https://huggingface.co/yiyic/ZSBert_mBERT-finetuned) 
-and [`yiyic/ZSBert_xlmr-finetuned`](https://huggingface.co/yiyic/ZSBert_xlmr-finetuned).
+and `xlm-r-100langs-bert-base-nli-mean-tokens` are uploaded to HuggingFace. 
+
+1. [`yiyic/ZSBert_mBERT-finetuned`](https://huggingface.co/yiyic/ZSBert_mBERT-finetuned) 
+2. [`yiyic/ZSBert_xlmr-finetuned`](https://huggingface.co/yiyic/ZSBert_xlmr-finetuned).
 
 
 `bash run_zs_bert_training.sh`
 
 
-2.1 download the UKP English Relation Extraction data.
-
-2.2 train the zero shot relatione extraction model 
-with the transformer  `bert-base-multilingual-cased` and 
-sentence embedder `bert-base-nli-mean-tokens`.
-
-2.3 the model will be saved in `model` directory.
 
 ### 3. Run trained `ZS-BERT` model on generated data in Creoles.
 `bash run_inference.sh $LANG $MODEL_PATH`

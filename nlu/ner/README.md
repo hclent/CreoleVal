@@ -1,0 +1,54 @@
+# Baselines
+
+
+## Prerequisites
+Tested with `Ubuntu 22` and `Python 3.10` and `Nvidia A10` GPU.
+- Ensure you have the `machamp` submodule initialized in case you did not clone with `--recursive` flag:
+  ```bash
+  git submodule update --init --recursive
+  ```
+- Setup a working Python environment and install the `requirements.txt` from the [MaChAmp](..) directory.
+- Download the datasets with `./download_masakhaner.sh`.
+
+All experiments here run with [MaChAmp](https://github.com/machamp-nlp/machamp.git). Configuration files were updated to work with **v0.4.2** of the software.
+
+
+## Requirements
+All experiments here run with [MaChAmp](https://github.com/machamp-nlp/machamp.git).  Configuration files were updated to work with **v0.4.2** of the software.
+
+To get MaChAmp and install its requirements, you can run:
+
+```
+git submodule update --init --recursive (if you didn't clone CreoleVal with --recursive flag)
+pip install -r machamp/requirements.txt
+```
+
+It's recommended to do this in a virtual environment.  (PS. If there are issues with the jsonnet installation, try installing it via conda-forge, i.e. `conda install -c conda-forge jsonnet`).
+
+
+## Running the Experiments
+The `configs` folder contains all the MaChAmp configuration files for the model hyperparameters and datasets.
+
+Filenames beginning with `params_` contain model hyperparameters where the pretrained transformer models can be changed by changing the following line to any Huggingface transformer model:
+  ```
+    "transformer_model": "bert-base-multilingual-cased",
+  ```
+  - For all experiments, there are config files for **mBERT**, **mT5**, and **XLM-R**.
+  - Filenames beginning with `senti` contain the data filepaths and configurations. Ensure that filepaths mentioned in these files are same as the filepaths to the data files on your system (should be the case if you use the instructions & scripts in this repo).
+
+**Output** of a train file will create a `logs` dir where all your models, metrics, scores and test files will be stored.
+
+### Naija NER
+
+- **Data**: [MasakhaNER 2.0](https://github.com/masakhane-io/masakhane-ner/tree/main/MasakhaNER2.0/data/pcm/)
+  - Download script: [`download_masakhaner.sh`](download_masakhaner.sh)
+- **Config**: [`configs/ner_naija.json`](configs/ner_naija.json)
+- **Train**: `./train.sh ner_naija {mbert,mt5,xlmr}`
+
+
+### WikiAnn NER
+
+- **Data**: As we could not find the official splits, the data can be found in: `data/WikiAnn_data/<lang>`
+  - `<lang>` can be one of: bi, cbk_zam, ht, pap, pih, sg, tpi
+- **Config**: `configs/ner_wikiann_<lang>.json`
+- **Train**: `./train.sh ner_wikiann_<lang> {mbert,mt5,xlmr}`

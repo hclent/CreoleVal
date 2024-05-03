@@ -3,8 +3,27 @@
 This folder contains our new **machine comprehension dataset** as well as
 scripts to **run experiments** on it.
 
-## Dataset
+## Getting Started
+### Environment Setup
+Tested with `Ubuntu 22`, `Python 3.10` and `NVidia a40` GPU.
+1. Create a Python virtual environment, either `venv` or `conda`;
+2. Install the necessary dependencies with `pip install -r requirements.txt` or `python3 -m pip install -r requirements.txt` if using `conda`.
+3. Additionally install PyTorch with your preferred configuration https://pytorch.org/
 
+### Training
+1. Activate the virtual environment;
+2. Run `./train.sh` script which will automatically fine-tune `mBERT` and `XLM-R` models on the downstream task;
+3. Output will be saved in `./output` folder.
+
+
+## To-Do
+- Move all Python code to a folder `src`
+- Cleanup `src/preproc.py` code
+- Remove `requirements.pip-freeze.txt` they contain full paths for the laptop that was used to generate them, so its useless?
+- Maybe one-two sentences on what exactly is going on in this task? i.e. "Read and comprehend a given text passage, and then answer a question by selecting 1 out of 4 answers"
+
+## Additional Information
+### Dataset
 The dataset is based on [MCTest](https://aclanthology.org/D13-1020/). The
 [`MCTest`](MCTest) folder has the original dataset and information from the
 original authors.
@@ -16,7 +35,6 @@ version, included in this repo, and our translations have also been corrected to
 reflect the text of the original story.
 
 ### Translations
-
 **`MC160.dev`** set has been translated into Marutian Creole and Haitian Creole
 by professional translators.  This consists of 30 stories pertaining to a total
 of 120 questions (4 multiple choice questions per story).
@@ -36,7 +54,6 @@ it from the Github, and instead provide a download script to fetch it from the
 MIT-Ayiti platform**
 
 ### Details on Data Preprocessing
-
 First, we convert the translated `.txt` files into `.tsv` to match the original
 English `.tsv` files (see `./MCTest/CreoleTranslations`).  Then we convert these
 to `.json` format, as we found it more tidy to work with (these are the

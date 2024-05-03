@@ -17,8 +17,6 @@ Read here for more statistics on CreoleVal.
 **Unique Tasks x ,before and after `CreoleVal`:**
 ![Different tasks](images/task_coverage.png)
 
-TODO: Creole x Tokens (Before, After)
-
 
 Coverage: `CreoleVal` covers up to 28 Creoles. 
 Below, we list the Creoles as their language codes, according to different sources

@@ -3,19 +3,15 @@
 set -Eeu
 
 SCRIPTDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+MACHAMP_DIR="$SCRIPTDIR/../../submodules/machamp"
 
 function script_usage() {
     cat << EOF
-Usage: train_and_finetune_jamnli.sh MODEL [SEED]
+Usage: train_and_finetune_jamnli.sh <MODEL> [SEED]
 
-Arguments:
+Positional Args:
     MODEL               Model type to use; one of: mbert, mt5, xlmr
     SEED                (optional) Random seed to pass to MaChAmp.
-
-To point the script to the MaChAmp folder, either:
-    - Set the environment variable MACHAMP_DIR
-    - Create a symlink to the folder under
-        $SCRIPTDIR/machamp
 EOF
 }
 
@@ -43,9 +39,10 @@ seed="${2-$RANDOM}"
 task_pretrain_config="$SCRIPTDIR/configs/nli_glue.json"
 task_finetune_config="$SCRIPTDIR/configs/nli_jamaican.json"
 
-if [[ ! -f "${MACHAMP_DIR:=$SCRIPTDIR/machamp}/train.py" ]]; then
-    msg "Error: train.py not found -- did you make a symlink or set MACHAMP_DIR?"
-    msg "  expected: $MACHAMP_DIR/train.py"
+
+# TEST IF MACHAMP_DIR exists, if not then give message to pull submodules
+if [ ! -d "$MACHAMP_DIR" ]; then
+    msg "Error: MaChAmp not found, did you pull submodules? <git submodule update --init --recursive>"
     exit 1
 fi
 
@@ -53,7 +50,7 @@ fi
 cd "$SCRIPTDIR"
 
 # Pre-training
-python "$MACHAMP_DIR"/train.py \
+python3 "$MACHAMP_DIR"/train.py \
        --parameters_config "$model_pretrain_config" \
        --dataset_config "$task_pretrain_config" \
        --name "nli_jamaican_${model}_pretrain" \
@@ -70,7 +67,7 @@ if [[ ! -f "$model_pretrained/model.pt" ]]; then
     return 1
 fi
 
-python "$MACHAMP_DIR"/train.py \
+python3 "$MACHAMP_DIR"/train.py \
        --parameters_config "$model_finetune_config" \
        --dataset_config "$task_finetune_config" \
        --retrain "$model_pretrained/model.pt" \
