@@ -25,10 +25,9 @@ Tested with: `Python 3.10` and `conda`, Ubuntu 22 with Nvidia GPU
   
 
 ### Training
-
-<!-- ### 2. Run `ZS-BERT` model training with UKP data. -->
 1. Enable your Python environment;
-2. Run the `run_train.sh` and `run_zs_bert_training.sh` with `relation_classification/` as your working directory;
+2. Run the `run_train.sh` for full training or `run_zs_bert_training.sh` for single model. The `relation_classification/` should be your working directory in order for all the relative paths to be resolved correctly;
+3. After the training is done, the output will be stored in the `saved_models/` directory
 
 This will train the zero-shot relatione extraction model 
 with the transformer  `bert-base-multilingual-cased` and 
@@ -39,7 +38,6 @@ Data is fetched from HuggingFace [yiyic/ukp_m5](https://huggingface.co/datasets/
 
 
 ### Pretrained Weights
-
 The trained ZS-Bert models, fine-tuned on `bert-base-multilingual-cased` and `xlm-roberta-base`, combined with 
 4 different sentence transformers, `bert-base-nli-mean-tokens`, `bert-large-nli-mean-tokens`, `xlm-r-bert-base-nli-mean-tokens`
 and `xlm-r-100langs-bert-base-nli-mean-tokens` are uploaded to HuggingFace. 
@@ -47,15 +45,19 @@ and `xlm-r-100langs-bert-base-nli-mean-tokens` are uploaded to HuggingFace.
 1. [`yiyic/ZSBert_mBERT-finetuned`](https://huggingface.co/yiyic/ZSBert_mBERT-finetuned) 
 2. [`yiyic/ZSBert_xlmr-finetuned`](https://huggingface.co/yiyic/ZSBert_xlmr-finetuned).
 
-
-`bash run_zs_bert_training.sh`
-
+Use `bash get_pretrained_weights.sh` to download the weights, these will be saved in the `./pretrained_weights/` directory.
 
 
-### 3. Run trained `ZS-BERT` model on generated data in Creoles.
-`bash run_inference.sh $LANG $MODEL_PATH`
 
-Specify the language and model path. The model path should be relative to the path of `src/ZS_BERT/model`.
+### 3. Inference
+To run inference
+1. Activate your `python` environment
+2. Run the script `./infer_zsbert.sh` with the corresponding arguments.
+
+E.g. `run_inference.sh bert-base-multilingual-cased bert-base-multilingual-cased pretrained_weights 1 2`
+This will use the `mBERT base model` with `BERT sentence embedder` from the `pretrained_weights` directory using `random_seed=1` and `batch_size=2`
+
+Modify these arguments to suit your needs.
 
 
 
