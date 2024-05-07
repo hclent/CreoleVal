@@ -19,7 +19,7 @@ All experiments here run with [MaChAmp](https://github.com/machamp-nlp/machamp.g
 To get MaChAmp and install its requirements, you can run:
 
 ```
-git submodule update --init --recursive (if you didn't clone CreoleVal with --recursive flag)
+git submodule update --init --recursive # (if you didn't clone CreoleVal with --recursive flag)
 pip install -r machamp/requirements.txt
 ```
 
