@@ -1,12 +1,13 @@
 # OPUS for MIT-Ayiti
-
+<img src="../../Appendix/images/mit_ayiti_logo.png" alt="CreoleVal Logo" width="50%"/>
 
 Here, we detail how we obtained the results for [OPUS-MT-EN-HT](https://huggingface.co/Helsinki-NLP/opus-mt-en-ht), [OPUS-MT-ES-HT](https://huggingface.co/Helsinki-NLP/opus-mt-es-ht) and [OPUS-MT-FR-HT](https://huggingface.co/Helsinki-NLP/opus-mt-fr-ht) on the MIT-Ayiti test sets.
+
+https://mit-ayiti.net/entelijans-atifisyel/
 
 ### Dependencies
 
 The relevant dependencies can be installed using the following command:
-
 `pip install -r requirements.txt` 
 
 ### Instructions
