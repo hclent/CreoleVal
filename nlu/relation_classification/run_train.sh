@@ -51,6 +51,6 @@ for mm in "${model[@]}"; do
         > "$log_file"
         echo "$mm" | tee -a "$log_file"
         echo "$ss" | tee -a "$log_file"
-        python3 src/ZS_BERT/model/train_wiki.py -se "$ss" -t "$mm" -cr bi cbk-zam jam tpi --model_saves save_models --Wiki_ZSL_data src/ZS_BERT/Wiki-ZSL --Creole_data data/relation_extraction --prop_list_path src/ZS_BERT/resources/property_list.html  | tee -a "$log_file"
+        python3 src/ZS_BERT/model/train_wiki.py -se "$ss" -t "$mm" -cr bi cbk-zam jam tpi --model_saves saved_models --Wiki_ZSL_data src/ZS_BERT/Wiki-ZSL --Creole_data data/relation_extraction --prop_list_path src/ZS_BERT/resources/property_list.html  | tee -a "$log_file"
     done
 done

@@ -1,49 +1,35 @@
-#!/usr//bin/bash
+#!/bin/bash -e
 
-# Usage
-usage() {
-cat << EOF
-Usage:
-    bash run_inference.sh <LANG> <MODEL_PATH> <MODEL_NAME> <SENTENCE_EMBEDDER>
+function script_usage() {
+    cat << EOF
+Usage: run_full_inference.sh <MODEL> <SENTENCE_TRANSFORMER> <WEIGHTS_FOLDER> <BATCH_SIZE> <SEED>
 
-Positional Args:
-    LANG: Language code (e.g. bi, cbk-zam, jam, pih, tpi)
-    MODEL_PATH: Path to the model checkpoint
-    MODEL_NAME: Name of the model (e.g. bert-base-multilingual-cased; xlm-roberta-base; xlm-roberta-large; bert-base-cased; bert-large-cased')
-    SENTENCE_EMBEDDER: Sentence embedder (e.g. bert-base-nli-mean-tokens; bert-large-nli-mean-tokens; xlm-r-bert-base-nli-mean-tokens; xlm-r-100langs-bert-base-nli-mean-tokens)
-
-Note: 
-    Calls Python3 by default. If you're using a virtual environment, make sure to activate it before running this script.
+Arguments:
+    MODEL                   Model to use for inference
+    SENTENCE_TRANSFORMER    Sentence transformer to use for inference
+    WEIGHTS_FOLDER          Parent folder containing the model weights (e.g. pretrained_weights/, saved_models/, or any other custom name)
+    BATCH_SIZE              Batch size for the inference process
+    SEED                    Seed for the random number generator
 EOF
 }
-if [ "$#" -ne 4 ]; then
-    usage
+
+# running with args
+echo "Running with parameters; Seed: $1; Batch Size: $2; Weights Folder: $3"
+
+if [[ $# -ne 5 ]]; then
+    echo "Error: Found $# positional arguments; expected 3"
+    script_usage
     exit 1
 fi
 
+TRANSFORMER=$1
+SENTENCE_TRANSFORMER=$2
+WEIGHTS_FOLDER=$3
+BATCH_SIZE=$4
+SEED=$5
 
-# Main script
-LANG=$1
-MODEL_PATH=$2
-MODEL_NAME=$3
-SENTENCE_EMBEDDER=$4
+echo "Running inference on Creoles"
+echo "seed ${SEED}"
 
-log_dir="log_infer"
-data_dir="data/relation_extraction"
-proper_dir="data/relation_extraction/properties"
-model_dir="save_models"
-output_dir="output"
-
-property_file="${proper_dir}/${LANG}.json"
-
-mkdirs "$output_dir"
-mkdirs "$log_dir"
-
-# Log time
-log_file="${log_dir}/${mm}_${ss}.log"
-> "$log_file"
-echo "$mm" | tee -a "$log_file"
-echo "$ss" | tee -a "$log_file"
-
-echo "Redirect to the ZS_BERT directory ..."
-python3 src/ZS_BERT/model/inference.py data/relation_extraction/"$LANG".json "$property_file" "$output_dir" "$SENTENCE_EMBEDDER" "$MODEL_NAME" "$MODEL_PATH" | tee -a "$log_file"
+# sentence_embedder, tokenizer, seed, batch_size
+python3 src/ZS_BERT/model/inference_batch.py ${TRANSFORMER} ${SENTENCE_TRANSFORMER} ${WEIGHTS_FOLDER} ${SEED} ${BATCH_SIZE}

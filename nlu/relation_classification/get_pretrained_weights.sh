@@ -9,58 +9,40 @@ Then it loops over each model and sentence embedder, and for each combination, i
 The results are logged in a log file specific to the model and sentence embedder combination.
 '
 
-mkdirs() {
-    local dir="$1"
-    if [ ! -d "$dir" ]; then
-        mkdirs "$(dirname "$dir")"
-        mkdir "$dir"
-    fi
-}
+HF_NAMESPACES=("ZSBert_xlmr" "ZSBert_mBERT")
+MODEL_NAMES=("xlm-roberta-base" "bert-base-multilingual-cased")
+SENT_EMBEDDERS=('bert-base-nli-mean-tokens' 'bert-large-nli-mean-tokens' 'xlm-r-bert-base-nli-mean-tokens' 'xlm-r-100langs-bert-base-nli-mean-tokens')
 
-HF_NAMESPACE=$1
 
-model=('bert-base-multilingual-cased' 'xlm-roberta-base' 'xlm-roberta-large' 'bert-base-cased' 'bert-large-cased')
-sentence=('bert-base-nli-mean-tokens' 'bert-large-nli-mean-tokens' 'xlm-r-bert-base-nli-mean-tokens' 'xlm-r-100langs-bert-base-nli-mean-tokens')
-Creole=('bi' 'cbk-zam' 'jam' 'pih' 'tpi')
+for ((i=0;i<${#MODELS[@]};++i)); do
+    echo "Model: ${MODELS[i]}, Name: ${MODEL_NAMES[i]}"
+done
 
 # check if ZSBert_mBERT-finetuned exists
 if [ ! -d pretrained_weights ]; then
+    mkdir pretrained_weights
     echo "Downloading pretrained weights, this may take ~10-20min"
     echo ""
     
     git lfs install
-    git clone https://huggingface.co/$HF_NAMESPACE pretrained_weights
-fi
-
-# check if not unzipped, otherwise loop over sentence and unzip each model
-if [ ! -d pretrained_weights/bert-base-multilingual-cased/bert-base-nli-mean-tokens ]; then
-    for ss in "${sentence[@]}"; do
-        echo "Unzipping $mm $ss"
-        unzip pretrained_weights/$mm/$ss.zip -d pretrained_weights/$mm/$ss
+    # loop over HF_NAMESPACES and clone
+    for ((i=0;i<${#MODEL_NAMES[@]};++i)); do
+        # Split the tuple into HF namespace and model dir
+        HF_NAMESPACE=${HF_NAMESPACES[i]}
+        MODEL_DIR=${MODEL_NAMES[i]}
+        git clone https://huggingface.co/yiyic/$HF_NAMESPACE-finetuned pretrained_weights/$MODEL_DIR --depth 1
     done
 fi
 
-
-log_dir="log_infer"
-data_dir="data/relation_extraction"
-proper_dir="data/relation_extraction/properties"
-model_dir="pretrained_weights"
-output_dir="output"
-model_name="best_f1_0.7094704724243616_wiki_epoch_1_alpha_0.4_gamma_7.5"
-
-mkdirs "$output_dir"
-for mm in "${model[@]}"; do
-    for ss in "${sentence[@]}"; do
-        mkdirs "$log_dir"
-        log_file="${log_dir}/${mm}_${ss}.log"
-        > "$log_file"
-        echo "$mm" | tee -a "$log_file"
-        echo "$ss" | tee -a "$log_file"
-        best_model="${model_dir}/${mm}/${ss}/${model_name}"
-        for dd in "${Creole[@]}"; do
-            data_file="${data_dir}/${dd}.json"
-            proper_file="${proper_dir}/${dd}.json"
-            CUDA_VISIBLE_DEVICES=0 python3 src/ZS_BERT/model/inference.py "$data_file" "$proper_file" "$output_dir" "$ss" "$mm" "$best_model" | tee -a "$log_file"
+# check if not unzipped, otherwise loop over pretrained_weights $MODEL directory and unzip each model
+for MODEL in "${MODEL_NAMES[@]}"; do
+    if [ -d "pretrained_weights/$MODEL/" ]; then
+        for s in "${SENT_EMBEDDERS[@]}"; do
+            echo "Unzipping $MODEL $s"
+            unzip pretrained_weights/$MODEL/$s.zip -d pretrained_weights/$MODEL
+            rm pretrained_weights/$MODEL/$s.zip
         done
-    done
+    fi
 done
+
+echo "Done!"

@@ -2,6 +2,7 @@ import json
 import os.path
 from collections import defaultdict
 from itertools import islice
+import os
 
 import plac
 import torch
@@ -16,7 +17,7 @@ from transformers import AutoModel, AutoTokenizer
 from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics import f1_score, precision_score, recall_score
 
-prop_list_path = './ZS_BERT/resources/property_list.html'
+prop_list_path = 'src/ZS_BERT/resources/property_list.html'
 
 
 def mark_wiki_entity(edge, sent_len):
@@ -105,16 +106,16 @@ def get_model_dict(model_folder):
     return sorted_seed2file
 
 
-def prediction_per_model(tokenizer, sentence_embedder, seed, batch_size=16):
+def prediction_per_model(tokenizer, sentence_embedder, weights_folder, seed, batch_size=16):
     # {seed: f1: model_path}
-    model_folder = f"saved_models/{tokenizer}/{sentence_embedder}"
+    model_folder = os.path.join(weights_folder, tokenizer, sentence_embedder)
     seed2model = get_model_dict(model_folder)
     # load sentence embedder
     print(f"the best models... {seed2model}")
     encoder = SentenceTransformer(sentence_embedder)
     # load model
 
-    creole_data_path = "../data/relation_extraction"
+    creole_data_path = "data/relation_extraction"
     creoles = ["bi", "cbk-zam", "jam", "tpi"]
 
     results_dict = defaultdict(dict)

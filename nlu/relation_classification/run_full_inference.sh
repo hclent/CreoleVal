@@ -9,6 +9,28 @@ Then it loops over each model and sentence embedder, and for each combination, i
 The results are logged in a log file specific to the model and sentence embedder combination.
 '
 
+# add usage
+
+function script_usage() {
+    cat << EOF
+Usage: run_full_inference.sh <SEED> <BATCH_SIZE> <WEIGHTS_FOLDER>
+
+Arguments:
+    SEED            Seed for the random number generator
+    BATCH_SIZE      Batch size for the inference process
+    WEIGHTS_FOLDER  Parent folder containing the model weights (e.g. pretrained_weights/, saved_models/, or any other custom name)
+EOF
+}
+
+# running with args
+echo "Running with parameters; Seed: $1; Batch Size: $2; Weights Folder: $3"
+
+if [[ $# -ne 3 ]]; then
+    echo "Error: Found $# positional arguments; expected 3"
+    script_usage
+    exit 1
+fi
+
 mkdirs() {
     local dir="$1"
     if [ ! -d "$dir" ]; then
@@ -17,23 +39,20 @@ mkdirs() {
     fi
 }
 
-
-
-model=('bert-base-multilingual-cased' 'xlm-roberta-base' 'xlm-roberta-large' 'bert-base-cased' 'bert-large-cased')
+SEED=$1
+BATCH_SIZE=$2
+WEIGHTS_FOLDER=$3
+model=('bert-base-multilingual-cased' 'xlm-roberta-base')
 sentence=('bert-base-nli-mean-tokens' 'bert-large-nli-mean-tokens' 'xlm-r-bert-base-nli-mean-tokens' 'xlm-r-100langs-bert-base-nli-mean-tokens')
-Creole=('bi' 'cbk-zam' 'jam' 'pih' 'tpi')
+Creole=('bi' 'cbk-zam' 'jam' 'tpi')
 
 # Necessary for relative paths
-cd src/
 
-log_dir="../log_infer"
-data_dir="../data/relation_extraction"
-proper_dir="../data/relation_extraction/properties"
-model_dir="../save_models"
-output_dir="../output"
-model_name="../best_f1_0.7094704724243616_wiki_epoch_1_alpha_0.4_gamma_7.5"
+log_dir="log_infer"
+output_dir="output"
 
 mkdirs "$output_dir"
+
 for mm in "${model[@]}"; do
     for ss in "${sentence[@]}"; do
         mkdirs "$log_dir"
@@ -41,11 +60,9 @@ for mm in "${model[@]}"; do
         > "$log_file"
         echo "$mm" | tee -a "$log_file"
         echo "$ss" | tee -a "$log_file"
-        best_model="${model_dir}/${mm}/${ss}/${model_name}"
-        for dd in "${Creole[@]}"; do
-            data_file="${data_dir}/${dd}.json"
-            proper_file="${proper_dir}/${dd}.json"
-            CUDA_VISIBLE_DEVICES=0 python3 ZS_BERT/model/inference.py "$data_file" "$proper_file" "$output_dir" "$ss" "$mm" "$best_model" | tee -a "$log_file"
-        done
+        
+        echo "Running with parameters; Model: $mm; Sentence Embedder: $ss; Weights Folder: $WEIGHTS_FOLDER; Seed: $SEED; Batch Size: $BATCH_SIZE"
+        bash run_inference.sh "$mm" "$ss" "$WEIGHTS_FOLDER" "$SEED" "$BATCH_SIZE" | tee -a "$log_file"
+    
     done
 done
