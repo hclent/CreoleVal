@@ -16,12 +16,6 @@ Tested with `Ubuntu 22`, `Python 3.10` and `NVidia a40` GPU.
 3. Output will be saved in `./output` folder.
 
 
-## To-Do
-- Move all Python code to a folder `src`
-- Cleanup `src/preproc.py` code
-- Remove `requirements.pip-freeze.txt` they contain full paths for the laptop that was used to generate them, so its useless?
-- Maybe one-two sentences on what exactly is going on in this task? i.e. "Read and comprehend a given text passage, and then answer a question by selecting 1 out of 4 answers"
-
 ## Additional Information
 ### Dataset
 The dataset is based on [MCTest](https://aclanthology.org/D13-1020/). The
