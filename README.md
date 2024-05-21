@@ -13,7 +13,7 @@ Statistics about the coverage of `CreoleVal` can be found [here](https://github.
 If you wish to clone this repository to replicate the results, please remember to initialize the added submodules by using the following command:
 
 ```bash
-git clone git@github.com:ernlavr/CreoleVal.git --recursive 
+git clone git@github.com:hclent/CreoleVal.git --recursive 
 ```
 
 or if already cloned
