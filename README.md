@@ -39,10 +39,11 @@ Datasets, training and inference scripts for NLU tasks such as:
 #### Natural Language Generation (`./nlg`)
 Training an inference scripts for Machine Translation task with the MIT-Haiti corpus, KriolMorisiyenMT and bibles. Please note that there is no download script for the set of bibles as the material is copyrighted.
 
+- [Haitian Creole MT](nlg/mit_haiti)
+  - Brand new dataset for Haitian MT: the **MIT-Haiti Corpus**  	
+  - Contains monolingual and parallel data for Haitian Creole (hat)
 - [Creole-Bible MT](nlg/creolem2m/)
 - KreolMorisien MT (downloadable with [download_kreolmorisien_mt.sh](nlg/download_kreolmorisien_mt.sh))
-- [MIT-Ayiti MT](nlg/mit_haiti)
-  - Contains monolingual and parallel data for Haitian Creole (hat)
 
 
 #### Benchmark Overview
