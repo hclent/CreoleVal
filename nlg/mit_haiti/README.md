@@ -5,7 +5,7 @@
 
 This corpus was made in collaboration with [Platfòm MIT-Ayiti](https://mit-ayiti.net/), who kindly allowed us to utilize their the Haitian Creole educational materials to create the MIT-Haiti Corpus (An kreyòl « *Bank done MIT-Ayiti* »). 
  
-In this corpus you will find **parallel** data (ht-en, ht-fr, ht-es), sourced from multilginaul childrens stories, to evaluate Machine Translation systems and **monolingual** Haitian data, sourced from lesson plans and blog posts, which can be used for continued pre-training, for example.  
+In this corpus you will find **parallel** data (ht-en, ht-fr, ht-es), sourced from multilingual childrens stories, to evaluate Machine Translation systems and **monolingual** Haitian data, sourced from lesson plans and blog posts, which can be used for continued pre-training, for example.  
 
 Pou aprann plis, li pòs blog la an kreyòl: [https://mit-ayiti.net/entelijans-atifisyel/](https://mit-ayiti.net/entelijans-atifisyel/).
 
