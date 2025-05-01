@@ -1,8 +1,6 @@
 # Welcome to `CreoleVal`
 CreoleVal is accepted to TACL 2024!
 
-<img src="Appendix/images/landing_page_logo.png" alt="CreoleVal Logo" width="50%"/>
-
 
 ## Overview
 
@@ -75,17 +73,22 @@ Note: an `*` indicates a dataset that we have newly introduced in `CreoleVal`:
 |  |  |  |  | Total: | 176821 | 1995180 |
 
 #### Citation
-Paper can be found [here](https://arxiv.org/abs/2310.19567).
+Paper can be found [here](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00682/124256/CreoleVal-Multilingual-Multitask-Benchmarks-for).
 Please cite us: 
 
 ```
-@misc{lent2024creoleval,
-      title={CreoleVal: Multilingual Multitask Benchmarks for Creoles}, 
-      author={Heather Lent and Kushal Tatariya and Raj Dabre and Yiyi Chen and Marcell Fekete and Esther Ploeger and Li Zhou and Ruth-Ann Armstrong and Abee Eijansantos and Catriona Malau and Hans Erik Heje and Ernests Lavrinovics and Diptesh Kanojia and Paul Belony and Marcel Bollmann and Loïc Grobol and Miryam de Lhoneux and Daniel Hershcovich and Michel DeGraff and Anders Søgaard and Johannes Bjerva},
-      year={2024},
-      eprint={2310.19567},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@article{10.1162/tacl_a_00682,
+    author = {Lent, Heather and Tatariya, Kushal and Dabre, Raj and Chen, Yiyi and Fekete, Marcell and Ploeger, Esther and Zhou, Li and Armstrong, Ruth-Ann and Eijansantos, Abee and Malau, Catriona and Heje, Hans Erik and Lavrinovics, Ernests and Kanojia, Diptesh and Belony, Paul and Bollmann, Marcel and Grobol, Loïc and Lhoneux, Miryam de and Hershcovich, Daniel and DeGraff, Michel and Søgaard, Anders and Bjerva, Johannes},
+    title = {CreoleVal: Multilingual Multitask Benchmarks for Creoles},
+    journal = {Transactions of the Association for Computational Linguistics},
+    volume = {12},
+    pages = {950-978},
+    year = {2024},
+    month = {09},
+    issn = {2307-387X},
+    doi = {10.1162/tacl_a_00682},
+    url = {https://doi.org/10.1162/tacl\_a\_00682},
+    eprint = {https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl\_a\_00682/2468651/tacl\_a\_00682.pdf},
 }
 ```
    
