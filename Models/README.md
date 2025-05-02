@@ -14,5 +14,6 @@ Baseline pretrained models can be found on hf hub:
 
 - These models are all obtained by fine-tuning XLM-RoBERTa-base as a MLM on (part of the) CreoleEval data that is not used in tasks. The hyperparameters are taken from Wang et al. ([2020](https://aclanthology.org/2020.findings-emnlp.240/)).
 
-## TODO: Machine Translation Models
+## Machine Translation Models
 
+The best performing, CreoleM2M model (mBART-50-MT-FT) is available on [Huggingface](https://huggingface.co/AAU-NLP/CreoleVal-CreoleM2M), under the MIT license. 
